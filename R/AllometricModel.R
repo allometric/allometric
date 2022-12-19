@@ -1,26 +1,33 @@
 library(units)
 library(tibble)
+library(bibtex)
 
 setOldClass('units')
+setOldClass('bibentry')
 
 setClass('AllometricModel',
     slots = c(
         response_unit = 'list',
         covariate_units = 'list',
-        predict_fn = 'function'
+        predict_fn = 'function',
+        citation = 'bibentry',
+        country = 'character',
+        region = 'character',
+        fit_species = 'character'
     )
 )
 
-#' Base class for all allometric models.
-#'
-#' `AllometricModel` represents a generic alloemtric model. In almost all cases
-#' it is a class used for inheritance to create more specific allometric model
-#' use-cases.
-AllometricModel <- function(response_unit, covariate_units, predict_fn) {
+AllometricModel <- function(response_unit, covariate_units, predict_fn,
+    citation, country = NA_character_, region = NA_character_,
+    fit_species = NA_character_) {
     allometric_model <- new('AllometricModel')
     allometric_model@response_unit <- response_unit
     allometric_model@covariate_units <- covariate_units
     allometric_model@predict_fn <- predict_fn
+    allometric_model@citation <- citation
+    allometric_model@country <- country
+    allometric_model@region <- region
+    allometric_model@fit_species <- fit_species
     allometric_model
 }
 

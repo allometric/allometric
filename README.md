@@ -1,11 +1,13 @@
-# `allometric`
-
 `allometric` is an open source R platform for systematically archiving 
 allometric equations for tree attributes. The over-arching objective of 
 `allometric` is to establish a framework for the storage and use of allometric
 equations on a global scale. This renders an easy-to-use centralized location
-for allometric equations, with clear implementations that can be peer-reviewed
+for allometric equations, with clear implementations that can be validatedd
 using open source software techniques.
+
+Interested users are able to add allometric models using GitHub pull requests,
+provided the models are instantiated correctly. Read [Model Installation Guide]
+for further instruction. Familiarity with git is helpful.
 
 ## Systematic Naming Convention
 
@@ -66,6 +68,9 @@ breast height.
 - v: volume
 - h: height
     - t: total
+- db: dry biomass (weight)
+- gb: green biomass (weight)
+- ba: basal area
 
 ## Locations & Modifiers
 
@@ -78,6 +83,10 @@ breast height.
     - g: gross
     - m: merchantable
     - n: net
+- br: branches
+- fo: foliage (leaves)
+- st: stand-level variable
+- pl: plot-level variable
 
 ## Examples
 
@@ -88,3 +97,6 @@ breast height.
 - ht: height total
 - vsg: gross volume of the main stem
 - vsm: merchantable volume of the main stem
+- dbbr: dry biomass of branches
+- dbfo: dry biomass of foliage
+- bast: basal area of stand

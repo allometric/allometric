@@ -6,18 +6,18 @@ setClass(
     )
 )
 
-#' Base class for all parametric allometric models.
-#'
-#' `ParametricModel` represents a generic parametric allometric model, it
-#' inherits from the base class `AllometricModel`. Parametric models are defined
-#' by providing a named list containing the response unit, a named list
-#' containing the covariate units, and a named list of parameters.
+
+
 ParametricModel <- function(response_unit, covariate_units, parameters,
-    predict_fn) {
+    predict_fn, citation, country = NA_character_, region = NA_character_,
+    fit_species = NA_character_) {
 
     parametric_model <- new('ParametricModel',
         response_unit = response_unit, covariate_units = covariate_units,
-        predict_fn = predict_fn)
+        predict_fn = predict_fn, citation = citation, country = country,
+        region = region, fit_species = fit_species)
+
+    parametric_model@parameters <- parameters
 
     parametric_model
 }
