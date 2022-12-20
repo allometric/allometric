@@ -1,5 +1,5 @@
 Package: allometric
-Title: What the Package Does (One Line, Title Case)
+Title: Allometric Models for Trees
 Version: 0.0.1
 Authors@R: 
     person("Bryce", "Frank", , "bfrank70@gmail.com", role = c("aut", "cre"),
@@ -8,6 +8,14 @@ Description: What the package does (one paragraph).
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 Imports: Rdpack
 RdMacros: Rdpack
+Collate:
+    'AllometricFamily.R'
+    'ParametricFamily.R'
+    'AllometricModel.R'
+    'ParametricModel.R'
+    'Publication.R'
+    'temesgen_2008.R'
+    'brackett_1977.R'

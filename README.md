@@ -22,7 +22,7 @@ allometric models. This naming convention should communicate:
 
 In support of this, `allometric` uses the following naming convention:
 
-`[response_name].[publication_name].[publication_year].[publication_modifer]`
+`[response_name]_[publication_name]_[publication_year][[publication_modifer]]_[model_id]`
 
 where `response_name` refers to the name of the response variable (see 
 "Composing Response Names" below) and `publication_name` refers to the name of
@@ -32,21 +32,24 @@ listed authors).
 
 The first three components form the response_name-publication pairing, which
 is used to name and organize files in the `R` directory. The 
-`publication_modifier` allows the user to specify a model within a publication.
+`model_id` allows the user to specify a model within a publication.
 See the "Composing Publication Modifiers" section for further information.
 
 For example, Temesgen, Monleon, and Hann (2008) fit several diameter-height
 models for Douglas-fir. The response_name-publication pairing is then
 
-`ht.temesgen.2008`
+`ht_temesgen_2008`
 
-which corresponds to the `R/ht.temesgen.2008.R` file, which stores the models. 
+which corresponds to the `R/ht_temesgen_2008.R` file, which stores the models. 
 Inside this file are several implementations of the models fit in the study. 
-Models within this paper are referred to by a unique `publication_modifier`, 
+Models within this paper are referred to by a unique `model_id`, 
 which is an integer that is sequentially assigned to models as they appear in
-the publication. `publication_modifier` is not holy, and is primarily used to
+the publication. `model_id` is not holy, and is primarily used to
 uniquely identify models within a publication. Ultimately it is up to the end
-user to verify that they are using the correct model.
+user to verify that they are using the correct model. Finally, an optional 
+`publication_modifier` is allowable to differentiate papers with the same 
+first author published in the same year. Users should use lower-case alphabetic
+modifiers, e.g., `ht_doe_2008a` and `ht_doe_2008b`.
 
 ## Composing Variable Names
 
@@ -83,6 +86,8 @@ breast height.
     - g: gross
     - m: merchantable
     - n: net
+    - s: including stump
+    - t: including top
 - br: branches
 - fo: foliage (leaves)
 - st: stand-level variable

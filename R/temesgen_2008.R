@@ -1,9 +1,9 @@
-ht_temesgen_2008_bib <- bibentry(
+temesgen_2008_citation <- RefManageR::BibEntry(
     bibtype = 'article',
-    key = 'ht_temesgen_2008',
+    key = 'temesgen_2008',
     title = 'Analysis and comparison of nonlinear tree height prediction
         strategies for Douglas-fir forests',
-    author = 'Temesgen, H and Monleon, VJ and Hann, DW',
+    author = 'Temesgen, Hailemariam and Monleon, Vicente J. and Hann, David W.',
     journal = 'Canadian Journal of Forest Research',
     year = 2008,
     volume = 38,
@@ -12,12 +12,17 @@ ht_temesgen_2008_bib <- bibentry(
     year = 2008
 )
 
-ht_temesgen_2008_1 <- ParametricModel(
+temesgen_2008 <- Publication(
+    citation = temesgen_2008_citation,
+    n_published_models = 6
+)
+
+temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
     response_unit = list(
-        ht = as_units('m')
+        hst = as_units('m')
     ),
     covariate_units = list(
-        dobbh = as_units('cm')
+        dsob = as_units('cm')
     ),
     parameters = c(
         b0 = 51.9954,
@@ -26,20 +31,19 @@ ht_temesgen_2008_1 <- ParametricModel(
         sigma_epsilon = 4.029
     ),
     predict_fn = function(p, x) {
-        1.37 + p$b0 * (1 - exp(p$b1 * x$dobbh)^p$b2)
+        1.37 + p$b0 * (1 - exp(p$b1 * x$dsob)^p$b2)
     },
-   citation = ht_temesgen_2008_bib,
    country = 'USA',
    region = 'OR',
    fit_species = 'Pseudotsuga menziesii'
-)
+))
 
-ht_temesgen_2008_2 <- ParametricModel(
+temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
     response_unit = list(
-        ht = as_units('m')
+       hst = as_units('m')
     ),
     covariate_units = list(
-        dobbh = as_units('cm')
+        dsob = as_units('cm')
     ),
     parameters = c(
         b0 = 40.4218,
@@ -50,21 +54,19 @@ ht_temesgen_2008_2 <- ParametricModel(
     ),
     predict_fn = function(p, x) {
         # FIXME add random effects?
-        1.37 + p$b0 * (1 - exp(p$b1 * x$dobbh)^p$b2)
+        1.37 + p$b0 * (1 - exp(p$b1 * x$dsob)^p$b2)
     },
-   citation = ht_temesgen_2008_bib,
    country = 'USA',
    region = 'OR',
    fit_species = 'Pseudotsuga menziesii'
-)
+))
 
-
-ht_temesgen_2008_3 <- ParametricModel(
+temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
     response_unit = list(
-        ht = as_units('m')
+       hst = as_units('m')
     ),
     covariate_units = list(
-        dobbh = as_units('cm')
+        dsob = as_units('cm')
     ),
     parameters = c(
         b0 = 41.8199,
@@ -77,22 +79,21 @@ ht_temesgen_2008_3 <- ParametricModel(
     ),
     predict_fn = function(p, x) {
         # FIXME add random effects?
-        1.37 + p$b0 * (1 - exp(p$b1 * x$dobbh)^p$b2)
+        1.37 + p$b0 * (1 - exp(p$b1 * x$dsob)^p$b2)
     },
-   citation = ht_temesgen_2008_bib,
    country = 'USA',
    region = 'OR',
    fit_species = 'Pseudotsuga menziesii'
-)
+))
 
-ht_temesgen_2008_4 <- ParametricModel(
+temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
     response_unit = list(
-        ht = as_units('m')
+       hst = as_units('m')
     ),
     covariate_units = list(
-        ccfl = as_units('m2 / ha'),
-        ba = as_units('m2 / ha'),
-        dobbh = as_units('cm')
+        ccfl  = as_units('m2 / ha'),
+        ba    = as_units('m2 / ha'),
+        dsob = as_units('cm')
     ),
     parameters = c(
         b00 = 43.7195,
@@ -104,22 +105,21 @@ ht_temesgen_2008_4 <- ParametricModel(
     ),
     predict_fn = function(p, x) {
         1.37 + (p$b00 + p$b01 * x$ccfl + p$b02 * x$ba) *
-            (1 - exp(p$b1 * x$dobbh)^p$b2)
+            (1 - exp(p$b1 * x$dsob)^p$b2)
     },
-   citation = ht_temesgen_2008_bib,
    country = 'USA',
    region = 'OR',
    fit_species = 'Pseudotsuga menziesii'
-)
+))
 
-ht_temesgen_2008_5 <- ParametricModel(
+temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
     response_unit = list(
-        ht = as_units('m')
+       hst = as_units('m')
     ),
     covariate_units = list(
         ccfl = as_units('m2 / ha'),
-        ba = as_units('m2 / ha'),
-        dobbh = as_units('cm')
+        gn = as_units('m2 / ha'),
+        dsob = as_units('cm')
     ),
     parameters = c(
         b00 = 32.4635,
@@ -132,22 +132,21 @@ ht_temesgen_2008_5 <- ParametricModel(
     ),
     predict_fn = function(p, x) {
         1.37 + (p$b00 + p$b01 * x$ccfl + p$b02 * x$ba) *
-            (1 - exp(p$b1 * x$dobbh)^p$b2)
+            (1 - exp(p$b1 * x$dsob)^p$b2)
     },
-   citation = ht_temesgen_2008_bib,
    country = 'USA',
    region = 'OR',
    fit_species = 'Pseudotsuga menziesii'
-)
+))
 
-ht_temesgen_2008_6 <- ParametricModel(
+temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
     response_unit = list(
-        ht = as_units('m')
+       hst= as_units('m')
     ),
     covariate_units = list(
         ccfl = as_units('m2 / ha'),
-        bast = as_units('m2 / ha'),
-        dobbh = as_units('cm')
+        gn = as_units('m2 / ha'),
+        dsob = as_units('cm')
     ),
     parameters = c(
         b00 = 35.7419,
@@ -162,10 +161,9 @@ ht_temesgen_2008_6 <- ParametricModel(
     ),
     predict_fn = function(p, x) {
         1.37 + (p$b00 + p$b01 * x$ccfl + p$b02 * x$bast) *
-            (1 - exp(p$b1 * x$dobbh)^p$b2)
+            (1 - exp(p$b1 * x$dsob)^p$b2)
     },
-   citation = ht_temesgen_2008_bib,
    country = 'USA',
    region = 'OR',
    fit_species = 'Pseudotsuga menziesii'
-)
+))
