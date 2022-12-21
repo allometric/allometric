@@ -12,6 +12,8 @@ RoxygenNote: 7.2.3
 Imports: Rdpack
 RdMacros: Rdpack
 Collate:
+    'search.R'
+    'load.R'
     'AllometricFamily.R'
     'ParametricFamily.R'
     'AllometricModel.R'

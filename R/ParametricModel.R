@@ -2,7 +2,7 @@ setClass(
     'ParametricModel',
     contains = 'AllometricModel',
     slots = c(
-        parameters = 'numeric'
+        parameters = 'list'
     )
 )
 
@@ -19,7 +19,6 @@ ParametricModel <- function(response_unit, covariate_units, parameters,
         fit_species = fit_species)
 
     parametric_model@parameters <- parameters
-
     parametric_model
 }
 

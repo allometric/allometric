@@ -30,4 +30,10 @@ setMethod('add_model', 'Publication', function(publication, model) {
     publication
 })
 
-# TODO get/set n_models
+
+setGeneric('add_family', function(publication, parametric_family) standardGeneric('add_family'))
+
+setMethod('add_family', 'Publication', function(publication, parametric_family) {
+    publication@families[[length(publication@families) + 1]] <- parametric_family
+    publication
+})
