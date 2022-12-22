@@ -11,9 +11,9 @@ brackett_1977 <- Publication(
     citation = bracket_1977_citation
 )
 
-parameter_set <- load_parameter_set('vsa_brackett_1977')
+parameter_frame <- load_parameter_frame('vsa_brackett_1977')
 
-brackett_1977 <- add_family(brackett_1977, ParametricFamily(
+brackett_1977 <- add_set(brackett_1977, ModelSet(
     response_unit = list(
         vsa = as_units('ft3')
     ),
@@ -24,12 +24,9 @@ brackett_1977 <- add_family(brackett_1977, ParametricFamily(
     predict_fn = function(p, x) {
         10^p$a * x$dsob^p$b * x$hst^p$c
     },
-    grouping_descriptions = list(
-        taxon = 'lowest known taxonomic grouping',
-        region = 'interior or coastal northwest',
-        age_class = 'age delineation for mature and immature trees'
+    common_descriptors = list(
+        country = 'US',
+        region = 'WA'
     ),
-    parameter_set = parameter_set,
-    country = 'USA',
-    region = 'WA'
+    parameters_frame = parameter_frame
 ))

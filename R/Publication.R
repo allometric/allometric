@@ -1,39 +1,84 @@
 setClass('Publication',
     slots = c(
         citation = 'BibEntry',
-        n_published_models = 'numeric',
-        n_published_families = 'numeric',
-        models = 'list',
-        families = 'list'
+        model_sets = 'list'
     )
 )
 
 #' @export
-Publication <- function(citation, n_published_models = NA_integer_,
-    n_published_families = NA_integer_, models = list(), families = list()) {
+Publication <- function(citation, model_sets = list()) {
     publication <- new('Publication')
     publication@citation <- citation
-    publication@n_published_models <- n_published_models
-    publication@n_published_families <- n_published_families
-    publication@models <- models
-    publication@families <- families
+    publication@model_sets <- model_sets
     publication
 }
 
-
-setGeneric('add_model',
+setGeneric(
+    'add_model',
     function(publication, model) standardGeneric('add_model')
 )
 
 setMethod('add_model', 'Publication', function(publication, model) {
-    publication@models[[length(publication@models) + 1]] <- model
+    # A model in a publication must be a member of a model set, so adding
+    # a single model to a publication creates a "parent" model set
+    set_of_one <- ModelSet(
+        response_unit = model@response_unit,
+        covariate_units = model@covariate_units,
+        predict_fn = model@predict_fn,
+        parameters_frame = as_tibble(model@parameters),
+        common_descriptors = model@descriptors
+    )
+
+
+    publication@model_sets[[length(publication@model_sets) + 1]] <- set_of_one
     publication
 })
 
+setGeneric(
+    'add_set',
+    function(publication, model_set) standardGeneric('add_set')
+)
 
-setGeneric('add_family', function(publication, parametric_family) standardGeneric('add_family'))
+setMethod(
+    'add_set',
+    'Publication',
+    function(publication, model_set) {
+        publication@model_sets[[length(publication@model_sets) + 1]] <- model_set
+        publication
+    }
+)
 
-setMethod('add_family', 'Publication', function(publication, parametric_family) {
-    publication@families[[length(publication@families) + 1]] <- parametric_family
-    publication
-})
+setGeneric('n_models', function(publication) standardGeneric('n_models'))
+
+setMethod(
+    'n_models',
+    'Publication',
+    function(publication) {
+        n <- 0
+        for(i in seq_along(publication@model_sets)) {
+            n <- n + length(publication@model_sets[[i]])
+        }
+    }
+)
+
+
+setGeneric('n_sets', function(publication) standardGeneric('n_sets'))
+
+setMethod(
+    'n_sets',
+    'Publication',
+    function(publication) {
+        length(publication@model_sets)
+    }
+)
+
+setGeneric('summary', function(publication) standardGeneric('summary'))
+
+setMethod(
+    'summary',
+    'Publication',
+    function(publication) {
+        print(str(publication@citation))
+    }
+)
+

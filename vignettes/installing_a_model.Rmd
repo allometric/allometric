@@ -1,0 +1,28 @@
+---
+title: "Installing a Model"
+---
+
+Models can be installed by anyone, provided they are comfortable writing R and
+submitting `git` pull requests. The model installation process involves these
+basic steps.
+
+1. Fork and then clone the `allometric` git repository to your local enviroment.
+2. Write a new file in the `R` directory that
+    a. Establishes a citation for the originating publication of the model.
+    b. Instantiates the model (usually a `ParametricModel` or
+        `ParametricFamily`) with associated metadata and prediction function.
+3. Add and commit the new file to the remote forked repository from (1)
+4. Submit a pull request to `brycefrank/allometric` via GitHub.
+
+After the completion of step 4, your pull request will be tested and reviewed
+for completion, and will become part of the main package if it passes review.
+
+This vignette will focus on the second step. Explanation of `git` pull requests
+are beyond the scope of this vignette, but interested readers can learn using
+[these resources #TODO]. Interested readers should also contact Bryce Frank
+(bfrank70@gmail.com), or open an issue on GitHub if they want their models 
+added but do not want to learn `git`.
+
+## Establishing a Citation
+
+## Instantiating a Model

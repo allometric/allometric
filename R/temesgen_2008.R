@@ -13,8 +13,15 @@ temesgen_2008_citation <- RefManageR::BibEntry(
 )
 
 temesgen_2008 <- Publication(
-    citation = temesgen_2008_citation,
-    n_published_models = 6
+    citation = temesgen_2008_citation
+)
+
+descriptors <- list(
+    country = 'US',
+    region = 'OR',
+    family = 'Pinaceae',
+    genus = 'Pseudotsuga',
+    species = 'menziesii'
 )
 
 temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
@@ -33,9 +40,7 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
     predict_fn = function(p, x) {
         1.37 + p$b0 * (1 - exp(p$b1 * x$dsob)^p$b2)
     },
-   country = 'USA',
-   region = 'OR',
-   fit_species = 'Pseudotsuga menziesii'
+    descriptors = descriptors
 ))
 
 temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
@@ -56,9 +61,7 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
         # FIXME add random effects?
         1.37 + p$b0 * (1 - exp(p$b1 * x$dsob)^p$b2)
     },
-   country = 'USA',
-   region = 'OR',
-   fit_species = 'Pseudotsuga menziesii'
+    descriptors = descriptors
 ))
 
 temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
@@ -81,9 +84,7 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
         # FIXME add random effects?
         1.37 + p$b0 * (1 - exp(p$b1 * x$dsob)^p$b2)
     },
-   country = 'USA',
-   region = 'OR',
-   fit_species = 'Pseudotsuga menziesii'
+    descriptors = descriptors
 ))
 
 temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
@@ -107,9 +108,7 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
         1.37 + (p$b00 + p$b01 * x$ccfl + p$b02 * x$ba) *
             (1 - exp(p$b1 * x$dsob)^p$b2)
     },
-   country = 'USA',
-   region = 'OR',
-   fit_species = 'Pseudotsuga menziesii'
+    descriptors = descriptors
 ))
 
 temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
@@ -134,9 +133,7 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
         1.37 + (p$b00 + p$b01 * x$ccfl + p$b02 * x$ba) *
             (1 - exp(p$b1 * x$dsob)^p$b2)
     },
-   country = 'USA',
-   region = 'OR',
-   fit_species = 'Pseudotsuga menziesii'
+    descriptors = descriptors
 ))
 
 temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
@@ -163,7 +160,5 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
         1.37 + (p$b00 + p$b01 * x$ccfl + p$b02 * x$bast) *
             (1 - exp(p$b1 * x$dsob)^p$b2)
     },
-   country = 'USA',
-   region = 'OR',
-   fit_species = 'Pseudotsuga menziesii'
+    descriptors = descriptors
 ))

@@ -9,18 +9,20 @@ setClass(
 #' Base class for parametric model.
 #' 
 #' @export
-ParametricModel <- function(response_unit, covariate_units, parameters,
-    predict_fn, country = NA_character_, region = NA_character_,
-    fit_species = NA_character_) {
+ParametricModel <- function(response_unit, covariate_units,
+    predict_fn, parameters, descriptors) {
 
     parametric_model <- new('ParametricModel',
         response_unit = response_unit, covariate_units = covariate_units,
-        predict_fn = predict_fn, country = country, region = region,
-        fit_species = fit_species)
+        predict_fn = predict_fn, descriptors = descriptors)
 
     parametric_model@parameters <- parameters
+
     parametric_model
 }
+
+# TODO set validity...must have a finite set of parameters >= length of 
+# covariates
 
 setGeneric('predict', function(mod, covariates) standardGeneric('predict'))
 
