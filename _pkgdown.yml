@@ -1,14 +1,7 @@
 url: ~
 template:
-  bootstrap: 5
+  bootstrap: 5.0
 reference:
-- title: 'Stem Volume Models'
-  desc: >
-    Description...
-  contents:
-    brackett_1977
-- title: 'Other funcs'
-  desc: >
-    desc...
-  contents:
-    ParametricModel
+- title: Package Functions
+  desc: test
+  contents: ParametricModel
