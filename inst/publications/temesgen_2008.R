@@ -31,7 +31,8 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
     covariate_units = list(
         dsob = as_units('cm')
     ),
-    parameters = list(
+    model_description = c(
+        descriptors,
         b0 = 51.9954,
         b1 = -0.0208,
         b2 = 1.0182,
@@ -39,8 +40,7 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
     ),
     predict_fn = function(p, x) {
         1.37 + p$b0 * (1 - exp(p$b1 * x$dsob)^p$b2)
-    },
-    descriptors = descriptors
+    }
 ))
 
 temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
@@ -50,7 +50,8 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
     covariate_units = list(
         dsob = as_units('cm')
     ),
-    parameters = list(
+    model_description = c(
+        descriptors,
         b0 = 40.4218,
         b1 = -0.0276,
         b2 = 0.936,
@@ -60,8 +61,7 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
     predict_fn = function(p, x) {
         # FIXME add random effects?
         1.37 + p$b0 * (1 - exp(p$b1 * x$dsob)^p$b2)
-    },
-    descriptors = descriptors
+    }
 ))
 
 temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
@@ -71,7 +71,8 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
     covariate_units = list(
         dsob = as_units('cm')
     ),
-    parameters = list(
+    model_description = c(
+        descriptors,
         b0 = 41.8199,
         b1 = -0.0241,
         b2 = 0.8604,
@@ -83,8 +84,7 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
     predict_fn = function(p, x) {
         # FIXME add random effects?
         1.37 + p$b0 * (1 - exp(p$b1 * x$dsob)^p$b2)
-    },
-    descriptors = descriptors
+    }
 ))
 
 temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
@@ -96,7 +96,8 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
         ba    = as_units('m2 / ha'),
         dsob = as_units('cm')
     ),
-    parameters = list(
+    model_description = c(
+        descriptors,
         b00 = 43.7195,
         b01 = 0.0644,
         b02 = 0.128,
@@ -107,8 +108,7 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
     predict_fn = function(p, x) {
         1.37 + (p$b00 + p$b01 * x$ccfl + p$b02 * x$ba) *
             (1 - exp(p$b1 * x$dsob)^p$b2)
-    },
-    descriptors = descriptors
+    }
 ))
 
 temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
@@ -120,7 +120,8 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
         gn = as_units('m2 / ha'),
         dsob = as_units('cm')
     ),
-    parameters = list(
+    model_description = c(
+        descriptors,
         b00 = 32.4635,
         b01 = 0.0363,
         b02 = 0.2585,
@@ -132,8 +133,7 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
     predict_fn = function(p, x) {
         1.37 + (p$b00 + p$b01 * x$ccfl + p$b02 * x$ba) *
             (1 - exp(p$b1 * x$dsob)^p$b2)
-    },
-    descriptors = descriptors
+    }
 ))
 
 temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
@@ -145,7 +145,8 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
         gn = as_units('m2 / ha'),
         dsob = as_units('cm')
     ),
-    parameters = list(
+    model_description = c(
+        descriptors,
         b00 = 35.7419,
         b01 = 0.0431,
         b02 = 0.2447,
@@ -159,6 +160,5 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
     predict_fn = function(p, x) {
         1.37 + (p$b00 + p$b01 * x$ccfl + p$b02 * x$bast) *
             (1 - exp(p$b1 * x$dsob)^p$b2)
-    },
-    descriptors = descriptors
+    }
 ))

@@ -21,6 +21,7 @@ established measures:
 4. g: basal area
 5. b: biomass (weight)
 6. r: ratio (unitless)
+7. e: density
 
 We recognize that the use of "measure" here is somewhat loose (e.g., diameter
 and height are both _measures_ of length). However, the variable naming system

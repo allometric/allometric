@@ -11,7 +11,7 @@ brackett_1977 <- Publication(
     citation = bracket_1977_citation
 )
 
-parameter_frame <- load_parameter_frame('vsa_brackett_1977')
+model_descriptions <- as_tibble(load_parameter_frame('vsa_brackett_1977'))
 
 brackett_1977 <- add_set(brackett_1977, ModelSet(
     response_unit = list(
@@ -21,12 +21,12 @@ brackett_1977 <- add_set(brackett_1977, ModelSet(
         dsob = as_units('in'),
         hst  = as_units('ft')
     ),
-    predict_fn = function(p, x) {
-        10^p$a * x$dsob^p$b * x$hst^p$c
+    predict_fn = function(dsob, hst, p) {
+        10^p$a * dsob^p$b * hst^p$c
     },
     common_descriptors = list(
         country = 'US',
         region = 'WA'
     ),
-    parameters_frame = parameter_frame
+    model_descriptions = model_descriptions
 ))

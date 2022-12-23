@@ -14,7 +14,7 @@ Most users will only be interested in finding and using allometric equations in
 their R package. This is a simple process thanks to the structure of the 
 `allometric` package. Three basic steps are needed, 1) find the model you want
 to use 2) determine what information is needed to use the model and 3) use the
-model to make predictions. 
+model to make predictions.
 
 ### 1. Finding an Appropriate Model
 

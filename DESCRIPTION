@@ -18,5 +18,3 @@ Collate:
     'ParametricModel.R'
     'ModelSet.R'
     'Publication.R'
-    'temesgen_2008.R'
-    'brackett_1977.R'

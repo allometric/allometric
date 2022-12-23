@@ -2,21 +2,22 @@ setClass(
     'ParametricModel',
     contains = 'AllometricModel',
     slots = c(
-        parameters = 'list'
+        model_description = 'list'
     )
 )
+
+
 
 #' Base class for parametric model.
 #' 
 #' @export
 ParametricModel <- function(response_unit, covariate_units,
-    predict_fn, parameters, descriptors) {
+    predict_fn, model_description, id = NA_integer_) {
+
 
     parametric_model <- new('ParametricModel',
         response_unit = response_unit, covariate_units = covariate_units,
-        predict_fn = predict_fn, descriptors = descriptors)
-
-    parametric_model@parameters <- parameters
+        predict_fn = predict_fn, model_description = model_description, id= id)
 
     parametric_model
 }

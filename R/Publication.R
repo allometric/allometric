@@ -1,7 +1,8 @@
 setClass('Publication',
     slots = c(
         citation = 'BibEntry',
-        model_sets = 'list'
+        model_sets = 'list',
+        id = 'character'
     )
 )
 
@@ -10,6 +11,13 @@ Publication <- function(citation, model_sets = list()) {
     publication <- new('Publication')
     publication@citation <- citation
     publication@model_sets <- model_sets
+
+    publication@id <- paste(
+        tolower(publication@citation$author[[1]]$family),
+        publication@citation$year,
+        sep = '_'
+    )
+
     publication
 }
 
@@ -21,14 +29,15 @@ setGeneric(
 setMethod('add_model', 'Publication', function(publication, model) {
     # A model in a publication must be a member of a model set, so adding
     # a single model to a publication creates a "parent" model set
+
     set_of_one <- ModelSet(
         response_unit = model@response_unit,
         covariate_units = model@covariate_units,
         predict_fn = model@predict_fn,
-        parameters_frame = as_tibble(model@parameters),
-        common_descriptors = model@descriptors
+        common_descriptors = model@descriptors,
+        model_descriptions = model@model_description,
+        id = length(publication@model_sets) + 1
     )
-
 
     publication@model_sets[[length(publication@model_sets) + 1]] <- set_of_one
     publication
@@ -43,6 +52,7 @@ setMethod(
     'add_set',
     'Publication',
     function(publication, model_set) {
+        model_set@id <- length(publication@model_sets) + 1
         publication@model_sets[[length(publication@model_sets) + 1]] <- model_set
         publication
     }
@@ -58,6 +68,7 @@ setMethod(
         for(i in seq_along(publication@model_sets)) {
             n <- n + length(publication@model_sets[[i]])
         }
+        n
     }
 )
 
