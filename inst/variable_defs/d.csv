@@ -1,3 +1,3 @@
-﻿Measure,Component,Modifier_1,Modifier_2,Description
-d,s,o,b,"Diameter of the stem, outside bark at breast height"
-d,s,i,b,"Diameter of the stem, inside bark at breast height"
+measure,component,bark_modifier,height_modifier,description
+d,s,o,b,"diameter of the stem, outside bark at breast height"
+d,s,i,b,"diameter of the stem, inside bark at breast height"

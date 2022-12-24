@@ -1,0 +1,5 @@
+measure,component,stem_modifier,description
+v,s,a,"volume of the entire stem, including top and stump"
+v,s,m,volume of the merchantable portion of the stem
+v,u,,volume of the stump
+v,t,,volume of the top
