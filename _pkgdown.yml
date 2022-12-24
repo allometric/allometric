@@ -5,3 +5,9 @@ reference:
 - title: Package Functions
   desc: test
   contents: ParametricModel
+- title: Pubs
+  desc: pubs
+  contents:
+  - brackett_1977
+  - huy_2019
+  - temesgen_2008

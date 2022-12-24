@@ -9,6 +9,10 @@ setClass(
 
 
 #' Base class for parametric model.
+#' 
+#' ```{r}
+#' 1+1
+#' ```
 #'
 #' @export
 ParametricModel <- function(response_unit, covariate_units,

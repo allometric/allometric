@@ -40,3 +40,27 @@ for (k in seq_along(pub_r_paths)) {
 }
 
 model_data <- bind_rows(mod_rows)
+
+# TODO make this data structure instead: (using json just to show...)
+
+#{
+#  'brackett_1977': {
+#    id: 'brackett_1977',
+#    ...
+#    model_sets: {
+#      'hsa': [
+#        model_1
+#      ],
+#      'vsa': [
+#        model_2
+#      ]
+#    }
+#  },
+#  'temesgen_2008': {
+#
+#  }
+#}
+
+# Then from this you can make a flat-file for searching, but it will be much
+# easier to make the documentation files using this structure, since all the
+# information is available!
