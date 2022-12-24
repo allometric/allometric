@@ -20,17 +20,16 @@ bs_huy_2019_1 <- ModelSet(
     ),
     covariate_units = list(
         dsob = as_units('cm'),
-        hs = as_units('m'),
+        hst = as_units('m'),
         es = as_units('g/cm^3')
     ),
-    predict_fn = function(p, x) {
-        p$a1 * x$dsob^b11 * x$hs^b12 * x$es^b13
+    predict_fn = function(dsob, hs, es, p) {
+        p$a_1 * dsob^b_11 * hst^b_12 * es^b_13
     },
-    model_descriptions =  load_parameter_frame('bs_huy_2019_1'),
+    model_descriptions =  as_tibble(load_parameter_frame('bs_huy_2019_1')),
     common_descriptors = list(
         country = 'VN'
     )
 )
 
-huy_2019 <- add_set(huy_2019, bs_huy_2019_1)
 huy_2019 <- add_set(huy_2019, bs_huy_2019_1)

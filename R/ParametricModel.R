@@ -33,3 +33,6 @@ setGeneric("predict", function(mod, covariates) standardGeneric("predict"))
 setMethod("predict", "ParametricModel", function(mod, covariates) {
   mod@predict_fn(mod@parameters, covariates)
 })
+
+
+

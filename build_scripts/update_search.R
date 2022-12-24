@@ -52,7 +52,6 @@ update_search <- function() {
 
   for (scan_file in scan_files) {
     pubs_file <- get_publications_file(file.path(r_path, scan_file))
-    browser()
   }
 }
 

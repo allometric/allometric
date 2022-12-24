@@ -157,8 +157,8 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
         sigma_b0b2 = 0.125,
         sigma_epsilon = 2.566
     ),
-    predict_fn = function(p, x) {
-        1.37 + (p$b00 + p$b01 * x$ccfl + p$b02 * x$bast) *
-            (1 - exp(p$b1 * x$dsob)^p$b2)
+    predict_fn = function(p, ccfl, bast, dsob) {
+        1.37 + (p$b_00 + p$b_01 * ccfl + p$b_02 * bast) *
+            (1 - exp(p$b_1 * dsob)^p$b_2)
     }
 ))
