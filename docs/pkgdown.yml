@@ -1,0 +1,8 @@
+pandoc: 2.19.2
+pkgdown: 2.0.7
+pkgdown_sha: ~
+articles:
+  installing_a_model: installing_a_model.html
+  variable_naming: variable_naming.html
+last_built: 2022-12-25T01:19Z
+
