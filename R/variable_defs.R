@@ -93,6 +93,7 @@ get_density_def <- function(response_name) {
 
 get_variable_def <- function(response_name) {
     measure_char <- substr(response_name, 1, 1)
+    print(response_name)
     if(measure_char == 'v') {
         def <- get_vol_def(response_name)
     } else if(measure_char == 'b') {
@@ -103,6 +104,8 @@ get_variable_def <- function(response_name) {
         def <- get_diameter_def(response_name)
     } else if(measure_char == 'e') {
         def <- get_density_def(response_name)
+    } else {
+        def <- list(description=character(0))
     }
 
     def

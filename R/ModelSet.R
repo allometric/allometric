@@ -12,7 +12,8 @@ setClass(
 )
 
 ModelSet <- function(response_unit, covariate_units, predict_fn,
-                     shared_descriptors, model_descriptions, id = NA_integer_) {
+                     model_descriptions, shared_descriptors = list(),
+                     id = NA_integer_) {
   model_set <- new("ModelSet")
 
   model_descriptions <- as_tibble(model_descriptions)

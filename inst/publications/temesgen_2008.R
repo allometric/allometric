@@ -13,15 +13,14 @@ temesgen_2008_citation <- RefManageR::BibEntry(
 )
 
 temesgen_2008 <- Publication(
-    citation = temesgen_2008_citation
-)
-
-descriptors <- list(
-    country = 'US',
-    region = 'OR',
-    family = 'Pinaceae',
-    genus = 'Pseudotsuga',
-    species = 'menziesii'
+    citation = temesgen_2008_citation,
+    shared_descriptors = list(
+        country = 'US',
+        region = 'OR',
+        family = 'Pinaceae',
+        genus = 'Pseudotsuga',
+        species = 'menziesii'
+    )
 )
 
 temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
@@ -32,7 +31,6 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
         dsob = as_units('cm')
     ),
     model_description = c(
-        descriptors,
         b0 = 51.9954,
         b1 = -0.0208,
         b2 = 1.0182,
@@ -51,7 +49,6 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
         dsob = as_units('cm')
     ),
     model_description = c(
-        descriptors,
         b0 = 40.4218,
         b1 = -0.0276,
         b2 = 0.936,
@@ -72,7 +69,6 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
         dsob = as_units('cm')
     ),
     model_description = c(
-        descriptors,
         b0 = 41.8199,
         b1 = -0.0241,
         b2 = 0.8604,
@@ -97,7 +93,6 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
         dsob = as_units('cm')
     ),
     model_description = c(
-        descriptors,
         b00 = 43.7195,
         b01 = 0.0644,
         b02 = 0.128,
@@ -121,7 +116,6 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
         dsob = as_units('cm')
     ),
     model_description = c(
-        descriptors,
         b00 = 32.4635,
         b01 = 0.0363,
         b02 = 0.2585,
@@ -146,7 +140,6 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
         dsob = as_units('cm')
     ),
     model_description = c(
-        descriptors,
         b00 = 35.7419,
         b01 = 0.0431,
         b02 = 0.2447,

@@ -1,18 +1,18 @@
 setClass("Publication",
   slots = c(
     citation = "BibEntry",
-    model_sets = "list",
-    shared_groupings = "list",
+    response_sets = "list",
+    shared_descriptors = "list",
     id = "character"
   )
 )
 
 #' @export
-Publication <- function(citation, model_sets = list(),
+Publication <- function(citation, response_sets = list(),
   shared_descriptors = list()) {
   publication <- new("Publication")
   publication@citation <- citation
-  publication@model_sets <- model_sets
+  publication@response_sets <- response_sets
   publication@shared_descriptors <- shared_descriptors
 
   publication@id <- paste(
@@ -37,20 +37,20 @@ setMethod("add_model", "Publication", function(publication, model) {
     response_unit = model@response_unit,
     covariate_units = model@covariate_units,
     predict_fn = model@predict_fn,
-    common_descriptors = model@descriptors,
+    shared_descriptors = model@descriptors,
     model_descriptions = model@model_description,
-    id = length(publication@model_sets) + 1
+    id = length(publication@response_sets) + 1
   )
 
   response_name <- names(model@response_unit)[[1]]
 
-  if (is.null(publication@model_sets[[response_name]])) {
-    publication@model_sets[[response_name]] <- list(
+  if (is.null(publication@response_sets[[response_name]])) {
+    publication@response_sets[[response_name]] <- list(
       set_of_one
     )
   } else {
-    n_mods <- length(publication@model_sets[[response_name]])
-    publication@model_sets[[response_name]][[n_mods + 1]] <- set_of_one
+    n_mods <- length(publication@response_sets[[response_name]])
+    publication@response_sets[[response_name]][[n_mods + 1]] <- set_of_one
   }
 
   publication
@@ -65,17 +65,15 @@ setMethod(
   "add_set",
   "Publication",
   function(publication, model_set) {
-    model_set@id <- length(publication@model_sets) + 1
-
     response_name <- names(model_set@response_unit)[[1]]
 
-    if (is.null(publication@model_sets[[response_name]])) {
-      publication@model_sets[[response_name]] <- list(
+    if (is.null(publication@response_sets[[response_name]])) {
+      publication@response_sets[[response_name]] <- list(
         model_set
       )
     } else {
-      n_mods <- length(publication@model_sets[[response_name]])
-      publication@model_sets[[response_name]][[n_mods + 1]] <- model_set
+      n_mods <- length(publication@response_sets[[response_name]])
+      publication@response_sets[[response_name]][[n_mods + 1]] <- model_set
     }
 
     publication

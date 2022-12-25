@@ -51,17 +51,43 @@
     <h2 id="stem-height-models">Stem Height Models<a class="anchor" aria-label="anchor" href="#stem-height-models"></a></h2>
     <p><code>hst = 1.37 + b0 * (1 - exp(b1 * x$dsob)^b2)</code></p><ul><li><p><code>hst [m]</code> - total height of the stem</p></li>
 <li><p><code>dsob [cm]</code> - diameter of the stem, outside bark at breast height</p></li>
-</ul><div class="section">
-<h3 id="model-parameters">Model Parameters<a class="anchor" aria-label="anchor" href="#model-parameters"></a></h3>
-<p></p>
-</div><div class="sourceCode"><pre><code># A tibble: 1 x 9
+</ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code># A tibble: 1 x 9
   country region family   genus       species      b0      b1    b2 sigma_epsilon
   &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;       &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;         &lt;dbl&gt;
-1 US      OR     Pinaceae Pseudotsuga menziesii  52.0 -0.0208  1.02          4.03</code></pre></div>
-    </div>
+1 US      OR     Pinaceae Pseudotsuga menziesii  52.0 -0.0208  1.02          4.03</code></pre></div><p></p><hr><code>hst = 1.37 + b0 * (1 - exp(b1 * x$dsob)^b2)</code><ul><li><p><code>hst [m]</code> - total height of the stem</p></li>
+<li><p><code>dsob [cm]</code> - diameter of the stem, outside bark at breast height</p></li>
+</ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code># A tibble: 1 x 10
+  country region family   genus       species      b0      b1    b2 sigma_b sigma_epsilon
+  &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;       &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
+1 US      OR     Pinaceae Pseudotsuga menziesii  40.4 -0.0276 0.936    6.54          2.69</code></pre></div><p></p><hr><code>hst = 1.37 + b0 * (1 - exp(b1 * x$dsob)^b2)</code><ul><li><p><code>hst [m]</code> - total height of the stem</p></li>
+<li><p><code>dsob [cm]</code> - diameter of the stem, outside bark at breast height</p></li>
+</ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code># A tibble: 1 x 12
+  country region family   genus       species      b0      b1    b2 sigma_b0 sigma_b2 sigma_b0b2 sigma_epsilon
+  &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;       &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;         &lt;dbl&gt;
+1 US      OR     Pinaceae Pseudotsuga menziesii  41.8 -0.0241 0.860     6.41    0.165       0.31          2.57</code></pre></div><p></p><hr><code>hst = 1.37 + (b00 + b01 * x$ccfl + b02 * x$ba) * (1 - exp(b1 * x$dsob)^b2)</code><ul><li><p><code>hst [m]</code> - total height of the stem</p></li>
+<li><p><code>ccfl [m2/ha]</code> - variable not defined</p></li>
+<li><p><code>ba [m2/ha]</code> - variable not defined</p></li>
+<li><p><code>dsob [cm]</code> - diameter of the stem, outside bark at breast height</p></li>
+</ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code># A tibble: 1 x 11
+  country region family   genus       species     b00    b01   b02      b1    b2 sigma_epsilon
+  &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;       &lt;chr&gt;     &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;         &lt;dbl&gt;
+1 US      OR     Pinaceae Pseudotsuga menziesii  43.7 0.0644 0.128 -0.0194  1.08          3.52</code></pre></div><p></p><hr><code>hst = 1.37 + (b00 + b01 * x$ccfl + b02 * x$ba) * (1 - exp(b1 * x$dsob)^b2)</code><ul><li><p><code>hst [m]</code> - total height of the stem</p></li>
+<li><p><code>ccfl [m2/ha]</code> - variable not defined</p></li>
+<li><p><code>gn [m2/ha]</code> - variable not defined</p></li>
+<li><p><code>dsob [cm]</code> - diameter of the stem, outside bark at breast height</p></li>
+</ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code># A tibble: 1 x 12
+  country region family   genus       species     b00    b01   b02     b1    b2 sigma_b sigma_epsilon
+  &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;       &lt;chr&gt;     &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
+1 US      OR     Pinaceae Pseudotsuga menziesii  32.5 0.0363 0.258 -0.021 0.991    4.64          2.64</code></pre></div><p></p><hr><code>hst = 1.37 + (b_00 + b_01 * ccfl + b_02 * bast) * (1 - exp(b_1 * dsob)^b_2)</code><ul><li><p><code>hst [m]</code> - total height of the stem</p></li>
+<li><p><code>ccfl [m2/ha]</code> - variable not defined</p></li>
+<li><p><code>gn [m2/ha]</code> - variable not defined</p></li>
+<li><p><code>dsob [cm]</code> - diameter of the stem, outside bark at breast height</p></li>
+</ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code># A tibble: 1 x 14
+  country region family   genus       species     b00    b01   b02      b1    b2 sigma_b0 sigma_b2 sigma_b0b2 sigma_epsilon
+  &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;    &lt;chr&gt;       &lt;chr&gt;     &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;         &lt;dbl&gt;
+1 US      OR     Pinaceae Pseudotsuga menziesii  35.7 0.0431 0.245 -0.0184 0.961     4.74    0.098      0.125          2.57</code></pre></div><p></p><hr></div>
 
-  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
-    </nav></aside></div>
+  </main></div>
 
 
     <footer><div class="pkgdown-footer-left">
