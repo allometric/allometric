@@ -110,7 +110,14 @@ setMethod('rd_parameter_table', 'ModelSet', function(mod) {
   n_mods <- nrow(mod@model_descriptions)
   lines <- capture.output(print(mod@model_descriptions, n=n_mods))
 
-  fmt_lines <- paste(lines, collapse="\n")
+  # TODO this can shift the column names weirdly, but an issue for another day...
+  lines_no_quote <- str_replace_all(lines, "\"", " ")
+
+  lines_trim <- lines_no_quote[-c(1, 3)]
+
+  lines_trim_side <- substring(lines_trim, 4)
+
+  fmt_lines <- paste(lines_trim_side, collapse="\n")
 
   sprintf('\\preformatted{%s}', fmt_lines)
 })

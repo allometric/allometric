@@ -1,0 +1,66 @@
+library(RefManageR)
+library(stringr)
+devtools::load_all('.')
+
+model_data <- readRDS('./inst/model_data.RDS')
+
+pub1 <- model_data[[2]]
+
+
+
+response_section_lines <- function(response_set) {
+    response_lines <- c()
+    for(model_set in response_set) {
+        lines_vec <- c(
+            rd_model_equation(model_set),
+            rd_variable_defs(model_set),
+            "\\bold{Model Parameters}",
+            rd_parameter_table(model_set),
+            '\\out{<hr>}'
+        )
+
+        response_lines <- c(response_lines, lines_vec)
+    }
+
+    paste(response_lines, collapse = '\n')
+}
+
+rd_lines <- function(pub) {
+
+    header <- c(
+        sprintf("\\name{%s}", pub@id),
+        sprintf("\\alias{%s}", pub@id),
+        sprintf("\\title{%s}", TextCite(pub@citation))
+    )
+
+    # The response variables form the sections
+    n_response_vars <- length(pub@response_sets)
+
+    body <- c()
+
+    for(i in 1:n_response_vars) {
+        response_name <- names(pub@response_sets)[[i]]
+        response_def <- get_variable_def(response_name)
+        section_title <- stringr::str_to_title(
+            paste(
+                response_def$component_name,
+                response_def$measure_name,
+                'models'
+            )
+        )
+
+        section_lines <- response_section_lines(pub@response_sets[[i]])
+        body <- c(body, sprintf('\\section{%s}{%s}', section_title, section_lines))
+
+    }
+
+    c(header, body)
+}
+
+for(pub in model_data) {
+    print(pub@id)
+    rd_path <- file.path('./man/', paste0(pub@id, '.Rd'))
+    write_lines <- rd_lines(pub)
+
+    write(write_lines, file = rd_path, sep="\n")
+}
