@@ -57,16 +57,22 @@
   </div>
 </nav><div class="container template-home">
 <div class="row">
-  <main id="main" class="col-md-9"><p><code>allometric</code> is an open source R platform for systematically archiving published allometric equations for tree attributes. This renders an easy-to-use centralized location for allometric equations, with clear metadata attached to each model that guides their use. <code>allometric</code> supports volume, taper, biomass, and many other allometric models.</p>
-<p>Users are able to add allometric models using GitHub pull requests, provided the models are installed correctly. Read [Model Installation Guide] for further instruction. Familiarity with <code>git</code> is helpful.</p>
+  <main id="main" class="col-md-9"><p><code>allometric</code> is an open source R package for predicting tree attributes using allometric models. Hundreds if not thousands of allometric models exist in the scientific and technical forestry literature. <code>allometric</code> is a platform for archiving and using this vast array of models in a robust and structured format.</p>
+<p><code>allometric</code> not only enables the use of allometric models for analysis, it also provides a structured language for adding models to the package. If you are interested in helping the developer in this process please refer to the [Installing a Model] vignette.</p>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<p>Currently <code>allometric</code> is only available on GitHub, and can be installed using <code>devtools</code>.</p>
+<pre class="{r}"><code><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="op">)</span></span></code></pre>
+</div>
 <div class="section level2">
 <h2 id="getting-started">Getting Started<a class="anchor" aria-label="anchor" href="#getting-started"></a>
 </h2>
-<p>Most users will only be interested in finding and using allometric equations in their analysis. This is a simple process thanks to the structure of the <code>allometric</code> package. Three basic steps are needed, 1) find the model you want to use 2) determine what information is needed to use the model and 3) use the model to make predictions.</p>
+<p>Most users will only be interested in finding and using allometric equations in their analysis. Three basic steps are needed, 1) find the model you want to use 2) determine what information is needed to use the model and 3) use the model to make predictions.</p>
 <div class="section level3">
 <h3 id="id_1-finding-an-appropriate-model">1. Finding an Appropriate Model<a class="anchor" aria-label="anchor" href="#id_1-finding-an-appropriate-model"></a>
 </h3>
-<p>Part of the attraction of <code>allometric</code> is that allometric models are systematically categorized, which allows for easy searching of models by species (or more generally, “taxons”), geographic region, response variable, first author’s last name, or any combination therein.</p>
+<p>Models can be searched by a variety of attributes including species (or more generally, “taxons”), geographic region, response variable, first author’s last name, or any combination therein.</p>
 <p>Say we are interested in stem volume models for <em>Pseudotsuga menziesii</em> that were developed in the United States. Using <code>model_search</code> we can quickly find all stem volume models for this species.</p>
 <pre class="{r}"><code><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">allometric</span><span class="op">)</span></span>
 <span></span>
