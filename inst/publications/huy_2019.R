@@ -32,4 +32,61 @@ bs_huy_2019_1 <- ModelSet(
     model_descriptions = as_tibble(load_parameter_frame('bs_huy_2019_1'))
 )
 
-huy_2019 <- add_set(huy_2019, bs_huy_2019_1)
+bs_huy_2019_2 <- ModelSet(
+    response_unit = list(
+        bs = as_units('kg')
+    ),
+    covariate_units = list(
+        dsob = as_units('cm')
+    ),
+    predict_fn = function(dsob) {
+        a_1 * dsob^b_11
+    },
+    model_descriptions = as_tibble(load_parameter_frame('bs_huy_2019_2'))
+)
+
+bb_huy_2019 <- ModelSet(
+    response_unit = list(
+        bb = as_units('kg')
+    ),
+    covariate_units = list(
+        dsob = as_units('cm')
+    ),
+    predict_fn = function(dsob) {
+        a_2 * dsob^b_21
+    },
+    model_descriptions = as_tibble(load_parameter_frame('bs_huy_2019_bb'))
+)
+
+bf_huy_2019 <- ModelSet(
+    response_unit = list(
+        bf = as_units('kg')
+    ),
+    covariate_units = list(
+        dsob = as_units('cm')
+    ),
+    predict_fn = function(dsob) {
+        a_3 * dsob^b_31
+    },
+    model_descriptions = as_tibble(load_parameter_frame('bf_huy_2019'))
+)
+
+bk_huy_2019 <- ModelSet(
+    response_unit = list(
+        bk = as_units('kg')
+    ),
+    covariate_units = list(
+        dsob = as_units('cm')
+    ),
+    predict_fn = function(dsob) {
+        a_4 * dsob^b_41
+    },
+    model_descriptions = as_tibble(load_parameter_frame('bk_huy_2019'))
+)
+
+huy_2019 <- huy_2019 %>%
+    add_set(bs_huy_2019_1) %>%
+    add_set(bs_huy_2019_2) %>%
+    add_set(bb_huy_2019) %>%
+    add_set(bf_huy_2019) %>%
+    add_set(bk_huy_2019)

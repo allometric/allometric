@@ -1,2 +1,5 @@
 measure,component,description
 b,s,stem biomass
+b,b,branch biomass
+b,f,foliage biomass
+b,k,bark biomass
