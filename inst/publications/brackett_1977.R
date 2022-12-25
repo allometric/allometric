@@ -25,8 +25,8 @@ brackett_1977 <- add_set(brackett_1977, ModelSet(
         dsob = as_units('in'),
         hst  = as_units('ft')
     ),
-    predict_fn = function(dsob, hst, p) {
-        10^p$a * dsob^p$b * hst^p$c
+    predict_fn = function(dsob, hst) {
+        10^a * dsob^b * hst^c
     },
     model_descriptions = model_descriptions
 ))

@@ -30,7 +30,7 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
     covariate_units = list(
         dsob = as_units('cm')
     ),
-    model_description = c(
+    model_description = list(
         b0 = 51.9954,
         b1 = -0.0208,
         b2 = 1.0182,
@@ -48,7 +48,7 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
     covariate_units = list(
         dsob = as_units('cm')
     ),
-    model_description = c(
+    model_description = list(
         b0 = 40.4218,
         b1 = -0.0276,
         b2 = 0.936,
@@ -68,7 +68,7 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
     covariate_units = list(
         dsob = as_units('cm')
     ),
-    model_description = c(
+    model_description = list(
         b0 = 41.8199,
         b1 = -0.0241,
         b2 = 0.8604,
@@ -92,7 +92,7 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
         ba    = as_units('m2 / ha'),
         dsob = as_units('cm')
     ),
-    model_description = c(
+    model_description = list(
         b00 = 43.7195,
         b01 = 0.0644,
         b02 = 0.128,
@@ -115,7 +115,7 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
         gn = as_units('m2 / ha'),
         dsob = as_units('cm')
     ),
-    model_description = c(
+    model_description = list(
         b00 = 32.4635,
         b01 = 0.0363,
         b02 = 0.2585,
@@ -139,7 +139,7 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
         gn = as_units('m2 / ha'),
         dsob = as_units('cm')
     ),
-    model_description = c(
+    model_description = list(
         b00 = 35.7419,
         b01 = 0.0431,
         b02 = 0.2447,
