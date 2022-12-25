@@ -8,7 +8,11 @@ bracket_1977_citation <- RefManageR::BibEntry(
 )
 
 brackett_1977 <- Publication(
-    citation = bracket_1977_citation
+    citation = bracket_1977_citation,
+    shared_descriptors = list(
+        country = "US",
+        region = "WA"
+    )
 )
 
 model_descriptions <- as_tibble(load_parameter_frame('vsa_brackett_1977'))
@@ -24,9 +28,5 @@ brackett_1977 <- add_set(brackett_1977, ModelSet(
     predict_fn = function(dsob, hst, p) {
         10^p$a * dsob^p$b * hst^p$c
     },
-    common_descriptors = list(
-        country = 'US',
-        region = 'WA'
-    ),
     model_descriptions = model_descriptions
 ))

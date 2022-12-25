@@ -5,14 +5,14 @@ setClass(
     covariate_units = "list",
     predict_fn = "function",
     model_descriptions = 'tbl_df',
-    common_descriptors = "list",
+    shared_descriptors = "list",
     models = "list",
     id = "numeric"
   )
 )
 
 ModelSet <- function(response_unit, covariate_units, predict_fn,
-                     common_descriptors, model_descriptions, id = NA_integer_) {
+                     shared_descriptors, model_descriptions, id = NA_integer_) {
   model_set <- new("ModelSet")
 
   model_descriptions <- as_tibble(model_descriptions)
@@ -21,7 +21,7 @@ ModelSet <- function(response_unit, covariate_units, predict_fn,
   model_set@covariate_units <- covariate_units
   model_set@model_descriptions <- model_descriptions
   model_set@predict_fn <- predict_fn
-  model_set@common_descriptors <- common_descriptors
+  model_set@shared_descriptors <- shared_descriptors
   model_set@id <- id
 
   if ("list" %in% class(model_descriptions)) {

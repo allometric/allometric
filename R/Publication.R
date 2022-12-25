@@ -2,15 +2,18 @@ setClass("Publication",
   slots = c(
     citation = "BibEntry",
     model_sets = "list",
+    shared_groupings = "list",
     id = "character"
   )
 )
 
 #' @export
-Publication <- function(citation, model_sets = list()) {
+Publication <- function(citation, model_sets = list(),
+  shared_descriptors = list()) {
   publication <- new("Publication")
   publication@citation <- citation
   publication@model_sets <- model_sets
+  publication@shared_descriptors <- shared_descriptors
 
   publication@id <- paste(
     tolower(publication@citation$author[[1]]$family),

@@ -11,7 +11,10 @@ huy_2019_citation <- RefManageR::BibEntry(
 )
 
 huy_2019 <- Publication(
-    citation = huy_2019_citation
+    citation = huy_2019_citation,
+    shared_descriptors = list(
+        country = "VN"
+    )
 )
 
 bs_huy_2019_1 <- ModelSet(
@@ -26,10 +29,7 @@ bs_huy_2019_1 <- ModelSet(
     predict_fn = function(dsob, hs, es, p) {
         p$a_1 * dsob^b_11 * hst^b_12 * es^b_13
     },
-    model_descriptions =  as_tibble(load_parameter_frame('bs_huy_2019_1')),
-    common_descriptors = list(
-        country = 'VN'
-    )
+    model_descriptions = as_tibble(load_parameter_frame('bs_huy_2019_1'))
 )
 
 huy_2019 <- add_set(huy_2019, bs_huy_2019_1)
