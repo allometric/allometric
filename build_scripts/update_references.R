@@ -14,7 +14,6 @@ response_section_lines <- function(response_set) {
             rd_variable_defs(model_set),
             "\\bold{Model Parameters}",
             rd_parameter_table(model_set),
-            usage_section_lines(model_set),
             '\\out{<hr>}'
         )
 
