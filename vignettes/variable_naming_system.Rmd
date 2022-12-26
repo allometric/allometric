@@ -1,0 +1,94 @@
+---
+title: "Variable Naming System"
+---
+
+The variable naming system is a standard approach for classifying allometric
+response variables and covariates. In the allometric modeling literature, 
+a diverse set of names are often available for many similar types of variables.
+For example, one may wish to refer to the volume of the main stem of a tree, 
+the volume of the stump, the diameter of a stump, the diameter at breast height,
+etc.
+
+The variable naming system, while somewhat verbose and strict, is worth the 
+effort. It allows `allometric` to efficiently categorize many allometric models
+in a standardized structure, which facilitates searching and documentation.
+
+## Measures
+
+All variable names begin with a "measure", once this measure is established, a 
+decision tree is used to determine the rest of the name. There are [xx] 
+established measures:
+
+1. d: diameter
+2. h: height
+3. v: volume
+4. g: basal area
+5. b: biomass (weight)
+6. r: ratio (unitless)
+7. e: density
+
+We recognize that the use of "measure" here is somewhat loose (e.g., diameter
+and height are both _measures_ of length). However, the variable naming system
+is meant to preserve at least some connection to commonly used terms for 
+variables in allometric modeling.
+
+## Components
+
+All variable names then have a second character that specifies the tree 
+component. Established components are:
+
+1. s: stem (including top and stump)
+2. b: branch
+3. f: foliage
+4. k: bark
+5. c: crown
+6. n: stand - used to refer to stand-level variables (typically used as covariates)
+7. p: plot - used to refer to plot-level variables (typically used as covariates)
+
+Mixing these first two character codes provides an expressive system to refer to 
+measures and components. For example, the biomass of foliage, if one were 
+interested in it, would begin `bf`, the volume including top and stump of the
+stem would be `va`, and the diameter of the stump would be `du`.
+
+## Measure-Component Modifiers
+
+Within a given measure-component pair, a number of useful modifiers are 
+available. These are specific to the measure-component pair. For example, an
+astute modeler may be wondering, "how do I refer to diameter at breast height
+outside bark"? These modifiers enable this level of specificity. 
+
+### Diameter of Stem (`ds`) Modifiers
+
+Some of the most common allometric variables are that of stem diameter, which
+arises in taper modeling, merchantable heights and, of course, diameter at 
+breast height. `ds` modifiers enable a user to specify these broad range of 
+variables.
+
+`ds` modifiers are broken down into two parts. The first character is the 
+bark modifier and the second character is the height modifier. The bark 
+modifiers are:
+
+- `o`: outside bark
+- `i`: inside bark
+
+and the height modifiers are:
+
+- `b`: breast height
+- `s`: stump height
+- `m`: merchantable height
+- `[##]`: specified height, using `p` as a decimal point if necessary. 
+
+For example, diameter (of the stem) at breast height outside bark is `dsob` and
+`dso40` is diameter (of the stem) outside bark at 40 units of length along the
+stem.
+
+### Height of Stem (`hs`) Modifiers
+
+- `t`: total (base to tip)
+- `b`: crown base (base to crown base)
+- `m`: merchantable diameter
+- `s`: stump (base to stump)
+
+### Volume of Stem (`vs`) Modifiers
+
+-[write later]

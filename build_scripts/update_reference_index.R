@@ -14,9 +14,6 @@ yaml_header <- list(
     )
 )
 
-# - reference row: list(title = [component-measure], contents = [component-measure publications])
-
-# These will be by component-measure pairs
 ref_sections <- list()
 
 for(pub in model_data) {
