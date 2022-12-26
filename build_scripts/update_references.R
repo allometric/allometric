@@ -1,10 +1,7 @@
 library(RefManageR)
 library(stringr)
-devtools::load_all('.')
 
 model_data <- readRDS('./inst/model_data.RDS')
-
-pub1 <- model_data[[2]]
 
 response_section_lines <- function(response_set) {
     response_lines <- c()

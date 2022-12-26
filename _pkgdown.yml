@@ -3,12 +3,18 @@ template:
   bootstrap: 5.0
 reference:
 - title: Package Functions
-  desc: test
   contents: ParametricModel
-- title: Pubs
-  desc: pubs
+- title: Stem Volume Models
   contents:
-  - brackett_1977
-  - huy_2019
-  - temesgen_2008
   - bell_1981
+  - brackett_1977
+- title: Stem Biomass Models
+  contents: huy_2019
+- title: Branch Biomass Models
+  contents: huy_2019
+- title: Foliage Biomass Models
+  contents: huy_2019
+- title: Bark Biomass Models
+  contents: huy_2019
+- title: Stem Height Models
+  contents: temesgen_2008
