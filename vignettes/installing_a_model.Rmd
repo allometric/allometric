@@ -2,12 +2,12 @@
 title: "Installing a Model"
 ---
 
-Models can be installed by anyone, provided they are comfortable writing R and
+Models can be installed by anyone provided they are comfortable writing R and
 submitting `git` pull requests. The model installation process involves these
 basic steps.
 
 1. Fork and then clone the `allometric` git repository to your local enviroment.
-2. Write a new file in the `R` directory that
+2. Write a new file in the `inst/publications` directory that
     a. Establishes a citation for the originating publication of the model.
     b. Instantiates the model (usually a `ParametricModel` or
         `ParametricFamily`) with associated metadata and prediction function.
@@ -55,8 +55,178 @@ paper_citation <- RefManageR::BibEntry(
 
 many different types of publications are available, called "entry types", and 
 documentation for required fields are given
-[here](https://www.bibtex.com/e/entry-types/).
+[here](https://www.bibtex.com/e/entry-types/). The function that creates a 
+`Publication` requires two arguments, the citation itself and an optional list
+of "shared descriptors". The role of descriptors will become clear as we 
+progress. For now, just know that a shared descriptors is a named list of
+attributes that apply to *all models* in the publication.
 
-## Instantiating a Single Model
+For example,  all models in this publication are for 
+Douglas-fir, and were developed using data in the United States and Oregon.
+With this in mind, we establish the `Publication` object.
 
-## Instantiating a Model Set with
+```
+temesgen_2008 <- Publication(
+    citation = paper_citation,
+    shared_descriptors = list(
+        country = 'US',
+        region = 'OR',
+        family = 'Pinaceae',
+        genus = 'Pseudotsuga',
+        species = 'menziesii'
+    )
+)
+```
+
+`temesgen_2008` now represents a publication with citation information and 
+metadata that describe aspects of the models inside. One problem, there are 
+no models inside the publication yet, so we must add them.
+
+## Adding a Single Model
+
+Models can be added one at a time. Other convenient ways of adding models are
+described in the next section, but let us start with just one model.
+
+The publication we are using implements several *parametric* models that predict
+the heights of trees using various covariates. One of the functions the authors
+use is $h = 1.37 + b_0 * (1 - \exp(b_1 * d)^{b_2}$ where $h$ represents height
+and $d$ represents the diameter outside bark. Note that the height is a 
+function of the covariate $d$ and a finite set of parameters, $b_0$, $b_1$ and
+$b_2$. This is a perfect candidate for the `ParametricModel` class.
+
+```
+temesgen_2008_model_one <- ParametricModel(
+    response_unit = list(
+        hst = as_units('m')
+    ),
+    covariate_units = list(
+        dsob = as_units('cm')
+    ),
+    model_description = list(
+        b_0 = 51.9954,
+        b_1 = -0.0208,
+        b_2 = 1.0182,
+        sigma_epsilon = 4.029
+    ),
+    predict_fn = function(dsob) {
+        1.37 + b_0 * (1 - exp(b_1 * dsob)^b_2)
+    }
+)
+```
+
+We can see that three arguments are used, `response_unit`, `covariate_units`, 
+`model_description` and `predict_fn`.
+
+- `response_unit` - a named list containing one element, which is the name of
+the response variable. In this case `hst` indicates the model is the **h**eight
+of the **s**tem using the **t**otal height. The value of this element is 
+established by providing the units using the `units` package. In this case, 
+the units are defined as meters.
+- `covariate_units` - a named list containing all covariates usied in the model.
+In this case, only one covariate is used called `dsob` which stands for the 
+**d**iameter of the **s**tem, **o**utside bark at **b**reast height. Again, the
+units are defined, this time as centimeters.
+- `model_description` - a named list containing model descriptors. In this case
+the model descriptors are the parameters of the model and their estimates from
+the publication.
+- `predict_fn` - this is the prediction function. Note that the body of the
+function is written using the parameters and covariates, but the only argument
+provided to the function is `dsob`, i.e., the one covariate the model uses. This
+is for the author's convenience, and parameters are populated into the function
+at a later phase, so they do not need to be defined as arguments to
+`predict_fn`.
+
+Finally, we add the model to the publication using `add_model`
+
+```
+temesgen_2008 <- add_model(temesgen_2008, temesgen_2008_model_one)
+```
+
+## Adding a Model Set
+
+A frequent pattern in allometric modeling papers are "model sets", these are
+sets of allometric models that have the same response, covariate and functional 
+structure, but are fit for several species, age classes, etc. For example, 
+Brackett (1977) fit 24 cubic volume functions for different species
+disaggregated by geographic region and species.
+
+`ModelSet` is a class in `allometric` that efficiently deals with these types 
+of model structures. They allow the author to import a table (e.g., a `.csv`) of
+model descriptions to quickly define large sets of `ParametricModel`s.
+
+For this task, consider the Brackett (1977) publication. We begin again 
+defining the `Publication`.
+
+```
+bracket_1977_citation <- RefManageR::BibEntry(
+    bibtype = 'techreport',
+    key = 'brackett_1977',
+    title = 'Notes on tarif tree volume computation',
+    author = 'Brackett, Michael',
+    year = 1977,
+    institution = 'State of Washington, Dept. of Natural Resources'
+)
+
+brackett_1977 <- Publication(
+    citation = bracket_1977_citation,
+    shared_descriptors = list(
+        country = "US",
+        region = "WA"
+    )
+)
+```
+
+Here we can see the citation information and the shared descriptors. Note that
+in this case, `shared_descriptors` only contains `country` and `region`. This
+is because each individual model in `brackett_1977` is not uniform with respect
+to `species` as it was in `temsegen_2008`, so we will have to define those 
+descriptors at the model-level.
+
+Next, we load a data frame of model descriptions and examine it
+
+```{r include=FALSE}
+library(tibble)
+devtools::load_all('.')
+```
+
+```{r}
+model_descriptions <- as_tibble(load_parameter_frame('vsa_brackett_1977'))
+head(model_descriptions)
+```
+
+We can see that `model_descriptions` contains a number of individual models
+which are specified by column names referred to as `descriptors`. In this case,
+`descriptors` includes both parameter estimates and additional model-level 
+information needed to uniquely identify a model with the model set. For 
+Brackett (1977), these models are uniquely identified by their taxonomic family,
+genus and species, as well as their age class and geographic region.
+
+Next, we instantiate the `ModelSet`, which looks very similar to 
+`ParametricModel` used in the previous section. The arguments are the same, but
+the implication is that `response unit`, `covariate units` and `prediction_fn`
+all apply uniformly to the models in the set.
+
+```
+brackett_1977_model_set <- ModelSet(
+    response_unit = list(
+        vsa = as_units('ft3')
+    ),
+    covariate_units = list(
+        dsob = as_units('in'),
+        hst  = as_units('ft')
+    ),
+    predict_fn = function(dsob, hst) {
+        10^a * dsob^b * hst^c
+    },
+    model_descriptions = model_descriptions
+))
+```
+
+Finally, we add the model set to the publication using `add_set`
+
+```
+brackett_1977 <- add_set(brackett_1977, brackett_1977_model_set)
+```
+
+Just like that, we have defined 24 individiual models for the Brackett (1977) 
+publication for a wide variety of species and taxonomic groupings. 

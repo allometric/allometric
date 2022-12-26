@@ -1,5 +1,5 @@
 `allometric` is an open source R package for predicting tree attributes using
-allometric models. Hundreds if not thousands of allometric models exist in the
+allometric models. Thousands of allometric models exist in the
 scientific and technical forestry literature. `allometric` is a platform for
 archiving and using this vast array of models in a robust and structured format.
 
@@ -14,7 +14,7 @@ Currently `allometric` is only available on GitHub, and can be installed using
 `devtools`.
 
 ```{r}
-devtools::install_github()
+devtools::install_github('brycefrank/allometric')
 ```
 
 ## Getting Started

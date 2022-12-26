@@ -6,8 +6,6 @@ model_data <- readRDS('./inst/model_data.RDS')
 
 pub1 <- model_data[[2]]
 
-
-
 response_section_lines <- function(response_set) {
     response_lines <- c()
     for(model_set in response_set) {
@@ -16,6 +14,7 @@ response_section_lines <- function(response_set) {
             rd_variable_defs(model_set),
             "\\bold{Model Parameters}",
             rd_parameter_table(model_set),
+            usage_section_lines(model_set),
             '\\out{<hr>}'
         )
 
@@ -53,6 +52,10 @@ rd_lines <- function(pub) {
         body <- c(body, sprintf('\\section{%s}{%s}', section_title, section_lines))
 
     }
+
+    # TODO for each model set pick the first model and construct the example
+    # code programatically. It could be useful to have a little data set with
+    # some default values for each unit/variable pair.
 
     c(header, body)
 }

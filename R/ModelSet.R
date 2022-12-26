@@ -1,3 +1,9 @@
+check_model_set <- function(object) {
+  # TODO the number of distinct rows of model_descriptions using the
+  # non-parameter columns needs to be equalto the total number of rows
+  TRUE
+}
+
 setClass(
   "ModelSet",
   slots = c(
@@ -8,7 +14,8 @@ setClass(
     shared_descriptors = "list",
     models = "list",
     id = "numeric"
-  )
+  ),
+  validity = check_model_set
 )
 
 ModelSet <- function(response_unit, covariate_units, predict_fn,

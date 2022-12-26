@@ -26,8 +26,8 @@ bs_huy_2019_1 <- ModelSet(
         hst = as_units('m'),
         es = as_units('g/cm^3')
     ),
-    predict_fn = function(dsob, hs, es, p) {
-        p$a_1 * dsob^b_11 * hst^b_12 * es^b_13
+    predict_fn = function(dsob, hst, es) {
+        a_1 * dsob^b_11 * hst^b_12 * es^b_13
     },
     model_descriptions = as_tibble(load_parameter_frame('bs_huy_2019_1'))
 )
