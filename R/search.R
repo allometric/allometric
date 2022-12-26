@@ -1,44 +1,44 @@
-model_data <- system.file('model_data', package='allometric')
+check_description <- function(description, expressions) {
+  for(filt in expressions) {
 
+    attribute_string <- deparse(filt[[2]])
+    filt_expr <- filt[-2]
 
-new_dplyr_quosure <- function(quo, ...) {
-  attr(quo, "dplyr:::data") <- list2(...)
-  quo
-}
+    eval_string <- sprintf("description$%s", attribute_string)
 
-dplyr_quosures <- function(...) {
-  # We're using quos() instead of enquos() here for speed, because we're not defusing named arguments --
-  # only the ellipsis is converted to quosures, there are no further arguments.
-  quosures <- quos(..., .ignore_empty = "all")
-  names_given <- names2(quosures)
+    attribute_value <- eval(parse(text=eval_string))
 
-  for (i in seq_along(quosures)) {
-    quosure <- quosures[[i]]
-    name_given <- names_given[[i]]
-    is_named <- (name_given != "")
-    if (is_named) {
-      name_auto <- name_given
-    } else {
-      name_auto <- rlang::as_label(quosure)
+    if(is.null(attribute_value)) {
+      return(FALSE)
     }
 
-    quosures[[i]] <- new_dplyr_quosure(quosure,
-      name_given = name_given,
-      name_auto = name_auto,
-      is_named = is_named,
-      index = i
-    )
+    filt[[2]] <- attribute_value
+
+    if (!eval(filt)) {
+      return(FALSE)
+    }
   }
-  quosures
+
+  return(TRUE)
 }
 
-#' @export
-model_search <- function(...) {
+filter_models <- function(data, ...) {
+  results <- list()
 
+  expressions <- rlang::exprs(...)
+  dots <- rlang::quos()
+
+  for(pub in data) {
+    for(response_set in pub@response_sets) {
+      for(model_set in response_set) {
+        for(model in model_set@models) {
+          check <- check_description(model@model_description, expressions)
+          if(check) {
+            results[[length(results) + 1]] <- model
+          }
+        }
+      }
+    }
+  }
+  results
 }
-
-#model_search(genus == 'Pseudotsuga', species == 'menziesii')
-
-#rlang::quosur
-
-#dplyr::quo
