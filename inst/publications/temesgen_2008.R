@@ -14,7 +14,7 @@ temesgen_2008_citation <- RefManageR::BibEntry(
 
 temesgen_2008 <- Publication(
     citation = temesgen_2008_citation,
-    shared_descriptors = list(
+    descriptors = list(
         country = 'US',
         region = 'OR',
         family = 'Pinaceae',

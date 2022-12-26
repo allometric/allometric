@@ -2,7 +2,6 @@ check_description <- function(description, expressions) {
   for(filt in expressions) {
 
     attribute_string <- deparse(filt[[2]])
-    filt_expr <- filt[-2]
 
     eval_string <- sprintf("description$%s", attribute_string)
 
@@ -26,7 +25,6 @@ filter_models <- function(data, ...) {
   results <- list()
 
   expressions <- rlang::exprs(...)
-  dots <- rlang::quos()
 
   for(pub in data) {
     for(response_set in pub@response_sets) {

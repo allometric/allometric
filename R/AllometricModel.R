@@ -9,20 +9,26 @@ setClass("AllometricModel",
   slots = c(
     response_unit = "list",
     covariate_units = "list",
-    descriptors = "list",
+    model_description = "list",
+    set_descriptors = "list",
+    pub_descriptors = "list",
     predict_fn = "function",
     id = "numeric"
   )
 )
 
 #' @export
-AllometricModel <- function(response_unit, covariate_units, descriptors,
-                            predict_fn, id = NA_integer_) {
+AllometricModel <- function(response_unit, covariate_units, model_description,
+                            predict_fn, set_descriptors = list(),
+                            pub_descriptors = list(),
+                            id = NA_integer_) {
   allometric_model <- new("AllometricModel")
   allometric_model@response_unit <- response_unit
   allometric_model@covariate_units <- covariate_units
   allometric_model@predict_fn <- predict_fn
-  allometric_model@descriptors <- descriptors
+  allometric_model@model_description <- model_description
+  allometric_model@set_descriptors <- set_descriptors
+  allometric_model@pub_descriptors <- pub_descriptors
   allometric_model@id <- id
   allometric_model
 }

@@ -2,18 +2,18 @@ setClass("Publication",
   slots = c(
     citation = "BibEntry",
     response_sets = "list",
-    shared_descriptors = "list",
+    descriptors = "list",
     id = "character"
   )
 )
 
 #' @export
 Publication <- function(citation, response_sets = list(),
-  shared_descriptors = list()) {
+  descriptors = list()) {
   publication <- new("Publication")
   publication@citation <- citation
   publication@response_sets <- response_sets
-  publication@shared_descriptors <- shared_descriptors
+  publication@descriptors <- descriptors
 
   publication@id <- paste(
     tolower(publication@citation$author[[1]]$family),
@@ -23,6 +23,38 @@ Publication <- function(citation, response_sets = list(),
 
   publication
 }
+
+setGeneric(
+  "add_set",
+  function(publication, model_set) standardGeneric("add_set")
+)
+
+setMethod(
+  "add_set",
+  "Publication",
+  function(publication, model_set) {
+    response_name <- names(model_set@response_unit)[[1]]
+
+    # Propagate the pub descriptors to the set
+    model_set@pub_descriptors <- publication@descriptors
+
+    # Propagate the pub descriptors to the models
+    for(i in seq_along(model_set@models)) {
+      model_set@models[[i]]@pub_descriptors <- publication@descriptors
+    }
+
+    if (is.null(publication@response_sets[[response_name]])) {
+      publication@response_sets[[response_name]] <- list(
+        model_set
+      )
+    } else {
+      n_mods <- length(publication@response_sets[[response_name]])
+      publication@response_sets[[response_name]][[n_mods + 1]] <- model_set
+    }
+
+    publication
+  }
+)
 
 setGeneric(
   "add_model",
@@ -37,48 +69,15 @@ setMethod("add_model", "Publication", function(publication, model) {
     response_unit = model@response_unit,
     covariate_units = model@covariate_units,
     predict_fn = model@predict_fn,
-    shared_descriptors = model@descriptors,
     model_descriptions = model@model_description,
+    pub_descriptors = publication@descriptors,
     id = length(publication@response_sets) + 1
   )
 
-  response_name <- names(model@response_unit)[[1]]
-
-  if (is.null(publication@response_sets[[response_name]])) {
-    publication@response_sets[[response_name]] <- list(
-      set_of_one
-    )
-  } else {
-    n_mods <- length(publication@response_sets[[response_name]])
-    publication@response_sets[[response_name]][[n_mods + 1]] <- set_of_one
-  }
+  publication <- add_set(publication, set_of_one)
 
   publication
 })
-
-setGeneric(
-  "add_set",
-  function(publication, model_set) standardGeneric("add_set")
-)
-
-setMethod(
-  "add_set",
-  "Publication",
-  function(publication, model_set) {
-    response_name <- names(model_set@response_unit)[[1]]
-
-    if (is.null(publication@response_sets[[response_name]])) {
-      publication@response_sets[[response_name]] <- list(
-        model_set
-      )
-    } else {
-      n_mods <- length(publication@response_sets[[response_name]])
-      publication@response_sets[[response_name]][[n_mods + 1]] <- model_set
-    }
-
-    publication
-  }
-)
 
 setGeneric("n_models", function(publication) standardGeneric("n_models"))
 

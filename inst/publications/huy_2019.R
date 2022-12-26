@@ -12,7 +12,7 @@ huy_2019_citation <- RefManageR::BibEntry(
 
 huy_2019 <- Publication(
     citation = huy_2019_citation,
-    shared_descriptors = list(
+    descriptors = list(
         country = "VN"
     )
 )

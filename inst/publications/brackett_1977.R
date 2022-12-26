@@ -9,7 +9,7 @@ bracket_1977_citation <- RefManageR::BibEntry(
 
 brackett_1977 <- Publication(
     citation = bracket_1977_citation,
-    shared_descriptors = list(
+    descriptors = list(
         country = "US",
         region = "WA"
     )
@@ -28,5 +28,6 @@ brackett_1977 <- add_set(brackett_1977, ModelSet(
     predict_fn = function(dsob, hst) {
         10^a * dsob^b * hst^c
     },
+    descriptors = list(test='this'),
     model_descriptions = model_descriptions
 ))

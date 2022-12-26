@@ -9,7 +9,7 @@ bell_1981_citation <- RefManageR::BibEntry(
 
 bell_1981 <- Publication(
     citation = bell_1981_citation,
-    shared_descriptors = list(
+    descriptors = list(
         family = "Pinaceae",
         genus = "Tsuga",
         species = "mertensiana",

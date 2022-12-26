@@ -11,7 +11,8 @@ setClass(
     covariate_units = "list",
     predict_fn = "function",
     model_descriptions = 'tbl_df',
-    shared_descriptors = "list",
+    descriptors = "list",
+    pub_descriptors = "list",
     models = "list",
     id = "numeric"
   ),
@@ -19,8 +20,8 @@ setClass(
 )
 
 ModelSet <- function(response_unit, covariate_units, predict_fn,
-                     model_descriptions, shared_descriptors = list(),
-                     id = NA_integer_) {
+                     model_descriptions, descriptors = list(),
+                     pub_descriptors = list(), id = NA_integer_) {
   model_set <- new("ModelSet")
 
   model_descriptions <- as_tibble(model_descriptions)
@@ -29,7 +30,8 @@ ModelSet <- function(response_unit, covariate_units, predict_fn,
   model_set@covariate_units <- covariate_units
   model_set@model_descriptions <- model_descriptions
   model_set@predict_fn <- predict_fn
-  model_set@shared_descriptors <- shared_descriptors
+  model_set@descriptors <- descriptors
+  model_set@pub_descriptors <- pub_descriptors
   model_set@id <- id
 
   if ("list" %in% class(model_descriptions)) {
@@ -40,8 +42,10 @@ ModelSet <- function(response_unit, covariate_units, predict_fn,
     mod <- ParametricModel(
       response_unit = response_unit,
       covariate_units = covariate_units,
-      model_description = model_descriptions[i, ],
       predict_fn = predict_fn,
+      model_description = model_descriptions[i, ],
+      set_descriptors = model_set@descriptors,
+      pub_descriptors = model_set@pub_descriptors,
       id = i
     )
 

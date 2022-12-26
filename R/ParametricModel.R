@@ -54,19 +54,21 @@ check_parametric_model <- function(object) {
 setClass(
   "ParametricModel",
   contains = "AllometricModel",
-  slots = c(
-    model_description = "list"
-  ),
   validity = check_parametric_model
 )
 
 #'
 #' @export
 ParametricModel <- function(response_unit, covariate_units,
-                            predict_fn, model_description, id = NA_integer_) {
+                            predict_fn, model_description,
+                            set_descriptors = list(),
+                            pub_descriptors = list(),
+                            id = NA_integer_) {
   parametric_model <- new("ParametricModel",
     response_unit = response_unit, covariate_units = covariate_units,
-    predict_fn = predict_fn, model_description = model_description, id = id
+    predict_fn = predict_fn, model_description = model_description,
+    set_descriptors = set_descriptors, pub_descriptors = pub_descriptors,
+    id = id
   )
 
   # Populate the predict_fn with the coefficients

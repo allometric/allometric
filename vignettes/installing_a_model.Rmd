@@ -68,7 +68,7 @@ With this in mind, we establish the `Publication` object.
 ```
 temesgen_2008 <- Publication(
     citation = paper_citation,
-    shared_descriptors = list(
+    descriptors = list(
         country = 'US',
         region = 'OR',
         family = 'Pinaceae',
@@ -169,7 +169,7 @@ bracket_1977_citation <- RefManageR::BibEntry(
 
 brackett_1977 <- Publication(
     citation = bracket_1977_citation,
-    shared_descriptors = list(
+    descriptors = list(
         country = "US",
         region = "WA"
     )
