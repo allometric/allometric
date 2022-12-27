@@ -101,3 +101,35 @@ setGeneric("predict", function(mod, ...) standardGeneric("predict"))
 setMethod("predict", signature(mod = "ParametricModel"), function(mod, ...) {
   mod@predict_fn_populated(...)
 })
+
+setMethod("show", "ParametricModel", function(mod) {
+  form <- get_model_str(mod)
+  # TODO format the descriptions. They should be indented by 2 spaces and the
+  # unit left backets should align by inserting spaces. Seems like do the
+  # latter then the former.
+  variable_descriptions <- get_variable_descriptions(mod)
+
+  cat('Model Form:', '\n')
+  cat(form, '\n', '\n')
+  cat(variable_descriptions, sep="\n")
+
+  cat('\n')
+  cat('Parameter Estimates:', '\n')
+  print(data.frame(mod@parameters))
+
+  cat('\n')
+  cat('Model Specification:', '\n')
+  print(data.frame(mod@model_specification))
+})
+
+setGeneric("get_model_str", function(mod) standardGeneric("get_model_str"))
+
+setMethod("get_model_str", "ParametricModel", function(mod) {
+  .get_model_str(mod)
+})
+
+setGeneric("get_variable_descriptions", function(mod) standardGeneric("get_variable_descriptions"))
+
+setMethod("get_variable_descriptions", "ParametricModel", function(mod) {
+  .get_variable_descriptions(mod)
+})

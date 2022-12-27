@@ -137,4 +137,3 @@ setMethod('rd_parameter_table', 'ModelSet', function(mod) {
 
   sprintf('\\preformatted{%s}', fmt_lines)
 })
-

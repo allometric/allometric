@@ -12,6 +12,7 @@ RoxygenNote: 7.2.3
 Imports: Rdpack
 RdMacros: Rdpack
 Collate:
+    'summary.R'
     'util.R'
     'ModelSearchResults.R'
     'search.R'

@@ -9,7 +9,7 @@ setMethod("filter_models", signature(data = "tbl_df"), function(data, ...) {
 setGeneric("select_model", function(data, ix) standardGeneric("select_model"))
 
 setMethod("select_model", signature(data = "tbl_df", ix = "numeric"), function(data, ix) {
-    data[ix, "model"][[1,1]]
+    data[ix, "model"][[1,1]][[1]]
 })
 
 check_description <- function(description, expressions) {
