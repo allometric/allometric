@@ -1,11 +1,13 @@
 setOldClass("tbl_df")
 
+#' @export
 setGeneric("filter_models", function(data, ...) standardGeneric("filter_models"))
 
 setMethod("filter_models", signature(data = "tbl_df"), function(data, ...) {
     dplyr::filter(data, ...)
 })
 
+#' @export
 setGeneric("select_model", function(data, ix) standardGeneric("select_model"))
 
 setMethod("select_model", signature(data = "tbl_df", ix = "numeric"), function(data, ix) {
@@ -54,13 +56,13 @@ aggregate_results <- function(results) {
     # duplicate descriptor fields. See issue #6
     model_data <- model_data[!duplicated(names(model_data))]
 
-    descriptors_row <- as_tibble(model_data)
+    descriptors_row <- tibble::as_tibble(model_data)
     descriptors_row$model <- c(model)
 
     agg_results[[i]] <- descriptors_row
   }
 
-  bind_rows(agg_results)
+  dplyr::bind_rows(agg_results)
 }
 
 setMethod("filter_models", signature(data="list"), function(data, ...) {

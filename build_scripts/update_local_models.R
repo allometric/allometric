@@ -55,7 +55,7 @@ saveRDS(model_data, file='./inst/model_data.RDS')
 #  }
 #}
 #
-#model_data <- bind_rows(mod_rows)
+#model_data <- dplyr::bind_rows(mod_rows)
 #
 ## TODO make this data structure instead: (using json just to show...)
 #

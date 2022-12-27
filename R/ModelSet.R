@@ -24,7 +24,7 @@ ModelSet <- function(response_unit, covariate_units, predict_fn,
                     pub_descriptors = list()) {
   model_set <- new("ModelSet")
 
-  model_specifications <- as_tibble(model_specifications)
+  model_specifications <- tibble::as_tibble(model_specifications)
   model_set@response_unit <- response_unit
   model_set@covariate_units <- covariate_units
   model_set@predict_fn <- predict_fn

@@ -14,8 +14,8 @@ RdMacros: Rdpack
 Collate:
     'summary.R'
     'util.R'
+    'variable_defs.R'
     'ModelSearchResults.R'
-    'search.R'
     'load.R'
     'AllometricModel.R'
     'ParametricModel.R'

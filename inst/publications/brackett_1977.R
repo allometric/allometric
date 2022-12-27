@@ -15,7 +15,7 @@ brackett_1977 <- Publication(
     )
 )
 
-model_specifications <- as_tibble(load_parameter_frame('vsa_brackett_1977'))
+model_specifications <- tibble::as_tibble(load_parameter_frame('vsa_brackett_1977'))
 
 brackett_1977 <- add_set(brackett_1977, ModelSet(
     response_unit = list(

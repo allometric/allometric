@@ -83,7 +83,7 @@ that
 <li>Establishes a citation for the originating publication of the
 model.</li>
 <li>Instantiates the model (usually a <code>ParametricModel</code> or
-<code>ParametricFamily</code>) with associated metadata and prediction
+<code>ModelSet</code>) with associated metadata and prediction
 function.</li>
 </ol>
 </li>
@@ -97,10 +97,11 @@ reviewed for completion, and will become part of the main package if it
 passes review.</p>
 <p>This vignette will focus on the second step. Explanation of
 <code>git</code> pull requests are beyond the scope of this vignette,
-but interested readers can learn using [these resources #TODO].
-Interested readers should also contact Bryce Frank (<a href="mailto:bfrank70@gmail.com" class="email">bfrank70@gmail.com</a>),
-or open an issue on GitHub if they want their models added but do not
-want to learn <code>git</code>.</p>
+but interested readers can learn using <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests" class="external-link">About
+Pull Requests</a>. Interested readers should also contact Bryce Frank
+(<a href="mailto:bfrank70@gmail.com" class="email">bfrank70@gmail.com</a>), or open an issue on GitHub if
+they want their models added but do not want to learn
+<code>git</code>.</p>
 <div class="section level2">
 <h2 id="establishing-a-publication">Establishing a Publication<a class="anchor" aria-label="anchor" href="#establishing-a-publication"></a>
 </h2>
@@ -140,7 +141,7 @@ were developed using data in the United States and Oregon. With this in
 mind, we establish the <code>Publication</code> object.</p>
 <pre><code><span><span class="va">temesgen_2008</span> <span class="op">&lt;-</span> <span class="fu">Publication</span><span class="op">(</span></span>
 <span>    citation <span class="op">=</span> <span class="va">paper_citation</span>,</span>
-<span>    shared_descriptors <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    descriptors <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>        country <span class="op">=</span> <span class="st">'US'</span>,</span>
 <span>        region <span class="op">=</span> <span class="st">'OR'</span>,</span>
 <span>        family <span class="op">=</span> <span class="st">'Pinaceae'</span>,</span>
@@ -165,14 +166,14 @@ of the functions the authors use is <span class="math inline">\(h = 1.37
 + b_0 * (1 - \exp(b_1 * d)^{b_2}\)</span> where <span class="math inline">\(h\)</span> represents height and <span class="math inline">\(d\)</span> represents the diameter outside bark.
 Note that the height is a function of the covariate <span class="math inline">\(d\)</span> and a finite set of parameters, <span class="math inline">\(b_0\)</span>, <span class="math inline">\(b_1\)</span> and <span class="math inline">\(b_2\)</span>. This is a perfect candidate for the
 <code>ParametricModel</code> class.</p>
-<pre><code><span><span class="va">temesgen_2008_model_one</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ParametricModel.html">ParametricModel</a></span><span class="op">(</span></span>
+<pre><code><span><span class="va">temesgen_2008_model_one</span> <span class="op">&lt;-</span> <span class="fu">ParametricModel</span><span class="op">(</span></span>
 <span>    response_unit <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>        hst <span class="op">=</span> <span class="fu">as_units</span><span class="op">(</span><span class="st">'m'</span><span class="op">)</span></span>
 <span>    <span class="op">)</span>,</span>
 <span>    covariate_units <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>        dsob <span class="op">=</span> <span class="fu">as_units</span><span class="op">(</span><span class="st">'cm'</span><span class="op">)</span></span>
 <span>    <span class="op">)</span>,</span>
-<span>    model_description <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    model_specification <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>        b_0 <span class="op">=</span> <span class="fl">51.9954</span>,</span>
 <span>        b_1 <span class="op">=</span> <span class="op">-</span><span class="fl">0.0208</span>,</span>
 <span>        b_2 <span class="op">=</span> <span class="fl">1.0182</span>,</span>
@@ -183,7 +184,7 @@ Note that the height is a function of the covariate <span class="math inline">\(
 <span>    <span class="op">}</span></span>
 <span><span class="op">)</span></span></code></pre>
 <p>We can see that three arguments are used, <code>response_unit</code>,
-<code>covariate_units</code>, <code>model_description</code> and
+<code>covariate_units</code>, <code>model_specification</code> and
 <code>predict_fn</code>.</p>
 <ul>
 <li>
@@ -202,7 +203,7 @@ of the <strong>s</strong>tem, <strong>o</strong>utside bark at
 <strong>b</strong>reast height. Again, the units are defined, this time
 as centimeters.</li>
 <li>
-<code>model_description</code> - a named list containing model
+<code>model_specification</code> - a named list containing model
 descriptors. In this case the model descriptors are the parameters of
 the model and their estimates from the publication.</li>
 <li>
@@ -245,7 +246,7 @@ again defining the <code>Publication</code>.</p>
 <span></span>
 <span><span class="va">brackett_1977</span> <span class="op">&lt;-</span> <span class="fu">Publication</span><span class="op">(</span></span>
 <span>    citation <span class="op">=</span> <span class="va">bracket_1977_citation</span>,</span>
-<span>    shared_descriptors <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    descriptors <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>        country <span class="op">=</span> <span class="st">"US"</span>,</span>
 <span>        region <span class="op">=</span> <span class="st">"WA"</span></span>
 <span>    <span class="op">)</span></span>
@@ -258,9 +259,9 @@ respect to <code>species</code> as it was in <code>temsegen_2008</code>,
 so we will have to define those descriptors at the model-level.</p>
 <p>Next, we load a data frame of model descriptions and examine it</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">model_descriptions</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="fu">load_parameter_frame</span><span class="op">(</span><span class="st">'vsa_brackett_1977'</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">model_descriptions</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 6 × 8</span></span>m</span>
+<code class="sourceCode R"><span><span class="va">model_specifications</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="fu">load_parameter_frame</span><span class="op">(</span><span class="st">'vsa_brackett_1977'</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">model_specifications</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 6 × 8</span></span></span>
 <span><span class="co">##   family   genus       species      region   age_class         a     b     c</span></span>
 <span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
 <span><span class="co">## <span style="color: #BCBCBC;">1</span> Pinaceae Pseudotsuga menziesii    coastal  <span style="color: #949494;">"</span>&lt; 140 years<span style="color: #949494;">"</span> -<span style="color: #BB0000;">2.66</span>  1.74 1.13 </span></span>
@@ -269,8 +270,8 @@ so we will have to define those descriptors at the model-level.</p>
 <span><span class="co">## <span style="color: #BCBCBC;">4</span> Pinaceae Tsuga       heterophylla coastal  <span style="color: #949494;">"</span>&lt; 140 years<span style="color: #949494;">"</span> -<span style="color: #BB0000;">2.70</span>  1.84 1.12 </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;">5</span> Pinaceae Tsuga       heterophylla coastal  <span style="color: #949494;">"</span>&gt;= 80 years<span style="color: #949494;">"</span> -<span style="color: #BB0000;">2.66</span>  1.79 1.12 </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;">6</span> Pinaceae Tsuga       heterophylla interior <span style="color: #949494;">""</span>            -<span style="color: #BB0000;">2.57</span>  1.97 0.977</span></span></code></pre>
-<p>We can see that <code>model_descriptions</code> contains a number of
-individual models which are specified by column names referred to as
+<p>We can see that <code>model_specifications</code> contains a number
+of individual models which are specified by column names referred to as
 <code>descriptors</code>. In this case, <code>descriptors</code>
 includes both parameter estimates and additional model-level information
 needed to uniquely identify a model with the model set. For Brackett
@@ -293,7 +294,7 @@ set.</p>
     predict_fn = function(dsob, hst) {
         10^a * dsob^b * hst^c
     },
-    model_descriptions = model_descriptions
+    model_specifications = model_specifications
 ))</code></pre>
 <p>Finally, we add the model set to the publication using
 <code>add_set</code></p>

@@ -96,6 +96,7 @@ ParametricModel <- function(response_unit, covariate_units,
 # TODO set validity...must have a finite set of parameters >= length of
 # covariates
 
+#' @export
 setGeneric("predict", function(mod, ...) standardGeneric("predict"))
 
 setMethod("predict", signature(mod = "ParametricModel"), function(mod, ...) {
