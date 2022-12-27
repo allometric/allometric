@@ -38,9 +38,13 @@ setMethod(
     # Propagate the pub descriptors to the set
     model_set@pub_descriptors <- publication@descriptors
 
-    # Propagate the pub descriptors to the models
+    # Propagate the pub to the models
     for(i in seq_along(model_set@models)) {
       model_set@models[[i]]@pub_descriptors <- publication@descriptors
+      model_set@models[[i]]@set_descriptors <- model_set@descriptors
+      model_set@models[[i]]@model_specification <- c(
+        publication@descriptors, model_set@descriptors, model_set@models[[i]]@descriptors, model_set@models[[i]]@parameters
+      )
     }
 
     if (is.null(publication@response_sets[[response_name]])) {
@@ -64,14 +68,12 @@ setGeneric(
 setMethod("add_model", "Publication", function(publication, model) {
   # A model in a publication must be a member of a model set, so adding
   # a single model to a publication creates a "parent" model set
-
   set_of_one <- ModelSet(
     response_unit = model@response_unit,
     covariate_units = model@covariate_units,
     predict_fn = model@predict_fn,
-    model_descriptions = model@model_description,
-    pub_descriptors = publication@descriptors,
-    id = length(publication@response_sets) + 1
+    model_specifications = model@model_specification,
+    pub_descriptors = publication@descriptors
   )
 
   publication <- add_set(publication, set_of_one)

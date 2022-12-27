@@ -43,11 +43,11 @@ saveRDS(model_data, file='./inst/model_data.RDS')
 #          pub_id = pub@id,
 #          component = get_component_label(mod),
 #          measure = get_measure_label(mod),
-#          family = mod@model_description$family,
-#          genus = mod@model_description$genus,
-#          country = mod@model_description$country,
-#          region = mod@model_description$region,
-#          species = mod@model_description$species,
+#          family = mod@model_specification$family,
+#          genus = mod@model_specification$genus,
+#          country = mod@model_specification$country,
+#          region = mod@model_specification$region,
+#          species = mod@model_specification$species,
 #          mod = c(mod)
 #        )
 #      }

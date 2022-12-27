@@ -26,7 +26,7 @@ chosen_cvts_model <- ParametricModel(
         dsob = as_units('in'),
         hst = as_units('ft')
     ),
-    model_description = list(
+    parameters = list(
         a = -2.956054,
         b = 1.8140497,
         c = 1.2744923

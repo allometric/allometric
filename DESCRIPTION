@@ -12,6 +12,7 @@ RoxygenNote: 7.2.3
 Imports: Rdpack
 RdMacros: Rdpack
 Collate:
+    'util.R'
     'search.R'
     'load.R'
     'AllometricModel.R'

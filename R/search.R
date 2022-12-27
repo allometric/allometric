@@ -30,7 +30,7 @@ filter_models <- function(data, ...) {
     for(response_set in pub@response_sets) {
       for(model_set in response_set) {
         for(model in model_set@models) {
-          check <- check_description(model@model_description, expressions)
+          check <- check_description(model@model_specification, expressions)
           if(check) {
             results[[length(results) + 1]] <- model
           }

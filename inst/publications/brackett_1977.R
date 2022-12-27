@@ -15,7 +15,7 @@ brackett_1977 <- Publication(
     )
 )
 
-model_descriptions <- as_tibble(load_parameter_frame('vsa_brackett_1977'))
+model_specifications <- as_tibble(load_parameter_frame('vsa_brackett_1977'))
 
 brackett_1977 <- add_set(brackett_1977, ModelSet(
     response_unit = list(
@@ -29,5 +29,5 @@ brackett_1977 <- add_set(brackett_1977, ModelSet(
         10^a * dsob^b * hst^c
     },
     descriptors = list(test='this'),
-    model_descriptions = model_descriptions
+    model_specifications = model_specifications
 ))

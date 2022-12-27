@@ -1,5 +1,5 @@
 check_model_set <- function(object) {
-  # TODO the number of distinct rows of model_descriptions using the
+  # TODO the number of distinct rows of model_specifications using the
   # non-parameter columns needs to be equalto the total number of rows
   TRUE
 }
@@ -10,43 +10,48 @@ setClass(
     response_unit = "list",
     covariate_units = "list",
     predict_fn = "function",
-    model_descriptions = 'tbl_df',
+    model_specifications = 'tbl_df',
     descriptors = "list",
     pub_descriptors = "list",
-    models = "list",
-    id = "numeric"
+    parameter_names = "character",
+    models = "list"
   ),
   validity = check_model_set
 )
 
 ModelSet <- function(response_unit, covariate_units, predict_fn,
-                     model_descriptions, descriptors = list(),
-                     pub_descriptors = list(), id = NA_integer_) {
+                    model_specifications, descriptors = list(),
+                    pub_descriptors = list()) {
   model_set <- new("ModelSet")
 
-  model_descriptions <- as_tibble(model_descriptions)
-
+  model_specifications <- as_tibble(model_specifications)
   model_set@response_unit <- response_unit
   model_set@covariate_units <- covariate_units
-  model_set@model_descriptions <- model_descriptions
   model_set@predict_fn <- predict_fn
+  model_set@model_specifications <- model_specifications
   model_set@descriptors <- descriptors
   model_set@pub_descriptors <- pub_descriptors
-  model_set@id <- id
 
-  if ("list" %in% class(model_descriptions)) {
-    model_descriptions <- tibble(data.frame(model_descriptions))
+  model_set@parameter_names <- get_parameter_names(
+    predict_fn, names(model_set@covariate_units)
+  )
+
+  if ("list" %in% class(model_specifications)) {
+    model_specifications <- tibble(data.frame(model_specifications))
   }
 
-  for (i in 1:nrow(model_descriptions)) {
+  mod_descriptors <- names(model_specifications)[!names(model_specifications) %in% model_set@parameter_names]
+
+  for (i in 1:nrow(model_specifications)) {
+
     mod <- ParametricModel(
       response_unit = response_unit,
       covariate_units = covariate_units,
       predict_fn = predict_fn,
-      model_description = model_descriptions[i, ],
+      parameters = model_specifications[i, model_set@parameter_names],
+      descriptors = model_specifications[i, mod_descriptors],
       set_descriptors = model_set@descriptors,
-      pub_descriptors = model_set@pub_descriptors,
-      id = i
+      pub_descriptors = model_set@pub_descriptors
     )
 
     model_set@models[[length(model_set@models) + 1]] <- mod
@@ -118,8 +123,8 @@ setMethod('rd_variable_defs', 'ModelSet', function(mod) {
 setGeneric('rd_parameter_table', function(mod) standardGeneric('rd_parameter_table'))
 
 setMethod('rd_parameter_table', 'ModelSet', function(mod) {
-  n_mods <- nrow(mod@model_descriptions)
-  lines <- capture.output(print(mod@model_descriptions, n=n_mods))
+  n_mods <- nrow(mod@model_specifications)
+  lines <- capture.output(print(mod@model_specifications, n=n_mods))
 
   # TODO this can shift the column names weirdly, but an issue for another day...
   lines_no_quote <- str_replace_all(lines, "\"", " ")

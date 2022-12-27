@@ -9,27 +9,26 @@ setClass("AllometricModel",
   slots = c(
     response_unit = "list",
     covariate_units = "list",
-    model_description = "list",
+    model_specification = "list",
     set_descriptors = "list",
     pub_descriptors = "list",
-    predict_fn = "function",
-    id = "numeric"
+    descriptors = "list",
+    predict_fn = "function"
   )
 )
 
 #' @export
-AllometricModel <- function(response_unit, covariate_units, model_description,
+AllometricModel <- function(response_unit, covariate_units, model_specification,
                             predict_fn, set_descriptors = list(),
-                            pub_descriptors = list(),
-                            id = NA_integer_) {
+                            pub_descriptors = list(), descriptors = list()) {
   allometric_model <- new("AllometricModel")
   allometric_model@response_unit <- response_unit
   allometric_model@covariate_units <- covariate_units
   allometric_model@predict_fn <- predict_fn
-  allometric_model@model_description <- model_description
+  allometric_model@model_specification <- model_specification
   allometric_model@set_descriptors <- set_descriptors
   allometric_model@pub_descriptors <- pub_descriptors
-  allometric_model@id <- id
+  allometric_model@descriptors <-descriptors
   allometric_model
 }
 
@@ -85,3 +84,15 @@ setMethod(
     component_def[component_def$component == component, "component_label"]
   }
 )
+
+#setGeneric(
+#  "get_model_descriptors",
+#  function(x) standardGeneric("get_model_descriptors")
+#)
+#
+#setMethod(
+#  "get_model_descriptors",
+#  function(x) {
+#    
+#  }
+#)

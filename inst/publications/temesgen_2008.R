@@ -30,7 +30,7 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
     covariate_units = list(
         dsob = as_units('cm')
     ),
-    model_description = list(
+    parameters = list(
         b_0 = 51.9954,
         b_1 = -0.0208,
         b_2 = 1.0182,
@@ -48,7 +48,7 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
     covariate_units = list(
         dsob = as_units('cm')
     ),
-    model_description = list(
+    parameters = list(
         b_0 = 40.4218,
         b_1 = -0.0276,
         b_2 = 0.936,
@@ -68,7 +68,7 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
     covariate_units = list(
         dsob = as_units('cm')
     ),
-    model_description = list(
+    parameters = list(
         b_0 = 41.8199,
         b_1 = -0.0241,
         b_2 = 0.8604,
@@ -92,7 +92,7 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
         ba    = as_units('m2 / ha'),
         dsob = as_units('cm')
     ),
-    model_description = list(
+    parameters = list(
         b_00 = 43.7195,
         b_01 = 0.0644,
         b_02 = 0.128,
@@ -115,7 +115,7 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
         gn = as_units('m2 / ha'),
         dsob = as_units('cm')
     ),
-    model_description = list(
+    parameters = list(
         b_00 = 32.4635,
         b_01 = 0.0363,
         b_02 = 0.2585,
@@ -124,8 +124,8 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
         sigma_b = 4.635,
         sigma_epsilon = 2.641
     ),
-    predict_fn = function(ccfl, ba, dsob) {
-        1.37 + (b_00 + b_01 * ccfl + b_02 * ba) *
+    predict_fn = function(ccfl, gn, dsob) {
+        1.37 + (b_00 + b_01 * ccfl + b_02 * gn) *
             (1 - exp(b_1 * dsob)^b_2)
     }
 ))
@@ -139,7 +139,7 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
         gn = as_units('m2 / ha'),
         dsob = as_units('cm')
     ),
-    model_description = list(
+    parameters = list(
         b_00 = 35.7419,
         b_01 = 0.0431,
         b_02 = 0.2447,
@@ -150,8 +150,8 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
         sigma_b_0b2 = 0.125,
         sigma_epsilon = 2.566
     ),
-    predict_fn = function(ccfl, bast, dsob) {
-        1.37 + (b_00 + b_01 * ccfl + b_02 * bast) *
+    predict_fn = function(ccfl, gn, dsob) {
+        1.37 + (b_00 + b_01 * ccfl + b_02 * gn) *
             (1 - exp(b_1 * dsob)^b_2)
     }
 ))
