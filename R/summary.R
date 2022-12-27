@@ -14,7 +14,7 @@
 .get_variable_description_str <- function(variable_name, unit_str) {
   variable_description <- get_variable_def(variable_name)$description
   variable_label_str <- paste(variable_name, unit_str)
-  
+
   if(identical(variable_description, character(0))) {
     variable_description <- 'variable not defined'
   }

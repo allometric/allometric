@@ -1,3 +1,5 @@
+library(units)
+
 huy_2019_citation <- RefManageR::BibEntry(
     bibtype='article',
     key = 'huy_2019',

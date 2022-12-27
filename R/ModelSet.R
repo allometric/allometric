@@ -73,7 +73,7 @@ setMethod('rd_model_equation', 'ModelSet', function(mod) {
   func_str <- toString(body(mod@predict_fn))
   clean_str <- gsub('p\\$', '', func_str)
   clean_str <- gsub('\\{,', '', clean_str)
-  clean_str <- str_trim(clean_str)
+  clean_str <- stringr::str_trim(clean_str)
 
   model_str <- paste(response_name, '=', clean_str)
 
@@ -88,8 +88,8 @@ setMethod('rd_variable_defs', 'ModelSet', function(mod) {
   response <- names(mod@response_unit)[[1]]
   response_description <- get_variable_def(response)$description
 
-  unit_str <- capture.output(mod@response_unit[[response]])
-  unit_str <- str_sub(unit_str, 3)
+  unit_str <- utils::capture.output(mod@response_unit[[response]])
+  unit_str <- stringr::str_sub(unit_str, 3)
 
   response_label_str <- paste(response, unit_str)
 
@@ -102,8 +102,8 @@ setMethod('rd_variable_defs', 'ModelSet', function(mod) {
   for(i in seq_along(mod@covariate_units)) {
     covariate <- mod@covariate_units[[i]]
     covariate_name <- names(mod@covariate_units)[[i]]
-    covt_unit_str <- capture.output(covariate)
-    covt_unit_str <- str_sub(covt_unit_str, 3)
+    covt_unit_str <- utils::capture.output(covariate)
+    covt_unit_str <- stringr::str_sub(covt_unit_str, 3)
 
     covt_description <- get_variable_def(covariate_name)$description
     covt_label_str <- paste(covariate_name, covt_unit_str)
@@ -124,10 +124,10 @@ setGeneric('rd_parameter_table', function(mod) standardGeneric('rd_parameter_tab
 
 setMethod('rd_parameter_table', 'ModelSet', function(mod) {
   n_mods <- nrow(mod@model_specifications)
-  lines <- capture.output(print(mod@model_specifications, n=n_mods))
+  lines <- utils::capture.output(print(mod@model_specifications, n=n_mods))
 
   # TODO this can shift the column names weirdly, but an issue for another day...
-  lines_no_quote <- str_replace_all(lines, "\"", " ")
+  lines_no_quote <- stringr::str_replace_all(lines, "\"", " ")
 
   lines_trim <- lines_no_quote[-c(1, 3)]
 

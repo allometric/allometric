@@ -112,6 +112,7 @@ setMethod(
   "summary",
   "Publication",
   function(publication) {
-    print(str(publication@citation))
+    print(utils::str(publication@citation))
   }
 )
+

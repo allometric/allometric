@@ -9,8 +9,8 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
-Imports: Rdpack
-RdMacros: Rdpack
+Imports: 
+    units
 Collate:
     'summary.R'
     'util.R'

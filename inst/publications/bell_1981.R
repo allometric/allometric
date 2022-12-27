@@ -1,3 +1,5 @@
+library(units)
+
 bell_1981_citation <- RefManageR::BibEntry(
     bibtype = 'techreport',
     key = 'brackett_1977',

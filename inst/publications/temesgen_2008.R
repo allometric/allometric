@@ -1,3 +1,5 @@
+library(units)
+
 temesgen_2008_citation <- RefManageR::BibEntry(
     bibtype = 'article',
     key = 'temesgen_2008',

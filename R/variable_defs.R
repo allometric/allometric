@@ -1,10 +1,10 @@
-d_defs <- read.csv(system.file('variable_defs/d.csv', package='allometric'))
-v_defs <- read.csv(system.file('variable_defs/v.csv', package='allometric'))
-h_defs <- read.csv(system.file('variable_defs/h.csv', package='allometric'))
-b_defs <- read.csv(system.file('variable_defs/b.csv', package='allometric'))
-e_defs <- read.csv(system.file('variable_defs/b.csv', package='allometric'))
-component_defs <- read.csv(system.file('variable_defs/components.csv', package='allometric'))
-measure_defs <- read.csv(system.file('variable_defs/measures.csv', package='allometric'))
+d_defs <- utils::read.csv(system.file('variable_defs/d.csv', package='allometric'))
+v_defs <- utils::read.csv(system.file('variable_defs/v.csv', package='allometric'))
+h_defs <- utils::read.csv(system.file('variable_defs/h.csv', package='allometric'))
+b_defs <- utils::read.csv(system.file('variable_defs/b.csv', package='allometric'))
+e_defs <- utils::read.csv(system.file('variable_defs/b.csv', package='allometric'))
+component_defs <- utils::read.csv(system.file('variable_defs/components.csv', package='allometric'))
+measure_defs <- utils::read.csv(system.file('variable_defs/measures.csv', package='allometric'))
 
 # TODO a lot of repetition in these functions, is there a safe way to simplify?
 

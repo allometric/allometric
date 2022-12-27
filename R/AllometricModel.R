@@ -1,7 +1,3 @@
-library(units)
-library(tibble)
-library(bibtex)
-
 setOldClass("units")
 setOldClass("BibEntry")
 

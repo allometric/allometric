@@ -101,3 +101,7 @@ or even using the convenience of `dplyr`
 my_trees %>%
     mutate(vols = predict(df_mod, dias, heights))
 ```
+
+This is all that is needed to make predictions using the models stored in 
+`allometric`. Please refer to the following vignettes for further possibilities
+with this package.
