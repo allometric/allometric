@@ -2,14 +2,24 @@ library(yaml)
 
 model_data <- readRDS('./inst/model_data.RDS')
 
+pub_names <- names(model_data)
+pub_rd_names <- paste(pub_names, '.Rd', sep='')
+
+man_files <- list.files('./man')
+non_pub_rd_files <- man_files[!man_files %in% pub_rd_names]
+non_pub_rd_obj_names <- tools::file_path_sans_ext(non_pub_rd_files)
+
+
+init_reference <- list(
+    list(title = "Package Functions", contents = non_pub_rd_obj_names)
+)
+
 yaml_header <- list(
     url = "http://brycefrank.com/allometric",
     template = list(
         bootstrap = 5.0
     ),
-    reference = list(
-        list(title = "Package Functions", contents = c("ParametricModel"))
-    )
+    reference = init_reference
 )
 
 ref_sections <- list()

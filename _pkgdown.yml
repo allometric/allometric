@@ -3,7 +3,9 @@ template:
   bootstrap: 5.0
 reference:
 - title: Package Functions
-  contents: ParametricModel
+  contents:
+  - aggregate_results
+  - check_parametric_model
 - title: Stem Volume Models
   contents:
   - bell_1981
@@ -17,4 +19,6 @@ reference:
 - title: Bark Biomass Models
   contents: huy_2019
 - title: Stem Height Models
-  contents: temesgen_2008
+  contents:
+  - moore_1996
+  - temesgen_2008

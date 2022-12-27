@@ -2,9 +2,10 @@ pandoc: 2.19.2
 pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
+  descriptors: descriptors.html
   installing_a_model: installing_a_model.html
   variable_naming_system: variable_naming_system.html
-last_built: 2022-12-27T17:16Z
+last_built: 2022-12-27T23:09Z
 urls:
   reference: http://brycefrank.com/allometric/reference
   article: http://brycefrank.com/allometric/articles
