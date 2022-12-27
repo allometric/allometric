@@ -30,6 +30,5 @@ brackett_1977 <- add_set(brackett_1977, ModelSet(
     predict_fn = function(dsob, hst) {
         10^a * dsob^b * hst^c
     },
-    descriptors = list(test='this'),
     model_specifications = model_specifications
 ))

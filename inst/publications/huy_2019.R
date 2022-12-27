@@ -1,4 +1,5 @@
 library(units)
+library(dplyr)
 
 huy_2019_citation <- RefManageR::BibEntry(
     bibtype='article',

@@ -1,7 +1,3 @@
-library(devtools)
-library(dplyr)
-devtools::load_all(".")
-
 pub_r_files <- list.files("./inst/publications")
 pub_r_paths <- file.path("./inst/publications", pub_r_files)
 

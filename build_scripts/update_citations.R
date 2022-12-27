@@ -1,20 +1,3 @@
-
-
-
-
-# TODO using parse, we can get a list of assignments in an R file
-# use is.call(expr), and the third argument expr[[3]] to check if the name
-# contains "Allometric". This should be enough to find all declared allometric
-# equations in a file.
-
-# From here we build a list of all named allometric equations in the package,
-# and these will be used to make the keys of a .bib file, which we will then
-# write by calling the mod_bibtex slot of each model.
-
-# At the end, we have a .bib file we can use in the docstrings themselves,
-# and elsewhere in the documentation and package if we want...imagine being
-# able to search by author or publication year! Exciting.
-devtools::load_all(".") # Ensures that the model names are loaded as objects
 library(stringr)
 library(bibtex)
 library(RefManageR)

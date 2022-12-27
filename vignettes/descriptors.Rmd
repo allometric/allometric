@@ -1,0 +1,24 @@
+---
+title: "Describing a Model with Descriptors"
+---
+
+Descriptors are sets of information that describe a model, model set or
+publication. Descriptors set at the `Publication` or `ModelSet` level are 
+automatically propagated down to the `Model` level.
+
+There is a set of *standard descriptors*, which are used to provide search 
+fields in `filter_models`.
+
+The set of *standard descriptors* are:
+- `country` - the country (or countries) of the dataset used for the
+model. Countries must be two-character 
+[ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) names.
+- `region` - the region of the dataset used for the model. Regions are defined
+as subsets of countries, and must comply with the four-character region codes
+given in [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). States are 
+an example of regions, e.g., "US-CO" for Colorado, US.
+- `family` - the taxonomic family of the dataset used for the model.
+- `genus` - the taxonomic genus of the dataset used for the model.
+- `species` - the taxonomic species of the dataset used for the model.
+
+TODO - add more as they come up.

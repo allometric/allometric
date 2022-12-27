@@ -1,6 +1,4 @@
-# This script updates the _pkgdown.yml file, which produces the Results page.
 library(yaml)
-
 
 model_data <- readRDS('./inst/model_data.RDS')
 
