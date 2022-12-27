@@ -13,6 +13,7 @@ Imports: Rdpack
 RdMacros: Rdpack
 Collate:
     'util.R'
+    'ModelSearchResults.R'
     'search.R'
     'load.R'
     'AllometricModel.R'

@@ -28,7 +28,7 @@ AllometricModel <- function(response_unit, covariate_units, model_specification,
   allometric_model@model_specification <- model_specification
   allometric_model@set_descriptors <- set_descriptors
   allometric_model@pub_descriptors <- pub_descriptors
-  allometric_model@descriptors <-descriptors
+  allometric_model@descriptors <- descriptors
   allometric_model
 }
 

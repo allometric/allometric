@@ -33,8 +33,7 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
     parameters = list(
         b_0 = 51.9954,
         b_1 = -0.0208,
-        b_2 = 1.0182,
-        sigma_epsilon = 4.029
+        b_2 = 1.0182
     ),
     predict_fn = function(dsob) {
         1.37 + b_0 * (1 - exp(b_1 * dsob)^b_2)
@@ -51,9 +50,7 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
     parameters = list(
         b_0 = 40.4218,
         b_1 = -0.0276,
-        b_2 = 0.936,
-        sigma_b = 6.544,
-        sigma_epsilon = 2.693
+        b_2 = 0.936
     ),
     predict_fn = function(dsob) {
         # FIXME add random effects?
@@ -71,11 +68,7 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
     parameters = list(
         b_0 = 41.8199,
         b_1 = -0.0241,
-        b_2 = 0.8604,
-        sigma_b_0 = 6.409,
-        sigma_b_2 = 0.165,
-        sigma_b_0_b_2 = 0.31,
-        sigma_epsilon = 2.574
+        b_2 = 0.8604
     ),
     predict_fn = function(dsob) {
         # FIXME add random effects?
@@ -97,8 +90,7 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
         b_01 = 0.0644,
         b_02 = 0.128,
         b_1 = -0.0194,
-        b_2 = 1.0805,
-        sigma_epsilon = 3.519
+        b_2 = 1.0805
     ),
     predict_fn = function(ccfl, ba, dsob) {
         1.37 + (b_00 + b_01 * ccfl + b_02 * ba) *
@@ -120,9 +112,7 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
         b_01 = 0.0363,
         b_02 = 0.2585,
         b_1 = -0.021,
-        b_2 = 0.9906,
-        sigma_b = 4.635,
-        sigma_epsilon = 2.641
+        b_2 = 0.9906
     ),
     predict_fn = function(ccfl, gn, dsob) {
         1.37 + (b_00 + b_01 * ccfl + b_02 * gn) *
@@ -144,11 +134,7 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
         b_01 = 0.0431,
         b_02 = 0.2447,
         b_1 = -0.0184,
-        b_2 = 0.961,
-        sigma_b_0 = 4.743,
-        sigma_b2 = 0.098,
-        sigma_b_0b2 = 0.125,
-        sigma_epsilon = 2.566
+        b_2 = 0.961
     ),
     predict_fn = function(ccfl, gn, dsob) {
         1.37 + (b_00 + b_01 * ccfl + b_02 * gn) *
