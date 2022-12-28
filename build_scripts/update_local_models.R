@@ -6,7 +6,7 @@ model_data <- list()
 for(i in seq_along(pub_r_paths)) {
   pub_r_path <- pub_r_paths[[i]]
   pub_r_file <- pub_r_files[[i]]
-  print(paste("Processing file:", pub_r_path))
+  cat(paste("Updating models from publication:", pub_r_path, '\n'))
   source(pub_r_path)
   pub_name <- tools::file_path_sans_ext(pub_r_file)
 

@@ -10,7 +10,7 @@ setClass("Publication",
 #' @export
 Publication <- function(citation, response_sets = list(),
   descriptors = list()) {
-  publication <- new("Publication")
+  publication <- methods::new("Publication")
   publication@citation <- citation
   publication@response_sets <- response_sets
   publication@descriptors <- descriptors
@@ -73,8 +73,9 @@ setMethod("add_model", "Publication", function(publication, model) {
     covariate_units = model@covariate_units,
     predict_fn = model@predict_fn,
     model_specifications = model@model_specification,
-    pub_descriptors = publication@descriptors
   )
+
+  set_of_one@pub_descriptors <- publication@descriptors
 
   publication <- add_set(publication, set_of_one)
 

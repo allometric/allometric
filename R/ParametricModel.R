@@ -65,21 +65,20 @@ setClass(
 #' @export
 ParametricModel <- function(response_unit, covariate_units,
                             predict_fn, parameters,
-                            set_descriptors = list(),
-                            pub_descriptors = list(),
                             descriptors = list()) {
-  parametric_model <- new("ParametricModel",
+  parametric_model <- methods::new("ParametricModel",
     response_unit = response_unit, covariate_units = covariate_units,
-    predict_fn = predict_fn, parameters = parameters,
-    set_descriptors = set_descriptors, pub_descriptors = pub_descriptors,
-    descriptors = descriptors
+    predict_fn = predict_fn, parameters = parameters, descriptors = descriptors
   )
 
+  parametric_model@pub_descriptors <- list()
+  parametric_model@set_descriptors <- list()
+
   parametric_model@model_specification <- c(
-    pub_descriptors,
-    set_descriptors,
-    descriptors,
-    parameters
+    parametric_model@pub_descriptors,
+    parametric_model@set_descriptors,
+    parametric_model@descriptors,
+    parametric_model@parameters
   )
 
   # Populate a copy of the predict_fn with the coefficients

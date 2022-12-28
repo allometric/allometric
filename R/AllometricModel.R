@@ -13,23 +13,31 @@ setClass("AllometricModel",
   )
 )
 
+#' Base class for allometric models
+#'
+#' This class is primarily used as a parent class for other model
+#' implementations.
+#'
+#' @param response_unit - A list containing one element with the name of the
+#' respone variable as the key and the units of the response variable as class
+#' `units::units`
+#' @param covariate_units - A list containing all covariates used in the model
+#' with the name of the covariate as the key and the units of the covariate as
+#' class `units::units`
+#' @param model_specification - TODO [this will probably change..]
+#' @param predict_fn - A function that takes all covariates named in
+#' `covariate_units` as arguments.
 #' @export
 AllometricModel <- function(response_unit, covariate_units, model_specification,
-                            predict_fn, set_descriptors = list(),
-                            pub_descriptors = list(), descriptors = list()) {
-  allometric_model <- new("AllometricModel")
+                            predict_fn, descriptors = list()) {
+  allometric_model <- methods::new("AllometricModel")
   allometric_model@response_unit <- response_unit
   allometric_model@covariate_units <- covariate_units
   allometric_model@predict_fn <- predict_fn
   allometric_model@model_specification <- model_specification
-  allometric_model@set_descriptors <- set_descriptors
-  allometric_model@pub_descriptors <- pub_descriptors
   allometric_model@descriptors <- descriptors
   allometric_model
 }
-
-# TODO set validity...especially for descriptors, I think enforcing the
-# country slot is good
 
 measure_def <- data.frame(
   measure = c("d", "v", "g", "h", "b", "r"),
@@ -80,15 +88,3 @@ setMethod(
     component_def[component_def$component == component, "component_label"]
   }
 )
-
-#setGeneric(
-#  "get_model_descriptors",
-#  function(x) standardGeneric("get_model_descriptors")
-#)
-#
-#setMethod(
-#  "get_model_descriptors",
-#  function(x) {
-#    
-#  }
-#)

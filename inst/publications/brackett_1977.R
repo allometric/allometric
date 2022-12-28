@@ -13,7 +13,7 @@ brackett_1977 <- Publication(
     citation = bracket_1977_citation,
     descriptors = list(
         country = "US",
-        region = "WA"
+        region = "US-WA"
     )
 )
 

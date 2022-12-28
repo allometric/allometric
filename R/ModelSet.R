@@ -20,9 +20,8 @@ setClass(
 )
 
 ModelSet <- function(response_unit, covariate_units, predict_fn,
-                    model_specifications, descriptors = list(),
-                    pub_descriptors = list()) {
-  model_set <- new("ModelSet")
+                    model_specifications, descriptors = list()) {
+  model_set <- methods::new("ModelSet")
 
   model_specifications <- tibble::as_tibble(model_specifications)
   model_set@response_unit <- response_unit
@@ -30,7 +29,6 @@ ModelSet <- function(response_unit, covariate_units, predict_fn,
   model_set@predict_fn <- predict_fn
   model_set@model_specifications <- model_specifications
   model_set@descriptors <- descriptors
-  model_set@pub_descriptors <- pub_descriptors
 
   model_set@parameter_names <- get_parameter_names(
     predict_fn, names(model_set@covariate_units)
@@ -49,11 +47,10 @@ ModelSet <- function(response_unit, covariate_units, predict_fn,
       covariate_units = covariate_units,
       predict_fn = predict_fn,
       parameters = model_specifications[i, model_set@parameter_names],
-      descriptors = model_specifications[i, mod_descriptors],
-      set_descriptors = model_set@descriptors,
-      pub_descriptors = model_set@pub_descriptors
+      descriptors = model_specifications[i, mod_descriptors]
     )
 
+    mod@set_descriptors <- model_set@descriptors
     model_set@models[[length(model_set@models) + 1]] <- mod
   }
 

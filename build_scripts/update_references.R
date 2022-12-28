@@ -25,7 +25,9 @@ rd_lines <- function(pub) {
     header <- c(
         sprintf("\\name{%s}", pub@id),
         sprintf("\\alias{%s}", pub@id),
-        sprintf("\\title{%s}", TextCite(pub@citation))
+        sprintf("\\title{%s}", TextCite(pub@citation)),
+        sprintf("\\description{Allometric models from %s}",
+            TextCite(pub@citation))
     )
 
     # The response variables form the sections
@@ -57,7 +59,7 @@ rd_lines <- function(pub) {
 }
 
 for(pub in model_data) {
-    print(pub@id)
+    cat(paste('Updating reference page for:', pub@id, '\n'))
     rd_path <- file.path('./man/', paste0(pub@id, '.Rd'))
     write_lines <- rd_lines(pub)
 

@@ -16,7 +16,7 @@ bell_1981 <- Publication(
         genus = "Tsuga",
         species = "mertensiana",
         country = "US",
-        region = "OR"
+        region = "US-OR"
     )
 )
 

@@ -1,4 +1,4 @@
-setOldClass("tbl_df")
+if(!("tibble" %in% installed.packages())) setOldClass("tbl_df")
 
 #' @export
 setGeneric("filter_models", function(data, ...) standardGeneric("filter_models"))

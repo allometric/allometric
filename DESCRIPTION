@@ -10,6 +10,11 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Imports: 
+    dplyr,
+    methods,
+    rlang,
+    stringr,
+    tibble,
     units
 Collate:
     'summary.R'

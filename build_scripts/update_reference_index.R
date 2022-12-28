@@ -25,15 +25,12 @@ yaml_header <- list(
 ref_sections <- list()
 
 for(pub in model_data) {
-    print(pub@id)
+    cat(paste('Updating reference index for:', pub@id, '\n'))
     for(i in seq_along(pub@response_sets)) {
         response_set <- pub@response_sets[[i]]
         response_name <- names(pub@response_sets)[[i]]
         response_def <- get_variable_def(response_name)
         section_title <- str_to_title(paste(response_def$component_name, response_def$measure_name, 'models'))
-
-
-
         ref_sections[[section_title]] <- c(ref_sections[[section_title]], pub@id)
     }
 }
@@ -48,4 +45,3 @@ for(i in seq_along(ref_sections)) {
 }
 
 write_yaml(yaml_header, './_pkgdown.yml')
-

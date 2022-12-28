@@ -3,13 +3,15 @@ title: "Describing a Model with Descriptors"
 ---
 
 Descriptors are sets of information that describe a model, model set or
-publication. Descriptors set at the `Publication` or `ModelSet` level are 
-automatically propagated down to the `Model` level.
+publication. Descriptors are *optional* under one condition, all models within
+a `ModelSet` must be uniquely identified by the set of descriptors. So, for a
+`ModelSet` containing one model, no descriptors are needed.
 
-There is a set of *standard descriptors*, which are used to provide search 
-fields in `filter_models`.
+However, authors are encouraged to define a set of *search descriptors* if able.
+These descriptors are propagated to the `model_filter` function and allow for
+quick filtering of allometric equations
 
-The set of *standard descriptors* are:
+The set of *search descriptors* are:
 - `country` - the country (or countries) of the dataset used for the
 model. Countries must be two-character 
 [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) names.

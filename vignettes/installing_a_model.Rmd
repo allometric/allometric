@@ -71,7 +71,7 @@ temesgen_2008 <- Publication(
     citation = paper_citation,
     descriptors = list(
         country = 'US',
-        region = 'OR',
+        region = "US-OR",
         family = 'Pinaceae',
         genus = 'Pseudotsuga',
         species = 'menziesii'
@@ -172,7 +172,7 @@ brackett_1977 <- Publication(
     citation = bracket_1977_citation,
     descriptors = list(
         country = "US",
-        region = "WA"
+        region = "US-WA"
     )
 )
 ```

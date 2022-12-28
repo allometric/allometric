@@ -18,7 +18,7 @@ temesgen_2008 <- Publication(
     citation = temesgen_2008_citation,
     descriptors = list(
         country = 'US',
-        region = 'OR',
+        region = "US-OR",
         family = 'Pinaceae',
         genus = 'Pseudotsuga',
         species = 'menziesii'

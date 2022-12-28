@@ -51,7 +51,7 @@ df_wa_models <- filter_models(
     genus == 'Pseudotsuga',
     species == 'menziesii',
     country == 'US',
-    region == 'WA'
+    region == "US-WA"
 )
 
 df_wa_models

@@ -5,6 +5,7 @@ reference:
 - title: Package Functions
   contents:
   - aggregate_results
+  - AllometricModel
   - check_parametric_model
 - title: Stem Volume Models
   contents:
