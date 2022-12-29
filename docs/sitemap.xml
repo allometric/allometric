@@ -4,6 +4,9 @@
     <loc>http://brycefrank.com/allometric/404.html</loc>
   </url>
   <url>
+    <loc>http://brycefrank.com/allometric/articles/deep_dive.html</loc>
+  </url>
+  <url>
     <loc>http://brycefrank.com/allometric/articles/descriptors.html</loc>
   </url>
   <url>
@@ -11,6 +14,9 @@
   </url>
   <url>
     <loc>http://brycefrank.com/allometric/articles/installing_a_model.html</loc>
+  </url>
+  <url>
+    <loc>http://brycefrank.com/allometric/articles/mixed_effects.html</loc>
   </url>
   <url>
     <loc>http://brycefrank.com/allometric/articles/variable_naming.html</loc>
@@ -32,6 +38,9 @@
   </url>
   <url>
     <loc>http://brycefrank.com/allometric/reference/aggregate_results.html</loc>
+  </url>
+  <url>
+    <loc>http://brycefrank.com/allometric/reference/AllometricModel.html</loc>
   </url>
   <url>
     <loc>http://brycefrank.com/allometric/reference/bell_1981.html</loc>

@@ -65,22 +65,34 @@ setGeneric(
   function(publication, model) standardGeneric("add_model")
 )
 
-setMethod("add_model", "Publication", function(publication, model) {
-  # A model in a publication must be a member of a model set, so adding
-  # a single model to a publication creates a "parent" model set
-  set_of_one <- ModelSet(
+init_set_of_one <- function(constructor, model) {
+  constructor(
     response_unit = model@response_unit,
     covariate_units = model@covariate_units,
     predict_fn = model@predict_fn,
-    model_specifications = model@model_specification,
+    model_specifications = model@model_specification
   )
+}
 
-  set_of_one@pub_descriptors <- publication@descriptors
+setMethod("add_model", signature(publication = "Publication",
+  model = "FixedEffectsModel"), function(publication, model) {
+    set_of_one <- init_set_of_one(FixedEffectsSet, model)
+    set_of_one@pub_descriptors <- publication@descriptors
 
-  publication <- add_set(publication, set_of_one)
+    publication <- add_set(publication, set_of_one)
+    publication
+  }
+)
 
-  publication
-})
+setMethod("add_model", signature(publication = "Publication",
+  model = "MixedEffectsModel"), function(publication, model) {
+    set_of_one <- init_set_of_one(MixedEffectsSet, model)
+    set_of_one@pub_descriptors <- publication@descriptors
+
+    publication <- add_set(publication, set_of_one)
+    publication
+  }
+)
 
 setGeneric("n_models", function(publication) standardGeneric("n_models"))
 

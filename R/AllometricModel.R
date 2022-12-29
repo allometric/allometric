@@ -1,7 +1,7 @@
 setOldClass("units")
 setOldClass("BibEntry")
 
-setClass("AllometricModel",
+.AllometricModel <- setClass("AllometricModel",
   slots = c(
     response_unit = "list",
     covariate_units = "list",
@@ -30,7 +30,12 @@ setClass("AllometricModel",
 #' @export
 AllometricModel <- function(response_unit, covariate_units, model_specification,
                             predict_fn, descriptors = list()) {
-  allometric_model <- methods::new("AllometricModel")
+
+  allometric_model <- .AllometricModel(
+    response_unit, covariate_units, model_specification, predict_fn,
+    descriptors
+  )
+
   allometric_model@response_unit <- response_unit
   allometric_model@covariate_units <- covariate_units
   allometric_model@predict_fn <- predict_fn

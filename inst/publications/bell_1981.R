@@ -20,7 +20,7 @@ bell_1981 <- Publication(
     )
 )
 
-chosen_cvts_model <- ParametricModel(
+chosen_cvts_model <- FixedEffectsModel(
     response_unit = list(
         vsa = as_units('ft^3')
     ),

@@ -4,7 +4,7 @@ check_model_set <- function(object) {
   TRUE
 }
 
-setClass(
+.ModelSet <- setClass(
   "ModelSet",
   slots = c(
     response_unit = "list",
@@ -21,9 +21,10 @@ setClass(
 
 ModelSet <- function(response_unit, covariate_units, predict_fn,
                     model_specifications, descriptors = list()) {
-  model_set <- methods::new("ModelSet")
-
+  model_set <- .ModelSet()
+  
   model_specifications <- tibble::as_tibble(model_specifications)
+  
   model_set@response_unit <- response_unit
   model_set@covariate_units <- covariate_units
   model_set@predict_fn <- predict_fn
@@ -41,7 +42,6 @@ ModelSet <- function(response_unit, covariate_units, predict_fn,
   mod_descriptors <- names(model_specifications)[!names(model_specifications) %in% model_set@parameter_names]
 
   for (i in 1:nrow(model_specifications)) {
-
     mod <- ParametricModel(
       response_unit = response_unit,
       covariate_units = covariate_units,
@@ -134,3 +134,4 @@ setMethod('rd_parameter_table', 'ModelSet', function(mod) {
 
   sprintf('\\preformatted{%s}', fmt_lines)
 })
+

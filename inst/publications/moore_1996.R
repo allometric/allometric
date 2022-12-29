@@ -18,7 +18,7 @@ moore_1996 <- Publication(
     )
 )
 
-wykoff_set <- ModelSet(
+wykoff_set <- FixedEffectsSet(
     response_unit = list(
         hst = as_units('ft')
     ),
@@ -31,7 +31,7 @@ wykoff_set <- ModelSet(
     model_specifications = load_parameter_frame('hst_moore_1996_1')
 )
 
-lundqvist_set <- ModelSet(
+lundqvist_set <- FixedEffectsSet(
     response_unit = list(
         hst = as_units('ft')
     ),

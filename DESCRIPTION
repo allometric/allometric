@@ -24,5 +24,7 @@ Collate:
     'load.R'
     'AllometricModel.R'
     'ParametricModel.R'
+    'FixedEffectsModel.R'
+    'MixedEffectsModel.R'
     'ModelSet.R'
     'Publication.R'

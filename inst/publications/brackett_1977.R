@@ -19,7 +19,7 @@ brackett_1977 <- Publication(
 
 model_specifications <- tibble::as_tibble(load_parameter_frame('vsa_brackett_1977'))
 
-brackett_1977 <- add_set(brackett_1977, ModelSet(
+brackett_1977 <- add_set(brackett_1977, FixedEffectsSet(
     response_unit = list(
         vsa = as_units('ft3')
     ),

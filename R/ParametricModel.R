@@ -51,7 +51,7 @@ check_parametric_model <- function(object) {
 
 }
 
-setClass(
+.ParametricModel <- setClass(
   "ParametricModel",
   contains = "AllometricModel",
   slots = c(
@@ -61,12 +61,15 @@ setClass(
   validity = check_parametric_model
 )
 
+#' Base class for all parametric models.
+#'
+#' This is a base class used for `FixedEffectsModel` and `MixedEffectsModel`
 #'
 #' @export
 ParametricModel <- function(response_unit, covariate_units,
                             predict_fn, parameters,
                             descriptors = list()) {
-  parametric_model <- methods::new("ParametricModel",
+  parametric_model <- .ParametricModel(
     response_unit = response_unit, covariate_units = covariate_units,
     predict_fn = predict_fn, parameters = parameters, descriptors = descriptors
   )
@@ -102,12 +105,12 @@ setMethod("predict", signature(mod = "ParametricModel"), function(mod, ...) {
   mod@predict_fn_populated(...)
 })
 
-setMethod("show", "ParametricModel", function(mod) {
-  form <- get_model_str(mod)
+setMethod("show", "ParametricModel", function(object) {
+  form <- get_model_str(object)
   # TODO format the descriptions. They should be indented by 2 spaces and the
   # unit left backets should align by inserting spaces. Seems like do the
   # latter then the former.
-  variable_descriptions <- get_variable_descriptions(mod)
+  variable_descriptions <- get_variable_descriptions(object)
 
   cat('Model Form:', '\n')
   cat(form, '\n', '\n')
@@ -115,11 +118,11 @@ setMethod("show", "ParametricModel", function(mod) {
 
   cat('\n')
   cat('Parameter Estimates:', '\n')
-  print(data.frame(mod@parameters))
+  print(data.frame(object@parameters))
 
   cat('\n')
   cat('Model Specification:', '\n')
-  print(data.frame(mod@model_specification))
+  print(data.frame(object@model_specification))
 })
 
 setGeneric("get_model_str", function(mod) standardGeneric("get_model_str"))

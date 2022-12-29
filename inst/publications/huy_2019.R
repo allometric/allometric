@@ -20,7 +20,7 @@ huy_2019 <- Publication(
     )
 )
 
-bs_huy_2019_1 <- ModelSet(
+bs_huy_2019_1 <- FixedEffectsSet(
     response_unit = list(
         bs = as_units('kg')
     ),
@@ -35,7 +35,7 @@ bs_huy_2019_1 <- ModelSet(
     model_specifications = tibble::as_tibble(load_parameter_frame('bs_huy_2019_1'))
 )
 
-bs_huy_2019_2 <- ModelSet(
+bs_huy_2019_2 <- FixedEffectsSet(
     response_unit = list(
         bs = as_units('kg')
     ),
@@ -48,7 +48,7 @@ bs_huy_2019_2 <- ModelSet(
     model_specifications = tibble::as_tibble(load_parameter_frame('bs_huy_2019_2'))
 )
 
-bb_huy_2019 <- ModelSet(
+bb_huy_2019 <- FixedEffectsSet(
     response_unit = list(
         bb = as_units('kg')
     ),

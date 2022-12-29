@@ -25,7 +25,7 @@ temesgen_2008 <- Publication(
     )
 )
 
-temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
+temesgen_2008 <- add_model(temesgen_2008, FixedEffectsModel(
     response_unit = list(
         hst = as_units('m')
     ),
@@ -42,7 +42,7 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
     }
 ))
 
-temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
+temesgen_2008 <- add_model(temesgen_2008, FixedEffectsModel(
     response_unit = list(
        hst = as_units('m')
     ),
@@ -60,7 +60,7 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
     }
 ))
 
-temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
+temesgen_2008 <- add_model(temesgen_2008, FixedEffectsModel(
     response_unit = list(
        hst = as_units('m')
     ),
@@ -78,7 +78,7 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
     }
 ))
 
-temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
+temesgen_2008 <- add_model(temesgen_2008, FixedEffectsModel(
     response_unit = list(
        hst = as_units('m')
     ),
@@ -100,7 +100,7 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
     }
 ))
 
-temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
+temesgen_2008 <- add_model(temesgen_2008, FixedEffectsModel(
     response_unit = list(
        hst = as_units('m')
     ),
@@ -122,7 +122,7 @@ temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
     }
 ))
 
-temesgen_2008 <- add_model(temesgen_2008, ParametricModel(
+temesgen_2008 <- add_model(temesgen_2008, FixedEffectsModel(
     response_unit = list(
        hst= as_units('m')
     ),
