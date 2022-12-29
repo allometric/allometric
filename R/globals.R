@@ -1,2 +1,2 @@
 #' @export
-#allometric_models <- readRDS(system.file('allometric_model.RDS', package='allometric'))
+allometric_models <- readRDS(system.file('allometric_models.RDS', package='allometric'))

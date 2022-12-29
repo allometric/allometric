@@ -3,7 +3,7 @@
 export(AllometricModel)
 export(ParametricModel)
 export(Publication)
-export(filter_models)
+export(allometric_models)
 export(load_parameter_frame)
 export(predict)
 export(select_model)

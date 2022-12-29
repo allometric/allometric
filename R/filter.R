@@ -33,8 +33,3 @@ check_description <- function(description, expressions) {
 
   return(TRUE)
 }
-
-
-check <- function(...) {
-  browser()
-}
