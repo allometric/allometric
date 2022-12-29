@@ -17,6 +17,7 @@ Imports:
     tibble,
     units
 Collate:
+    'globals.R'
     'summary.R'
     'util.R'
     'variable_defs.R'

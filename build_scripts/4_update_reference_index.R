@@ -1,8 +1,8 @@
 library(yaml)
 
-model_data <- readRDS('./inst/model_data.RDS')
+pub_list <- readRDS('./inst/pub_list.RDS')
 
-pub_names <- names(model_data)
+pub_names <- names(pub_list)
 pub_rd_names <- paste(pub_names, '.Rd', sep='')
 
 man_files <- list.files('./man')
@@ -24,7 +24,7 @@ yaml_header <- list(
 
 ref_sections <- list()
 
-for(pub in model_data) {
+for(pub in pub_list) {
     cat(paste('Updating reference index for:', pub@id, '\n'))
     for(i in seq_along(pub@response_sets)) {
         response_set <- pub@response_sets[[i]]

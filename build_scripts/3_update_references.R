@@ -1,7 +1,7 @@
 library(RefManageR)
 library(stringr)
 
-model_data <- readRDS('./inst/model_data.RDS')
+pub_list <- readRDS('./inst/pub_list.RDS')
 
 response_section_lines <- function(response_set) {
     response_lines <- c()
@@ -58,7 +58,7 @@ rd_lines <- function(pub) {
     c(header, body)
 }
 
-for(pub in model_data) {
+for(pub in pub_list) {
     cat(paste('Updating reference page for:', pub@id, '\n'))
     rd_path <- file.path('./man/', paste0(pub@id, '.Rd'))
     write_lines <- rd_lines(pub)

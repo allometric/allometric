@@ -22,9 +22,9 @@ check_model_set <- function(object) {
 ModelSet <- function(response_unit, covariate_units, predict_fn,
                     model_specifications, descriptors = list()) {
   model_set <- .ModelSet()
-  
+
   model_specifications <- tibble::as_tibble(model_specifications)
-  
+
   model_set@response_unit <- response_unit
   model_set@covariate_units <- covariate_units
   model_set@predict_fn <- predict_fn
@@ -35,31 +35,13 @@ ModelSet <- function(response_unit, covariate_units, predict_fn,
     predict_fn, names(model_set@covariate_units)
   )
 
-  if ("list" %in% class(model_specifications)) {
-    model_specifications <- tibble(data.frame(model_specifications))
-  }
-
-  mod_descriptors <- names(model_specifications)[!names(model_specifications) %in% model_set@parameter_names]
-
-  for (i in 1:nrow(model_specifications)) {
-    mod <- ParametricModel(
-      response_unit = response_unit,
-      covariate_units = covariate_units,
-      predict_fn = predict_fn,
-      parameters = model_specifications[i, model_set@parameter_names],
-      descriptors = model_specifications[i, mod_descriptors]
-    )
-
-    mod@set_descriptors <- model_set@descriptors
-    model_set@models[[length(model_set@models) + 1]] <- mod
-  }
-
   model_set
 }
 
 setMethod("[[", signature(x= "ModelSet", i="numeric"), function(x, i) {
   x@models[[i]]
 })
+
 
 
 setGeneric('rd_model_equation', function(mod) standardGeneric('rd_model_equation'))

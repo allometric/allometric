@@ -1,21 +1,21 @@
 pub_r_files <- list.files("./inst/publications")
 pub_r_paths <- file.path("./inst/publications", pub_r_files)
 
-model_data <- list()
+pub_list <- list()
 
 for(i in seq_along(pub_r_paths)) {
   pub_r_path <- pub_r_paths[[i]]
   pub_r_file <- pub_r_files[[i]]
-  cat(paste("Updating models from publication:", pub_r_path, '\n'))
+  cat(paste("Updating publication list for:", pub_r_path, '\n'))
   source(pub_r_path)
   pub_name <- tools::file_path_sans_ext(pub_r_file)
 
   pub <- eval(str2expression(pub_name))
 
-  model_data[[pub@id]] <- pub
+  pub_list[[pub@id]] <- pub
 }
 
-saveRDS(model_data, file='./inst/model_data.RDS')
+saveRDS(pub_list, file='./inst/pub_list.RDS')
 
 #mod_rows <- list()
 #for (k in seq_along(pub_r_paths)) {
@@ -51,7 +51,7 @@ saveRDS(model_data, file='./inst/model_data.RDS')
 #  }
 #}
 #
-#model_data <- dplyr::bind_rows(mod_rows)
+#pub_list <- dplyr::bind_rows(mod_rows)
 #
 ## TODO make this data structure instead: (using json just to show...)
 #
