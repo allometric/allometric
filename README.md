@@ -12,8 +12,8 @@ it also provides a structured language for adding models to the package.
 If you are interested in helping the developer in this process please
 refer to the \[Installing a Model\] vignette.
 
-Currently, `allometric` contains 59 across 7 taxonomic families and 15
-taxonomic genera.
+Currently, `allometric` contains 59 allometric models across 7 taxonomic
+families and 15 taxonomic genera.
 
 ## Installation
 
