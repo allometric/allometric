@@ -12,8 +12,8 @@ it also provides a structured language for adding models to the package.
 If you are interested in helping the developer in this process please
 refer to the \[Installing a Model\] vignette.
 
-Currently, `allometric` contains 59 allometric models across 7 taxonomic
-families and 15 taxonomic genera.
+Currently, `allometric` contains 59 allometric models across 5
+publications.
 
 ## Installation
 
@@ -42,22 +42,30 @@ that were developed in the United States. Using `model_search` we can
 quickly find all stem volume models for this species.
 
 ``` r
-df_wa_models <- filter_models(
-    model_data,
+df_vol_models <- filter(
+    allometric_models,
     genus == 'Pseudotsuga',
     species == 'menziesii',
-    country == 'US',
-    region == "US-WA"
+    measure == "volume"
 )
 
-df_wa_models
+df_vol_models
 ```
+
+    ## # A tibble: 3 × 12
+    ##   compo…¹ country covt_…² family famil…³ genus measure model      pub_id pub_y…⁴
+    ##   <chr>   <list>  <list>  <chr>  <list>  <chr> <chr>   <list>     <chr>    <dbl>
+    ## 1 stem    <chr>   <chr>   Pinac… <chr>   Pseu… volume  <FxdEffcM> brack…    1977
+    ## 2 stem    <chr>   <chr>   Pinac… <chr>   Pseu… volume  <FxdEffcM> brack…    1977
+    ## 3 stem    <chr>   <chr>   Pinac… <chr>   Pseu… volume  <FxdEffcM> brack…    1977
+    ## # … with 2 more variables: region <list>, species <chr>, and abbreviated
+    ## #   variable names ¹​component, ²​covt_names, ³​family_names, ⁴​pub_year
 
 Here we see that three models are available from the Brackett (1977)
 report. We will select the third model using `select_model`.
 
 ``` r
-df_mod <- df_wa_models %>% select_model(3)
+df_mod <- df_vol_models %>% select_model(3)
 ```
 
 **Determine Needed Information**
@@ -70,6 +78,23 @@ within the publication), and estimates of the parameters.
 ``` r
 df_mod
 ```
+
+    ## Model Form: 
+    ## vsa = 10^a * dsob^b * hst^c 
+    ##  
+    ## vsa [ft3]: volume of the entire stem, including top and stump
+    ## dsob [in]: diameter of the stem, outside bark at breast height
+    ## hst [ft]: total height of the stem
+    ## 
+    ## Parameter Estimates: 
+    ##           a        b        c
+    ## 1 -2.734532 1.739418 1.166033
+    ## 
+    ## Model Specification: 
+    ##   country region   family       genus   species region.1 age_class         a
+    ## 1      US  US-WA Pinaceae Pseudotsuga menziesii interior      <NA> -2.734532
+    ##          b        c
+    ## 1 1.739418 1.166033
 
 We can see here that `df_mod` will require two covariates called `dsob`,
 which refers to diameter outside bark at breast height, and `hst`, the
@@ -84,6 +109,8 @@ providing values of these two covariates.
 predict(df_mod, 12, 65)
 ```
 
+    ## [1] 18.05228
+
 or we can use the prediction function with a data frame of values
 
 ``` r
@@ -91,12 +118,19 @@ my_trees <- data.frame(dias = c(12, 15, 20), heights = c(65, 75, 100))
 predict(df_mod, my_trees$dias, my_trees$heights)
 ```
 
+    ## [1] 18.05228 31.44601 72.53857
+
 or even using the convenience of `dplyr`
 
 ``` r
 my_trees %>%
     mutate(vols = predict(df_mod, dias, heights))
 ```
+
+    ##   dias heights     vols
+    ## 1   12      65 18.05228
+    ## 2   15      75 31.44601
+    ## 3   20     100 72.53857
 
 This is all that is needed to make predictions using the models stored
 in `allometric`. Please refer to the following vignettes for further

@@ -9,9 +9,7 @@ library(tidyr)
 devtools::load_all('.')
 
 n_models <- nrow(allometric_models)
-n_families <- length(unique(allometric_models$family, na.rm=T))
-n_genera <- length(unique(allometric_models$genus, na.rm=T))
-
+n_pubs <- length(unique(allometric_models$pub_id, na.rm=T))
 ```
 
 `allometric` is an open source R package for predicting tree attributes using
@@ -25,7 +23,7 @@ are interested in helping the developer in this process please refer to the
 [Installing a Model] vignette.
 
 Currently, `allometric` contains `r n_models` allometric models across
-`r n_families` taxonomic families and `r n_genera` taxonomic genera.
+`r n_pubs` publications.
 
 ## Installation
 
@@ -54,23 +52,22 @@ were developed in the United States. Using `model_search` we can quickly find
 all stem volume models for this species.
 
 
-```{r eval=F}
-df_wa_models <- filter_models(
-    model_data,
+```{r}
+df_vol_models <- filter(
+    allometric_models,
     genus == 'Pseudotsuga',
     species == 'menziesii',
-    country == 'US',
-    region == "US-WA"
+    measure == "volume"
 )
 
-df_wa_models
+df_vol_models
 ```
 
 Here we see that three models are available from the Brackett (1977) report.
 We will select the third model using `select_model`.
 
-```{r eval=F}
-df_mod <- df_wa_models %>% select_model(3)
+```{r}
+df_mod <- df_vol_models %>% select_model(3)
 ```
 
 **Determine Needed Information**
@@ -80,7 +77,7 @@ the response variable, the needed covariates and their units, a summary of
 the model specification (i.e., what makes the model unique within the
 publication), and estimates of the parameters.
 
-```{r eval=F}
+```{r}
 df_mod
 ```
 
@@ -93,20 +90,20 @@ main stem.
 Using the `predict` method we can easily use the function as defined
 by providing values of these two covariates.
 
-```{r eval=F}
+```{r}
 predict(df_mod, 12, 65)
 ```
 
 or we can use the prediction function with a data frame of values
 
-```{r eval=F}
+```{r}
 my_trees <- data.frame(dias = c(12, 15, 20), heights = c(65, 75, 100))
 predict(df_mod, my_trees$dias, my_trees$heights)
 ```
 
 or even using the convenience of `dplyr`
 
-```{r eval=F}
+```{r}
 my_trees %>%
     mutate(vols = predict(df_mod, dias, heights))
 ```
