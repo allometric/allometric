@@ -42,7 +42,7 @@ temesgen_2008 <- add_model(temesgen_2008, FixedEffectsModel(
   }
 ))
 
-temesgen_2008 <- add_model(temesgen_2008, FixedEffectsModel(
+temesgen_2008 <- add_model(temesgen_2008, MixedEffectsModel(
   response_unit = list(
     hst = as_units("m")
   ),
@@ -56,7 +56,7 @@ temesgen_2008 <- add_model(temesgen_2008, FixedEffectsModel(
   ),
   predict_fn = function(dsob) {
     # FIXME add random effects?
-    1.37 + b_0 * (1 - exp(b_1 * dsob)^b_2)
+    1.37 + (b_0) * (1 - exp(b_1 * dsob)^b_2)
   }
 ))
 

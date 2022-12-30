@@ -12,7 +12,7 @@ it also provides a structured language for adding models to the package.
 If you are interested in helping the developer in this process please
 refer to the \[Installing a Model\] vignette.
 
-Currently, `allometric` contains 73 allometric models across 6
+Currently, `allometric` contains 79 allometric models across 6
 publications.
 
 ## Installation
@@ -52,9 +52,9 @@ head(allometric_models)
     ## 1 stem     volume  <chr>   <chr>  Acera… Acer  <NA>    <FxdEffcM> brack… <chr>  
     ## 2 stem     volume  <chr>   <chr>  Betul… Alnus rubra   <FxdEffcM> brack… <chr>  
     ## 3 stem     volume  <chr>   <chr>  Betul… Betu… <NA>    <FxdEffcM> brack… <chr>  
-    ## 4 stem     diamet… <NULL>  <NULL> Cupre… Calo… <NA>    <FxdEffcM> hann_… <chr>  
-    ## 5 stem     volume  <chr>   <chr>  Cupre… Cupr… nootka… <FxdEffcM> brack… <chr>  
-    ## 6 stem     volume  <chr>   <chr>  Cupre… Thuja plicata <FxdEffcM> brack… <chr>  
+    ## 4 stem     diamet… <chr>   <chr>  Cupre… Calo… <NA>    <FxdEffcM> hann_… <chr>  
+    ## 5 stump    diamet… <chr>   <chr>  Cupre… Calo… <NA>    <FxdEffcM> hann_… <chr>  
+    ## 6 stem     volume  <chr>   <chr>  Cupre… Cupr… nootka… <FxdEffcM> brack… <chr>  
     ## # … with 2 more variables: covt_names <list>, pub_year <dbl>, and abbreviated
     ## #   variable names ¹​component, ²​family_names
 
