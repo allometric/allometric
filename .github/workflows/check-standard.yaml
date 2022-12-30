@@ -48,3 +48,8 @@ jobs:
         with:
           upload-snapshots: true
           error-on: '"error"'
+
+      - name: Install models
+        run: |
+          install_models()
+        shell: Rscript {0}
