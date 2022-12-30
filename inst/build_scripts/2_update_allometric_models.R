@@ -49,7 +49,6 @@ aggregate_results <- function(results) {
     pub_year <- as.numeric(pub@citation$year)
     descriptors_row$pub_year <- pub_year
 
-    print(names(model@response_unit))
     response_def <- get_variable_def(names(model@response_unit)[[1]])
 
     descriptors_row$component <- response_def$component_name

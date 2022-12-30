@@ -15,7 +15,8 @@ Imports:
     rlang,
     stringr,
     tibble,
-    units
+    units,
+    RefManageR
 Collate:
     'install.R'
     'summary.R'
