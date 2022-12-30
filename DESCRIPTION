@@ -17,7 +17,7 @@ Imports:
     tibble,
     units
 Collate:
-    'globals.R'
+    'install.R'
     'summary.R'
     'util.R'
     'variable_defs.R'
@@ -31,3 +31,4 @@ Collate:
     'FixedEffectsModel.R'
     'MixedEffectsModel.R'
     'Publication.R'
+    'zzz.R'

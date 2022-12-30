@@ -5,6 +5,7 @@
   )
 )
 
+#' @export
 MixedEffectsSet <- function(response_unit, covariate_units, predict_fn,
   model_specifications, fixed_only = FALSE, descriptors = list()) {
 

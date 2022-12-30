@@ -1,4 +1,5 @@
 library(units)
+library(tibble)
 
 bell_1981_citation <- RefManageR::BibEntry(
     bibtype = 'techreport',
@@ -9,7 +10,7 @@ bell_1981_citation <- RefManageR::BibEntry(
     institution = 'Oregon State University'
 )
 
-bell_1981 <- Publication(
+bell_1981 <- allometric::Publication(
     citation = bell_1981_citation,
     descriptors = list(
         family = "Pinaceae",

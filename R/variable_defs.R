@@ -90,7 +90,7 @@ get_density_def <- function(response_name) {
     add_measure
 }
 
-
+#' @export
 get_variable_def <- function(response_name) {
     measure_char <- substr(response_name, 1, 1)
 

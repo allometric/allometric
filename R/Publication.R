@@ -24,6 +24,7 @@ Publication <- function(citation, response_sets = list(),
   publication
 }
 
+#' @export
 setGeneric(
   "add_set",
   function(publication, model_set) standardGeneric("add_set")
@@ -60,6 +61,7 @@ setMethod(
   }
 )
 
+#' @export
 setGeneric(
   "add_model",
   function(publication, model) standardGeneric("add_model")

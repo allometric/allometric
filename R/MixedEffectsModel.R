@@ -11,6 +11,8 @@
 #'
 #' This class is essentially a wrapper around `ParametricModel` but clarifies
 #' the intent between `FixedEffectsModel` and `MixedEffectsModel`.
+#'
+#' @export
 MixedEffectsModel <- function(response_unit, covariate_units, predict_fn,
                               parameters, fixed_only = FALSE,
                               descriptors = list()) {

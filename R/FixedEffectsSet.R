@@ -2,6 +2,7 @@
   contains = "ModelSet"
 )
 
+#' @export
 FixedEffectsSet <- function(response_unit, covariate_units, predict_fn,
   model_specifications, descriptors = list()) {
 
