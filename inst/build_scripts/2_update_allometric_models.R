@@ -57,9 +57,8 @@ aggregate_results <- function(results) {
   # Order the columns
   not_in_order <- colnames(agg_results)[!colnames(agg_results) %in% out_order]
   order_cols <- c(out_order, not_in_order)
-  order_ix <- order(colnames(agg_results), order_cols)
 
-  agg_results[,order_ix]
+  agg_results[,order_cols]
 }
 
 for(pub in pub_list) {

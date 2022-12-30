@@ -41,6 +41,20 @@ their analysis. Three basic steps are needed, 1) find the model you want
 to use 2) determine what information is needed to use the model and 3) use the
 model to make predictions.
 
+Before beginning, make sure to install the models locally by running
+
+```{r eval=F}
+library(allometric)
+install_models()
+```
+
+This compiles the allometric models, and enables their use. After running this
+function, the models are available in the variable `allometric_models`
+
+```{r}
+head(allometric_models)
+```
+
 **Finding an Appropriate Model**
 
 Models can be searched by a variety of attributes including species 
