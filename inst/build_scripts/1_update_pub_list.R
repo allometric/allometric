@@ -3,10 +3,10 @@ pub_r_paths <- file.path("./inst/publications", pub_r_files)
 
 pub_list <- list()
 
-for(i in seq_along(pub_r_paths)) {
+for (i in seq_along(pub_r_paths)) {
   pub_r_path <- pub_r_paths[[i]]
   pub_r_file <- pub_r_files[[i]]
-  cat(paste("Updating publication list for:", pub_r_path, '\n'))
+  cat(paste("Updating publication list for:", pub_r_path, "\n"))
   source(pub_r_path)
   pub_name <- tools::file_path_sans_ext(pub_r_file)
 
@@ -15,10 +15,10 @@ for(i in seq_along(pub_r_paths)) {
   pub_list[[pub@id]] <- pub
 }
 
-saveRDS(pub_list, file='./inst/pub_list.RDS')
+saveRDS(pub_list, file = "./inst/pub_list.RDS")
 
-#mod_rows <- list()
-#for (k in seq_along(pub_r_paths)) {
+# mod_rows <- list()
+# for (k in seq_along(pub_r_paths)) {
 #  pub_r_path <- pub_r_paths[[k]]
 #  pub_r_file <- pub_r_files[[k]]
 #  print(paste("Processing file:", pub_r_path))
@@ -49,13 +49,13 @@ saveRDS(pub_list, file='./inst/pub_list.RDS')
 #      }
 #    }
 #  }
-#}
+# }
 #
-#pub_list <- dplyr::bind_rows(mod_rows)
+# pub_list <- dplyr::bind_rows(mod_rows)
 #
 ## TODO make this data structure instead: (using json just to show...)
 #
-##{
+## {
 ##  'brackett_1977': {
 ##    id: 'brackett_1977',
 ##    ...
@@ -71,7 +71,7 @@ saveRDS(pub_list, file='./inst/pub_list.RDS')
 ##  'temesgen_2008': {
 ##
 ##  }
-##}
+## }
 #
 ## Then from this you can make a flat-file for searching, but it will be much
 ## easier to make the documentation files using this structure, since all the

@@ -30,7 +30,6 @@ setOldClass("BibEntry")
 #' @export
 AllometricModel <- function(response_unit, covariate_units, model_specification,
                             predict_fn, descriptors = list()) {
-
   allometric_model <- .AllometricModel(
     response_unit, covariate_units, model_specification, predict_fn,
     descriptors

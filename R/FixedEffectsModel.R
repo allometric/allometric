@@ -12,7 +12,6 @@
 #' @export
 FixedEffectsModel <- function(response_unit, covariate_units, predict_fn,
                               parameters, descriptors = list()) {
-
   fixed_effects_model <- .FixedEffectsModel(ParametricModel(
     response_unit, covariate_units, predict_fn, parameters, descriptors
   ))

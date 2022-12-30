@@ -16,7 +16,6 @@
 MixedEffectsModel <- function(response_unit, covariate_units, predict_fn,
                               parameters, fixed_only = FALSE,
                               descriptors = list()) {
-
   mixed_effects_model <- .MixedEffectsModel(ParametricModel(
     response_unit, covariate_units, predict_fn, parameters, descriptors
   ))

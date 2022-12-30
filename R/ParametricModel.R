@@ -8,9 +8,10 @@ check_args_in_function <- function(object) {
 
   body_vars <- all.vars(fn_body)
 
-  if(!all(fn_args %in% body_vars)) {
-    msg <- paste("Not all predict_fn args",
-      paste(fn_args, collapse = ', '),
+  if (!all(fn_args %in% body_vars)) {
+    msg <- paste(
+      "Not all predict_fn args",
+      paste(fn_args, collapse = ", "),
       "are in the function body."
     )
     errors <- c(msg, errors)
@@ -31,9 +32,11 @@ check_body_vars_subset_description <- function(object) {
   model_specification_names <- names(object@model_specification)
 
 
-  if(!all(body_vars_less_args %in% model_specification_names)) {
-    msg <- paste("Function body parameters:", paste(body_vars_less_args, collapse = ', '),
-      "is not a subset of the model description:", paste(model_specification_names, collapse = ', '))
+  if (!all(body_vars_less_args %in% model_specification_names)) {
+    msg <- paste(
+      "Function body parameters:", paste(body_vars_less_args, collapse = ", "),
+      "is not a subset of the model description:", paste(model_specification_names, collapse = ", ")
+    )
     errors <- c(errors, msg)
   }
   errors
@@ -45,10 +48,9 @@ check_body_vars_subset_description <- function(object) {
 check_parametric_model <- function(object) {
   errors <- c()
   errors <- c(errors, check_args_in_function(object))
-  #errors <- c(errors, check_body_vars_subset_description(object))
+  # errors <- c(errors, check_body_vars_subset_description(object))
 
   errors
-
 }
 
 .ParametricModel <- setClass(
@@ -89,7 +91,7 @@ ParametricModel <- function(response_unit, covariate_units,
 
   func_body <- body(parametric_model@predict_fn_populated)
   body(parametric_model@predict_fn_populated) <- do.call(
-    'substitute', list(func_body, parametric_model@model_specification)
+    "substitute", list(func_body, parametric_model@model_specification)
   )
 
   parametric_model
@@ -112,16 +114,16 @@ setMethod("show", "ParametricModel", function(object) {
   # latter then the former.
   variable_descriptions <- get_variable_descriptions(object)
 
-  cat('Model Form:', '\n')
-  cat(form, '\n', '\n')
-  cat(variable_descriptions, sep="\n")
+  cat("Model Form:", "\n")
+  cat(form, "\n", "\n")
+  cat(variable_descriptions, sep = "\n")
 
-  cat('\n')
-  cat('Parameter Estimates:', '\n')
+  cat("\n")
+  cat("Parameter Estimates:", "\n")
   print(data.frame(object@parameters))
 
-  cat('\n')
-  cat('Model Specification:', '\n')
+  cat("\n")
+  cat("Model Specification:", "\n")
   print(data.frame(object@model_specification))
 })
 

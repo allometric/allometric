@@ -6,10 +6,10 @@ output: github_document
 ```{r include=FALSE}
 library(dplyr)
 library(tidyr)
-devtools::load_all('.')
+devtools::load_all(".")
 
 n_models <- nrow(allometric_models)
-n_pubs <- length(unique(allometric_models$pub_id, na.rm=T))
+n_pubs <- length(unique(allometric_models$pub_id, na.rm = T))
 ```
 
 `allometric` is an open source R package for predicting tree attributes using
@@ -31,7 +31,7 @@ Currently `allometric` is only available on GitHub, and can be installed using
 `devtools`.
 
 ```{r eval=FALSE}
-devtools::install_github('brycefrank/allometric')
+devtools::install_github("brycefrank/allometric")
 ```
 
 ## Getting Started
@@ -68,10 +68,10 @@ all stem volume models for this species.
 
 ```{r}
 df_vol_models <- filter(
-    allometric_models,
-    genus == 'Pseudotsuga',
-    species == 'menziesii',
-    measure == "volume"
+  allometric_models,
+  genus == "Pseudotsuga",
+  species == "menziesii",
+  measure == "volume"
 )
 
 df_vol_models
@@ -119,7 +119,7 @@ or even using the convenience of `dplyr`
 
 ```{r}
 my_trees %>%
-    mutate(vols = predict(df_mod, dias, heights))
+  mutate(vols = predict(df_mod, dias, heights))
 ```
 
 This is all that is needed to make predictions using the models stored in 

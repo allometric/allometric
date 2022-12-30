@@ -7,8 +7,7 @@
 
 #' @export
 MixedEffectsSet <- function(response_unit, covariate_units, predict_fn,
-  model_specifications, fixed_only = FALSE, descriptors = list()) {
-
+                            model_specifications, fixed_only = FALSE, descriptors = list()) {
   mixed_effects_set <- .MixedEffectsSet(
     ModelSet(
       response_unit, covariate_units, predict_fn, model_specifications,

@@ -1,11 +1,12 @@
-pub_list <- readRDS('./inst/pub_list.RDS')
+pub_list <- readRDS("./inst/pub_list.RDS")
 
 search_descriptors <- c(
-  'family', 'genus', 'species', 'country', 'region'
+  "family", "genus", "species", "country", "region"
 )
 
-out_order <- c('component', 'measure', 'country', 'region',
-  'family', 'genus', 'species', 'model'
+out_order <- c(
+  "component", "measure", "country", "region",
+  "family", "genus", "species", "model"
 )
 
 results <- list()
@@ -13,7 +14,7 @@ results <- list()
 #' Transforms a set of searched models into a tibble of models and descriptors
 aggregate_results <- function(results) {
   agg_results <- list()
-  for(i in seq_along(results)) {
+  for (i in seq_along(results)) {
     result <- results[[i]]
     model <- result$model
     pub <- result$pub
@@ -58,16 +59,16 @@ aggregate_results <- function(results) {
   not_in_order <- colnames(agg_results)[!colnames(agg_results) %in% out_order]
   order_cols <- c(out_order, not_in_order)
 
-  agg_results[,order_cols]
+  agg_results[, order_cols]
 }
 
-for(pub in pub_list) {
-  for(response_set in pub@response_sets) {
-    for(model_set in response_set) {
-      for(model in model_set@models) {
+for (pub in pub_list) {
+  for (response_set in pub@response_sets) {
+    for (model_set in response_set) {
+      for (model in model_set@models) {
         results[[length(results) + 1]] <- list(
-            pub = pub,
-            model = model
+          pub = pub,
+          model = model
         )
       }
     }
@@ -75,4 +76,4 @@ for(pub in pub_list) {
 }
 
 allometric_models <- aggregate_results(results)
-saveRDS(allometric_models, './data/allometric_models.RDS')
+saveRDS(allometric_models, "./data/allometric_models.RDS")

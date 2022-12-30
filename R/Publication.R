@@ -9,7 +9,7 @@ setClass("Publication",
 
 #' @export
 Publication <- function(citation, response_sets = list(),
-  descriptors = list()) {
+                        descriptors = list()) {
   publication <- methods::new("Publication")
   publication@citation <- citation
   publication@response_sets <- response_sets
@@ -40,7 +40,7 @@ setMethod(
     model_set@pub_descriptors <- publication@descriptors
 
     # Propagate the pub to the models
-    for(i in seq_along(model_set@models)) {
+    for (i in seq_along(model_set@models)) {
       model_set@models[[i]]@pub_descriptors <- publication@descriptors
       model_set@models[[i]]@set_descriptors <- model_set@descriptors
       model_set@models[[i]]@model_specification <- c(
@@ -76,25 +76,27 @@ init_set_of_one <- function(constructor, model) {
   )
 }
 
-setMethod("add_model", signature(publication = "Publication",
-  model = "FixedEffectsModel"), function(publication, model) {
-    set_of_one <- init_set_of_one(FixedEffectsSet, model)
-    set_of_one@pub_descriptors <- publication@descriptors
+setMethod("add_model", signature(
+  publication = "Publication",
+  model = "FixedEffectsModel"
+), function(publication, model) {
+  set_of_one <- init_set_of_one(FixedEffectsSet, model)
+  set_of_one@pub_descriptors <- publication@descriptors
 
-    publication <- add_set(publication, set_of_one)
-    publication
-  }
-)
+  publication <- add_set(publication, set_of_one)
+  publication
+})
 
-setMethod("add_model", signature(publication = "Publication",
-  model = "MixedEffectsModel"), function(publication, model) {
-    set_of_one <- init_set_of_one(MixedEffectsSet, model)
-    set_of_one@pub_descriptors <- publication@descriptors
+setMethod("add_model", signature(
+  publication = "Publication",
+  model = "MixedEffectsModel"
+), function(publication, model) {
+  set_of_one <- init_set_of_one(MixedEffectsSet, model)
+  set_of_one@pub_descriptors <- publication@descriptors
 
-    publication <- add_set(publication, set_of_one)
-    publication
-  }
-)
+  publication <- add_set(publication, set_of_one)
+  publication
+})
 
 setGeneric("n_models", function(publication) standardGeneric("n_models"))
 
@@ -130,4 +132,3 @@ setMethod(
     print(utils::str(publication@citation))
   }
 )
-
