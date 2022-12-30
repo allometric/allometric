@@ -1,7 +1,7 @@
 library(RefManageR)
 library(stringr)
 
-pub_list <- readRDS("./inst/pub_list.RDS")
+pub_list <- readRDS("./inst/extdata/pub_list.RDS")
 
 response_section_lines <- function(response_set) {
   response_lines <- c()

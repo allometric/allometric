@@ -15,7 +15,7 @@ for (i in seq_along(pub_r_paths)) {
   pub_list[[pub@id]] <- pub
 }
 
-saveRDS(pub_list, file = "./inst/pub_list.RDS")
+saveRDS(pub_list, file = "./inst/extdata/pub_list.RDS")
 
 # mod_rows <- list()
 # for (k in seq_along(pub_r_paths)) {

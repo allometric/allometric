@@ -1,6 +1,6 @@
 library(yaml)
 
-pub_list <- readRDS("./inst/pub_list.RDS")
+pub_list <- readRDS("./inst/extdata/pub_list.RDS")
 
 pub_names <- names(pub_list)
 pub_rd_names <- paste(pub_names, ".Rd", sep = "")

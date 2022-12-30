@@ -1,4 +1,4 @@
-pub_list <- readRDS("./inst/pub_list.RDS")
+pub_list <- readRDS("./inst/extdata/pub_list.RDS")
 
 search_descriptors <- c(
   "family", "genus", "species", "country", "region"
@@ -81,4 +81,4 @@ for (pub in pub_list) {
 }
 
 allometric_models <- aggregate_results(results)
-saveRDS(allometric_models, "./data/allometric_models.RDS")
+saveRDS(allometric_models, "./inst/extdata/allometric_models.RDS")

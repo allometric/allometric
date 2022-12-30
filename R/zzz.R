@@ -6,7 +6,8 @@
     #install_models()
   } else {
     #library(tibble)
-    #data <- readRDS("./data/allometric_models.RDS")
-    #.GlobalEnv$allometric_models <- data
+    rds_path <- system.file("extdata/allometric_models.RDS", package = pkgname)
+    data <- readRDS(rds_path)
+    .GlobalEnv$allometric_models <- data
   }
 }

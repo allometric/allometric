@@ -1,6 +1,8 @@
 allometric
 ================
 
+[![R-CMD-check](https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml)
+
 `allometric` is an open source R package for predicting tree attributes
 using allometric models. Thousands of allometric models exist in the
 scientific and technical forestry literature. `allometric` is a platform

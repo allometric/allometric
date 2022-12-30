@@ -6,11 +6,17 @@ output: github_document
 ```{r include=FALSE}
 library(dplyr)
 library(tidyr)
-devtools::load_all(".")
+library(allometric)
+
+if(!exists("allometric_models")) {
+  allometric::install_models()
+}
 
 n_models <- nrow(allometric_models)
 n_pubs <- length(unique(allometric_models$pub_id, na.rm = T))
 ```
+
+[![R-CMD-check](https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml)
 
 `allometric` is an open source R package for predicting tree attributes using
 allometric models. Thousands of allometric models exist in the
