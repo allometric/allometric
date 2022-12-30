@@ -1,7 +1,11 @@
-check_model_set <- function(object) {
+
+check_model_set_validity <- function(object) {
   # TODO the number of distinct rows of model_specifications using the
   # non-parameter columns needs to be equalto the total number of rows
-  TRUE
+  errors <- c()
+  errors <- c(errors, check_covts_in_args(object))
+  errors <- c(errors, check_args_in_predict_fn(object))
+  errors
 }
 
 .ModelSet <- setClass(
@@ -16,7 +20,7 @@ check_model_set <- function(object) {
     parameter_names = "character",
     models = "list"
   ),
-  validity = check_model_set
+  validity = check_model_set_validity
 )
 
 ModelSet <- function(response_unit, covariate_units, predict_fn,

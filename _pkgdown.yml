@@ -13,6 +13,8 @@ reference:
   contents:
   - bell_1981
   - brackett_1977
+- title: Stem Diameter Models
+  contents: hann_2011
 - title: Stem Biomass Models
   contents: huy_2019
 - title: Branch Biomass Models

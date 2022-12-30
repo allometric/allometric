@@ -8,12 +8,12 @@ setClass("Publication",
 )
 
 #' @export
-Publication <- function(citation, response_sets = list(),
-                        descriptors = list()) {
+Publication <- function(citation, descriptors = list()) {
   publication <- methods::new("Publication")
   publication@citation <- citation
-  publication@response_sets <- response_sets
   publication@descriptors <- descriptors
+
+  publication@response_sets <- list()
 
   publication@id <- paste(
     tolower(publication@citation$author[[1]]$family),

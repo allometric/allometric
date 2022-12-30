@@ -2,7 +2,8 @@ d_defs <- utils::read.csv(system.file("variable_defs/d.csv", package = "allometr
 v_defs <- utils::read.csv(system.file("variable_defs/v.csv", package = "allometric"))
 h_defs <- utils::read.csv(system.file("variable_defs/h.csv", package = "allometric"))
 b_defs <- utils::read.csv(system.file("variable_defs/b.csv", package = "allometric"))
-e_defs <- utils::read.csv(system.file("variable_defs/b.csv", package = "allometric"))
+e_defs <- utils::read.csv(system.file("variable_defs/e.csv", package = "allometric"))
+r_defs <- utils::read.csv(system.file("variable_defs/r.csv", package = "allometric"))
 component_defs <- utils::read.csv(system.file("variable_defs/components.csv", package = "allometric"))
 measure_defs <- utils::read.csv(system.file("variable_defs/measures.csv", package = "allometric"))
 
@@ -90,6 +91,20 @@ get_density_def <- function(response_name) {
   add_measure
 }
 
+get_ratio_def <- function(response_name) {
+  measure_char <- substr(response_name, 1, 1)
+  component_char <- substr(response_name, 2, 2)
+
+  matching_measure <- r_defs[
+    r_defs$measure == measure_char &
+      r_defs$component == component_char,
+  ]
+
+  add_component <- merge(matching_measure, component_defs)
+  add_measure <- merge(add_component, measure_defs)
+  add_measure
+}
+
 #' @export
 get_variable_def <- function(response_name) {
   measure_char <- substr(response_name, 1, 1)
@@ -104,6 +119,8 @@ get_variable_def <- function(response_name) {
     def <- get_diameter_def(response_name)
   } else if (measure_char == "e") {
     def <- get_density_def(response_name)
+  } else if(measure_char == "r") {
+    def <- get_ratio_def(response_name)
   } else {
     def <- list(description = character(0))
   }

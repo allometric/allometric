@@ -1,24 +1,3 @@
-check_args_in_function <- function(object) {
-  errors <- c()
-
-  fn_body <- body(object@predict_fn)
-  fn_args <- names(as.list(args(object@predict_fn)))
-
-  fn_args <- fn_args[-length(fn_args)]
-
-  body_vars <- all.vars(fn_body)
-
-  if (!all(fn_args %in% body_vars)) {
-    msg <- paste(
-      "Not all predict_fn args",
-      paste(fn_args, collapse = ", "),
-      "are in the function body."
-    )
-    errors <- c(msg, errors)
-  }
-
-  errors
-}
 
 
 check_body_vars_subset_description <- function(object) {
@@ -47,7 +26,7 @@ check_body_vars_subset_description <- function(object) {
 #' Check validity of parametric model
 check_parametric_model <- function(object) {
   errors <- c()
-  errors <- c(errors, check_args_in_function(object))
+  errors <- c(errors, check_args_in_predict_fn(object))
   # errors <- c(errors, check_body_vars_subset_description(object))
 
   errors
@@ -75,7 +54,6 @@ ParametricModel <- function(response_unit, covariate_units,
     response_unit = response_unit, covariate_units = covariate_units,
     predict_fn = predict_fn, parameters = parameters, descriptors = descriptors
   )
-
   parametric_model@pub_descriptors <- list()
   parametric_model@set_descriptors <- list()
 

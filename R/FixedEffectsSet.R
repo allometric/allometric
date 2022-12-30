@@ -1,3 +1,4 @@
+
 .FixedEffectsSet <- setClass("FixedEffectsSet",
   contains = "ModelSet"
 )
@@ -13,12 +14,12 @@ FixedEffectsSet <- function(response_unit, covariate_units, predict_fn,
   )
 
   if ("list" %in% class(model_specifications)) {
-    model_specifications <- tibble(data.frame(model_specifications))
+    model_specifications <- tibble::tibble(data.frame(model_specifications))
   }
 
   mod_descriptors <- names(model_specifications)[!names(model_specifications) %in% fixed_effects_set@parameter_names]
 
-  for (i in 1:nrow(model_specifications)) {
+  for (i in seq_len(nrow(model_specifications))) {
     mod <- FixedEffectsModel(
       response_unit = response_unit,
       covariate_units = covariate_units,
