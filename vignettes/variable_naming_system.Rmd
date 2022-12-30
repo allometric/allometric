@@ -44,6 +44,7 @@ component. Established components are:
 5. c: crown
 6. n: stand - used to refer to stand-level variables (typically used as covariates)
 7. p: plot - used to refer to plot-level variables (typically used as covariates)
+8. u: stump
 
 Mixing these first two character codes provides an expressive system to refer to 
 measures and components. For example, the biomass of foliage, if one were 

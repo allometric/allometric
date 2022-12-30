@@ -187,10 +187,9 @@ Next, we load a data frame of model descriptions and examine it
 
 ```{r include=FALSE}
 library(tibble)
-devtools::load_all(".")
 ```
 
-```{r}
+```{r eval=F}
 model_specifications <- tibble::as_tibble(load_parameter_frame("vsa_brackett_1977"))
 head(model_specifications)
 ```

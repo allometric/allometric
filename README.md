@@ -12,7 +12,7 @@ it also provides a structured language for adding models to the package.
 If you are interested in helping the developer in this process please
 refer to the \[Installing a Model\] vignette.
 
-Currently, `allometric` contains 59 allometric models across 5
+Currently, `allometric` contains 73 allometric models across 6
 publications.
 
 ## Installation
@@ -21,7 +21,7 @@ Currently `allometric` is only available on GitHub, and can be installed
 using `devtools`.
 
 ``` r
-devtools::install_github('brycefrank/allometric')
+devtools::install_github("brycefrank/allometric")
 ```
 
 ## Getting Started
@@ -30,6 +30,33 @@ Most users will only be interested in finding and using allometric
 equations in their analysis. Three basic steps are needed, 1) find the
 model you want to use 2) determine what information is needed to use the
 model and 3) use the model to make predictions.
+
+Before beginning, make sure to install the models locally by running
+
+``` r
+library(allometric)
+install_models()
+```
+
+This compiles the allometric models, and enables their use. After
+running this function, the models are available in the variable
+`allometric_models`
+
+``` r
+head(allometric_models)
+```
+
+    ## # A tibble: 6 × 12
+    ##   compon…¹ measure country region family genus species model      pub_id famil…²
+    ##   <chr>    <chr>   <list>  <list> <chr>  <chr> <chr>   <list>     <chr>  <list> 
+    ## 1 stem     volume  <chr>   <chr>  Acera… Acer  <NA>    <FxdEffcM> brack… <chr>  
+    ## 2 stem     volume  <chr>   <chr>  Betul… Alnus rubra   <FxdEffcM> brack… <chr>  
+    ## 3 stem     volume  <chr>   <chr>  Betul… Betu… <NA>    <FxdEffcM> brack… <chr>  
+    ## 4 stem     diamet… <NULL>  <NULL> Cupre… Calo… <NA>    <FxdEffcM> hann_… <chr>  
+    ## 5 stem     volume  <chr>   <chr>  Cupre… Cupr… nootka… <FxdEffcM> brack… <chr>  
+    ## 6 stem     volume  <chr>   <chr>  Cupre… Thuja plicata <FxdEffcM> brack… <chr>  
+    ## # … with 2 more variables: covt_names <list>, pub_year <dbl>, and abbreviated
+    ## #   variable names ¹​component, ²​family_names
 
 **Finding an Appropriate Model**
 
@@ -43,23 +70,23 @@ quickly find all stem volume models for this species.
 
 ``` r
 df_vol_models <- filter(
-    allometric_models,
-    genus == 'Pseudotsuga',
-    species == 'menziesii',
-    measure == "volume"
+  allometric_models,
+  genus == "Pseudotsuga",
+  species == "menziesii",
+  measure == "volume"
 )
 
 df_vol_models
 ```
 
     ## # A tibble: 3 × 12
-    ##   compo…¹ country covt_…² family famil…³ genus measure model      pub_id pub_y…⁴
-    ##   <chr>   <list>  <list>  <chr>  <list>  <chr> <chr>   <list>     <chr>    <dbl>
-    ## 1 stem    <chr>   <chr>   Pinac… <chr>   Pseu… volume  <FxdEffcM> brack…    1977
-    ## 2 stem    <chr>   <chr>   Pinac… <chr>   Pseu… volume  <FxdEffcM> brack…    1977
-    ## 3 stem    <chr>   <chr>   Pinac… <chr>   Pseu… volume  <FxdEffcM> brack…    1977
-    ## # … with 2 more variables: region <list>, species <chr>, and abbreviated
-    ## #   variable names ¹​component, ²​covt_names, ³​family_names, ⁴​pub_year
+    ##   compon…¹ measure country region family genus species model      pub_id famil…²
+    ##   <chr>    <chr>   <list>  <list> <chr>  <chr> <chr>   <list>     <chr>  <list> 
+    ## 1 stem     volume  <chr>   <chr>  Pinac… Pseu… menzie… <FxdEffcM> brack… <chr>  
+    ## 2 stem     volume  <chr>   <chr>  Pinac… Pseu… menzie… <FxdEffcM> brack… <chr>  
+    ## 3 stem     volume  <chr>   <chr>  Pinac… Pseu… menzie… <FxdEffcM> brack… <chr>  
+    ## # … with 2 more variables: covt_names <list>, pub_year <dbl>, and abbreviated
+    ## #   variable names ¹​component, ²​family_names
 
 Here we see that three models are available from the Brackett (1977)
 report. We will select the third model using `select_model`.
@@ -124,7 +151,7 @@ or even using the convenience of `dplyr`
 
 ``` r
 my_trees %>%
-    mutate(vols = predict(df_mod, dias, heights))
+  mutate(vols = predict(df_mod, dias, heights))
 ```
 
     ##   dias heights     vols

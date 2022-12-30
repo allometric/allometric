@@ -7,7 +7,10 @@ hann_2011 <- Publication(
     volume = 2,
     year = 2011
   ),
-  descriptors = list()
+  descriptors = list(
+    country = "US",
+    region = "US-OR"
+  )
 )
 
 dsib <- FixedEffectsSet(
@@ -26,6 +29,24 @@ dsib <- FixedEffectsSet(
   )
 )
 
+dui1 <- FixedEffectsSet(
+  response_unit = list(
+    dui1 = units::as_units('in')
+  ),
+  covariate_units = list(
+    dsob = units::as_units('in'),
+    rc = units::as_units('ft/ft')
+  ),
+  predict_fn = function(dsob, rc) {
+    b_1 + b_2 * dsob^b_3 * exp(b_4 * rc^b_5)
+  },
+  model_specifications = tibble::tibble(
+   load_parameter_frame('dui1_hann_2011') 
+  )
+)
+
 
 hann_2011 <- hann_2011 %>%
-  add_set(dsib)
+  add_set(dsib) %>%
+  add_set(dui1)
+

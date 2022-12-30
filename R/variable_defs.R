@@ -71,8 +71,12 @@ get_diameter_def <- function(response_name) {
       d_defs$height_modifier == height_char,
   ]
 
+
   add_component <- merge(matching_measure, component_defs)
   add_measure <- merge(add_component, measure_defs)
+
+  if(height_char == '1') {
+  }
 
   add_measure
 }

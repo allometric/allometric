@@ -30,6 +30,11 @@ aggregate_results <- function(results) {
     descriptors_row$model <- c(model)
 
     descriptors_row$country <- list(model_descriptors$country)
+
+    if(is.null(model_descriptors$country)) {
+      stop(paste(TextCite(pub@citation), 'did not contain a country code.'))
+    }
+
     descriptors_row$region <- list(model_descriptors$region)
     descriptors_row$family <- model_descriptors$family
     descriptors_row$genus <- model_descriptors$genus
@@ -44,6 +49,7 @@ aggregate_results <- function(results) {
     pub_year <- as.numeric(pub@citation$year)
     descriptors_row$pub_year <- pub_year
 
+    print(names(model@response_unit))
     response_def <- get_variable_def(names(model@response_unit)[[1]])
 
     descriptors_row$component <- response_def$component_name
