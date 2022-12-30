@@ -5,6 +5,8 @@ reference:
 - title: Package Functions
   contents:
   - AllometricModel
+  - check_args_in_predict_fn
+  - check_covts_in_args
   - check_parametric_model
   - FixedEffectsModel
   - MixedEffectsModel
