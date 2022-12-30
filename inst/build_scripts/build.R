@@ -1,3 +1,7 @@
+# build.R runs before each commit as a pre-commit hook. It verifies that all 
+# models will compile (using 1 and 2) and updates the reference documentation
+# (using 3 and 4)
+
 library(devtools)
 library(tibble)
 devtools::load_all(".")

@@ -43,11 +43,6 @@ jobs:
         with:
           extra-packages: any::rcmdcheck
           needs: check
-          
-      - name: Install models
-        run: |
-          allometric::install_models()
-        shell: Rscript {0}
 
       - uses: r-lib/actions/check-r-package@v2
         with:

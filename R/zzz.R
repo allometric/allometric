@@ -3,10 +3,10 @@
   mod_check <- system.file("data/allometric_models.RDS", package = pkgname)
 
   if (mod_check == "") {
-    install_models()
+    #install_models()
   } else {
-    library(tibble)
-    data <- readRDS("./data/allometric_models.RDS")
-    .GlobalEnv$allometric_models <- data
+    #library(tibble)
+    #data <- readRDS("./data/allometric_models.RDS")
+    #.GlobalEnv$allometric_models <- data
   }
 }
