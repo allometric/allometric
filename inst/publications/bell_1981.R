@@ -10,7 +10,7 @@ bell_1981_citation <- RefManageR::BibEntry(
   institution = "Oregon State University"
 )
 
-bell_1981 <- allometric::Publication(
+bell_1981 <- Publication(
   citation = bell_1981_citation,
   descriptors = list(
     family = "Pinaceae",

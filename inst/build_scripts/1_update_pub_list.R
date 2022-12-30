@@ -1,5 +1,7 @@
-pub_r_files <- list.files("./inst/publications")
-pub_r_paths <- file.path("./inst/publications", pub_r_files)
+pub_path <- system.file('publications', package='allometric')
+print(pub_path)
+pub_r_files <- list.files(pub_path)
+pub_r_paths <- file.path(pub_path, pub_r_files)
 
 pub_list <- list()
 
@@ -76,3 +78,4 @@ saveRDS(pub_list, file = "./inst/extdata/pub_list.RDS")
 ## Then from this you can make a flat-file for searching, but it will be much
 ## easier to make the documentation files using this structure, since all the
 ## information is available!
+

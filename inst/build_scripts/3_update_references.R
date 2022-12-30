@@ -1,7 +1,7 @@
 library(RefManageR)
 library(stringr)
 
-pub_list <- readRDS("./inst/extdata/pub_list.RDS")
+pub_list <- readRDS(system.file('extdata/pub_list.RDS', package = "allometric"))
 
 response_section_lines <- function(response_set) {
   response_lines <- c()
