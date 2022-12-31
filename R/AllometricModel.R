@@ -92,3 +92,13 @@ setMethod(
     component_def[component_def$component == component, "component_label"]
   }
 )
+
+setGeneric("Cite", function(x){standardGeneric("Cite")})
+
+setMethod(
+  "Cite",
+  signature(x = "AllometricModel"),
+  function(x) {
+    RefManageR::Cite(x@citation)
+  }
+)
