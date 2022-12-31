@@ -23,3 +23,4 @@ MixedEffectsModel <- function(response_unit, covariate_units, predict_fn,
   mixed_effects_model@fixed_only <- fixed_only
   mixed_effects_model
 }
+

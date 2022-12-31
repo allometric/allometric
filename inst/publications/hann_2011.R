@@ -45,8 +45,25 @@ dui1 <- FixedEffectsSet(
   )
 )
 
+vso <- FixedEffectsSet(
+  response_unit = list(
+    vso = units::as_units('ft^3')
+  ),
+  covariate_units = list(
+    hso = units::as_units('ft'),
+    dsob = units::as_units('in'),
+    hsv = units::as_units('ft')
+  ),
+  predict_fn = function(hso, dsob, hsv) {
+    b_1 * (hso / dsob)^(b_2 * (1 - exp(b_3 * dsob^b_4)))^k *
+      exp(b_5 * (hsv / hso)) * dsob^b_7 * dsob^2 * hso
+  },
+  model_specifications = tibble::tibble(load_parameter_frame('vso_hann_2011'))
+)
+
 
 hann_2011 <- hann_2011 %>%
   add_set(dsib) %>%
-  add_set(dui1)
+  add_set(dui1) %>%
+  add_set(vso)
 

@@ -17,7 +17,7 @@ for (i in seq_along(pub_r_paths)) {
   pub_list[[pub@id]] <- pub
 }
 
-out_dir <- system.file('extdata/', package = 'allometric')
+out_dir <- system.file('extdata', package = 'allometric')
 out_path <- file.path(out_dir, 'pub_list.RDS')
 saveRDS(pub_list, file = out_path)
 

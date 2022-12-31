@@ -2,3 +2,6 @@ measure,component,height_modifier,description
 h,s,t,total height of the stem
 h,s,m,merchantable height of the stem
 h,n,d,average height of dominant trees in stand
+h,s,o,height of the stem above breast height
+h,s,b,height of the stem to crown base
+h,s,v,height of the stem to crown base above breast height

@@ -1,2 +1,2 @@
-measure,component,description
-r,c,crown ratio
+measure,component,modifier,description
+r,c,,crown ratio
