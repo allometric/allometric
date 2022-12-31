@@ -4,6 +4,9 @@
     <loc>http://brycefrank.com/allometric/404.html</loc>
   </url>
   <url>
+    <loc>http://brycefrank.com/allometric/articles/advanced_searching.html</loc>
+  </url>
+  <url>
     <loc>http://brycefrank.com/allometric/articles/deep_dive.html</loc>
   </url>
   <url>
@@ -50,6 +53,12 @@
   </url>
   <url>
     <loc>http://brycefrank.com/allometric/reference/brackett_1977.html</loc>
+  </url>
+  <url>
+    <loc>http://brycefrank.com/allometric/reference/check_args_in_predict_fn.html</loc>
+  </url>
+  <url>
+    <loc>http://brycefrank.com/allometric/reference/check_covts_in_args.html</loc>
   </url>
   <url>
     <loc>http://brycefrank.com/allometric/reference/check_parametric_model.html</loc>

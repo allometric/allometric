@@ -41,6 +41,7 @@
 <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
+    <a class="dropdown-item" href="articles/advanced_searching.html">UNKNOWN TITLE</a>
     <a class="dropdown-item" href="articles/deep_dive.html">A Deep Dive into `allometric`</a>
     <a class="dropdown-item" href="articles/descriptors.html">Describing a Model with Descriptors</a>
     <a class="dropdown-item" href="articles/installing_a_model.html">Installing a Model</a>
@@ -63,9 +64,10 @@
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header"><h1 id="allometric">allometric<a class="anchor" aria-label="anchor" href="#allometric"></a>
 </h1></div>
+<p><a href="https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml" class="external-link"><img src="https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml/badge.svg" alt="R-CMD-check"></a></p>
 <p><code>allometric</code> is an open source R package for predicting tree attributes using allometric models. Thousands of allometric models exist in the scientific and technical forestry literature. <code>allometric</code> is a platform for archiving and using this vast array of models in a robust and structured format.</p>
 <p><code>allometric</code> not only enables the use of allometric models for analysis, it also provides a structured language for adding models to the package. If you are interested in helping the developer in this process please refer to the [Installing a Model] vignette.</p>
-<p>Currently, <code>allometric</code> contains 73 allometric models across 6 publications.</p>
+<p>Currently, <code>allometric</code> contains 85 allometric models across 6 publications.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -90,9 +92,9 @@
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 stem     volume  &lt;chr&gt;   &lt;chr&gt;  Acera… Acer  &lt;NA&gt;    &lt;FxdEffcM&gt; brack… &lt;chr&gt;  </span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 stem     volume  &lt;chr&gt;   &lt;chr&gt;  Betul… Alnus rubra   &lt;FxdEffcM&gt; brack… &lt;chr&gt;  </span></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 stem     volume  &lt;chr&gt;   &lt;chr&gt;  Betul… Betu… &lt;NA&gt;    &lt;FxdEffcM&gt; brack… &lt;chr&gt;  </span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 4 stem     diamet… &lt;NULL&gt;  &lt;NULL&gt; Cupre… Calo… &lt;NA&gt;    &lt;FxdEffcM&gt; hann_… &lt;chr&gt;  </span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="do">## 5 stem     volume  &lt;chr&gt;   &lt;chr&gt;  Cupre… Cupr… nootka… &lt;FxdEffcM&gt; brack… &lt;chr&gt;  </span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="do">## 6 stem     volume  &lt;chr&gt;   &lt;chr&gt;  Cupre… Thuja plicata &lt;FxdEffcM&gt; brack… &lt;chr&gt;  </span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 4 stem     diamet… &lt;chr&gt;   &lt;chr&gt;  Cupre… Calo… &lt;NA&gt;    &lt;FxdEffcM&gt; hann_… &lt;chr&gt;  </span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="do">## 5 stump    diamet… &lt;chr&gt;   &lt;chr&gt;  Cupre… Calo… &lt;NA&gt;    &lt;FxdEffcM&gt; hann_… &lt;chr&gt;  </span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="do">## 6 stem     volume  &lt;chr&gt;   &lt;chr&gt;  Cupre… Calo… &lt;NA&gt;    &lt;FxdEffcM&gt; hann_… &lt;chr&gt;  </span></span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="do">## # … with 2 more variables: covt_names &lt;list&gt;, pub_year &lt;dbl&gt;, and abbreviated</span></span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="do">## #   variable names ¹​component, ²​family_names</span></span></code></pre></div>
 <p><strong>Finding an Appropriate Model</strong></p>
@@ -107,14 +109,15 @@
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">df_vol_models</span></span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 3 × 12</span></span>
+<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 4 × 12</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="do">##   compon…¹ measure country region family genus species model      pub_id famil…²</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;chr&gt;    &lt;chr&gt;   &lt;list&gt;  &lt;list&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;   &lt;list&gt;     &lt;chr&gt;  &lt;list&gt; </span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 stem     volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… &lt;FxdEffcM&gt; brack… &lt;chr&gt;  </span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 stem     volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… &lt;FxdEffcM&gt; brack… &lt;chr&gt;  </span></span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 stem     volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… &lt;FxdEffcM&gt; brack… &lt;chr&gt;  </span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="do">## # … with 2 more variables: covt_names &lt;list&gt;, pub_year &lt;dbl&gt;, and abbreviated</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="do">## #   variable names ¹​component, ²​family_names</span></span></code></pre></div>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 4 stem     volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… &lt;FxdEffcM&gt; hann_… &lt;chr&gt;  </span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="do">## # … with 2 more variables: covt_names &lt;list&gt;, pub_year &lt;dbl&gt;, and abbreviated</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="do">## #   variable names ¹​component, ²​family_names</span></span></code></pre></div>
 <p>Here we see that three models are available from the Brackett (1977) report. We will select the third model using <code>select_model</code>.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_mod</span> <span class="op">&lt;-</span> <span class="va">df_vol_models</span> <span class="op">%&gt;%</span> <span class="fu">select_model</span><span class="op">(</span><span class="fl">3</span><span class="op">)</span></span></code></pre></div>
