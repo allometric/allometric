@@ -81,7 +81,7 @@ for (pub in pub_list) {
 }
 
 allometric_models <- aggregate_results(results)
-out_dir <- system.file('./extdata/', package='allometric')
+out_dir <- system.file('extdata', package='allometric')
 out_path <- file.path(out_dir, 'allometric_models.RDS')
 
 saveRDS(allometric_models, out_path)
