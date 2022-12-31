@@ -1,15 +1,18 @@
 setOldClass("units")
 setOldClass("BibEntry")
+setOldClass("bibentry")
+
+setClassUnion("BibEntry_", c("BibEntry", "bibentry"))
 
 .AllometricModel <- setClass("AllometricModel",
   slots = c(
     response_unit = "list",
     covariate_units = "list",
-    model_specification = "list",
+    predict_fn = "function",
+    descriptors = "list",
     set_descriptors = "list",
     pub_descriptors = "list",
-    descriptors = "list",
-    predict_fn = "function"
+    citation = "BibEntry_"
   )
 )
 
@@ -24,22 +27,20 @@ setOldClass("BibEntry")
 #' @param covariate_units - A list containing all covariates used in the model
 #' with the name of the covariate as the key and the units of the covariate as
 #' class `units::units`
-#' @param model_specification - TODO [this will probably change..]
 #' @param predict_fn - A function that takes all covariates named in
 #' `covariate_units` as arguments.
 #' @export
-AllometricModel <- function(response_unit, covariate_units, model_specification,
-                            predict_fn, descriptors = list()) {
+AllometricModel <- function(response_unit, covariate_units, predict_fn,
+                            descriptors = list()) {
+
   allometric_model <- .AllometricModel(
-    response_unit, covariate_units, model_specification, predict_fn,
-    descriptors
+    response_unit = response_unit,
+    covariate_units = covariate_units,
+    predict_fn = predict_fn,
+    descriptors = descriptors,
+    citation = RefManageR::BibEntry()
   )
 
-  allometric_model@response_unit <- response_unit
-  allometric_model@covariate_units <- covariate_units
-  allometric_model@predict_fn <- predict_fn
-  allometric_model@model_specification <- model_specification
-  allometric_model@descriptors <- descriptors
   allometric_model
 }
 

@@ -37,7 +37,8 @@ check_parametric_model <- function(object) {
   contains = "AllometricModel",
   slots = c(
     predict_fn_populated = "function",
-    parameters = "list"
+    parameters = "list",
+    model_specification = "list"
   ),
   validity = check_parametric_model
 )
@@ -47,13 +48,15 @@ check_parametric_model <- function(object) {
 #' This is a base class used for `FixedEffectsModel` and `MixedEffectsModel`
 #'
 #' @export
-ParametricModel <- function(response_unit, covariate_units,
-                            predict_fn, parameters,
-                            descriptors = list()) {
+ParametricModel <- function(response_unit, covariate_units, predict_fn,
+                            parameters, descriptors = list()) {
   parametric_model <- .ParametricModel(
-    response_unit = response_unit, covariate_units = covariate_units,
-    predict_fn = predict_fn, parameters = parameters, descriptors = descriptors
+    AllometricModel(
+      response_unit, covariate_units, predict_fn, descriptors
+    ),
+    parameters = parameters
   )
+
   parametric_model@pub_descriptors <- list()
   parametric_model@set_descriptors <- list()
 

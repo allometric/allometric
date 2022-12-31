@@ -1,6 +1,6 @@
 setClass("Publication",
   slots = c(
-    citation = "BibEntry",
+    citation = "BibEntry_",
     response_sets = "list",
     descriptors = "list",
     id = "character"
@@ -43,6 +43,7 @@ setMethod(
     for (i in seq_along(model_set@models)) {
       model_set@models[[i]]@pub_descriptors <- publication@descriptors
       model_set@models[[i]]@set_descriptors <- model_set@descriptors
+      model_set@models[[i]]@citation <- publication@citation
       model_set@models[[i]]@model_specification <- c(
         publication@descriptors, model_set@descriptors, model_set@models[[i]]@descriptors, model_set@models[[i]]@parameters
       )
