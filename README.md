@@ -12,7 +12,9 @@ structured format.
 `allometric` not only enables the use of allometric models for analysis,
 it also provides a structured language for adding models to the package.
 If you are interested in helping the developer in this process please
-refer to the \[Installing a Model\] vignette.
+refer to the [Installing a
+Model](https://brycefrank.com/allometric/articles/installing_a_model.html)
+vignette.
 
 Currently, `allometric` contains 85 allometric models across 6
 publications.
@@ -121,11 +123,9 @@ df_mod
     ##           a        b        c
     ## 1 -2.734532 1.739418 1.166033
     ## 
-    ## Model Specification: 
-    ##   country region   family       genus   species region.1 age_class         a
-    ## 1      US  US-WA Pinaceae Pseudotsuga menziesii interior      <NA> -2.734532
-    ##          b        c
-    ## 1 1.739418 1.166033
+    ## Model Descriptors: 
+    ##   country region   family       genus   species region.1 age_class
+    ## 1      US  US-WA Pinaceae Pseudotsuga menziesii interior      <NA>
 
 We can see here that `df_mod` will require two covariates called `dsob`,
 which refers to diameter outside bark at breast height, and `hst`, the

@@ -1,3 +1,16 @@
+#' Check validity of descriptors
+#' 
+#' There must not be any duplicate names across the three sets 
+#' (pub, set, model). If there is, stop execution with error that names the
+#' duplicated descriptors
+check_descriptor_set <- function(descriptor_set) {
+  dups <- names(descriptor_set)[duplicated(names(descriptor_set))]
+
+  if(length(dups) > 0) {
+    stop(paste("Duplicated descriptors:", dups))
+  }
+}
+
 setClass("Publication",
   slots = c(
     citation = "BibEntry",
@@ -41,10 +54,12 @@ setMethod(
 
     # Propagate the pub to the models
     for (i in seq_along(model_set@models)) {
+      check_descriptor_set(c(publication@descriptors, model_set@descriptors, model_set@models[[i]]@descriptors))
+
       model_set@models[[i]]@pub_descriptors <- publication@descriptors
       model_set@models[[i]]@set_descriptors <- model_set@descriptors
       model_set@models[[i]]@citation <- publication@citation
-      model_set@models[[i]]@model_specification <- c(
+      model_set@models[[i]]@specification <- c(
         publication@descriptors, model_set@descriptors, model_set@models[[i]]@descriptors, model_set@models[[i]]@parameters
       )
     }
@@ -73,7 +88,7 @@ init_set_of_one <- function(constructor, model) {
     response_unit = model@response_unit,
     covariate_units = model@covariate_units,
     predict_fn = model@predict_fn,
-    model_specifications = model@model_specification
+    model_specifications = model@specification
   )
 }
 

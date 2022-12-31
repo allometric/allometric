@@ -66,7 +66,7 @@
 </h1></div>
 <p><a href="https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml" class="external-link"><img src="https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml/badge.svg" alt="R-CMD-check"></a></p>
 <p><code>allometric</code> is an open source R package for predicting tree attributes using allometric models. Thousands of allometric models exist in the scientific and technical forestry literature. <code>allometric</code> is a platform for archiving and using this vast array of models in a robust and structured format.</p>
-<p><code>allometric</code> not only enables the use of allometric models for analysis, it also provides a structured language for adding models to the package. If you are interested in helping the developer in this process please refer to the [Installing a Model] vignette.</p>
+<p><code>allometric</code> not only enables the use of allometric models for analysis, it also provides a structured language for adding models to the package. If you are interested in helping the developer in this process please refer to the <a href="./vignettes/installing_a_model.Rmd">Installing a Model</a> vignette.</p>
 <p>Currently, <code>allometric</code> contains 85 allometric models across 6 publications.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -83,7 +83,7 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">allometric</span><span class="op">)</span></span>
 <span><span class="fu">install_models</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p>This compiles the allometric models, and enables their use. After running this function, the models are available in the variable <code>allometric_models</code></p>
+<p>This compiles the allometric models, and enables their use. <code>install_models</code> only needs to be ran at installation, or following any package updates. After running this function, the models are available in the variable <code>allometric_models</code>.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">allometric_models</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 6 × 12</span></span>

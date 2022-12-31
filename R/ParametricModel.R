@@ -8,7 +8,7 @@ check_body_vars_subset_description <- function(object) {
   body_vars <- all.vars(fn_body)
   body_vars_less_args <- body_vars[!body_vars %in% fn_args]
 
-  model_specification_names <- names(object@model_specification)
+  model_specification_names <- names(object@specification)
 
 
   if (!all(body_vars_less_args %in% model_specification_names)) {
@@ -32,16 +32,38 @@ check_parametric_model <- function(object) {
   errors
 }
 
+
 .ParametricModel <- setClass(
   "ParametricModel",
   contains = "AllometricModel",
   slots = c(
     predict_fn_populated = "function",
     parameters = "list",
-    model_specification = "list"
+    specification = "list"
   ),
   validity = check_parametric_model
 )
+
+setGeneric("specification", function(mod) standardGeneric("specification"))
+setGeneric("specification<-", function(mod, value) standardGeneric("specification<-"))
+
+setMethod("specification", "ParametricModel", function(mod) mod@specification)
+setMethod("specification<-", "ParametricModel", function(mod, value) {
+  mod@specification <- value
+  mod
+})
+
+setGeneric("descriptors", function(mod) standardGeneric("descriptors"))
+
+setMethod("descriptors", "ParametricModel", function(mod) {
+  mod@specification[!names(mod@specification) %in% names(mod@parameters)]
+})
+
+setGeneric("parameters", function(mod) standardGeneric("parameters"))
+
+setMethod("parameters", "ParametricModel", function(mod) {
+  mod@parameters
+})
 
 #' Base class for all parametric models.
 #'
@@ -60,10 +82,16 @@ ParametricModel <- function(response_unit, covariate_units, predict_fn,
   parametric_model@pub_descriptors <- list()
   parametric_model@set_descriptors <- list()
 
-  parametric_model@model_specification <- c(
+  descriptor_set <- c(
     parametric_model@pub_descriptors,
     parametric_model@set_descriptors,
-    parametric_model@descriptors,
+    parametric_model@descriptors
+  )
+
+  check_descriptor_set(descriptor_set)
+
+  specification(parametric_model) <- c(
+    descriptor_set,
     parametric_model@parameters
   )
 
@@ -72,7 +100,7 @@ ParametricModel <- function(response_unit, covariate_units, predict_fn,
 
   func_body <- body(parametric_model@predict_fn_populated)
   body(parametric_model@predict_fn_populated) <- do.call(
-    "substitute", list(func_body, parametric_model@model_specification)
+    "substitute", list(func_body, parametric_model@specification)
   )
 
   parametric_model
@@ -101,11 +129,11 @@ setMethod("show", "ParametricModel", function(object) {
 
   cat("\n")
   cat("Parameter Estimates:", "\n")
-  print(data.frame(object@parameters))
+  print(data.frame(parameters(object)))
 
   cat("\n")
-  cat("Model Specification:", "\n")
-  print(data.frame(object@model_specification))
+  cat("Model Descriptors:", "\n")
+  print(data.frame(descriptors(object)))
 })
 
 setGeneric("get_model_str", function(mod) standardGeneric("get_model_str"))
@@ -119,3 +147,6 @@ setGeneric("get_variable_descriptions", function(mod) standardGeneric("get_varia
 setMethod("get_variable_descriptions", "ParametricModel", function(mod) {
   .get_variable_descriptions(mod)
 })
+
+
+

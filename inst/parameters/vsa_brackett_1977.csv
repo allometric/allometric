@@ -1,4 +1,4 @@
-family,genus,species,region,age_class,a,b,c
+family,genus,species,geographic_region,age_class,a,b,c
 Pinaceae,Pseudotsuga,menziesii,coastal,< 140 years,-2.658025,1.739925,1.133187
 Pinaceae,Pseudotsuga,menziesii,coastal,>= 80 years,-2.712153,1.659012,1.195715
 Pinaceae,Pseudotsuga,menziesii,interior,,-2.734532,1.739418,1.166033
