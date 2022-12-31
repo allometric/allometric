@@ -34,3 +34,4 @@ FixedEffectsSet <- function(response_unit, covariate_units, predict_fn,
 
   fixed_effects_set
 }
+

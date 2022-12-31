@@ -41,7 +41,7 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::rcmdcheck
+          extra-packages: any::rcmdcheck, local::.
           needs: check
 
       - uses: r-lib/actions/check-r-package@v2
@@ -51,6 +51,5 @@ jobs:
 
       - name: Install models
         run: |
-          library(allometric)
           install_models()
         shell: Rscript {0}
