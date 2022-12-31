@@ -26,7 +26,7 @@ archiving and using this vast array of models in a robust and structured format.
 `allometric` not only enables the use of allometric models for analysis, it 
 also provides a structured language for adding models to the package. If you
 are interested in helping the developer in this process please refer to the 
-[Installing a Model] vignette.
+[Installing a Model](./vignettes/installing_a_model.Rmd) vignette.
 
 Currently, `allometric` contains `r n_models` allometric models across
 `r n_pubs` publications.
