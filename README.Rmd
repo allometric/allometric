@@ -54,8 +54,10 @@ library(allometric)
 install_models()
 ```
 
-This compiles the allometric models, and enables their use. After running this
-function, the models are available in the variable `allometric_models`
+This compiles the allometric models, and enables their use. `install_models`
+only needs to be ran at installation, or following any package updates. After
+running this function, the models are available in the variable
+`allometric_models`.
 
 ```{r}
 head(allometric_models)

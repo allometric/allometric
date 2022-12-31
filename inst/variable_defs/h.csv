@@ -5,3 +5,4 @@ h,n,d,average height of dominant trees in stand
 h,s,o,height of the stem above breast height
 h,s,b,height of the stem to crown base
 h,s,v,height of the stem to crown base above breast height
+h,s,d,height to a specified diameter (taper)

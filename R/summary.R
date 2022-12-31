@@ -3,7 +3,10 @@
 
 .get_model_str <- function(object) {
   response_name <- names(object@response_unit)[[1]]
-  func_str <- toString(body(object@predict_fn))
+  predict_body <- body(object@predict_fn)
+  last_line_ix <- length(predict_body)
+
+  func_str <- deparse(predict_body[[last_line_ix]])
   clean_str <- gsub("\\{,", "", func_str)
   clean_str <- stringr::str_trim(clean_str)
 

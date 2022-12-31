@@ -1,7 +1,9 @@
 
 
 get_parameter_names <- function(predict_fn, covariate_names) {
-  body_vars <- all.vars(body(predict_fn))
+  predict_body <- body(predict_fn)
+  last_line_ix <- length(predict_body)
+  body_vars <- all.vars(predict_body[[last_line_ix]])
   body_vars[!body_vars %in% covariate_names]
 }
 

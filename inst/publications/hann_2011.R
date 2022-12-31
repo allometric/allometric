@@ -61,6 +61,24 @@ vso <- FixedEffectsSet(
   model_specifications = tibble::tibble(load_parameter_frame('vso_hann_2011'))
 )
 
+#dsih <- FixedEffectsSet(
+#  response_unit = list(
+#    dsih = units::as_units('in')
+#  ),
+#  covariate_units = list(
+#    hsd = units::as_units('ft'),
+#    dsib = units::as_units('in'),
+#    hso = units::as_units('ft'),
+#    dsob = units::as_units('in'),
+#
+#
+#
+#  ),
+#  predict_fn = function(hsd) {
+#    dsib * (Z_0 + (b_11 + b_12 * (hso / dsob) + b_13 * (hso / dsob)^2) * Z_1 + b_21 * Z_2)
+#  }
+#)
+
 
 hann_2011 <- hann_2011 %>%
   add_set(dsib) %>%
