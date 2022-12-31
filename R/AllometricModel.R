@@ -1,8 +1,5 @@
 setOldClass("units")
 setOldClass("BibEntry")
-setOldClass("bibentry")
-
-setClassUnion("BibEntry_", c("BibEntry", "bibentry"))
 
 .AllometricModel <- setClass("AllometricModel",
   slots = c(
@@ -12,7 +9,7 @@ setClassUnion("BibEntry_", c("BibEntry", "bibentry"))
     descriptors = "list",
     set_descriptors = "list",
     pub_descriptors = "list",
-    citation = "BibEntry_"
+    citation = "BibEntry"
   )
 )
 
@@ -38,7 +35,7 @@ AllometricModel <- function(response_unit, covariate_units, predict_fn,
     covariate_units = covariate_units,
     predict_fn = predict_fn,
     descriptors = descriptors,
-    citation = RefManageR::BibEntry()
+    citation = RefManageR::BibEntry(bibtype="misc", title="", author="", year=0)
   )
 
   allometric_model
@@ -103,3 +100,6 @@ setMethod(
     RefManageR::Cite(x@citation)
   }
 )
+
+
+

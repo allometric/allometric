@@ -1,6 +1,6 @@
 setClass("Publication",
   slots = c(
-    citation = "BibEntry_",
+    citation = "BibEntry",
     response_sets = "list",
     descriptors = "list",
     id = "character"
