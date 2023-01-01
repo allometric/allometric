@@ -44,8 +44,6 @@ check_parametric_model <- function(object) {
   validity = check_parametric_model
 )
 
-setGeneric("specification", function(mod) standardGeneric("specification"))
-setGeneric("specification<-", function(mod, value) standardGeneric("specification<-"))
 
 setMethod("specification", "ParametricModel", function(mod) mod@specification)
 setMethod("specification<-", "ParametricModel", function(mod, value) {
@@ -53,13 +51,10 @@ setMethod("specification<-", "ParametricModel", function(mod, value) {
   mod
 })
 
-setGeneric("descriptors", function(mod) standardGeneric("descriptors"))
-
 setMethod("descriptors", "ParametricModel", function(mod) {
   mod@specification[!names(mod@specification) %in% names(mod@parameters)]
 })
 
-setGeneric("parameters", function(mod) standardGeneric("parameters"))
 
 setMethod("parameters", "ParametricModel", function(mod) {
   mod@parameters
@@ -130,13 +125,11 @@ setMethod("show", "ParametricModel", function(object) {
   print(data.frame(descriptors(object)))
 })
 
-setGeneric("get_model_str", function(mod) standardGeneric("get_model_str"))
 
 setMethod("get_model_str", "ParametricModel", function(mod) {
   .get_model_str(mod)
 })
 
-setGeneric("get_variable_descriptions", function(mod) standardGeneric("get_variable_descriptions"))
 
 setMethod("get_variable_descriptions", "ParametricModel", function(mod) {
   .get_variable_descriptions(mod)

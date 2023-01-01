@@ -58,14 +58,6 @@ component_def <- data.frame(
 # prevented at the administration phase
 measure_component_def <- merge(measure_def, component_def)
 
-setGeneric("predict_fn", function(x) standardGeneric("predict_fn"))
-setMethod("predict_fn", "AllometricModel", function(x) x@predict_fn)
-
-setGeneric(
-  "get_measure_label",
-  function(x) standardGeneric("get_measure_label")
-)
-
 setMethod(
   "get_measure_label",
   signature(x = "AllometricModel"),
@@ -74,11 +66,6 @@ setMethod(
     measure <- substr(response_name, 1, 1)
     measure_def[measure_def$measure == measure, "measure_label"]
   }
-)
-
-setGeneric(
-  "get_component_label",
-  function(x) standardGeneric("get_component_label")
 )
 
 setMethod(
@@ -91,7 +78,6 @@ setMethod(
   }
 )
 
-setGeneric("Cite", function(x){standardGeneric("Cite")})
 
 setMethod(
   "Cite",

@@ -77,12 +77,8 @@ setMethod(
   }
 )
 
-#' @export
-setGeneric(
-  "add_model",
-  function(publication, model) standardGeneric("add_model")
-)
 
+# FIXME this seems more like a model method than a standalone fn.
 init_set_of_one <- function(constructor, model) {
   constructor(
     response_unit = model@response_unit,
@@ -114,8 +110,6 @@ setMethod("add_model", signature(
   publication
 })
 
-setGeneric("n_models", function(publication) standardGeneric("n_models"))
-
 setMethod(
   "n_models",
   "Publication",
@@ -128,9 +122,6 @@ setMethod(
   }
 )
 
-
-setGeneric("n_sets", function(publication) standardGeneric("n_sets"))
-
 setMethod(
   "n_sets",
   "Publication",
@@ -138,8 +129,6 @@ setMethod(
     length(publication@model_sets)
   }
 )
-
-setGeneric("summary", function(publication) standardGeneric("summary"))
 
 setMethod(
   "summary",

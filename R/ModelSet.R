@@ -43,7 +43,6 @@ setMethod("[[", signature(x = "ModelSet", i = "numeric"), function(x, i) {
 
 
 
-setGeneric("rd_model_equation", function(mod) standardGeneric("rd_model_equation"))
 setMethod("rd_model_equation", "ModelSet", function(mod) {
   response_name <- names(mod@response_unit)[[1]]
 
@@ -58,7 +57,6 @@ setMethod("rd_model_equation", "ModelSet", function(mod) {
   sprintf("\\code{%s}", model_str)
 })
 
-setGeneric("rd_variable_defs", function(mod) standardGeneric("rd_variable_defs"))
 setMethod("rd_variable_defs", "ModelSet", function(mod) {
   top <- "\\itemize{"
   bottom <- "}"
@@ -100,7 +98,6 @@ setMethod("rd_variable_defs", "ModelSet", function(mod) {
   c(top, response_str, covt_strs, bottom)
 })
 
-setGeneric("rd_parameter_table", function(mod) standardGeneric("rd_parameter_table"))
 
 setMethod("rd_parameter_table", "ModelSet", function(mod) {
   n_mods <- nrow(mod@model_specifications)

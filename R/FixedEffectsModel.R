@@ -19,9 +19,6 @@ FixedEffectsModel <- function(response_unit, covariate_units, predict_fn,
   fixed_effects_model
 }
 
-#' @export
-setGeneric("predict", function(mod, ...) standardGeneric("predict"),
-  signature = "mod")
 
 setMethod("predict", signature(mod = "FixedEffectsModel"), function(mod, ...) {
   mod@predict_fn_populated(...)

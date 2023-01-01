@@ -18,6 +18,7 @@ Imports:
     units,
     RefManageR
 Collate:
+    'all_generics.R'
     'install.R'
     'summary.R'
     'util.R'
