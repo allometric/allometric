@@ -4,7 +4,9 @@ get_ranef_names <- function(predict_ranef) {
   predict_body <- body(predict_ranef)
   last_line_ix <- length(predict_body)
   ranef_list <- predict_body[[last_line_ix]]
-  names(eval(ranef_list))
+  expr_names <- names(ranef_list)
+  list_names <- expr_names[-1]
+  list_names
 }
 
 get_parameter_names <- function(predict_fn, covariate_names) {
