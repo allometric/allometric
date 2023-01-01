@@ -1,0 +1,19 @@
+mixed_effects_set <- MixedEffectsSet(
+  response_unit = list(
+    vsa = units::as_units('ft^3')
+  ),
+  covariate_units = list(
+    dsob = units::as_units('in')
+  ),
+  predict_ranef = function(dsob, hst) {
+    list(a_i = 1)
+  },
+  predict_fn = function(dsob) {
+    (a + a_i) * dsob^2
+  },
+  model_specifications = tibble::tibble(a = c(1,2))
+)
+
+test_that("MixedEffectsSet adds models", {
+  expect_equal(length(mixed_effects_set@models), 2)
+})
