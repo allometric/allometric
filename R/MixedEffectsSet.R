@@ -1,13 +1,16 @@
 .MixedEffectsSet <- setClass("MixedEffectsSet",
   contains = "ModelSet",
   slots = c(
-    fixed_only = "logical"
+    predict_ranef = "function",
+    fixed_only = "logical",
+    parameter_names = "character"
   )
 )
 
 #' @export
 MixedEffectsSet <- function(response_unit, covariate_units, predict_fn,
-                            model_specifications, fixed_only = FALSE, descriptors = list()) {
+                            model_specifications, predict_ranef,
+                            fixed_only = FALSE, descriptors = list()) {
   mixed_effects_set <- .MixedEffectsSet(
     ModelSet(
       response_unit, covariate_units, predict_fn, model_specifications,
@@ -15,12 +18,21 @@ MixedEffectsSet <- function(response_unit, covariate_units, predict_fn,
     )
   )
 
+  mixed_effects_set@predict_ranef <- predict_ranef
+
+  ranef_names <- get_ranef_names(mixed_effects_set@predict_ranef)
+  all_names <- get_parameter_names(
+    mixed_effects_set@predict_fn, names(mixed_effects_set@covariate_units)
+  )
+
+  mixed_effects_set@parameter_names <- all_names[!all_names %in% ranef_names]
+
   if ("list" %in% class(model_specifications)) {
-    model_specifications <- tibble(data.frame(model_specifications))
+    model_specifications <- tibble::tibble(data.frame(model_specifications))
   }
 
+  ranef_names <- get_ranef_names(mixed_effects_set@predict_ranef)
   mod_descriptors <- names(model_specifications)[!names(model_specifications) %in% mixed_effects_set@parameter_names]
-  browser()
 
   for (i in seq_len(nrow(model_specifications))) {
     mod <- MixedEffectsModel(
@@ -29,6 +41,7 @@ MixedEffectsSet <- function(response_unit, covariate_units, predict_fn,
       predict_fn = predict_fn,
       parameters = model_specifications[i, mixed_effects_set@parameter_names],
       descriptors = model_specifications[i, mod_descriptors],
+      predict_ranef = mixed_effects_set@predict_ranef,
       fixed_only = fixed_only
     )
 

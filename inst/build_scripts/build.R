@@ -4,6 +4,8 @@
 
 library(devtools)
 library(tibble)
+library(dplyr)
+library(RefManageR)
 devtools::load_all(".")
 
 # TODO will only work for my machine...

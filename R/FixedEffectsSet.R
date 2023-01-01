@@ -1,6 +1,9 @@
 
 .FixedEffectsSet <- setClass("FixedEffectsSet",
-  contains = "ModelSet"
+  contains = "ModelSet",
+  slots = c(
+    parameter_names = "character"
+  )
 )
 
 #' @export
@@ -16,6 +19,10 @@ FixedEffectsSet <- function(response_unit, covariate_units, predict_fn,
   if ("list" %in% class(model_specifications)) {
     model_specifications <- tibble::tibble(data.frame(model_specifications))
   }
+
+  fixed_effects_set@parameter_names <- get_parameter_names(
+    fixed_effects_set@predict_fn, names(fixed_effects_set@covariate_units)
+  )
 
   mod_descriptors <- names(model_specifications)[!names(model_specifications) %in% fixed_effects_set@parameter_names]
 

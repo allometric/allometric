@@ -17,7 +17,6 @@ check_model_set_validity <- function(object) {
     model_specifications = "tbl_df",
     descriptors = "list",
     pub_descriptors = "list",
-    parameter_names = "character",
     models = "list"
   ),
   validity = check_model_set_validity
@@ -34,10 +33,6 @@ ModelSet <- function(response_unit, covariate_units, predict_fn,
   model_set@predict_fn <- predict_fn
   model_set@model_specifications <- model_specifications
   model_set@descriptors <- descriptors
-
-  model_set@parameter_names <- get_parameter_names(
-    predict_fn, names(model_set@covariate_units)
-  )
 
   model_set
 }

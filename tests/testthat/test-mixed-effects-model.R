@@ -56,5 +56,5 @@ mixed_effects_model_fixed_only <- MixedEffectsModel(
 
 test_that("A mixed effects model can be flagged as fixed only and predict", {
   pred <- predict(mixed_effects_model_fixed_only, 10)
-
+  expect_equal(pred, 10.5726, tolerance = 0.001)
 })
