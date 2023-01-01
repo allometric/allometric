@@ -77,22 +77,11 @@ setMethod(
   }
 )
 
-
-# FIXME this seems more like a model method than a standalone fn.
-init_set_of_one <- function(constructor, model) {
-  constructor(
-    response_unit = model@response_unit,
-    covariate_units = model@covariate_units,
-    predict_fn = model@predict_fn,
-    model_specifications = model@specification
-  )
-}
-
 setMethod("add_model", signature(
   publication = "Publication",
   model = "FixedEffectsModel"
 ), function(publication, model) {
-  set_of_one <- init_set_of_one(FixedEffectsSet, model)
+  set_of_one <- init_set_of_one(model)
   set_of_one@pub_descriptors <- publication@descriptors
 
   publication <- add_set(publication, set_of_one)
@@ -103,7 +92,7 @@ setMethod("add_model", signature(
   publication = "Publication",
   model = "MixedEffectsModel"
 ), function(publication, model) {
-  set_of_one <- init_set_of_one(MixedEffectsSet, model)
+  set_of_one <- init_set_of_one(model)
   set_of_one@pub_descriptors <- publication@descriptors
 
   publication <- add_set(publication, set_of_one)

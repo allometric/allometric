@@ -17,6 +17,11 @@ setGeneric(
   function(publication, model) standardGeneric("add_model")
 )
 
+setGeneric(
+  "init_set_of_one",
+  function(mod) standardGeneric("init_set_of_one")
+)
+
 setGeneric("n_models", function(publication) standardGeneric("n_models"))
 
 setGeneric("n_sets", function(publication) standardGeneric("n_sets"))
