@@ -124,8 +124,8 @@ df_mod
     ## 1 -2.734532 1.739418 1.166033
     ## 
     ## Model Descriptors: 
-    ##   country region   family       genus   species region.1 age_class
-    ## 1      US  US-WA Pinaceae Pseudotsuga menziesii interior      <NA>
+    ##   country region   family       genus   species geographic_region age_class
+    ## 1      US  US-WA Pinaceae Pseudotsuga menziesii          interior      <NA>
 
 We can see here that `df_mod` will require two covariates called `dsob`,
 which refers to diameter outside bark at breast height, and `hst`, the

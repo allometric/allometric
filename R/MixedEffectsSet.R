@@ -20,6 +20,7 @@ MixedEffectsSet <- function(response_unit, covariate_units, predict_fn,
   }
 
   mod_descriptors <- names(model_specifications)[!names(model_specifications) %in% mixed_effects_set@parameter_names]
+  browser()
 
   for (i in seq_len(nrow(model_specifications))) {
     mod <- MixedEffectsModel(
