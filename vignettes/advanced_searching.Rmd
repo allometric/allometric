@@ -1,0 +1,54 @@
+
+
+Upon installation the user is able to access models using the "standard" 
+table of models stored in `allometric_models`. This is a reduced set of 
+searchable information that is suitable for most use-cases. More advanced users
+may prefer to search a more complete set of information to find their models. 
+This vignette covers what types of extra information can be searched and some 
+techniques for searching these extra data. Interested users would do well to 
+read [examples...]
+
+The object `allometric_models_ext` is also available to the user for searching,
+but represents a more complex data structure. This complexity arises from 
+`column-lists` which are columns of a data frame that contain lists (or vectors) as their 
+elements. A motivating example is the `family_name` column, which contains 
+character vectors for each model that contain the family names (i.e., last names)
+of all contributing authors.
+
+Let's say we want to search for any model with `'Hann'` as a contributing author.
+This can be done with some elegant use of `dplyr::filter` and `purrr::map_lgl`.
+Before beginning, it is helpful to know that `purrr::map_lgl` returns a list
+of TRUE/FALSE values as it "maps" over a list of input.
+
+Consider the vector `auth <- c('Hann', 'Weiskettel')`, I could check if this vector 
+contains `'Hann'` using the expression `'Hann' %in% auth`. Knowing this, let's
+take a look at filtering out all models containing `Hann` as an author:
+
+```{r eval=F}
+dplyr::filter(
+    allometric_models,
+    purrr::map_lgl(family_names, ~ 'Hann' %in% .)
+)
+```
+
+We can even check for models that contain certain types of data requirements. 
+For example, the following block finds diameter-height models, specifically 
+models that use diameter outside bark at breast height as the *only* covariate.
+The utility here is obvious, since many inventories are vastly limited by their
+available measurements.
+
+```{r eval=F}
+dplyr::filter(
+    allometric_models,
+    measure == 'height',
+    purrr::map_lgl(covt_names, ~ length(.)==1 & .[[1]] == 'dsob'),
+)
+```
+
+Breaking this down, we have the first condition `measure=='height'` selecting
+only models concerned with heights as a response variable. The second line 
+maps over each element of the `covt_names` column, which is a character vector.
+The `.` represents a given character vector for that row. First, we ensure that
+the vector is only one element in size using `length(.)==1`, then we ensure that
+the first (and only) element of this vector is equal to `'dsob'`, (diameter
+outside bark at breast height).

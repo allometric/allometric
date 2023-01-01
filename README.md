@@ -16,7 +16,7 @@ refer to the [Installing a
 Model](https://brycefrank.com/allometric/articles/installing_a_model.html)
 vignette.
 
-Currently, `allometric` contains 85 allometric models across 6
+Currently, `allometric` contains 80 allometric models across 6
 publications.
 
 ## Installation
