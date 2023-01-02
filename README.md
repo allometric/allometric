@@ -1,7 +1,7 @@
 allometric
 ================
 
-# allometric <img src='docs/figures/logo.png' align="right" height="139" /></a>
+# allometric <img src='man/figures/logo.png' align="right" height="139" /></a>
 
 <!-- badges: start -->
 
