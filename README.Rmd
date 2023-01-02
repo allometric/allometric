@@ -7,6 +7,7 @@ output: github_document
 library(dplyr)
 library(tidyr)
 library(allometric)
+options(width = 10000)
 
 if(!exists("allometric_models")) {
   allometric::install_models()
@@ -43,9 +44,8 @@ devtools::install_github("brycefrank/allometric")
 ## Getting Started
 
 Most users will only be interested in finding and using allometric equations in
-their analysis. Three basic steps are needed, 1) find the model you want
-to use 2) determine what information is needed to use the model and 3) use the
-model to make predictions.
+their analysis. `allometric` allows rapid searching of currently installed
+models.
 
 Before beginning, make sure to install the models locally by running
 
@@ -63,47 +63,65 @@ running this function, the models are available in the variable
 head(allometric_models)
 ```
 
-**Finding an Appropriate Model**
+**Finding and Selecting a Model**
 
-Models can be searched by a variety of attributes including species 
-(or more generally, "taxons"), geographic region, response variable, first
-author's last name, or any combination therein.
+`allometric_models` is a `tibble::tbl_df` dataframe. Each row represents one 
+allometric model with various attributes. Some columns are `list` columns, which
+are columns that contain lists with multiple values as their elements. One 
+example of this is the `family_names` column, which contains the names of all
+authors for the publication that contains the model. 
 
-Say we are interested in stem volume models for _Pseudotsuga menziesii_ that 
-were developed in the United States. Using `model_search` we can quickly find 
-all stem volume models for this species.
-
+`list` columns enable rigorous searching of models covered in the
+[Advanced Model Searching](https://brycefrank.com/allometric/articles/advanced_model_searching.html)
+vignette, but to get started we will use a helper function called
+`unnest_models` that will give us a clearer picture of the available data.
 
 ```{r}
-df_vol_models <- filter(
-  allometric_models,
-  genus == "Pseudotsuga",
-  species == "menziesii",
-  measure == "volume"
-)
-
-df_vol_models
+unnested_models <- unnest_models(allometric_models)
+unnested_models
 ```
 
-Here we see that three models are available from the Brackett (1977) report.
-We will select the third model using `select_model`.
+Now, each row represents unique data combinations for each model, which can be
+quickly filtered by most users using `dplyr::filter`. For example, to find a 
+volume model for the genus Alnus that had `"Brackett"` as an author or co-author
+we can use
 
 ```{r}
-df_mod <- df_vol_models %>% select_model(3)
+brackett_alnus_vol <- unnested_models %>%
+  dplyr::filter(family_names == "Brackett", measure=="volume",
+    genus=="Alnus")
+
+brackett_alnus_vol
+```
+
+we can see that model `07d06ce8` is a volume model written by Brackett for 
+*Alnus rubra*. The model can be selected using the `id` field:
+
+```{r}
+brackett_alnus_mod <- brackett_alnus_vol %>% select_model("07d06ce8")
+```
+
+or by using the row index
+
+```{r eval=F}
+brackett_alnus_mod <- brackett_alnus_vol %>% select_model(1)
 ```
 
 **Determine Needed Information**
 
-Using the standard output of `df_mod` we obtain a summary of the model form,
+`brackett_alnus_mod` now represents an allometric model that can be used for 
+prediction.
+
+Using the standard output of `brackett_alnus_mod` we obtain a summary of the model form,
 the response variable, the needed covariates and their units, a summary of
-the model specification (i.e., what makes the model unique within the
+the model descriptors (i.e., what makes the model unique within the
 publication), and estimates of the parameters.
 
 ```{r}
-df_mod
+brackett_alnus_mod
 ```
 
-We can see here that `df_mod` will require two covariates called `dsob`, which
+We can see here that `brackett_alnus_mod` will require two covariates called `dsob`, which
 refers to diameter outside bark at breast height, and `hst`, the height of the
 main stem. 
 
@@ -112,22 +130,22 @@ main stem.
 Using the `predict` method we can easily use the function as defined
 by providing values of these two covariates.
 
-```{r}
-predict(df_mod, 12, 65)
+```{r eval=T}
+predict(brackett_alnus_mod, 12, 65)
 ```
 
 or we can use the prediction function with a data frame of values
 
 ```{r}
 my_trees <- data.frame(dias = c(12, 15, 20), heights = c(65, 75, 100))
-predict(df_mod, my_trees$dias, my_trees$heights)
+predict(brackett_alnus_mod, my_trees$dias, my_trees$heights)
 ```
 
 or even using the convenience of `dplyr`
 
 ```{r}
 my_trees %>%
-  mutate(vols = predict(df_mod, dias, heights))
+  mutate(vols = predict(brackett_alnus_mod, dias, heights))
 ```
 
 This is all that is needed to make predictions using the models stored in 

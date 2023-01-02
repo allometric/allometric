@@ -43,6 +43,9 @@
     <loc>http://brycefrank.com/allometric/reference/aggregate_results.html</loc>
   </url>
   <url>
+    <loc>http://brycefrank.com/allometric/reference/aggregate_results_ext.html</loc>
+  </url>
+  <url>
     <loc>http://brycefrank.com/allometric/reference/AllometricModel.html</loc>
   </url>
   <url>
@@ -61,10 +64,16 @@
     <loc>http://brycefrank.com/allometric/reference/check_covts_in_args.html</loc>
   </url>
   <url>
+    <loc>http://brycefrank.com/allometric/reference/check_descriptor_set.html</loc>
+  </url>
+  <url>
     <loc>http://brycefrank.com/allometric/reference/check_parametric_model.html</loc>
   </url>
   <url>
     <loc>http://brycefrank.com/allometric/reference/FixedEffectsModel.html</loc>
+  </url>
+  <url>
+    <loc>http://brycefrank.com/allometric/reference/get_model_proxy_id.html</loc>
   </url>
   <url>
     <loc>http://brycefrank.com/allometric/reference/hann_2011.html</loc>

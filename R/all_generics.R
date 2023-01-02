@@ -29,7 +29,7 @@ setGeneric("n_sets", function(publication) standardGeneric("n_sets"))
 setGeneric("summary", function(publication) standardGeneric("summary"))
 
 #' @export
-setGeneric("select_model", function(data, ix) standardGeneric("select_model"))
+setGeneric("select_model", function(data, id) standardGeneric("select_model"))
 
 #' @export
 setGeneric("predict", function(mod, ...) standardGeneric("predict"),

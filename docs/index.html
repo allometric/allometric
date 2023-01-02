@@ -41,7 +41,7 @@
 <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="articles/advanced_searching.html">UNKNOWN TITLE</a>
+    <a class="dropdown-item" href="articles/advanced_searching.html">Advanced Model Searching</a>
     <a class="dropdown-item" href="articles/deep_dive.html">A Deep Dive into `allometric`</a>
     <a class="dropdown-item" href="articles/descriptors.html">Describing a Model with Descriptors</a>
     <a class="dropdown-item" href="articles/installing_a_model.html">Installing a Model</a>
@@ -66,7 +66,7 @@
 </h1></div>
 <p><a href="https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml" class="external-link"><img src="https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml/badge.svg" alt="R-CMD-check"></a></p>
 <p><code>allometric</code> is an open source R package for predicting tree attributes using allometric models. Thousands of allometric models exist in the scientific and technical forestry literature. <code>allometric</code> is a platform for archiving and using this vast array of models in a robust and structured format.</p>
-<p><code>allometric</code> not only enables the use of allometric models for analysis, it also provides a structured language for adding models to the package. If you are interested in helping the developer in this process please refer to the <a href="./vignettes/installing_a_model.Rmd">Installing a Model</a> vignette.</p>
+<p><code>allometric</code> not only enables the use of allometric models for analysis, it also provides a structured language for adding models to the package. If you are interested in helping the developer in this process please refer to the <a href="https://brycefrank.com/allometric/articles/installing_a_model.html" class="external-link">Installing a Model</a> vignette.</p>
 <p>Currently, <code>allometric</code> contains 85 allometric models across 6 publications.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -78,7 +78,7 @@
 <div class="section level2">
 <h2 id="getting-started">Getting Started<a class="anchor" aria-label="anchor" href="#getting-started"></a>
 </h2>
-<p>Most users will only be interested in finding and using allometric equations in their analysis. Three basic steps are needed, 1) find the model you want to use 2) determine what information is needed to use the model and 3) use the model to make predictions.</p>
+<p>Most users will only be interested in finding and using allometric equations in their analysis. <code>allometric</code> allows rapid searching of currently installed models.</p>
 <p>Before beginning, make sure to install the models locally by running</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">allometric</span><span class="op">)</span></span>
@@ -86,80 +86,91 @@
 <p>This compiles the allometric models, and enables their use. <code>install_models</code> only needs to be ran at installation, or following any package updates. After running this function, the models are available in the variable <code>allometric_models</code>.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">allometric_models</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 6 × 12</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="do">##   compon…¹ measure country region family genus species model      pub_id famil…²</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;chr&gt;    &lt;chr&gt;   &lt;list&gt;  &lt;list&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;   &lt;list&gt;     &lt;chr&gt;  &lt;list&gt; </span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 stem     volume  &lt;chr&gt;   &lt;chr&gt;  Acera… Acer  &lt;NA&gt;    &lt;FxdEffcM&gt; brack… &lt;chr&gt;  </span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 stem     volume  &lt;chr&gt;   &lt;chr&gt;  Betul… Alnus rubra   &lt;FxdEffcM&gt; brack… &lt;chr&gt;  </span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 stem     volume  &lt;chr&gt;   &lt;chr&gt;  Betul… Betu… &lt;NA&gt;    &lt;FxdEffcM&gt; brack… &lt;chr&gt;  </span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 4 stem     diamet… &lt;chr&gt;   &lt;chr&gt;  Cupre… Calo… &lt;NA&gt;    &lt;FxdEffcM&gt; hann_… &lt;chr&gt;  </span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="do">## 5 stump    diamet… &lt;chr&gt;   &lt;chr&gt;  Cupre… Calo… &lt;NA&gt;    &lt;FxdEffcM&gt; hann_… &lt;chr&gt;  </span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="do">## 6 stem     volume  &lt;chr&gt;   &lt;chr&gt;  Cupre… Calo… &lt;NA&gt;    &lt;FxdEffcM&gt; hann_… &lt;chr&gt;  </span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="do">## # … with 2 more variables: covt_names &lt;list&gt;, pub_year &lt;dbl&gt;, and abbreviated</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="do">## #   variable names ¹​component, ²​family_names</span></span></code></pre></div>
-<p><strong>Finding an Appropriate Model</strong></p>
-<p>Models can be searched by a variety of attributes including species (or more generally, “taxons”), geographic region, response variable, first author’s last name, or any combination therein.</p>
-<p>Say we are interested in stem volume models for <em>Pseudotsuga menziesii</em> that were developed in the United States. Using <code>model_search</code> we can quickly find all stem volume models for this species.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 6 × 13</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="do">##   id       component measure  country   region    family       genus      species model      pub_id        family_names covt_names pub_year</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;    &lt;list&gt;    &lt;list&gt;    &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt;   &lt;list&gt;     &lt;chr&gt;         &lt;list&gt;       &lt;list&gt;        &lt;dbl&gt;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 39cb24c9 stem      volume   &lt;chr [1]&gt; &lt;chr [1]&gt; Aceraceae    Acer       &lt;NA&gt;    &lt;FxdEffcM&gt; brackett_1977 &lt;chr [1]&gt;    &lt;chr [2]&gt;      1977</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 07d06ce8 stem      volume   &lt;chr [1]&gt; &lt;chr [1]&gt; Betulaceae   Alnus      rubra   &lt;FxdEffcM&gt; brackett_1977 &lt;chr [1]&gt;    &lt;chr [2]&gt;      1977</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 32ec2493 stem      volume   &lt;chr [1]&gt; &lt;chr [1]&gt; Betulaceae   Betula     &lt;NA&gt;    &lt;FxdEffcM&gt; brackett_1977 &lt;chr [1]&gt;    &lt;chr [2]&gt;      1977</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 4 4767f5f6 stem      diameter &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus &lt;NA&gt;    &lt;FxdEffcM&gt; hann_2011     &lt;chr [1]&gt;    &lt;chr [2]&gt;      2011</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="do">## 5 a52441df stump     diameter &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus &lt;NA&gt;    &lt;FxdEffcM&gt; hann_2011     &lt;chr [1]&gt;    &lt;chr [2]&gt;      2011</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="do">## 6 4c82f4fc stem      volume   &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus &lt;NA&gt;    &lt;FxdEffcM&gt; hann_2011     &lt;chr [1]&gt;    &lt;chr [3]&gt;      2011</span></span></code></pre></div>
+<p><strong>Finding and Selecting a Model</strong></p>
+<p><code>allometric_models</code> is a <code><a href="https://tibble.tidyverse.org/reference/tbl_df-class.html" class="external-link">tibble::tbl_df</a></code> dataframe. Each row represents one allometric model with various attributes. Some columns are <code>list</code> columns, which are columns that contain lists with multiple values as their elements. One example of this is the <code>family_names</code> column, which contains the names of all authors for the publication that contains the model.</p>
+<p><code>list</code> columns enable rigorous searching of models covered in the <a href="https://brycefrank.com/allometric/articles/advanced_model_searching.html" class="external-link">Advanced Model Searching</a> vignette, but to get started we will use a helper function called <code>unnest_models</code> that will give us a clearer picture of the available data.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">df_vol_models</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html" class="external-link">filter</a></span><span class="op">(</span></span>
-<span>  <span class="va">allometric_models</span>,</span>
-<span>  <span class="va">genus</span> <span class="op">==</span> <span class="st">"Pseudotsuga"</span>,</span>
-<span>  <span class="va">species</span> <span class="op">==</span> <span class="st">"menziesii"</span>,</span>
-<span>  <span class="va">measure</span> <span class="op">==</span> <span class="st">"volume"</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">df_vol_models</span></span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 4 × 12</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="do">##   compon…¹ measure country region family genus species model      pub_id famil…²</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;chr&gt;    &lt;chr&gt;   &lt;list&gt;  &lt;list&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;   &lt;list&gt;     &lt;chr&gt;  &lt;list&gt; </span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 stem     volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… &lt;FxdEffcM&gt; brack… &lt;chr&gt;  </span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 stem     volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… &lt;FxdEffcM&gt; brack… &lt;chr&gt;  </span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 stem     volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… &lt;FxdEffcM&gt; brack… &lt;chr&gt;  </span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 4 stem     volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… &lt;FxdEffcM&gt; hann_… &lt;chr&gt;  </span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="do">## # … with 2 more variables: covt_names &lt;list&gt;, pub_year &lt;dbl&gt;, and abbreviated</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="do">## #   variable names ¹​component, ²​family_names</span></span></code></pre></div>
-<p>Here we see that three models are available from the Brackett (1977) report. We will select the third model using <code>select_model</code>.</p>
+<code class="sourceCode R"><span><span class="va">unnested_models</span> <span class="op">&lt;-</span> <span class="fu">unnest_models</span><span class="op">(</span><span class="va">allometric_models</span><span class="op">)</span></span>
+<span><span class="va">unnested_models</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 372 × 13</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="do">##    id       component measure  country region family       genus      species model      pub_id        family_names covt_names pub_year</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="do">##    &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt;   &lt;list&gt;     &lt;chr&gt;         &lt;chr&gt;        &lt;chr&gt;         &lt;dbl&gt;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="do">##  1 39cb24c9 stem      volume   US      US-WA  Aceraceae    Acer       &lt;NA&gt;    &lt;FxdEffcM&gt; brackett_1977 Brackett     dsob           1977</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="do">##  2 39cb24c9 stem      volume   US      US-WA  Aceraceae    Acer       &lt;NA&gt;    &lt;FxdEffcM&gt; brackett_1977 Brackett     hst            1977</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="do">##  3 07d06ce8 stem      volume   US      US-WA  Betulaceae   Alnus      rubra   &lt;FxdEffcM&gt; brackett_1977 Brackett     dsob           1977</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="do">##  4 07d06ce8 stem      volume   US      US-WA  Betulaceae   Alnus      rubra   &lt;FxdEffcM&gt; brackett_1977 Brackett     hst            1977</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="do">##  5 32ec2493 stem      volume   US      US-WA  Betulaceae   Betula     &lt;NA&gt;    &lt;FxdEffcM&gt; brackett_1977 Brackett     dsob           1977</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="do">##  6 32ec2493 stem      volume   US      US-WA  Betulaceae   Betula     &lt;NA&gt;    &lt;FxdEffcM&gt; brackett_1977 Brackett     hst            1977</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="do">##  7 4767f5f6 stem      diameter US      US-OR  Cupressaceae Calocedrus &lt;NA&gt;    &lt;FxdEffcM&gt; hann_2011     Hann         dsob           2011</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="do">##  8 4767f5f6 stem      diameter US      US-OR  Cupressaceae Calocedrus &lt;NA&gt;    &lt;FxdEffcM&gt; hann_2011     Hann         rc             2011</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="do">##  9 a52441df stump     diameter US      US-OR  Cupressaceae Calocedrus &lt;NA&gt;    &lt;FxdEffcM&gt; hann_2011     Hann         dsob           2011</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="do">## 10 a52441df stump     diameter US      US-OR  Cupressaceae Calocedrus &lt;NA&gt;    &lt;FxdEffcM&gt; hann_2011     Hann         rc             2011</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="do">## # … with 362 more rows</span></span></code></pre></div>
+<p>Now, each row represents unique data combinations for each model, which can be quickly filtered by most users using <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">dplyr::filter</a></code>. For example, to find a volume model for the genus Alnus that had <code>"Brackett"</code> as an author or co-author we can use</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">df_mod</span> <span class="op">&lt;-</span> <span class="va">df_vol_models</span> <span class="op">%&gt;%</span> <span class="fu">select_model</span><span class="op">(</span><span class="fl">3</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">brackett_alnus_vol</span> <span class="op">&lt;-</span> <span class="va">unnested_models</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">family_names</span> <span class="op">==</span> <span class="st">"Brackett"</span>, <span class="va">measure</span><span class="op">==</span><span class="st">"volume"</span>,</span>
+<span>    <span class="va">genus</span><span class="op">==</span><span class="st">"Alnus"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">brackett_alnus_vol</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 2 × 13</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="do">##   id       component measure country region family     genus species model      pub_id        family_names covt_names pub_year</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;   &lt;list&gt;     &lt;chr&gt;         &lt;chr&gt;        &lt;chr&gt;         &lt;dbl&gt;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 07d06ce8 stem      volume  US      US-WA  Betulaceae Alnus rubra   &lt;FxdEffcM&gt; brackett_1977 Brackett     dsob           1977</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 07d06ce8 stem      volume  US      US-WA  Betulaceae Alnus rubra   &lt;FxdEffcM&gt; brackett_1977 Brackett     hst            1977</span></span></code></pre></div>
+<p>we can see that model <code>07d06ce8</code> is a volume model written by Brackett for <em>Alnus rubra</em>. The model can be selected using the <code>id</code> field:</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">brackett_alnus_mod</span> <span class="op">&lt;-</span> <span class="va">brackett_alnus_vol</span> <span class="op">%&gt;%</span> <span class="fu">select_model</span><span class="op">(</span><span class="st">"07d06ce8"</span><span class="op">)</span></span></code></pre></div>
+<p>or by using the row index</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">brackett_alnus_mod</span> <span class="op">&lt;-</span> <span class="va">brackett_alnus_vol</span> <span class="op">%&gt;%</span> <span class="fu">select_model</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span></code></pre></div>
 <p><strong>Determine Needed Information</strong></p>
-<p>Using the standard output of <code>df_mod</code> we obtain a summary of the model form, the response variable, the needed covariates and their units, a summary of the model specification (i.e., what makes the model unique within the publication), and estimates of the parameters.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">df_mod</span></span></code></pre></div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Model Form: </span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="do">## vsa = 10^a * dsob^b * hst^c </span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="do">##  </span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="do">## vsa [ft3]: volume of the entire stem, including top and stump</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="do">## dsob [in]: diameter of the stem, outside bark at breast height</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="do">## hst [ft]: total height of the stem</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter Estimates: </span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="do">##           a        b        c</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 -2.734532 1.739418 1.166033</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="do">## Model Specification: </span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="do">##   country region   family       genus   species region.1 age_class         a</span></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="do">## 1      US  US-WA Pinaceae Pseudotsuga menziesii interior      &lt;NA&gt; -2.734532</span></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="do">##          b        c</span></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 1.739418 1.166033</span></span></code></pre></div>
-<p>We can see here that <code>df_mod</code> will require two covariates called <code>dsob</code>, which refers to diameter outside bark at breast height, and <code>hst</code>, the height of the main stem.</p>
+<p><code>brackett_alnus_mod</code> now represents an allometric model that can be used for prediction.</p>
+<p>Using the standard output of <code>brackett_alnus_mod</code> we obtain a summary of the model form, the response variable, the needed covariates and their units, a summary of the model descriptors (i.e., what makes the model unique within the publication), and estimates of the parameters.</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">brackett_alnus_mod</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Model Form: </span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="do">## vsa = 10^a * dsob^b * hst^c </span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="do">##  </span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="do">## vsa [ft3]: volume of the entire stem, including top and stump</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="do">## dsob [in]: diameter of the stem, outside bark at breast height</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="do">## hst [ft]: total height of the stem</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="do">## Parameter Estimates: </span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="do">##           a        b        c</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 -2.672775 1.920617 1.074024</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="do">## Model Descriptors: </span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="do">##   country region     family genus species geographic_region age_class</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="do">## 1      US  US-WA Betulaceae Alnus   rubra              &lt;NA&gt;      &lt;NA&gt;</span></span></code></pre></div>
+<p>We can see here that <code>brackett_alnus_mod</code> will require two covariates called <code>dsob</code>, which refers to diameter outside bark at breast height, and <code>hst</code>, the height of the main stem.</p>
 <p><strong>Predict Using the Selected Model</strong></p>
 <p>Using the <code>predict</code> method we can easily use the function as defined by providing values of these two covariates.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">df_mod</span>, <span class="fl">12</span>, <span class="fl">65</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 18.05228</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">brackett_alnus_mod</span>, <span class="fl">12</span>, <span class="fl">65</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 22.2347</span></span></code></pre></div>
 <p>or we can use the prediction function with a data frame of values</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_trees</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>dias <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">12</span>, <span class="fl">15</span>, <span class="fl">20</span><span class="op">)</span>, heights <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">65</span>, <span class="fl">75</span>, <span class="fl">100</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">df_mod</span>, <span class="va">my_trees</span><span class="op">$</span><span class="va">dias</span>, <span class="va">my_trees</span><span class="op">$</span><span class="va">heights</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb13"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 18.05228 31.44601 72.53857</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">brackett_alnus_mod</span>, <span class="va">my_trees</span><span class="op">$</span><span class="va">dias</span>, <span class="va">my_trees</span><span class="op">$</span><span class="va">heights</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 22.23470 39.80216 94.20053</span></span></code></pre></div>
 <p>or even using the convenience of <code>dplyr</code></p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_trees</span> <span class="op">%&gt;%</span></span>
-<span>  <span class="fu">mutate</span><span class="op">(</span>vols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">df_mod</span>, <span class="va">dias</span>, <span class="va">heights</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb15"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="do">##   dias heights     vols</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="do">## 1   12      65 18.05228</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="do">## 2   15      75 31.44601</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="do">## 3   20     100 72.53857</span></span></code></pre></div>
+<span>  <span class="fu">mutate</span><span class="op">(</span>vols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">brackett_alnus_mod</span>, <span class="va">dias</span>, <span class="va">heights</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="do">##   dias heights     vols</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="do">## 1   12      65 22.23470</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="do">## 2   15      75 39.80216</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="do">## 3   20     100 94.20053</span></span></code></pre></div>
 <p>This is all that is needed to make predictions using the models stored in <code>allometric</code>. Please refer to the following vignettes for further possibilities with this package.</p>
 </div>
 </div>

@@ -2,9 +2,11 @@
 
 #' @export
 install_models <- function() {
-  source(system.file("build_scripts/1_update_pub_list.R", package = "allometric"))
-  source(system.file("build_scripts/2_update_allometric_models.R", package = "allometric"))
+  pub_list <- get_pub_list()
+  results <- get_model_results(pub_list)
+  data <- aggregate_results_ext(results)
 
-  data <- readRDS(system.file("extdata/allometric_models.RDS", package = "allometric"))
+  out_path <- file.path(system.file("extdata", package = "allometric"), "allometric_models.RDS")
+  saveRDS(data, out_path)
   .GlobalEnv$allometric_models <- data
 }

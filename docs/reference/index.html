@@ -24,7 +24,7 @@
 <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/advanced_searching.html">UNKNOWN TITLE</a>
+    <a class="dropdown-item" href="../articles/advanced_searching.html">Advanced Model Searching</a>
     <a class="dropdown-item" href="../articles/deep_dive.html">A Deep Dive into `allometric`</a>
     <a class="dropdown-item" href="../articles/descriptors.html">Describing a Model with Descriptors</a>
     <a class="dropdown-item" href="../articles/installing_a_model.html">Installing a Model</a>
@@ -58,6 +58,11 @@
 
       <dl><dt>
           
+          <code><a href="aggregate_results_ext.html">aggregate_results_ext()</a></code> 
+        </dt>
+        <dd>Transforms a set of searched models into a tibble of models and descriptors</dd>
+      </dl><dl><dt>
+          
           <code><a href="AllometricModel.html">AllometricModel()</a></code> 
         </dt>
         <dd>Base class for allometric models</dd>
@@ -73,6 +78,11 @@
         <dd>Are all covariates given as arguments?</dd>
       </dl><dl><dt>
           
+          <code><a href="check_descriptor_set.html">check_descriptor_set()</a></code> 
+        </dt>
+        <dd>Check validity of descriptors</dd>
+      </dl><dl><dt>
+          
           <code><a href="check_parametric_model.html">check_parametric_model()</a></code> 
         </dt>
         <dd>Check validity of parametric model</dd>
@@ -81,6 +91,12 @@
           <code><a href="FixedEffectsModel.html">FixedEffectsModel()</a></code> 
         </dt>
         <dd>Instantiate a fixed effects model.</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_model_proxy_id.html">get_model_proxy_id()</a></code> 
+        </dt>
+        <dd>Concats the authors, title and year and model index to create a proxy ID
+string for a model.</dd>
       </dl><dl><dt>
           
           <code><a href="MixedEffectsModel.html">MixedEffectsModel()</a></code> 

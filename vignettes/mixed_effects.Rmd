@@ -1,4 +1,6 @@
-
+---
+title: "Mixed-Effects Models"
+---
 
 Mixed-effects models are common in the allometric modeling literature, and
 allow "calibration" of models at different levels of aggregation, such as 

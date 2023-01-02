@@ -26,7 +26,7 @@ implementations."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax
 <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/advanced_searching.html">UNKNOWN TITLE</a>
+    <a class="dropdown-item" href="../articles/advanced_searching.html">Advanced Model Searching</a>
     <a class="dropdown-item" href="../articles/deep_dive.html">A Deep Dive into `allometric`</a>
     <a class="dropdown-item" href="../articles/descriptors.html">Describing a Model with Descriptors</a>
     <a class="dropdown-item" href="../articles/installing_a_model.html">Installing a Model</a>
@@ -59,7 +59,6 @@ implementations.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">AllometricModel</span><span class="op">(</span></span>
 <span>  <span class="va">response_unit</span>,</span>
 <span>  <span class="va">covariate_units</span>,</span>
-<span>  <span class="va">model_specification</span>,</span>
 <span>  <span class="va">predict_fn</span>,</span>
 <span>  descriptors <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -78,11 +77,6 @@ respone variable as the key and the units of the response variable as class
 <dd><ul><li><p>A list containing all covariates used in the model
 with the name of the covariate as the key and the units of the covariate as
 class <code><a href="https://rdrr.io/pkg/units/man/units.html" class="external-link">units::units</a></code></p></li>
-</ul></dd>
-
-
-<dt>model_specification</dt>
-<dd><ul><li><p>TODO this will probably change..</p></li>
 </ul></dd>
 
 
