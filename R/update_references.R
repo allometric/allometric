@@ -22,7 +22,7 @@ rd_lines <- function(pub) {
     sprintf("\\title{%s}", RefManageR::TextCite(pub@citation)),
     sprintf(
       "\\description{Allometric models from %s}",
-      TextCite(pub@citation)
+      RefManageR::TextCite(pub@citation)
     )
   )
 
@@ -71,7 +71,8 @@ update_reference_index <- function() {
   pub_rd_names <- paste(pub_names, ".Rd", sep = "")
 
   man_files <- list.files("./man")
-  non_pub_rd_files <- man_files[!man_files %in% pub_rd_names]
+  exclude_files <- c('figures')
+  non_pub_rd_files <- man_files[!man_files %in% c(pub_rd_names, exclude_files)]
   non_pub_rd_obj_names <- tools::file_path_sans_ext(non_pub_rd_files)
 
 
@@ -95,7 +96,7 @@ update_reference_index <- function() {
       response_set <- pub@response_sets[[i]]
       response_name <- names(pub@response_sets)[[i]]
       response_def <- get_variable_def(response_name)
-      section_title <- str_to_title(paste(response_def$component_name, response_def$measure_name, "models"))
+      section_title <- stringr::str_to_title(paste(response_def$component_name, response_def$measure_name, "models"))
       ref_sections[[section_title]] <- c(ref_sections[[section_title]], pub@id)
     }
   }
