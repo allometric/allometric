@@ -19,7 +19,7 @@ refer to the [Installing a
 Model](https://brycefrank.com/allometric/articles/installing_a_model.html)
 vignette.
 
-Currently, `allometric` contains 85 allometric models across 6
+Currently, `allometric` contains 88 allometric models across 7
 publications.
 
 ## Installation
@@ -53,15 +53,15 @@ in the variable `allometric_models`.
 head(allometric_models)
 ```
 
-    ## # A tibble: 6 × 13
-    ##   id       component measure  country   region    family       genus      species model      pub_id        family_names covt_names pub_year
-    ##   <chr>    <chr>     <chr>    <list>    <list>    <chr>        <chr>      <chr>   <list>     <chr>         <list>       <list>        <dbl>
-    ## 1 39cb24c9 stem      volume   <chr [1]> <chr [1]> Aceraceae    Acer       <NA>    <FxdEffcM> brackett_1977 <chr [1]>    <chr [2]>      1977
-    ## 2 07d06ce8 stem      volume   <chr [1]> <chr [1]> Betulaceae   Alnus      rubra   <FxdEffcM> brackett_1977 <chr [1]>    <chr [2]>      1977
-    ## 3 32ec2493 stem      volume   <chr [1]> <chr [1]> Betulaceae   Betula     <NA>    <FxdEffcM> brackett_1977 <chr [1]>    <chr [2]>      1977
-    ## 4 4767f5f6 stem      diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>    <FxdEffcM> hann_2011     <chr [1]>    <chr [2]>      2011
-    ## 5 a52441df stump     diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>    <FxdEffcM> hann_2011     <chr [1]>    <chr [2]>      2011
-    ## 6 4c82f4fc stem      volume   <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>    <FxdEffcM> hann_2011     <chr [1]>    <chr [3]>      2011
+    #> # A tibble: 6 × 13
+    #>   id       component measure  country   region    family       genus      species model      pub_id        family_names covt_names pub_year
+    #>   <chr>    <chr>     <chr>    <list>    <list>    <chr>        <chr>      <chr>   <list>     <chr>         <list>       <list>        <dbl>
+    #> 1 39cb24c9 stem      volume   <chr [1]> <chr [1]> Aceraceae    Acer       <NA>    <FxdEffcM> brackett_1977 <chr [1]>    <chr [2]>      1977
+    #> 2 07d06ce8 stem      volume   <chr [1]> <chr [1]> Betulaceae   Alnus      rubra   <FxdEffcM> brackett_1977 <chr [1]>    <chr [2]>      1977
+    #> 3 32ec2493 stem      volume   <chr [1]> <chr [1]> Betulaceae   Betula     <NA>    <FxdEffcM> brackett_1977 <chr [1]>    <chr [2]>      1977
+    #> 4 4767f5f6 stem      diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>    <FxdEffcM> hann_2011     <chr [1]>    <chr [2]>      2011
+    #> 5 a52441df stump     diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>    <FxdEffcM> hann_2011     <chr [1]>    <chr [2]>      2011
+    #> 6 4c82f4fc stem      volume   <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>    <FxdEffcM> hann_2011     <chr [1]>    <chr [3]>      2011
 
 **Finding and Selecting a Model**
 
@@ -84,20 +84,20 @@ unnested_models <- unnest_models(allometric_models)
 unnested_models
 ```
 
-    ## # A tibble: 372 × 13
-    ##    id       component measure  country region family       genus      species model      pub_id        family_names covt_names pub_year
-    ##    <chr>    <chr>     <chr>    <chr>   <chr>  <chr>        <chr>      <chr>   <list>     <chr>         <chr>        <chr>         <dbl>
-    ##  1 39cb24c9 stem      volume   US      US-WA  Aceraceae    Acer       <NA>    <FxdEffcM> brackett_1977 Brackett     dsob           1977
-    ##  2 39cb24c9 stem      volume   US      US-WA  Aceraceae    Acer       <NA>    <FxdEffcM> brackett_1977 Brackett     hst            1977
-    ##  3 07d06ce8 stem      volume   US      US-WA  Betulaceae   Alnus      rubra   <FxdEffcM> brackett_1977 Brackett     dsob           1977
-    ##  4 07d06ce8 stem      volume   US      US-WA  Betulaceae   Alnus      rubra   <FxdEffcM> brackett_1977 Brackett     hst            1977
-    ##  5 32ec2493 stem      volume   US      US-WA  Betulaceae   Betula     <NA>    <FxdEffcM> brackett_1977 Brackett     dsob           1977
-    ##  6 32ec2493 stem      volume   US      US-WA  Betulaceae   Betula     <NA>    <FxdEffcM> brackett_1977 Brackett     hst            1977
-    ##  7 4767f5f6 stem      diameter US      US-OR  Cupressaceae Calocedrus <NA>    <FxdEffcM> hann_2011     Hann         dsob           2011
-    ##  8 4767f5f6 stem      diameter US      US-OR  Cupressaceae Calocedrus <NA>    <FxdEffcM> hann_2011     Hann         rc             2011
-    ##  9 a52441df stump     diameter US      US-OR  Cupressaceae Calocedrus <NA>    <FxdEffcM> hann_2011     Hann         dsob           2011
-    ## 10 a52441df stump     diameter US      US-OR  Cupressaceae Calocedrus <NA>    <FxdEffcM> hann_2011     Hann         rc             2011
-    ## # … with 362 more rows
+    #> # A tibble: 480 × 13
+    #>    id       component measure  country region family       genus      species model      pub_id        family_names covt_names pub_year
+    #>    <chr>    <chr>     <chr>    <chr>   <chr>  <chr>        <chr>      <chr>   <list>     <chr>         <chr>        <chr>         <dbl>
+    #>  1 39cb24c9 stem      volume   US      US-WA  Aceraceae    Acer       <NA>    <FxdEffcM> brackett_1977 Brackett     dsob           1977
+    #>  2 39cb24c9 stem      volume   US      US-WA  Aceraceae    Acer       <NA>    <FxdEffcM> brackett_1977 Brackett     hst            1977
+    #>  3 07d06ce8 stem      volume   US      US-WA  Betulaceae   Alnus      rubra   <FxdEffcM> brackett_1977 Brackett     dsob           1977
+    #>  4 07d06ce8 stem      volume   US      US-WA  Betulaceae   Alnus      rubra   <FxdEffcM> brackett_1977 Brackett     hst            1977
+    #>  5 32ec2493 stem      volume   US      US-WA  Betulaceae   Betula     <NA>    <FxdEffcM> brackett_1977 Brackett     dsob           1977
+    #>  6 32ec2493 stem      volume   US      US-WA  Betulaceae   Betula     <NA>    <FxdEffcM> brackett_1977 Brackett     hst            1977
+    #>  7 4767f5f6 stem      diameter US      US-OR  Cupressaceae Calocedrus <NA>    <FxdEffcM> hann_2011     Hann         dsob           2011
+    #>  8 4767f5f6 stem      diameter US      US-OR  Cupressaceae Calocedrus <NA>    <FxdEffcM> hann_2011     Hann         rc             2011
+    #>  9 a52441df stump     diameter US      US-OR  Cupressaceae Calocedrus <NA>    <FxdEffcM> hann_2011     Hann         dsob           2011
+    #> 10 a52441df stump     diameter US      US-OR  Cupressaceae Calocedrus <NA>    <FxdEffcM> hann_2011     Hann         rc             2011
+    #> # … with 470 more rows
 
 Now, each row represents unique data combinations for each model, which
 can be quickly filtered by most users using `dplyr::filter`. For
@@ -112,11 +112,11 @@ brackett_alnus_vol <- unnested_models %>%
 brackett_alnus_vol
 ```
 
-    ## # A tibble: 2 × 13
-    ##   id       component measure country region family     genus species model      pub_id        family_names covt_names pub_year
-    ##   <chr>    <chr>     <chr>   <chr>   <chr>  <chr>      <chr> <chr>   <list>     <chr>         <chr>        <chr>         <dbl>
-    ## 1 07d06ce8 stem      volume  US      US-WA  Betulaceae Alnus rubra   <FxdEffcM> brackett_1977 Brackett     dsob           1977
-    ## 2 07d06ce8 stem      volume  US      US-WA  Betulaceae Alnus rubra   <FxdEffcM> brackett_1977 Brackett     hst            1977
+    #> # A tibble: 2 × 13
+    #>   id       component measure country region family     genus species model      pub_id        family_names covt_names pub_year
+    #>   <chr>    <chr>     <chr>   <chr>   <chr>  <chr>      <chr> <chr>   <list>     <chr>         <chr>        <chr>         <dbl>
+    #> 1 07d06ce8 stem      volume  US      US-WA  Betulaceae Alnus rubra   <FxdEffcM> brackett_1977 Brackett     dsob           1977
+    #> 2 07d06ce8 stem      volume  US      US-WA  Betulaceae Alnus rubra   <FxdEffcM> brackett_1977 Brackett     hst            1977
 
 we can see that model `07d06ce8` is a volume model written by Brackett
 for *Alnus rubra*. The model can be selected using the `id` field:
@@ -145,20 +145,20 @@ unique within the publication), and estimates of the parameters.
 brackett_alnus_mod
 ```
 
-    ## Model Form: 
-    ## vsa = 10^a * dsob^b * hst^c 
-    ##  
-    ## vsa [ft3]: volume of the entire stem, including top and stump
-    ## dsob [in]: diameter of the stem, outside bark at breast height
-    ## hst [ft]: total height of the stem
-    ## 
-    ## Parameter Estimates: 
-    ##           a        b        c
-    ## 1 -2.672775 1.920617 1.074024
-    ## 
-    ## Model Descriptors: 
-    ##   country region     family genus species geographic_region age_class
-    ## 1      US  US-WA Betulaceae Alnus   rubra              <NA>      <NA>
+    #> Model Form: 
+    #> vsa = 10^a * dsob^b * hst^c 
+    #>  
+    #> vsa [ft3]: volume of the entire stem, including top and stump
+    #> dsob [in]: diameter of the stem, outside bark at breast height
+    #> hst [ft]: total height of the stem
+    #> 
+    #> Parameter Estimates: 
+    #>           a        b        c
+    #> 1 -2.672775 1.920617 1.074024
+    #> 
+    #> Model Descriptors: 
+    #>   country region     family genus species geographic_region age_class
+    #> 1      US  US-WA Betulaceae Alnus   rubra              <NA>      <NA>
 
 We can see here that `brackett_alnus_mod` will require two covariates
 called `dsob`, which refers to diameter outside bark at breast height,
@@ -173,7 +173,7 @@ providing values of these two covariates.
 predict(brackett_alnus_mod, 12, 65)
 ```
 
-    ## [1] 22.2347
+    #> [1] 22.2347
 
 or we can use the prediction function with a data frame of values
 
@@ -182,7 +182,7 @@ my_trees <- data.frame(dias = c(12, 15, 20), heights = c(65, 75, 100))
 predict(brackett_alnus_mod, my_trees$dias, my_trees$heights)
 ```
 
-    ## [1] 22.23470 39.80216 94.20053
+    #> [1] 22.23470 39.80216 94.20053
 
 or even using the convenience of `dplyr`
 
@@ -191,10 +191,10 @@ my_trees %>%
   mutate(vols = predict(brackett_alnus_mod, dias, heights))
 ```
 
-    ##   dias heights     vols
-    ## 1   12      65 22.23470
-    ## 2   15      75 39.80216
-    ## 3   20     100 94.20053
+    #>   dias heights     vols
+    #> 1   12      65 22.23470
+    #> 2   15      75 39.80216
+    #> 3   20     100 94.20053
 
 This is all that is needed to make predictions using the models stored
 in `allometric`. Please refer to the following vignettes for further

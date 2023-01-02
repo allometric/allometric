@@ -112,8 +112,8 @@ uuid8 <- function() {
   substr(uuid_init, 1, 8)
 }
 
-append_id <- function(model_ids, proxy_id) {
-  model_ids <- dplyr::bind_rows(list(model_ids, data.frame(proxy_id = proxy_id, id = uuid8)))
+append_id <- function(model_ids, proxy_id, id) {
+  model_ids <- dplyr::bind_rows(list(model_ids, data.frame(proxy_id = proxy_id, id = id)))
   model_ids
 }
 

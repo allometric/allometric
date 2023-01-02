@@ -5,8 +5,14 @@ output: github_document
 ```{r include=FALSE}
 library(dplyr)
 library(tidyr)
+
+
 library(allometric)
 options(width = 10000)
+
+knitr::opts_chunk$set(
+  comment = "#>"
+)
 
 if(!exists("allometric_models")) {
   allometric::install_models()

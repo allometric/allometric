@@ -45,11 +45,13 @@ get_height_def <- function(response_name) {
   measure_char <- substr(response_name, 1, 1)
   component_char <- substr(response_name, 2, 2)
   height_char <- substr(response_name, 3, 3)
+  modifier_string <- substr(response_name, 4, nchar(response_name))
 
   matching_measure <- h_defs[
     h_defs$measure == measure_char &
       h_defs$component == component_char &
-      h_defs$height_modifier == height_char,
+      h_defs$height_modifier == height_char &
+      h_defs$modifier == modifier_string,
   ]
 
   add_component <- merge(matching_measure, component_defs)

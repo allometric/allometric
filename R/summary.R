@@ -6,7 +6,7 @@
   predict_body <- body(object@predict_fn)
   last_line_ix <- length(predict_body)
 
-  func_str <- deparse(predict_body[[last_line_ix]])
+  func_str <- deparse(predict_body[[last_line_ix]], width.cutoff = 500)
   clean_str <- gsub("\\{,", "", func_str)
   clean_str <- stringr::str_trim(clean_str)
 

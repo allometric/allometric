@@ -1,8 +1,10 @@
-measure,component,height_modifier,description
-h,s,t,total height of the stem
-h,s,m,merchantable height of the stem
-h,n,d,average height of dominant trees in stand
-h,s,o,height of the stem above breast height
-h,s,b,height of the stem to crown base
-h,s,v,height of the stem to crown base above breast height
-h,s,d,height to a specified diameter (taper)
+measure,component,height_modifier,modifier,description
+h,s,t,,total height of the stem
+h,s,m,,merchantable height of the stem
+h,n,d,,average height of dominant trees in stand
+h,s,o,,height of the stem above breast height
+h,s,b,,height of the stem to crown base
+h,s,v,,height of the stem to crown base above breast height
+h,s,d,,height to a specified diameter (taper)
+h,s,d,ip75,height to a diameter that is 0.75 times the diameter inside bark at breast height
+h,s,d,op67,height to a diameter that is 0.67 times the diameter outside bark at breast height

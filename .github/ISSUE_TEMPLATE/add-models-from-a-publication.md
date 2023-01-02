@@ -1,7 +1,7 @@
 ---
 name: Add models from a publication
 about: Request the developers add models from a publication on your behalf.
-title: ''
+title: '[Insert Author-Date Citation]'
 labels: add publication
 assignees: brycefrank
 
