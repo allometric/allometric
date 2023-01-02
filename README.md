@@ -1,7 +1,12 @@
 allometric
 ================
 
+# allometric <img src='docs/figures/logo.png' align="right" height="139" /></a>
+
+<!-- badges: start -->
+
 [![R-CMD-check](https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml)
+<!-- badges: end -->
 
 `allometric` is an open source R package for predicting tree attributes
 using allometric models. Thousands of allometric models exist in the
