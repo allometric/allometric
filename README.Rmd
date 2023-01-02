@@ -1,5 +1,4 @@
 ---
-title: allometric
 output: github_document
 ---
 
@@ -76,7 +75,7 @@ example of this is the `family_names` column, which contains the names of all
 authors for the publication that contains the model. 
 
 `list` columns enable rigorous searching of models covered in the
-[Advanced Model Searching](https://brycefrank.com/allometric/articles/advanced_model_searching.html)
+[Advanced Model Searching](https://brycefrank.com/allometric/articles/advanced_searching.html)
 vignette, but to get started we will use a helper function called
 `unnest_models` that will give us a clearer picture of the available data.
 

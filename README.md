@@ -1,5 +1,3 @@
-allometric
-================
 
 # allometric <img src='man/figures/logo.png' align="right" height="139" /></a>
 
@@ -76,7 +74,7 @@ model.
 
 `list` columns enable rigorous searching of models covered in the
 [Advanced Model
-Searching](https://brycefrank.com/allometric/articles/advanced_model_searching.html)
+Searching](https://brycefrank.com/allometric/articles/advanced_searching.html)
 vignette, but to get started we will use a helper function called
 `unnest_models` that will give us a clearer picture of the available
 data.
