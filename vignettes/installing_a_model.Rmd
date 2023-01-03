@@ -2,6 +2,10 @@
 title: "Installing a Model"
 ---
 
+```{r include=F}
+library(allometric)
+```
+
 Models can be installed by anyone provided they are comfortable writing R and
 submitting `git` pull requests. The model installation process involves these
 basic steps.
@@ -38,7 +42,7 @@ Journal of Forest Research_ 38.3 (2008), pp. 553-565.
 
 is
 
-```
+```{r}
 paper_citation <- RefManageR::BibEntry(
     bibtype = 'article',
     key = 'temesgen_2008',
@@ -58,15 +62,15 @@ many different types of publications are available, called "entry types", and
 documentation for required fields are given
 [here](https://www.bibtex.com/e/entry-types/). The function that creates a 
 `Publication` requires two arguments, the citation itself and an optional list
-of "shared descriptors". The role of descriptors will become clear as we 
-progress. For now, just know that a shared descriptors is a named list of
+of descriptors. The role of descriptors will become clear as we 
+progress. For now, just know that `descriptors` is a named list of
 attributes that apply to *all models* in the publication.
 
-For example,  all models in this publication are for 
+For example, all models in this publication are for 
 Douglas-fir, and were developed using data in the United States and Oregon.
 With this in mind, we establish the `Publication` object.
 
-```
+```{r}
 temesgen_2008 <- Publication(
     citation = paper_citation,
     descriptors = list(
@@ -88,35 +92,34 @@ no models inside the publication yet, so we must add them.
 Models can be added one at a time. Other convenient ways of adding models are
 described in the next section, but let us start with just one model.
 
-The publication we are using implements several *parametric* models that predict
-the heights of trees using various covariates. One of the functions the authors
-use is $h = 1.37 + b_0 * (1 - \exp(b_1 * d)^{b_2}$ where $h$ represents height
-and $d$ represents the diameter outside bark. Note that the height is a 
+The publication we are using implements several *fixed effects models* that
+predict the heights of trees using various covariates. One of the functions the
+authors use is $h = 1.37 + b_0 * (1 - \exp(b_1 * d)^{b_2}$ where $h$ represents
+height and $d$ represents the diameter outside bark. Note that the height is a 
 function of the covariate $d$ and a finite set of parameters, $b_0$, $b_1$ and
-$b_2$. This is a perfect candidate for the `ParametricModel` class.
+$b_2$. This is a perfect candidate for the `FixedEffectsModel` class.
 
-```
-temesgen_2008_model_one <- ParametricModel(
-    response_unit = list(
-        hst = as_units('m')
-    ),
-    covariate_units = list(
-        dsob = as_units('cm')
-    ),
-    model_specification = list(
-        b_0 = 51.9954,
-        b_1 = -0.0208,
-        b_2 = 1.0182,
-        sigma_epsilon = 4.029
-    ),
-    predict_fn = function(dsob) {
-        1.37 + b_0 * (1 - exp(b_1 * dsob)^b_2)
-    }
+```{r}
+temesgen_2008_model_one <- FixedEffectsModel(
+  response_unit = list(
+    hst = units::as_units('m')
+  ),
+  covariate_units = list(
+    dsob = units::as_units('cm')
+  ),
+  parameters = list(
+    beta_0 = 51.9954,
+    beta_1 = -0.0208,
+    beta_2 = 1.0182
+  ),
+  predict_fn = function(dsob) {
+    1.37 + beta_0 * (1 - exp(beta_1 * dsob)^beta_2)
+  }
 )
 ```
 
 We can see that three arguments are used, `response_unit`, `covariate_units`, 
-`model_specification` and `predict_fn`.
+`parameters` and `predict_fn`.
 
 - `response_unit` - a named list containing one element, which is the name of
 the response variable. In this case `hst` indicates the model is the **h**eight
@@ -127,9 +130,7 @@ the units are defined as meters.
 In this case, only one covariate is used called `dsob` which stands for the 
 **d**iameter of the **s**tem, **o**utside bark at **b**reast height. Again, the
 units are defined, this time as centimeters.
-- `model_specification` - a named list containing model descriptors. In this case
-the model descriptors are the parameters of the model and their estimates from
-the publication.
+- `parameters` - a named list containing the parameters and their estimates.
 - `predict_fn` - this is the prediction function. Note that the body of the
 function is written using the parameters and covariates, but the only argument
 provided to the function is `dsob`, i.e., the one covariate the model uses. This
@@ -139,7 +140,7 @@ at a later phase, so they do not need to be defined as arguments to
 
 Finally, we add the model to the publication using `add_model`
 
-```
+```{r}
 temesgen_2008 <- add_model(temesgen_2008, temesgen_2008_model_one)
 ```
 
@@ -152,13 +153,15 @@ Brackett (1977) fit 24 cubic volume functions for different species
 disaggregated by geographic region and species.
 
 `ModelSet` is a class in `allometric` that efficiently deals with these types 
-of model structures. They allow the author to import a table (e.g., a `.csv`) of
-model descriptions to quickly define large sets of `ParametricModel`s.
+of model structures. For this example we use `FixedEffectsSet` which represents
+a set of fixed effects models. Model sets allow the author to import a table
+(e.g., a `.csv`) of model descriptions to quickly define large sets of
+`ParametricModel`s.
 
 For this task, consider the Brackett (1977) publication. We begin again 
 defining the `Publication`.
 
-```
+```{r}
 bracket_1977_citation <- RefManageR::BibEntry(
     bibtype = 'techreport',
     key = 'brackett_1977',
@@ -178,7 +181,7 @@ brackett_1977 <- Publication(
 ```
 
 Here we can see the citation information and the shared descriptors. Note that
-in this case, `shared_descriptors` only contains `country` and `region`. This
+in this case, `descriptors` only contains `country` and `region`. This
 is because each individual model in `brackett_1977` is not uniform with respect
 to `species` as it was in `temsegen_2008`, so we will have to define those 
 descriptors at the model-level.
@@ -189,42 +192,45 @@ Next, we load a data frame of model descriptions and examine it
 library(tibble)
 ```
 
-```{r eval=F}
+```{r}
 model_specifications <- tibble::as_tibble(load_parameter_frame("vsa_brackett_1977"))
 head(model_specifications)
 ```
 
 We can see that `model_specifications` contains a number of individual models
 which are specified by column names referred to as `descriptors`. In this case,
-`descriptors` includes both parameter estimates and additional model-level 
-information needed to uniquely identify a model with the model set. For 
-Brackett (1977), these models are uniquely identified by their taxonomic family,
-genus and species, as well as their age class and geographic region.
+`descriptors` includes family, genus, species, geographic_region and age_class.
+The combination of these values uniquely identifies a model within this
+publication. `family`, `genus` and `species` are part of a standard set of 
+descriptors called ["search descriptors"](https://brycefrank.com/allometric/articles/descriptors.html),
+which get propagated to the searching functions described in the README.
+`geographic_region` and `age_class` are not search descriptors, but still help
+to clarify the purpose of the model within the publication.
 
-Next, we instantiate the `ModelSet`, which looks very similar to 
-`ParametricModel` used in the previous section. The arguments are the same, but
-the implication is that `response unit`, `covariate units` and `prediction_fn`
-all apply uniformly to the models in the set.
+Next, we instantiate the `FixedEffectsSet`, which looks very similar to 
+`FixedEffectsModelModel` used in the previous section. The arguments are the
+same, but the implication is that `response unit`, `covariate units` and
+`prediction_fn` all apply uniformly to the models in the set.
 
-```
-brackett_1977_model_set <- ModelSet(
+```{r}
+brackett_1977_model_set <- FixedEffectsSet(
     response_unit = list(
-        vsa = as_units('ft3')
+        vsa = units::as_units('ft3')
     ),
     covariate_units = list(
-        dsob = as_units('in'),
-        hst  = as_units('ft')
+        dsob = units::as_units('in'),
+        hst  = units::as_units('ft')
     ),
     predict_fn = function(dsob, hst) {
         10^a * dsob^b * hst^c
     },
     model_specifications = model_specifications
-))
+)
 ```
 
 Finally, we add the model set to the publication using `add_set`
 
-```
+```{r}
 brackett_1977 <- add_set(brackett_1977, brackett_1977_model_set)
 ```
 

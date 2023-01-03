@@ -10,7 +10,6 @@ reference:
   - check_covts_in_args
   - check_descriptor_set
   - check_parametric_model
-  - figures
   - FixedEffectsModel
   - get_model_proxy_id
   - MixedEffectsModel
