@@ -22,12 +22,18 @@ get_pub_list <- function() {
   pub_list
 }
 
-#' Concats the authors, title and year and model index to create a proxy ID 
-#' string for a model.
-get_model_proxy_id <- function(last_names, title, year, response_set_ix,
-  model_set_ix, model_ix) {
-  paste(last_names, title, year, response_set_ix, model_set_ix,
-    model_ix, sep = '-')
+#' Hashes a function string
+#'
+#' We need some sort of stable data structure that will serve as a unique ID
+#' for a model, but will also change in the event that the model changes. This
+#' way, models can be "versioned" across time, which may be useful for debugging
+#' purposes down the line. This function trims whitespace and lowercases 
+#' the predict_fn_populated, which serves as a reasonable proxy for the model.
+get_model_hash <- function(predict_fn_populated, descriptors) {
+  descriptors_string <- gsub(" ", "", tolower(paste(descriptors, collapse="")))
+  fn_string <- gsub(" ", "", tolower(paste(deparse(predict_fn_populated), collapse = "")))
+  hash_str <- paste(descriptors_string, fn_string, sep="")
+  as.character(openssl::md5(hash_str))
 }
 
 #' Transforms a set of searched models into a tibble of models and descriptors
@@ -134,7 +140,7 @@ get_model_results <- function(pub_list) {
         model_set <- response_set[[k]]
         for (l in seq_along(model_set@models)) {
           model <- model_set@models[[l]]
-          proxy_id <- rlang::hash(model)
+          proxy_id <- get_model_hash(model@predict_fn_populated, descriptors(model))
 
           if(!proxy_id %in% current_ids) {
             id <- uuid8()
@@ -144,6 +150,7 @@ get_model_results <- function(pub_list) {
           }
 
           current_ids <- current_ids[!current_ids == proxy_id]
+          print(id)
 
           results[[length(results) + 1]] <- list(
             pub = pub,

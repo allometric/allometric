@@ -40,11 +40,11 @@ inaceae     Abies       grandis     0.393 0.730 1 0978510098 0.121  1   }
 \item{\code{hsv [ft]}}{ - height of the stem to crown base above breast height}
 }
 \bold{Model Parameters}
-\preformatted{amily       genus       species          b_1   b_2    b_3   b_4    b_5   b_6     b_7     k
-inaceae     Pseudotsuga menziesii   0.00124  0.346 -0.566 0.632 -0.152  4.56 -0.0512     1
-upressaceae Calocedrus  <NA>        0.000908 0.343 -0.639 1.59   0      0     0          1
-inaceae     Pinus       ponderosa   0.00128  0.162  1     0      0      0     0          0
-inaceae     Pinus       lambertiana 0.000856 0.388  1     0      0      0     0          0
-inaceae     Abies       concolor    0.00133  0.358 -0.755 0.5   -0.262  1     0          1
-inaceae     Abies       grandis     0.00133  0.358 -0.755 0.5   -0.262  1     0          1}
+\preformatted{amily     genus species     b_1   b_2    b_3   b_4    b_5   b_6     b_7     k
+inaceae   Pseu… menzie… 1.24e-3 0.346 -0.566 0.632 -0.152  4.56 -0.0512     1
+upressac… Calo… <NA>    9.08e-4 0.343 -0.639 1.59   0      0     0          1
+inaceae   Pinus ponder… 1.28e-3 0.162  1     0      0      0     0          0
+inaceae   Pinus lamber… 8.56e-4 0.388  1     0      0      0     0          0
+inaceae   Abies concol… 1.33e-3 0.358 -0.755 0.5   -0.262  1     0          1
+inaceae   Abies grandis 1.33e-3 0.358 -0.755 0.5   -0.262  1     0          1}
 \out{<hr>}}

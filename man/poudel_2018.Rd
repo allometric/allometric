@@ -21,9 +21,9 @@ inaceae Tsuga       heterophylla 0.0308 0.430  4.12 -7.85  4.27}
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
 }
 \bold{Model Parameters}
-\preformatted{amily   genus       species        b_1    b_2     b_3    b_4     b_5    b_6     b_7
-inaceae Pseudotsuga menziesii    0.140 0.730  0.154   -0.121 0.00124 0.0268 -0.0958
-inaceae Tsuga       heterophylla 1.85  0.0101 0.00175 -1.05  0.0029  0.0348 -0.131 }
+\preformatted{amily   genus      species   b_1    b_2     b_3    b_4     b_5    b_6     b_7
+inaceae Pseudotsu… menzie… 0.140 0.730  0.154   -0.121 0.00124 0.0268 -0.0958
+inaceae Tsuga      hetero… 1.85  0.0101 0.00175 -1.05  0.0029  0.0348 -0.131 }
 \out{<hr>}}
 \section{Stem Diameter Models}{\code{dsih = t <- hsd/hst, k <- 1.3/hst, b_1 * dsob^b_2 * b_3^dsob * ((1 - sqrt(t))/(1 - sqrt(p)))^(b_4 * t^2 + b_5 * log(t + 0.001) + b_6 * sqrt(t) + b_7 * exp(t) + b_8 * (dsob/hst))}
 \itemize{
@@ -33,9 +33,9 @@ inaceae Tsuga       heterophylla 1.85  0.0101 0.00175 -1.05  0.0029  0.0348 -0.1
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
 }
 \bold{Model Parameters}
-\preformatted{amily   genus       species        b_1   b_2   b_3   b_4    b_5    b_6    b_7   b_8     p
-inaceae Pseudotsuga menziesii    0.793  1.02 0.998  1.10 -0.180  1.19  -0.611 0.155  0.25
-inaceae Tsuga       heterophylla 0.923  1.01 0.998  1.05 -0.162 -0.244 -0.314 0.302  0.12}
+\preformatted{amily  genus species   b_1   b_2   b_3   b_4    b_5    b_6    b_7   b_8     p
+inace… Pseu… menzie… 0.793  1.02 0.998  1.10 -0.180  1.19  -0.611 0.155  0.25
+inace… Tsuga hetero… 0.923  1.01 0.998  1.05 -0.162 -0.244 -0.314 0.302  0.12}
 \out{<hr>}
 \code{dsih = k <- 1.3/hst, t <- hsd/hst, b_1 * dsob^b_2 * hst^b_3 * ((1 - t^(1/3))/(1 - k^(1/3)))^(b_4 * t^4 + b_5 * (1/exp(dsob/hst)) + b_6 * ((1 - t^(1/3))/(1 - k^(1/3)))^(0.1) + b_7 * (1/dsob) + b_8 * (hst^(1 - (hsd/hst)^(1/3))) + b_9 * ((1 - t^(1/3))/(1 - k^(1/3))))}
 \itemize{
@@ -45,9 +45,9 @@ inaceae Tsuga       heterophylla 0.923  1.01 0.998  1.05 -0.162 -0.244 -0.314 0.
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
 }
 \bold{Model Parameters}
-\preformatted{amily   genus       species        b_1   b_2     b_3   b_4   b_5   b_6   b_7    b_8    b_9
-inaceae Pseudotsuga menziesii     1.04 0.998 -0.0311 0.538 -1.01 0.568  4.96 0.0412 -0.344
-inaceae Tsuga       heterophylla  1.06 0.994 -0.0168 0.646 -1.57 0.743  4.76 0.0389 -0.194}
+\preformatted{amily genus species   b_1   b_2     b_3   b_4   b_5   b_6   b_7    b_8    b_9
+inac… Pseu… menzie…  1.04 0.998 -0.0311 0.538 -1.01 0.568  4.96 0.0412 -0.344
+inac… Tsuga hetero…  1.06 0.994 -0.0168 0.646 -1.57 0.743  4.76 0.0389 -0.194}
 \out{<hr>}
 \code{dsih = 2 * (((b_1 * dsob)/(1 - exp(b_3 * (1.3 - hst)))) + (dsob/2 - b_1 * dsob) * (1 - (1/(1 - exp(b_2 * (1.3 - hst))))) + exp(-b_2 * hsd) * ((dsob/2 - b_1 * dsob) * exp(1.3 * b_2)/(1 - exp(b_2 * (1.3 - hst)))) - exp(b_3 * hsd) * ((b_1 * dsob * exp(-b_3 * hst))/(1 - exp(b_3 * (1.3 - hst)))))}
 \itemize{
