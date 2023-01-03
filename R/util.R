@@ -24,7 +24,7 @@ check_covts_in_args <- function(object) {
 
   covt_names <- names(object@covariate_units)
   if(!(all(covt_names %in% fn_args) & all(fn_args %in% covt_names))) {
-    msg <- paste('Not all covariate names match function arguments.')
+    msg <- paste('The predict_fn arguments and the names in covariate_units mismatch.')
     errors <- c(errors, msg)
   }
 

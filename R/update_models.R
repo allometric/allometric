@@ -150,8 +150,6 @@ get_model_results <- function(pub_list) {
           }
 
           current_ids <- current_ids[!current_ids == proxy_id]
-          print(id)
-
           results[[length(results) + 1]] <- list(
             pub = pub,
             model = model,
