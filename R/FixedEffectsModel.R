@@ -28,6 +28,7 @@ setMethod("init_set_of_one", signature(mod = "FixedEffectsModel"), function(mod)
   FixedEffectsSet(
     response_unit = mod@response_unit,
     covariate_units = mod@covariate_units,
+    parameter_names = names(mod@parameters),
     predict_fn = mod@predict_fn,
     model_specifications = mod@specification
   )

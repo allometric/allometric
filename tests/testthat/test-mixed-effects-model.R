@@ -34,10 +34,10 @@ test_that("A mixed effects model with one ranef makes predictions", {
 
 mixed_effects_model_fixed_only <- MixedEffectsModel(
   response_unit = list(
-    hst = as_units("m")
+    hst = units::as_units("m")
   ),
   covariate_units = list(
-    dsob = as_units("cm")
+    dsob = units::as_units("cm")
   ),
   parameters = list(
     beta_0 = 40.4218,

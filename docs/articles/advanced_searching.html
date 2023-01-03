@@ -50,7 +50,6 @@
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
     <a class="dropdown-item" href="../articles/advanced_searching.html">Advanced Model Searching</a>
     <a class="dropdown-item" href="../articles/descriptors.html">Describing a Model with Descriptors</a>
-    <a class="dropdown-item" href="../articles/ignore/deep_dive.html">A Deep Dive into `allometric`</a>
     <a class="dropdown-item" href="../articles/installing_a_model.html">Installing a Model</a>
     <a class="dropdown-item" href="../articles/mixed_effects.html">Mixed-Effects Models</a>
     <a class="dropdown-item" href="../articles/variable_naming_system.html">Variable Naming System</a>
@@ -110,17 +109,17 @@ filtering out all models containing <code>Hann</code> as an author:</p>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">hann_models</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 6 × 13</span></span></span>
-<span><span class="co">##   id       compo…¹ measure country region family genus species model      pub_id</span></span>
-<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">1</span> 4767f5f6 stem    diamet… &lt;chr&gt;   &lt;chr&gt;  Cupre… Calo… <span style="color: #BB0000;">NA</span>      <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">2</span> a52441df stump   diamet… &lt;chr&gt;   &lt;chr&gt;  Cupre… Calo… <span style="color: #BB0000;">NA</span>      <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">3</span> 4c82f4fc stem    volume  &lt;chr&gt;   &lt;chr&gt;  Cupre… Calo… <span style="color: #BB0000;">NA</span>      <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">4</span> f424737e stem    diamet… &lt;chr&gt;   &lt;chr&gt;  Pinac… Abies concol… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">5</span> cefef117 stump   diamet… &lt;chr&gt;   &lt;chr&gt;  Pinac… Abies concol… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">6</span> ade6f0d5 stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Abies concol… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_…</span></span>
-<span><span class="co">## <span style="color: #949494;"># … with 3 more variables: family_names &lt;list&gt;, covt_names &lt;list&gt;,</span></span></span>
-<span><span class="co">## <span style="color: #949494;">#   pub_year &lt;dbl&gt;, and abbreviated variable name ¹​component</span></span></span></code></pre>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 6 × 12</span></span></span>
+<span><span class="co">##   compon…¹ measure country region family genus species model      pub_id famil…²</span></span>
+<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span> stem     diamet… &lt;chr&gt;   &lt;chr&gt;  Cupre… Calo… <span style="color: #BB0000;">NA</span>      <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_… &lt;chr&gt;  </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">2</span> stump    diamet… &lt;chr&gt;   &lt;chr&gt;  Cupre… Calo… <span style="color: #BB0000;">NA</span>      <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_… &lt;chr&gt;  </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">3</span> stem     volume  &lt;chr&gt;   &lt;chr&gt;  Cupre… Calo… <span style="color: #BB0000;">NA</span>      <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_… &lt;chr&gt;  </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">4</span> stem     diamet… &lt;chr&gt;   &lt;chr&gt;  Pinac… Abies concol… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_… &lt;chr&gt;  </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">5</span> stump    diamet… &lt;chr&gt;   &lt;chr&gt;  Pinac… Abies concol… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_… &lt;chr&gt;  </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">6</span> stem     volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Abies concol… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_… &lt;chr&gt;  </span></span>
+<span><span class="co">## <span style="color: #949494;"># … with 2 more variables: covt_names &lt;list&gt;, pub_year &lt;dbl&gt;, and abbreviated</span></span></span>
+<span><span class="co">## <span style="color: #949494;">#   variable names ¹​component, ²​family_names</span></span></span></code></pre>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">hann_models</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## [1] 24</span></span></code></pre>
@@ -147,17 +146,17 @@ the first author. Using a simple modification we can easily do this.</p>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">hann_first_author_models</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 6 × 13</span></span></span>
-<span><span class="co">##   id       compo…¹ measure country region family genus species model      pub_id</span></span>
-<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">1</span> 4767f5f6 stem    diamet… &lt;chr&gt;   &lt;chr&gt;  Cupre… Calo… <span style="color: #BB0000;">NA</span>      <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">2</span> a52441df stump   diamet… &lt;chr&gt;   &lt;chr&gt;  Cupre… Calo… <span style="color: #BB0000;">NA</span>      <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">3</span> 4c82f4fc stem    volume  &lt;chr&gt;   &lt;chr&gt;  Cupre… Calo… <span style="color: #BB0000;">NA</span>      <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">4</span> f424737e stem    diamet… &lt;chr&gt;   &lt;chr&gt;  Pinac… Abies concol… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">5</span> cefef117 stump   diamet… &lt;chr&gt;   &lt;chr&gt;  Pinac… Abies concol… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">6</span> ade6f0d5 stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Abies concol… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_…</span></span>
-<span><span class="co">## <span style="color: #949494;"># … with 3 more variables: family_names &lt;list&gt;, covt_names &lt;list&gt;,</span></span></span>
-<span><span class="co">## <span style="color: #949494;">#   pub_year &lt;dbl&gt;, and abbreviated variable name ¹​component</span></span></span></code></pre>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 6 × 12</span></span></span>
+<span><span class="co">##   compon…¹ measure country region family genus species model      pub_id famil…²</span></span>
+<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span> stem     diamet… &lt;chr&gt;   &lt;chr&gt;  Cupre… Calo… <span style="color: #BB0000;">NA</span>      <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_… &lt;chr&gt;  </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">2</span> stump    diamet… &lt;chr&gt;   &lt;chr&gt;  Cupre… Calo… <span style="color: #BB0000;">NA</span>      <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_… &lt;chr&gt;  </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">3</span> stem     volume  &lt;chr&gt;   &lt;chr&gt;  Cupre… Calo… <span style="color: #BB0000;">NA</span>      <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_… &lt;chr&gt;  </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">4</span> stem     diamet… &lt;chr&gt;   &lt;chr&gt;  Pinac… Abies concol… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_… &lt;chr&gt;  </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">5</span> stump    diamet… &lt;chr&gt;   &lt;chr&gt;  Pinac… Abies concol… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_… &lt;chr&gt;  </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">6</span> stem     volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Abies concol… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_… &lt;chr&gt;  </span></span>
+<span><span class="co">## <span style="color: #949494;"># … with 2 more variables: covt_names &lt;list&gt;, pub_year &lt;dbl&gt;, and abbreviated</span></span></span>
+<span><span class="co">## <span style="color: #949494;">#   variable names ¹​component, ²​family_names</span></span></span></code></pre>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">hann_first_author_models</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## [1] 18</span></span></code></pre>

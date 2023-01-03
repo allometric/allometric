@@ -61,6 +61,7 @@ setMethod("init_set_of_one", signature(mod = "MixedEffectsModel"), function(mod)
     response_unit = mod@response_unit,
     covariate_units = mod@covariate_units,
     predict_fn = mod@predict_fn,
+    parameter_names = names(mod@parameters),
     model_specifications = mod@specification,
     predict_ranef = mod@predict_ranef,
     fixed_only = mod@fixed_only

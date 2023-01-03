@@ -8,8 +8,8 @@
 )
 
 #' @export
-MixedEffectsSet <- function(response_unit, covariate_units, predict_fn,
-                            model_specifications, predict_ranef,
+MixedEffectsSet <- function(response_unit, covariate_units, parameter_names,
+                            predict_fn, model_specifications, predict_ranef,
                             fixed_only = FALSE, descriptors = list()) {
   mixed_effects_set <- .MixedEffectsSet(
     ModelSet(
@@ -19,13 +19,7 @@ MixedEffectsSet <- function(response_unit, covariate_units, predict_fn,
   )
 
   mixed_effects_set@predict_ranef <- predict_ranef
-
-  ranef_names <- get_ranef_names(mixed_effects_set@predict_ranef)
-  all_names <- get_parameter_names(
-    mixed_effects_set@predict_fn, names(mixed_effects_set@covariate_units)
-  )
-
-  mixed_effects_set@parameter_names <- all_names[!all_names %in% ranef_names]
+  mixed_effects_set@parameter_names <- parameter_names
 
   if ("list" %in% class(model_specifications)) {
     model_specifications <- tibble::tibble(data.frame(model_specifications))

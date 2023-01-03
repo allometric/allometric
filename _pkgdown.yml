@@ -21,7 +21,9 @@ reference:
   - hann_2011
   - rustagi_1991
 - title: Stem Diameter Models
-  contents: hann_2011
+  contents:
+  - hann_2011
+  - poudel_2018
 - title: Stump Diameter Models
   contents: hann_2011
 - title: Stem Biomass Models
@@ -36,3 +38,5 @@ reference:
   contents:
   - moore_1996
   - temesgen_2008
+- title: Stem Ratio Models
+  contents: poudel_2018

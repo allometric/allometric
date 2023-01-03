@@ -27,6 +27,7 @@ brackett_1977 <- add_set(brackett_1977, FixedEffectsSet(
     dsob = as_units("in"),
     hst  = as_units("ft")
   ),
+  parameter_names = c('a', 'b', 'c'),
   predict_fn = function(dsob, hst) {
     10^a * dsob^b * hst^c
   },

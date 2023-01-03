@@ -4,11 +4,10 @@ pkgdown_sha: ~
 articles:
   advanced_searching: advanced_searching.html
   descriptors: descriptors.html
-  deep_dive: ignore/deep_dive.html
   installing_a_model: installing_a_model.html
   mixed_effects: mixed_effects.html
   variable_naming_system: variable_naming_system.html
-last_built: 2023-01-03T00:17Z
+last_built: 2023-01-03T05:15Z
 urls:
   reference: http://brycefrank.com/allometric/reference
   article: http://brycefrank.com/allometric/articles

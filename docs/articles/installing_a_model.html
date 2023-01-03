@@ -50,7 +50,6 @@
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
     <a class="dropdown-item" href="../articles/advanced_searching.html">Advanced Model Searching</a>
     <a class="dropdown-item" href="../articles/descriptors.html">Describing a Model with Descriptors</a>
-    <a class="dropdown-item" href="../articles/ignore/deep_dive.html">A Deep Dive into `allometric`</a>
     <a class="dropdown-item" href="../articles/installing_a_model.html">Installing a Model</a>
     <a class="dropdown-item" href="../articles/mixed_effects.html">Mixed-Effects Models</a>
     <a class="dropdown-item" href="../articles/variable_naming_system.html">Variable Naming System</a>
@@ -277,15 +276,14 @@ so we will have to define those descriptors at the model-level.</p>
 <code class="sourceCode R"><span><span class="va">model_specifications</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="fu">load_parameter_frame</span><span class="op">(</span><span class="st">"vsa_brackett_1977"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">model_specifications</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 6 × 8</span></span></span>
-<span><span class="co">##   family   genus       species      geographic_region age_cl…¹     a     b     c</span></span>
-<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">1</span> Pinaceae Pseudotsuga menziesii    coastal           &lt; 140 y… -<span style="color: #BB0000;">2.66</span>  1.74 1.13 </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">2</span> Pinaceae Pseudotsuga menziesii    coastal           &gt;= 80 y… -<span style="color: #BB0000;">2.71</span>  1.66 1.20 </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">3</span> Pinaceae Pseudotsuga menziesii    interior          <span style="color: #BB0000;">NA</span>       -<span style="color: #BB0000;">2.73</span>  1.74 1.17 </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">4</span> Pinaceae Tsuga       heterophylla coastal           &lt; 140 y… -<span style="color: #BB0000;">2.70</span>  1.84 1.12 </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">5</span> Pinaceae Tsuga       heterophylla coastal           &gt;= 80 y… -<span style="color: #BB0000;">2.66</span>  1.79 1.12 </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">6</span> Pinaceae Tsuga       heterophylla interior          <span style="color: #BB0000;">NA</span>       -<span style="color: #BB0000;">2.57</span>  1.97 0.977</span></span>
-<span><span class="co">## <span style="color: #949494;"># … with abbreviated variable name ¹​age_class</span></span></span></code></pre>
+<span><span class="co">##   family   genus       species      region   age_class       a     b     c</span></span>
+<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span> Pinaceae Pseudotsuga menziesii    coastal  &lt; 140 years -<span style="color: #BB0000;">2.66</span>  1.74 1.13 </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">2</span> Pinaceae Pseudotsuga menziesii    coastal  &gt;= 80 years -<span style="color: #BB0000;">2.71</span>  1.66 1.20 </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">3</span> Pinaceae Pseudotsuga menziesii    interior <span style="color: #BB0000;">NA</span>          -<span style="color: #BB0000;">2.73</span>  1.74 1.17 </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">4</span> Pinaceae Tsuga       heterophylla coastal  &lt; 140 years -<span style="color: #BB0000;">2.70</span>  1.84 1.12 </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">5</span> Pinaceae Tsuga       heterophylla coastal  &gt;= 80 years -<span style="color: #BB0000;">2.66</span>  1.79 1.12 </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">6</span> Pinaceae Tsuga       heterophylla interior <span style="color: #BB0000;">NA</span>          -<span style="color: #BB0000;">2.57</span>  1.97 0.977</span></span></code></pre>
 <p>We can see that <code>model_specifications</code> contains a number
 of individual models which are specified by column names referred to as
 <code>descriptors</code>. In this case, <code>descriptors</code>

@@ -106,13 +106,13 @@ brackett_alnus_vol
 we can see that model `07d06ce8` is a volume model written by Brackett for 
 *Alnus rubra*. The model can be selected using the `id` field:
 
-```{r}
+```{r eval=F}
 brackett_alnus_mod <- brackett_alnus_vol %>% select_model("07d06ce8")
 ```
 
 or by using the row index
 
-```{r eval=F}
+```{r eval=T}
 brackett_alnus_mod <- brackett_alnus_vol %>% select_model(1)
 ```
 

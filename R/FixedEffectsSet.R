@@ -7,8 +7,9 @@
 )
 
 #' @export
-FixedEffectsSet <- function(response_unit, covariate_units, predict_fn,
-                            model_specifications, descriptors = list()) {
+FixedEffectsSet <- function(response_unit, covariate_units, parameter_names,
+                            predict_fn, model_specifications,
+                            descriptors = list()) {
   fixed_effects_set <- .FixedEffectsSet(
     ModelSet(
       response_unit, covariate_units, predict_fn, model_specifications,
@@ -20,9 +21,7 @@ FixedEffectsSet <- function(response_unit, covariate_units, predict_fn,
     model_specifications <- tibble::tibble(data.frame(model_specifications))
   }
 
-  fixed_effects_set@parameter_names <- get_parameter_names(
-    fixed_effects_set@predict_fn, names(fixed_effects_set@covariate_units)
-  )
+  fixed_effects_set@parameter_names <- parameter_names
 
   mod_descriptors <- names(model_specifications)[!names(model_specifications) %in% fixed_effects_set@parameter_names]
 

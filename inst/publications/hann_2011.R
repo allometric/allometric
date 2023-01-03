@@ -21,6 +21,7 @@ dsib <- FixedEffectsSet(
     dsob = units::as_units('in'),
     rc = units::as_units('ft/ft')
   ),
+  parameter_names = c('b_1', 'b_2', 'b_3'),
   predict_fn = function(dsob, rc) {
     b_1 * dsob^b_2 * exp(b_3 * (1 - rc)^(0.5))
   },
@@ -37,6 +38,7 @@ dui1 <- FixedEffectsSet(
     dsob = units::as_units('in'),
     rc = units::as_units('ft/ft')
   ),
+  parameter_names = c('b_1', 'b_2', 'b_3', 'b_4', 'b_5'),
   predict_fn = function(dsob, rc) {
     b_1 + b_2 * dsob^b_3 * exp(b_4 * rc^b_5)
   },
@@ -54,6 +56,7 @@ vso <- FixedEffectsSet(
     dsob = units::as_units('in'),
     hsv = units::as_units('ft')
   ),
+  parameter_names = c('b_1', 'b_2', 'b_3', 'b_4', 'k', 'b_5', 'b_7'),
   predict_fn = function(hso, dsob, hsv) {
     b_1 * (hso / dsob)^(b_2 * (1 - exp(b_3 * dsob^b_4)))^k *
       exp(b_5 * (hsv / hso)) * dsob^b_7 * dsob^2 * hso

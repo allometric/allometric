@@ -25,6 +25,7 @@ wykoff_set <- FixedEffectsSet(
   covariate_units = list(
     dsob = as_units("in")
   ),
+  parameter_names = c('a', 'b'),
   predict_fn = function(dsob) {
     4.5 + exp(a + (b / (dsob + 1)))
   },
@@ -38,6 +39,7 @@ lundqvist_set <- FixedEffectsSet(
   covariate_units = list(
     dsob = as_units("in")
   ),
+  parameter_names = c('a', 'b', 'c'),
   predict_fn = function(dsob) {
     4.5 + a * exp(-b * dsob^(-c))
   },
