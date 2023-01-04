@@ -1,4 +1,5 @@
 
+
 check_model_set_validity <- function(object) {
   # TODO the number of distinct rows of model_specifications using the
   # non-parameter columns needs to be equalto the total number of rows

@@ -1,9 +1,24 @@
 
+
+#' Are all named parameters in the model specification?
+check_parameters_in_specification <- function(object) {
+}
+
+check_fixed_effects_set_validity <- function(object) {
+  # TODO the number of distinct rows of model_specifications using the
+  # non-parameter columns needs to be equalto the total number of rows
+  errors <- c()
+  errors <- c(errors, check_parameters_in_predict_fn(object))
+  errors
+}
+
+
 .FixedEffectsSet <- setClass("FixedEffectsSet",
   contains = "ModelSet",
   slots = c(
     parameter_names = "character"
-  )
+  ),
+  validity = check_fixed_effects_set_validity
 )
 
 #' @export
@@ -14,14 +29,12 @@ FixedEffectsSet <- function(response_unit, covariate_units, parameter_names,
     ModelSet(
       response_unit, covariate_units, predict_fn, model_specifications,
       descriptors
-    )
+    ), parameter_names = parameter_names
   )
 
   if ("list" %in% class(model_specifications)) {
     model_specifications <- tibble::tibble(data.frame(model_specifications))
   }
-
-  fixed_effects_set@parameter_names <- parameter_names
 
   mod_descriptors <- names(model_specifications)[!names(model_specifications) %in% fixed_effects_set@parameter_names]
 

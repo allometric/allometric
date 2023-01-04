@@ -1,10 +1,17 @@
+check_fixed_effects_set_validity <- function(object) {
+  errors <- c()
+  errors <- c(errors, check_parameters_in_mixed_fns(object))
+  errors
+}
+
 .MixedEffectsSet <- setClass("MixedEffectsSet",
   contains = "ModelSet",
   slots = c(
     predict_ranef = "function",
     fixed_only = "logical",
     parameter_names = "character"
-  )
+  ),
+  validity = check_fixed_effects_set_validity
 )
 
 #' @export
@@ -15,11 +22,9 @@ MixedEffectsSet <- function(response_unit, covariate_units, parameter_names,
     ModelSet(
       response_unit, covariate_units, predict_fn, model_specifications,
       descriptors
-    )
+    ), predict_ranef = predict_ranef, fixed_only = fixed_only,
+    parameter_names = parameter_names
   )
-
-  mixed_effects_set@predict_ranef <- predict_ranef
-  mixed_effects_set@parameter_names <- parameter_names
 
   if ("list" %in% class(model_specifications)) {
     model_specifications <- tibble::tibble(data.frame(model_specifications))
