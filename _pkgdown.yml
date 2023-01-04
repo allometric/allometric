@@ -11,7 +11,7 @@ reference:
   - check_descriptor_set
   - check_parametric_model
   - FixedEffectsModel
-  - get_model_proxy_id
+  - get_model_hash
   - MixedEffectsModel
   - ParametricModel
 - title: Stem Volume Models

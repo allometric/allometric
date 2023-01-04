@@ -109,17 +109,17 @@ filtering out all models containing <code>Hann</code> as an author:</p>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">hann_models</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 6 × 12</span></span></span>
-<span><span class="co">##   compon…¹ measure country region family genus species model      pub_id famil…²</span></span>
-<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">1</span> stem     diamet… &lt;chr&gt;   &lt;chr&gt;  Cupre… Calo… <span style="color: #BB0000;">NA</span>      <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_… &lt;chr&gt;  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">2</span> stump    diamet… &lt;chr&gt;   &lt;chr&gt;  Cupre… Calo… <span style="color: #BB0000;">NA</span>      <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_… &lt;chr&gt;  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">3</span> stem     volume  &lt;chr&gt;   &lt;chr&gt;  Cupre… Calo… <span style="color: #BB0000;">NA</span>      <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_… &lt;chr&gt;  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">4</span> stem     diamet… &lt;chr&gt;   &lt;chr&gt;  Pinac… Abies concol… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_… &lt;chr&gt;  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">5</span> stump    diamet… &lt;chr&gt;   &lt;chr&gt;  Pinac… Abies concol… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_… &lt;chr&gt;  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">6</span> stem     volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Abies concol… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_… &lt;chr&gt;  </span></span>
-<span><span class="co">## <span style="color: #949494;"># … with 2 more variables: covt_names &lt;list&gt;, pub_year &lt;dbl&gt;, and abbreviated</span></span></span>
-<span><span class="co">## <span style="color: #949494;">#   variable names ¹​component, ²​family_names</span></span></span></code></pre>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 6 × 13</span></span></span>
+<span><span class="co">##   id       compo…¹ measure country region family genus species model      pub_id</span></span>
+<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span> adeaf86e stem    diamet… &lt;chr&gt;   &lt;chr&gt;  Cupre… Calo… <span style="color: #BB0000;">NA</span>      <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">2</span> f85c0bd6 stump   diamet… &lt;chr&gt;   &lt;chr&gt;  Cupre… Calo… <span style="color: #BB0000;">NA</span>      <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">3</span> 6aa0bc1e stem    volume  &lt;chr&gt;   &lt;chr&gt;  Cupre… Calo… <span style="color: #BB0000;">NA</span>      <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">4</span> fd071661 stem    diamet… &lt;chr&gt;   &lt;chr&gt;  Pinac… Abies concol… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">5</span> 8419eccf stump   diamet… &lt;chr&gt;   &lt;chr&gt;  Pinac… Abies concol… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">6</span> 0ddbb194 stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Abies concol… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_…</span></span>
+<span><span class="co">## <span style="color: #949494;"># … with 3 more variables: family_names &lt;list&gt;, covt_names &lt;list&gt;,</span></span></span>
+<span><span class="co">## <span style="color: #949494;">#   pub_year &lt;dbl&gt;, and abbreviated variable name ¹​component</span></span></span></code></pre>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">hann_models</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## [1] 24</span></span></code></pre>
@@ -146,17 +146,17 @@ the first author. Using a simple modification we can easily do this.</p>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">hann_first_author_models</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 6 × 12</span></span></span>
-<span><span class="co">##   compon…¹ measure country region family genus species model      pub_id famil…²</span></span>
-<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">1</span> stem     diamet… &lt;chr&gt;   &lt;chr&gt;  Cupre… Calo… <span style="color: #BB0000;">NA</span>      <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_… &lt;chr&gt;  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">2</span> stump    diamet… &lt;chr&gt;   &lt;chr&gt;  Cupre… Calo… <span style="color: #BB0000;">NA</span>      <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_… &lt;chr&gt;  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">3</span> stem     volume  &lt;chr&gt;   &lt;chr&gt;  Cupre… Calo… <span style="color: #BB0000;">NA</span>      <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_… &lt;chr&gt;  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">4</span> stem     diamet… &lt;chr&gt;   &lt;chr&gt;  Pinac… Abies concol… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_… &lt;chr&gt;  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">5</span> stump    diamet… &lt;chr&gt;   &lt;chr&gt;  Pinac… Abies concol… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_… &lt;chr&gt;  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">6</span> stem     volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Abies concol… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_… &lt;chr&gt;  </span></span>
-<span><span class="co">## <span style="color: #949494;"># … with 2 more variables: covt_names &lt;list&gt;, pub_year &lt;dbl&gt;, and abbreviated</span></span></span>
-<span><span class="co">## <span style="color: #949494;">#   variable names ¹​component, ²​family_names</span></span></span></code></pre>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 6 × 13</span></span></span>
+<span><span class="co">##   id       compo…¹ measure country region family genus species model      pub_id</span></span>
+<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span> adeaf86e stem    diamet… &lt;chr&gt;   &lt;chr&gt;  Cupre… Calo… <span style="color: #BB0000;">NA</span>      <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">2</span> f85c0bd6 stump   diamet… &lt;chr&gt;   &lt;chr&gt;  Cupre… Calo… <span style="color: #BB0000;">NA</span>      <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">3</span> 6aa0bc1e stem    volume  &lt;chr&gt;   &lt;chr&gt;  Cupre… Calo… <span style="color: #BB0000;">NA</span>      <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">4</span> fd071661 stem    diamet… &lt;chr&gt;   &lt;chr&gt;  Pinac… Abies concol… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">5</span> 8419eccf stump   diamet… &lt;chr&gt;   &lt;chr&gt;  Pinac… Abies concol… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">6</span> 0ddbb194 stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Abies concol… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_…</span></span>
+<span><span class="co">## <span style="color: #949494;"># … with 3 more variables: family_names &lt;list&gt;, covt_names &lt;list&gt;,</span></span></span>
+<span><span class="co">## <span style="color: #949494;">#   pub_year &lt;dbl&gt;, and abbreviated variable name ¹​component</span></span></span></code></pre>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">hann_first_author_models</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## [1] 18</span></span></code></pre>
@@ -205,8 +205,8 @@ all models developed using data from <code>US-OR</code></p>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">us_or_models</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 45</span></span></code></pre>
-<p>We can see that 45 allometric models are defined for the state of
+<pre><code><span><span class="co">## [1] 59</span></span></code></pre>
+<p>We can see that 59 allometric models are defined for the state of
 Oregon, US.</p>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

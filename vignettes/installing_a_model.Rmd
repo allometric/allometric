@@ -221,6 +221,7 @@ brackett_1977_model_set <- FixedEffectsSet(
         dsob = units::as_units('in'),
         hst  = units::as_units('ft')
     ),
+    parameter_names = c('a', 'b', 'c'),
     predict_fn = function(dsob, hst) {
         10^a * dsob^b * hst^c
     },

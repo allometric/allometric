@@ -19,12 +19,12 @@ Imports:
     RefManageR
 Collate:
     'all_generics.R'
+    'model_tbl.R'
     'install.R'
     'summary.R'
     'util.R'
     'variable_defs.R'
     'load.R'
-    'filter.R'
     'AllometricModel.R'
     'ModelSet.R'
     'FixedEffectsSet.R'
