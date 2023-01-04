@@ -9,6 +9,6 @@
 \item{\code{hst [ft]}}{ - total height of the stem}
 }
 \bold{Model Parameters}
-\preformatted{   a     b     c
-2.96  1.81  1.27}
+\preformatted{      a     b     c
+1 -2.96  1.81  1.27}
 \out{<hr>}}

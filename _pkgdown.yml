@@ -20,6 +20,11 @@ reference:
   - brackett_1977
   - hann_2011
   - rustagi_1991
+- title: Stem Height Models
+  contents:
+  - hann_1987
+  - moore_1996
+  - temesgen_2008
 - title: Stem Diameter Models
   contents:
   - hann_2011
@@ -36,9 +41,5 @@ reference:
   contents: huy_2019
 - title: Bark Biomass Models
   contents: huy_2019
-- title: Stem Height Models
-  contents:
-  - moore_1996
-  - temesgen_2008
 - title: Stem Ratio Models
   contents: poudel_2018

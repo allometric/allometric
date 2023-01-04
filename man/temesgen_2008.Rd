@@ -8,8 +8,8 @@
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
 }
 \bold{Model Parameters}
-\preformatted{ b_0     b_1   b_2
-52.0 -0.0208  1.02}
+\preformatted{    b_0     b_1   b_2
+1  52.0 -0.0208  1.02}
 \out{<hr>}
 \code{hst = 1.37 + (beta_0 + b_i) * (1 - exp(beta_1 * dsob)^beta_2)}
 \itemize{
@@ -17,8 +17,8 @@
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
 }
 \bold{Model Parameters}
-\preformatted{eta_0  beta_1 beta_2 sigma_sq_b sigma_sq_epsilon
- 40.4 -0.0276  0.936       6.54             2.69}
+\preformatted{  beta_0  beta_1 beta_2 sigma_sq_b sigma_sq_epsilon
+1   40.4 -0.0276  0.936       6.54             2.69}
 \out{<hr>}
 \code{hst = 1.37 + (beta_0 + b_0_i) * (1 - exp(beta_1 * dsob)^(beta_2 + b_2_i))}
 \itemize{
@@ -26,8 +26,8 @@
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
 }
 \bold{Model Parameters}
-\preformatted{eta_0  beta_1 beta_2
- 41.8 -0.0241  0.860}
+\preformatted{  beta_0  beta_1 beta_2
+1   41.8 -0.0241  0.860}
 \out{<hr>}
 \code{hst = 1.37 + (beta_00 + beta_01 * ccfl + beta_02 * ba) * (1 - exp(beta_1 * dsob)^beta_2)}
 \itemize{
@@ -37,8 +37,8 @@
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
 }
 \bold{Model Parameters}
-\preformatted{eta_00 beta_01 beta_02  beta_1 beta_2
-  43.7  0.0644   0.128 -0.0194   1.08}
+\preformatted{  beta_00 beta_01 beta_02  beta_1 beta_2
+1    43.7  0.0644   0.128 -0.0194   1.08}
 \out{<hr>}
 \code{hst = 1.37 + (beta_00 + beta_01 * ccfl + beta_02 * gn + b_i) * (1 - exp(beta_1 * dsob)^beta_2)}
 \itemize{
@@ -48,8 +48,8 @@
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
 }
 \bold{Model Parameters}
-\preformatted{eta_00 beta_01 beta_02 beta_1 beta_2
-  32.5  0.0363   0.258 -0.021  0.991}
+\preformatted{  beta_00 beta_01 beta_02 beta_1 beta_2
+1    32.5  0.0363   0.258 -0.021  0.991}
 \out{<hr>}
 \code{hst = 1.37 + (beta_00 + beta_01 * ccfl + beta_02 * gn + b_0_i) * (1 - exp(beta_1 * dsob)^(beta_2 + b_2_i))}
 \itemize{
@@ -59,6 +59,6 @@
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
 }
 \bold{Model Parameters}
-\preformatted{eta_00 beta_01 beta_02  beta_1 beta_2
-  35.7  0.0431   0.245 -0.0184  0.961}
+\preformatted{  beta_00 beta_01 beta_02  beta_1 beta_2
+1    35.7  0.0431   0.245 -0.0184  0.961}
 \out{<hr>}}

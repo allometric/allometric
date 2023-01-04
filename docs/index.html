@@ -77,7 +77,7 @@
 
 <p><code>allometric</code> is an open source R package for predicting tree attributes using allometric models. Thousands of allometric models exist in the scientific and technical forestry literature. <code>allometric</code> is a platform for archiving and using this vast array of models in a robust and structured format.</p>
 <p><code>allometric</code> not only enables the use of allometric models for analysis, it also provides a structured language for adding models to the package. If you are interested in helping the developer in this process please refer to the <a href="https://brycefrank.com/allometric/articles/installing_a_model.html" class="external-link">Installing a Model</a> vignette.</p>
-<p>Currently, <code>allometric</code> contains 103 allometric models across 10 publications.</p>
+<p>Currently, <code>allometric</code> contains 105 allometric models across 11 publications.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -111,7 +111,7 @@
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">unnested_models</span> <span class="op">&lt;-</span> <span class="fu">unnest_models</span><span class="op">(</span><span class="va">allometric_models</span><span class="op">)</span></span>
 <span><span class="va">unnested_models</span></span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 714 × 13</span></span>
+<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 726 × 13</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    id       component measure  country region family     genus species model      pub_id        family_names covt_names pub_year</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;   &lt;list&gt;     &lt;chr&gt;         &lt;chr&gt;        &lt;chr&gt;         &lt;dbl&gt;</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 b946c15c stem      volume   US      US-WA  Aceraceae  Acer  &lt;NA&gt;    &lt;FxdEffcM&gt; brackett_1977 Brackett     dsob           1977</span></span>
@@ -124,7 +124,7 @@
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 0ce6aca9 stem      diameter US      US-OR  Betulaceae Alnus rubra   &lt;FxdEffcM&gt; hibbs_2007    Bluhm        dsob           2007</span></span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 0ce6aca9 stem      diameter US      US-OR  Betulaceae Alnus rubra   &lt;FxdEffcM&gt; hibbs_2007    Bluhm        hst            2007</span></span>
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 0ce6aca9 stem      diameter US      US-OR  Betulaceae Alnus rubra   &lt;FxdEffcM&gt; hibbs_2007    Bluhm        hsd            2007</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 704 more rows</span></span></code></pre></div>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 716 more rows</span></span></code></pre></div>
 <p>Now, each row represents unique data combinations for each model, which can be quickly filtered by most users using <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">dplyr::filter</a></code>. For example, to find a volume model for the genus Alnus that had <code>"Brackett"</code> as an author or co-author we can use</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">brackett_alnus_vol</span> <span class="op">&lt;-</span> <span class="va">unnested_models</span> <span class="op">%&gt;%</span></span>

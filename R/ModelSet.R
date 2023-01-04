@@ -108,9 +108,7 @@ setMethod("rd_parameter_table", "ModelSet", function(mod) {
 
   lines_trim <- lines_no_quote[-c(1, 3)]
 
-  lines_trim_side <- substring(lines_trim, 4)
-
-  fmt_lines <- paste(lines_trim_side, collapse = "\n")
+  fmt_lines <- paste(lines_trim, collapse = "\n")
 
   sprintf("\\preformatted{%s}", fmt_lines)
 })
