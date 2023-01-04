@@ -19,7 +19,7 @@ refer to the [Installing a
 Model](https://brycefrank.com/allometric/articles/installing_a_model.html)
 vignette.
 
-Currently, `allometric` contains 105 allometric models across 11
+Currently, `allometric` contains 119 allometric models across 12
 publications.
 
 ## Installation
@@ -54,14 +54,14 @@ head(allometric_models)
 ```
 
     #> # A tibble: 6 × 13
-    #>   id       component measure  country   region    family       genus      species model      pub_id        family_names covt_names pub_year
-    #>   <chr>    <chr>     <chr>    <list>    <list>    <chr>        <chr>      <chr>   <list>     <chr>         <list>       <list>        <dbl>
-    #> 1 b946c15c stem      volume   <chr [1]> <chr [1]> Aceraceae    Acer       <NA>    <FxdEffcM> brackett_1977 <chr [1]>    <chr [2]>      1977
-    #> 2 0d046a1d stem      volume   <chr [1]> <chr [1]> Betulaceae   Alnus      rubra   <FxdEffcM> brackett_1977 <chr [1]>    <chr [2]>      1977
-    #> 3 0ce6aca9 stem      diameter <chr [2]> <chr [3]> Betulaceae   Alnus      rubra   <FxdEffcM> hibbs_2007    <chr [3]>    <chr [3]>      2007
-    #> 4 095a3821 stem      volume   <chr [1]> <chr [1]> Betulaceae   Betula     <NA>    <FxdEffcM> brackett_1977 <chr [1]>    <chr [2]>      1977
-    #> 5 adeaf86e stem      diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>    <FxdEffcM> hann_2011     <chr [1]>    <chr [2]>      2011
-    #> 6 f85c0bd6 stump     diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>    <FxdEffcM> hann_2011     <chr [1]>    <chr [2]>      2011
+    #>   id       component measure  country   region    family       genus      species   model      pub_id        family_names covt_names pub_year
+    #>   <chr>    <chr>     <chr>    <list>    <list>    <chr>        <chr>      <chr>     <list>     <chr>         <list>       <list>        <dbl>
+    #> 1 b946c15c stem      volume   <chr [1]> <chr [1]> Aceraceae    Acer       <NA>      <FxdEffcM> brackett_1977 <chr [1]>    <chr [2]>      1977
+    #> 2 0d046a1d stem      volume   <chr [1]> <chr [1]> Betulaceae   Alnus      rubra     <FxdEffcM> brackett_1977 <chr [1]>    <chr [2]>      1977
+    #> 3 0ce6aca9 stem      diameter <chr [2]> <chr [3]> Betulaceae   Alnus      rubra     <FxdEffcM> hibbs_2007    <chr [3]>    <chr [3]>      2007
+    #> 4 095a3821 stem      volume   <chr [1]> <chr [1]> Betulaceae   Betula     <NA>      <FxdEffcM> brackett_1977 <chr [1]>    <chr [2]>      1977
+    #> 5 a580b7ab crown     ratio    <chr [1]> <chr [1]> Cupressaceae Calocedrus decurrens <FxdEffcM> ritchie_1987  <chr [2]>    <chr [4]>      1987
+    #> 6 adeaf86e stem      diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>      <FxdEffcM> hann_2011     <chr [1]>    <chr [2]>      2011
 
 **Finding and Selecting a Model**
 
@@ -84,7 +84,7 @@ unnested_models <- unnest_models(allometric_models)
 unnested_models
 ```
 
-    #> # A tibble: 726 × 13
+    #> # A tibble: 812 × 13
     #>    id       component measure  country region family     genus species model      pub_id        family_names covt_names pub_year
     #>    <chr>    <chr>     <chr>    <chr>   <chr>  <chr>      <chr> <chr>   <list>     <chr>         <chr>        <chr>         <dbl>
     #>  1 b946c15c stem      volume   US      US-WA  Aceraceae  Acer  <NA>    <FxdEffcM> brackett_1977 Brackett     dsob           1977
@@ -97,7 +97,7 @@ unnested_models
     #>  8 0ce6aca9 stem      diameter US      US-OR  Betulaceae Alnus rubra   <FxdEffcM> hibbs_2007    Bluhm        dsob           2007
     #>  9 0ce6aca9 stem      diameter US      US-OR  Betulaceae Alnus rubra   <FxdEffcM> hibbs_2007    Bluhm        hst            2007
     #> 10 0ce6aca9 stem      diameter US      US-OR  Betulaceae Alnus rubra   <FxdEffcM> hibbs_2007    Bluhm        hsd            2007
-    #> # … with 716 more rows
+    #> # … with 802 more rows
 
 Now, each row represents unique data combinations for each model, which
 can be quickly filtered by most users using `dplyr::filter`. For

@@ -20,7 +20,7 @@ poudel_2018 <- Publication(
 
 m1 <- FixedEffectsSet(
   response_unit = list(
-    rsdsobdsi = units::as_units('cm / cm')
+    rsdodi = units::as_units('cm / cm')
   ),
   covariate_units = list(
     hst = units::as_units('m'),
@@ -76,7 +76,7 @@ m2 <- FixedEffectsSet(
 
 m3 <- FixedEffectsSet(
   response_unit = list(
-    rsdsobdsi = units::as_units('cm / cm')
+    rsdodi = units::as_units('cm / cm')
   ),
   covariate_units = list(
     hst = units::as_units('m'),

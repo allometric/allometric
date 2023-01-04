@@ -43,9 +43,6 @@
     <loc>http://brycefrank.com/allometric/LICENSE.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/aggregate_results.html</loc>
-  </url>
-  <url>
     <loc>http://brycefrank.com/allometric/reference/aggregate_results_ext.html</loc>
   </url>
   <url>
@@ -53,9 +50,6 @@
   </url>
   <url>
     <loc>http://brycefrank.com/allometric/reference/bell_1981.html</loc>
-  </url>
-  <url>
-    <loc>http://brycefrank.com/allometric/reference/brackett_1977 copy.html</loc>
   </url>
   <url>
     <loc>http://brycefrank.com/allometric/reference/brackett_1977.html</loc>
@@ -77,9 +71,6 @@
   </url>
   <url>
     <loc>http://brycefrank.com/allometric/reference/get_model_hash.html</loc>
-  </url>
-  <url>
-    <loc>http://brycefrank.com/allometric/reference/get_model_proxy_id.html</loc>
   </url>
   <url>
     <loc>http://brycefrank.com/allometric/reference/hann_1987.html</loc>
@@ -110,6 +101,9 @@
   </url>
   <url>
     <loc>http://brycefrank.com/allometric/reference/poudel_2018.html</loc>
+  </url>
+  <url>
+    <loc>http://brycefrank.com/allometric/reference/ritchie_1987.html</loc>
   </url>
   <url>
     <loc>http://brycefrank.com/allometric/reference/rustagi_1991.html</loc>
