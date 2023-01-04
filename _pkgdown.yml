@@ -21,17 +21,18 @@ reference:
   - bruce_1974
   - hann_2011
   - rustagi_1991
+- title: Stem Diameter Models
+  contents:
+  - bluhm_2007
+  - hann_2011
+  - hibbs_2007
+  - kozak_1988
+  - poudel_2018
 - title: Stem Height Models
   contents:
   - hann_1987
   - moore_1996
   - temesgen_2008
-- title: Stem Diameter Models
-  contents:
-  - hann_2011
-  - hibbs_2007
-  - kozak_1988
-  - poudel_2018
 - title: Stump Diameter Models
   contents: hann_2011
 - title: Stem Biomass Models
