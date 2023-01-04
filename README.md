@@ -22,6 +22,10 @@ vignette.
 Currently, `allometric` contains 125 allometric models across 15
 publications.
 
+\*\*`allometric` is currently in a pre-release state. If you are
+interested in collaboration (adding models or working on the package
+functions) please email me at <bfrank70@gmail.com>\`
+
 ## Installation
 
 Currently `allometric` is only available on GitHub, and can be installed
@@ -195,7 +199,3 @@ my_trees %>%
     #> 1   12      65 22.23470
     #> 2   15      75 39.80216
     #> 3   20     100 94.20053
-
-This is all that is needed to make predictions using the models stored
-in `allometric`. Please refer to the following vignettes for further
-possibilities with this package.

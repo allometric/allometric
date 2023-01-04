@@ -40,11 +40,11 @@
 \item{\code{hsv [ft]}}{ - height of the stem to crown base above breast height}
 }
 \bold{Model Parameters}
-\preformatted{  family       genus       species          b_1   b_2    b_3   b_4    b_5   b_6     b_7     k
-1 Pinaceae     Pseudotsuga menziesii   0.00124  0.346 -0.566 0.632 -0.152  4.56 -0.0512     1
-2 Cupressaceae Calocedrus  <NA>        0.000908 0.343 -0.639 1.59   0      0     0          1
-3 Pinaceae     Pinus       ponderosa   0.00128  0.162  1     0      0      0     0          0
-4 Pinaceae     Pinus       lambertiana 0.000856 0.388  1     0      0      0     0          0
-5 Pinaceae     Abies       concolor    0.00133  0.358 -0.755 0.5   -0.262  1     0          1
-6 Pinaceae     Abies       grandis     0.00133  0.358 -0.755 0.5   -0.262  1     0          1}
+\preformatted{  family     genus species     b_1   b_2    b_3   b_4    b_5   b_6     b_7     k
+1 Pinaceae   Pseu… menzie… 1.24e-3 0.346 -0.566 0.632 -0.152  4.56 -0.0512     1
+2 Cupressac… Calo… <NA>    9.08e-4 0.343 -0.639 1.59   0      0     0          1
+3 Pinaceae   Pinus ponder… 1.28e-3 0.162  1     0      0      0     0          0
+4 Pinaceae   Pinus lamber… 8.56e-4 0.388  1     0      0      0     0          0
+5 Pinaceae   Abies concol… 1.33e-3 0.358 -0.755 0.5   -0.262  1     0          1
+6 Pinaceae   Abies grandis 1.33e-3 0.358 -0.755 0.5   -0.262  1     0          1}
 \out{<hr>}}

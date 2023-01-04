@@ -41,6 +41,10 @@ are interested in helping the developer in this process please refer to the
 Currently, `allometric` contains `r n_models` allometric models across
 `r n_pubs` publications.
 
+**`allometric` is currently in a pre-release state. If you are interested in
+collaboration (adding models or working on the package functions) please email
+me at bfrank70@gmail.com`
+
 ## Installation
 
 Currently `allometric` is only available on GitHub, and can be installed using
@@ -156,7 +160,3 @@ or even using the convenience of `dplyr`
 my_trees %>%
   mutate(vols = predict(brackett_alnus_mod, dias, heights))
 ```
-
-This is all that is needed to make predictions using the models stored in 
-`allometric`. Please refer to the following vignettes for further possibilities
-with this package.
