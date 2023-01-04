@@ -23,6 +23,7 @@ reference:
 - title: Stem Diameter Models
   contents:
   - hann_2011
+  - hibbs_2007
   - kozak_1988
   - poudel_2018
 - title: Stump Diameter Models

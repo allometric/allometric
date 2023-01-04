@@ -126,3 +126,30 @@ setMethod(
     print(utils::str(publication@citation))
   }
 )
+
+setMethod("show", "Publication", function(object) {
+  cat(RefManageR::TextCite(object@citation))
+
+  response_names <- names(object@response_sets)
+
+  for(response_name in response_names) {
+    cat('\n')
+    n_sets <- length(object@response_sets[[response_name]])
+    if(n_sets > 1) {
+      cat(sprintf('--- %s: %s model sets', response_name, n_sets))
+    } else {
+      cat(sprintf('--- %s: %s model set', response_name, n_sets))
+    }
+
+    for(i in 1:n_sets) {
+      n_models <- length(object@response_sets[[response_name]][[i]]@models)
+      cat('\n')
+      if(n_models > 1) {
+        cat(sprintf('--------- %s models', n_models))
+      } else {
+        cat(sprintf('--------- %s model', n_models))
+      }
+    }
+  }
+})
+
