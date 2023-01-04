@@ -22,9 +22,9 @@ vignette.
 Currently, `allometric` contains 125 allometric models across 15
 publications.
 
-\*\*`allometric` is currently in a pre-release state. If you are
+**`allometric` is currently in a pre-release state. If you are
 interested in collaboration (adding models or working on the package
-functions) please email me at <bfrank70@gmail.com>\`
+functions) please email me at <bfrank70@gmail.com>\`**
 
 ## Installation
 
