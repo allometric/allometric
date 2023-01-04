@@ -10,7 +10,7 @@ huy_2019_citation <- RefManageR::BibEntry(
   volume = 437,
   pages = "156-174",
   year = 2019,
-  publisher = "Eslevier"
+  publisher = "Elsevier"
 )
 
 huy_2019 <- Publication(

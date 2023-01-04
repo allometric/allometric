@@ -38,7 +38,9 @@ reference:
 - title: Branch Biomass Models
   contents: huy_2019
 - title: Foliage Biomass Models
-  contents: huy_2019
+  contents:
+  - huy_2019
+  - turner_2000
 - title: Bark Biomass Models
   contents: huy_2019
 - title: Stem Ratio Models
