@@ -27,10 +27,10 @@ temesgen_2008 <- Publication(
 
 temesgen_2008 <- add_model(temesgen_2008, FixedEffectsModel(
   response_unit = list(
-    hst = as_units("m")
+    hst = units::as_units("m")
   ),
   covariate_units = list(
-    dsob = as_units("cm")
+    dsob = units::as_units("cm")
   ),
   parameters = list(
     b_0 = 51.9954,
@@ -44,10 +44,10 @@ temesgen_2008 <- add_model(temesgen_2008, FixedEffectsModel(
 
 temesgen_2008 <- add_model(temesgen_2008, MixedEffectsModel(
   response_unit = list(
-    hst = as_units("m")
+    hst = units::as_units("m")
   ),
   covariate_units = list(
-    dsob = as_units("cm")
+    dsob = units::as_units("cm")
   ),
   parameters = list(
     beta_0 = 40.4218,
@@ -70,10 +70,10 @@ temesgen_2008 <- add_model(temesgen_2008, MixedEffectsModel(
 
 temesgen_2008 <- add_model(temesgen_2008, MixedEffectsModel(
   response_unit = list(
-    hst = as_units("m")
+    hst = units::as_units("m")
   ),
   covariate_units = list(
-    dsob = as_units("cm")
+    dsob = units::as_units("cm")
   ),
   parameters = list(
     beta_0 = 41.8199,
@@ -91,12 +91,12 @@ temesgen_2008 <- add_model(temesgen_2008, MixedEffectsModel(
 
 temesgen_2008 <- add_model(temesgen_2008, FixedEffectsModel(
   response_unit = list(
-    hst = as_units("m")
+    hst = units::as_units("m")
   ),
   covariate_units = list(
-    ccfl = as_units("m2 / ha"),
-    ba = as_units("m2 / ha"),
-    dsob = as_units("cm")
+    ccfl = units::as_units("m2 / ha"),
+    ba = units::as_units("m2 / ha"),
+    dsob = units::as_units("cm")
   ),
   parameters = list(
     beta_00 = 43.7195,
@@ -113,12 +113,12 @@ temesgen_2008 <- add_model(temesgen_2008, FixedEffectsModel(
 
 temesgen_2008 <- add_model(temesgen_2008, MixedEffectsModel(
   response_unit = list(
-    hst = as_units("m")
+    hst = units::as_units("m")
   ),
   covariate_units = list(
-    ccfl = as_units("m2 / ha"),
-    gn = as_units("m2 / ha"),
-    dsob = as_units("cm")
+    ccfl = units::as_units("m2 / ha"),
+    gn = units::as_units("m2 / ha"),
+    dsob = units::as_units("cm")
   ),
   parameters = list(
     beta_00 = 32.4635,
@@ -139,12 +139,12 @@ temesgen_2008 <- add_model(temesgen_2008, MixedEffectsModel(
 
 temesgen_2008 <- add_model(temesgen_2008, MixedEffectsModel(
   response_unit = list(
-    hst = as_units("m")
+    hst = units::as_units("m")
   ),
   covariate_units = list(
-    ccfl = as_units("m2 / ha"),
-    gn = as_units("m2 / ha"),
-    dsob = as_units("cm")
+    ccfl = units::as_units("m2 / ha"),
+    gn = units::as_units("m2 / ha"),
+    dsob = units::as_units("cm")
   ),
   parameters = list(
     beta_00 = 35.7419,

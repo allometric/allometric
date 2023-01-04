@@ -1,5 +1,3 @@
-library(units)
-
 moore_1996 <- Publication(
   citation = RefManageR::BibEntry(
     bibtype = "article",
@@ -20,10 +18,10 @@ moore_1996 <- Publication(
 
 wykoff_set <- FixedEffectsSet(
   response_unit = list(
-    hst = as_units("ft")
+    hst = units::as_units("ft")
   ),
   covariate_units = list(
-    dsob = as_units("in")
+    dsob = units::as_units("in")
   ),
   parameter_names = c('a', 'b'),
   predict_fn = function(dsob) {
@@ -34,10 +32,10 @@ wykoff_set <- FixedEffectsSet(
 
 lundqvist_set <- FixedEffectsSet(
   response_unit = list(
-    hst = as_units("ft")
+    hst = units::as_units("ft")
   ),
   covariate_units = list(
-    dsob = as_units("in")
+    dsob = units::as_units("in")
   ),
   parameter_names = c('a', 'b', 'c'),
   predict_fn = function(dsob) {

@@ -1,5 +1,3 @@
-library(units)
-library(dplyr)
 
 huy_2019_citation <- RefManageR::BibEntry(
   bibtype = "article",
@@ -22,12 +20,12 @@ huy_2019 <- Publication(
 
 bs_huy_2019_1 <- FixedEffectsSet(
   response_unit = list(
-    bs = as_units("kg")
+    bs = units::as_units("kg")
   ),
   covariate_units = list(
-    dsob = as_units("cm"),
-    hst = as_units("m"),
-    es = as_units("g/cm^3")
+    dsob = units::as_units("cm"),
+    hst = units::as_units("m"),
+    es = units::as_units("g/cm^3")
   ),
   parameter_names = c('a_1', 'b_11', 'b_12', 'b_13'),
   predict_fn = function(dsob, hst, es) {
@@ -38,10 +36,10 @@ bs_huy_2019_1 <- FixedEffectsSet(
 
 bs_huy_2019_2 <- FixedEffectsSet(
   response_unit = list(
-    bs = as_units("kg")
+    bs = units::as_units("kg")
   ),
   covariate_units = list(
-    dsob = as_units("cm")
+    dsob = units::as_units("cm")
   ),
   parameter_names = c('a_1', 'b_11'),
   predict_fn = function(dsob) {
@@ -52,10 +50,10 @@ bs_huy_2019_2 <- FixedEffectsSet(
 
 bb_huy_2019 <- FixedEffectsSet(
   response_unit = list(
-    bb = as_units("kg")
+    bb = units::as_units("kg")
   ),
   covariate_units = list(
-    dsob = as_units("cm")
+    dsob = units::as_units("cm")
   ),
   parameter_names = c('a_2', 'b_21'),
   predict_fn = function(dsob) {
@@ -66,10 +64,10 @@ bb_huy_2019 <- FixedEffectsSet(
 
 bf_huy_2019 <- FixedEffectsSet(
   response_unit = list(
-    bf = as_units("kg")
+    bf = units::as_units("kg")
   ),
   covariate_units = list(
-    dsob = as_units("cm")
+    dsob = units::as_units("cm")
   ),
   parameter_names = c('a_3', 'b_31'),
   predict_fn = function(dsob) {
@@ -80,10 +78,10 @@ bf_huy_2019 <- FixedEffectsSet(
 
 bk_huy_2019 <- FixedEffectsSet(
   response_unit = list(
-    bk = as_units("kg")
+    bk = units::as_units("kg")
   ),
   covariate_units = list(
-    dsob = as_units("cm")
+    dsob = units::as_units("cm")
   ),
   parameter_names = c('a_4', 'b_41'),
   predict_fn = function(dsob) {

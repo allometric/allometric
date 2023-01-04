@@ -21,11 +21,11 @@ model_specifications <- tibble::as_tibble(load_parameter_frame("vsa_brackett_197
 
 brackett_1977 <- add_set(brackett_1977, FixedEffectsSet(
   response_unit = list(
-    vsa = as_units("ft3")
+    vsa = units::as_units("ft3")
   ),
   covariate_units = list(
-    dsob = as_units("in"),
-    hst  = as_units("ft")
+    dsob = units::as_units("in"),
+    hst  = units::as_units("ft")
   ),
   parameter_names = c('a', 'b', 'c'),
   predict_fn = function(dsob, hst) {
