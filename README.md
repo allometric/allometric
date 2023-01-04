@@ -19,7 +19,7 @@ refer to the [Installing a
 Model](https://brycefrank.com/allometric/articles/installing_a_model.html)
 vignette.
 
-Currently, `allometric` contains 122 allometric models across 13
+Currently, `allometric` contains 124 allometric models across 14
 publications.
 
 ## Installation
@@ -84,7 +84,7 @@ unnested_models <- unnest_models(allometric_models)
 unnested_models
 ```
 
-    #> # A tibble: 824 × 13
+    #> # A tibble: 872 × 13
     #>    id       component measure  country region family     genus species model      pub_id        family_names covt_names pub_year
     #>    <chr>    <chr>     <chr>    <chr>   <chr>  <chr>      <chr> <chr>   <list>     <chr>         <chr>        <chr>         <dbl>
     #>  1 b946c15c stem      volume   US      US-WA  Aceraceae  Acer  <NA>    <FxdEffcM> brackett_1977 Brackett     dsob           1977
@@ -97,7 +97,7 @@ unnested_models
     #>  8 0ce6aca9 stem      diameter US      US-OR  Betulaceae Alnus rubra   <FxdEffcM> hibbs_2007    Bluhm        dsob           2007
     #>  9 0ce6aca9 stem      diameter US      US-OR  Betulaceae Alnus rubra   <FxdEffcM> hibbs_2007    Bluhm        hst            2007
     #> 10 0ce6aca9 stem      diameter US      US-OR  Betulaceae Alnus rubra   <FxdEffcM> hibbs_2007    Bluhm        hsd            2007
-    #> # … with 814 more rows
+    #> # … with 862 more rows
 
 Now, each row represents unique data combinations for each model, which
 can be quickly filtered by most users using `dplyr::filter`. For
