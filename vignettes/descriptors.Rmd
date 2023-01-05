@@ -2,25 +2,84 @@
 title: "Describing a Model with Descriptors"
 ---
 
-Descriptors are sets of information that describe a model, model set or
-publication. Descriptors are *optional* under one condition, all models within
-a `ModelSet` must be uniquely identified by the set of descriptors. So, for a
-`ModelSet` containing one model, no descriptors are needed.
+```{r include = F}
+library(allometric)
+install_models()
+```
 
-However, authors are encouraged to define a set of *search descriptors* if able.
-These descriptors are propagated to the `model_filter` function and allow for
+Descriptors are sets of information that describe a model. The user can think 
+of descriptors as a nested list of helpful information for finding and
+specifying models. For example, Brackett (1977) is a technical report that 
+fits 24 cubic volume models for a wide variety of tree species, age classes,
+and size classes. Descriptors answer the question: how would a user navigate
+models stored in `allometric` in a way that is consistent with the publication?
+We will take a look at Brackett (1977) as a motivating example.
+
+In Brackett(1977) some species, like Douglas-fir, have multiple models that
+are fit to specific geographic regions and age classes. Let's take a look at
+the descriptors of one of those models
+
+```{r}
+brackett_mod_1 <- select_model(allometric_models, '7e960e6d')
+brackett_mod_1
+```
+
+The last section of the output specifies all descriptors for this model, 
+including `country`, `region`, `family`, `genus`, `species`, `geographic_region`
+and `age_class`. These descriptors are enough for a user to identify the
+model within the publication.
+
+In this case, the first five descriptors (`country` through `species`) are 
+referred to as "search descriptors", which are descriptors propagated to the
+`allometric_models` dataframe. Contributors are encouraged to defined these 
+descriptors whenever possible. The remaining two descriptors are non-standard
+descriptors specific to this publication, and use verbage from the publication
+to assist users in finding the correct model. Contributors are free to name
+these descriptors in a way that makes sense for the publication.
+
+## Specifying Descriptors at Different Levels
+
+`allometric` operates at three levels arranged in a hierarchy. There are
+publications, model sets within publications and models within model sets.
+For convenience, contributors can define descriptors at any level, with the
+understanding that all descriptors defined at that level apply uniformly to 
+all models lower in the hierarchy.
+
+For example, the source code for the Brackett model installation specifies 
+`country` and `region` at the publication-level.
+
+```{r eval=F}
+brackett_1977 <- Publication(
+  citation = bracket_1977_citation,
+  descriptors = list(
+    country = "US",
+    region = "US-WA"
+  )
+)
+```
+
+This means that **all** models in `brackett_1977` are constructed with data only
+from the state of Washington in the United States. The `FixedEffectsSet`,
+`MixedEffectsSet` and their respective `FixedEffectsModel` and `MixedEffectsModel`
+classes all have a `descriptors` argument that can be used for specifying
+descriptors at these levels. Refer to the [Installing a Model](https://brycefrank.com/allometric/articles/installing_a_model.html)
+vignette for more examples at these levels.
+
+## Search Descriptors
+
+Authors are encouraged to define a set of *search descriptors* if able.
+These descriptors are propagated to the `allometric_models` table and allow for
 quick filtering of allometric equations
 
 The set of *search descriptors* are:
+
 - `country` - the country (or countries) of the dataset used for the
 model. Countries must be two-character 
 [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) names.
 - `region` - the region of the dataset used for the model. Regions are defined
 as subsets of countries, and must comply with the four-character region codes
 given in [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2). States are 
-an example of regions, e.g., "US-CO" for Colorado, US.
+an example of regions, e.g., `"US-CO"` for Colorado, US.
 - `family` - the taxonomic family of the dataset used for the model.
 - `genus` - the taxonomic genus of the dataset used for the model.
 - `species` - the taxonomic species of the dataset used for the model.
-
-TODO - add more as they come up.

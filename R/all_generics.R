@@ -42,6 +42,7 @@ setGeneric("rd_parameter_table", function(mod) standardGeneric("rd_parameter_tab
 setGeneric("specification", function(mod) standardGeneric("specification"))
 setGeneric("specification<-", function(mod, value) standardGeneric("specification<-"))
 
+#' @export
 setGeneric("descriptors", function(mod) standardGeneric("descriptors"))
 
 setGeneric("parameters", function(mod) standardGeneric("parameters"))

@@ -75,10 +75,10 @@
 </div>
 <!-- badges: start -->
 
-<p><code>allometric</code> is an open source R package for predicting tree attributes using allometric models. Thousands of allometric models exist in the scientific and technical forestry literature. <code>allometric</code> is a platform for archiving and using this vast array of models in a robust and structured format.</p>
+<p><code>allometric</code> is an R package for predicting tree attributes with allometric models. Thousands of allometric models exist in the scientific and technical forestry literature, and <code>allometric</code> is a platform for archiving and using this vast array of models in a robust and structured format.</p>
 <p><code>allometric</code> not only enables the use of allometric models for analysis, it also provides a structured language for adding models to the package. If you are interested in helping the developer in this process please refer to the <a href="https://brycefrank.com/allometric/articles/installing_a_model.html" class="external-link">Installing a Model</a> vignette.</p>
-<p>Currently, <code>allometric</code> contains 125 allometric models across 15 publications.</p>
-<p><strong><code>allometric</code> is currently in a pre-release state. If you are interested in collaboration (adding models or working on the package functions) please email me at <a href="mailto:bfrank70@gmail.com" class="email">bfrank70@gmail.com</a>`</strong></p>
+<p>Currently, <code>allometric</code> contains 125 allometric models across 15 publications. Refer to the <a href="https://brycefrank.com/allometric/reference/index.html" class="external-link">Reference</a> for a full list of publications disaggregated by allometric model type.</p>
+<p><strong><code>allometric</code> is currently in a pre-release state. If you are interested in collaboration (adding models or working on the package functions) please email me at <a href="mailto:bfrank70@gmail.com" class="email">bfrank70@gmail.com</a></strong></p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -94,7 +94,7 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">allometric</span><span class="op">)</span></span>
 <span><span class="fu">install_models</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p>This compiles the allometric models, and enables their use. <code>install_models</code> only needs to be ran at installation, or following any package updates. After running this function, the models are available in the variable <code>allometric_models</code>.</p>
+<p>This compiles the allometric models, and enables their use. <code>install_models</code> only needs to be ran at installation or following any package updates. After running this function, the models are available in the variable <code>allometric_models</code>.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">allometric_models</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 13</span></span>
@@ -182,6 +182,21 @@
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1   12      65 22.23470</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2   15      75 39.80216</span></span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3   20     100 94.20053</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="next-steps">Next Steps<a class="anchor" aria-label="anchor" href="#next-steps"></a>
+</h2>
+<p>The following vignettes available on the <a href="https://brycefrank.com/allometric/index.html" class="external-link">package website</a> provide information to two primary audiences.</p>
+<p>Users interested in conducting analysis will find this vignette most useful:</p>
+<ul>
+<li><a href="https://brycefrank.com/allometric/articles/advanced_searching.html" class="external-link">Advanced Model Searching</a></li>
+</ul>
+<p>Users interested in <strong>contributing models</strong> to the package will find these vignettes the most useful:</p>
+<ul>
+<li><a href="https://brycefrank.com/allometric/articles/installing_a_model.html" class="external-link">Installing a Model</a></li>
+<li><a href="https://brycefrank.com/allometric/articles/descriptors.html" class="external-link">Describing a Model with Descriptors</a></li>
+<li><a href="https://brycefrank.com/allometric/articles/variable_naming_system.html" class="external-link">Variable Naming System</a></li>
+</ul>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="license">

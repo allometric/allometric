@@ -6,11 +6,11 @@
 [![R-CMD-check](https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml)
 <!-- badges: end -->
 
-`allometric` is an open source R package for predicting tree attributes
-using allometric models. Thousands of allometric models exist in the
-scientific and technical forestry literature. `allometric` is a platform
-for archiving and using this vast array of models in a robust and
-structured format.
+`allometric` is an R package for predicting tree attributes with
+allometric models. Thousands of allometric models exist in the
+scientific and technical forestry literature, and `allometric` is a
+platform for archiving and using this vast array of models in a robust
+and structured format.
 
 `allometric` not only enables the use of allometric models for analysis,
 it also provides a structured language for adding models to the package.
@@ -20,7 +20,9 @@ Model](https://brycefrank.com/allometric/articles/installing_a_model.html)
 vignette.
 
 Currently, `allometric` contains 125 allometric models across 15
-publications.
+publications. Refer to the
+[Reference](https://brycefrank.com/allometric/reference/index.html) for
+a full list of publications disaggregated by allometric model type.
 
 **`allometric` is currently in a pre-release state. If you are
 interested in collaboration (adding models or working on the package
@@ -49,7 +51,7 @@ install_models()
 ```
 
 This compiles the allometric models, and enables their use.
-`install_models` only needs to be ran at installation, or following any
+`install_models` only needs to be ran at installation or following any
 package updates. After running this function, the models are available
 in the variable `allometric_models`.
 
@@ -199,3 +201,25 @@ my_trees %>%
     #> 1   12      65 22.23470
     #> 2   15      75 39.80216
     #> 3   20     100 94.20053
+
+## Next Steps
+
+The following vignettes available on the [package
+website](https://brycefrank.com/allometric/index.html) provide
+information to two primary audiences.
+
+Users interested in conducting analysis will find this vignette most
+useful:
+
+- [Advanced Model
+  Searching](https://brycefrank.com/allometric/articles/advanced_searching.html)
+
+Users interested in **contributing models** to the package will find
+these vignettes the most useful:
+
+- [Installing a
+  Model](https://brycefrank.com/allometric/articles/installing_a_model.html)
+- [Describing a Model with
+  Descriptors](https://brycefrank.com/allometric/articles/descriptors.html)
+- [Variable Naming
+  System](https://brycefrank.com/allometric/articles/variable_naming_system.html)
