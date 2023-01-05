@@ -81,14 +81,85 @@
 
     
     
-<p>Descriptors are sets of information that describe a model, model set
-or publication. Descriptors are <em>optional</em> under one condition,
-all models within a <code>ModelSet</code> must be uniquely identified by
-the set of descriptors. So, for a <code>ModelSet</code> containing one
-model, no descriptors are needed.</p>
-<p>However, authors are encouraged to define a set of <em>search
-descriptors</em> if able. These descriptors are propagated to the
-<code>model_filter</code> function and allow for quick filtering of
+<p>Descriptors are sets of information that describe a model. The user
+can think of descriptors as a nested list of helpful information for
+finding and specifying models. For example, Brackett (1977) is a
+technical report that fits 24 cubic volume models for a wide variety of
+tree species, age classes, and size classes. Descriptors answer the
+question: how would a user navigate models stored in
+<code>allometric</code> in a way that is consistent with the
+publication? We will take a look at Brackett (1977) as a motivating
+example.</p>
+<p>In Brackett(1977) some species, like Douglas-fir, have multiple
+models that are fit to specific geographic regions and age classes.
+Let’s take a look at the descriptors of one of those models</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">brackett_mod_1</span> <span class="op">&lt;-</span> <span class="fu">select_model</span><span class="op">(</span><span class="va">allometric_models</span>, <span class="st">'7e960e6d'</span><span class="op">)</span></span>
+<span><span class="va">brackett_mod_1</span></span></code></pre></div>
+<pre><code><span><span class="co">## Model Form: </span></span>
+<span><span class="co">## vsa = 10^a * dsob^b * hst^c </span></span>
+<span><span class="co">##  </span></span>
+<span><span class="co">## vsa [ft3]: volume of the entire stem, including top and stump</span></span>
+<span><span class="co">## dsob [in]: diameter of the stem, outside bark at breast height</span></span>
+<span><span class="co">## hst [ft]: total height of the stem</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## Parameter Estimates: </span></span>
+<span><span class="co">##           a        b        c</span></span>
+<span><span class="co">## 1 -2.658025 1.739925 1.133187</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## Model Descriptors: </span></span>
+<span><span class="co">##   country region   family       genus   species geographic_region   age_class</span></span>
+<span><span class="co">## 1      US  US-WA Pinaceae Pseudotsuga menziesii           coastal &lt; 140 years</span></span></code></pre>
+<p>The last section of the output specifies all descriptors for this
+model, including <code>country</code>, <code>region</code>,
+<code>family</code>, <code>genus</code>, <code>species</code>,
+<code>geographic_region</code> and <code>age_class</code>. These
+descriptors are enough for a user to identify the model within the
+publication.</p>
+<p>In this case, the first five descriptors (<code>country</code>
+through <code>species</code>) are referred to as “search descriptors”,
+which are descriptors propagated to the <code>allometric_models</code>
+dataframe. Contributors are encouraged to defined these descriptors
+whenever possible. The remaining two descriptors are non-standard
+descriptors specific to this publication, and use verbage from the
+publication to assist users in finding the correct model. Contributors
+are free to name these descriptors in a way that makes sense for the
+publication.</p>
+<div class="section level2">
+<h2 id="specifying-descriptors-at-different-levels">Specifying Descriptors at Different Levels<a class="anchor" aria-label="anchor" href="#specifying-descriptors-at-different-levels"></a>
+</h2>
+<p><code>allometric</code> operates at three levels arranged in a
+hierarchy. There are publications, model sets within publications and
+models within model sets. For convenience, contributors can define
+descriptors at any level, with the understanding that all descriptors
+defined at that level apply uniformly to all models lower in the
+hierarchy.</p>
+<p>For example, the source code for the Brackett model installation
+specifies <code>country</code> and <code>region</code> at the
+publication-level.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">brackett_1977</span> <span class="op">&lt;-</span> <span class="fu">Publication</span><span class="op">(</span></span>
+<span>  citation <span class="op">=</span> <span class="va">bracket_1977_citation</span>,</span>
+<span>  descriptors <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    country <span class="op">=</span> <span class="st">"US"</span>,</span>
+<span>    region <span class="op">=</span> <span class="st">"US-WA"</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<p>This means that <strong>all</strong> models in
+<code>brackett_1977</code> are constructed with data only from the state
+of Washington in the United States. The <code>FixedEffectsSet</code>,
+<code>MixedEffectsSet</code> and their respective
+<code>FixedEffectsModel</code> and <code>MixedEffectsModel</code>
+classes all have a <code>descriptors</code> argument that can be used
+for specifying descriptors at these levels. Refer to the <a href="https://brycefrank.com/allometric/articles/installing_a_model.html" class="external-link">Installing
+a Model</a> vignette for more examples at these levels.</p>
+</div>
+<div class="section level2">
+<h2 id="search-descriptors">Search Descriptors<a class="anchor" aria-label="anchor" href="#search-descriptors"></a>
+</h2>
+<p>Authors are encouraged to define a set of <em>search descriptors</em>
+if able. These descriptors are propagated to the
+<code>allometric_models</code> table and allow for quick filtering of
 allometric equations</p>
 <p>The set of <em>search descriptors</em> are:</p>
 <ul>
@@ -100,7 +171,8 @@ alpha-2</a> names.</li>
 <code>region</code> - the region of the dataset used for the model.
 Regions are defined as subsets of countries, and must comply with the
 four-character region codes given in <a href="https://en.wikipedia.org/wiki/ISO_3166-2" class="external-link">ISO 3166-2</a>. States
-are an example of regions, e.g., “US-CO” for Colorado, US.</li>
+are an example of regions, e.g., <code>"US-CO"</code> for Colorado,
+US.</li>
 <li>
 <code>family</code> - the taxonomic family of the dataset used for
 the model.</li>
@@ -111,8 +183,9 @@ model.</li>
 <code>species</code> - the taxonomic species of the dataset used for
 the model.</li>
 </ul>
-<p>TODO - add more as they come up.</p>
-  </main>
+</div>
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside>
 </div>
 
 
