@@ -67,7 +67,7 @@ head(allometric_models)
     #> 3 0d046a1d stem      volume   <chr [1]> <chr [1]> Betulaceae   Alnus      rubra     <FxdEffcM> brackett_1977 <chr [1]>    <chr [2]>      1977
     #> 4 f01a818f stem      diameter <chr [2]> <chr [3]> Betulaceae   Alnus      rubra     <FxdEffcM> hibbs_2007    <chr [3]>    <chr [3]>      2007
     #> 5 095a3821 stem      volume   <chr [1]> <chr [1]> Betulaceae   Betula     <NA>      <FxdEffcM> brackett_1977 <chr [1]>    <chr [2]>      1977
-    #> 6 a580b7ab crown     ratio    <chr [1]> <chr [1]> Cupressaceae Calocedrus decurrens <FxdEffcM> ritchie_1987  <chr [2]>    <chr [4]>      1987
+    #> 6 306e2ee4 crown     ratio    <chr [1]> <chr [1]> Cupressaceae Calocedrus decurrens <FxdEffcM> ritchie_1987  <chr [2]>    <chr [4]>      1987
 
 **Finding and Selecting a Model**
 
