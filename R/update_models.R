@@ -1,11 +1,31 @@
 
 
-get_pub_list <- function(verbose = F) {
+#' Checks if the pub_list be generated
+#' 
+#' The pub_list is regenerated if any file in inst/publications has been
+#' modified after the creation of the pub_list
+check_run_pub_list <- function(pub_list_path) {
   pub_path <- system.file('publications', package='allometric')
+  pub_file_paths <- file.path(pub_path, list.files(pub_path))
+  file_info <- file.info(pub_file_paths)
+  pub_info <- file.info(pub_list_path)
+
+  if(any(file_info$mtime >= pub_info$mtime)) {
+    return(TRUE)
+  } else {
+    return (FALSE)
+  }
+}
+
+run_pub_list <- function(verbose = F) {
+  pub_path <- system.file('publications', package='allometric')
+
   pub_r_files <- list.files(pub_path)
   pub_r_paths <- file.path(pub_path, pub_r_files)
 
   pub_list <- list()
+
+  pub_env <- new.env()
 
   for (i in seq_along(pub_r_paths)) {
     pub_r_path <- pub_r_paths[[i]]
@@ -15,7 +35,7 @@ get_pub_list <- function(verbose = F) {
       cat(paste("Updating publication list for:", pub_r_path, "\n"))
     }
 
-    source(pub_r_path)
+    source(pub_r_path, local = pub_env) # FIXME this loads all pubs into memory anyway...
     pub_name <- tools::file_path_sans_ext(pub_r_file)
 
     pub <- eval(str2expression(pub_name))
@@ -23,7 +43,28 @@ get_pub_list <- function(verbose = F) {
     pub_list[[pub@id]] <- pub
   }
 
-  pub_list
+  # Remove pub_env from memory
+  rm("pub_env")
+
+  pub_list_path <- file.path(system.file('extdata', package = 'allometric'),
+    'pub_list.RDS')
+  saveRDS(pub_list, pub_list_path)
+}
+
+#' 
+get_pub_list <- function(verbose = F) {
+  pub_list_path <- system.file('extdata/pub_list.RDS', package = 'allometric')
+
+
+  if(pub_list_path == "")  {
+    run_pub_list()
+  } else {
+    run <- check_run_pub_list(pub_list_path)
+    if(run) run_pub_list()
+  }
+
+  pub_list_path <- system.file('extdata/pub_list.RDS', package = 'allometric')
+  readRDS(pub_list_path)
 }
 
 #' Hashes a function string
