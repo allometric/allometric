@@ -229,11 +229,27 @@ brackett_1977_model_set <- FixedEffectsSet(
 )
 ```
 
-Finally, we add the model set to the publication using `add_set`
+Finally, we add the model set to the publication using `add_set` and print a
+summary to verify that the model was added.
 
 ```{r}
 brackett_1977 <- add_set(brackett_1977, brackett_1977_model_set)
+brackett_1977
 ```
 
-Just like that, we have defined 24 individiual models for the Brackett (1977) 
-publication for a wide variety of species and taxonomic groupings. 
+This summary shows the publication name, followed by a list of all model sets
+defined for the publication. We can see that there is 1 model set for `vsa`
+(volume of the stem including top and stump) that contains 24 models.
+
+## Where do Publications go from here?
+
+Once a publication and added models are located in a `.R` file in the
+`inst/publications` the models contained within can now be installed
+by the user using `install_models()`. In fact, this is exactly how the user
+initially gains access to the `allometric_models` table. If you are ever 
+interested in viewing the source code for a model, just find the matching 
+`.R` file in `inst/publications`, which can be viewed locally or on GitHub. 
+The files used for this example are located at
+`inst/publications/temesgen_2008.R` and `inst/publications/brackett_1977.R`,
+respectively.
+
