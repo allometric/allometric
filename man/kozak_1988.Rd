@@ -4,7 +4,7 @@
 \description{Allometric models from Kozak (1988)}
 \section{Stem Diameter Models}{\code{dsih = x <- (1 - sqrt(hsd/hst))/(1 - sqrt(p)), z <- hsd/hst, a_0 * dsob^a_1 * a_2^dsob * x^(b_1 * z^2 + b_2 * log(z + 0.001) + b_3 * sqrt(z) + b_4 * exp(z) + b_5 * (dsob/hst))}
 \itemize{
-\item{\code{dsih [cm]}}{ - diameter of the stem, outside bark at a specified height}
+\item{\code{dsih [cm]}}{ - diameter of the stem, inside bark at a specified height}
 \item{\code{hst [m]}}{ - total height of the stem}
 \item{\code{hsd [m]}}{ - height to a specified diameter (taper)}
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}

@@ -27,7 +27,7 @@
 \out{<hr>}}
 \section{Stem Diameter Models}{\code{dsih = t <- hsd/hst, k <- 1.3/hst, b_1 * dsob^b_2 * b_3^dsob * ((1 - sqrt(t))/(1 - sqrt(p)))^(b_4 * t^2 + b_5 * log(t + 0.001) + b_6 * sqrt(t) + b_7 * exp(t) + b_8 * (dsob/hst))}
 \itemize{
-\item{\code{dsih [cm]}}{ - diameter of the stem, outside bark at a specified height}
+\item{\code{dsih [cm]}}{ - diameter of the stem, inside bark at a specified height}
 \item{\code{hst [m]}}{ - total height of the stem}
 \item{\code{hsd [m]}}{ - height to a specified diameter (taper)}
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
@@ -39,7 +39,7 @@
 \out{<hr>}
 \code{dsih = k <- 1.3/hst, t <- hsd/hst, b_1 * dsob^b_2 * hst^b_3 * ((1 - t^(1/3))/(1 - k^(1/3)))^(b_4 * t^4 + b_5 * (1/exp(dsob/hst)) + b_6 * ((1 - t^(1/3))/(1 - k^(1/3)))^(0.1) + b_7 * (1/dsob) + b_8 * (hst^(1 - (hsd/hst)^(1/3))) + b_9 * ((1 - t^(1/3))/(1 - k^(1/3))))}
 \itemize{
-\item{\code{dsih [cm]}}{ - diameter of the stem, outside bark at a specified height}
+\item{\code{dsih [cm]}}{ - diameter of the stem, inside bark at a specified height}
 \item{\code{hst [m]}}{ - total height of the stem}
 \item{\code{hsd [m]}}{ - height to a specified diameter (taper)}
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
@@ -51,7 +51,7 @@
 \out{<hr>}
 \code{dsih = 2 * (((b_1 * dsob)/(1 - exp(b_3 * (1.3 - hst)))) + (dsob/2 - b_1 * dsob) * (1 - (1/(1 - exp(b_2 * (1.3 - hst))))) + exp(-b_2 * hsd) * ((dsob/2 - b_1 * dsob) * exp(1.3 * b_2)/(1 - exp(b_2 * (1.3 - hst)))) - exp(b_3 * hsd) * ((b_1 * dsob * exp(-b_3 * hst))/(1 - exp(b_3 * (1.3 - hst)))))}
 \itemize{
-\item{\code{dsih [cm]}}{ - diameter of the stem, outside bark at a specified height}
+\item{\code{dsih [cm]}}{ - diameter of the stem, inside bark at a specified height}
 \item{\code{hst [m]}}{ - total height of the stem}
 \item{\code{hsd [m]}}{ - height to a specified diameter (taper)}
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
