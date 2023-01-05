@@ -37,8 +37,7 @@ run_pub_list <- function(verbose = F) {
 
     source(pub_r_path, local = pub_env) # FIXME this loads all pubs into memory anyway...
     pub_name <- tools::file_path_sans_ext(pub_r_file)
-
-    pub <- eval(str2expression(pub_name))
+    pub <- get(pub_name, envir = pub_env)
 
     pub_list[[pub@id]] <- pub
   }
