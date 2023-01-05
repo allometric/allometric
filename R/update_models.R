@@ -1,6 +1,6 @@
 
 
-get_pub_list <- function() {
+get_pub_list <- function(verbose = F) {
   pub_path <- system.file('publications', package='allometric')
   pub_r_files <- list.files(pub_path)
   pub_r_paths <- file.path(pub_path, pub_r_files)
@@ -10,7 +10,11 @@ get_pub_list <- function() {
   for (i in seq_along(pub_r_paths)) {
     pub_r_path <- pub_r_paths[[i]]
     pub_r_file <- pub_r_files[[i]]
-    cat(paste("Updating publication list for:", pub_r_path, "\n"))
+
+    if(verbose) {
+      cat(paste("Updating publication list for:", pub_r_path, "\n"))
+    }
+
     source(pub_r_path)
     pub_name <- tools::file_path_sans_ext(pub_r_file)
 

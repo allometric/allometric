@@ -1,6 +1,13 @@
 setOldClass("units")
 setOldClass("BibEntry")
 
+# FIXME not working...too tired to finish
+check_allometric_model_validity <- function(object) {
+  errors <- c()
+  errors <- c(errors, check_descriptor_validity(object@descriptors))
+  if (length(errors) == 0) TRUE else errors
+}
+
 .AllometricModel <- setClass("AllometricModel",
   slots = c(
     response_unit = "list",
@@ -10,7 +17,8 @@ setOldClass("BibEntry")
     set_descriptors = "list",
     pub_descriptors = "list",
     citation = "BibEntry"
-  )
+  ),
+  validity = check_allometric_model_validity
 )
 
 #' Base class for allometric models

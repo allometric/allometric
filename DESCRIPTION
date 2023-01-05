@@ -19,6 +19,7 @@ Imports:
     RefManageR
 Collate:
     'all_generics.R'
+    'validity_checks.R'
     'model_tbl.R'
     'install.R'
     'summary.R'

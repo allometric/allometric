@@ -1,5 +1,3 @@
-library(units)
-library(tibble)
 
 bell_1981_citation <- RefManageR::BibEntry(
   bibtype = "techreport",

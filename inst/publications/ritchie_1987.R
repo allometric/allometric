@@ -7,7 +7,7 @@ ritchie_1987 <- Publication(
     year = 1987
   ),
   descriptors = list(
-    country = "OR",
+    country = "US",
     region = "US-OR"
   )
 )

@@ -17,7 +17,7 @@ mod_dup_descriptor <- FixedEffectsModel(
     response_unit = list(vsa = units::as_units('ft^3')),
     covariate_units = list(dsob = units::as_units('in')),
     predict_fn <- function(dsob) {a * dsob},
-    descriptors = list(region = 'test_region'),
+    descriptors = list(region = 'US-WA'),
     parameters = list(a=1)
 )
 

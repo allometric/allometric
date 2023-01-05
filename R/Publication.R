@@ -11,22 +11,29 @@ check_descriptor_set <- function(descriptor_set) {
   }
 }
 
-setClass("Publication",
+check_publication_validity <- function(object) {
+  errors <- c()
+  errors <- c(errors, check_descriptor_validity(object@descriptors))
+  if (length(errors) == 0) TRUE else errors
+}
+
+.Publication <- setClass("Publication",
   slots = c(
     citation = "BibEntry",
     response_sets = "list",
     descriptors = "list",
     id = "character"
-  )
+  ),
+  validity = check_publication_validity
 )
 
 #' @export
 Publication <- function(citation, descriptors = list()) {
-  publication <- methods::new("Publication")
-  publication@citation <- citation
-  publication@descriptors <- descriptors
-
-  publication@response_sets <- list()
+  publication <- .Publication(
+    citation = citation,
+    descriptors = descriptors,
+    response_sets = list()
+  )
 
   publication@id <- paste(
     tolower(publication@citation$author[[1]]$family),

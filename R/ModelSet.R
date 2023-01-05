@@ -6,7 +6,8 @@ check_model_set_validity <- function(object) {
   errors <- c()
   errors <- c(errors, check_covts_in_args(object))
   errors <- c(errors, check_args_in_predict_fn(object))
-  errors
+  errors <- c(errors, check_descriptor_set(object))
+  if (length(errors) == 0) TRUE else errors
 }
 
 .ModelSet <- setClass(
@@ -25,15 +26,13 @@ check_model_set_validity <- function(object) {
 
 ModelSet <- function(response_unit, covariate_units, predict_fn,
                      model_specifications, descriptors = list()) {
-  model_set <- .ModelSet()
-
-  model_specifications <- tibble::as_tibble(model_specifications)
-
-  model_set@response_unit <- response_unit
-  model_set@covariate_units <- covariate_units
-  model_set@predict_fn <- predict_fn
-  model_set@model_specifications <- model_specifications
-  model_set@descriptors <- descriptors
+  model_set <- .ModelSet(
+    response_unit = response_unit,
+    covariate_units = covariate_units,
+    predict_fn = predict_fn,
+    model_specifications = tibble::as_tibble(model_specifications), # TODO this is sloppy.
+    descriptors = descriptors
+  )
 
   model_set
 }
