@@ -24,6 +24,8 @@ check_body_vars_subset_description <- function(object) {
 
 
 #' Check validity of parametric model
+#' 
+#' @keywords internal
 check_parametric_model <- function(object) {
   errors <- c()
   errors <- c(errors, check_args_in_predict_fn(object))
@@ -65,6 +67,7 @@ setMethod("parameters", "ParametricModel", function(mod) {
 #' This is a base class used for `FixedEffectsModel` and `MixedEffectsModel`
 #'
 #' @export
+#' @keywords internal
 ParametricModel <- function(response_unit, covariate_units, predict_fn,
                             parameters, descriptors = list()) {
   parametric_model <- .ParametricModel(

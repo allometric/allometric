@@ -9,3 +9,4 @@ aggregate_results_ext(results)
 \description{
 Transforms a set of searched models into a tibble of models and descriptors
 }
+\keyword{internal}

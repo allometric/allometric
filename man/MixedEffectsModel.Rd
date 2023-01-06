@@ -2,7 +2,7 @@
 % Please edit documentation in R/MixedEffectsModel.R
 \name{MixedEffectsModel}
 \alias{MixedEffectsModel}
-\title{Instantiate a fixed effects model.}
+\title{Create a mixed effects model}
 \usage{
 MixedEffectsModel(
   response_unit,
@@ -14,7 +14,30 @@ MixedEffectsModel(
   descriptors = list()
 )
 }
+\arguments{
+\item{response_unit}{A named list containing one element, with a name representing the response
+variable and a value representing the units of the response variable
+using the \code{units::as_units} function.}
+
+\item{covariate_units}{A named list containing the covariate specifications, with names
+representing the covariate name and the values representing the units of
+the coavariate using the \code{units::as_units} function.}
+
+\item{predict_ranef}{A function that predicts the random effects, takes any named covariates in
+\code{covariate_units} as arguments.}
+
+\item{predict_fn}{A function that takes the covariates specified in \code{covariate_units} as
+arguments and produces an allometric prediction. The last line of the
+function must be a mathematical expression that does not use a \code{return}
+statement.}
+
+\item{fixed_only}{A boolean value indicating if the model produces predictions using only
+fixed effects. This is useful when publications do not provide sufficient
+information to predict the random effects.}
+
+\item{descriptors}{An optional list of descriptors that are specified at the model-level.}
+}
 \description{
-This class is essentially a wrapper around \code{ParametricModel} but clarifies
-the intent between \code{FixedEffectsModel} and \code{MixedEffectsModel}.
+\code{MixedEffectsModel} represents an allometric model that uses fixed and
+random effects.
 }

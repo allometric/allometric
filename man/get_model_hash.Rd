@@ -13,3 +13,4 @@ way, models can be "versioned" across time, which may be useful for debugging
 purposes down the line. This function trims whitespace and lowercases
 the predict_fn_populated, which serves as a reasonable proxy for the model.
 }
+\keyword{internal}

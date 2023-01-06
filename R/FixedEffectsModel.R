@@ -4,11 +4,29 @@
   validity = check_parametric_model
 )
 
-#' Instantiate a fixed effects model.
+#' Create a fixed effects model
 #'
-#' This class is essentially a wrapper around `ParametricModel` but clarifies
-#' the intent between `FixedEffectsModel` and `MixedEffectsModel`.
+#' `FixedEffectsModel` represents an allometric model that only uses fixed
+#' effects. Most allometric models, especially those from literature before
+#' the 2010's fall under this category.
 #'
+#' @param response_unit
+#'    A named list containing one element, with a name representing the response
+#'    variable and a value representing the units of the response variable
+#'    using the `units::as_units` function.
+#' @param covariate_units
+#'    A named list containing the covariate specifications, with names
+#'    representing the covariate name and the values representing the units of
+#'    the coavariate using the `units::as_units` function.
+#' @param predict_fn
+#'    A function that takes the covariates specified in `covariate_units` as
+#'    arguments and produces an allometric prediction. The last line of the
+#'    function must be a mathematical expression that does not use a `return`
+#'    statement.
+#' @param descriptors
+#'    An optional list of descriptors that are specified at the model-level.
+#' @return
+#'    An object of class `FixedEffectsModel`
 #' @export
 FixedEffectsModel <- function(response_unit, covariate_units, predict_fn,
                               parameters, descriptors = list()) {
@@ -19,7 +37,7 @@ FixedEffectsModel <- function(response_unit, covariate_units, predict_fn,
   fixed_effects_model
 }
 
-
+#' @rdname predict
 setMethod("predict", signature(mod = "FixedEffectsModel"), function(mod, ...) {
   mod@predict_fn_populated(...)
 })

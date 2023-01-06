@@ -1,9 +1,11 @@
 
 
-#' Checks if the pub_list be generated
-#' 
+#' Checks if the pub_list should be generated
+#'
 #' The pub_list is regenerated if any file in inst/publications has been
 #' modified after the creation of the pub_list
+#' 
+#' @keywords internal
 check_run_pub_list <- function(pub_list_path) {
   pub_path <- system.file('publications', package='allometric')
   pub_file_paths <- file.path(pub_path, list.files(pub_path))
@@ -73,6 +75,8 @@ get_pub_list <- function(verbose = F) {
 #' way, models can be "versioned" across time, which may be useful for debugging
 #' purposes down the line. This function trims whitespace and lowercases 
 #' the predict_fn_populated, which serves as a reasonable proxy for the model.
+#' 
+#' @keywords internal
 get_model_hash <- function(predict_fn_populated, descriptors) {
   descriptors_string <- gsub(" ", "", tolower(paste(descriptors, collapse="")))
   fn_string <- gsub(" ", "", tolower(paste(deparse(predict_fn_populated), collapse = "")))
@@ -81,6 +85,8 @@ get_model_hash <- function(predict_fn_populated, descriptors) {
 }
 
 #' Transforms a set of searched models into a tibble of models and descriptors
+#' 
+#' @keywords internal
 aggregate_results_ext <- function(results) {
   search_descriptors <- c(
     "family", "genus", "species", "country", "region"

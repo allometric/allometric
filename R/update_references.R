@@ -65,19 +65,60 @@ update_reference_pages <- function() {
   }
 }
 
+check_internal <- function(rd_path) {
+  parsed_rd <- tools::parse_Rd(rd_path)
+
+  for(el in parsed_rd) {
+    if(attr(el, 'Rd_tag') == "\\keyword") {
+      if(el[[1]][[1]] == "internal") {
+        return(TRUE)
+      }
+    }
+  }
+
+  return(FALSE)
+}
+
 update_reference_index <- function() {
   pub_list <- get_pub_list()
   pub_names <- names(pub_list)
   pub_rd_names <- paste(pub_names, ".Rd", sep = "")
 
+  analysis_funcs <- c('predict', 'allometric_models')
+
   man_files <- list.files("./man")
   exclude_files <- c('figures')
-  non_pub_rd_files <- man_files[!man_files %in% c(pub_rd_names, exclude_files)]
+  man_files <- man_files[!man_files %in% exclude_files]
+
+  non_pub_rd_files <- c()
+  for(man_file in man_files) {
+    man_path <- file.path(system.file('man', package='allometric'), man_file)
+    internal <- check_internal(man_path)
+
+    # Remove keyword: internal and publications from this section
+    if(!internal & !(man_file %in% pub_rd_names)) {
+      non_pub_rd_files <- c(non_pub_rd_files, man_file)
+    }
+  }
+
   non_pub_rd_obj_names <- tools::file_path_sans_ext(non_pub_rd_files)
 
 
   init_reference <- list(
-    list(title = "Package Functions", contents = non_pub_rd_obj_names)
+    list(
+      title = "Analysis Functions",
+      desc = "These functions are used to conduct inventory analysis with allometric models.",
+      contents = non_pub_rd_obj_names[non_pub_rd_obj_names %in% analysis_funcs]
+    ),
+    list(
+      title = "Contributor Functions",
+      desc = "These functiosn are used to contribute and install models in `allometric`",
+      contents = non_pub_rd_obj_names[!non_pub_rd_obj_names %in% analysis_funcs]
+    ),
+    list(
+      title = "Allometric Models",
+      desc = "Models are contained in publications, which are listed below."
+    )
   )
 
   yaml_header <- list(
@@ -105,7 +146,7 @@ update_reference_index <- function() {
     n <- length(yaml_header$reference)
 
     yaml_header$reference[[n + 1]] <- list(
-      title = names(ref_sections)[[i]],
+      subtitle = names(ref_sections)[[i]],
       contents = ref_sections[[i]]
     )
   }

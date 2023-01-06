@@ -1,9 +1,3 @@
-
-
-#' Are all named parameters in the model specification?
-check_parameters_in_specification <- function(object) {
-}
-
 check_fixed_effects_set_validity <- function(object) {
   # TODO the number of distinct rows of model_specifications using the
   # non-parameter columns needs to be equalto the total number of rows
@@ -21,6 +15,23 @@ check_fixed_effects_set_validity <- function(object) {
   validity = check_fixed_effects_set_validity
 )
 
+#' Create a set of fixed effects models
+#'
+#' A `FixedEffectsSet` represents a group of fixed-effects models that all have
+#' the same functional structure. Fitting a large family of models (e.g., for
+#' many different species) using the same functional structure is a common
+#' pattern in allometric studies, and `FixedEffectsSet` facilitates the
+#' installation of these groups of models by allowing the user to specify the
+#' parameter estimates and descriptions in a dataframe or spreadsheet.
+#'
+#' @inheritParams FixedEffectsModel
+#' @param parameter_names
+#'    A character vector naming the columns in `model_specifications` that
+#'    represent the parameters.
+#' @param model_specifications
+#'    A dataframe such that each row of the dataframe provides model-level
+#'    descriptors and parameter estimates for that model. Models must be
+#'    uniquely identifiable using the descriptors.
 #' @export
 FixedEffectsSet <- function(response_unit, covariate_units, parameter_names,
                             predict_fn, model_specifications,

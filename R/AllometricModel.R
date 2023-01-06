@@ -35,6 +35,7 @@ check_allometric_model_validity <- function(object) {
 #' @param predict_fn - A function that takes all covariates named in
 #' `covariate_units` as arguments.
 #' @export
+#' @keywords internal
 AllometricModel <- function(response_unit, covariate_units, predict_fn,
                             descriptors = list()) {
 

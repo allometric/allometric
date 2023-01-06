@@ -33,3 +33,4 @@ class \code{units::units}
 This class is primarily used as a parent class for other model
 implementations.
 }
+\keyword{internal}

@@ -1,6 +1,6 @@
 \name{poudel_2019}
 \alias{poudel_2019}
-\title{Poudel, Temesgen, Radtke et al. (2019)}
+\title{Poudel, Temesgen, Radtke, and Gray (2019)}
 \description{Allometric models from Poudel, Temesgen, Radtke et al. (2019)}
 \section{Stem Volume Models}{\code{vsa = exp(a + b * log(dsob) + c * log(hst))}
 \itemize{

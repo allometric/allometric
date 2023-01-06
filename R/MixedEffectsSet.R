@@ -14,6 +14,17 @@ check_fixed_effects_set_validity <- function(object) {
   validity = check_fixed_effects_set_validity
 )
 
+#' Create a set of mixed effects models
+#'
+#' A `MixedEffectsSet` represents a group of fixed-effects models that all have
+#' the same functional structure. Fitting a large family of models (e.g., for
+#' many different species) using the same functional structure is a common
+#' pattern in allometric studies, and `MixedEffectsSet` facilitates the
+#' installation of these groups of models by allowing the user to specify the
+#' parameter estimates and descriptions in a dataframe or spreadsheet.
+#'
+#' @inheritParams FixedEffectsSet
+#' @inheritParams MixedEffectsModel
 #' @export
 MixedEffectsSet <- function(response_unit, covariate_units, parameter_names,
                             predict_fn, model_specifications, predict_ranef,

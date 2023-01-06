@@ -2,7 +2,7 @@
 % Please edit documentation in R/FixedEffectsModel.R
 \name{FixedEffectsModel}
 \alias{FixedEffectsModel}
-\title{Instantiate a fixed effects model.}
+\title{Create a fixed effects model}
 \usage{
 FixedEffectsModel(
   response_unit,
@@ -12,7 +12,27 @@ FixedEffectsModel(
   descriptors = list()
 )
 }
+\arguments{
+\item{response_unit}{A named list containing one element, with a name representing the response
+variable and a value representing the units of the response variable
+using the \code{units::as_units} function.}
+
+\item{covariate_units}{A named list containing the covariate specifications, with names
+representing the covariate name and the values representing the units of
+the coavariate using the \code{units::as_units} function.}
+
+\item{predict_fn}{A function that takes the covariates specified in \code{covariate_units} as
+arguments and produces an allometric prediction. The last line of the
+function must be a mathematical expression that does not use a \code{return}
+statement.}
+
+\item{descriptors}{An optional list of descriptors that are specified at the model-level.}
+}
+\value{
+An object of class \code{FixedEffectsModel}
+}
 \description{
-This class is essentially a wrapper around \code{ParametricModel} but clarifies
-the intent between \code{FixedEffectsModel} and \code{MixedEffectsModel}.
+\code{FixedEffectsModel} represents an allometric model that only uses fixed
+effects. Most allometric models, especially those from literature before
+the 2010's fall under this category.
 }

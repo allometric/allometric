@@ -1,8 +1,10 @@
 #' Check validity of descriptors
-#' 
+#'
 #' There must not be any duplicate names across the three sets 
 #' (pub, set, model). If there is, stop execution with error that names the
 #' duplicated descriptors
+#' 
+#' @keywords internal
 check_descriptor_set <- function(descriptor_set) {
   dups <- names(descriptor_set)[duplicated(names(descriptor_set))]
 
@@ -14,6 +16,7 @@ check_descriptor_set <- function(descriptor_set) {
 check_publication_validity <- function(object) {
   errors <- c()
   errors <- c(errors, check_descriptor_validity(object@descriptors))
+  # TODO implement check_descriptor_set
   if (length(errors) == 0) TRUE else errors
 }
 
@@ -27,6 +30,18 @@ check_publication_validity <- function(object) {
   validity = check_publication_validity
 )
 
+#' Create a publication that contains allometric models
+#'
+#' `Publication` represents a technical or scientific document that contains
+#' allometric models. Initially, publications do not contain models, and models
+#' are added using the `add_model` or `add_set` methods.
+#'
+#' @param citation
+#'    The citation of the paper declared using the `RefManageR::BibEntry` class
+#' @param descriptors
+#'    A named list of descriptors that are defined for all models contained in
+#'    the publication.
+#'
 #' @export
 Publication <- function(citation, descriptors = list()) {
   publication <- .Publication(
@@ -44,12 +59,7 @@ Publication <- function(citation, descriptors = list()) {
   publication
 }
 
-#' @export
-setGeneric(
-  "add_set",
-  function(publication, model_set) standardGeneric("add_set")
-)
-
+#' @rdname add_set
 setMethod(
   "add_set",
   "Publication",

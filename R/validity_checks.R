@@ -1,4 +1,6 @@
-#' Are all named parameters in the function body?
+#' Check if all parameter_names are in predict_fn
+#'
+#' @keywords internal
 check_parameters_in_predict_fn <- function(object) {
   predict_body <- body(object@predict_fn)
   predict_fn_vars <- all.vars(predict_body)
@@ -8,6 +10,9 @@ check_parameters_in_predict_fn <- function(object) {
   }
 }
 
+#' Check if all parameter_names are in predict_fn and predict_ranef
+#'
+#' @keywords internal
 check_parameters_in_mixed_fns <- function(object) {
   predict_fn_body <- body(object@predict_fn)
   predict_ranef_body <- body(object@predict_ranef)
@@ -22,7 +27,10 @@ check_parameters_in_mixed_fns <- function(object) {
   }
 }
 
-#' Are all covariates given as arguments?
+#' Check if all covariates in covariate_units are used as arguments in 
+#' predict_fn
+#'
+#' @keywords internal
 check_covts_in_args <- function(object) {
   errors <- c()
   fn_args <- names(as.list(args(object@predict_fn)))
@@ -37,8 +45,9 @@ check_covts_in_args <- function(object) {
   errors
 }
 
-
-#' Are the arguments given in the predict function inside the body?
+#' Check if the arguments of the predict_fn are all in the predict_fn body.
+#' 
+#' @keywords internal
 check_args_in_predict_fn <- function(object) {
   errors <- c()
 
@@ -61,6 +70,9 @@ check_args_in_predict_fn <- function(object) {
   errors
 }
 
+#' Checks if a region code is defined in the ISO_3166_2 table
+#'
+#' @keywords internal
 check_region_in_iso <- function(region_code) {
   errors <- c()
   for(code in region_code) {
@@ -73,6 +85,9 @@ check_region_in_iso <- function(region_code) {
   errors
 }
 
+#' Checks if a country code is defined in ISO_3166_1$Alpha_2
+#'
+#' @keywords internal
 check_country_in_iso <- function(country_code) {
   errors <- c()
 
@@ -86,6 +101,9 @@ check_country_in_iso <- function(country_code) {
   errors
 }
 
+#' Checks that descriptors are valid
+#'
+#' @keywords internal
 check_descriptor_validity <- function(descriptors) {
   errors <- c()
 

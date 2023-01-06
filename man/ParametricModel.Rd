@@ -15,3 +15,4 @@ ParametricModel(
 \description{
 This is a base class used for \code{FixedEffectsModel} and \code{MixedEffectsModel}
 }
+\keyword{internal}

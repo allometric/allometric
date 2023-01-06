@@ -9,3 +9,4 @@ check_parametric_model(object)
 \description{
 Check validity of parametric model
 }
+\keyword{internal}

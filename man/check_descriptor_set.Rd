@@ -11,3 +11,4 @@ There must not be any duplicate names across the three sets
 (pub, set, model). If there is, stop execution with error that names the
 duplicated descriptors
 }
+\keyword{internal}

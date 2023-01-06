@@ -9,11 +9,19 @@
   validity = check_parametric_model
 )
 
-#' Instantiate a fixed effects model.
+#' Create a mixed effects model
 #'
-#' This class is essentially a wrapper around `ParametricModel` but clarifies
-#' the intent between `FixedEffectsModel` and `MixedEffectsModel`.
+#' `MixedEffectsModel` represents an allometric model that uses fixed and
+#' random effects.
 #'
+#' @inheritParams FixedEffectsModel
+#' @param predict_ranef
+#'    A function that predicts the random effects, takes any named covariates in
+#'    `covariate_units` as arguments.
+#' @param fixed_only
+#'    A boolean value indicating if the model produces predictions using only
+#'    fixed effects. This is useful when publications do not provide sufficient
+#'    information to predict the random effects.
 #' @export
 MixedEffectsModel <- function(response_unit, covariate_units, predict_ranef,
                               predict_fn, parameters, fixed_only = FALSE,
@@ -36,6 +44,12 @@ MixedEffectsModel <- function(response_unit, covariate_units, predict_ranef,
   mixed_effects_model
 }
 
+#' @param newdata
+#'    A dataframe containing columns that match the names of the arguments given
+#'    to `predict_ranef`. The values of this data represents information from a
+#'    new group of observations for which predictions are desired (e.g., a new
+#'    stand or plot).
+#' @rdname predict
 setMethod("predict", signature(mod = "MixedEffectsModel"), function(mod, ..., newdata = NULL) {
   # TODO validity checks for predict_ranef, we should throw a warning if 
   # the columna names of newdata are not the same set of args in predict_ranef
