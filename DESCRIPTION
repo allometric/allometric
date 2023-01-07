@@ -16,8 +16,10 @@ Imports:
     stringr,
     tibble,
     units,
-    RefManageR
+    RefManageR,
+    magrittr
 Collate:
+    'utils-pipe.R'
     'all_generics.R'
     'validity_checks.R'
     'model_tbl.R'

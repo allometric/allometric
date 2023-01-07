@@ -51,30 +51,31 @@ install_models()
 ```
 
 This compiles the allometric models, and enables their use.
-`install_models` only needs to be ran at installation or following any
+`install_models()` only needs to be ran at installation or following any
 package updates. After running this function, the models are available
-in the variable `allometric_models`.
+in the variable `allometric_models`. Refer to the `?allometric_models`
+help for more information.
 
 ``` r
 head(allometric_models)
 ```
 
     #> # A tibble: 6 × 13
-    #>   id       component measure  country   region     family     genus  species model      pub_id        family_names covt_names pub_year
-    #>   <chr>    <chr>     <chr>    <list>    <list>     <chr>      <chr>  <chr>   <list>     <chr>         <list>       <list>        <dbl>
-    #> 1 3aff0a28 stem      volume   <chr [1]> <chr [1]>  Aceraceae  Acer   <NA>    <FxdEffcM> brackett_1977 <chr [1]>    <chr [2]>      1977
-    #> 2 26558408 stem      diameter <chr [2]> <chr [3]>  Betulaceae Alnus  rubra   <FxdEffcM> bluhm_2007    <chr [3]>    <chr [4]>      2007
-    #> 3 6de9245e stem      volume   <chr [1]> <chr [1]>  Betulaceae Alnus  rubra   <FxdEffcM> brackett_1977 <chr [1]>    <chr [2]>      1977
-    #> 4 d366d64d stem      diameter <chr [2]> <chr [3]>  Betulaceae Alnus  rubra   <FxdEffcM> hibbs_2007    <chr [3]>    <chr [3]>      2007
-    #> 5 6dad8922 stem      volume   <chr [2]> <chr [10]> Betulaceae Alnus  rubra   <FxdEffcM> poudel_2019   <chr [4]>    <chr [2]>      2019
-    #> 6 0b7fcf26 stem      volume   <chr [1]> <chr [1]>  Betulaceae Betula <NA>    <FxdEffcM> brackett_1977 <chr [1]>    <chr [2]>      1977
+    #>   id       component measure  country   region     family     genus  species model      pub_id        family_name covt_name pub_year
+    #>   <chr>    <chr>     <chr>    <list>    <list>     <chr>      <chr>  <chr>   <list>     <chr>         <list>      <list>       <dbl>
+    #> 1 3aff0a28 stem      volume   <chr [1]> <chr [1]>  Aceraceae  Acer   <NA>    <FxdEffcM> brackett_1977 <chr [1]>   <chr [2]>     1977
+    #> 2 26558408 stem      diameter <chr [2]> <chr [3]>  Betulaceae Alnus  rubra   <FxdEffcM> bluhm_2007    <chr [3]>   <chr [4]>     2007
+    #> 3 6de9245e stem      volume   <chr [1]> <chr [1]>  Betulaceae Alnus  rubra   <FxdEffcM> brackett_1977 <chr [1]>   <chr [2]>     1977
+    #> 4 d366d64d stem      diameter <chr [2]> <chr [3]>  Betulaceae Alnus  rubra   <FxdEffcM> hibbs_2007    <chr [3]>   <chr [3]>     2007
+    #> 5 6dad8922 stem      volume   <chr [2]> <chr [10]> Betulaceae Alnus  rubra   <FxdEffcM> poudel_2019   <chr [4]>   <chr [2]>     2019
+    #> 6 0b7fcf26 stem      volume   <chr [1]> <chr [1]>  Betulaceae Betula <NA>    <FxdEffcM> brackett_1977 <chr [1]>   <chr [2]>     1977
 
 **Finding and Selecting a Model**
 
 `allometric_models` is a `tibble::tbl_df` dataframe. Each row represents
 one allometric model with various attributes. Some columns are `list`
 columns, which are columns that contain lists with multiple values as
-their elements. One example of this is the `family_names` column, which
+their elements. One example of this is the `family_name` column, which
 contains the names of all authors for the publication that contains the
 model.
 
@@ -82,28 +83,29 @@ model.
 [Advanced Model
 Searching](https://brycefrank.com/allometric/articles/advanced_searching.html)
 vignette, but to get started we will use a helper function called
-`unnest_models` that will give us a clearer picture of the available
-data.
+`unnest_models()` that will give us a clearer picture of the available
+data. Using the `cols` argument we can specify which columns we want to
+unnest. In this case we will unnest the `family_name` column.
 
 ``` r
-unnested_models <- unnest_models(allometric_models)
+unnested_models <- unnest_models(allometric_models, cols = 'family_name')
 unnested_models
 ```
 
-    #> # A tibble: 4,944 × 13
-    #>    id       component measure  country region family     genus species model      pub_id        family_names covt_names pub_year
-    #>    <chr>    <chr>     <chr>    <chr>   <chr>  <chr>      <chr> <chr>   <list>     <chr>         <chr>        <chr>         <dbl>
-    #>  1 3aff0a28 stem      volume   US      US-WA  Aceraceae  Acer  <NA>    <FxdEffcM> brackett_1977 Brackett     dsob           1977
-    #>  2 3aff0a28 stem      volume   US      US-WA  Aceraceae  Acer  <NA>    <FxdEffcM> brackett_1977 Brackett     hst            1977
-    #>  3 26558408 stem      diameter US      US-OR  Betulaceae Alnus rubra   <FxdEffcM> bluhm_2007    Bluhm        dsob           2007
-    #>  4 26558408 stem      diameter US      US-OR  Betulaceae Alnus rubra   <FxdEffcM> bluhm_2007    Bluhm        hst            2007
-    #>  5 26558408 stem      diameter US      US-OR  Betulaceae Alnus rubra   <FxdEffcM> bluhm_2007    Bluhm        hsd            2007
-    #>  6 26558408 stem      diameter US      US-OR  Betulaceae Alnus rubra   <FxdEffcM> bluhm_2007    Bluhm        rc             2007
-    #>  7 26558408 stem      diameter US      US-OR  Betulaceae Alnus rubra   <FxdEffcM> bluhm_2007    Garber       dsob           2007
-    #>  8 26558408 stem      diameter US      US-OR  Betulaceae Alnus rubra   <FxdEffcM> bluhm_2007    Garber       hst            2007
-    #>  9 26558408 stem      diameter US      US-OR  Betulaceae Alnus rubra   <FxdEffcM> bluhm_2007    Garber       hsd            2007
-    #> 10 26558408 stem      diameter US      US-OR  Betulaceae Alnus rubra   <FxdEffcM> bluhm_2007    Garber       rc             2007
-    #> # … with 4,934 more rows
+    #> # A tibble: 399 × 13
+    #>    id       component measure  country   region     family     genus species model      pub_id        family_name covt_name pub_year
+    #>    <chr>    <chr>     <chr>    <list>    <list>     <chr>      <chr> <chr>   <list>     <chr>         <chr>       <list>       <dbl>
+    #>  1 3aff0a28 stem      volume   <chr [1]> <chr [1]>  Aceraceae  Acer  <NA>    <FxdEffcM> brackett_1977 Brackett    <chr [2]>     1977
+    #>  2 26558408 stem      diameter <chr [2]> <chr [3]>  Betulaceae Alnus rubra   <FxdEffcM> bluhm_2007    Bluhm       <chr [4]>     2007
+    #>  3 26558408 stem      diameter <chr [2]> <chr [3]>  Betulaceae Alnus rubra   <FxdEffcM> bluhm_2007    Garber      <chr [4]>     2007
+    #>  4 26558408 stem      diameter <chr [2]> <chr [3]>  Betulaceae Alnus rubra   <FxdEffcM> bluhm_2007    Hibbs       <chr [4]>     2007
+    #>  5 6de9245e stem      volume   <chr [1]> <chr [1]>  Betulaceae Alnus rubra   <FxdEffcM> brackett_1977 Brackett    <chr [2]>     1977
+    #>  6 d366d64d stem      diameter <chr [2]> <chr [3]>  Betulaceae Alnus rubra   <FxdEffcM> hibbs_2007    Hibbs       <chr [3]>     2007
+    #>  7 d366d64d stem      diameter <chr [2]> <chr [3]>  Betulaceae Alnus rubra   <FxdEffcM> hibbs_2007    Bluhm       <chr [3]>     2007
+    #>  8 d366d64d stem      diameter <chr [2]> <chr [3]>  Betulaceae Alnus rubra   <FxdEffcM> hibbs_2007    Garber      <chr [3]>     2007
+    #>  9 6dad8922 stem      volume   <chr [2]> <chr [10]> Betulaceae Alnus rubra   <FxdEffcM> poudel_2019   Poudel      <chr [2]>     2019
+    #> 10 6dad8922 stem      volume   <chr [2]> <chr [10]> Betulaceae Alnus rubra   <FxdEffcM> poudel_2019   Temesgen    <chr [2]>     2019
+    #> # … with 389 more rows
 
 Now, each row represents unique data combinations for each model, which
 can be quickly filtered by most users using `dplyr::filter`. For
@@ -112,17 +114,16 @@ example, to find a volume model for the genus Alnus that had
 
 ``` r
 brackett_alnus_vol <- unnested_models %>%
-  dplyr::filter(family_names == "Brackett", measure=="volume",
-    genus=="Alnus")
+  dplyr::filter(family_name == "Brackett", measure == "volume",
+    genus == "Alnus")
 
 brackett_alnus_vol
 ```
 
-    #> # A tibble: 2 × 13
-    #>   id       component measure country region family     genus species model      pub_id        family_names covt_names pub_year
-    #>   <chr>    <chr>     <chr>   <chr>   <chr>  <chr>      <chr> <chr>   <list>     <chr>         <chr>        <chr>         <dbl>
-    #> 1 6de9245e stem      volume  US      US-WA  Betulaceae Alnus rubra   <FxdEffcM> brackett_1977 Brackett     dsob           1977
-    #> 2 6de9245e stem      volume  US      US-WA  Betulaceae Alnus rubra   <FxdEffcM> brackett_1977 Brackett     hst            1977
+    #> # A tibble: 1 × 13
+    #>   id       component measure country   region    family     genus species model      pub_id        family_name covt_name pub_year
+    #>   <chr>    <chr>     <chr>   <list>    <list>    <chr>      <chr> <chr>   <list>     <chr>         <chr>       <list>       <dbl>
+    #> 1 6de9245e stem      volume  <chr [1]> <chr [1]> Betulaceae Alnus rubra   <FxdEffcM> brackett_1977 Brackett    <chr [2]>     1977
 
 we can see that model `6de9245e` is a volume model written by Brackett
 for *Alnus rubra*. The model can be selected using the `id` field:
@@ -172,8 +173,8 @@ and `hst`, the height of the main stem.
 
 **Predict Using the Selected Model**
 
-Using the `predict` method we can easily use the function as defined by
-providing values of these two covariates.
+Using the `predict()` method we can easily use the function as defined
+by providing values of these two covariates.
 
 ``` r
 predict(brackett_alnus_mod, 12, 65)

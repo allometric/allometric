@@ -4,12 +4,55 @@
 \alias{allometric_models}
 \title{A table of installed allometric models}
 \description{
-\code{allometric_models}is a \code{tibble::tbl_df} containing every installed
+\code{allometric_models}is a \code{model_tbl} containing every installed
 allometric model in \code{allometric}. It is available globally on package load.
 If not, run the \code{install_models} function which will install the models and
-expose the \code{allometric_models} table in your session.
+expose the \code{allometric_models} table in your session. This table behaves
+very much like a \code{tibble::tbl_df} or a \verb{data.frame``, and most functions that work on these will work on }allometric_models` as well.
 }
 \details{
+Printing the \code{head} of \code{allometric_models}, we can see the structure of the
+data
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{options(width=10000)
+head(allometric_models)
+#> # A tibble: 6 x 13
+#>   id       component measure  country   region     family     genus  species model      pub_id        family_name covt_name pub_year
+#>   <chr>    <chr>     <chr>    <list>    <list>     <chr>      <chr>  <chr>   <list>     <chr>         <list>      <list>       <dbl>
+#> 1 3aff0a28 stem      volume   <chr [1]> <chr [1]>  Aceraceae  Acer   <NA>    <FxdEffcM> brackett_1977 <chr [1]>   <chr [2]>     1977
+#> 2 26558408 stem      diameter <chr [2]> <chr [3]>  Betulaceae Alnus  rubra   <FxdEffcM> bluhm_2007    <chr [3]>   <chr [4]>     2007
+#> 3 6de9245e stem      volume   <chr [1]> <chr [1]>  Betulaceae Alnus  rubra   <FxdEffcM> brackett_1977 <chr [1]>   <chr [2]>     1977
+#> 4 d366d64d stem      diameter <chr [2]> <chr [3]>  Betulaceae Alnus  rubra   <FxdEffcM> hibbs_2007    <chr [3]>   <chr [3]>     2007
+#> 5 6dad8922 stem      volume   <chr [2]> <chr [10]> Betulaceae Alnus  rubra   <FxdEffcM> poudel_2019   <chr [4]>   <chr [2]>     2019
+#> 6 0b7fcf26 stem      volume   <chr [1]> <chr [1]>  Betulaceae Betula <NA>    <FxdEffcM> brackett_1977 <chr [1]>   <chr [2]>     1977
+}\if{html}{\out{</div>}}
+
+The columns are:
+\itemize{
+\item \code{id} - A unique ID for the model.
+\item \code{component} - The component of the tree that is modeled.
+\item \code{measure} - The measure of the component that is modeled.
+\item \code{country} - The country or countries from which the model data is from.
+\item \code{region} - The region (e.g., state, province, etc.) from which the model
+data is from.
+\item \code{family}, \code{genus}, \code{species} - The taxonomic specification of the trees
+that are modeled.
+\item \code{model} - The model object itself.
+\item \code{pub_id} - A unique ID representing the publication.
+\item \code{family_name} - The names of the contributing authors.
+\item \code{covt_name} - The names of the covariates used in the model.
+\item \code{pub_year} - The publication year.
+}
+}
+\section{Basic Searching for Models}{
+Filtering out nested data from a table is slightly more involved than
+strictly tabular data. Fortunately the \code{unnest_models} function allows the
+user to unnest any set of columns. For example, let's say we wanted to find
+a model from the author \code{"Hann"}. To do this, we will unnest the
+\code{family_name}
+}
+
+\section{Advanced Searching for Models}{
 This table is composed primarily of
 \href{https://tidyr.tidyverse.org/articles/nest.html}{nested data}, referred to
 as \code{list} columns. Nested data, while somewhat cumbersome for users that are
@@ -19,3 +62,4 @@ contains multiple authors, covariates, even multiple regions or countries.
 Nested data allows for the storage of these highly variable structures for
 each model.
 }
+

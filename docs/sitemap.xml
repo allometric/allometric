@@ -43,10 +43,19 @@
     <loc>http://brycefrank.com/allometric/LICENSE.html</loc>
   </url>
   <url>
+    <loc>http://brycefrank.com/allometric/reference/add_model.html</loc>
+  </url>
+  <url>
+    <loc>http://brycefrank.com/allometric/reference/add_set.html</loc>
+  </url>
+  <url>
     <loc>http://brycefrank.com/allometric/reference/aggregate_results_ext.html</loc>
   </url>
   <url>
     <loc>http://brycefrank.com/allometric/reference/AllometricModel.html</loc>
+  </url>
+  <url>
+    <loc>http://brycefrank.com/allometric/reference/allometric_models.html</loc>
   </url>
   <url>
     <loc>http://brycefrank.com/allometric/reference/bell_1981.html</loc>
@@ -64,16 +73,37 @@
     <loc>http://brycefrank.com/allometric/reference/check_args_in_predict_fn.html</loc>
   </url>
   <url>
+    <loc>http://brycefrank.com/allometric/reference/check_country_in_iso.html</loc>
+  </url>
+  <url>
     <loc>http://brycefrank.com/allometric/reference/check_covts_in_args.html</loc>
   </url>
   <url>
     <loc>http://brycefrank.com/allometric/reference/check_descriptor_set.html</loc>
   </url>
   <url>
+    <loc>http://brycefrank.com/allometric/reference/check_descriptor_validity.html</loc>
+  </url>
+  <url>
+    <loc>http://brycefrank.com/allometric/reference/check_parameters_in_mixed_fns.html</loc>
+  </url>
+  <url>
+    <loc>http://brycefrank.com/allometric/reference/check_parameters_in_predict_fn.html</loc>
+  </url>
+  <url>
     <loc>http://brycefrank.com/allometric/reference/check_parametric_model.html</loc>
   </url>
   <url>
+    <loc>http://brycefrank.com/allometric/reference/check_region_in_iso.html</loc>
+  </url>
+  <url>
+    <loc>http://brycefrank.com/allometric/reference/check_run_pub_list.html</loc>
+  </url>
+  <url>
     <loc>http://brycefrank.com/allometric/reference/FixedEffectsModel.html</loc>
+  </url>
+  <url>
+    <loc>http://brycefrank.com/allometric/reference/FixedEffectsSet.html</loc>
   </url>
   <url>
     <loc>http://brycefrank.com/allometric/reference/get_model_hash.html</loc>
@@ -100,16 +130,28 @@
     <loc>http://brycefrank.com/allometric/reference/MixedEffectsModel.html</loc>
   </url>
   <url>
+    <loc>http://brycefrank.com/allometric/reference/MixedEffectsSet.html</loc>
+  </url>
+  <url>
     <loc>http://brycefrank.com/allometric/reference/moore_1996.html</loc>
   </url>
   <url>
     <loc>http://brycefrank.com/allometric/reference/ParametricModel.html</loc>
   </url>
   <url>
+    <loc>http://brycefrank.com/allometric/reference/pipe.html</loc>
+  </url>
+  <url>
     <loc>http://brycefrank.com/allometric/reference/poudel_2018.html</loc>
   </url>
   <url>
     <loc>http://brycefrank.com/allometric/reference/poudel_2019.html</loc>
+  </url>
+  <url>
+    <loc>http://brycefrank.com/allometric/reference/predict.html</loc>
+  </url>
+  <url>
+    <loc>http://brycefrank.com/allometric/reference/Publication.html</loc>
   </url>
   <url>
     <loc>http://brycefrank.com/allometric/reference/ritchie_1987.html</loc>
@@ -119,6 +161,9 @@
   </url>
   <url>
     <loc>http://brycefrank.com/allometric/reference/temesgen_2008.html</loc>
+  </url>
+  <url>
+    <loc>http://brycefrank.com/allometric/reference/test.html</loc>
   </url>
   <url>
     <loc>http://brycefrank.com/allometric/reference/turner_2000.html</loc>

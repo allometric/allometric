@@ -94,7 +94,7 @@ example.</p>
 models that are fit to specific geographic regions and age classes.
 Let’s take a look at the descriptors of one of those models</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">brackett_mod_1</span> <span class="op">&lt;-</span> <span class="fu">select_model</span><span class="op">(</span><span class="va">allometric_models</span>, <span class="st">'7e960e6d'</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">brackett_mod_1</span> <span class="op">&lt;-</span> <span class="fu">select_model</span><span class="op">(</span><span class="va">allometric_models</span>, <span class="st">'6de9245e'</span><span class="op">)</span></span>
 <span><span class="va">brackett_mod_1</span></span></code></pre></div>
 <pre><code><span><span class="co">## Model Form: </span></span>
 <span><span class="co">## vsa = 10^a * dsob^b * hst^c </span></span>
@@ -105,11 +105,11 @@ Let’s take a look at the descriptors of one of those models</p>
 <span><span class="co">## </span></span>
 <span><span class="co">## Parameter Estimates: </span></span>
 <span><span class="co">##           a        b        c</span></span>
-<span><span class="co">## 1 -2.658025 1.739925 1.133187</span></span>
+<span><span class="co">## 1 -2.672775 1.920617 1.074024</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## Model Descriptors: </span></span>
-<span><span class="co">##   country region   family       genus   species geographic_region   age_class</span></span>
-<span><span class="co">## 1      US  US-WA Pinaceae Pseudotsuga menziesii           coastal &lt; 140 years</span></span></code></pre>
+<span><span class="co">##   country region     family genus species geographic_region age_class</span></span>
+<span><span class="co">## 1      US  US-WA Betulaceae Alnus   rubra              &lt;NA&gt;      &lt;NA&gt;</span></span></code></pre>
 <p>The last section of the output specifies all descriptors for this
 model, including <code>country</code>, <code>region</code>,
 <code>family</code>, <code>genus</code>, <code>species</code>,
@@ -138,7 +138,7 @@ hierarchy.</p>
 specifies <code>country</code> and <code>region</code> at the
 publication-level.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">brackett_1977</span> <span class="op">&lt;-</span> <span class="fu">Publication</span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="va">brackett_1977</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Publication.html">Publication</a></span><span class="op">(</span></span>
 <span>  citation <span class="op">=</span> <span class="va">bracket_1977_citation</span>,</span>
 <span>  descriptors <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>    country <span class="op">=</span> <span class="st">"US"</span>,</span>

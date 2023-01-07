@@ -4,6 +4,7 @@ title: Advanced Model Searching
 
 ```{r include=F}
 library(allometric)
+install_models()
 ```
 
 Upon installation the user is able to access models stored in 
@@ -27,7 +28,7 @@ take a look at filtering out all models containing `Hann` as an author:
 ```{r}
 hann_models <- dplyr::filter(
   allometric_models,
-  purrr::map_lgl(family_names, ~ 'Hann' %in% .)
+  purrr::map_lgl(family_name, ~ 'Hann' %in% .)
 )
 
 head(hann_models)
@@ -51,7 +52,7 @@ a simple modification we can easily do this.
 ```{r}
 hann_first_author_models <- dplyr::filter(
   allometric_models,
-  purrr::map_lgl(family_names, ~ 'Hann' == .[[1]])
+  purrr::map_lgl(family_name, ~ 'Hann' == .[[1]])
 )
 
 head(hann_first_author_models)
@@ -72,7 +73,7 @@ available tree measurements.
 dia_ht_models <- dplyr::filter(
     allometric_models,
     measure == 'height',
-    purrr::map_lgl(covt_names, ~ length(.)==1 & .[[1]] == 'dsob'),
+    purrr::map_lgl(covt_name, ~ length(.)==1 & .[[1]] == 'dsob'),
 )
 
 nrow(dia_ht_models)
@@ -80,7 +81,7 @@ nrow(dia_ht_models)
 
 Breaking this down, we have the first condition `measure=='height'` selecting
 only models concerned with heights as a response variable. The second line 
-maps over each element of the `covt_names` column, which is a character vector.
+maps over each element of the `covt_name` column, which is a character vector.
 The `.` represents a given character vector for that row. First, we ensure that
 the vector is only one element in size using `length(.)==1`, then we ensure that
 the first (and only) element of this vector is equal to `'dsob'`, (diameter

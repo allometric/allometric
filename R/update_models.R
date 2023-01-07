@@ -22,7 +22,7 @@ check_run_pub_list <- function(pub_list_path) {
 run_pub_list <- function(verbose = F) {
   pub_path <- system.file('publications', package='allometric')
 
-  pub_r_files <- list.files(pub_path)
+  pub_r_files <- list.files(pub_path)[-1]
   pub_r_paths <- file.path(pub_path, pub_r_files)
 
   pub_list <- list()
@@ -125,11 +125,11 @@ aggregate_results_ext <- function(results) {
     descriptors_row$genus <- model_descriptors$genus
     descriptors_row$species <- model_descriptors$species
 
-    family_names <- pub@citation$author$family
-    descriptors_row$family_names <- list(as.character(family_names))
+    family_name <- pub@citation$author$family
+    descriptors_row$family_name <- list(as.character(family_name))
 
-    covt_names <- names(model@covariate_units)
-    descriptors_row$covt_names <- list(covt_names)
+    covt_name <- names(model@covariate_units)
+    descriptors_row$covt_name <- list(covt_name)
 
     pub_year <- as.numeric(pub@citation$year)
     descriptors_row$pub_year <- pub_year

@@ -82,14 +82,13 @@ unnest_cross <- function(data, cols, ...) {
 }
 
 #' @export
-unnest_models <- function(data) {
+unnest_models <- function(data, cols) {
   UseMethod("unnest_models")
 }
 
 #' @export
-unnest_models.model_tbl <- function(data,
-  expand_cols = c('country', 'region', 'family_names', 'covt_names')) {
-  unnested <- unnest_cross(data, expand_cols)
+unnest_models.model_tbl <- function(data, cols) {
+  unnested <- unnest_cross(data, cols)
 
   model_tbl_reconstruct(unnested, data)
 }

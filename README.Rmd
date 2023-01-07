@@ -68,10 +68,11 @@ library(allometric)
 install_models()
 ```
 
-This compiles the allometric models, and enables their use. `install_models`
+This compiles the allometric models, and enables their use. `install_models()`
 only needs to be ran at installation or following any package updates. After
 running this function, the models are available in the variable
-`allometric_models`.
+`allometric_models`. Refer to the `?allometric_models` help for more
+information.
 
 ```{r}
 head(allometric_models)
@@ -82,16 +83,18 @@ head(allometric_models)
 `allometric_models` is a `tibble::tbl_df` dataframe. Each row represents one 
 allometric model with various attributes. Some columns are `list` columns, which
 are columns that contain lists with multiple values as their elements. One 
-example of this is the `family_names` column, which contains the names of all
+example of this is the `family_name` column, which contains the names of all
 authors for the publication that contains the model. 
 
 `list` columns enable rigorous searching of models covered in the
 [Advanced Model Searching](https://brycefrank.com/allometric/articles/advanced_searching.html)
 vignette, but to get started we will use a helper function called
-`unnest_models` that will give us a clearer picture of the available data.
+`unnest_models()` that will give us a clearer picture of the available data. 
+Using the `cols` argument we can specify which columns we want to unnest. In 
+this case we will unnest the `family_name` column.
 
 ```{r}
-unnested_models <- unnest_models(allometric_models)
+unnested_models <- unnest_models(allometric_models, cols = 'family_name')
 unnested_models
 ```
 
@@ -102,8 +105,8 @@ we can use
 
 ```{r}
 brackett_alnus_vol <- unnested_models %>%
-  dplyr::filter(family_names == "Brackett", measure=="volume",
-    genus=="Alnus")
+  dplyr::filter(family_name == "Brackett", measure == "volume",
+    genus == "Alnus")
 
 brackett_alnus_vol
 ```
@@ -141,7 +144,7 @@ main stem.
 
 **Predict Using the Selected Model**
 
-Using the `predict` method we can easily use the function as defined
+Using the `predict()` method we can easily use the function as defined
 by providing values of these two covariates.
 
 ```{r eval=T}

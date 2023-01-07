@@ -2,6 +2,7 @@
 
 S3method(select_model,model_tbl)
 S3method(unnest_models,model_tbl)
+export("%>%")
 export(AllometricModel)
 export(FixedEffectsModel)
 export(FixedEffectsSet)
@@ -19,3 +20,4 @@ export(load_publication)
 export(predict)
 export(select_model)
 export(unnest_models)
+importFrom(magrittr,"%>%")
