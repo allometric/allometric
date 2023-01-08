@@ -97,10 +97,12 @@ get_density_def <- function(response_name) {
 get_ratio_def <- function(response_name) {
   measure_char <- substr(response_name, 1, 1)
   component_char <- substr(response_name, 2, 2)
+  modifier_char <- substr(response_name, 3, nchar(response_name))
 
   matching_measure <- r_defs[
     r_defs$measure == measure_char &
-      r_defs$component == component_char,
+      r_defs$component == component_char &
+      r_defs$modifier == modifier_char,
   ]
 
   add_component <- merge(matching_measure, component_defs)

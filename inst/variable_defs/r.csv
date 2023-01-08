@@ -1,3 +1,7 @@
 measure,component,modifier,description
 r,c,,crown ratio
 r,s,dodi,diameter of the stem inside bark at a height along the stem divided by diameter outside bark at breast height
+r,f,bt,ratio of foliage biomass to biomass of entire tree
+r,s,bt,ratio of stem biomass to biomass of entire tree
+r,k,bt,ratio of bark biomass to biomass of entire tree
+r,b,bt,ratio of branch biomass to biomass of entire tree

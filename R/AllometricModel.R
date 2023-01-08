@@ -38,7 +38,6 @@ check_allometric_model_validity <- function(object) {
 #' @keywords internal
 AllometricModel <- function(response_unit, covariate_units, predict_fn,
                             descriptors = list()) {
-
   allometric_model <- .AllometricModel(
     response_unit = response_unit,
     covariate_units = covariate_units,

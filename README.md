@@ -19,7 +19,7 @@ refer to the [Installing a
 Model](https://brycefrank.com/allometric/articles/installing_a_model.html)
 vignette.
 
-Currently, `allometric` contains 150 allometric models across 16
+Currently, `allometric` contains 202 allometric models across 15
 publications. Refer to the
 [Reference](https://brycefrank.com/allometric/reference/index.html) for
 a full list of publications disaggregated by allometric model type.
@@ -61,14 +61,14 @@ head(allometric_models)
 ```
 
     #> # A tibble: 6 × 13
-    #>   id       component measure  country   region     family     genus  species model      pub_id        family_name covt_name pub_year
-    #>   <chr>    <chr>     <chr>    <list>    <list>     <chr>      <chr>  <chr>   <list>     <chr>         <list>      <list>       <dbl>
-    #> 1 3aff0a28 stem      volume   <chr [1]> <chr [1]>  Aceraceae  Acer   <NA>    <FxdEffcM> brackett_1977 <chr [1]>   <chr [2]>     1977
-    #> 2 26558408 stem      diameter <chr [2]> <chr [3]>  Betulaceae Alnus  rubra   <FxdEffcM> bluhm_2007    <chr [3]>   <chr [4]>     2007
-    #> 3 6de9245e stem      volume   <chr [1]> <chr [1]>  Betulaceae Alnus  rubra   <FxdEffcM> brackett_1977 <chr [1]>   <chr [2]>     1977
-    #> 4 d366d64d stem      diameter <chr [2]> <chr [3]>  Betulaceae Alnus  rubra   <FxdEffcM> hibbs_2007    <chr [3]>   <chr [3]>     2007
-    #> 5 6dad8922 stem      volume   <chr [2]> <chr [10]> Betulaceae Alnus  rubra   <FxdEffcM> poudel_2019   <chr [4]>   <chr [2]>     2019
-    #> 6 0b7fcf26 stem      volume   <chr [1]> <chr [1]>  Betulaceae Betula <NA>    <FxdEffcM> brackett_1977 <chr [1]>   <chr [2]>     1977
+    #>   id       component measure  country   region     family     genus species model      pub_id        family_name covt_name pub_year
+    #>   <chr>    <chr>     <chr>    <list>    <list>     <chr>      <chr> <chr>   <list>     <chr>         <list>      <list>       <dbl>
+    #> 1 3aff0a28 stem      volume   <chr [1]> <chr [1]>  Aceraceae  Acer  <NA>    <FxdEffcM> brackett_1977 <chr [1]>   <chr [2]>     1977
+    #> 2 26558408 stem      diameter <chr [2]> <chr [3]>  Betulaceae Alnus rubra   <FxdEffcM> bluhm_2007    <chr [3]>   <chr [4]>     2007
+    #> 3 6de9245e stem      volume   <chr [1]> <chr [1]>  Betulaceae Alnus rubra   <FxdEffcM> brackett_1977 <chr [1]>   <chr [2]>     1977
+    #> 4 d366d64d stem      diameter <chr [2]> <chr [3]>  Betulaceae Alnus rubra   <FxdEffcM> hibbs_2007    <chr [3]>   <chr [3]>     2007
+    #> 5 6dad8922 stem      volume   <chr [2]> <chr [10]> Betulaceae Alnus rubra   <FxdEffcM> poudel_2019   <chr [4]>   <chr [2]>     2019
+    #> 6 07310e58 tree      biomass  <chr [2]> <chr [10]> Betulaceae Alnus rubra   <FxdEffcM> poudel_2019   <chr [4]>   <chr [2]>     2019
 
 **Finding and Selecting a Model**
 
@@ -92,7 +92,7 @@ unnested_models <- unnest_models(allometric_models, cols = 'family_name')
 unnested_models
 ```
 
-    #> # A tibble: 399 × 13
+    #> # A tibble: 608 × 13
     #>    id       component measure  country   region     family     genus species model      pub_id        family_name covt_name pub_year
     #>    <chr>    <chr>     <chr>    <list>    <list>     <chr>      <chr> <chr>   <list>     <chr>         <chr>       <list>       <dbl>
     #>  1 3aff0a28 stem      volume   <chr [1]> <chr [1]>  Aceraceae  Acer  <NA>    <FxdEffcM> brackett_1977 Brackett    <chr [2]>     1977
@@ -105,7 +105,7 @@ unnested_models
     #>  8 d366d64d stem      diameter <chr [2]> <chr [3]>  Betulaceae Alnus rubra   <FxdEffcM> hibbs_2007    Garber      <chr [3]>     2007
     #>  9 6dad8922 stem      volume   <chr [2]> <chr [10]> Betulaceae Alnus rubra   <FxdEffcM> poudel_2019   Poudel      <chr [2]>     2019
     #> 10 6dad8922 stem      volume   <chr [2]> <chr [10]> Betulaceae Alnus rubra   <FxdEffcM> poudel_2019   Temesgen    <chr [2]>     2019
-    #> # … with 389 more rows
+    #> # … with 598 more rows
 
 Now, each row represents unique data combinations for each model, which
 can be quickly filtered by most users using `dplyr::filter`. For
