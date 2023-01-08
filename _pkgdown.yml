@@ -12,7 +12,6 @@ reference:
   contents:
   - add_model
   - add_set
-  - bell_1981
   - FixedEffectsModel
   - FixedEffectsSet
   - MixedEffectsModel
@@ -20,6 +19,14 @@ reference:
   - Publication
 - title: Allometric Models
   desc: Models are contained in publications, which are listed below.
+- subtitle: Stem Volume Models
+  contents:
+  - bell_1981
+  - brackett_1977
+  - bruce_1974
+  - hann_2011
+  - poudel_2019
+  - rustagi_1991
 - subtitle: Stem Diameter Models
   contents:
   - bluhm_2007
@@ -27,13 +34,6 @@ reference:
   - hibbs_2007
   - kozak_1988
   - poudel_2018
-- subtitle: Stem Volume Models
-  contents:
-  - brackett_1977
-  - bruce_1974
-  - hann_2011
-  - poudel_2019
-  - rustagi_1991
 - subtitle: Stem Height Models
   contents:
   - hann_1987
@@ -42,21 +42,32 @@ reference:
 - subtitle: Stump Diameter Models
   contents: hann_2011
 - subtitle: Stem Biomass Models
-  contents: huy_2019
+  contents:
+  - huy_2019
+  - montero_2005
 - subtitle: Branch Biomass Models
-  contents: huy_2019
+  contents:
+  - huy_2019
+  - montero_2005
+  - montero_2005
+  - montero_2005
 - subtitle: Foliage Biomass Models
   contents:
   - huy_2019
+  - montero_2005
   - turner_2000
 - subtitle: Bark Biomass Models
   contents: huy_2019
+- subtitle: Tree Biomass Models
+  contents:
+  - montero_2005
+  - poudel_2019
+- subtitle: Root Biomass Models
+  contents: montero_2005
 - subtitle: Stem Ratio Models
   contents:
   - poudel_2018
   - poudel_2019
-- subtitle: Tree Biomass Models
-  contents: poudel_2019
 - subtitle: Foliage Ratio Models
   contents: poudel_2019
 - subtitle: Bark Ratio Models

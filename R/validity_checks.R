@@ -76,7 +76,7 @@ check_args_in_predict_fn <- function(object) {
 check_region_in_iso <- function(region_code) {
   errors <- c()
   for(code in region_code) {
-    if(!code %in% ISOcodes::ISO_3166_2$Code) {
+    if(!all(code %in% ISOcodes::ISO_3166_2$Code)) {
       msg <- paste("Region code", code, "not found in ISO_3166-2")
       errors <- c(msg, errors)
     }
@@ -92,7 +92,7 @@ check_country_in_iso <- function(country_code) {
   errors <- c()
 
   for(code in country_code) {
-    if(!code %in% ISOcodes::ISO_3166_1$Alpha_2) {
+    if(!all(code %in% ISOcodes::ISO_3166_1$Alpha_2)) {
       msg <- paste("Country code", code, "not found in ISO_3166-1 alpha 2")
       errors <- c(msg, errors)
     }

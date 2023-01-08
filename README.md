@@ -19,7 +19,7 @@ refer to the [Installing a
 Model](https://brycefrank.com/allometric/articles/installing_a_model.html)
 vignette.
 
-Currently, `allometric` contains 202 allometric models across 15
+Currently, `allometric` contains 392 allometric models across 17
 publications. Refer to the
 [Reference](https://brycefrank.com/allometric/reference/index.html) for
 a full list of publications disaggregated by allometric model type.
@@ -61,14 +61,14 @@ head(allometric_models)
 ```
 
     #> # A tibble: 6 × 13
-    #>   id       component measure  country   region     family     genus species model      pub_id        family_name covt_name pub_year
-    #>   <chr>    <chr>     <chr>    <list>    <list>     <chr>      <chr> <chr>   <list>     <chr>         <list>      <list>       <dbl>
-    #> 1 3aff0a28 stem      volume   <chr [1]> <chr [1]>  Aceraceae  Acer  <NA>    <FxdEffcM> brackett_1977 <chr [1]>   <chr [2]>     1977
-    #> 2 26558408 stem      diameter <chr [2]> <chr [3]>  Betulaceae Alnus rubra   <FxdEffcM> bluhm_2007    <chr [3]>   <chr [4]>     2007
-    #> 3 6de9245e stem      volume   <chr [1]> <chr [1]>  Betulaceae Alnus rubra   <FxdEffcM> brackett_1977 <chr [1]>   <chr [2]>     1977
-    #> 4 d366d64d stem      diameter <chr [2]> <chr [3]>  Betulaceae Alnus rubra   <FxdEffcM> hibbs_2007    <chr [3]>   <chr [3]>     2007
-    #> 5 6dad8922 stem      volume   <chr [2]> <chr [10]> Betulaceae Alnus rubra   <FxdEffcM> poudel_2019   <chr [4]>   <chr [2]>     2019
-    #> 6 07310e58 tree      biomass  <chr [2]> <chr [10]> Betulaceae Alnus rubra   <FxdEffcM> poudel_2019   <chr [4]>   <chr [2]>     2019
+    #>   id       component measure country   region     family        genus species     model      pub_id        family_name covt_name pub_year
+    #>   <chr>    <chr>     <chr>   <list>    <list>     <chr>         <chr> <chr>       <list>     <chr>         <list>      <list>       <dbl>
+    #> 1 3aff0a28 stem      volume  <chr [1]> <chr [1]>  Aceraceae     Acer  <NA>        <FxdEffcM> brackett_1977 <chr [1]>   <chr [2]>     1977
+    #> 2 41de1ec6 branch    biomass <chr [1]> <list [1]> Aquifoliaceae Ilex  canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
+    #> 3 6c581330 tree      biomass <chr [1]> <list [1]> Aquifoliaceae Ilex  canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
+    #> 4 3075ec56 branch    biomass <chr [1]> <list [1]> Aquifoliaceae Ilex  canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
+    #> 5 84a015b1 stem      biomass <chr [1]> <list [1]> Aquifoliaceae Ilex  canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
+    #> 6 2842c759 branch    biomass <chr [1]> <list [1]> Aquifoliaceae Ilex  canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
 
 **Finding and Selecting a Model**
 
@@ -92,20 +92,20 @@ unnested_models <- unnest_models(allometric_models, cols = 'family_name')
 unnested_models
 ```
 
-    #> # A tibble: 608 × 13
-    #>    id       component measure  country   region     family     genus species model      pub_id        family_name covt_name pub_year
-    #>    <chr>    <chr>     <chr>    <list>    <list>     <chr>      <chr> <chr>   <list>     <chr>         <chr>       <list>       <dbl>
-    #>  1 3aff0a28 stem      volume   <chr [1]> <chr [1]>  Aceraceae  Acer  <NA>    <FxdEffcM> brackett_1977 Brackett    <chr [2]>     1977
-    #>  2 26558408 stem      diameter <chr [2]> <chr [3]>  Betulaceae Alnus rubra   <FxdEffcM> bluhm_2007    Bluhm       <chr [4]>     2007
-    #>  3 26558408 stem      diameter <chr [2]> <chr [3]>  Betulaceae Alnus rubra   <FxdEffcM> bluhm_2007    Garber      <chr [4]>     2007
-    #>  4 26558408 stem      diameter <chr [2]> <chr [3]>  Betulaceae Alnus rubra   <FxdEffcM> bluhm_2007    Hibbs       <chr [4]>     2007
-    #>  5 6de9245e stem      volume   <chr [1]> <chr [1]>  Betulaceae Alnus rubra   <FxdEffcM> brackett_1977 Brackett    <chr [2]>     1977
-    #>  6 d366d64d stem      diameter <chr [2]> <chr [3]>  Betulaceae Alnus rubra   <FxdEffcM> hibbs_2007    Hibbs       <chr [3]>     2007
-    #>  7 d366d64d stem      diameter <chr [2]> <chr [3]>  Betulaceae Alnus rubra   <FxdEffcM> hibbs_2007    Bluhm       <chr [3]>     2007
-    #>  8 d366d64d stem      diameter <chr [2]> <chr [3]>  Betulaceae Alnus rubra   <FxdEffcM> hibbs_2007    Garber      <chr [3]>     2007
-    #>  9 6dad8922 stem      volume   <chr [2]> <chr [10]> Betulaceae Alnus rubra   <FxdEffcM> poudel_2019   Poudel      <chr [2]>     2019
-    #> 10 6dad8922 stem      volume   <chr [2]> <chr [10]> Betulaceae Alnus rubra   <FxdEffcM> poudel_2019   Temesgen    <chr [2]>     2019
-    #> # … with 598 more rows
+    #> # A tibble: 1,178 × 13
+    #>    id       component measure country   region     family        genus species     model      pub_id        family_name  covt_name pub_year
+    #>    <chr>    <chr>     <chr>   <list>    <list>     <chr>         <chr> <chr>       <list>     <chr>         <chr>        <list>       <dbl>
+    #>  1 3aff0a28 stem      volume  <chr [1]> <chr [1]>  Aceraceae     Acer  <NA>        <FxdEffcM> brackett_1977 Brackett     <chr [2]>     1977
+    #>  2 41de1ec6 branch    biomass <chr [1]> <list [1]> Aquifoliaceae Ilex  canariensis <FxdEffcM> montero_2005  Montero      <chr [1]>     2005
+    #>  3 41de1ec6 branch    biomass <chr [1]> <list [1]> Aquifoliaceae Ilex  canariensis <FxdEffcM> montero_2005  Ruiz-Peinado <chr [1]>     2005
+    #>  4 41de1ec6 branch    biomass <chr [1]> <list [1]> Aquifoliaceae Ilex  canariensis <FxdEffcM> montero_2005  Munoz        <chr [1]>     2005
+    #>  5 6c581330 tree      biomass <chr [1]> <list [1]> Aquifoliaceae Ilex  canariensis <FxdEffcM> montero_2005  Montero      <chr [1]>     2005
+    #>  6 6c581330 tree      biomass <chr [1]> <list [1]> Aquifoliaceae Ilex  canariensis <FxdEffcM> montero_2005  Ruiz-Peinado <chr [1]>     2005
+    #>  7 6c581330 tree      biomass <chr [1]> <list [1]> Aquifoliaceae Ilex  canariensis <FxdEffcM> montero_2005  Munoz        <chr [1]>     2005
+    #>  8 3075ec56 branch    biomass <chr [1]> <list [1]> Aquifoliaceae Ilex  canariensis <FxdEffcM> montero_2005  Montero      <chr [1]>     2005
+    #>  9 3075ec56 branch    biomass <chr [1]> <list [1]> Aquifoliaceae Ilex  canariensis <FxdEffcM> montero_2005  Ruiz-Peinado <chr [1]>     2005
+    #> 10 3075ec56 branch    biomass <chr [1]> <list [1]> Aquifoliaceae Ilex  canariensis <FxdEffcM> montero_2005  Munoz        <chr [1]>     2005
+    #> # … with 1,168 more rows
 
 Now, each row represents unique data combinations for each model, which
 can be quickly filtered by most users using `dplyr::filter`. For

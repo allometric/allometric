@@ -122,10 +122,9 @@
 \item{\code{hst [m]}}{ - total height of the stem}
 }
 \bold{Model Parameters}
-\preformatted{  group    a_1   a_2   a_3   a_4    b_1    b_2     b_3    b_4   c_1   c_2    c_3
-1 softw… -1.72 -1.41  1.94 0.886 -0.665 -0.180 -0.228  -0.382  1.54 0.753 -0.146
-2 hardw… -3.60 -2.73  4.65 3.69  -1.92  -1.52   0.0086 -0.173  2.73 1.86  -0.994
-# … with 1 more variable: c_4 <dbl>}
+\preformatted{  group      a_1   a_2   a_3   a_4    b_1    b_2     b_3    b_4   c_1   c_2    c_3    c_4
+1 softwood -1.72 -1.41  1.94 0.886 -0.665 -0.180 -0.228  -0.382  1.54 0.753 -0.146  0.363
+2 hardwood -3.60 -2.73  4.65 3.69  -1.92  -1.52   0.0086 -0.173  2.73 1.86  -0.994 -0.357}
 \out{<hr>}}
 \section{Bark Ratio Models}{\code{rkbt = denom <- sum(exp(a_1 + b_1 * log(dsob) + c_1 * log(hst)), exp(a_2 + b_2 * log(dsob) + c_2 * log(hst)), exp(a_3 + b_3 * log(dsob) + c_3 * log(hst)), exp(a_4 + b_4 * log(dsob) + c_4 * log(hst))), exp(a_2 + b_2 * log(dsob) + c_2 * log(hst))/denom}
 \itemize{
@@ -134,10 +133,9 @@
 \item{\code{hst [m]}}{ - total height of the stem}
 }
 \bold{Model Parameters}
-\preformatted{  group    a_1   a_2   a_3   a_4    b_1    b_2     b_3    b_4   c_1   c_2    c_3
-1 softw… -1.72 -1.41  1.94 0.886 -0.665 -0.180 -0.228  -0.382  1.54 0.753 -0.146
-2 hardw… -3.60 -2.73  4.65 3.69  -1.92  -1.52   0.0086 -0.173  2.73 1.86  -0.994
-# … with 1 more variable: c_4 <dbl>}
+\preformatted{  group      a_1   a_2   a_3   a_4    b_1    b_2     b_3    b_4   c_1   c_2    c_3    c_4
+1 softwood -1.72 -1.41  1.94 0.886 -0.665 -0.180 -0.228  -0.382  1.54 0.753 -0.146  0.363
+2 hardwood -3.60 -2.73  4.65 3.69  -1.92  -1.52   0.0086 -0.173  2.73 1.86  -0.994 -0.357}
 \out{<hr>}}
 \section{Stem Ratio Models}{\code{rsbt = denom <- sum(exp(a_1 + b_1 * log(dsob) + c_1 * log(hst)), exp(a_2 + b_2 * log(dsob) + c_2 * log(hst)), exp(a_3 + b_3 * log(dsob) + c_3 * log(hst)), exp(a_4 + b_4 * log(dsob) + c_4 * log(hst))), exp(a_1 + b_1 * log(dsob) + c_1 * log(hst))/denom}
 \itemize{
@@ -146,10 +144,9 @@
 \item{\code{hst [m]}}{ - total height of the stem}
 }
 \bold{Model Parameters}
-\preformatted{  group    a_1   a_2   a_3   a_4    b_1    b_2     b_3    b_4   c_1   c_2    c_3
-1 softw… -1.72 -1.41  1.94 0.886 -0.665 -0.180 -0.228  -0.382  1.54 0.753 -0.146
-2 hardw… -3.60 -2.73  4.65 3.69  -1.92  -1.52   0.0086 -0.173  2.73 1.86  -0.994
-# … with 1 more variable: c_4 <dbl>}
+\preformatted{  group      a_1   a_2   a_3   a_4    b_1    b_2     b_3    b_4   c_1   c_2    c_3    c_4
+1 softwood -1.72 -1.41  1.94 0.886 -0.665 -0.180 -0.228  -0.382  1.54 0.753 -0.146  0.363
+2 hardwood -3.60 -2.73  4.65 3.69  -1.92  -1.52   0.0086 -0.173  2.73 1.86  -0.994 -0.357}
 \out{<hr>}}
 \section{Branch Ratio Models}{\code{rbbt = denom <- sum(exp(a_1 + b_1 * log(dsob) + c_1 * log(hst)), exp(a_2 + b_2 * log(dsob) + c_2 * log(hst)), exp(a_3 + b_3 * log(dsob) + c_3 * log(hst)), exp(a_4 + b_4 * log(dsob) + c_4 * log(hst))), exp(a_4 + b_4 * log(dsob) + c_4 * log(hst))/denom}
 \itemize{
@@ -158,8 +155,7 @@
 \item{\code{hst [m]}}{ - total height of the stem}
 }
 \bold{Model Parameters}
-\preformatted{  group    a_1   a_2   a_3   a_4    b_1    b_2     b_3    b_4   c_1   c_2    c_3
-1 softw… -1.72 -1.41  1.94 0.886 -0.665 -0.180 -0.228  -0.382  1.54 0.753 -0.146
-2 hardw… -3.60 -2.73  4.65 3.69  -1.92  -1.52   0.0086 -0.173  2.73 1.86  -0.994
-# … with 1 more variable: c_4 <dbl>}
+\preformatted{  group      a_1   a_2   a_3   a_4    b_1    b_2     b_3    b_4   c_1   c_2    c_3    c_4
+1 softwood -1.72 -1.41  1.94 0.886 -0.665 -0.180 -0.228  -0.382  1.54 0.753 -0.146  0.363
+2 hardwood -3.60 -2.73  4.65 3.69  -1.92  -1.52   0.0086 -0.173  2.73 1.86  -0.994 -0.357}
 \out{<hr>}}

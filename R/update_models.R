@@ -22,7 +22,7 @@ check_run_pub_list <- function(pub_list_path) {
 run_pub_list <- function(verbose = F) {
   pub_path <- system.file('publications', package='allometric')
 
-  pub_r_files <- list.files(pub_path)[-1]
+  pub_r_files <- list.files(pub_path)
   pub_r_paths <- file.path(pub_path, pub_r_files)
 
   pub_list <- list()
