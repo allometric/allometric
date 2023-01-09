@@ -101,11 +101,40 @@ check_country_in_iso <- function(country_code) {
   errors
 }
 
+check_tbl_rows <- function(descriptors) {
+  errors <- c()
+
+  if(nrow(descriptors) > 1) {
+    msg <- "Descriptors must be coercible to a one-row tbl_df."
+    errors <- c(errors, msg)
+  }
+
+  errors
+}
+
+check_tbl_atomic <- function(descriptors) {
+  errors <- c()
+
+  if(nrow(descriptors) > 0) {
+    for(name in names(descriptors)) {
+      if(!is.atomic(descriptors[[name]][[1]])) {
+        msg <- paste("Non-atomic descriptor:", name)
+        errors <- c(errors, msg)
+      }
+    }
+  }
+
+  errors
+}
+
 #' Checks that descriptors are valid
 #'
 #' @keywords internal
 check_descriptor_validity <- function(descriptors) {
   errors <- c()
+
+  errors <- c(errors, check_tbl_rows(descriptors))
+  errors <- c(errors, check_tbl_atomic(descriptors))
 
   if("country" %in% names(descriptors)) {
     errors <- c(errors, check_country_in_iso(descriptors$country))

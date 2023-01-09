@@ -17,8 +17,8 @@ check_model_set_validity <- function(object) {
     covariate_units = "list",
     predict_fn = "function",
     model_specifications = "tbl_df",
-    descriptors = "list",
-    pub_descriptors = "list",
+    descriptors = "tbl_df",
+    pub_descriptors = "tbl_df",
     models = "list"
   ),
   validity = check_model_set_validity
@@ -26,14 +26,17 @@ check_model_set_validity <- function(object) {
 
 ModelSet <- function(response_unit, covariate_units, predict_fn,
                      model_specifications, descriptors = list()) {
+
+  descriptors <- tibble::as_tibble(descriptors)
+
   model_set <- .ModelSet(
     response_unit = response_unit,
     covariate_units = covariate_units,
     predict_fn = predict_fn,
     model_specifications = tibble::as_tibble(model_specifications), # TODO this is sloppy.
-    descriptors = descriptors
+    descriptors = descriptors,
+    pub_descriptors = tibble::tibble()
   )
-
   model_set
 }
 

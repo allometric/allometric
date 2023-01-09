@@ -24,11 +24,21 @@ check_publication_validity <- function(object) {
   slots = c(
     citation = "BibEntry",
     response_sets = "list",
-    descriptors = "list",
+    descriptors = "tbl_df",
     id = "character"
   ),
   validity = check_publication_validity
 )
+
+listify <- function(list_of_vecs) {
+  out <- list()
+
+  for(name in names(list_of_vecs)) {
+    out[[name]] <- ifelse(length(list_of_vecs[[name]]) == 1, list_of_vecs[[name]], list(list_of_vecs[[name]]))
+  }
+
+  out
+}
 
 #' Create a publication that contains allometric models
 #'
@@ -44,6 +54,8 @@ check_publication_validity <- function(object) {
 #'
 #' @export
 Publication <- function(citation, descriptors = list()) {
+  descriptors <- tibble::as_tibble(listify(descriptors))
+
   publication <- .Publication(
     citation = citation,
     descriptors = descriptors,
@@ -57,6 +69,19 @@ Publication <- function(citation, descriptors = list()) {
   )
 
   publication
+}
+
+bind2 <- function(...) {
+  args <- list(...)
+  out <- list()
+  for(i in seq_along(args)) {
+    table <- args[[i]]
+    if(nrow(table) != 0) {
+      out[[i]] <- table
+    }
+  }
+
+  dplyr::bind_cols(out)
 }
 
 #' @rdname add_set
@@ -76,8 +101,13 @@ setMethod(
       model_set@models[[i]]@pub_descriptors <- publication@descriptors
       model_set@models[[i]]@set_descriptors <- model_set@descriptors
       model_set@models[[i]]@citation <- publication@citation
-      model_set@models[[i]]@specification <- c(
-        publication@descriptors, model_set@descriptors, model_set@models[[i]]@descriptors, model_set@models[[i]]@parameters
+
+      # FIXME if any tibble is empty this will be empty
+      model_set@models[[i]]@specification <- bind2(
+        publication@descriptors,
+        model_set@descriptors,
+        model_set@models[[i]]@descriptors,
+        model_set@models[[i]]@parameters
       )
     }
 

@@ -2,8 +2,9 @@ check_fixed_effects_set_validity <- function(object) {
   # TODO the number of distinct rows of model_specifications using the
   # non-parameter columns needs to be equalto the total number of rows
   errors <- c()
+  errors <- c(errors, check_descriptor_validity(object@descriptors))
   errors <- c(errors, check_parameters_in_predict_fn(object))
-  errors
+  if (length(errors) == 0) TRUE else errors
 }
 
 
@@ -36,6 +37,8 @@ check_fixed_effects_set_validity <- function(object) {
 FixedEffectsSet <- function(response_unit, covariate_units, parameter_names,
                             predict_fn, model_specifications,
                             descriptors = list()) {
+  descriptors <- tibble::tibble(descriptors)
+
   fixed_effects_set <- .FixedEffectsSet(
     ModelSet(
       response_unit, covariate_units, predict_fn, model_specifications,

@@ -40,8 +40,8 @@ check_parametric_model <- function(object) {
   contains = "AllometricModel",
   slots = c(
     predict_fn_populated = "function",
-    parameters = "list",
-    specification = "list"
+    parameters = "tbl_df",
+    specification = "tbl_df"
   ),
   validity = check_parametric_model
 )
@@ -70,15 +70,17 @@ setMethod("parameters", "ParametricModel", function(mod) {
 #' @keywords internal
 ParametricModel <- function(response_unit, covariate_units, predict_fn,
                             parameters, descriptors = list()) {
+  # Coerce to tbl_df
+  parameters <- tibble::as_tibble(parameters)
+  descriptors <- tibble::as_tibble(descriptors)
+
   parametric_model <- .ParametricModel(
     AllometricModel(
       response_unit, covariate_units, predict_fn, descriptors
     ),
-    parameters = parameters
+    parameters = parameters,
+    specification = tibble::tibble()
   )
-
-  parametric_model@pub_descriptors <- list()
-  parametric_model@set_descriptors <- list()
 
   descriptor_set <- c(
     parametric_model@pub_descriptors,
@@ -86,11 +88,14 @@ ParametricModel <- function(response_unit, covariate_units, predict_fn,
     parametric_model@descriptors
   )
 
+
   check_descriptor_set(descriptor_set)
 
-  specification(parametric_model) <- c(
-    descriptor_set,
-    parametric_model@parameters
+  specification(parametric_model) <- tibble::as_tibble(
+    c(
+      descriptor_set,
+      parametric_model@parameters
+    )
   )
 
   # Populate a copy of the predict_fn with the coefficients
@@ -121,11 +126,11 @@ setMethod("show", "ParametricModel", function(object) {
 
   cat("\n")
   cat("Parameter Estimates:", "\n")
-  print(data.frame(parameters(object)))
+  print(parameters(object))
 
   cat("\n")
   cat("Model Descriptors:", "\n")
-  print(data.frame(descriptors(object)))
+  print(descriptors(object))
 })
 
 

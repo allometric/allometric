@@ -84,6 +84,15 @@ get_model_hash <- function(predict_fn_populated, descriptors) {
   as.character(openssl::md5(hash_str))
 }
 
+append_search_descriptors <- function(row, model_descriptors) {
+  row$country <- list(unlist(model_descriptors$country))
+  row$region <- list(unlist(model_descriptors$region))
+  row$family <- model_descriptors$family
+  row$genus <- model_descriptors$genus
+  row$species <- model_descriptors$species
+  row
+}
+
 #' Transforms a set of searched models into a tibble of models and descriptors
 #' 
 #' @keywords internal
@@ -103,27 +112,29 @@ aggregate_results_ext <- function(results) {
     model <- result$model
     pub <- result$pub
 
-    model_descriptors <- c(
-      model@descriptors,
-      model@pub_descriptors,
-      model@set_descriptors
-    )
+    # FIXME these are not always tibbles!!!
+    model_descriptors <- descriptors(model)
 
     descriptors_row <- tibble::as_tibble(list(pub_id = pub@id))
 
     descriptors_row$id <- result$id
     descriptors_row$model <- c(model)
 
-    descriptors_row$country <- list(model_descriptors$country)
+
 
     if(is.null(model_descriptors$country)) {
       stop(paste(TextCite(pub@citation), 'did not contain a country code.'))
     }
 
-    descriptors_row$region <- list(model_descriptors$region)
-    descriptors_row$family <- model_descriptors$family
-    descriptors_row$genus <- model_descriptors$genus
-    descriptors_row$species <- model_descriptors$species
+    # Gets rid of column not exist errors.
+    suppressWarnings(
+      descriptors_row <- append_search_descriptors(
+        descriptors_row,
+        model_descriptors
+      )
+    )
+
+
 
     family_name <- pub@citation$author$family
     descriptors_row$family_name <- list(as.character(family_name))

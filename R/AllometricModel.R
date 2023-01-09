@@ -13,9 +13,9 @@ check_allometric_model_validity <- function(object) {
     response_unit = "list",
     covariate_units = "list",
     predict_fn = "function",
-    descriptors = "list",
-    set_descriptors = "list",
-    pub_descriptors = "list",
+    descriptors = "tbl_df",
+    set_descriptors = "tbl_df",
+    pub_descriptors = "tbl_df",
     citation = "BibEntry"
   ),
   validity = check_allometric_model_validity
@@ -38,11 +38,17 @@ check_allometric_model_validity <- function(object) {
 #' @keywords internal
 AllometricModel <- function(response_unit, covariate_units, predict_fn,
                             descriptors = list()) {
+
+  # Coerce to tibble
+  descriptors <- tibble::as_tibble(descriptors)
+
   allometric_model <- .AllometricModel(
     response_unit = response_unit,
     covariate_units = covariate_units,
     predict_fn = predict_fn,
     descriptors = descriptors,
+    set_descriptors = tibble::tibble(),
+    pub_descriptors = tibble::tibble(),
     citation = RefManageR::BibEntry(bibtype="misc", title="", author="", year=0)
   )
 
