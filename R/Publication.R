@@ -16,7 +16,6 @@ check_descriptor_set <- function(descriptor_set) {
 check_publication_validity <- function(object) {
   errors <- c()
   errors <- c(errors, check_descriptor_validity(object@descriptors))
-  # TODO implement check_descriptor_set
   if (length(errors) == 0) TRUE else errors
 }
 

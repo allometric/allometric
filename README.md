@@ -19,7 +19,7 @@ refer to the [Installing a
 Model](https://brycefrank.com/allometric/articles/installing_a_model.html)
 vignette.
 
-Currently, `allometric` contains 392 allometric models across 17
+Currently, `allometric` contains 412 allometric models across 18
 publications. Refer to the
 [Reference](https://brycefrank.com/allometric/reference/index.html) for
 a full list of publications disaggregated by allometric model type.
@@ -61,14 +61,14 @@ head(allometric_models)
 ```
 
     #> # A tibble: 6 × 13
-    #>   id       component measure country   region     family        genus species     model      pub_id        family_name covt_name pub_year
-    #>   <chr>    <chr>     <chr>   <list>    <list>     <chr>         <chr> <chr>       <list>     <chr>         <list>      <list>       <dbl>
-    #> 1 3aff0a28 stem      volume  <chr [1]> <chr [1]>  Aceraceae     Acer  <NA>        <FxdEffcM> brackett_1977 <chr [1]>   <chr [2]>     1977
-    #> 2 41de1ec6 branch    biomass <chr [1]> <list [1]> Aquifoliaceae Ilex  canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
-    #> 3 6c581330 tree      biomass <chr [1]> <list [1]> Aquifoliaceae Ilex  canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
-    #> 4 3075ec56 branch    biomass <chr [1]> <list [1]> Aquifoliaceae Ilex  canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
-    #> 5 84a015b1 stem      biomass <chr [1]> <list [1]> Aquifoliaceae Ilex  canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
-    #> 6 2842c759 branch    biomass <chr [1]> <list [1]> Aquifoliaceae Ilex  canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
+    #>   id       component measure country   region    family        genus    species     model      pub_id        family_name covt_name pub_year
+    #>   <chr>    <chr>     <chr>   <list>    <list>    <chr>         <chr>    <chr>       <list>     <chr>         <list>      <list>       <dbl>
+    #> 1 3aff0a28 stem      volume  <chr [1]> <chr [1]> Aceraceae     Acer     <NA>        <FxdEffcM> brackett_1977 <chr [1]>   <chr [2]>     1977
+    #> 2 2963f44d stem      volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira guianensis  <FxdEffcM> vibrans_2015  <chr [4]>   <chr [2]>     2015
+    #> 3 f6aec7ca branch    biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
+    #> 4 fc847c75 tree      biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
+    #> 5 7e2f5583 branch    biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
+    #> 6 1460a26f stem      biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
 
 **Finding and Selecting a Model**
 
@@ -92,20 +92,20 @@ unnested_models <- unnest_models(allometric_models, cols = 'family_name')
 unnested_models
 ```
 
-    #> # A tibble: 1,178 × 13
-    #>    id       component measure country   region     family        genus species     model      pub_id        family_name  covt_name pub_year
-    #>    <chr>    <chr>     <chr>   <list>    <list>     <chr>         <chr> <chr>       <list>     <chr>         <chr>        <list>       <dbl>
-    #>  1 3aff0a28 stem      volume  <chr [1]> <chr [1]>  Aceraceae     Acer  <NA>        <FxdEffcM> brackett_1977 Brackett     <chr [2]>     1977
-    #>  2 41de1ec6 branch    biomass <chr [1]> <list [1]> Aquifoliaceae Ilex  canariensis <FxdEffcM> montero_2005  Montero      <chr [1]>     2005
-    #>  3 41de1ec6 branch    biomass <chr [1]> <list [1]> Aquifoliaceae Ilex  canariensis <FxdEffcM> montero_2005  Ruiz-Peinado <chr [1]>     2005
-    #>  4 41de1ec6 branch    biomass <chr [1]> <list [1]> Aquifoliaceae Ilex  canariensis <FxdEffcM> montero_2005  Munoz        <chr [1]>     2005
-    #>  5 6c581330 tree      biomass <chr [1]> <list [1]> Aquifoliaceae Ilex  canariensis <FxdEffcM> montero_2005  Montero      <chr [1]>     2005
-    #>  6 6c581330 tree      biomass <chr [1]> <list [1]> Aquifoliaceae Ilex  canariensis <FxdEffcM> montero_2005  Ruiz-Peinado <chr [1]>     2005
-    #>  7 6c581330 tree      biomass <chr [1]> <list [1]> Aquifoliaceae Ilex  canariensis <FxdEffcM> montero_2005  Munoz        <chr [1]>     2005
-    #>  8 3075ec56 branch    biomass <chr [1]> <list [1]> Aquifoliaceae Ilex  canariensis <FxdEffcM> montero_2005  Montero      <chr [1]>     2005
-    #>  9 3075ec56 branch    biomass <chr [1]> <list [1]> Aquifoliaceae Ilex  canariensis <FxdEffcM> montero_2005  Ruiz-Peinado <chr [1]>     2005
-    #> 10 3075ec56 branch    biomass <chr [1]> <list [1]> Aquifoliaceae Ilex  canariensis <FxdEffcM> montero_2005  Munoz        <chr [1]>     2005
-    #> # … with 1,168 more rows
+    #> # A tibble: 1,258 × 13
+    #>    id       component measure country   region    family        genus    species     model      pub_id        family_name                 covt_name pub_year
+    #>    <chr>    <chr>     <chr>   <list>    <list>    <chr>         <chr>    <chr>       <list>     <chr>         <chr>                       <list>       <dbl>
+    #>  1 3aff0a28 stem      volume  <chr [1]> <chr [1]> Aceraceae     Acer     <NA>        <FxdEffcM> brackett_1977 "Brackett"                  <chr [2]>     1977
+    #>  2 2963f44d stem      volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira guianensis  <FxdEffcM> vibrans_2015  "Vibrans"                   <chr [2]>     2015
+    #>  3 2963f44d stem      volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira guianensis  <FxdEffcM> vibrans_2015  "Moser"                     <chr [2]>     2015
+    #>  4 2963f44d stem      volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira guianensis  <FxdEffcM> vibrans_2015  "Oliveira"                  <chr [2]>     2015
+    #>  5 2963f44d stem      volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira guianensis  <FxdEffcM> vibrans_2015  "c(\"de\", \"MaÃ§aneiro\")" <chr [2]>     2015
+    #>  6 f6aec7ca branch    biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  "Montero"                   <chr [1]>     2005
+    #>  7 f6aec7ca branch    biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  "Ruiz-Peinado"              <chr [1]>     2005
+    #>  8 f6aec7ca branch    biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  "Munoz"                     <chr [1]>     2005
+    #>  9 fc847c75 tree      biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  "Montero"                   <chr [1]>     2005
+    #> 10 fc847c75 tree      biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  "Ruiz-Peinado"              <chr [1]>     2005
+    #> # … with 1,248 more rows
 
 Now, each row represents unique data combinations for each model, which
 can be quickly filtered by most users using `dplyr::filter`. For
@@ -160,12 +160,16 @@ brackett_alnus_mod
     #> hst [ft]: total height of the stem
     #> 
     #> Parameter Estimates: 
-    #>           a        b        c
-    #> 1 -2.672775 1.920617 1.074024
+    #> # A tibble: 1 × 3
+    #>       a     b     c
+    #>   <dbl> <dbl> <dbl>
+    #> 1 -2.67  1.92  1.07
     #> 
     #> Model Descriptors: 
-    #>   country region     family genus species geographic_region age_class
-    #> 1      US  US-WA Betulaceae Alnus   rubra              <NA>      <NA>
+    #> # A tibble: 1 × 7
+    #>   country region family     genus species geographic_region age_class
+    #>   <chr>   <chr>  <chr>      <chr> <chr>   <chr>             <chr>    
+    #> 1 US      US-WA  Betulaceae Alnus rubra   <NA>              <NA>
 
 We can see here that `brackett_alnus_mod` will require two covariates
 called `dsob`, which refers to diameter outside bark at breast height,

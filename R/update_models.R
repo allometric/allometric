@@ -19,7 +19,7 @@ check_run_pub_list <- function(pub_list_path) {
   }
 }
 
-run_pub_list <- function(verbose = F) {
+run_pub_list <- function(verbose) {
   pub_path <- system.file('publications', package='allometric')
 
   pub_r_files <- list.files(pub_path)
@@ -53,15 +53,15 @@ run_pub_list <- function(verbose = F) {
 }
 
 #' 
-get_pub_list <- function(verbose = F) {
+get_pub_list <- function(ignore_cache, verbose) {
   pub_list_path <- system.file('extdata/pub_list.RDS', package = 'allometric')
 
 
-  if(pub_list_path == "")  {
-    run_pub_list()
+  if(pub_list_path == "" || ignore_cache)  {
+    run_pub_list(verbose)
   } else {
     run <- check_run_pub_list(pub_list_path)
-    if(run) run_pub_list()
+    if(run) run_pub_list(verbose)
   }
 
   pub_list_path <- system.file('extdata/pub_list.RDS', package = 'allometric')

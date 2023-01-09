@@ -54,7 +54,7 @@ rd_lines <- function(pub) {
 }
 
 update_reference_pages <- function() {
-  pub_list <- get_pub_list()
+  pub_list <- get_pub_list(verbose=F, ignore_cache = F)
 
   for(pub in pub_list) {
     cat(paste("Updating reference page for:", pub@id, "\n"))
@@ -80,7 +80,7 @@ check_internal <- function(rd_path) {
 }
 
 update_reference_index <- function() {
-  pub_list <- get_pub_list()
+  pub_list <- get_pub_list(verbose=F, ignore_cache = F)
   pub_names <- names(pub_list)
   pub_rd_names <- paste(pub_names, ".Rd", sep = "")
 
