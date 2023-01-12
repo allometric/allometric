@@ -91,4 +91,56 @@ pantropical_model <- FixedEffectsModel(
   descriptors = pantropical_frame[,'country']
 )
 
-feldpausch_2012 <- add_model(feldpausch_2012, pantropical_model)
+# Unfortunately, Feldpascuh et al. do not specify the source of the biomass
+# data to the same degree as the height data. It would take several subjective
+# determinations to assign this model to countries. Toward that end, it is
+# simply referred to as a pantropical model in the descriptors.
+
+bt_1 <- FixedEffectsModel(
+  response_unit = list(
+    bt = units::as_units('kg')
+  ),
+  covariate_units = list(
+    dsob = units::as_units('cm'),
+    rwd = units::as_units('g / cm^3')
+  ),
+  parameters = list(
+    a = -1.8222,
+    b = 2.3370,
+    c = 0.1632,
+    d = -0.0248,
+    e = 0.9792,
+    rse = 0.3595
+  ),
+  predict_fn = function(dsob, rwd) {
+    cf <- exp(rse^2 / 2)
+    cf * exp(a + b * log(dsob) + c * log(dsob)^2 + d * log(dsob)^3 + e * log(rwd))
+  },
+  descriptors = list(geographic_region = "pantropical")
+)
+
+bt_2 <- FixedEffectsModel(
+  response_unit = list(
+    bt = units::as_units('kg')
+  ),
+  covariate_units = list(
+    dsob = units::as_units('cm'),
+    rwd = units::as_units('g / cm^3'),
+    hst = units::as_units('m')
+  ),
+  parameters = list(
+    a = -2.9205,
+    b = 0.9894,
+    rse = 0.3222
+  ),
+  predict_fn = function(dsob, rwd, hst) {
+    cf <- exp(rse^2 / 2)
+    cf * exp(a + b * log(dsob^2 * rwd * hst))
+  },
+  descriptors = list(geographic_region = "pantropical")
+)
+
+feldpausch_2012 <- feldpausch_2012 %>%
+  add_model(pantropical_model) %>%
+  add_model(bt_1) %>%
+  add_model(bt_2)

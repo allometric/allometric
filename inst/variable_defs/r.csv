@@ -5,3 +5,4 @@ r,f,bt,ratio of foliage biomass to biomass of entire tree
 r,s,bt,ratio of stem biomass to biomass of entire tree
 r,k,bt,ratio of bark biomass to biomass of entire tree
 r,b,bt,ratio of branch biomass to biomass of entire tree
+r,w,d,wood specific gravity

@@ -120,12 +120,6 @@ aggregate_results_ext <- function(results) {
     descriptors_row$id <- result$id
     descriptors_row$model <- c(model)
 
-
-
-    if(is.null(model_descriptors$country)) {
-      stop(paste(TextCite(pub@citation), 'did not contain a country code.'))
-    }
-
     # Gets rid of column not exist errors.
     suppressWarnings(
       descriptors_row <- append_search_descriptors(

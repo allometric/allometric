@@ -41,6 +41,11 @@ reference:
   - hann_1987
   - moore_1996
   - temesgen_2008
+- subtitle: Tree Biomass Models
+  contents:
+  - feldpausch_2012
+  - montero_2005
+  - poudel_2019
 - subtitle: Stump Diameter Models
   contents: hann_2011
 - subtitle: Stem Biomass Models
@@ -58,10 +63,6 @@ reference:
   - turner_2000
 - subtitle: Bark Biomass Models
   contents: huy_2019
-- subtitle: Tree Biomass Models
-  contents:
-  - montero_2005
-  - poudel_2019
 - subtitle: Root Biomass Models
   contents: montero_2005
 - subtitle: Stem Ratio Models

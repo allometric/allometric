@@ -37,3 +37,24 @@
 \preformatted{  country        a     b     c
 1 <chr [14]>  50.9 0.042 0.784}
 \out{<hr>}}
+\section{Tree Biomass Models}{\code{bt = cf <- exp(rse^2/2), cf * exp(a + b * log(dsob) + c * log(dsob)^2 + d * log(dsob)^3 + e * log(rwd))}
+\itemize{
+\item{\code{bt [kg]}}{ - tree biomass}
+\item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
+\item{\code{rwd [g/cm^3]}}{ - wood specific gravity}
+}
+\bold{Model Parameters}
+\preformatted{  geographic_region     a     b     c       d     e   rse
+1 pantropical       -1.82  2.34 0.163 -0.0248 0.979 0.360}
+\out{<hr>}
+\code{bt = cf <- exp(rse^2/2), cf * exp(a + b * log(dsob^2 * rwd * hst))}
+\itemize{
+\item{\code{bt [kg]}}{ - tree biomass}
+\item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
+\item{\code{rwd [g/cm^3]}}{ - wood specific gravity}
+\item{\code{hst [m]}}{ - total height of the stem}
+}
+\bold{Model Parameters}
+\preformatted{  geographic_region     a     b   rse
+1 pantropical       -2.92 0.989 0.322}
+\out{<hr>}}

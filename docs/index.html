@@ -76,7 +76,7 @@
 
 <p><code>allometric</code> is an R package for predicting tree attributes with allometric models. Thousands of allometric models exist in the scientific and technical forestry literature, and <code>allometric</code> is a platform for archiving and using this vast array of models in a robust and structured format.</p>
 <p><code>allometric</code> not only enables the use of allometric models for analysis, it also provides a structured language for adding models to the package. If you are interested in helping the developer in this process please refer to the <a href="https://brycefrank.com/allometric/articles/installing_a_model.html" class="external-link">Installing a Model</a> vignette.</p>
-<p>Currently, <code>allometric</code> contains 394 allometric models across 19 publications. Refer to the <a href="https://brycefrank.com/allometric/reference/index.html" class="external-link">Reference</a> for a full list of publications disaggregated by allometric model type.</p>
+<p>Currently, <code>allometric</code> contains 396 allometric models across 19 publications. Refer to the <a href="https://brycefrank.com/allometric/reference/index.html" class="external-link">Reference</a> for a full list of publications disaggregated by allometric model type.</p>
 <p><strong><code>allometric</code> is currently in a pre-release state. If you are interested in collaboration (adding models or working on the package functions) please email me at <a href="mailto:bfrank70@gmail.com" class="email">bfrank70@gmail.com</a></strong></p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -111,7 +111,7 @@
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">unnested_models</span> <span class="op">&lt;-</span> <span class="fu">unnest_models</span><span class="op">(</span><span class="va">allometric_models</span>, cols <span class="op">=</span> <span class="st">'family_name'</span><span class="op">)</span></span>
 <span><span class="va">unnested_models</span></span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1,292 × 13</span></span>
+<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1,314 × 13</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    id       component measure country   region    family        genus    species     model      pub_id        family_name                 covt_name pub_year</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;   &lt;list&gt;    &lt;list&gt;    &lt;chr&gt;         &lt;chr&gt;    &lt;chr&gt;       &lt;list&gt;     &lt;chr&gt;         &lt;chr&gt;                       &lt;list&gt;       &lt;dbl&gt;</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 3aff0a28 stem      volume  &lt;chr [1]&gt; &lt;chr [1]&gt; Aceraceae     Acer     &lt;NA&gt;        &lt;FxdEffcM&gt; brackett_1977 "Brackett"                  &lt;chr [2]&gt;     1977</span></span>
@@ -124,7 +124,7 @@
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 fc847c75 tree      biomass &lt;chr [1]&gt; &lt;chr [1]&gt; Aquifoliaceae Ilex     canariensis &lt;FxdEffcM&gt; montero_2005  "Munoz"                     &lt;chr [1]&gt;     2005</span></span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 1460a26f stem      biomass &lt;chr [1]&gt; &lt;chr [1]&gt; Aquifoliaceae Ilex     canariensis &lt;FxdEffcM&gt; montero_2005  "Montero"                   &lt;chr [1]&gt;     2005</span></span>
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 1460a26f stem      biomass &lt;chr [1]&gt; &lt;chr [1]&gt; Aquifoliaceae Ilex     canariensis &lt;FxdEffcM&gt; montero_2005  "Ruiz-Peinado"              &lt;chr [1]&gt;     2005</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 1,282 more rows</span></span></code></pre></div>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 1,304 more rows</span></span></code></pre></div>
 <p>Now, each row represents unique data combinations for each model, which can be quickly filtered by most users using <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">dplyr::filter</a></code>. For example, to find a volume model for the genus Alnus that had <code>"Brackett"</code> as an author or co-author we can use</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">brackett_alnus_vol</span> <span class="op">&lt;-</span> <span class="va">unnested_models</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>

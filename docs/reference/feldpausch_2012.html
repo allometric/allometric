@@ -70,8 +70,21 @@
 <li><p><code>dsob [cm]</code> - diameter of the stem, outside bark at breast height</p></li>
 </ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code>  country        a     b     c
 1 &lt;chr [14]&gt;  50.9 0.042 0.784</code></pre></div><p></p><hr></div>
+    <div class="section level2">
+    <h2 id="tree-biomass-models">Tree Biomass Models<a class="anchor" aria-label="anchor" href="#tree-biomass-models"></a></h2>
+    <p><code>bt = cf &lt;- exp(rse^2/2), cf * exp(a + b * log(dsob) + c * log(dsob)^2 + d * log(dsob)^3 + e * log(rwd))</code></p><ul><li><p><code>bt [kg]</code> - tree biomass</p></li>
+<li><p><code>dsob [cm]</code> - diameter of the stem, outside bark at breast height</p></li>
+<li><p><code>rwd [g/cm^3]</code> - wood specific gravity</p></li>
+</ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code>  geographic_region     a     b     c       d     e   rse
+1 pantropical       -1.82  2.34 0.163 -0.0248 0.979 0.360</code></pre></div><p></p><hr><code>bt = cf &lt;- exp(rse^2/2), cf * exp(a + b * log(dsob^2 * rwd * hst))</code><ul><li><p><code>bt [kg]</code> - tree biomass</p></li>
+<li><p><code>dsob [cm]</code> - diameter of the stem, outside bark at breast height</p></li>
+<li><p><code>rwd [g/cm^3]</code> - wood specific gravity</p></li>
+<li><p><code>hst [m]</code> - total height of the stem</p></li>
+</ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code>  geographic_region     a     b   rse
+1 pantropical       -2.92 0.989 0.322</code></pre></div><p></p><hr></div>
 
-  </main></div>
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside></div>
 
 
     <footer><div class="pkgdown-footer-left">
