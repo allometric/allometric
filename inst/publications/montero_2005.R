@@ -50,6 +50,25 @@ for(b_param_name in b_param_names) {
   montero_2005 <- montero_2005 %>% add_set(set)
 }
 
+# Branch biomass
+bb_params <- load_parameter_frame('bb_montero_2005')
+
+#
+bb_spec <- bb_params %>%
+  dplyr::select(-name) %>%
+  dplyr::group_by(family, genus, species, branch_size, a, b, cf) %>%
+  summarise(region = list(region))
+
+bb_set <- FixedEffectsSet(
+  response_unit = list(bb = units::as_units('kg')),
+  covariate_units = covariate_units,
+  parameter_names = c('a', 'b', 'cf'),
+  predict_fn = function(dsob) {cf * exp(a) * dsob^b},
+  model_specifications = bb_spec
+)
+
+montero_2005 <- montero_2005 %>% add_set(bb_set)
+
 # Others - total tree
 bt_others <- FixedEffectsSet(
   response_unit = list(

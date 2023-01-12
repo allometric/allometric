@@ -2,43 +2,6 @@
 \alias{montero_2005}
 \title{Montero, Ruiz-Peinado, and Munoz (2005)}
 \description{Allometric models from Montero, Ruiz-Peinado, and Munoz (2005)}
-\section{Branch Biomass Models}{\code{bblt2 = cf * exp(a) * dsob^b}
-\itemize{
-\item{\code{bblt2 [kg]}}{ - branch biomass}
-\item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
-}
-\bold{Model Parameters}
-\preformatted{   family        genus      species           a     b    cf region   
- 1 Aquifoliaceae Ilex       canariensis  -1.46   2.76  1.05 <chr [1]>
- 2 Betulaceae    Alnus      glutinosa    -2.40   2.45  1.14 <chr [1]>
- 3 Betulaceae    Betula     NA           -2.66   2.65  1.07 <chr [1]>
- 4 Cupressaceae  Juniperus  thurifera    -2.41   2.68  1.05 <chr [1]>
- 5 Ericaceae     Erica      arborea      -1.22   2.62  1.08 <chr [1]>
- 6 Fabaceae      Ceratonia  siliqua      -1.82   2.63  1.07 <chr [1]>
- 7 Fagaceae      Castanea   sativa       -1.55   2.69  1.05 <chr [2]>
- 8 Fagaceae      Fagus      sylvatica    -2.57   2.84  1.09 <chr [2]>
- 9 Fagaceae      Quercus    canariensis  -3.21   2.67  1.18 <chr [1]>
-10 Fagaceae      Quercus    faginea      -3.45   2.97  1.05 <chr [1]>
-11 Fagaceae      Quercus    ilex         -2.66   2.97  1.10 <chr [3]>
-12 Fagaceae      Quercus    pyrenaica    -4.85   2.39  1.17 <chr [4]>
-13 Fagaceae      Quercus    robur        -2.47   2.62  1.06 <chr [1]>
-14 Fagaceae      Quercus    suber        -5.34   2.10  1.33 <chr [1]>
-15 Lauraceae     Laurus     azorica      -2.25   2.09  1.07 <chr [1]>
-16 Myricaceae    Myrica     faya         -1.67   2.89  1.04 <chr [1]>
-17 Myrtaceae     Eucalyptus NA           -2.65   2.61  1.06 <chr [1]>
-18 Oleaceae      Fraxinus   NA           -1.69   2.73  1.13 <chr [2]>
-19 Oleaceae      Olea       europaea     -1.56   2.53  1.07 <chr [1]>
-20 Pinaceae      Abies      pinsapo      -0.860  2.37  1.17 <chr [1]>
-21 Pinaceae      Pinus      canariensis  -5.07   2.60  1.17 <chr [1]>
-22 Pinaceae      Pinus      halepensis   -2.74   2.04  1.03 <chr [1]>
-23 Pinaceae      Pinus      nigra        -2.84   2.05  1.02 <chr [1]>
-24 Pinaceae      Pinus      pinaster     -4.67   2.38  1.15 <chr [2]>
-25 Pinaceae      Pinus      pinea        -2.55   2.94  1.12 <chr [2]>
-26 Pinaceae      Pinus      radiata      -3.54   2.76  1.21 <chr [1]>
-27 Pinaceae      Pinus      sylvestris   -2.08   2.51  1.15 <chr [2]>
-28 Pinaceae      Pinus      uncinata     -2.63   2.79  1.12 <chr [1]>
-29 Salicaceae    Populus    euramericana -2.42   2.61  1.12 <chr [3]>}
-\out{<hr>}}
 \section{Tree Biomass Models}{\code{bt = cf * exp(a) * dsob^b}
 \itemize{
 \item{\code{bt [kg]}}{ - tree biomass}
@@ -89,43 +52,6 @@
 2 hardwoods     -1.88  2.30  1.00
 3 subtropical   -1.36  2.26  1.00}
 \out{<hr>}}
-\section{Branch Biomass Models}{\code{bbgt2lt7 = cf * exp(a) * dsob^b}
-\itemize{
-\item{\code{bbgt2lt7 [kg]}}{ - branch biomass}
-\item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
-}
-\bold{Model Parameters}
-\preformatted{   family        genus      species          a     b    cf region   
- 1 Aquifoliaceae Ilex       canariensis  -1.46  2.43  1.19 <chr [1]>
- 2 Betulaceae    Alnus      glutinosa    -2.73  2.85  1.12 <chr [1]>
- 3 Betulaceae    Betula     NA           -2.70  2.97  1.05 <chr [1]>
- 4 Cupressaceae  Juniperus  thurifera    -4.32  2.38  1.06 <chr [1]>
- 5 Ericaceae     Erica      arborea      -3.51  2.14  1.12 <chr [1]>
- 6 Fabaceae      Ceratonia  siliqua      -2.68  2.88  1.18 <chr [1]>
- 7 Fagaceae      Castanea   sativa       -2.29  2.91  1.09 <chr [2]>
- 8 Fagaceae      Fagus      sylvatica    -3.87  2.35  1.06 <chr [2]>
- 9 Fagaceae      Quercus    canariensis  -3.63  2.16  1.14 <chr [1]>
-10 Fagaceae      Quercus    faginea      -4.05  2.36  1.04 <chr [1]>
-11 Fagaceae      Quercus    ilex         -2.53  2.00  1.23 <chr [3]>
-12 Fagaceae      Quercus    pyrenaica    -1.98  2.77  1.13 <chr [4]>
-13 Fagaceae      Quercus    robur        -2.82  2.04  1.06 <chr [1]>
-14 Fagaceae      Quercus    suber        -3.39  3.00  1.15 <chr [1]>
-15 Lauraceae     Laurus     azorica      -2.44  2.91  1.07 <chr [1]>
-16 Myricaceae    Myrica     faya         -4.05  2.45  1.11 <chr [1]>
-17 Myrtaceae     Eucalyptus NA           -2.68  2.87  1.10 <chr [1]>
-18 Oleaceae      Fraxinus   NA           -3.97  2.47  1.10 <chr [2]>
-19 Oleaceae      Olea       europaea     -1.44  2.60  1.10 <chr [1]>
-20 Pinaceae      Abies      pinsapo      -5.80  2.78  1.15 <chr [1]>
-21 Pinaceae      Pinus      canariensis  -6.10  2.73  1.14 <chr [1]>
-22 Pinaceae      Pinus      halepensis   -4.73  2.33  1.09 <chr [1]>
-23 Pinaceae      Pinus      nigra        -6.62  2.93  1.15 <chr [1]>
-24 Pinaceae      Pinus      pinaster     -6.66  2.64  1.32 <chr [2]>
-25 Pinaceae      Pinus      pinea        -4.19  2.40  1.12 <chr [2]>
-26 Pinaceae      Pinus      radiata      -4.13  2.12  1.21 <chr [1]>
-27 Pinaceae      Pinus      sylvestris   -4.08  2.14  1.20 <chr [2]>
-28 Pinaceae      Pinus      uncinata     -2.19  2.61  1.14 <chr [1]>
-29 Salicaceae    Populus    euramericana -6.31  2.84  1.09 <chr [3]>}
-\out{<hr>}}
 \section{Stem Biomass Models}{\code{bs = cf * exp(a) * dsob^b}
 \itemize{
 \item{\code{bs [kg]}}{ - stem biomass}
@@ -160,41 +86,6 @@
 25 Pinaceae      Pinus     sylvestris   -3.81   2.71  1.04 <chr [2]>
 26 Pinaceae      Pinus     uncinata     -3.45   2.71  1.04 <chr [1]>
 27 Salicaceae    Populus   euramericana -3.15   2.54  1.01 <chr [3]>}
-\out{<hr>}}
-\section{Branch Biomass Models}{\code{bbgt7 = cf * exp(a) * dsob^b}
-\itemize{
-\item{\code{bbgt7 [kg]}}{ - branch biomass}
-\item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
-}
-\bold{Model Parameters}
-\preformatted{   family        genus     species           a     b    cf region   
- 1 Aquifoliaceae Ilex      canariensis   -2.54  2.75  1.01 <chr [1]>
- 2 Betulaceae    Alnus     glutinosa     -7.22  2.74  1.24 <chr [1]>
- 3 Betulaceae    Betula    NA            -7.84  2.25  1.26 <chr [1]>
- 4 Cupressaceae  Juniperus thurifera    -13.5   2.60  1.11 <chr [1]>
- 5 Ericaceae     Erica     arborea       -6.92  2.39  1.36 <chr [1]>
- 6 Fabaceae      Ceratonia siliqua       -4.99  2.82  1.22 <chr [1]>
- 7 Fagaceae      Castanea  sativa        -7.81  2.49  1.11 <chr [2]>
- 8 Fagaceae      Fagus     sylvatica    -10.8   2.09  1.22 <chr [2]>
- 9 Fagaceae      Quercus   canariensis   -3.79  2.43  1.43 <chr [1]>
-10 Fagaceae      Quercus   faginea      -14.0   2.21  1.56 <chr [1]>
-11 Fagaceae      Quercus   ilex          -5.35  2.04  1.16 <chr [3]>
-12 Fagaceae      Quercus   robur        -13.2   2.84  1.33 <chr [1]>
-13 Fagaceae      Quercus   suber         -6.43  2.21  1.18 <chr [1]>
-14 Lauraceae     Laurus    azorica       -3.98  2.54  1.33 <chr [1]>
-15 Myricaceae    Myrica    faya          -6.67  2.49  1.07 <chr [1]>
-16 Oleaceae      Fraxinus  NA            -5.41  2.84  1.26 <chr [2]>
-17 Oleaceae      Olea      europaea      -4.65  2.69  1.20 <chr [1]>
-18 Pinaceae      Abies     pinsapo      -16.3   2.40  1.11 <chr [1]>
-19 Pinaceae      Pinus     canariensis  -11.6   2.28  1.38 <chr [1]>
-20 Pinaceae      Pinus     halepensis    -9.55  2.61  1.53 <chr [1]>
-21 Pinaceae      Pinus     nigra        -13.8   2.63  1.58 <chr [1]>
-22 Pinaceae      Pinus     pinaster     -23.0   2.52  1.05 <chr [2]>
-23 Pinaceae      Pinus     pinea         -4.34  2.60  1.16 <chr [2]>
-24 Pinaceae      Pinus     radiata      -10.6   2.65  1.15 <chr [1]>
-25 Pinaceae      Pinus     sylvestris   -15.0   2.80  1.27 <chr [2]>
-26 Pinaceae      Pinus     uncinata      -4.66  2.96  1.23 <chr [1]>
-27 Salicaceae    Populus   euramericana -12.1   2.35  1.18 <chr [3]>}
 \out{<hr>}}
 \section{Foliage Biomass Models}{\code{bf = cf * exp(a) * dsob^b}
 \itemize{
@@ -262,4 +153,68 @@
 1 conifers      -2.46  2.14  1.03
 2 hardwoods     -1.38  1.97  1.00
 3 subtropical   -1.38  2.06  1.00}
+\out{<hr>}}
+\section{Branch Biomass Models}{\code{bb = cf * exp(a) * dsob^b}
+\itemize{
+\item{\code{bb [kg]}}{ - branch biomass}
+\item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
+}
+\bold{Model Parameters}
+\preformatted{   family        genus      species      branch_size       a     b    cf region   
+ 1 Aquifoliaceae Ilex       canariensis  < 2 cm       -1.46   2.76  1.05 <chr [1]>
+ 2 Aquifoliaceae Ilex       canariensis  > 7 cm       -2.54   2.75  1.01 <chr [1]>
+ 3 Betulaceae    Alnus      glutinosa    < 2 cm       -2.40   2.45  1.14 <chr [1]>
+ 4 Betulaceae    Alnus      glutinosa    > 7 cm       -7.22   2.74  1.24 <chr [1]>
+ 5 Betulaceae    Betula     NA           < 2 cm       -2.66   2.65  1.07 <chr [1]>
+ 6 Betulaceae    Betula     NA           > 7 cm       -7.84   2.25  1.26 <chr [1]>
+ 7 Cupressaceae  Juniperus  thurifera    < 2 cm       -2.41   2.68  1.05 <chr [1]>
+ 8 Cupressaceae  Juniperus  thurifera    > 7 cm      -13.5    2.60  1.11 <chr [1]>
+ 9 Ericaceae     Erica      arborea      < 2 cm       -1.22   2.62  1.08 <chr [1]>
+10 Ericaceae     Erica      arborea      > 7 cm       -6.92   2.39  1.36 <chr [1]>
+11 Fabaceae      Ceratonia  siliqua      < 2 cm       -1.82   2.63  1.07 <chr [1]>
+12 Fabaceae      Ceratonia  siliqua      > 7 cm       -4.99   2.82  1.22 <chr [1]>
+13 Fagaceae      Castanea   sativa       < 2 cm       -1.55   2.69  1.05 <chr [2]>
+14 Fagaceae      Castanea   sativa       > 7 cm       -7.81   2.49  1.11 <chr [2]>
+15 Fagaceae      Fagus      sylvatica    < 2 cm       -2.57   2.84  1.09 <chr [2]>
+16 Fagaceae      Fagus      sylvatica    > 7 cm      -10.8    2.09  1.22 <chr [2]>
+17 Fagaceae      Quercus    canariensis  < 2 cm       -3.21   2.67  1.18 <chr [1]>
+18 Fagaceae      Quercus    canariensis  > 7 cm       -3.79   2.43  1.43 <chr [1]>
+19 Fagaceae      Quercus    faginea      < 2 cm       -3.45   2.97  1.05 <chr [1]>
+20 Fagaceae      Quercus    faginea      > 7 cm      -14.0    2.21  1.56 <chr [1]>
+21 Fagaceae      Quercus    ilex         < 2 cm       -2.66   2.97  1.10 <chr [3]>
+22 Fagaceae      Quercus    ilex         > 7 cm       -5.35   2.04  1.16 <chr [3]>
+23 Fagaceae      Quercus    pyrenaica    < 2 cm       -4.85   2.39  1.17 <chr [4]>
+24 Fagaceae      Quercus    robur        < 2 cm       -2.47   2.62  1.06 <chr [1]>
+25 Fagaceae      Quercus    robur        > 7 cm      -13.2    2.84  1.33 <chr [1]>
+26 Fagaceae      Quercus    suber        < 2 cm       -5.34   2.10  1.33 <chr [1]>
+27 Fagaceae      Quercus    suber        > 7 cm       -6.43   2.21  1.18 <chr [1]>
+28 Lauraceae     Laurus     azorica      < 2 cm       -2.25   2.09  1.07 <chr [1]>
+29 Lauraceae     Laurus     azorica      > 7 cm       -3.98   2.54  1.33 <chr [1]>
+30 Myricaceae    Myrica     faya         < 2 cm       -1.67   2.89  1.04 <chr [1]>
+31 Myricaceae    Myrica     faya         > 7 cm       -6.67   2.49  1.07 <chr [1]>
+32 Myrtaceae     Eucalyptus NA           < 2 cm       -2.65   2.61  1.06 <chr [1]>
+33 Oleaceae      Fraxinus   NA           < 2 cm       -1.69   2.73  1.13 <chr [2]>
+34 Oleaceae      Fraxinus   NA           > 7 cm       -5.41   2.84  1.26 <chr [2]>
+35 Oleaceae      Olea       europaea     < 2 cm       -1.56   2.53  1.07 <chr [1]>
+36 Oleaceae      Olea       europaea     > 7 cm       -4.65   2.69  1.20 <chr [1]>
+37 Pinaceae      Abies      pinsapo      < 2 cm       -0.860  2.37  1.17 <chr [1]>
+38 Pinaceae      Abies      pinsapo      > 7 cm      -16.3    2.40  1.11 <chr [1]>
+39 Pinaceae      Pinus      canariensis  < 2 cm       -5.07   2.60  1.17 <chr [1]>
+40 Pinaceae      Pinus      canariensis  > 7 cm      -11.6    2.28  1.38 <chr [1]>
+41 Pinaceae      Pinus      halepensis   < 2 cm       -2.74   2.04  1.03 <chr [1]>
+42 Pinaceae      Pinus      halepensis   > 7 cm       -9.55   2.61  1.53 <chr [1]>
+43 Pinaceae      Pinus      nigra        < 2 cm       -2.84   2.05  1.02 <chr [1]>
+44 Pinaceae      Pinus      nigra        > 7 cm      -13.8    2.63  1.58 <chr [1]>
+45 Pinaceae      Pinus      pinaster     < 2 cm       -4.67   2.38  1.15 <chr [2]>
+46 Pinaceae      Pinus      pinaster     > 7 cm      -23.0    2.52  1.05 <chr [2]>
+47 Pinaceae      Pinus      pinea        < 2 cm       -2.55   2.94  1.12 <chr [2]>
+48 Pinaceae      Pinus      pinea        > 7 cm       -4.34   2.60  1.16 <chr [2]>
+49 Pinaceae      Pinus      radiata      < 2 cm       -3.54   2.76  1.21 <chr [1]>
+50 Pinaceae      Pinus      radiata      > 7 cm      -10.6    2.65  1.15 <chr [1]>
+51 Pinaceae      Pinus      sylvestris   < 2 cm       -2.08   2.51  1.15 <chr [2]>
+52 Pinaceae      Pinus      sylvestris   > 7 cm      -15.0    2.80  1.27 <chr [2]>
+53 Pinaceae      Pinus      uncinata     < 2 cm       -2.63   2.79  1.12 <chr [1]>
+54 Pinaceae      Pinus      uncinata     > 7 cm       -4.66   2.96  1.23 <chr [1]>
+55 Salicaceae    Populus    euramericana < 2 cm       -2.42   2.61  1.12 <chr [3]>
+56 Salicaceae    Populus    euramericana > 7 cm      -12.1    2.35  1.18 <chr [3]>}
 \out{<hr>}}

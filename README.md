@@ -19,7 +19,7 @@ refer to the [Installing a
 Model](https://brycefrank.com/allometric/articles/installing_a_model.html)
 vignette.
 
-Currently, `allometric` contains 412 allometric models across 18
+Currently, `allometric` contains 383 allometric models across 18
 publications. Refer to the
 [Reference](https://brycefrank.com/allometric/reference/index.html) for
 a full list of publications disaggregated by allometric model type.
@@ -65,10 +65,10 @@ head(allometric_models)
     #>   <chr>    <chr>     <chr>   <list>    <list>    <chr>         <chr>    <chr>       <list>     <chr>         <list>      <list>       <dbl>
     #> 1 3aff0a28 stem      volume  <chr [1]> <chr [1]> Aceraceae     Acer     <NA>        <FxdEffcM> brackett_1977 <chr [1]>   <chr [2]>     1977
     #> 2 2963f44d stem      volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira guianensis  <FxdEffcM> vibrans_2015  <chr [4]>   <chr [2]>     2015
-    #> 3 f6aec7ca branch    biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
-    #> 4 fc847c75 tree      biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
-    #> 5 7e2f5583 branch    biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
-    #> 6 1460a26f stem      biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
+    #> 3 fc847c75 tree      biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
+    #> 4 1460a26f stem      biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
+    #> 5 49464def branch    biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
+    #> 6 4ddc8d53 branch    biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
 
 **Finding and Selecting a Model**
 
@@ -92,7 +92,7 @@ unnested_models <- unnest_models(allometric_models, cols = 'family_name')
 unnested_models
 ```
 
-    #> # A tibble: 1,258 × 13
+    #> # A tibble: 1,171 × 13
     #>    id       component measure country   region    family        genus    species     model      pub_id        family_name                 covt_name pub_year
     #>    <chr>    <chr>     <chr>   <list>    <list>    <chr>         <chr>    <chr>       <list>     <chr>         <chr>                       <list>       <dbl>
     #>  1 3aff0a28 stem      volume  <chr [1]> <chr [1]> Aceraceae     Acer     <NA>        <FxdEffcM> brackett_1977 "Brackett"                  <chr [2]>     1977
@@ -100,12 +100,12 @@ unnested_models
     #>  3 2963f44d stem      volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira guianensis  <FxdEffcM> vibrans_2015  "Moser"                     <chr [2]>     2015
     #>  4 2963f44d stem      volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira guianensis  <FxdEffcM> vibrans_2015  "Oliveira"                  <chr [2]>     2015
     #>  5 2963f44d stem      volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira guianensis  <FxdEffcM> vibrans_2015  "c(\"de\", \"MaÃ§aneiro\")" <chr [2]>     2015
-    #>  6 f6aec7ca branch    biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  "Montero"                   <chr [1]>     2005
-    #>  7 f6aec7ca branch    biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  "Ruiz-Peinado"              <chr [1]>     2005
-    #>  8 f6aec7ca branch    biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  "Munoz"                     <chr [1]>     2005
-    #>  9 fc847c75 tree      biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  "Montero"                   <chr [1]>     2005
-    #> 10 fc847c75 tree      biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  "Ruiz-Peinado"              <chr [1]>     2005
-    #> # … with 1,248 more rows
+    #>  6 fc847c75 tree      biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  "Montero"                   <chr [1]>     2005
+    #>  7 fc847c75 tree      biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  "Ruiz-Peinado"              <chr [1]>     2005
+    #>  8 fc847c75 tree      biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  "Munoz"                     <chr [1]>     2005
+    #>  9 1460a26f stem      biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  "Montero"                   <chr [1]>     2005
+    #> 10 1460a26f stem      biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  "Ruiz-Peinado"              <chr [1]>     2005
+    #> # … with 1,161 more rows
 
 Now, each row represents unique data combinations for each model, which
 can be quickly filtered by most users using `dplyr::filter`. For
