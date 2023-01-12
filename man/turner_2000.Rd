@@ -1,6 +1,6 @@
 \name{turner_2000}
 \alias{turner_2000}
-\title{Turner, Acker, Means, and Garman (2000)}
+\title{Turner, Acker, Means et al. (2000)}
 \description{Allometric models from Turner, Acker, Means et al. (2000)}
 \section{Foliage Biomass Models}{\code{bf = exp(a + (b * log(dsob)))}
 \itemize{

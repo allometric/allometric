@@ -87,11 +87,10 @@ example of this is the `family_name` column, which contains the names of all
 authors for the publication that contains the model. 
 
 `list` columns enable rigorous searching of models covered in the
-[Advanced Model Searching](https://brycefrank.com/allometric/articles/advanced_searching.html)
-vignette, but to get started we will use a helper function called
-`unnest_models()` that will give us a clearer picture of the available data. 
-Using the `cols` argument we can specify which columns we want to unnest. In 
-this case we will unnest the `family_name` column.
+`?allometric_modeling` help page, but to get started we will use a helper
+function called `unnest_models()` that will give us a clearer picture of the
+available data.  Using the `cols` argument we can specify which columns we want
+to unnest. In this case we will unnest the `family_name` column.
 
 ```{r}
 unnested_models <- unnest_models(allometric_models, cols = 'family_name')
@@ -170,9 +169,10 @@ my_trees %>%
 The following vignettes available on the [package website](https://brycefrank.com/allometric/index.html)
 provide information to two primary audiences.
 
-Users interested in conducting analysis will find this vignette most useful:
+Users interested in finding models for analysis will find the following
+documentation most useful:
 
-- [Advanced Model Searching](https://brycefrank.com/allometric/articles/advanced_searching.html)
+- `?allometric_models`
 
 Users interested in **contributing models** to the package will find these vignettes the most useful:
 

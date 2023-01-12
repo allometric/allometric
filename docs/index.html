@@ -48,7 +48,6 @@
 <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="articles/advanced_searching.html">Advanced Model Searching</a>
     <a class="dropdown-item" href="articles/descriptors.html">Describing a Model with Descriptors</a>
     <a class="dropdown-item" href="articles/installing_a_model.html">Installing a Model</a>
     <a class="dropdown-item" href="articles/mixed_effects.html">Mixed-Effects Models</a>
@@ -108,7 +107,7 @@
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 4ddc8d53 branch    biomass &lt;chr [1]&gt; &lt;chr [1]&gt; Aquifoliaceae Ilex     canariensis &lt;FxdEffcM&gt; montero_2005  &lt;chr [3]&gt;   &lt;chr [1]&gt;     2005</span></span></code></pre></div>
 <p><strong>Finding and Selecting a Model</strong></p>
 <p><code>allometric_models</code> is a <code><a href="https://tibble.tidyverse.org/reference/tbl_df-class.html" class="external-link">tibble::tbl_df</a></code> dataframe. Each row represents one allometric model with various attributes. Some columns are <code>list</code> columns, which are columns that contain lists with multiple values as their elements. One example of this is the <code>family_name</code> column, which contains the names of all authors for the publication that contains the model.</p>
-<p><code>list</code> columns enable rigorous searching of models covered in the <a href="https://brycefrank.com/allometric/articles/advanced_searching.html" class="external-link">Advanced Model Searching</a> vignette, but to get started we will use a helper function called <code>unnest_models()</code> that will give us a clearer picture of the available data. Using the <code>cols</code> argument we can specify which columns we want to unnest. In this case we will unnest the <code>family_name</code> column.</p>
+<p><code>list</code> columns enable rigorous searching of models covered in the <code>?allometric_modeling</code> help page, but to get started we will use a helper function called <code>unnest_models()</code> that will give us a clearer picture of the available data. Using the <code>cols</code> argument we can specify which columns we want to unnest. In this case we will unnest the <code>family_name</code> column.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">unnested_models</span> <span class="op">&lt;-</span> <span class="fu">unnest_models</span><span class="op">(</span><span class="va">allometric_models</span>, cols <span class="op">=</span> <span class="st">'family_name'</span><span class="op">)</span></span>
 <span><span class="va">unnested_models</span></span></code></pre></div>
@@ -190,9 +189,9 @@
 <h2 id="next-steps">Next Steps<a class="anchor" aria-label="anchor" href="#next-steps"></a>
 </h2>
 <p>The following vignettes available on the <a href="https://brycefrank.com/allometric/index.html" class="external-link">package website</a> provide information to two primary audiences.</p>
-<p>Users interested in conducting analysis will find this vignette most useful:</p>
+<p>Users interested in finding models for analysis will find the following documentation most useful:</p>
 <ul>
-<li><a href="https://brycefrank.com/allometric/articles/advanced_searching.html" class="external-link">Advanced Model Searching</a></li>
+<li><code><a href="reference/allometric_models.html">?allometric_models</a></code></li>
 </ul>
 <p>Users interested in <strong>contributing models</strong> to the package will find these vignettes the most useful:</p>
 <ul>

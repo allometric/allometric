@@ -31,11 +31,7 @@ load_publication <- function(pub_id) {
 #' Printing the `head` of `allometric_models`, we can see the structure of the
 #' data
 #'
-#' ```{r include=FALSE}
-#' ```
-#'
 #' ```{r}
-#' options(width=10000)
 #' head(allometric_models)
 #' ```
 #'
@@ -44,8 +40,8 @@ load_publication <- function(pub_id) {
 #' * `component` - The component of the tree that is modeled.
 #' * `measure` - The measure of the component that is modeled.
 #' * `country` - The country or countries from which the model data is from.
-#' * `region` - The region (e.g., state, province, etc.) from which the model
-#'   data is from.
+#' * `region` - The region or regions (e.g., state, province, etc.) from which
+#' the model data is from.
 #' * `family`, `genus`, `species` - The taxonomic specification of the trees
 #'   that are modeled.
 #' * `model` - The model object itself.
@@ -56,23 +52,116 @@ load_publication <- function(pub_id) {
 #'
 #' # Basic Searching for Models
 #'
-#' Filtering out nested data from a table is slightly more involved than 
-#' strictly tabular data. Fortunately the `unnest_models` function allows the 
+#' Filtering out nested data from a table is slightly more involved than
+#' strictly tabular data. Fortunately the `unnest_models` function allows the
 #' user to unnest any set of columns. For example, let's say we wanted to find
 #' a model from the author `"Hann"`. To do this, we will unnest the
-#' `family_name`
+#' `family_name` column using `unnest_models`, then filter the resulting
+#' dataframe using `dplyr::filter`.
+#'
+#' ```{r}
+#' unnest_family <- allometric_models %>% unnest_models('family_name')
+#'
+#' unnest_family %>% dplyr::filter(family_name == "Hann")
+#' ````
+#'
+#' Any column or any combination of columns can be unnested, which allows for
+#' basic filtering of models using `dplyr::filter`.
 #'
 #' # Advanced Searching for Models
+#'
+#' Nested data can be searched directly without the use of `unnest_models`.
+#' This requires the use of `purrr::map_lgl` which is used to determine
+#' truthiness of expressions for each element in a `list` column.
+#' Before beginning, it is helpful to know that `purrr::map_lgl` returns a list
+#' of TRUE/FALSE values as it "maps" over a list of input.
+#'
+#' ## Finding Contributing Authors
+#'
+#' Using this function, we can recreate the previous example, finding models
+#' that had `'Hann'` as a contributing author.
+#'
+#' ```{r}
+#' hann_models <- dplyr::filter(
+#'  allometric_models,
+#'  purrr::map_lgl(family_name, ~ 'Hann' %in% .)
+#' )
+#'
+#' head(hann_models)
+#' nrow(hann_models)
+#' ```
+#'
+#' Picking apart the above code block, we see that we are using the standard
+#' `dplyr::filter` function on the `allometric_models` dataframe. The second
+#' argument is a call using `purrr:map_lgl`, which will map over each list
+#' (contained as elements in the `family_names` column). The second argument to
+#' this function, `~ 'Hann' %in% .` is itself a function that checks if `'Hann'`
+#' is in the current list. Imagine we are marching down each row of
+#' `allometric_models`, `.` represents the element of `family_names` we are
+#' considering, which is itself a list of author names.
+#'
+#' ## Finding First Authors
+#'
+#' Maybe we are only interested in models where `'Hann'` is the first author. Using
+#' a simple modification we can easily do this.
+#'
+#' ```{r}
+#' hann_first_author_models <- dplyr::filter(
+#'   allometric_models,
+#'   purrr::map_lgl(family_name, ~ 'Hann' == .[[1]])
+#' )
+#'
+#' head(hann_first_author_models)
+#' nrow(hann_first_author_models)
+#' ```
+#'
+#' We can see that `'Hann'` is the first author for
+#' `r nrow(hann_first_author_models)` models in this package.
+#'
+#' ## Finding a Model with Specific Data Requirements
 #' 
-#' This table is composed primarily of
-#' [nested data](https://tidyr.tidyverse.org/articles/nest.html), referred to
-#' as `list` columns. Nested data, while somewhat cumbersome for users that are
-#' not experienced with it, is necessary for accommodating the flexible nature
-#' of published allometric models. An obvious motivation is that a given model
-#' contains multiple authors, covariates, even multiple regions or countries.
-#' Nested data allows for the storage of these highly variable structures for
-#' each model.
-#' 
+#' We can even check for models that contain certain types of data requirements. 
+#' For example, the following block finds diameter-height models, specifically 
+#' models that use diameter outside bark at breast height as the *only* covariate.
+#' The utility here is obvious, since many inventories are vastly limited by their
+#' available tree measurements.
+#'
+#' ```{r}
+#' dia_ht_models <- dplyr::filter(
+#'     allometric_models,
+#'     measure == 'height',
+#'     purrr::map_lgl(covt_name, ~ length(.)==1 & .[[1]] == 'dsob'),
+#' )
+#'
+#' nrow(dia_ht_models)
+#' ```
+#'
+#' Breaking this down, we have the first condition `measure=='height'` selecting
+#' only models concerned with heights as a response variable. The second line 
+#' maps over each element of the `covt_name` column, which is a character vector.
+#' The `.` represents a given character vector for that row. First, we ensure that
+#' the vector is only one element in size using `length(.)==1`, then we ensure that
+#' the first (and only) element of this vector is equal to `'dsob'`, (diameter
+#' outside bark at breast height). In this case, `r nrow(dia_ht_models)` are 
+#' available in the package.
+#'
+#' ## Finding a Model for a Region
+#'
+#' By now the user should be sensing a pattern. We can apply the exact same logic
+#' as the *Finding Contributing Authors* section to find all models developed using
+#' data from `US-OR`
+#'
+#' ```{r}
+#' us_or_models <- dplyr::filter(
+#'     allometric_models,
+#'     purrr::map_lgl(region, ~ "US-OR" %in% .),
+#' )
+#'
+#' nrow(us_or_models)
+#' ```
+#'
+#' We can see that `r nrow(us_or_models)` allometric models are defined for the 
+#' state of Oregon, US.
 #'
 #' @name allometric_models
 NULL
