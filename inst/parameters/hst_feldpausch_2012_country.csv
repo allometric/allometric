@@ -1,0 +1,15 @@
+continent,geographic_region,country,a,b,c
+Africa,C. Africa,CM,50.45,0.0471,0.812
+Africa,C. Africa,GA,50.45,0.0471,0.812
+Africa,E. Africa,TZ,43.97,0.0334,0.8546
+Africa,W. Africa,GH,53.13,0.0331,0.8329
+Africa,W. Africa,LB,53.13,0.0331,0.8329
+S. America,Brazilian Shield,BO,227.35,0.0139,0.555
+S. America,Brazilian Shield,BR,227.35,0.0139,0.555
+S. America,E.C. Amazonia,BR,48.131,0.0375,0.8228
+S. America,W. Amazonia,CO,46.263,0.0876,0.6072
+S. America,W. Amazonia,EC,46.263,0.0876,0.6072
+S. America,W. Amazonia,PE,46.263,0.0876,0.6072
+Asia,S.E. Asia,BN,57.122,0.0332,0.8468
+Asia,S.E. Asia,MY,57.122,0.0332,0.8468
+Australia,N. Australia,AU,41.721,0.0529,0.7755

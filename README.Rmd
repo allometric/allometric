@@ -87,7 +87,7 @@ example of this is the `family_name` column, which contains the names of all
 authors for the publication that contains the model. 
 
 `list` columns enable rigorous searching of models covered in the
-`?allometric_modeling` help page, but to get started we will use a helper
+`?allometric_models` help page, but to get started we will use a helper
 function called `unnest_models()` that will give us a clearer picture of the
 available data.  Using the `cols` argument we can specify which columns we want
 to unnest. In this case we will unnest the `family_name` column.
