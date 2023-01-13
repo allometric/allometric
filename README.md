@@ -151,6 +151,9 @@ unique within the publication), and estimates of the parameters.
 brackett_alnus_mod
 ```
 
+    #> Model Call: 
+    #> vsa = f(dsob, hst) 
+    #>  
     #> Model Form: 
     #> vsa = 10^a * dsob^b * hst^c 
     #>  
@@ -170,9 +173,9 @@ brackett_alnus_mod
     #>   <chr>   <chr>  <chr>      <chr> <chr>   <chr>             <chr>    
     #> 1 US      US-WA  Betulaceae Alnus rubra   <NA>              <NA>
 
-We can see here that `brackett_alnus_mod` will require two covariates
-called `dsob`, which refers to diameter outside bark at breast height,
-and `hst`, the height of the main stem.
+We can see from the `Model Call` section that `brackett_alnus_mod` will
+require two covariates called `dsob`, which refers to diameter outside
+bark at breast height, and `hst`, the height of the main stem.
 
 **Predict Using the Selected Model**
 

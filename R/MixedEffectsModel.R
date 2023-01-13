@@ -81,3 +81,15 @@ setMethod("init_set_of_one", signature(mod = "MixedEffectsModel"), function(mod)
     fixed_only = mod@fixed_only
   )
 })
+
+
+setMethod("model_call", signature(model = "MixedEffectsModel"), function(model) {
+  response_var <- names(model@response_unit)[[1]]
+
+  arg_names <- names(as.list(args(model@predict_fn)))
+  arg_names <- arg_names[-length(arg_names)]
+  arg_names <- c(arg_names, 'newdata')
+  arg_names_str <- paste(arg_names, collapse = ', ')
+
+  paste(response_var, ' = ', 'f(', arg_names_str, ')', sep='')
+})

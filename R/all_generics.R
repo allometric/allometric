@@ -82,3 +82,17 @@ setGeneric(
   "add_model",
   function(publication, model) standardGeneric("add_model")
 )
+
+#' Get the function call for a model
+#'
+#' This function allows a user to see the structure of the function call for 
+#' a given model in an easy-to-read format.
+#'
+#' @param model The allometric model for which a function call will be
+#' retrieved.
+#'
+#' @export
+setGeneric(
+  "model_call",
+  function(model) standardGeneric("model_call")
+)

@@ -34,6 +34,7 @@ very much like a tibble::tbl_df or a data.frame``, and most functions that work 
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
     <a class="dropdown-item" href="../articles/descriptors.html">Describing a Model with Descriptors</a>
     <a class="dropdown-item" href="../articles/installing_a_model.html">Installing a Model</a>
+    <a class="dropdown-item" href="../articles/inventory_example.html">Common Inventory Use Cases</a>
     <a class="dropdown-item" href="../articles/mixed_effects.html">Mixed-Effects Models</a>
     <a class="dropdown-item" href="../articles/variable_naming_system.html">Variable Naming System</a>
   </div>
@@ -200,14 +201,14 @@ available tree measurements.</p>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">dia_ht_models</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] 23</span></span></code></pre><p></p></div>
+<span><span class="co">#&gt; [1] 34</span></span></code></pre><p></p></div>
 <p>Breaking this down, we have the first condition <code>measure=='height'</code> selecting
 only models concerned with heights as a response variable. The second line
 maps over each element of the <code>covt_name</code> column, which is a character vector.
 The <code>.</code> represents a given character vector for that row. First, we ensure that
 the vector is only one element in size using <code>length(.)==1</code>, then we ensure that
 the first (and only) element of this vector is equal to <code>'dsob'</code>, (diameter
-outside bark at breast height). In this case, 23 are
+outside bark at breast height). In this case, 34 are
 available in the package.</p>
 </div>
 

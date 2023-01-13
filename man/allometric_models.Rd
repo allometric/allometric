@@ -157,7 +157,7 @@ available tree measurements.
 )
 
 nrow(dia_ht_models)
-#> [1] 23
+#> [1] 34
 }\if{html}{\out{</div>}}
 
 Breaking this down, we have the first condition \code{measure=='height'} selecting
@@ -166,7 +166,7 @@ maps over each element of the \code{covt_name} column, which is a character vect
 The \code{.} represents a given character vector for that row. First, we ensure that
 the vector is only one element in size using \code{length(.)==1}, then we ensure that
 the first (and only) element of this vector is equal to \code{'dsob'}, (diameter
-outside bark at breast height). In this case, 23 are
+outside bark at breast height). In this case, 34 are
 available in the package.
 }
 

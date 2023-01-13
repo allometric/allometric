@@ -120,6 +120,10 @@ setMethod("show", "ParametricModel", function(object) {
   # latter then the former.
   variable_descriptions <- get_variable_descriptions(object)
 
+  mod_call <- model_call(object)
+  cat("Model Call:", "\n")
+  cat(mod_call, "\n", "\n")
+
   cat("Model Form:", "\n")
   cat(form, "\n", "\n")
   cat(variable_descriptions, sep = "\n")

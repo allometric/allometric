@@ -16,6 +16,7 @@ reference:
   - FixedEffectsSet
   - MixedEffectsModel
   - MixedEffectsSet
+  - model_call
   - Publication
 - title: Allometric Models
   desc: Models are contained in publications, which are listed below.
