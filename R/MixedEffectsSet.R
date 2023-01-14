@@ -37,10 +37,6 @@ MixedEffectsSet <- function(response_unit, covariate_units, parameter_names,
     parameter_names = parameter_names
   )
 
-  if ("list" %in% class(model_specifications)) {
-    model_specifications <- tibble::tibble(data.frame(model_specifications))
-  }
-
   ranef_names <- get_ranef_names(mixed_effects_set@predict_ranef)
   mod_descriptors <- names(model_specifications)[!names(model_specifications) %in% mixed_effects_set@parameter_names]
 

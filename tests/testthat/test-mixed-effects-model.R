@@ -31,6 +31,9 @@ test_that("A mixed effects model with one ranef makes predictions", {
     expect_equal(pred, 12.37626, tolerance = 0.001)
 })
 
+test_that("Mixed effects model_call returns correctly formatted string", {
+  expect_equal(model_call(mixed_effects_model_one_ranef), "hst = f(dsob, newdata)")
+})
 
 mixed_effects_model_fixed_only <- MixedEffectsModel(
   response_unit = list(

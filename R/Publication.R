@@ -150,9 +150,12 @@ setMethod(
   "Publication",
   function(publication) {
     n <- 0
-    for (i in seq_along(publication@model_sets)) {
-      n <- n + length(publication@model_sets[[i]])
+    for(i in seq_along(publication@response_sets)) {
+      for(j in seq_along(publication@response_sets[[i]])) {
+        n <- n + length(publication@response_sets[[i]][[j]])
+      }
     }
+
     n
   }
 )
@@ -161,15 +164,11 @@ setMethod(
   "n_sets",
   "Publication",
   function(publication) {
-    length(publication@model_sets)
-  }
-)
-
-setMethod(
-  "summary",
-  "Publication",
-  function(publication) {
-    print(utils::str(publication@citation))
+    n <- 0
+    for(i in seq_along(publication@response_sets)) {
+      n <- n + length(publication@response_sets[[i]])
+    }
+    n
   }
 )
 

@@ -44,3 +44,7 @@ test_that("Columns with lists as their elements throws an error", {
     "Non-atomic descriptor:"
   )
 })
+
+test_that("Fixed effects model_call returns correctly formatted string", {
+  expect_equal(model_call(fixed_effects_model), "vsa = f(dsob)")
+})
