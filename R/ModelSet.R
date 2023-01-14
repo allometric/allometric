@@ -49,11 +49,10 @@ setMethod("[[", signature(x = "ModelSet", i = "numeric"), function(x, i) {
 
 setMethod("rd_model_equation", "ModelSet", function(mod) {
   response_name <- names(mod@response_unit)[[1]]
+  func_body <- body(mod@predict_fn)
+  func_str <- toString(func_body[length(func_body)])
 
-  # TODO assumes a one-line function...will mess with this later.
-  func_str <- toString(body(mod@predict_fn))
   clean_str <- gsub("p\\$", "", func_str)
-  clean_str <- gsub("\\{,", "", clean_str)
   clean_str <- stringr::str_trim(clean_str)
 
   model_str <- paste(response_name, "=", clean_str)

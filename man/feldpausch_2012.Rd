@@ -1,6 +1,6 @@
 \name{feldpausch_2012}
 \alias{feldpausch_2012}
-\title{Feldpausch, Lloyd, Lewis et al. (2012)}
+\title{Feldpausch, Lloyd, Lewis, Brienen, Gloor, Monteagudo Mendoza, Lopez-Gonzalez, Banin, Abu Salim, Affum-Baffoe, and others (2012)}
 \description{Allometric models from Feldpausch, Lloyd, Lewis et al. (2012)}
 \section{Stem Height Models}{\code{hst = a * (1 - exp(-b * dsob^c))}
 \itemize{
@@ -37,7 +37,7 @@
 \preformatted{  country        a     b     c
 1 <chr [14]>  50.9 0.042 0.784}
 \out{<hr>}}
-\section{Tree Biomass Models}{\code{bt = cf <- exp(rse^2/2), cf * exp(a + b * log(dsob) + c * log(dsob)^2 + d * log(dsob)^3 + e * log(rwd))}
+\section{Tree Biomass Models}{\code{bt = cf * exp(a + b * log(dsob) + c * log(dsob)^2 + d * log(dsob)^3 + e * log(rwd))}
 \itemize{
 \item{\code{bt [kg]}}{ - tree biomass}
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
@@ -47,7 +47,7 @@
 \preformatted{  geographic_region     a     b     c       d     e   rse
 1 pantropical       -1.82  2.34 0.163 -0.0248 0.979 0.360}
 \out{<hr>}
-\code{bt = cf <- exp(rse^2/2), cf * exp(a + b * log(dsob^2 * rwd * hst))}
+\code{bt = cf * exp(a + b * log(dsob^2 * rwd * hst))}
 \itemize{
 \item{\code{bt [kg]}}{ - tree biomass}
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}

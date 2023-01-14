@@ -1,6 +1,6 @@
 \name{poudel_2019}
 \alias{poudel_2019}
-\title{Poudel, Temesgen, Radtke et al. (2019)}
+\title{Poudel, Temesgen, Radtke, and Gray (2019)}
 \description{Allometric models from Poudel, Temesgen, Radtke et al. (2019)}
 \section{Stem Volume Models}{\code{vsa = exp(a + b * log(dsob) + c * log(hst))}
 \itemize{
@@ -115,7 +115,7 @@
 21 Salicaceae   Populus        tremuloides   6.26 0.916  1.01
 22 Salicaceae   Populus        balsamifera   6.31 0.952  1.02}
 \out{<hr>}}
-\section{Foliage Ratio Models}{\code{rfbt = denom <- sum(exp(a_1 + b_1 * log(dsob) + c_1 * log(hst)), exp(a_2 + b_2 * log(dsob) + c_2 * log(hst)), exp(a_3 + b_3 * log(dsob) + c_3 * log(hst)), exp(a_4 + b_4 * log(dsob) + c_4 * log(hst))), exp(a_3 + b_3 * log(dsob) + c_3 * log(hst))/denom}
+\section{Foliage Ratio Models}{\code{rfbt = exp(a_3 + b_3 * log(dsob) + c_3 * log(hst))/denom}
 \itemize{
 \item{\code{rfbt [kg/kg]}}{ - ratio of foliage biomass to biomass of entire tree}
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
@@ -126,7 +126,7 @@
 1 softwood -1.72 -1.41  1.94 0.886 -0.665 -0.180 -0.228  -0.382  1.54 0.753 -0.146  0.363
 2 hardwood -3.60 -2.73  4.65 3.69  -1.92  -1.52   0.0086 -0.173  2.73 1.86  -0.994 -0.357}
 \out{<hr>}}
-\section{Bark Ratio Models}{\code{rkbt = denom <- sum(exp(a_1 + b_1 * log(dsob) + c_1 * log(hst)), exp(a_2 + b_2 * log(dsob) + c_2 * log(hst)), exp(a_3 + b_3 * log(dsob) + c_3 * log(hst)), exp(a_4 + b_4 * log(dsob) + c_4 * log(hst))), exp(a_2 + b_2 * log(dsob) + c_2 * log(hst))/denom}
+\section{Bark Ratio Models}{\code{rkbt = exp(a_2 + b_2 * log(dsob) + c_2 * log(hst))/denom}
 \itemize{
 \item{\code{rkbt [kg/kg]}}{ - ratio of bark biomass to biomass of entire tree}
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
@@ -137,7 +137,7 @@
 1 softwood -1.72 -1.41  1.94 0.886 -0.665 -0.180 -0.228  -0.382  1.54 0.753 -0.146  0.363
 2 hardwood -3.60 -2.73  4.65 3.69  -1.92  -1.52   0.0086 -0.173  2.73 1.86  -0.994 -0.357}
 \out{<hr>}}
-\section{Stem Ratio Models}{\code{rsbt = denom <- sum(exp(a_1 + b_1 * log(dsob) + c_1 * log(hst)), exp(a_2 + b_2 * log(dsob) + c_2 * log(hst)), exp(a_3 + b_3 * log(dsob) + c_3 * log(hst)), exp(a_4 + b_4 * log(dsob) + c_4 * log(hst))), exp(a_1 + b_1 * log(dsob) + c_1 * log(hst))/denom}
+\section{Stem Ratio Models}{\code{rsbt = exp(a_1 + b_1 * log(dsob) + c_1 * log(hst))/denom}
 \itemize{
 \item{\code{rsbt [kg/kg]}}{ - ratio of stem biomass to biomass of entire tree}
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
@@ -148,7 +148,7 @@
 1 softwood -1.72 -1.41  1.94 0.886 -0.665 -0.180 -0.228  -0.382  1.54 0.753 -0.146  0.363
 2 hardwood -3.60 -2.73  4.65 3.69  -1.92  -1.52   0.0086 -0.173  2.73 1.86  -0.994 -0.357}
 \out{<hr>}}
-\section{Branch Ratio Models}{\code{rbbt = denom <- sum(exp(a_1 + b_1 * log(dsob) + c_1 * log(hst)), exp(a_2 + b_2 * log(dsob) + c_2 * log(hst)), exp(a_3 + b_3 * log(dsob) + c_3 * log(hst)), exp(a_4 + b_4 * log(dsob) + c_4 * log(hst))), exp(a_4 + b_4 * log(dsob) + c_4 * log(hst))/denom}
+\section{Branch Ratio Models}{\code{rbbt = exp(a_4 + b_4 * log(dsob) + c_4 * log(hst))/denom}
 \itemize{
 \item{\code{rbbt [kg/kg]}}{ - ratio of branch biomass to biomass of entire tree}
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}

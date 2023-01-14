@@ -1,8 +1,9 @@
 \name{vibrans_2015}
 \alias{vibrans_2015}
-\title{Vibrans, Moser, Oliveira et al. (2015)}
+\title{Vibrans, Moser, Oliveira, and de
+Maçaneiro (2015)}
 \description{Allometric models from Vibrans, Moser, Oliveira et al. (2015)}
-\section{Stem Volume Models}{\code{vsa = circ <- dsob * pi, 1000 * exp(beta_0 + beta_1 * log(circ^2) + beta_2 * log(hst))}
+\section{Stem Volume Models}{\code{vsa = 1000 * exp(beta_0 + beta_1 * log(circ^2) + beta_2 * log(hst))}
 \itemize{
 \item{\code{vsa [m^3]}}{ - volume of the entire stem, including top and stump}
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
@@ -27,7 +28,7 @@
 15 dense ombrophilous Anacardiaceae   Tapirira    guianensis      -17.9   0.95   0.82
 16 dense ombrophilous Myristicaceae   Virola      bicuhyba        -18.0   0.98   0.64}
 \out{<hr>}
-\code{vsa = circ <- dsob * pi, 1000 * exp(beta_0 + beta_1 * log(circ^2) + beta_2 * log(hst))}
+\code{vsa = 1000 * exp(beta_0 + beta_1 * log(circ^2) + beta_2 * log(hst))}
 \itemize{
 \item{\code{vsa [m^3]}}{ - volume of the entire stem, including top and stump}
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}

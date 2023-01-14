@@ -53,7 +53,7 @@
 
     <div class="section level2">
     <h2 id="stem-diameter-models">Stem Diameter Models<a class="anchor" aria-label="anchor" href="#stem-diameter-models"></a></h2>
-    <p><code>dsih = x &lt;- (1 - sqrt(hsd/hst))/(1 - sqrt(p)), z &lt;- hsd/hst, a_0 * dsob^a_1 * a_2^dsob * x^(b_1 * z^2 + b_2 * log(z + 0.001) + b_3 * sqrt(z) + b_4 * exp(z) + b_5 * (dsob/hst))</code></p><ul><li><p><code>dsih [cm]</code> - diameter of the stem, inside bark at a specified height</p></li>
+    <p><code>dsih = a_0 * dsob^a_1 * a_2^dsob * x^(b_1 * z^2 + b_2 * log(z + 0.001) + b_3 * sqrt(z) + b_4 * exp(z) + b_5 * (dsob/hst))</code></p><ul><li><p><code>dsih [cm]</code> - diameter of the stem, inside bark at a specified height</p></li>
 <li><p><code>hst [m]</code> - total height of the stem</p></li>
 <li><p><code>hsd [m]</code> - height to a specified diameter (taper)</p></li>
 <li><p><code>dsob [cm]</code> - diameter of the stem, outside bark at breast height</p></li>

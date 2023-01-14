@@ -53,11 +53,11 @@
 
     <div class="section level2">
     <h2 id="stem-volume-models">Stem Volume Models<a class="anchor" aria-label="anchor" href="#stem-volume-models"></a></h2>
-    <p><code>vsa = fos &lt;- a * (hst - 0.9)^2/(hst - 4.5)^2 - b * dsob * (hst - 0.9)^3/(hst - 4.5)^3 + c * dsob * hst * (hst - 0.9)^3/(hst - 4.5)^3, d * fos * (dsob^2 * hst)</code></p><ul><li><p><code>vsa [ft^3]</code> - volume of the entire stem, including top and stump</p></li>
+    <p><code>vsa = d * fos * (dsob^2 * hst)</code></p><ul><li><p><code>vsa [ft^3]</code> - volume of the entire stem, including top and stump</p></li>
 <li><p><code>hst [ft]</code> - total height of the stem</p></li>
 <li><p><code>dsob [in]</code> - diameter of the stem, outside bark at breast height</p></li>
 </ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code>  hst              a      b       c       d
-1 &lt;= 18 ft hst 0.406 0.0763 0.00263 0.00545</code></pre></div><p></p><hr><code>vsa = fol &lt;- a + b/hst^2 - c * dsob/hst^2 - d * dsob/hst - e * dsob, f * fol * (dsob^2 * hst)</code><ul><li><p><code>vsa [ft^3]</code> - volume of the entire stem, including top and stump</p></li>
+1 &lt;= 18 ft hst 0.406 0.0763 0.00263 0.00545</code></pre></div><p></p><hr><code>vsa = f * fol * (dsob^2 * hst)</code><ul><li><p><code>vsa [ft^3]</code> - volume of the entire stem, including top and stump</p></li>
 <li><p><code>hst [ft]</code> - total height of the stem</p></li>
 <li><p><code>dsob [in]</code> - diameter of the stem, outside bark at breast height</p></li>
 </ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code>  hst             a     b     c     d       e       f

@@ -53,12 +53,12 @@
 
     <div class="section level2">
     <h2 id="stem-ratio-models">Stem Ratio Models<a class="anchor" aria-label="anchor" href="#stem-ratio-models"></a></h2>
-    <p><code>rsdodi = x &lt;- (hst - hsd)/(hst - 1.3), b_1 + b_2 * x + b_3 * x^2 + b_4 * x^3 + b_5 * x^4</code></p><ul><li><p><code>rsdodi [cm/cm]</code> - diameter of the stem inside bark at a height along the stem divided by diameter outside bark at breast height</p></li>
+    <p><code>rsdodi = b_1 + b_2 * x + b_3 * x^2 + b_4 * x^3 + b_5 * x^4</code></p><ul><li><p><code>rsdodi [cm/cm]</code> - diameter of the stem inside bark at a height along the stem divided by diameter outside bark at breast height</p></li>
 <li><p><code>hst [m]</code> - total height of the stem</p></li>
 <li><p><code>hsd [m]</code> - height to a specified diameter (taper)</p></li>
 </ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code>  family   genus       species         b_1   b_2   b_3   b_4   b_5
 1 Pinaceae Pseudotsuga menziesii    0.0244 0.858  2.57 -5.56  3.05
-2 Pinaceae Tsuga       heterophylla 0.0308 0.430  4.12 -7.85  4.27</code></pre></div><p></p><hr><code>rsdodi = t &lt;- hsd/hst, ((log(sin(t * pi/2)))/(log(sin((1.37/hst) * pi/2))))^(b_1 + b_2 * sin(t * pi/2) + b_3 * cos(t * (3 * pi/2)) + b_4 * ((sin((pi/2) * t))/(t)) + b_5 * dsob + b_6 * t * sqrt(dsob) + b_7 * t * sqrt(hst))</code><ul><li><p><code>rsdodi [cm/cm]</code> - diameter of the stem inside bark at a height along the stem divided by diameter outside bark at breast height</p></li>
+2 Pinaceae Tsuga       heterophylla 0.0308 0.430  4.12 -7.85  4.27</code></pre></div><p></p><hr><code>rsdodi = ((log(sin(t * pi/2)))/(log(sin((1.37/hst) * pi/2))))^(b_1 + b_2 * sin(t * pi/2) + b_3 * cos(t * (3 * pi/2)) + b_4 * ((sin((pi/2) * t))/(t)) + b_5 * dsob + b_6 * t * sqrt(dsob) + b_7 * t * sqrt(hst))</code><ul><li><p><code>rsdodi [cm/cm]</code> - diameter of the stem inside bark at a height along the stem divided by diameter outside bark at breast height</p></li>
 <li><p><code>hst [m]</code> - total height of the stem</p></li>
 <li><p><code>hsd [m]</code> - height to a specified diameter (taper)</p></li>
 <li><p><code>dsob [cm]</code> - diameter of the stem, outside bark at breast height</p></li>
@@ -67,13 +67,13 @@
 2 Pinaceae Tsuga       heterophylla 1.85  0.0101 0.00175 -1.05  0.0029  0.0348 -0.131 </code></pre></div><p></p><hr></div>
     <div class="section level2">
     <h2 id="stem-diameter-models">Stem Diameter Models<a class="anchor" aria-label="anchor" href="#stem-diameter-models"></a></h2>
-    <p><code>dsih = t &lt;- hsd/hst, k &lt;- 1.3/hst, b_1 * dsob^b_2 * b_3^dsob * ((1 - sqrt(t))/(1 - sqrt(p)))^(b_4 * t^2 + b_5 * log(t + 0.001) + b_6 * sqrt(t) + b_7 * exp(t) + b_8 * (dsob/hst))</code></p><ul><li><p><code>dsih [cm]</code> - diameter of the stem, inside bark at a specified height</p></li>
+    <p><code>dsih = b_1 * dsob^b_2 * b_3^dsob * ((1 - sqrt(t))/(1 - sqrt(p)))^(b_4 * t^2 + b_5 * log(t + 0.001) + b_6 * sqrt(t) + b_7 * exp(t) + b_8 * (dsob/hst))</code></p><ul><li><p><code>dsih [cm]</code> - diameter of the stem, inside bark at a specified height</p></li>
 <li><p><code>hst [m]</code> - total height of the stem</p></li>
 <li><p><code>hsd [m]</code> - height to a specified diameter (taper)</p></li>
 <li><p><code>dsob [cm]</code> - diameter of the stem, outside bark at breast height</p></li>
 </ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code>  family   genus       species        b_1   b_2   b_3   b_4    b_5    b_6    b_7   b_8     p
 1 Pinaceae Pseudotsuga menziesii    0.793  1.02 0.998  1.10 -0.180  1.19  -0.611 0.155  0.25
-2 Pinaceae Tsuga       heterophylla 0.923  1.01 0.998  1.05 -0.162 -0.244 -0.314 0.302  0.12</code></pre></div><p></p><hr><code>dsih = k &lt;- 1.3/hst, t &lt;- hsd/hst, b_1 * dsob^b_2 * hst^b_3 * ((1 - t^(1/3))/(1 - k^(1/3)))^(b_4 * t^4 + b_5 * (1/exp(dsob/hst)) + b_6 * ((1 - t^(1/3))/(1 - k^(1/3)))^(0.1) + b_7 * (1/dsob) + b_8 * (hst^(1 - (hsd/hst)^(1/3))) + b_9 * ((1 - t^(1/3))/(1 - k^(1/3))))</code><ul><li><p><code>dsih [cm]</code> - diameter of the stem, inside bark at a specified height</p></li>
+2 Pinaceae Tsuga       heterophylla 0.923  1.01 0.998  1.05 -0.162 -0.244 -0.314 0.302  0.12</code></pre></div><p></p><hr><code>dsih = b_1 * dsob^b_2 * hst^b_3 * ((1 - t^(1/3))/(1 - k^(1/3)))^(b_4 * t^4 + b_5 * (1/exp(dsob/hst)) + b_6 * ((1 - t^(1/3))/(1 - k^(1/3)))^(0.1) + b_7 * (1/dsob) + b_8 * (hst^(1 - (hsd/hst)^(1/3))) + b_9 * ((1 - t^(1/3))/(1 - k^(1/3))))</code><ul><li><p><code>dsih [cm]</code> - diameter of the stem, inside bark at a specified height</p></li>
 <li><p><code>hst [m]</code> - total height of the stem</p></li>
 <li><p><code>hsd [m]</code> - height to a specified diameter (taper)</p></li>
 <li><p><code>dsob [cm]</code> - diameter of the stem, outside bark at breast height</p></li>
