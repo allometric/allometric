@@ -64,7 +64,7 @@ head(allometric_models)
     #>   id       component measure country   region    family        genus    species     model      pub_id        family_name covt_name pub_year
     #>   <chr>    <chr>     <chr>   <list>    <list>    <chr>         <chr>    <chr>       <list>     <chr>         <list>      <list>       <dbl>
     #> 1 3aff0a28 stem      volume  <chr [1]> <chr [1]> Aceraceae     Acer     <NA>        <FxdEffcM> brackett_1977 <chr [1]>   <chr [2]>     1977
-    #> 2 2963f44d stem      volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira guianensis  <FxdEffcM> vibrans_2015  <chr [4]>   <chr [2]>     2015
+    #> 2 184c01c3 stem      volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira guianensis  <FxdEffcM> vibrans_2015  <chr [4]>   <chr [2]>     2015
     #> 3 fc847c75 tree      biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
     #> 4 1460a26f stem      biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
     #> 5 49464def branch    biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
@@ -95,10 +95,10 @@ unnested_models
     #>    id       component measure country   region    family        genus    species     model      pub_id        family_name                 covt_name pub_year
     #>    <chr>    <chr>     <chr>   <list>    <list>    <chr>         <chr>    <chr>       <list>     <chr>         <chr>                       <list>       <dbl>
     #>  1 3aff0a28 stem      volume  <chr [1]> <chr [1]> Aceraceae     Acer     <NA>        <FxdEffcM> brackett_1977 "Brackett"                  <chr [2]>     1977
-    #>  2 2963f44d stem      volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira guianensis  <FxdEffcM> vibrans_2015  "Vibrans"                   <chr [2]>     2015
-    #>  3 2963f44d stem      volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira guianensis  <FxdEffcM> vibrans_2015  "Moser"                     <chr [2]>     2015
-    #>  4 2963f44d stem      volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira guianensis  <FxdEffcM> vibrans_2015  "Oliveira"                  <chr [2]>     2015
-    #>  5 2963f44d stem      volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira guianensis  <FxdEffcM> vibrans_2015  "c(\"de\", \"MaÃ§aneiro\")" <chr [2]>     2015
+    #>  2 184c01c3 stem      volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira guianensis  <FxdEffcM> vibrans_2015  "Vibrans"                   <chr [2]>     2015
+    #>  3 184c01c3 stem      volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira guianensis  <FxdEffcM> vibrans_2015  "Moser"                     <chr [2]>     2015
+    #>  4 184c01c3 stem      volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira guianensis  <FxdEffcM> vibrans_2015  "Oliveira"                  <chr [2]>     2015
+    #>  5 184c01c3 stem      volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira guianensis  <FxdEffcM> vibrans_2015  "c(\"de\", \"MaÃ§aneiro\")" <chr [2]>     2015
     #>  6 fc847c75 tree      biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  "Montero"                   <chr [1]>     2005
     #>  7 fc847c75 tree      biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  "Ruiz-Peinado"              <chr [1]>     2005
     #>  8 fc847c75 tree      biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  "Munoz"                     <chr [1]>     2005

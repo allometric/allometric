@@ -1,17 +1,17 @@
-"family","genus","species","beta_0","beta_1","beta_2"
-"Lauraceae","Nectandra","megapotamica","-17.72",0.95,0.69
-"Lauraceae","Ocotea","puberula","-17.52",0.93,0.68
-"Meliaceae","Cedrela","fissilis","-18.57",1.02,0.75
-"Clethraceae","Clethra","scabra","-18.31",0.99,0.76
-"Sapindaceae","Matayba","elaeagnoides","-18.03",0.99,0.61
-"Lauraceae","Ocotea","puberula","-18.30",1,0.74
-"Rosaceae","Prunus","myrtifolia","-18.48",1.02,0.74
-"Euphorbiaceae","Alchornea","triplinervia","-18.10",1.05,0.51
-"Meliaceae","Cedrela","fissilis","-17.80",1.03,0.46
-"Phyllanthaceae","Hieronyma","alchorneoides","-17.74",1.02,0.45
-"Melastomataceae","Miconia","cinnamomifolia","-17.53",0.97,0.59
-"Lauraceae","Nectandra","oppositifolia","-17.89",0.99,0.64
-"Lauraceae","Ocotea","puberula","-17.93",1.01,0.58
-"Asteraceae","Piptocarpha","angustifolia","-18.35",1.04,0.59
-"Anacardiaceae","Tapirira","guianensis","-17.86",0.95,0.82
-"Myristicaceae","Virola","bicuhyba","-17.98",0.98,0.64
+forest_type,family,genus,species,beta_0,beta_1,beta_2
+seasonal deciduous,Lauraceae,Nectandra,megapotamica,-17.72,0.95,0.69
+seasonal deciduous,Lauraceae,Ocotea,puberula,-17.52,0.93,0.68
+seasonal deciduous,Meliaceae,Cedrela,fissilis,-18.57,1.02,0.75
+mixed ombrophilous,Clethraceae,Clethra,scabra,-18.31,0.99,0.76
+mixed ombrophilous,Sapindaceae,Matayba,elaeagnoides,-18.03,0.99,0.61
+mixed ombrophilous,Lauraceae,Ocotea,puberula,-18.3,1,0.74
+mixed ombrophilous,Rosaceae,Prunus,myrtifolia,-18.48,1.02,0.74
+dense ombrophilous,Euphorbiaceae,Alchornea,triplinervia,-18.1,1.05,0.51
+dense ombrophilous,Meliaceae,Cedrela,fissilis,-17.8,1.03,0.46
+dense ombrophilous,Phyllanthaceae,Hieronyma,alchorneoides,-17.74,1.02,0.45
+dense ombrophilous,Melastomataceae,Miconia,cinnamomifolia,-17.53,0.97,0.59
+dense ombrophilous,Lauraceae,Nectandra,oppositifolia,-17.89,0.99,0.64
+dense ombrophilous,Lauraceae,Ocotea,puberula,-17.93,1.01,0.58
+dense ombrophilous,Asteraceae,Piptocarpha,angustifolia,-18.35,1.04,0.59
+dense ombrophilous,Anacardiaceae,Tapirira,guianensis,-17.86,0.95,0.82
+dense ombrophilous,Myristicaceae,Virola,bicuhyba,-17.98,0.98,0.64
