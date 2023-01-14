@@ -1,0 +1,22 @@
+"region","geographic_region","family","genus","species","a","b","c"
+"US-CO","eastern Colorado","Cupressaceae","Juniperus","monosperma",-0.19321,0.136101,0.038187
+"US-CO","western Colorado","Cupressaceae","Juniperus","osteosperma",-0.08728,0.13542,-0.019587
+"US-CO","entire State","Pinaceae","Pinus","edulis",-0.20296,0.150283,0.054178
+"US-ID","southern Idaho","Rosaceae","Cercocarpus","ledifolius",-0.13363,0.128222,0.080208
+"US-ID","southern Idaho","Cupressaceae","Juniperus","occidentalis",-0.22048,0.125468,0.100092
+"US-ID","southern Idaho","Cupressaceae","Juniperus","osteosperma",-0.13386,0.133726,0.036329
+"US-ID","southern Idaho","Pinaceae","Pinus","monophylla",-0.1424,0.14819,-0.016712
+"US-NV","entire State","Rosaceae","Cercocarpus","ledifolius",-0.13363,0.128222,0.080208
+"US-NV","entire State","Cupressaceae","Juniperus","occidentalis",-0.22048,0.125468,0.100092
+"US-NV","Carson City, Battle Mountain, Elko, and Las Vegas","Cupressaceae","Juniperus","osteosperma",-0.13386,0.133726,0.036329
+"US-NV","Elya","Cupressaceae","Juniperus","osteosperma",-0.03655,0.135689,-0.018476
+"US-NV","Winnemucca and Susanville","Cupressaceae","Juniperus","osteosperma",0.04829,0.114358,-0.045779
+"US-NV","entire State","Pinaceae","Pinus","monophylla",-0.1424,0.14819,-0.016712
+"US-UT","eastern Utah","Rosaceae","Cercocarpus","ledifolius",-0.13363,0.128222,0.080208
+"US-UT","eastern Utah","Cupressaceae","Juniperus","osteosperma",-0.08728,0.13542,-0.019587
+"US-UT","western Utah","Cupressaceae","Juniperus","osteosperma",-0.13386,0.133726,0.036329
+"US-UT","eastern Utah","Pinaceae","Pinus","edulis",-0.20296,0.150283,0.054178
+"US-UT","western Utah","Pinaceae","Pinus","monophylla",-0.1424,0.14819,-0.016712
+"US-WY","entire State","Rosaceae","Cercocarpus","ledifolius",-0.13363,0.128222,0.080208
+"US-WY","entire State","Cupressaceae","Juniperus","osteosperma",-0.08728,0.13542,-0.019587
+"US-WY","entire State","Pinaceae","Pinus","edulis",-0.20296,0.150283,0.054178

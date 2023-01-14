@@ -19,7 +19,7 @@ refer to the [Installing a
 Model](https://brycefrank.com/allometric/articles/installing_a_model.html)
 vignette.
 
-Currently, `allometric` contains 402 allometric models across 20
+Currently, `allometric` contains 433 allometric models across 21
 publications. Refer to the
 [Reference](https://brycefrank.com/allometric/reference/index.html) for
 a full list of publications disaggregated by allometric model type.
@@ -91,7 +91,7 @@ unnested_models <- unnest_models(allometric_models, cols = 'family_name')
 unnested_models
 ```
 
-    #> # A tibble: 1,320 × 13
+    #> # A tibble: 1,351 × 13
     #>    id       component measure country   region    family        genus    species     model      pub_id        family_name                 covt_name pub_year
     #>    <chr>    <chr>     <chr>   <list>    <list>    <chr>         <chr>    <chr>       <list>     <chr>         <chr>                       <list>       <dbl>
     #>  1 3aff0a28 stem      volume  <chr [1]> <chr [1]> Aceraceae     Acer     <NA>        <FxdEffcM> brackett_1977 "Brackett"                  <chr [2]>     1977
@@ -104,7 +104,7 @@ unnested_models
     #>  8 fc847c75 tree      biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  "Munoz"                     <chr [1]>     2005
     #>  9 1460a26f stem      biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  "Montero"                   <chr [1]>     2005
     #> 10 1460a26f stem      biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  "Ruiz-Peinado"              <chr [1]>     2005
-    #> # … with 1,310 more rows
+    #> # … with 1,341 more rows
 
 Now, each row represents unique data combinations for each model, which
 can be quickly filtered by most users using `dplyr::filter`. For

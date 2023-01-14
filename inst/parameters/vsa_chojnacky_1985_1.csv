@@ -1,0 +1,8 @@
+"region","geographic_region","family","genus","species","a","b"
+"US-CO","entire State","Cupressaceae","Juniperus","scopulorum",0.02434,0.119106
+"US-CO","entire State","Fagaceae","Quercus","gambelii",-0.136,0.145743
+"US-ID","southern Idaho","Cupressaceae","Juniperus","scopulorum",0.02434,0.119106
+"US-SD","Black Hills","Fagaceae","Quercus","macrocarpa",0.12853,0.105885
+"US-UT","eastern Utah","Cupressaceae","Juniperus","scopulorum",0.02434,0.119106
+"US-WY","entire State","Cupressaceae","Juniperus","scopulorum",0.02434,0.119106
+"US-WY","Black Hills","Fagaceae","Quercus","macrocarpa",0.12853,0.105885
