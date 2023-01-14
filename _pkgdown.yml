@@ -45,6 +45,7 @@ reference:
 - subtitle: Tree Biomass Models
   contents:
   - feldpausch_2012
+  - iffsc_2022
   - montero_2005
   - poudel_2019
 - subtitle: Stump Diameter Models

@@ -22,6 +22,9 @@
     <loc>http://brycefrank.com/allometric/articles/installing_a_model.html</loc>
   </url>
   <url>
+    <loc>http://brycefrank.com/allometric/articles/inventory_example.html</loc>
+  </url>
+  <url>
     <loc>http://brycefrank.com/allometric/articles/mixed_effects.html</loc>
   </url>
   <url>
@@ -124,6 +127,9 @@
     <loc>http://brycefrank.com/allometric/reference/huy_2019.html</loc>
   </url>
   <url>
+    <loc>http://brycefrank.com/allometric/reference/iffsc_2022.html</loc>
+  </url>
+  <url>
     <loc>http://brycefrank.com/allometric/reference/index.html</loc>
   </url>
   <url>
@@ -134,6 +140,9 @@
   </url>
   <url>
     <loc>http://brycefrank.com/allometric/reference/MixedEffectsSet.html</loc>
+  </url>
+  <url>
+    <loc>http://brycefrank.com/allometric/reference/model_call.html</loc>
   </url>
   <url>
     <loc>http://brycefrank.com/allometric/reference/montero_2005.html</loc>
