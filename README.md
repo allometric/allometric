@@ -4,6 +4,7 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml)
+[![](https://img.shields.io/badge/devel%20version-0.0.1.9000-blue.svg)](https://github.com/brycefrank/allometric)
 <!-- badges: end -->
 
 `allometric` is an R package for predicting tree attributes with
