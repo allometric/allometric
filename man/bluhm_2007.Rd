@@ -8,7 +8,7 @@
 \item{\code{dsob [in]}}{ - diameter of the stem, outside bark at breast height}
 \item{\code{hst [ft]}}{ - total height of the stem}
 \item{\code{hsd [in]}}{ - height to a specified diameter (taper)}
-\item{\code{rc [ft/ft]}}{ - crown ratio}
+\item{\code{rc [ft ft-1]}}{ - crown ratio}
 }
 \bold{Model Parameters}
 \preformatted{    a_1   a_2   a_3   a_4   a_5   a_6   a_7

@@ -4,7 +4,7 @@
 \description{Allometric models from Bruce and DeMars (1974)}
 \section{Stem Volume Models}{\code{vsa = d * fos * (dsob^2 * hst)}
 \itemize{
-\item{\code{vsa [ft^3]}}{ - volume of the entire stem, including top and stump}
+\item{\code{vsa [ft3]}}{ - volume of the entire stem, including top and stump}
 \item{\code{hst [ft]}}{ - total height of the stem}
 \item{\code{dsob [in]}}{ - diameter of the stem, outside bark at breast height}
 }
@@ -14,7 +14,7 @@
 \out{<hr>}
 \code{vsa = f * fol * (dsob^2 * hst)}
 \itemize{
-\item{\code{vsa [ft^3]}}{ - volume of the entire stem, including top and stump}
+\item{\code{vsa [ft3]}}{ - volume of the entire stem, including top and stump}
 \item{\code{hst [ft]}}{ - total height of the stem}
 \item{\code{dsob [in]}}{ - diameter of the stem, outside bark at breast height}
 }

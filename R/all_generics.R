@@ -32,11 +32,9 @@ setGeneric("summary", function(publication) standardGeneric("summary"))
 setGeneric("predict", function(mod, ...) standardGeneric("predict"),
   signature = "mod")
 
-setGeneric("rd_model_equation", function(mod) standardGeneric("rd_model_equation"))
-
-setGeneric("rd_variable_defs", function(mod) standardGeneric("rd_variable_defs"))
-
-setGeneric("rd_parameter_table", function(mod) standardGeneric("rd_parameter_table"))
+setGeneric("rd_model_equation", function(set) standardGeneric("rd_model_equation"))
+setGeneric("rd_variable_defs", function(set) standardGeneric("rd_variable_defs"))
+setGeneric("rd_parameter_table", function(set) standardGeneric("rd_parameter_table"))
 
 
 setGeneric("specification", function(mod) standardGeneric("specification"))

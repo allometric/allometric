@@ -40,7 +40,10 @@ three_params <- FixedEffectsSet(
   predict_fn = function(dsoc, hst, single_stem) {
     (a + b * (dsoc^2 * hst + c * single_stem))^3
   },
-  model_specifications = load_parameter_frame('vsa_chojnacky_1985_2')
+  model_specifications = load_parameter_frame('vsa_chojnacky_1985_2'),
+  covariate_definitions = list(
+    single_stem = "Equal to 1 if the tree has one stem, 0 otherwise"
+  )
 )
 
 # hardwood models

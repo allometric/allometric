@@ -4,7 +4,7 @@
 \description{Allometric models from Poudel, Temesgen, and Gray (2018)}
 \section{Stem Ratio Models}{\code{rsdodi = b_1 + b_2 * x + b_3 * x^2 + b_4 * x^3 + b_5 * x^4}
 \itemize{
-\item{\code{rsdodi [cm/cm]}}{ - diameter of the stem inside bark at a height along the stem divided by diameter outside bark at breast height}
+\item{\code{rsdodi [cm cm-1]}}{ - diameter of the stem inside bark at a height along the stem divided by diameter outside bark at breast height}
 \item{\code{hst [m]}}{ - total height of the stem}
 \item{\code{hsd [m]}}{ - height to a specified diameter (taper)}
 }
@@ -15,7 +15,7 @@
 \out{<hr>}
 \code{rsdodi = ((log(sin(t * pi/2)))/(log(sin((1.37/hst) * pi/2))))^(b_1 + b_2 * sin(t * pi/2) + b_3 * cos(t * (3 * pi/2)) + b_4 * ((sin((pi/2) * t))/(t)) + b_5 * dsob + b_6 * t * sqrt(dsob) + b_7 * t * sqrt(hst))}
 \itemize{
-\item{\code{rsdodi [cm/cm]}}{ - diameter of the stem inside bark at a height along the stem divided by diameter outside bark at breast height}
+\item{\code{rsdodi [cm cm-1]}}{ - diameter of the stem inside bark at a height along the stem divided by diameter outside bark at breast height}
 \item{\code{hst [m]}}{ - total height of the stem}
 \item{\code{hsd [m]}}{ - height to a specified diameter (taper)}
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}

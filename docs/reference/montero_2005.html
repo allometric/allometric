@@ -31,6 +31,9 @@
     <a class="dropdown-item" href="../articles/variable_naming_system.html">Variable Naming System</a>
   </div>
 </li>
+<li class="nav-item">
+  <a class="nav-link" href="../news/index.html">Changelog</a>
+</li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
@@ -55,7 +58,8 @@
     <h2 id="tree-biomass-models">Tree Biomass Models<a class="anchor" aria-label="anchor" href="#tree-biomass-models"></a></h2>
     <p><code>bt = cf * exp(a) * dsob^b</code></p><ul><li><p><code>bt [kg]</code> - tree biomass</p></li>
 <li><p><code>dsob [cm]</code> - diameter of the stem, outside bark at breast height</p></li>
-</ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code>   family        genus      species           a     b    cf region   
+</ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code># Groups:   family, genus, species, a, b [31]
+   &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt;         &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;list&gt;   
  1 Aquifoliaceae Ilex       canariensis  -0.637  2.96  1.03 &lt;chr [1]&gt;
  2 Betulaceae    Alnus      glutinosa    -0.825  2.90  1.05 &lt;chr [1]&gt;
  3 Betulaceae    Betula     NA           -1.61   2.27  1.01 &lt;chr [1]&gt;
@@ -96,7 +100,8 @@
     <h2 id="stem-biomass-models">Stem Biomass Models<a class="anchor" aria-label="anchor" href="#stem-biomass-models"></a></h2>
     <p><code>bs = cf * exp(a) * dsob^b</code></p><ul><li><p><code>bs [kg]</code> - stem biomass</p></li>
 <li><p><code>dsob [cm]</code> - diameter of the stem, outside bark at breast height</p></li>
-</ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code>   family        genus     species           a     b    cf region   
+</ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code># Groups:   family, genus, species, a, b [27]
+   &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;         &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;list&gt;   
  1 Aquifoliaceae Ilex      canariensis  -1.17   2.93  1.05 &lt;chr [1]&gt;
  2 Betulaceae    Alnus     glutinosa    -1.38   2.98  1.09 &lt;chr [1]&gt;
  3 Betulaceae    Betula    NA           -2.09   2.33  1.01 &lt;chr [1]&gt;
@@ -128,7 +133,8 @@
     <h2 id="foliage-biomass-models">Foliage Biomass Models<a class="anchor" aria-label="anchor" href="#foliage-biomass-models"></a></h2>
     <p><code>bf = cf * exp(a) * dsob^b</code></p><ul><li><p><code>bf [kg]</code> - foliage biomass</p></li>
 <li><p><code>dsob [cm]</code> - diameter of the stem, outside bark at breast height</p></li>
-</ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code>   family       genus      species          a     b    cf region   
+</ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code># Groups:   family, genus, species, a, b [15]
+   &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;list&gt;   
  1 Betulaceae   Alnus      glutinosa    -3.01  2.45  1.14 &lt;chr [1]&gt;
  2 Betulaceae   Betula     NA           -3.28  2.59  1.08 &lt;chr [1]&gt;
  3 Cupressaceae Juniperus  thurifera    -2.49  2.68  1.05 &lt;chr [1]&gt;
@@ -148,7 +154,8 @@
     <h2 id="root-biomass-models">Root Biomass Models<a class="anchor" aria-label="anchor" href="#root-biomass-models"></a></h2>
     <p><code>br = cf * exp(a) * dsob^b</code></p><ul><li><p><code>br [kg]</code> - root biomass</p></li>
 <li><p><code>dsob [cm]</code> - diameter of the stem, outside bark at breast height</p></li>
-</ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code>   family       genus     species           a     b    cf region   
+</ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code># Groups:   family, genus, species, a, b [25]
+   &lt;chr&gt;        &lt;chr&gt;     &lt;chr&gt;         &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;list&gt;   
  1 Betulaceae   Alnus     glutinosa    -2.10   2.17  1.02 &lt;chr [1]&gt;
  2 Betulaceae   Betula    NA           -2.42   2.01  1.08 &lt;chr [1]&gt;
  3 Cupressaceae Juniperus oxycedrus    -2.28   2.70  1.09 &lt;chr [1]&gt;
@@ -183,7 +190,8 @@
     <h2 id="branch-biomass-models">Branch Biomass Models<a class="anchor" aria-label="anchor" href="#branch-biomass-models"></a></h2>
     <p><code>bb = cf * exp(a) * dsob^b</code></p><ul><li><p><code>bb [kg]</code> - branch biomass</p></li>
 <li><p><code>dsob [cm]</code> - diameter of the stem, outside bark at breast height</p></li>
-</ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code>   family        genus      species      branch_size       a     b    cf region   
+</ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code># Groups:   family, genus, species, branch_size, a, b [56]
+   &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;         &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;list&gt;   
  1 Aquifoliaceae Ilex       canariensis  &lt; 2 cm       -1.46   2.76  1.05 &lt;chr [1]&gt;
  2 Aquifoliaceae Ilex       canariensis  &gt; 7 cm       -2.54   2.75  1.01 &lt;chr [1]&gt;
  3 Betulaceae    Alnus      glutinosa    &lt; 2 cm       -2.40   2.45  1.14 &lt;chr [1]&gt;

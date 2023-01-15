@@ -4,10 +4,10 @@
 \description{Allometric models from Ritchie and Hann (1987)}
 \section{Crown Ratio Models}{\code{rc = 1 - ((1)/(1 + exp(b_0 + b_1 * hst + b_2 * ccfl + b_3 * log(gn) + b_4 * (dsob/hst) + b_5 * (hstix50 - 4.5))))}
 \itemize{
-\item{\code{rc [ft/ft]}}{ - crown ratio}
+\item{\code{rc [ft ft-1]}}{ - crown ratio}
 \item{\code{hst [ft]}}{ - total height of the stem}
-\item{\code{ccfl [ft^2/ft^2]}}{ - variable not defined}
-\item{\code{gn [ft^2/acre]}}{ - variable not defined}
+\item{\code{ccfl [ft2 ft-2]}}{ - variable not defined}
+\item{\code{gn [ft2 acre-1]}}{ - variable not defined}
 \item{\code{dsob [in]}}{ - diameter of the stem, outside bark at breast height}
 \item{\code{hstix50 [ft]}}{ - site index at 50 year base age}
 }
@@ -20,10 +20,10 @@
 \out{<hr>}
 \code{rc = 1 - ((1)/(1 + exp(b_0 + b_1 * hst + b_2 * ccfl + b_3 * log(gn))))}
 \itemize{
-\item{\code{rc [ft/ft]}}{ - crown ratio}
+\item{\code{rc [ft ft-1]}}{ - crown ratio}
 \item{\code{hst [ft]}}{ - total height of the stem}
-\item{\code{ccfl [ft^2/ft^2]}}{ - variable not defined}
-\item{\code{gn [ft^2/acre]}}{ - variable not defined}
+\item{\code{ccfl [ft2 ft-2]}}{ - variable not defined}
+\item{\code{gn [ft2 acre-1]}}{ - variable not defined}
 }
 \bold{Model Parameters}
 \preformatted{  family    genus   species       b_0      b_1      b_2    b_3
@@ -32,10 +32,10 @@
 \out{<hr>}
 \code{rc = 1 - ((1)/(1 + exp(b_0 + b_2 * ccfl + b_3 * log(gn) + b_4 * (dsob/hst))))}
 \itemize{
-\item{\code{rc [ft/ft]}}{ - crown ratio}
+\item{\code{rc [ft ft-1]}}{ - crown ratio}
 \item{\code{hst [ft]}}{ - total height of the stem}
-\item{\code{ccfl [ft^2/ft^2]}}{ - variable not defined}
-\item{\code{gn [ft^2/acre]}}{ - variable not defined}
+\item{\code{ccfl [ft2 ft-2]}}{ - variable not defined}
+\item{\code{gn [ft2 acre-1]}}{ - variable not defined}
 \item{\code{dsob [in]}}{ - diameter of the stem, outside bark at breast height}
 }
 \bold{Model Parameters}
@@ -45,8 +45,8 @@
 \out{<hr>}
 \code{rc = 1 - ((1)/(1 + exp(b_0 + b_2 * ccfl)))}
 \itemize{
-\item{\code{rc [ft/ft]}}{ - crown ratio}
-\item{\code{ccfl [ft^2/ft^2]}}{ - variable not defined}
+\item{\code{rc [ft ft-1]}}{ - crown ratio}
+\item{\code{ccfl [ft2 ft-2]}}{ - variable not defined}
 }
 \bold{Model Parameters}
 \preformatted{  family   genus   species        b_0      b_2
@@ -55,8 +55,8 @@
 \out{<hr>}
 \code{rc = 1 - ((1)/(1 + exp(b_2 * ccfl)))}
 \itemize{
-\item{\code{rc [ft/ft]}}{ - crown ratio}
-\item{\code{ccfl [ft^2/ft^2]}}{ - variable not defined}
+\item{\code{rc [ft ft-1]}}{ - crown ratio}
+\item{\code{ccfl [ft2 ft-2]}}{ - variable not defined}
 }
 \bold{Model Parameters}
 \preformatted{  family   genus            species           b_2
@@ -64,8 +64,8 @@
 \out{<hr>}
 \code{rc = 1 - ((1)/(1 + exp(b_0 + b_3 * log(gn))))}
 \itemize{
-\item{\code{rc [ft/ft]}}{ - crown ratio}
-\item{\code{gn [ft^2/acre]}}{ - variable not defined}
+\item{\code{rc [ft ft-1]}}{ - crown ratio}
+\item{\code{gn [ft2 acre-1]}}{ - variable not defined}
 }
 \bold{Model Parameters}
 \preformatted{  family   genus   species       b_0    b_3
@@ -73,10 +73,10 @@
 \out{<hr>}
 \code{rc = 1 - ((1)/(1 + exp(b_0 + b_3 * log(gn) + b_4 * (dsob/hst))))}
 \itemize{
-\item{\code{rc [ft/ft]}}{ - crown ratio}
+\item{\code{rc [ft ft-1]}}{ - crown ratio}
 \item{\code{hst [ft]}}{ - total height of the stem}
 \item{\code{dsob [in]}}{ - diameter of the stem, outside bark at breast height}
-\item{\code{gn [ft^2/acre]}}{ - variable not defined}
+\item{\code{gn [ft2 acre-1]}}{ - variable not defined}
 }
 \bold{Model Parameters}
 \preformatted{  family   genus   species     b_0    b_3   b_4
@@ -84,9 +84,9 @@
 \out{<hr>}
 \code{rc = 1 - ((1)/(1 + exp(b_0 + b_1 * hst + b_2 * ccfl)))}
 \itemize{
-\item{\code{rc [ft/ft]}}{ - crown ratio}
+\item{\code{rc [ft ft-1]}}{ - crown ratio}
 \item{\code{hst [ft]}}{ - total height of the stem}
-\item{\code{ccfl [ft^2/ft^2]}}{ - variable not defined}
+\item{\code{ccfl [ft2 ft-2]}}{ - variable not defined}
 }
 \bold{Model Parameters}
 \preformatted{  family   genus   species     b_0      b_1      b_2

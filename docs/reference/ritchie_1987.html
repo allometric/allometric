@@ -31,6 +31,9 @@
     <a class="dropdown-item" href="../articles/variable_naming_system.html">Variable Naming System</a>
   </div>
 </li>
+<li class="nav-item">
+  <a class="nav-link" href="../news/index.html">Changelog</a>
+</li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
@@ -53,47 +56,47 @@
 
     <div class="section level2">
     <h2 id="crown-ratio-models">Crown Ratio Models<a class="anchor" aria-label="anchor" href="#crown-ratio-models"></a></h2>
-    <p><code>rc = 1 - ((1)/(1 + exp(b_0 + b_1 * hst + b_2 * ccfl + b_3 * log(gn) + b_4 * (dsob/hst) + b_5 * (hstix50 - 4.5))))</code></p><ul><li><p><code>rc [ft/ft]</code> - crown ratio</p></li>
+    <p><code>rc = 1 - ((1)/(1 + exp(b_0 + b_1 * hst + b_2 * ccfl + b_3 * log(gn) + b_4 * (dsob/hst) + b_5 * (hstix50 - 4.5))))</code></p><ul><li><p><code>rc [ft ft-1]</code> - crown ratio</p></li>
 <li><p><code>hst [ft]</code> - total height of the stem</p></li>
-<li><p><code>ccfl [ft^2/ft^2]</code> - variable not defined</p></li>
-<li><p><code>gn [ft^2/acre]</code> - variable not defined</p></li>
+<li><p><code>ccfl [ft2 ft-2]</code> - variable not defined</p></li>
+<li><p><code>gn [ft2 acre-1]</code> - variable not defined</p></li>
 <li><p><code>dsob [in]</code> - diameter of the stem, outside bark at breast height</p></li>
 <li><p><code>hstix50 [ft]</code> - site index at 50 year base age</p></li>
 </ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code>  family   genus       species     b_0      b_1      b_2    b_3   b_4     b_5
 1 Pinaceae Pseudotsuga menziesii  2.60 -0.00726 -0.00458 -0.442  1.61 0.00468
 2 Pinaceae Abies       grandis    2.71 -0.00367 -0.00455 -0.505  1.73 0.00473
 3 Pinaceae Abies       concolor   2.71 -0.00367 -0.00455 -0.505  1.73 0.00473
-4 Pinaceae Pinus       ponderosa  2.35 -0.00206 -0.00260 -0.622  3.10 0.00426</code></pre></div><p></p><hr><code>rc = 1 - ((1)/(1 + exp(b_0 + b_1 * hst + b_2 * ccfl + b_3 * log(gn))))</code><ul><li><p><code>rc [ft/ft]</code> - crown ratio</p></li>
+4 Pinaceae Pinus       ponderosa  2.35 -0.00206 -0.00260 -0.622  3.10 0.00426</code></pre></div><p></p><hr><code>rc = 1 - ((1)/(1 + exp(b_0 + b_1 * hst + b_2 * ccfl + b_3 * log(gn))))</code><ul><li><p><code>rc [ft ft-1]</code> - crown ratio</p></li>
 <li><p><code>hst [ft]</code> - total height of the stem</p></li>
-<li><p><code>ccfl [ft^2/ft^2]</code> - variable not defined</p></li>
-<li><p><code>gn [ft^2/acre]</code> - variable not defined</p></li>
+<li><p><code>ccfl [ft2 ft-2]</code> - variable not defined</p></li>
+<li><p><code>gn [ft2 acre-1]</code> - variable not defined</p></li>
 </ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code>  family    genus   species       b_0      b_1      b_2    b_3
 1 Pinaceae  Pinus   lambertiana  2.60 -0.00726 -0.00458 -0.442
-2 Ericaceae Arbutus menziesii    2.71 -0.00367 -0.00455 -0.505</code></pre></div><p></p><hr><code>rc = 1 - ((1)/(1 + exp(b_0 + b_2 * ccfl + b_3 * log(gn) + b_4 * (dsob/hst))))</code><ul><li><p><code>rc [ft/ft]</code> - crown ratio</p></li>
+2 Ericaceae Arbutus menziesii    2.71 -0.00367 -0.00455 -0.505</code></pre></div><p></p><hr><code>rc = 1 - ((1)/(1 + exp(b_0 + b_2 * ccfl + b_3 * log(gn) + b_4 * (dsob/hst))))</code><ul><li><p><code>rc [ft ft-1]</code> - crown ratio</p></li>
 <li><p><code>hst [ft]</code> - total height of the stem</p></li>
-<li><p><code>ccfl [ft^2/ft^2]</code> - variable not defined</p></li>
-<li><p><code>gn [ft^2/acre]</code> - variable not defined</p></li>
+<li><p><code>ccfl [ft2 ft-2]</code> - variable not defined</p></li>
+<li><p><code>gn [ft2 acre-1]</code> - variable not defined</p></li>
 <li><p><code>dsob [in]</code> - diameter of the stem, outside bark at breast height</p></li>
 </ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code>  family       genus       species        b_0      b_2    b_3   b_4
 1 Cupressaceae Calocedrus  decurrens     4.40 -0.00267 -0.845  1.09
-2 Fagaceae     Chrysolepis chrysophylla  1.66 -0.00241 -0.355  1.25</code></pre></div><p></p><hr><code>rc = 1 - ((1)/(1 + exp(b_0 + b_2 * ccfl)))</code><ul><li><p><code>rc [ft/ft]</code> - crown ratio</p></li>
-<li><p><code>ccfl [ft^2/ft^2]</code> - variable not defined</p></li>
+2 Fagaceae     Chrysolepis chrysophylla  1.66 -0.00241 -0.355  1.25</code></pre></div><p></p><hr><code>rc = 1 - ((1)/(1 + exp(b_0 + b_2 * ccfl)))</code><ul><li><p><code>rc [ft ft-1]</code> - crown ratio</p></li>
+<li><p><code>ccfl [ft2 ft-2]</code> - variable not defined</p></li>
 </ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code>  family   genus   species        b_0      b_2
 1 Pinaceae Tsuga   heterophylla 0.791 -0.00256
-2 Fagaceae Quercus garryana     0.362 -0.00648</code></pre></div><p></p><hr><code>rc = 1 - ((1)/(1 + exp(b_2 * ccfl)))</code><ul><li><p><code>rc [ft/ft]</code> - crown ratio</p></li>
-<li><p><code>ccfl [ft^2/ft^2]</code> - variable not defined</p></li>
+2 Fagaceae Quercus garryana     0.362 -0.00648</code></pre></div><p></p><hr><code>rc = 1 - ((1)/(1 + exp(b_2 * ccfl)))</code><ul><li><p><code>rc [ft ft-1]</code> - crown ratio</p></li>
+<li><p><code>ccfl [ft2 ft-2]</code> - variable not defined</p></li>
 </ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code>  family   genus            species           b_2
-1 Fagaceae Notholithocarpus densiflorus -0.000886</code></pre></div><p></p><hr><code>rc = 1 - ((1)/(1 + exp(b_0 + b_3 * log(gn))))</code><ul><li><p><code>rc [ft/ft]</code> - crown ratio</p></li>
-<li><p><code>gn [ft^2/acre]</code> - variable not defined</p></li>
+1 Fagaceae Notholithocarpus densiflorus -0.000886</code></pre></div><p></p><hr><code>rc = 1 - ((1)/(1 + exp(b_0 + b_3 * log(gn))))</code><ul><li><p><code>rc [ft ft-1]</code> - crown ratio</p></li>
+<li><p><code>gn [ft2 acre-1]</code> - variable not defined</p></li>
 </ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code>  family   genus   species       b_0    b_3
-1 Fagaceae Quercus chrysolepis  2.22 -0.427</code></pre></div><p></p><hr><code>rc = 1 - ((1)/(1 + exp(b_0 + b_3 * log(gn) + b_4 * (dsob/hst))))</code><ul><li><p><code>rc [ft/ft]</code> - crown ratio</p></li>
+1 Fagaceae Quercus chrysolepis  2.22 -0.427</code></pre></div><p></p><hr><code>rc = 1 - ((1)/(1 + exp(b_0 + b_3 * log(gn) + b_4 * (dsob/hst))))</code><ul><li><p><code>rc [ft ft-1]</code> - crown ratio</p></li>
 <li><p><code>hst [ft]</code> - total height of the stem</p></li>
 <li><p><code>dsob [in]</code> - diameter of the stem, outside bark at breast height</p></li>
-<li><p><code>gn [ft^2/acre]</code> - variable not defined</p></li>
+<li><p><code>gn [ft2 acre-1]</code> - variable not defined</p></li>
 </ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code>  family   genus   species     b_0    b_3   b_4
-1 Fagaceae Quercus kelloggii  2.66 -0.647 0.728</code></pre></div><p></p><hr><code>rc = 1 - ((1)/(1 + exp(b_0 + b_1 * hst + b_2 * ccfl)))</code><ul><li><p><code>rc [ft/ft]</code> - crown ratio</p></li>
+1 Fagaceae Quercus kelloggii  2.66 -0.647 0.728</code></pre></div><p></p><hr><code>rc = 1 - ((1)/(1 + exp(b_0 + b_1 * hst + b_2 * ccfl)))</code><ul><li><p><code>rc [ft ft-1]</code> - crown ratio</p></li>
 <li><p><code>hst [ft]</code> - total height of the stem</p></li>
-<li><p><code>ccfl [ft^2/ft^2]</code> - variable not defined</p></li>
+<li><p><code>ccfl [ft2 ft-2]</code> - variable not defined</p></li>
 </ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code>  family   genus   species     b_0      b_1      b_2
 1 Fagaceae Quercus kelloggii 0.919 -0.00768 -0.00618</code></pre></div><p></p><hr></div>
 

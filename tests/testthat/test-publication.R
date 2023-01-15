@@ -39,6 +39,21 @@ test_that("Publication add_model adds model for fixed effects model", {
     expect_equal(n_sets(pub_add_fixef), 1)
 })
 
+fixed_effects_set <- FixedEffectsSet(
+    response_unit = list(vsa = units::as_units('ft^3')),
+    covariate_units = list(dsob = units::as_units('in')),
+    predict_fn = function(dsob) {a * dsob},
+    parameter_names = c('a'),
+    model_specifications = tibble::tibble(a = c(1,2))
+)
+
+test_that("Publication add_set adds set for fixed effects set", {
+    pub_add_fixef <- add_set(pub, fixed_effects_set)
+    expect_equal(length(pub_add_fixef@response_sets[['vsa']][[1]]@models), 1)
+    expect_equal(n_models(pub_add_fixef), 2)
+    expect_equal(n_sets(pub_add_fixef), 1)
+})
+
 mixed_effects_model <- MixedEffectsModel(
     response_unit = list(vsa = units::as_units('ft^3')),
     covariate_units = list(dsob = units::as_units('in')),

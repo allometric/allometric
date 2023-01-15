@@ -4,7 +4,7 @@
 \description{Allometric models from Rustagi and Loveless Jr (1991)}
 \section{Stem Volume Models}{\code{vso = kb_0 * (dsib)^2 * hso + kb_1 * (dsib)^2 * (hsdip75 - 1.37)}
 \itemize{
-\item{\code{vso [m^3]}}{ - volume of the stem above breast height}
+\item{\code{vso [m3]}}{ - volume of the stem above breast height}
 \item{\code{dsib [cm]}}{ - diameter of the stem, inside bark at breast height}
 \item{\code{hso [m]}}{ - height of the stem above breast height}
 \item{\code{hsdip75 [m]}}{ - height to a diameter that is 0.75 times the diameter inside bark at breast height}
@@ -15,7 +15,7 @@
 \out{<hr>}
 \code{vso = kb_0 * (dsib)^2 * hso + kb_1 * (dsib)^2 * (hsdop67 - 1.37)}
 \itemize{
-\item{\code{vso [m^3]}}{ - volume of the stem above breast height}
+\item{\code{vso [m3]}}{ - volume of the stem above breast height}
 \item{\code{dsib [cm]}}{ - diameter of the stem, inside bark at breast height}
 \item{\code{hso [m]}}{ - height of the stem above breast height}
 \item{\code{hsdop67 [m]}}{ - height to a diameter that is 0.67 times the diameter outside bark at breast height}
@@ -26,7 +26,7 @@
 \out{<hr>}
 \code{vso = k * (a * hso + b * dsob * hso + c * dsob^2 * hso + d * (hsdop67 - 1.37)) + e * dsob * (hsdop67 - 1.37) + f * dsob^2 * (hsdop67 - 1.37)}
 \itemize{
-\item{\code{vso [m^3]}}{ - volume of the stem above breast height}
+\item{\code{vso [m3]}}{ - volume of the stem above breast height}
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
 \item{\code{hso [m]}}{ - height of the stem above breast height}
 \item{\code{hsdop67 [m]}}{ - height to a diameter that is 0.67 times the diameter outside bark at breast height}

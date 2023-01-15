@@ -64,7 +64,7 @@ fixed_effects_covt_override <- FixedEffectsSet(
 )
 
 test_that("FixedEffectsSet with custom covariates produces correct description", {
-  desc <- .get_variable_descriptions(fixed_effects_covt_override)
+  desc <- .get_variable_descriptions_fmt(fixed_effects_covt_override)
   dsob_desc <- paste('dsob [in]:', 'my def')
 
   expect_equal(desc[[2]], dsob_desc)

@@ -1,11 +1,10 @@
 \name{vibrans_2015}
 \alias{vibrans_2015}
-\title{Vibrans, Moser, Oliveira, and de
-Maçaneiro (2015)}
+\title{Vibrans, Moser, Oliveira et al. (2015)}
 \description{Allometric models from Vibrans, Moser, Oliveira et al. (2015)}
 \section{Stem Volume Models}{\code{vsa = 1000 * exp(beta_0 + beta_1 * log(circ^2) + beta_2 * log(hst))}
 \itemize{
-\item{\code{vsa [m^3]}}{ - volume of the entire stem, including top and stump}
+\item{\code{vsa [m3]}}{ - volume of the entire stem, including top and stump}
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
 \item{\code{hst [m]}}{ - total height of the stem}
 }
@@ -30,7 +29,7 @@ Maçaneiro (2015)}
 \out{<hr>}
 \code{vsa = 1000 * exp(beta_0 + beta_1 * log(circ^2) + beta_2 * log(hst))}
 \itemize{
-\item{\code{vsa [m^3]}}{ - volume of the entire stem, including top and stump}
+\item{\code{vsa [m3]}}{ - volume of the entire stem, including top and stump}
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
 \item{\code{hst [m]}}{ - total height of the stem}
 }

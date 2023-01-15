@@ -4,8 +4,8 @@
 \description{Allometric models from Chojnacky (1985)}
 \section{Stem Volume Models}{\code{vsa = (a + b * (dsoc^2 * hst))^3}
 \itemize{
-\item{\code{vsa [ft^3]}}{ - volume of the entire stem, including top and stump}
-\item{\code{dsoc [in]}}{ - variable not defined}
+\item{\code{vsa [ft3]}}{ - volume of the entire stem, including top and stump}
+\item{\code{dsoc [in]}}{ - diameter outside bark above the root collar}
 \item{\code{hst [ft]}}{ - total height of the stem}
 }
 \bold{Model Parameters}
@@ -18,11 +18,12 @@
 6 US-WY  entire State      Cupressaceae Juniperus scopulorum  0.0243 0.119
 7 US-WY  Black Hills       Fagaceae     Quercus   macrocarpa  0.129  0.106}
 \out{<hr>}
-\code{vsa = (a + b * (dsoc^2 * hst))^3}
+\code{vsa = (a + b * (dsoc^2 * hst + c * single_stem))^3}
 \itemize{
-\item{\code{vsa [ft^3]}}{ - volume of the entire stem, including top and stump}
-\item{\code{dsoc [in]}}{ - variable not defined}
+\item{\code{vsa [ft3]}}{ - volume of the entire stem, including top and stump}
+\item{\code{dsoc [in]}}{ - diameter outside bark above the root collar}
 \item{\code{hst [ft]}}{ - total height of the stem}
+\item{\code{single_stem []}}{ - Equal to 1 if the tree has one stem, 0 otherwise}
 }
 \bold{Model Parameters}
 \preformatted{   region geographic_region                                 family       genus       species            a     b       c
@@ -50,8 +51,8 @@
 \out{<hr>}
 \code{vsa = (a + b * (dsoc^2 * hst))^3}
 \itemize{
-\item{\code{vsa [ft^3]}}{ - volume of the entire stem, including top and stump}
-\item{\code{dsoc [in]}}{ - variable not defined}
+\item{\code{vsa [ft3]}}{ - volume of the entire stem, including top and stump}
+\item{\code{dsoc [in]}}{ - diameter outside bark above the root collar}
 \item{\code{hst [ft]}}{ - total height of the stem}
 }
 \bold{Model Parameters}

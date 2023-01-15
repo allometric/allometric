@@ -6,7 +6,7 @@
 \itemize{
 \item{\code{dsib [in]}}{ - diameter of the stem, inside bark at breast height}
 \item{\code{dsob [in]}}{ - diameter of the stem, outside bark at breast height}
-\item{\code{rc [ft/ft]}}{ - crown ratio}
+\item{\code{rc [ft ft-1]}}{ - crown ratio}
 }
 \bold{Model Parameters}
 \preformatted{  family       genus       species       b_1   b_2     b_3
@@ -21,7 +21,7 @@
 \itemize{
 \item{\code{dui1 [in]}}{ - diameter of the stump, inside bark at one unit}
 \item{\code{dsob [in]}}{ - diameter of the stem, outside bark at breast height}
-\item{\code{rc [ft/ft]}}{ - crown ratio}
+\item{\code{rc [ft ft-1]}}{ - crown ratio}
 }
 \bold{Model Parameters}
 \preformatted{  family       genus       species       b_1   b_2 b_3            b_4   b_5
@@ -34,7 +34,7 @@
 \out{<hr>}}
 \section{Stem Volume Models}{\code{vso = b_1 * (hso/dsob)^(b_2 * (1 - exp(b_3 * dsob^b_4)))^k * exp(b_5 * (hsv/hso)) * dsob^b_7 * dsob^2 * hso}
 \itemize{
-\item{\code{vso [ft^3]}}{ - volume of the stem above breast height}
+\item{\code{vso [ft3]}}{ - volume of the stem above breast height}
 \item{\code{hso [ft]}}{ - height of the stem above breast height}
 \item{\code{dsob [in]}}{ - diameter of the stem, outside bark at breast height}
 \item{\code{hsv [ft]}}{ - height of the stem to crown base above breast height}

@@ -50,9 +50,9 @@ setMethod("[[", signature(x = "ModelSet", i = "numeric"), function(x, i) {
 
 
 
-setMethod("rd_model_equation", "ModelSet", function(mod) {
-  response_name <- names(mod@response_unit)[[1]]
-  func_body <- body(mod@predict_fn)
+setMethod("rd_model_equation", "ModelSet", function(set) {
+  response_name <- names(set@response_unit)[[1]]
+  func_body <- body(set@predict_fn)
   func_str <- toString(func_body[length(func_body)])
 
   clean_str <- gsub("p\\$", "", func_str)
@@ -63,51 +63,32 @@ setMethod("rd_model_equation", "ModelSet", function(mod) {
   sprintf("\\code{%s}", model_str)
 })
 
-setMethod("rd_variable_defs", "ModelSet", function(mod) {
+setMethod("rd_variable_defs", "ModelSet", function(set) {
   top <- "\\itemize{"
   bottom <- "}"
 
-  response <- names(mod@response_unit)[[1]]
-  response_description <- get_variable_def(response)$description
+  variable_descs <- .get_variable_descriptions(set)
+  body_strs <- c()
+  for(i in seq_len(nrow(variable_descs))) {
+    var_i <- variable_descs[i,]
+    var_unit_str <- paste(var_i$name, var_i$unit_label)
 
-  unit_str <- utils::capture.output(mod@response_unit[[response]])
-  unit_str <- stringr::str_sub(unit_str, 3)
+    var_str <- sprintf(
+      "\\item{\\code{%s}}{ - %s}",
+      var_unit_str,
+      var_i$desc
+    )
 
-  response_label_str <- paste(response, unit_str)
-
-  response_str <- sprintf(
-    "\\item{\\code{%s}}{ - %s}", response_label_str,
-    response_description
-  )
-
-  covt_strs <- c()
-
-  # TODO a lot of DRY here, can this by "synthesized" with summary.R fns?
-  for (i in seq_along(mod@covariate_units)) {
-    covariate <- mod@covariate_units[[i]]
-    covariate_name <- names(mod@covariate_units)[[i]]
-    covt_unit_str <- utils::capture.output(covariate)
-    covt_unit_str <- stringr::str_sub(covt_unit_str, 3)
-
-    covt_description <- get_variable_def(covariate_name)$description
-    covt_label_str <- paste(covariate_name, covt_unit_str)
-
-
-    if (identical(covt_description, character(0))) {
-      covt_description <- "variable not defined"
-    }
-
-    covt_str <- sprintf("\\item{\\code{%s}}{ - %s}", covt_label_str, covt_description)
-    covt_strs <- c(covt_strs, covt_str)
+    body_strs <- c(body_strs, var_str)
   }
 
-  c(top, response_str, covt_strs, bottom)
+  c(top, body_strs, bottom)
 })
 
 
-setMethod("rd_parameter_table", "ModelSet", function(mod) {
-  n_mods <- nrow(mod@model_specifications)
-  lines <- utils::capture.output(print(mod@model_specifications, n = n_mods))
+setMethod("rd_parameter_table", "ModelSet", function(set) {
+  n_mods <- nrow(set@model_specifications)
+  lines <- utils::capture.output(print(set@model_specifications, n = n_mods))
 
   # TODO this can shift the column names weirdly, but an issue for another day...
   lines_no_quote <- stringr::str_replace_all(lines, "\"", " ")

@@ -157,7 +157,7 @@ setMethod("get_model_str", "ParametricModel", function(mod) {
 
 
 setMethod("get_variable_descriptions", "ParametricModel", function(mod) {
-  .get_variable_descriptions(mod)
+  .get_variable_descriptions_fmt(mod)
 })
 
 

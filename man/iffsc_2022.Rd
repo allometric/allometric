@@ -6,7 +6,7 @@
 \itemize{
 \item{\code{bt [kg]}}{ - tree biomass}
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
-\item{\code{rwd [g/cm^3]}}{ - wood specific gravity}
+\item{\code{rwd [g cm-3]}}{ - wood specific gravity}
 }
 \bold{Model Parameters}
 \preformatted{  geographic_region forest_type             a     b     c     d
@@ -15,7 +15,7 @@
 \code{bt = a/(1 + exp(b + c * dsoc + d * hst))}
 \itemize{
 \item{\code{bt [kg]}}{ - tree biomass}
-\item{\code{dsoc [cm]}}{ - variable not defined}
+\item{\code{dsoc [cm]}}{ - diameter outside bark above the root collar}
 \item{\code{hst [m]}}{ - total height of the stem}
 }
 \bold{Model Parameters}
@@ -46,7 +46,7 @@
 \itemize{
 \item{\code{bt [kg]}}{ - tree biomass}
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
-\item{\code{rwd [g/cm^3]}}{ - wood specific gravity}
+\item{\code{rwd [g cm-3]}}{ - wood specific gravity}
 }
 \bold{Model Parameters}
 \preformatted{  family        genus     species           a     b     c     d
@@ -56,7 +56,7 @@
 \itemize{
 \item{\code{bt [kg]}}{ - tree biomass}
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
-\item{\code{rwd [g/cm^3]}}{ - wood specific gravity}
+\item{\code{rwd [g cm-3]}}{ - wood specific gravity}
 }
 \bold{Model Parameters}
 \preformatted{  forest_type      a     b      c     d

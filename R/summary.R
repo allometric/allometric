@@ -18,7 +18,7 @@
 #' @param variable A one-element list of either a response_unit or a
 #' covariate_unit
 #' @keywords internal
-.get_variable_description_str <- function(variable, covariate_descriptions) {
+.get_variable_description <- function(variable, covariate_descriptions) {
   variable_name <- names(variable)[[1]]
 
   if(class(variable[[variable_name]]) == "symbolic_units") {
@@ -36,31 +36,40 @@
     variable_description <- get_variable_def(variable_name)$description
   }
 
-
-  variable_label_str <- paste(variable_name, unit_str)
-
   if (identical(variable_description, character(0))) {
     variable_description <- "variable not defined"
   }
 
-  paste(variable_label_str, ": ", variable_description, sep = "")
+  list(
+    name = variable_name,
+    unit_label = unit_str,
+    desc = variable_description
+  )
 }
 
 .get_variable_descriptions <- function(object) {
-  response_str <- .get_variable_description_str(
-    object@response_unit,
-    object@covariate_definitions
-  )
+  vars <- c(object@response_unit, object@covariate_units)
 
-  covt_strs <- c()
-
-  for (i in seq_along(object@covariate_units)) {
-    covt_str <- .get_variable_description_str(
-      object@covariate_units[i],
+  var_descs <- list()
+  for (i in seq_along(vars)) {
+    var_desc <- .get_variable_description(
+      vars[i],
       object@covariate_definitions
     )
-    covt_strs <- c(covt_strs, covt_str)
+    var_descs[[i]] <- var_desc
+  }
+  dplyr::bind_rows(var_descs)
+}
+
+.get_variable_descriptions_fmt <- function(object) {
+  variable_descs <- .get_variable_descriptions(object)
+  out <- c()
+
+  for(i in seq_len(nrow(variable_descs))) {
+    desc_i <- variable_descs[i,]
+    desc_str <- paste(desc_i$name, ' ', desc_i$unit_label, ': ', desc_i$desc, sep='')
+    out <- c(out, desc_str)
   }
 
-  c(response_str, covt_strs)
+  out
 }

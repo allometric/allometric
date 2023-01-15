@@ -31,6 +31,9 @@
     <a class="dropdown-item" href="../articles/variable_naming_system.html">Variable Naming System</a>
   </div>
 </li>
+<li class="nav-item">
+  <a class="nav-link" href="../news/index.html">Changelog</a>
+</li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
@@ -53,12 +56,12 @@
 
     <div class="section level2">
     <h2 id="stem-ratio-models">Stem Ratio Models<a class="anchor" aria-label="anchor" href="#stem-ratio-models"></a></h2>
-    <p><code>rsdodi = b_1 + b_2 * x + b_3 * x^2 + b_4 * x^3 + b_5 * x^4</code></p><ul><li><p><code>rsdodi [cm/cm]</code> - diameter of the stem inside bark at a height along the stem divided by diameter outside bark at breast height</p></li>
+    <p><code>rsdodi = b_1 + b_2 * x + b_3 * x^2 + b_4 * x^3 + b_5 * x^4</code></p><ul><li><p><code>rsdodi [cm cm-1]</code> - diameter of the stem inside bark at a height along the stem divided by diameter outside bark at breast height</p></li>
 <li><p><code>hst [m]</code> - total height of the stem</p></li>
 <li><p><code>hsd [m]</code> - height to a specified diameter (taper)</p></li>
 </ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code>  family   genus       species         b_1   b_2   b_3   b_4   b_5
 1 Pinaceae Pseudotsuga menziesii    0.0244 0.858  2.57 -5.56  3.05
-2 Pinaceae Tsuga       heterophylla 0.0308 0.430  4.12 -7.85  4.27</code></pre></div><p></p><hr><code>rsdodi = ((log(sin(t * pi/2)))/(log(sin((1.37/hst) * pi/2))))^(b_1 + b_2 * sin(t * pi/2) + b_3 * cos(t * (3 * pi/2)) + b_4 * ((sin((pi/2) * t))/(t)) + b_5 * dsob + b_6 * t * sqrt(dsob) + b_7 * t * sqrt(hst))</code><ul><li><p><code>rsdodi [cm/cm]</code> - diameter of the stem inside bark at a height along the stem divided by diameter outside bark at breast height</p></li>
+2 Pinaceae Tsuga       heterophylla 0.0308 0.430  4.12 -7.85  4.27</code></pre></div><p></p><hr><code>rsdodi = ((log(sin(t * pi/2)))/(log(sin((1.37/hst) * pi/2))))^(b_1 + b_2 * sin(t * pi/2) + b_3 * cos(t * (3 * pi/2)) + b_4 * ((sin((pi/2) * t))/(t)) + b_5 * dsob + b_6 * t * sqrt(dsob) + b_7 * t * sqrt(hst))</code><ul><li><p><code>rsdodi [cm cm-1]</code> - diameter of the stem inside bark at a height along the stem divided by diameter outside bark at breast height</p></li>
 <li><p><code>hst [m]</code> - total height of the stem</p></li>
 <li><p><code>hsd [m]</code> - height to a specified diameter (taper)</p></li>
 <li><p><code>dsob [cm]</code> - diameter of the stem, outside bark at breast height</p></li>

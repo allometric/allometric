@@ -1,6 +1,6 @@
 \name{feldpausch_2012}
 \alias{feldpausch_2012}
-\title{Feldpausch, Lloyd, Lewis, Brienen, Gloor, Monteagudo Mendoza, Lopez-Gonzalez, Banin, Abu Salim, Affum-Baffoe, and others (2012)}
+\title{Feldpausch, Lloyd, Lewis et al. (2012)}
 \description{Allometric models from Feldpausch, Lloyd, Lewis et al. (2012)}
 \section{Stem Height Models}{\code{hst = a * (1 - exp(-b * dsob^c))}
 \itemize{
@@ -8,7 +8,8 @@
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
 }
 \bold{Model Parameters}
-\preformatted{  continent  geographic_region     a      b     c country  
+\preformatted{# Groups:   continent, geographic_region, a, b [8]
+  <chr>      <chr>             <dbl>  <dbl> <dbl> <list>   
 1 Africa     C. Africa          50.4 0.0471 0.812 <chr [2]>
 2 Africa     E. Africa          44.0 0.0334 0.855 <chr [1]>
 3 Africa     W. Africa          53.1 0.0331 0.833 <chr [2]>
@@ -41,7 +42,7 @@
 \itemize{
 \item{\code{bt [kg]}}{ - tree biomass}
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
-\item{\code{rwd [g/cm^3]}}{ - wood specific gravity}
+\item{\code{rwd [g cm-3]}}{ - wood specific gravity}
 }
 \bold{Model Parameters}
 \preformatted{  geographic_region     a     b     c       d     e   rse
@@ -51,7 +52,7 @@
 \itemize{
 \item{\code{bt [kg]}}{ - tree biomass}
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
-\item{\code{rwd [g/cm^3]}}{ - wood specific gravity}
+\item{\code{rwd [g cm-3]}}{ - wood specific gravity}
 \item{\code{hst [m]}}{ - total height of the stem}
 }
 \bold{Model Parameters}

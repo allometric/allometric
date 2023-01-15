@@ -31,6 +31,9 @@
     <a class="dropdown-item" href="../articles/variable_naming_system.html">Variable Naming System</a>
   </div>
 </li>
+<li class="nav-item">
+  <a class="nav-link" href="../news/index.html">Changelog</a>
+</li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
@@ -53,17 +56,17 @@
 
     <div class="section level2">
     <h2 id="stem-volume-models">Stem Volume Models<a class="anchor" aria-label="anchor" href="#stem-volume-models"></a></h2>
-    <p><code>vso = kb_0 * (dsib)^2 * hso + kb_1 * (dsib)^2 * (hsdip75 - 1.37)</code></p><ul><li><p><code>vso [m^3]</code> - volume of the stem above breast height</p></li>
+    <p><code>vso = kb_0 * (dsib)^2 * hso + kb_1 * (dsib)^2 * (hsdip75 - 1.37)</code></p><ul><li><p><code>vso [m3]</code> - volume of the stem above breast height</p></li>
 <li><p><code>dsib [cm]</code> - diameter of the stem, inside bark at breast height</p></li>
 <li><p><code>hso [m]</code> - height of the stem above breast height</p></li>
 <li><p><code>hsdip75 [m]</code> - height to a diameter that is 0.75 times the diameter inside bark at breast height</p></li>
 </ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code>       kb_0      kb_1
-1 0.0000146 0.0000528</code></pre></div><p></p><hr><code>vso = kb_0 * (dsib)^2 * hso + kb_1 * (dsib)^2 * (hsdop67 - 1.37)</code><ul><li><p><code>vso [m^3]</code> - volume of the stem above breast height</p></li>
+1 0.0000146 0.0000528</code></pre></div><p></p><hr><code>vso = kb_0 * (dsib)^2 * hso + kb_1 * (dsib)^2 * (hsdop67 - 1.37)</code><ul><li><p><code>vso [m3]</code> - volume of the stem above breast height</p></li>
 <li><p><code>dsib [cm]</code> - diameter of the stem, inside bark at breast height</p></li>
 <li><p><code>hso [m]</code> - height of the stem above breast height</p></li>
 <li><p><code>hsdop67 [m]</code> - height to a diameter that is 0.67 times the diameter outside bark at breast height</p></li>
 </ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code>       kb_0      kb_1
-1 0.0000109 0.0000516</code></pre></div><p></p><hr><code>vso = k * (a * hso + b * dsob * hso + c * dsob^2 * hso + d * (hsdop67 - 1.37)) + e * dsob * (hsdop67 - 1.37) + f * dsob^2 * (hsdop67 - 1.37)</code><ul><li><p><code>vso [m^3]</code> - volume of the stem above breast height</p></li>
+1 0.0000109 0.0000516</code></pre></div><p></p><hr><code>vso = k * (a * hso + b * dsob * hso + c * dsob^2 * hso + d * (hsdop67 - 1.37)) + e * dsob * (hsdop67 - 1.37) + f * dsob^2 * (hsdop67 - 1.37)</code><ul><li><p><code>vso [m3]</code> - volume of the stem above breast height</p></li>
 <li><p><code>dsob [cm]</code> - diameter of the stem, outside bark at breast height</p></li>
 <li><p><code>hso [m]</code> - height of the stem above breast height</p></li>
 <li><p><code>hsdop67 [m]</code> - height to a diameter that is 0.67 times the diameter outside bark at breast height</p></li>

@@ -1,13 +1,13 @@
 \name{huy_2019}
 \alias{huy_2019}
-\title{Huy, Tinh, Poudel, Frank, and Temesgen (2019)}
+\title{Huy, Tinh, Poudel et al. (2019)}
 \description{Allometric models from Huy, Tinh, Poudel et al. (2019)}
 \section{Stem Biomass Models}{\code{bs = a_1 * dsob^b_11 * hst^b_12 * es^b_13}
 \itemize{
 \item{\code{bs [kg]}}{ - stem biomass}
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
 \item{\code{hst [m]}}{ - total height of the stem}
-\item{\code{es [g/cm^3]}}{ - stem density}
+\item{\code{es [g cm-3]}}{ - stem density}
 }
 \bold{Model Parameters}
 \preformatted{  family              a_1  b_11  b_12  b_13

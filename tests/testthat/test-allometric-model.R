@@ -40,7 +40,7 @@ allo_custom_override <- AllometricModel(
 )
 
 test_that("Custom covariate definition is propagated to summary", {
-  desc <- .get_variable_descriptions(allo_custom_override)
+  desc <- .get_variable_descriptions_fmt(allo_custom_override)
 
   expect_equal(desc[[2]], paste("dsob [in]:", my_custom_dsob_description))
 })

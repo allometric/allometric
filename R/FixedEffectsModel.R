@@ -40,7 +40,8 @@ setMethod("init_set_of_one", signature(mod = "FixedEffectsModel"), function(mod)
     covariate_units = mod@covariate_units,
     parameter_names = names(mod@parameters),
     predict_fn = mod@predict_fn,
-    model_specifications = mod@specification
+    model_specifications = mod@specification,
+    covariate_definitions = mod@covariate_definitions
   )
 })
 
