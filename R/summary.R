@@ -39,7 +39,13 @@
 
   for (i in seq_along(object@covariate_units)) {
     covt_name <- names(object@covariate_units)[[i]]
-    covt_unit_str <- units::deparse_unit(object@covariate_units[[covt_name]])
+    
+    if(class(object@covariate_units[[covt_name]]) == "symbolic_units") {
+      # Handles the unitless case
+      covt_unit_str <- ''
+    } else {
+      covt_unit_str <- units::deparse_unit(object@covariate_units[[covt_name]])
+    }
     covt_unit_str <- paste("[", covt_unit_str, "]", sep = "")
     covt_str <- .get_variable_description_str(covt_name, covt_unit_str)
     covt_strs <- c(covt_strs, covt_str)

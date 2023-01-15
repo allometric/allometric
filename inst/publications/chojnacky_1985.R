@@ -33,11 +33,12 @@ three_params <- FixedEffectsSet(
   ),
   covariate_units = list(
     dsoc = units::as_units('in'),
-    hst = units::as_units('ft')
+    hst = units::as_units('ft'),
+    single_stem = units::unitless
   ),
-  parameter_names = c('a', 'b'),
-  predict_fn = function(dsoc, hst) {
-    (a + b * (dsoc^2 * hst))^3
+  parameter_names = c('a', 'b', 'c'),
+  predict_fn = function(dsoc, hst, single_stem) {
+    (a + b * (dsoc^2 * hst + c * single_stem))^3
   },
   model_specifications = load_parameter_frame('vsa_chojnacky_1985_2')
 )

@@ -48,3 +48,27 @@ test_that("Columns with lists as their elements throws an error", {
 test_that("Fixed effects model_call returns correctly formatted string", {
   expect_equal(model_call(fixed_effects_model), "vsa = f(dsob)")
 })
+
+
+unitless_model <- FixedEffectsModel(
+  response_unit = list(
+    vsa = units::as_units('ft^3')
+  ),
+  covariate_units = list(
+    dsob = units::unitless
+  ),
+  parameters = list(
+    a = 1
+  ),
+  predict_fn = function(dsob) {
+    intermediate <- dsob + 1
+    a * dsob^2
+  }
+)
+
+
+
+test_that("Model specified with units::unitless returns correct covariate formatting", {
+  match_str <- "dsob []: diameter of the stem, outside bark at breast height"
+  expect_equal(match_str, .get_variable_descriptions(unitless_model)[[2]])
+})
