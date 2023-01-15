@@ -23,16 +23,21 @@ check_fixed_effects_set_validity <- function(object) {
 #' installation of these groups of models by allowing the user to specify the
 #' parameter estimates and descriptions in a dataframe or spreadsheet.
 #'
+#' Because mixed-effects models already accommodate a grouping structure,
+#' `MixedEffectsSet` tends to be a much rarer occurrence than `FixedEffectsSet`
+#' and `MixedEffectsModel`.
+#'
 #' @inheritParams FixedEffectsSet
 #' @inheritParams MixedEffectsModel
 #' @export
 MixedEffectsSet <- function(response_unit, covariate_units, parameter_names,
                             predict_fn, model_specifications, predict_ranef,
-                            fixed_only = FALSE, descriptors = list()) {
+                            fixed_only = FALSE, descriptors = list(),
+                            covariate_definitions = list()) {
   mixed_effects_set <- .MixedEffectsSet(
     ModelSet(
       response_unit, covariate_units, predict_fn, model_specifications,
-      descriptors
+      descriptors, covariate_definitions
     ), predict_ranef = predict_ranef, fixed_only = fixed_only,
     parameter_names = parameter_names
   )
@@ -48,7 +53,8 @@ MixedEffectsSet <- function(response_unit, covariate_units, parameter_names,
       parameters = model_specifications[i, mixed_effects_set@parameter_names],
       descriptors = model_specifications[i, mod_descriptors],
       predict_ranef = mixed_effects_set@predict_ranef,
-      fixed_only = fixed_only
+      fixed_only = fixed_only,
+      covariate_definitions = covariate_definitions
     )
 
     mod@set_descriptors <- mixed_effects_set@descriptors
@@ -59,5 +65,3 @@ MixedEffectsSet <- function(response_unit, covariate_units, parameter_names,
   mixed_effects_set@fixed_only <- fixed_only
   mixed_effects_set
 }
-
-

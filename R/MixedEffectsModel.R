@@ -25,9 +25,11 @@
 #' @export
 MixedEffectsModel <- function(response_unit, covariate_units, predict_ranef,
                               predict_fn, parameters, fixed_only = FALSE,
-                              descriptors = list()) {
+                              descriptors = list(),
+                              covariate_definitions = list()) {
   mixed_effects_model <- .MixedEffectsModel(ParametricModel(
-    response_unit, covariate_units, predict_fn, parameters, descriptors
+    response_unit, covariate_units, predict_fn, parameters, descriptors,
+    covariate_definitions
   ))
 
   mixed_effects_model@predict_ranef <- predict_ranef
@@ -78,7 +80,8 @@ setMethod("init_set_of_one", signature(mod = "MixedEffectsModel"), function(mod)
     parameter_names = names(mod@parameters),
     model_specifications = mod@specification,
     predict_ranef = mod@predict_ranef,
-    fixed_only = mod@fixed_only
+    fixed_only = mod@fixed_only,
+    covariate_definitions = mod@covariate_definitions
   )
 })
 

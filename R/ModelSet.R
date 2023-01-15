@@ -20,13 +20,15 @@ check_model_set_validity <- function(object) {
     model_specifications = "tbl_df",
     descriptors = "tbl_df",
     pub_descriptors = "tbl_df",
-    models = "list"
+    models = "list",
+    covariate_definitions = "list"
   ),
   validity = check_model_set_validity
 )
 
 ModelSet <- function(response_unit, covariate_units, predict_fn,
-                     model_specifications, descriptors = list()) {
+                     model_specifications, descriptors = list(),
+                     covariate_definitions = list()) {
 
   descriptors <- tibble::as_tibble(descriptors)
 
@@ -34,9 +36,10 @@ ModelSet <- function(response_unit, covariate_units, predict_fn,
     response_unit = response_unit,
     covariate_units = covariate_units,
     predict_fn = predict_fn,
-    model_specifications = tibble::as_tibble(model_specifications), # TODO this is sloppy.
+    model_specifications = model_specifications,
     descriptors = descriptors,
-    pub_descriptors = tibble::tibble()
+    pub_descriptors = tibble::tibble(),
+    covariate_definitions = covariate_definitions
   )
   model_set
 }
@@ -79,7 +82,7 @@ setMethod("rd_variable_defs", "ModelSet", function(mod) {
 
   covt_strs <- c()
 
-  # TODO a lot of DRY here.
+  # TODO a lot of DRY here, can this by "synthesized" with summary.R fns?
   for (i in seq_along(mod@covariate_units)) {
     covariate <- mod@covariate_units[[i]]
     covariate_name <- names(mod@covariate_units)[[i]]

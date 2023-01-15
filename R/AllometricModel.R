@@ -16,7 +16,8 @@ check_allometric_model_validity <- function(object) {
     descriptors = "tbl_df",
     set_descriptors = "tbl_df",
     pub_descriptors = "tbl_df",
-    citation = "BibEntry"
+    citation = "BibEntry",
+    covariate_definitions = "list"
   ),
   validity = check_allometric_model_validity
 )
@@ -26,18 +27,24 @@ check_allometric_model_validity <- function(object) {
 #' This class is primarily used as a parent class for other model
 #' implementations.
 #'
-#' @param response_unit - A list containing one element with the name of the
-#' respone variable as the key and the units of the response variable as class
-#' `units::units`
-#' @param covariate_units - A list containing all covariates used in the model
-#' with the name of the covariate as the key and the units of the covariate as
-#' class `units::units`
-#' @param predict_fn - A function that takes all covariates named in
-#' `covariate_units` as arguments.
+#' @param response_unit
+#'    A named list containing one element, with a name representing the response
+#'    variable and a value representing the units of the response variable
+#'    using the `units::as_units` function.
+#' @param covariate_units
+#'    A named list containing the covariate specifications, with names
+#'    representing the covariate name and the values representing the units of
+#'    the coavariate using the `units::as_units` function.
+#' @param descriptors
+#'    An optional list of descriptors that are specified at the model-level.
+#' @param covariate_definitions
+#'    A named list of covariate definitions that
+#'    are used instead of the descriptions given by the variable naming system.
 #' @export
 #' @keywords internal
 AllometricModel <- function(response_unit, covariate_units, predict_fn,
-                            descriptors = list()) {
+                            descriptors = list(),
+                            covariate_definitions = list()) {
 
   # Coerce to tibble
   descriptors <- tibble::as_tibble(descriptors)
@@ -49,7 +56,8 @@ AllometricModel <- function(response_unit, covariate_units, predict_fn,
     descriptors = descriptors,
     set_descriptors = tibble::tibble(),
     pub_descriptors = tibble::tibble(),
-    citation = RefManageR::BibEntry(bibtype="misc", title="", author="", year=0)
+    citation = RefManageR::BibEntry(bibtype="misc", title="", author="", year=0),
+    covariate_definitions = covariate_definitions
   )
 
   allometric_model

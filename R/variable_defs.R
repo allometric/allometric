@@ -111,6 +111,7 @@ get_ratio_def <- function(response_name) {
 }
 
 #' @export
+#' @keywords internal
 get_variable_def <- function(response_name) {
   measure_char <- substr(response_name, 1, 1)
 

@@ -69,14 +69,16 @@ setMethod("parameters", "ParametricModel", function(mod) {
 #' @export
 #' @keywords internal
 ParametricModel <- function(response_unit, covariate_units, predict_fn,
-                            parameters, descriptors = list()) {
+                            parameters, descriptors = list(),
+                            covariate_definitions = list()) {
   # Coerce to tbl_df
   parameters <- tibble::as_tibble(parameters)
   descriptors <- tibble::as_tibble(descriptors)
 
   parametric_model <- .ParametricModel(
     AllometricModel(
-      response_unit, covariate_units, predict_fn, descriptors
+      response_unit, covariate_units, predict_fn, descriptors,
+      covariate_definitions
     ),
     parameters = parameters,
     specification = tibble::tibble()
@@ -111,6 +113,17 @@ ParametricModel <- function(response_unit, covariate_units, predict_fn,
 
 # TODO set validity...must have a finite set of parameters >= length of
 # covariates
+
+
+setMethod("model_call", signature(model = "ParametricModel"), function(model) {
+  response_var <- names(model@response_unit)[[1]]
+
+  arg_names <- names(as.list(args(model@predict_fn)))
+  arg_names <- arg_names[-length(arg_names)]
+  arg_names_str <- paste(arg_names, collapse = ', ')
+
+  paste(response_var, ' = ', 'f(', arg_names_str, ')', sep='')
+})
 
 
 setMethod("show", "ParametricModel", function(object) {
