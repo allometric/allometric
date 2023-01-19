@@ -150,7 +150,6 @@ update_reference_index <- function() {
     )
   }
 
-  pkg_dir <- system.file("", package="allometric")
-  yml_path <- file.path("_pkgdown.yml", pkg_dir)
+  yml_path <- system.file("_pkgdown.yml", package="allometric")
   yaml::write_yaml(yaml_header, yml_path)
 }
