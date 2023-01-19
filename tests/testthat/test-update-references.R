@@ -48,5 +48,7 @@ test_that("check internal keyword is caught", {
 test_that("update_reference_index runs", {
   # Kind of cheeky but at least it is something...
   #update_reference_index()
+
+  # FIXME does pass on codecov...
   #expect_true(file.exists(system.file("_pkgdown.yml", package="allometric")))
 })
