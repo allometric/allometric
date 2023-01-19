@@ -19,7 +19,9 @@ Imports:
     RefManageR,
     magrittr,
     purrr,
-    ISOcodes
+    ISOcodes,
+    tidyr,
+    uuid
 Collate:
     'utils-pipe.R'
     'all_generics.R'
