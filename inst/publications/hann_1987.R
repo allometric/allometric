@@ -7,19 +7,19 @@ hann_1987 <- Publication(
     year = 1987
   ),
   descriptors = list(
-    country = 'US',
-    region = 'US-OR'
+    country = "US",
+    region = "US-OR"
   )
 )
 
 
 hstix50_psme <- FixedEffectsModel(
   response_unit = list(
-    hstix50 = units::as_units('ft')
+    hstix50 = units::as_units("ft")
   ),
   covariate_units = list(
-    hst = units::as_units('ft'),
-    age = units::as_units('yr')
+    hst = units::as_units("ft"),
+    age = units::as_units("yr")
   ),
   parameters = list(
     b_1 = -0.0521778,
@@ -28,22 +28,22 @@ hstix50_psme <- FixedEffectsModel(
     b_4 = -0.000133377
   ),
   predict_fn = function(hst, age) {
-    4.5 + (hst - 4.5)*exp(b_1 * (age - 50) + b_2 * (age - 50)^2 + b_3 * (age - 50) * log(hst - 4.5) + b_4 * (age - 50)^2 * log(hst - 4.5))
+    4.5 + (hst - 4.5) * exp(b_1 * (age - 50) + b_2 * (age - 50)^2 + b_3 * (age - 50) * log(hst - 4.5) + b_4 * (age - 50)^2 * log(hst - 4.5))
   },
   descriptors = list(
-    family = 'Pinaceae',
-    genus = 'Pseudotsuga',
-    species = 'menziesii'
+    family = "Pinaceae",
+    genus = "Pseudotsuga",
+    species = "menziesii"
   )
 )
 
 hstix50_pipo <- FixedEffectsModel(
   response_unit = list(
-    hstix50 = units::as_units('ft')
+    hstix50 = units::as_units("ft")
   ),
   covariate_units = list(
-    hst = units::as_units('ft'),
-    age = units::as_units('yr')
+    hst = units::as_units("ft"),
+    age = units::as_units("yr")
   ),
   parameters = list(
     b_1 = -0.0699340,
@@ -52,12 +52,12 @@ hstix50_pipo <- FixedEffectsModel(
     b_4 = -0.0000718058
   ),
   predict_fn = function(hst, age) {
-    4.5 + (hst - 4.5)*exp(b_1 * (age - 50) + b_2 * (age - 50)^2 + b_3 * (age - 50) * log(hst - 4.5) + b_4 * (age - 50)^2 * log(hst - 4.5))
+    4.5 + (hst - 4.5) * exp(b_1 * (age - 50) + b_2 * (age - 50)^2 + b_3 * (age - 50) * log(hst - 4.5) + b_4 * (age - 50)^2 * log(hst - 4.5))
   },
   descriptors = list(
-    family = 'Pinaceae',
-    genus = 'Pinus',
-    species = 'ponderosa'
+    family = "Pinaceae",
+    genus = "Pinus",
+    species = "ponderosa"
   )
 )
 

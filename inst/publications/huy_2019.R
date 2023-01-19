@@ -27,7 +27,7 @@ bs_huy_2019_1 <- FixedEffectsSet(
     hst = units::as_units("m"),
     es = units::as_units("g/cm^3")
   ),
-  parameter_names = c('a_1', 'b_11', 'b_12', 'b_13'),
+  parameter_names = c("a_1", "b_11", "b_12", "b_13"),
   predict_fn = function(dsob, hst, es) {
     a_1 * dsob^b_11 * hst^b_12 * es^b_13
   },
@@ -41,7 +41,7 @@ bs_huy_2019_2 <- FixedEffectsSet(
   covariate_units = list(
     dsob = units::as_units("cm")
   ),
-  parameter_names = c('a_1', 'b_11'),
+  parameter_names = c("a_1", "b_11"),
   predict_fn = function(dsob) {
     a_1 * dsob^b_11
   },
@@ -55,7 +55,7 @@ bb_huy_2019 <- FixedEffectsSet(
   covariate_units = list(
     dsob = units::as_units("cm")
   ),
-  parameter_names = c('a_2', 'b_21'),
+  parameter_names = c("a_2", "b_21"),
   predict_fn = function(dsob) {
     a_2 * dsob^b_21
   },
@@ -69,7 +69,7 @@ bf_huy_2019 <- FixedEffectsSet(
   covariate_units = list(
     dsob = units::as_units("cm")
   ),
-  parameter_names = c('a_3', 'b_31'),
+  parameter_names = c("a_3", "b_31"),
   predict_fn = function(dsob) {
     a_3 * dsob^b_31
   },
@@ -83,7 +83,7 @@ bk_huy_2019 <- FixedEffectsSet(
   covariate_units = list(
     dsob = units::as_units("cm")
   ),
-  parameter_names = c('a_4', 'b_41'),
+  parameter_names = c("a_4", "b_41"),
   predict_fn = function(dsob) {
     a_4 * dsob^b_41
   },

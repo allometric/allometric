@@ -18,35 +18,35 @@ hahn_1991 <- Publication(
 )
 
 cuvol <- FixedEffectsSet(
-  response_unit = list(vsa = units::as_units('ft^3')),
+  response_unit = list(vsa = units::as_units("ft^3")),
   covariate_units = list(
-    hstix = units::as_units('ft'),
-    dsob = units::as_units('in')
+    hstix = units::as_units("ft"),
+    dsob = units::as_units("in")
   ),
-  parameter_names = c('b_1', 'b_2', 'b_3', 'b_4'),
+  parameter_names = c("b_1", "b_2", "b_3", "b_4"),
   predict_fn = function(hstix, dsob) {
     b_1 * hstix^b_2 * (1 - exp(b_3 * dsob^b_4))
   },
   covariate_definitions = list(
     hstix = "Site index at an un-specified base age."
   ),
-  model_specifications = load_parameter_frame('vsa_hahn_1991_1')
+  model_specifications = load_parameter_frame("vsa_hahn_1991_1")
 )
 
 bdft <- FixedEffectsSet(
-  response_unit = list(vsa = units::as_units('board_foot')),
+  response_unit = list(vsa = units::as_units("board_foot")),
   covariate_units = list(
-    hstix = units::as_units('ft'),
-    dsob = units::as_units('in')
+    hstix = units::as_units("ft"),
+    dsob = units::as_units("in")
   ),
-  parameter_names = c('b_1', 'b_2', 'b_3', 'b_4'),
+  parameter_names = c("b_1", "b_2", "b_3", "b_4"),
   predict_fn = function(hstix, dsob) {
     b_1 * hstix^b_2 * (1 - exp(b_3 * dsob^b_4))
   },
   covariate_definitions = list(
     hstix = "Site index at an un-specified base age."
   ),
-  model_specifications = load_parameter_frame('vsa_hahn_1991_2')
+  model_specifications = load_parameter_frame("vsa_hahn_1991_2")
 )
 
 hahn_1991 <- hahn_1991 %>%

@@ -13,34 +13,34 @@ chojnacky_1985 <- Publication(
 # two parameter species models
 two_params <- FixedEffectsSet(
   response_unit = list(
-    vsa = units::as_units('ft^3')
+    vsa = units::as_units("ft^3")
   ),
   covariate_units = list(
-    dsoc = units::as_units('in'),
-    hst = units::as_units('ft')
+    dsoc = units::as_units("in"),
+    hst = units::as_units("ft")
   ),
-  parameter_names = c('a', 'b'),
+  parameter_names = c("a", "b"),
   predict_fn = function(dsoc, hst) {
     (a + b * (dsoc^2 * hst))^3
   },
-  model_specifications = load_parameter_frame('vsa_chojnacky_1985_1')
+  model_specifications = load_parameter_frame("vsa_chojnacky_1985_1")
 )
 
 # three parameter species models
 three_params <- FixedEffectsSet(
   response_unit = list(
-    vsa = units::as_units('ft^3')
+    vsa = units::as_units("ft^3")
   ),
   covariate_units = list(
-    dsoc = units::as_units('in'),
-    hst = units::as_units('ft'),
+    dsoc = units::as_units("in"),
+    hst = units::as_units("ft"),
     single_stem = units::unitless
   ),
-  parameter_names = c('a', 'b', 'c'),
+  parameter_names = c("a", "b", "c"),
   predict_fn = function(dsoc, hst, single_stem) {
     (a + b * (dsoc^2 * hst + c * single_stem))^3
   },
-  model_specifications = load_parameter_frame('vsa_chojnacky_1985_2'),
+  model_specifications = load_parameter_frame("vsa_chojnacky_1985_2"),
   covariate_definitions = list(
     single_stem = "Equal to 1 if the tree has one stem, 0 otherwise"
   )
@@ -49,17 +49,17 @@ three_params <- FixedEffectsSet(
 # hardwood models
 hardwoods <- FixedEffectsSet(
   response_unit = list(
-    vsa = units::as_units('ft^3')
+    vsa = units::as_units("ft^3")
   ),
   covariate_units = list(
-    dsoc = units::as_units('in'),
-    hst = units::as_units('ft')
+    dsoc = units::as_units("in"),
+    hst = units::as_units("ft")
   ),
-  parameter_names = c('a', 'b'),
+  parameter_names = c("a", "b"),
   predict_fn = function(dsoc, hst) {
     (a + b * (dsoc^2 * hst))^3
   },
-  model_specifications = load_parameter_frame('vsa_chojnacky_1985_3')
+  model_specifications = load_parameter_frame("vsa_chojnacky_1985_3")
 )
 
 chojnacky_1985 <- chojnacky_1985 %>%

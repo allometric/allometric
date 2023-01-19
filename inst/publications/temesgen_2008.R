@@ -60,7 +60,7 @@ temesgen_2008 <- add_model(temesgen_2008, MixedEffectsModel(
     z <- hst - beta_0 * (1 - exp(beta_1 * dsob)^beta_2)
     Id <- diag(length(hst))
     b_i <- sigma_sq_b * t(z) %*% solve(sigma_sq_epsilon * Id * z %*% t(z)) %*%
-        (hst - beta_0 * (1 - exp(beta_1 * dsob))^beta_2)
+      (hst - beta_0 * (1 - exp(beta_1 * dsob))^beta_2)
     list(b_i = as.numeric(b_i))
   },
   predict_fn = function(dsob) {
@@ -157,7 +157,7 @@ temesgen_2008 <- add_model(temesgen_2008, MixedEffectsModel(
     list(b_0_i = 0, b_2_i = 0)
   },
   predict_fn = function(ccfl, gn, dsob) {
-    1.37 + (beta_00 + beta_01 * ccfl + beta_02 * gn + b_0_i ) *
+    1.37 + (beta_00 + beta_01 * ccfl + beta_02 * gn + b_0_i) *
       (1 - exp(beta_1 * dsob)^(beta_2 + b_2_i))
   }
 ))

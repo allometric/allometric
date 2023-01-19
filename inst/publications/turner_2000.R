@@ -19,19 +19,19 @@ turner_2000 <- Publication(
 
 bf <- FixedEffectsSet(
   response_unit = list(
-    bf = units::as_units('kg')
+    bf = units::as_units("kg")
   ),
   covariate_units = list(
-    dsob = units::as_units('cm')
+    dsob = units::as_units("cm")
   ),
-  parameter_names = c('a' , 'b'),
+  parameter_names = c("a", "b"),
   predict_fn = function(dsob) {
     exp(a + (b * log(dsob)))
   },
   model_specifications = tibble::tibble(
-    family = c('Pinaceae', 'Pinaceae', 'Cupressaceae'),
-    genus = c('Pseudotsuga', 'Tsuga', 'Thuja'),
-    species = c('menziesii', 'heterophylla', 'plicata'),
+    family = c("Pinaceae", "Pinaceae", "Cupressaceae"),
+    genus = c("Pseudotsuga", "Tsuga", "Thuja"),
+    species = c("menziesii", "heterophylla", "plicata"),
     a = c(-2.846, -4.130, -2.617),
     b = c(1.701, 2.128, 1.782)
   )

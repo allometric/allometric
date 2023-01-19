@@ -16,7 +16,7 @@ feldpausch_2012 <- Publication(
 
 # These models can be specified all the way down to the country level using
 # section 2.5
-country_frame <- load_parameter_frame('hst_feldpausch_2012_country')
+country_frame <- load_parameter_frame("hst_feldpausch_2012_country")
 
 # Geog. region frame
 geog_region_frame <- country_frame %>%
@@ -25,12 +25,12 @@ geog_region_frame <- country_frame %>%
 
 geog_region_set <- FixedEffectsSet(
   response_unit = list(
-    hst = units::as_units('m')
+    hst = units::as_units("m")
   ),
   covariate_units = list(
-    dsob = units::as_units('cm')
+    dsob = units::as_units("cm")
   ),
-  parameter_names = c('a', 'b', 'c'),
+  parameter_names = c("a", "b", "c"),
   predict_fn = function(dsob) {
     a * (1 - exp(-b * dsob^c))
   },
@@ -43,7 +43,7 @@ feldpausch_2012 <- add_set(feldpausch_2012, geog_region_set)
 # "continent" level.
 
 continent_params <- tibble::tibble(
-  continent = c('Africa', 'S. America'),
+  continent = c("Africa", "S. America"),
   a = c(50.096, 42.574),
   b = c(0.03711, 0.0482),
   c = c(0.8291, 0.8307)
@@ -52,17 +52,18 @@ continent_params <- tibble::tibble(
 continent_frame <- country_frame %>%
   dplyr::group_by(continent) %>%
   dplyr::summarise(country = list(country)) %>%
-  dplyr::filter(!continent %in% c('Australia', 'Asia')) %>% # These two are redundant
-  merge(continent_params) %>% tibble::as_tibble()
+  dplyr::filter(!continent %in% c("Australia", "Asia")) %>% # These two are redundant
+  merge(continent_params) %>%
+  tibble::as_tibble()
 
 generic_set <- FixedEffectsSet(
   response_unit = list(
-    hst = units::as_units('m')
+    hst = units::as_units("m")
   ),
   covariate_units = list(
-    dsob = units::as_units('cm')
+    dsob = units::as_units("cm")
   ),
-  parameter_names = c('a', 'b', 'c'),
+  parameter_names = c("a", "b", "c"),
   predict_fn = function(dsob) {
     a * (1 - exp(-b * dsob^c))
   },
@@ -77,10 +78,10 @@ pantropical_frame <- country_frame %>%
 
 pantropical_model <- FixedEffectsModel(
   response_unit = list(
-    hst = units::as_units('m')
+    hst = units::as_units("m")
   ),
   covariate_units = list(
-    dsob = units::as_units('cm')
+    dsob = units::as_units("cm")
   ),
   parameters = list(
     a = 50.874, b = 0.0420, c = 0.784
@@ -88,7 +89,7 @@ pantropical_model <- FixedEffectsModel(
   predict_fn = function(dsob) {
     a * (1 - exp(-b * dsob^c))
   },
-  descriptors = pantropical_frame[,'country']
+  descriptors = pantropical_frame[, "country"]
 )
 
 # Unfortunately, Feldpascuh et al. do not specify the source of the biomass
@@ -98,11 +99,11 @@ pantropical_model <- FixedEffectsModel(
 
 bt_1 <- FixedEffectsModel(
   response_unit = list(
-    bt = units::as_units('kg')
+    bt = units::as_units("kg")
   ),
   covariate_units = list(
-    dsob = units::as_units('cm'),
-    rwd = units::as_units('g / cm^3')
+    dsob = units::as_units("cm"),
+    rwd = units::as_units("g / cm^3")
   ),
   parameters = list(
     a = -1.8222,
@@ -121,12 +122,12 @@ bt_1 <- FixedEffectsModel(
 
 bt_2 <- FixedEffectsModel(
   response_unit = list(
-    bt = units::as_units('kg')
+    bt = units::as_units("kg")
   ),
   covariate_units = list(
-    dsob = units::as_units('cm'),
-    rwd = units::as_units('g / cm^3'),
-    hst = units::as_units('m')
+    dsob = units::as_units("cm"),
+    rwd = units::as_units("g / cm^3"),
+    hst = units::as_units("m")
   ),
   parameters = list(
     a = -2.9205,

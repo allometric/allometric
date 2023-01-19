@@ -18,11 +18,11 @@ bruce_1974 <- Publication(
 
 small <- FixedEffectsModel(
   response_unit = list(
-    vsa = units::as_units('ft^3')
+    vsa = units::as_units("ft^3")
   ),
   covariate_units = list(
-    hst = units::as_units('ft'),
-    dsob = units::as_units('in')
+    hst = units::as_units("ft"),
+    dsob = units::as_units("in")
   ),
   parameters = list(
     a = 0.406098,
@@ -42,11 +42,11 @@ small <- FixedEffectsModel(
 
 large <- FixedEffectsModel(
   response_unit = list(
-    vsa = units::as_units('ft^3')
+    vsa = units::as_units("ft^3")
   ),
   covariate_units = list(
-    hst = units::as_units('ft'),
-    dsob = units::as_units('in')
+    hst = units::as_units("ft"),
+    dsob = units::as_units("in")
   ),
   parameters = list(
     a = 0.480961,

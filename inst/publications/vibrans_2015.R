@@ -19,29 +19,29 @@ vibrans_2015 <- Publication(
 
 vsa_species <- FixedEffectsSet(
   response_unit = list(
-    vsa = units::as_units('m^3')
+    vsa = units::as_units("m^3")
   ),
   covariate_units = list(
-    dsob = units::as_units('cm'),
-    hst = units::as_units('m')
+    dsob = units::as_units("cm"),
+    hst = units::as_units("m")
   ),
-  parameter_names = c('beta_0', 'beta_1', 'beta_2'),
+  parameter_names = c("beta_0", "beta_1", "beta_2"),
   predict_fn = function(dsob, hst) {
     circ <- dsob * pi
     1000 * exp(beta_0 + beta_1 * log(circ^2) + beta_2 * log(hst))
   },
-  model_specifications = load_parameter_frame('vsa_vibrans_2015')
+  model_specifications = load_parameter_frame("vsa_vibrans_2015")
 )
 
 vsa_generics <- FixedEffectsSet(
   response_unit = list(
-    vsa = units::as_units('m^3')
+    vsa = units::as_units("m^3")
   ),
   covariate_units = list(
-    dsob = units::as_units('cm'),
-    hst = units::as_units('m')
+    dsob = units::as_units("cm"),
+    hst = units::as_units("m")
   ),
-  parameter_names = c('beta_0', 'beta_1', 'beta_2'),
+  parameter_names = c("beta_0", "beta_1", "beta_2"),
   predict_fn = function(dsob, hst) {
     circ <- dsob * pi
     1000 * exp(beta_0 + beta_1 * log(circ^2) + beta_2 * log(hst))

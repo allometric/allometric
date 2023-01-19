@@ -1,6 +1,6 @@
 rustagi_1991 <- Publication(
   citation = RefManageR::BibEntry(
-    bibtype="article",
+    bibtype = "article",
     title = "Compatible variable-form volume and stem-profile equations for Douglas-fir",
     author = "Rustagi, Krishna P and Loveless Jr, Robert S",
     journal = "Canadian Journal of Forest Research",
@@ -11,22 +11,22 @@ rustagi_1991 <- Publication(
     publisher = "NRC Research Press Ottawa, Canada"
   ),
   descriptors = list(
-    country = c('US', 'CA'),
-    region = c('US-OR', 'US-WA', 'CA-BC'),
-    family = 'Pinaceae',
-    genus = 'Pseudotsuga',
-    species = 'menziesii'
+    country = c("US", "CA"),
+    region = c("US-OR", "US-WA", "CA-BC"),
+    family = "Pinaceae",
+    genus = "Pseudotsuga",
+    species = "menziesii"
   )
 )
 
 eq_20 <- FixedEffectsModel(
   response_unit = list(
-    vso = units::as_units('m^3')
+    vso = units::as_units("m^3")
   ),
   covariate_units = list(
-    dsib = units::as_units('cm'),
-    hso = units::as_units('m'),
-    hsdip75 = units::as_units('m')
+    dsib = units::as_units("cm"),
+    hso = units::as_units("m"),
+    hsdip75 = units::as_units("m")
   ),
   parameters = list(
     kb_0 = 0.000014599,
@@ -39,12 +39,12 @@ eq_20 <- FixedEffectsModel(
 
 eq_21 <- FixedEffectsModel(
   response_unit = list(
-    vso = units::as_units('m^3')
+    vso = units::as_units("m^3")
   ),
   covariate_units = list(
-    dsib = units::as_units('cm'),
-    hso = units::as_units('m'),
-    hsdop67 = units::as_units('m')
+    dsib = units::as_units("cm"),
+    hso = units::as_units("m"),
+    hsdop67 = units::as_units("m")
   ),
   parameters = list(
     kb_0 = 0.000010912,
@@ -57,12 +57,12 @@ eq_21 <- FixedEffectsModel(
 
 eq_22 <- FixedEffectsModel(
   response_unit = list(
-    vso = units::as_units('m^3')
+    vso = units::as_units("m^3")
   ),
   covariate_units = list(
-    dsob = units::as_units('cm'),
-    hso = units::as_units('m'),
-    hsdop67 = units::as_units('m')
+    dsob = units::as_units("cm"),
+    hso = units::as_units("m"),
+    hsdop67 = units::as_units("m")
   ),
   parameters = list( # The authors transformed the parameter estimates away from eq. 13, so I use a-f as parameter names
     k = 7.854e-5,

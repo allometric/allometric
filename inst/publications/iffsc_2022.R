@@ -8,18 +8,18 @@ iffsc_2022 <- Publication(
     author = "IFFSC"
   ),
   descriptors = list(
-    country = 'BR',
-    region = 'BR-SC'
+    country = "BR",
+    region = "BR-SC"
   )
 )
 
 pantropical <- FixedEffectsModel(
   response_unit = list(
-    bt = units::as_units('kg')
+    bt = units::as_units("kg")
   ),
   covariate_units = list(
-    dsob = units::as_units('cm'),
-    rwd = units::as_units('g / cm^3')
+    dsob = units::as_units("cm"),
+    rwd = units::as_units("g / cm^3")
   ),
   parameters = list(
     a = 0.05678,
@@ -31,16 +31,16 @@ pantropical <- FixedEffectsModel(
     a * (dsob^2 * (1.3 + ((b * dsob) / (c * dsob))) * rwd)^d
   },
   descriptors = list(
-    geographic_region = 'pantropical',
+    geographic_region = "pantropical",
     forest_type = "dense ombrophilous"
   )
 )
 
 cecropia_galaziovii <- FixedEffectsModel(
-  response_unit = list(bt = units::as_units('kg')),
+  response_unit = list(bt = units::as_units("kg")),
   covariate_units = list(
-    dsoc = units::as_units('cm'),
-    hst = units::as_units('m')
+    dsoc = units::as_units("cm"),
+    hst = units::as_units("m")
   ),
   parameters = list(
     a = 295.6,
@@ -52,17 +52,17 @@ cecropia_galaziovii <- FixedEffectsModel(
     a / (1 + exp(b + c * dsoc + d * hst))
   },
   descriptors = list(
-    family = 'Uritaceae',
-    genus = 'Cecropia',
-    species = 'galaziovii'
+    family = "Uritaceae",
+    genus = "Cecropia",
+    species = "galaziovii"
   )
 )
 
 cyathea_delgadii <- FixedEffectsModel(
-  response_unit = list(bt = units::as_units('kg')),
+  response_unit = list(bt = units::as_units("kg")),
   covariate_units = list(
-    dsob = units::as_units('cm'),
-    hst = units::as_units('m')
+    dsob = units::as_units("cm"),
+    hst = units::as_units("m")
   ),
   parameters = list(
     a = 0.1523,
@@ -73,17 +73,17 @@ cyathea_delgadii <- FixedEffectsModel(
     a * dsob^b * hst^c
   },
   descriptors = list(
-    family = 'Cyatheaceae',
-    genus = 'Cyathea',
-    species = 'delgadii'
+    family = "Cyatheaceae",
+    genus = "Cyathea",
+    species = "delgadii"
   )
 )
 
 euterpe_edulis <- FixedEffectsModel(
-  response_unit = list(bt = units::as_units('kg')),
+  response_unit = list(bt = units::as_units("kg")),
   covariate_units = list(
-    dsob = units::as_units('cm'),
-    hst = units::as_units('m')
+    dsob = units::as_units("cm"),
+    hst = units::as_units("m")
   ),
   parameters = list(
     a = 0.0175,
@@ -94,9 +94,9 @@ euterpe_edulis <- FixedEffectsModel(
     a * dsob^b * hst^c
   },
   descriptors = list(
-    family = 'Arecaceae',
-    genus = 'Euterpe',
-    species = 'edulist'
+    family = "Arecaceae",
+    genus = "Euterpe",
+    species = "edulist"
   )
 )
 
@@ -106,11 +106,11 @@ euterpe_edulis <- FixedEffectsModel(
 # Eq 8.
 mixed_ombrophilous <- FixedEffectsModel(
   response_unit = list(
-    bt = units::as_units('kg')
+    bt = units::as_units("kg")
   ),
   covariate_units = list(
-    dsob = units::as_units('cm'),
-    rwd = units::as_units('g / cm^3')
+    dsob = units::as_units("cm"),
+    rwd = units::as_units("g / cm^3")
   ),
   parameters = list(
     a = 0.05678,
@@ -122,17 +122,17 @@ mixed_ombrophilous <- FixedEffectsModel(
     a * (dsob^2 * (1.3 + ((b * dsob) / (c + dsob))) * rwd)^d
   },
   descriptors = list(
-    forest_type = 'mixed ombrophilous'
+    forest_type = "mixed ombrophilous"
   )
 )
 
 araucaria_angustifolia <- FixedEffectsModel(
   response_unit = list(
-    bt = units::as_units('kg')
+    bt = units::as_units("kg")
   ),
   covariate_units = list(
-    dsob = units::as_units('cm'),
-    rwd = units::as_units('g / cm^3')
+    dsob = units::as_units("cm"),
+    rwd = units::as_units("g / cm^3")
   ),
   parameters = list(
     a = 0.05678,
@@ -144,19 +144,19 @@ araucaria_angustifolia <- FixedEffectsModel(
     a * (dsob^2 * (1.3 + b * exp(c / dsob)) * rwd)^d
   },
   descriptors = list(
-    family = 'Araucariaceae',
-    genus = 'Araucaria',
-    species = 'angustifolia'
+    family = "Araucariaceae",
+    genus = "Araucaria",
+    species = "angustifolia"
   )
 )
 
 deciduous <- FixedEffectsModel(
   response_unit = list(
-    bt = units::as_units('kg')
+    bt = units::as_units("kg")
   ),
   covariate_units = list(
-    dsob = units::as_units('cm'),
-    rwd = units::as_units('g / cm^3')
+    dsob = units::as_units("cm"),
+    rwd = units::as_units("g / cm^3")
   ),
   parameters = list(
     a = 0.05678,

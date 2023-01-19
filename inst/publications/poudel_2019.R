@@ -40,13 +40,13 @@ cvts <- FixedEffectsSet(
 # Table 4, models that use a, b and c parameters
 agb_1 <- FixedEffectsSet(
   response_unit = list(
-    bt = units::as_units('kg')
+    bt = units::as_units("kg")
   ),
   covariate_units = list(
-    dsob = units::as_units('cm'),
-    hst = units::as_units('m')
+    dsob = units::as_units("cm"),
+    hst = units::as_units("m")
   ),
-  parameter_names = c('a', 'b', 'c', 'cf'),
+  parameter_names = c("a", "b", "c", "cf"),
   predict_fn = function(dsob, hst) {
     cf * exp(a + b * log(dsob) + c * log(hst))
   },
@@ -56,13 +56,13 @@ agb_1 <- FixedEffectsSet(
 # Table 5, models that use a, b, c and d parameters
 agb_2 <- FixedEffectsSet(
   response_unit = list(
-    bt = units::as_units('kg')
+    bt = units::as_units("kg")
   ),
   covariate_units = list(
-    dsob = units::as_units('cm'),
-    hst = units::as_units('m')
+    dsob = units::as_units("cm"),
+    hst = units::as_units("m")
   ),
-  parameter_names = c('a', 'b', 'c', 'd', 'cf'),
+  parameter_names = c("a", "b", "c", "d", "cf"),
   predict_fn = function(dsob, hst) {
     cf * exp(a + b * log(dsob) + c * log(hst) + d * hst)
   },
@@ -72,12 +72,12 @@ agb_2 <- FixedEffectsSet(
 # Table 5, models that use a and b parameters
 agb_3 <- FixedEffectsSet(
   response_unit = list(
-    bt = units::as_units('kg')
+    bt = units::as_units("kg")
   ),
   covariate_units = list(
-    dsob = units::as_units('cm')
+    dsob = units::as_units("cm")
   ),
-  parameter_names = c('a', 'b', 'cf'),
+  parameter_names = c("a", "b", "cf"),
   predict_fn = function(dsob) {
     cf * exp(a + b * log(dsob))
   },
@@ -87,12 +87,12 @@ agb_3 <- FixedEffectsSet(
 # Table 6, volume to biomass conversion
 v_to_agb <- FixedEffectsSet(
   response_unit = list(
-    bt = units::as_units('kg')
+    bt = units::as_units("kg")
   ),
   covariate_units = list(
-    vsa = units::as_units('m^3')
+    vsa = units::as_units("m^3")
   ),
-  parameter_names = c('a', 'b', 'cf'),
+  parameter_names = c("a", "b", "cf"),
   predict_fn = function(vsa) {
     cf * exp(a + b * log(vsa))
   },
@@ -107,16 +107,16 @@ v_to_agb <- FixedEffectsSet(
 
 rsbt <- FixedEffectsSet(
   response_unit = list(
-    rsbt = units::as_units('kg / kg')
+    rsbt = units::as_units("kg / kg")
   ),
   covariate_units = list(
-    dsob = units::as_units('cm'),
-    hst = units::as_units('m')
+    dsob = units::as_units("cm"),
+    hst = units::as_units("m")
   ),
   parameter_names = c(
-    paste('a', seq(4), sep='_'),
-    paste('b', seq(4), sep='_'),
-    paste('c', seq(4), sep='_')
+    paste("a", seq(4), sep = "_"),
+    paste("b", seq(4), sep = "_"),
+    paste("c", seq(4), sep = "_")
   ),
   predict_fn = function(dsob, hst) {
     denom <- sum(
@@ -128,21 +128,21 @@ rsbt <- FixedEffectsSet(
 
     exp(a_1 + b_1 * log(dsob) + c_1 * log(hst)) / denom
   },
-  model_specifications = load_parameter_frame('b_poudel_2019')
+  model_specifications = load_parameter_frame("b_poudel_2019")
 )
 
 rkbt <- FixedEffectsSet(
   response_unit = list(
-    rkbt = units::as_units('kg / kg')
+    rkbt = units::as_units("kg / kg")
   ),
   covariate_units = list(
-    dsob = units::as_units('cm'),
-    hst = units::as_units('m')
+    dsob = units::as_units("cm"),
+    hst = units::as_units("m")
   ),
   parameter_names = c(
-    paste('a', seq(4), sep='_'),
-    paste('b', seq(4), sep='_'),
-    paste('c', seq(4), sep='_')
+    paste("a", seq(4), sep = "_"),
+    paste("b", seq(4), sep = "_"),
+    paste("c", seq(4), sep = "_")
   ),
   predict_fn = function(dsob, hst) {
     denom <- sum(
@@ -154,22 +154,22 @@ rkbt <- FixedEffectsSet(
 
     exp(a_2 + b_2 * log(dsob) + c_2 * log(hst)) / denom
   },
-  model_specifications = load_parameter_frame('b_poudel_2019')
+  model_specifications = load_parameter_frame("b_poudel_2019")
 )
 
 
 rfbt <- FixedEffectsSet(
   response_unit = list(
-    rfbt = units::as_units('kg / kg')
+    rfbt = units::as_units("kg / kg")
   ),
   covariate_units = list(
-    dsob = units::as_units('cm'),
-    hst = units::as_units('m')
+    dsob = units::as_units("cm"),
+    hst = units::as_units("m")
   ),
   parameter_names = c(
-    paste('a', seq(4), sep='_'),
-    paste('b', seq(4), sep='_'),
-    paste('c', seq(4), sep='_')
+    paste("a", seq(4), sep = "_"),
+    paste("b", seq(4), sep = "_"),
+    paste("c", seq(4), sep = "_")
   ),
   predict_fn = function(dsob, hst) {
     denom <- sum(
@@ -181,21 +181,21 @@ rfbt <- FixedEffectsSet(
 
     exp(a_3 + b_3 * log(dsob) + c_3 * log(hst)) / denom
   },
-  model_specifications = load_parameter_frame('b_poudel_2019')
+  model_specifications = load_parameter_frame("b_poudel_2019")
 )
 
 rbbt <- FixedEffectsSet(
   response_unit = list(
-    rbbt = units::as_units('kg / kg')
+    rbbt = units::as_units("kg / kg")
   ),
   covariate_units = list(
-    dsob = units::as_units('cm'),
-    hst = units::as_units('m')
+    dsob = units::as_units("cm"),
+    hst = units::as_units("m")
   ),
   parameter_names = c(
-    paste('a', seq(4), sep='_'),
-    paste('b', seq(4), sep='_'),
-    paste('c', seq(4), sep='_')
+    paste("a", seq(4), sep = "_"),
+    paste("b", seq(4), sep = "_"),
+    paste("c", seq(4), sep = "_")
   ),
   predict_fn = function(dsob, hst) {
     denom <- sum(
@@ -207,7 +207,7 @@ rbbt <- FixedEffectsSet(
 
     exp(a_4 + b_4 * log(dsob) + c_4 * log(hst)) / denom
   },
-  model_specifications = load_parameter_frame('b_poudel_2019')
+  model_specifications = load_parameter_frame("b_poudel_2019")
 )
 
 poudel_2019 <- poudel_2019 %>%

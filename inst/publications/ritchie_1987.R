@@ -23,11 +23,11 @@ rc_1 <- FixedEffectsSet(
     dsob = units::as_units("in"),
     hstix50 = units::as_units("ft")
   ),
-  parameter_names = paste("b_", seq(0 ,5), sep = ""),
+  parameter_names = paste("b_", seq(0, 5), sep = ""),
   predict_fn = function(hst, ccfl, gn, dsob, hstix50) {
     1 - ((1) / (1 + exp(b_0 + b_1 * hst + b_2 * ccfl + b_3 * log(gn) + b_4 * (dsob / hst) + b_5 * (hstix50 - 4.5))))
   },
-  model_specifications = load_parameter_frame('rc_ritchie_1987_1')
+  model_specifications = load_parameter_frame("rc_ritchie_1987_1")
 )
 
 rc_2 <- FixedEffectsSet(
@@ -43,7 +43,7 @@ rc_2 <- FixedEffectsSet(
   predict_fn = function(hst, ccfl, gn) {
     1 - ((1) / (1 + exp(b_0 + b_1 * hst + b_2 * ccfl + b_3 * log(gn))))
   },
-  model_specifications = load_parameter_frame('rc_ritchie_1987_2')
+  model_specifications = load_parameter_frame("rc_ritchie_1987_2")
 )
 
 rc_3 <- FixedEffectsSet(
@@ -56,11 +56,11 @@ rc_3 <- FixedEffectsSet(
     gn = units::as_units("ft^2 / acre"),
     dsob = units::as_units("in")
   ),
-  parameter_names = c('b_0', 'b_2', 'b_3', 'b_4'),
+  parameter_names = c("b_0", "b_2", "b_3", "b_4"),
   predict_fn = function(hst, ccfl, gn, dsob) {
     1 - ((1) / (1 + exp(b_0 + b_2 * ccfl + b_3 * log(gn) + b_4 * (dsob / hst))))
   },
-  model_specifications = load_parameter_frame('rc_ritchie_1987_3')
+  model_specifications = load_parameter_frame("rc_ritchie_1987_3")
 )
 
 rc_4 <- FixedEffectsSet(
@@ -70,11 +70,11 @@ rc_4 <- FixedEffectsSet(
   covariate_units = list(
     ccfl = units::as_units("ft^2 / ft^2")
   ),
-  parameter_names = c('b_0', 'b_2'),
+  parameter_names = c("b_0", "b_2"),
   predict_fn = function(ccfl) {
     1 - ((1) / (1 + exp(b_0 + b_2 * ccfl)))
   },
-  model_specifications = load_parameter_frame('rc_ritchie_1987_4')
+  model_specifications = load_parameter_frame("rc_ritchie_1987_4")
 )
 
 rc_tanoak <- FixedEffectsModel(
