@@ -46,18 +46,16 @@ rd_lines <- function(pub) {
     body <- c(body, sprintf("\\section{%s}{%s}", section_title, section_lines))
   }
 
-  # TODO for each model set pick the first model and construct the example
-  # code programatically. It could be useful to have a little data set with
-  # some default values for each unit/variable pair.
-
   c(header, body)
 }
 
-update_reference_pages <- function() {
+update_reference_pages <- function(verbose) {
   pub_list <- get_pub_list(verbose = F, ignore_cache = F)
 
   for (pub in pub_list) {
-    cat(paste("Updating reference page for:", pub@id, "\n"))
+    if(verbose) {
+      cat(paste("Updating reference page for:", pub@id, "\n"))
+    }
     rd_path <- file.path("./man/", paste0(pub@id, ".Rd"))
     write_lines <- rd_lines(pub)
 
@@ -85,8 +83,9 @@ update_reference_index <- function() {
   pub_rd_names <- paste(pub_names, ".Rd", sep = "")
 
   analysis_funcs <- c("predict", "allometric_models")
+  man_dir <- system.file("man", package="allometric")
 
-  man_files <- list.files("./man")
+  man_files <- list.files(man_dir)
   exclude_files <- c("figures")
   man_files <- man_files[!man_files %in% exclude_files]
 
