@@ -17,7 +17,9 @@ Imports:
     tibble,
     units,
     RefManageR,
-    magrittr
+    magrittr,
+    purrr,
+    ISOcodes
 Collate:
     'utils-pipe.R'
     'all_generics.R'
