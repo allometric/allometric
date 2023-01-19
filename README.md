@@ -4,7 +4,7 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml)
-[![](https://img.shields.io/badge/devel%20version-0.0.1.9000-blue.svg)](https://github.com/brycefrank/allometric)
+[![](https://img.shields.io/badge/devel%20version-0.0.1.9001-blue.svg)](https://github.com/brycefrank/allometric)
 <!-- badges: end -->
 
 `allometric` is an R package for predicting tree attributes with
@@ -64,12 +64,12 @@ head(allometric_models)
     #> # A tibble: 6 × 13
     #>   id       component measure country   region    family        genus       species     model      pub_id        family_name covt_name pub_year
     #>   <chr>    <chr>     <chr>   <list>    <list>    <chr>         <chr>       <chr>       <list>     <chr>         <list>      <list>       <dbl>
-    #> 1 3aff0a28 stem      volume  <chr [1]> <chr [1]> Aceraceae     Acer        <NA>        <FxdEffcM> brackett_1977 <chr [1]>   <chr [2]>     1977
-    #> 2 1d87ea98 stem      volume  <chr [1]> <chr [4]> Altingiaceae  Liquidambar styraciflua <FxdEffcM> hahn_1991     <chr [2]>   <chr [2]>     1991
-    #> 3 b3cf2cbe stem      volume  <chr [1]> <chr [4]> Altingiaceae  Liquidambar styraciflua <FxdEffcM> hahn_1991     <chr [2]>   <chr [2]>     1991
-    #> 4 184c01c3 stem      volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira    guianensis  <FxdEffcM> vibrans_2015  <chr [4]>   <chr [2]>     2015
-    #> 5 fc847c75 tree      biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex        canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
-    #> 6 1460a26f stem      biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex        canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
+    #> 1 d1dd4fcb stem      volume  <chr [1]> <chr [1]> Aceraceae     Acer        <NA>        <FxdEffcM> brackett_1977 <chr [1]>   <chr [2]>     1977
+    #> 2 62c5f445 stem      volume  <chr [1]> <chr [4]> Altingiaceae  Liquidambar styraciflua <FxdEffcM> hahn_1991     <chr [2]>   <chr [2]>     1991
+    #> 3 9684a144 stem      volume  <chr [1]> <chr [4]> Altingiaceae  Liquidambar styraciflua <FxdEffcM> hahn_1991     <chr [2]>   <chr [2]>     1991
+    #> 4 cf6af5d4 stem      volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira    guianensis  <FxdEffcM> vibrans_2015  <chr [4]>   <chr [2]>     2015
+    #> 5 e1cece12 tree      biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex        canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
+    #> 6 c66c5e8e stem      biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex        canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
 
 **Finding and Selecting a Model**
 
@@ -88,23 +88,23 @@ columns we want to unnest. In this case we will unnest the `family_name`
 column.
 
 ``` r
-unnested_models <- unnest_models(allometric_models, cols = 'family_name')
+unnested_models <- unnest_models(allometric_models, cols = "family_name")
 unnested_models
 ```
 
     #> # A tibble: 1,783 × 13
     #>    id       component measure country   region    family        genus       species     model      pub_id        family_name                 covt_name pub_year
     #>    <chr>    <chr>     <chr>   <list>    <list>    <chr>         <chr>       <chr>       <list>     <chr>         <chr>                       <list>       <dbl>
-    #>  1 3aff0a28 stem      volume  <chr [1]> <chr [1]> Aceraceae     Acer        <NA>        <FxdEffcM> brackett_1977 "Brackett"                  <chr [2]>     1977
-    #>  2 1d87ea98 stem      volume  <chr [1]> <chr [4]> Altingiaceae  Liquidambar styraciflua <FxdEffcM> hahn_1991     "Hahn"                      <chr [2]>     1991
-    #>  3 1d87ea98 stem      volume  <chr [1]> <chr [4]> Altingiaceae  Liquidambar styraciflua <FxdEffcM> hahn_1991     "Hansen"                    <chr [2]>     1991
-    #>  4 b3cf2cbe stem      volume  <chr [1]> <chr [4]> Altingiaceae  Liquidambar styraciflua <FxdEffcM> hahn_1991     "Hahn"                      <chr [2]>     1991
-    #>  5 b3cf2cbe stem      volume  <chr [1]> <chr [4]> Altingiaceae  Liquidambar styraciflua <FxdEffcM> hahn_1991     "Hansen"                    <chr [2]>     1991
-    #>  6 184c01c3 stem      volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira    guianensis  <FxdEffcM> vibrans_2015  "Vibrans"                   <chr [2]>     2015
-    #>  7 184c01c3 stem      volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira    guianensis  <FxdEffcM> vibrans_2015  "Moser"                     <chr [2]>     2015
-    #>  8 184c01c3 stem      volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira    guianensis  <FxdEffcM> vibrans_2015  "Oliveira"                  <chr [2]>     2015
-    #>  9 184c01c3 stem      volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira    guianensis  <FxdEffcM> vibrans_2015  "c(\"de\", \"MaÃ§aneiro\")" <chr [2]>     2015
-    #> 10 fc847c75 tree      biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex        canariensis <FxdEffcM> montero_2005  "Montero"                   <chr [1]>     2005
+    #>  1 d1dd4fcb stem      volume  <chr [1]> <chr [1]> Aceraceae     Acer        <NA>        <FxdEffcM> brackett_1977 "Brackett"                  <chr [2]>     1977
+    #>  2 62c5f445 stem      volume  <chr [1]> <chr [4]> Altingiaceae  Liquidambar styraciflua <FxdEffcM> hahn_1991     "Hahn"                      <chr [2]>     1991
+    #>  3 62c5f445 stem      volume  <chr [1]> <chr [4]> Altingiaceae  Liquidambar styraciflua <FxdEffcM> hahn_1991     "Hansen"                    <chr [2]>     1991
+    #>  4 9684a144 stem      volume  <chr [1]> <chr [4]> Altingiaceae  Liquidambar styraciflua <FxdEffcM> hahn_1991     "Hahn"                      <chr [2]>     1991
+    #>  5 9684a144 stem      volume  <chr [1]> <chr [4]> Altingiaceae  Liquidambar styraciflua <FxdEffcM> hahn_1991     "Hansen"                    <chr [2]>     1991
+    #>  6 cf6af5d4 stem      volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira    guianensis  <FxdEffcM> vibrans_2015  "Vibrans"                   <chr [2]>     2015
+    #>  7 cf6af5d4 stem      volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira    guianensis  <FxdEffcM> vibrans_2015  "Moser"                     <chr [2]>     2015
+    #>  8 cf6af5d4 stem      volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira    guianensis  <FxdEffcM> vibrans_2015  "Oliveira"                  <chr [2]>     2015
+    #>  9 cf6af5d4 stem      volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira    guianensis  <FxdEffcM> vibrans_2015  "c(\"de\", \"MaÃ§aneiro\")" <chr [2]>     2015
+    #> 10 e1cece12 tree      biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex        canariensis <FxdEffcM> montero_2005  "Montero"                   <chr [1]>     2005
     #> # … with 1,773 more rows
 
 Now, each row represents unique data combinations for each model, which
@@ -114,8 +114,10 @@ example, to find a volume model for the genus Alnus that had
 
 ``` r
 brackett_alnus_vol <- unnested_models %>%
-  dplyr::filter(family_name == "Brackett", measure == "volume",
-    genus == "Alnus")
+  dplyr::filter(
+    family_name == "Brackett", measure == "volume",
+    genus == "Alnus"
+  )
 
 brackett_alnus_vol
 ```
@@ -123,13 +125,13 @@ brackett_alnus_vol
     #> # A tibble: 1 × 13
     #>   id       component measure country   region    family     genus species model      pub_id        family_name covt_name pub_year
     #>   <chr>    <chr>     <chr>   <list>    <list>    <chr>      <chr> <chr>   <list>     <chr>         <chr>       <list>       <dbl>
-    #> 1 6de9245e stem      volume  <chr [1]> <chr [1]> Betulaceae Alnus rubra   <FxdEffcM> brackett_1977 Brackett    <chr [2]>     1977
+    #> 1 1bedba3f stem      volume  <chr [1]> <chr [1]> Betulaceae Alnus rubra   <FxdEffcM> brackett_1977 Brackett    <chr [2]>     1977
 
-we can see that model `6de9245e` is a volume model written by Brackett
+we can see that model `1bedba3f` is a volume model written by Brackett
 for *Alnus rubra*. The model can be selected using the `id` field:
 
 ``` r
-brackett_alnus_mod <- brackett_alnus_vol %>% select_model("6de9245e")
+brackett_alnus_mod <- brackett_alnus_vol %>% select_model("1bedba3f")
 ```
 
 or by using the row index

@@ -242,15 +242,3 @@ get_model_results <- function(pub_list) {
   write.csv(model_ids, model_ids_path, row.names = F)
   results
 }
-
-
-
-
-
-
-get_allometric_models_ext <- function(pub_list) {
-  pub_list <- update_pub_list()
-  results <- get_model_results()
-
-  aggregate_results_ext(results)
-}
