@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# allometric 0.0.1.9002 (2023-01-19)
+
+## Bug fixes
+
+- Hahn_1991 models parameters were corrected due to a processing error.
+
+
 # allometric 0.0.1.9001 (2023-01-16)
 
 ## Features
