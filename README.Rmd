@@ -27,6 +27,7 @@ n_pubs <- length(unique(allometric_models$pub_id, na.rm = T))
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml)
 `r badger::badge_devel("brycefrank/allometric", "blue")`
+`r badge_codecov("rcannood/princurve")`
 <!-- badges: end -->
 
 `allometric` is an R package for predicting tree attributes with allometric 
