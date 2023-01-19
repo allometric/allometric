@@ -1,35 +1,9 @@
-
-
-check_body_vars_subset_description <- function(object) {
-  errors <- c()
-  fn_body <- body(object@predict_fn)
-  fn_args <- names(as.list(args(object@predict_fn)))
-
-  body_vars <- all.vars(fn_body)
-  body_vars_less_args <- body_vars[!body_vars %in% fn_args]
-
-  model_specification_names <- names(object@specification)
-
-
-  if (!all(body_vars_less_args %in% model_specification_names)) {
-    msg <- paste(
-      "Function body parameters:", paste(body_vars_less_args, collapse = ", "),
-      "is not a subset of the model description:", paste(model_specification_names, collapse = ", ")
-    )
-    errors <- c(errors, msg)
-  }
-  errors
-}
-
-
-
 #' Check validity of parametric model
 #'
 #' @keywords internal
 check_parametric_model <- function(object) {
   errors <- c()
   errors <- c(errors, check_args_in_predict_fn(object))
-  # errors <- c(errors, check_body_vars_subset_description(object))
 
   errors
 }

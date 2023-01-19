@@ -69,3 +69,17 @@ test_that("bad id does not exist", {
   check <- id_exists(model_ids, "bad id")
   expect_false(check)
 })
+
+test_that("uuid8 returns an 8 character string", {
+  test_str <- uuid8()
+
+  expect_equal(nchar(test_str), 8)
+})
+
+test_that("append_id returns a tibble with the appended id", {
+  model_ids <- tibble::tibble(proxy_id = "asdfasdf", id = "this_id")
+  model_ids_appended <- append_id(model_ids, "new_proxy", "new_id")
+
+  expect_equal(nrow(model_ids_appended), 2)
+  expect_equal(model_ids_appended$id[[2]], "new_id")
+})
