@@ -21,16 +21,16 @@
 .get_variable_description <- function(variable, covariate_descriptions) {
   variable_name <- names(variable)[[1]]
 
-  if(class(variable[[variable_name]]) == "symbolic_units") {
+  if (class(variable[[variable_name]]) == "symbolic_units") {
     # Handles the unitless case
-    unit_str <- ''
+    unit_str <- ""
   } else {
     unit_str <- units::deparse_unit(variable[[variable_name]])
   }
 
-  unit_str <- paste('[', unit_str, ']', sep='')
+  unit_str <- paste("[", unit_str, "]", sep = "")
 
-  if(variable_name %in% names(covariate_descriptions)) {
+  if (variable_name %in% names(covariate_descriptions)) {
     variable_description <- covariate_descriptions[[variable_name]]
   } else {
     variable_description <- get_variable_def(variable_name)$description
@@ -65,9 +65,9 @@
   variable_descs <- .get_variable_descriptions(object)
   out <- c()
 
-  for(i in seq_len(nrow(variable_descs))) {
-    desc_i <- variable_descs[i,]
-    desc_str <- paste(desc_i$name, ' ', desc_i$unit_label, ': ', desc_i$desc, sep='')
+  for (i in seq_len(nrow(variable_descs))) {
+    desc_i <- variable_descs[i, ]
+    desc_str <- paste(desc_i$name, " ", desc_i$unit_label, ": ", desc_i$desc, sep = "")
     out <- c(out, desc_str)
   }
 

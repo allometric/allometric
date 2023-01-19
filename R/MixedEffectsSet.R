@@ -38,7 +38,8 @@ MixedEffectsSet <- function(response_unit, covariate_units, parameter_names,
     ModelSet(
       response_unit, covariate_units, predict_fn, model_specifications,
       descriptors, covariate_definitions
-    ), predict_ranef = predict_ranef, fixed_only = fixed_only,
+    ),
+    predict_ranef = predict_ranef, fixed_only = fixed_only,
     parameter_names = parameter_names
   )
 

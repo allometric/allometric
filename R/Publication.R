@@ -1,14 +1,14 @@
 #' Check validity of descriptors
 #'
-#' There must not be any duplicate names across the three sets 
+#' There must not be any duplicate names across the three sets
 #' (pub, set, model). If there is, stop execution with error that names the
 #' duplicated descriptors
-#' 
+#'
 #' @keywords internal
 check_descriptor_set <- function(descriptor_set) {
   dups <- names(descriptor_set)[duplicated(names(descriptor_set))]
 
-  if(length(dups) > 0) {
+  if (length(dups) > 0) {
     stop(paste("Duplicated descriptors:", dups))
   }
 }
@@ -32,7 +32,7 @@ check_publication_validity <- function(object) {
 listify <- function(list_of_vecs) {
   out <- list()
 
-  for(name in names(list_of_vecs)) {
+  for (name in names(list_of_vecs)) {
     out[[name]] <- ifelse(length(list_of_vecs[[name]]) == 1, list_of_vecs[[name]], list(list_of_vecs[[name]]))
   }
 
@@ -73,9 +73,9 @@ Publication <- function(citation, descriptors = list()) {
 bind2 <- function(...) {
   args <- list(...)
   out <- list()
-  for(i in seq_along(args)) {
+  for (i in seq_along(args)) {
     table <- args[[i]]
-    if(nrow(table) != 0) {
+    if (nrow(table) != 0) {
       out[[i]] <- table
     }
   }
@@ -150,8 +150,8 @@ setMethod(
   "Publication",
   function(publication) {
     n <- 0
-    for(i in seq_along(publication@response_sets)) {
-      for(j in seq_along(publication@response_sets[[i]])) {
+    for (i in seq_along(publication@response_sets)) {
+      for (j in seq_along(publication@response_sets[[i]])) {
         n <- n + length(publication@response_sets[[i]][[j]]@models)
       }
     }
@@ -165,7 +165,7 @@ setMethod(
   "Publication",
   function(publication) {
     n <- 0
-    for(i in seq_along(publication@response_sets)) {
+    for (i in seq_along(publication@response_sets)) {
       n <- n + length(publication@response_sets[[i]])
     }
     n
@@ -177,24 +177,23 @@ setMethod("show", "Publication", function(object) {
 
   response_names <- names(object@response_sets)
 
-  for(response_name in response_names) {
-    cat('\n')
+  for (response_name in response_names) {
+    cat("\n")
     n_sets <- length(object@response_sets[[response_name]])
-    if(n_sets > 1) {
-      cat(sprintf('--- %s: %s model sets', response_name, n_sets))
+    if (n_sets > 1) {
+      cat(sprintf("--- %s: %s model sets", response_name, n_sets))
     } else {
-      cat(sprintf('--- %s: %s model set', response_name, n_sets))
+      cat(sprintf("--- %s: %s model set", response_name, n_sets))
     }
 
-    for(i in 1:n_sets) {
+    for (i in 1:n_sets) {
       n_models <- length(object@response_sets[[response_name]][[i]]@models)
-      cat('\n')
-      if(n_models > 1) {
-        cat(sprintf('--------- %s models', n_models))
+      cat("\n")
+      if (n_models > 1) {
+        cat(sprintf("--------- %s models", n_models))
       } else {
-        cat(sprintf('--------- %s model', n_models))
+        cat(sprintf("--------- %s model", n_models))
       }
     }
   }
 })
-

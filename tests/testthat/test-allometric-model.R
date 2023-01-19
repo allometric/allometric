@@ -1,18 +1,22 @@
 test_that("Invalid country returns error", {
   expect_error(
     AllometricModel(
-      response_unit = list(vsa = units::as_units('ft^3')),
-      covariate_units = list(dsob = units::as_units('in')),
-      predict_fn = function(dsob) {dsob},
+      response_unit = list(vsa = units::as_units("ft^3")),
+      covariate_units = list(dsob = units::as_units("in")),
+      predict_fn = function(dsob) {
+        dsob
+      },
       descriptors = list(country = "bad-country-code")
     )
   )
-}) 
+})
 
 allo_mod <- AllometricModel(
-  response_unit = list(vsa = units::as_units('ft^3')),
-  covariate_units = list(dsob = units::as_units('in')),
-  predict_fn = function(dsob) {dsob}
+  response_unit = list(vsa = units::as_units("ft^3")),
+  covariate_units = list(dsob = units::as_units("in")),
+  predict_fn = function(dsob) {
+    dsob
+  }
 )
 
 test_that("Get measure label is correct", {
@@ -24,16 +28,18 @@ test_that("Get component label is correct", {
 })
 
 # TODO produces a warning, but a fairly inconsequential test...
-#test_that("Cite returns a string", {
+# test_that("Cite returns a string", {
 #  expect_equal(Cite(allo_mod), "(, )")
-#})
+# })
 
 my_custom_dsob_description <- "diameter of the stem outside bark at breast height, but slightly different!"
 
 allo_custom_override <- AllometricModel(
-  response_unit = list(vsa = units::as_units('ft^3')),
-  covariate_units = list(dsob = units::as_units('in')),
-  predict_fn = function(dsob) {dsob},
+  response_unit = list(vsa = units::as_units("ft^3")),
+  covariate_units = list(dsob = units::as_units("in")),
+  predict_fn = function(dsob) {
+    dsob
+  },
   covariate_definitions = list(
     dsob = my_custom_dsob_description
   )

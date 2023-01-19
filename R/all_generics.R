@@ -8,7 +8,9 @@ setGeneric(
   function(x) standardGeneric("get_component_label")
 )
 
-setGeneric("Cite", function(x){standardGeneric("Cite")})
+setGeneric("Cite", function(x) {
+  standardGeneric("Cite")
+})
 
 
 
@@ -30,7 +32,8 @@ setGeneric("summary", function(publication) standardGeneric("summary"))
 #' @rdname predict
 #' @export
 setGeneric("predict", function(mod, ...) standardGeneric("predict"),
-  signature = "mod")
+  signature = "mod"
+)
 
 setGeneric("rd_model_equation", function(set) standardGeneric("rd_model_equation"))
 setGeneric("rd_variable_defs", function(set) standardGeneric("rd_variable_defs"))
@@ -83,7 +86,7 @@ setGeneric(
 
 #' Get the function call for a model
 #'
-#' This function allows a user to see the structure of the function call for 
+#' This function allows a user to see the structure of the function call for
 #' a given model in an easy-to-read format.
 #'
 #' @param model The allometric model for which a function call will be

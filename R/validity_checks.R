@@ -5,7 +5,7 @@ check_parameters_in_predict_fn <- function(object) {
   predict_body <- body(object@predict_fn)
   predict_fn_vars <- all.vars(predict_body)
 
-  if(!all(object@parameter_names %in% predict_fn_vars)) {
+  if (!all(object@parameter_names %in% predict_fn_vars)) {
     return("Named parameters are not found in the predict_fn body.")
   }
 }
@@ -22,12 +22,12 @@ check_parameters_in_mixed_fns <- function(object) {
 
   all_vars <- c(predict_fn_vars, predict_ranef_vars)
 
-  if(!all(object@parameter_names %in% all_vars)) {
+  if (!all(object@parameter_names %in% all_vars)) {
     return("Named parameters are not found in the predict_fn and predict_ranef bodies.")
   }
 }
 
-#' Check if all covariates in covariate_units are used as arguments in 
+#' Check if all covariates in covariate_units are used as arguments in
 #' predict_fn
 #'
 #' @keywords internal
@@ -37,8 +37,8 @@ check_covts_in_args <- function(object) {
   fn_args <- fn_args[-length(fn_args)]
 
   covt_names <- names(object@covariate_units)
-  if(!(all(covt_names %in% fn_args) & all(fn_args %in% covt_names))) {
-    msg <- paste('The predict_fn arguments and the names in covariate_units mismatch.')
+  if (!(all(covt_names %in% fn_args) & all(fn_args %in% covt_names))) {
+    msg <- paste("The predict_fn arguments and the names in covariate_units mismatch.")
     errors <- c(errors, msg)
   }
 
@@ -46,7 +46,7 @@ check_covts_in_args <- function(object) {
 }
 
 #' Check if the arguments of the predict_fn are all in the predict_fn body.
-#' 
+#'
 #' @keywords internal
 check_args_in_predict_fn <- function(object) {
   errors <- c()
@@ -75,8 +75,8 @@ check_args_in_predict_fn <- function(object) {
 #' @keywords internal
 check_region_in_iso <- function(region_code) {
   errors <- c()
-  for(code in region_code) {
-    if(!all(code %in% ISOcodes::ISO_3166_2$Code)) {
+  for (code in region_code) {
+    if (!all(code %in% ISOcodes::ISO_3166_2$Code)) {
       msg <- paste("Region code", code, "not found in ISO_3166-2")
       errors <- c(msg, errors)
     }
@@ -91,8 +91,8 @@ check_region_in_iso <- function(region_code) {
 check_country_in_iso <- function(country_code) {
   errors <- c()
 
-  for(code in country_code) {
-    if(!all(code %in% ISOcodes::ISO_3166_1$Alpha_2)) {
+  for (code in country_code) {
+    if (!all(code %in% ISOcodes::ISO_3166_1$Alpha_2)) {
       msg <- paste("Country code", code, "not found in ISO_3166-1 alpha 2")
       errors <- c(msg, errors)
     }
@@ -104,7 +104,7 @@ check_country_in_iso <- function(country_code) {
 check_tbl_rows <- function(descriptors) {
   errors <- c()
 
-  if(nrow(descriptors) > 1) {
+  if (nrow(descriptors) > 1) {
     msg <- "Descriptors must be coercible to a one-row tbl_df."
     errors <- c(errors, msg)
   }
@@ -115,9 +115,9 @@ check_tbl_rows <- function(descriptors) {
 check_tbl_atomic <- function(descriptors) {
   errors <- c()
 
-  if(nrow(descriptors) > 0) {
-    for(name in names(descriptors)) {
-      if(!is.atomic(descriptors[[name]][[1]])) {
+  if (nrow(descriptors) > 0) {
+    for (name in names(descriptors)) {
+      if (!is.atomic(descriptors[[name]][[1]])) {
         msg <- paste("Non-atomic descriptor:", name)
         errors <- c(errors, msg)
       }
@@ -136,11 +136,11 @@ check_descriptor_validity <- function(descriptors) {
   errors <- c(errors, check_tbl_rows(descriptors))
   errors <- c(errors, check_tbl_atomic(descriptors))
 
-  if("country" %in% names(descriptors)) {
+  if ("country" %in% names(descriptors)) {
     errors <- c(errors, check_country_in_iso(descriptors$country))
   }
-  
-  if("region" %in% names(descriptors)) {
+
+  if ("region" %in% names(descriptors)) {
     errors <- c(errors, check_region_in_iso(descriptors$region))
   }
 

@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 
-if(!exists("allometric_models")) {
+if (!exists("allometric_models")) {
   allometric::install_models()
 }
 
@@ -94,7 +94,7 @@ available data.  Using the `cols` argument we can specify which columns we want
 to unnest. In this case we will unnest the `family_name` column.
 
 ```{r}
-unnested_models <- unnest_models(allometric_models, cols = 'family_name')
+unnested_models <- unnest_models(allometric_models, cols = "family_name")
 unnested_models
 ```
 
@@ -105,8 +105,10 @@ we can use
 
 ```{r}
 brackett_alnus_vol <- unnested_models %>%
-  dplyr::filter(family_name == "Brackett", measure == "volume",
-    genus == "Alnus")
+  dplyr::filter(
+    family_name == "Brackett", measure == "volume",
+    genus == "Alnus"
+  )
 
 brackett_alnus_vol
 ```

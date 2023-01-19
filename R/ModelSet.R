@@ -29,7 +29,6 @@ check_model_set_validity <- function(object) {
 ModelSet <- function(response_unit, covariate_units, predict_fn,
                      model_specifications, descriptors = list(),
                      covariate_definitions = list()) {
-
   descriptors <- tibble::as_tibble(descriptors)
 
   model_set <- .ModelSet(
@@ -69,8 +68,8 @@ setMethod("rd_variable_defs", "ModelSet", function(set) {
 
   variable_descs <- .get_variable_descriptions(set)
   body_strs <- c()
-  for(i in seq_len(nrow(variable_descs))) {
-    var_i <- variable_descs[i,]
+  for (i in seq_len(nrow(variable_descs))) {
+    var_i <- variable_descs[i, ]
     var_unit_str <- paste(var_i$name, var_i$unit_label)
 
     var_str <- sprintf(

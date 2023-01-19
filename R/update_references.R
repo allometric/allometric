@@ -54,9 +54,9 @@ rd_lines <- function(pub) {
 }
 
 update_reference_pages <- function() {
-  pub_list <- get_pub_list(verbose=F, ignore_cache = F)
+  pub_list <- get_pub_list(verbose = F, ignore_cache = F)
 
-  for(pub in pub_list) {
+  for (pub in pub_list) {
     cat(paste("Updating reference page for:", pub@id, "\n"))
     rd_path <- file.path("./man/", paste0(pub@id, ".Rd"))
     write_lines <- rd_lines(pub)
@@ -68,9 +68,9 @@ update_reference_pages <- function() {
 check_internal <- function(rd_path) {
   parsed_rd <- tools::parse_Rd(rd_path)
 
-  for(el in parsed_rd) {
-    if(attr(el, 'Rd_tag') == "\\keyword") {
-      if(el[[1]][[1]] == "internal") {
+  for (el in parsed_rd) {
+    if (attr(el, "Rd_tag") == "\\keyword") {
+      if (el[[1]][[1]] == "internal") {
         return(TRUE)
       }
     }
@@ -80,23 +80,23 @@ check_internal <- function(rd_path) {
 }
 
 update_reference_index <- function() {
-  pub_list <- get_pub_list(verbose=F, ignore_cache = F)
+  pub_list <- get_pub_list(verbose = F, ignore_cache = F)
   pub_names <- names(pub_list)
   pub_rd_names <- paste(pub_names, ".Rd", sep = "")
 
-  analysis_funcs <- c('predict', 'allometric_models')
+  analysis_funcs <- c("predict", "allometric_models")
 
   man_files <- list.files("./man")
-  exclude_files <- c('figures')
+  exclude_files <- c("figures")
   man_files <- man_files[!man_files %in% exclude_files]
 
   non_pub_rd_files <- c()
-  for(man_file in man_files) {
-    man_path <- file.path(system.file('man', package='allometric'), man_file)
+  for (man_file in man_files) {
+    man_path <- file.path(system.file("man", package = "allometric"), man_file)
     internal <- check_internal(man_path)
 
     # Remove keyword: internal and publications from this section
-    if(!internal & !(man_file %in% pub_rd_names)) {
+    if (!internal & !(man_file %in% pub_rd_names)) {
       non_pub_rd_files <- c(non_pub_rd_files, man_file)
     }
   }
@@ -151,7 +151,6 @@ update_reference_index <- function() {
     )
   }
 
-  out_path <- system.file('_pkgdown.yml', package='allometric')
+  out_path <- system.file("_pkgdown.yml", package = "allometric")
   yaml::write_yaml(yaml_header, out_path)
 }
-

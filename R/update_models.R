@@ -4,23 +4,23 @@
 #'
 #' The pub_list is regenerated if any file in inst/publications has been
 #' modified after the creation of the pub_list
-#' 
+#'
 #' @keywords internal
 check_run_pub_list <- function(pub_list_path) {
-  pub_path <- system.file('publications', package='allometric')
+  pub_path <- system.file("publications", package = "allometric")
   pub_file_paths <- file.path(pub_path, list.files(pub_path))
   file_info <- file.info(pub_file_paths)
   pub_info <- file.info(pub_list_path)
 
-  if(any(file_info$mtime >= pub_info$mtime)) {
+  if (any(file_info$mtime >= pub_info$mtime)) {
     return(TRUE)
   } else {
-    return (FALSE)
+    return(FALSE)
   }
 }
 
 run_pub_list <- function(verbose) {
-  pub_path <- system.file('publications', package='allometric')
+  pub_path <- system.file("publications", package = "allometric")
 
   pub_r_files <- list.files(pub_path)
   pub_r_paths <- file.path(pub_path, pub_r_files)
@@ -33,7 +33,7 @@ run_pub_list <- function(verbose) {
     pub_r_path <- pub_r_paths[[i]]
     pub_r_file <- pub_r_files[[i]]
 
-    if(verbose) {
+    if (verbose) {
       cat(paste("Updating publication list for:", pub_r_path, "\n"))
     }
 
@@ -47,24 +47,26 @@ run_pub_list <- function(verbose) {
   # Remove pub_env from memory
   rm("pub_env")
 
-  pub_list_path <- file.path(system.file('extdata', package = 'allometric'),
-    'pub_list.RDS')
+  pub_list_path <- file.path(
+    system.file("extdata", package = "allometric"),
+    "pub_list.RDS"
+  )
   saveRDS(pub_list, pub_list_path)
 }
 
-#' 
+#'
 get_pub_list <- function(ignore_cache, verbose) {
-  pub_list_path <- system.file('extdata/pub_list.RDS', package = 'allometric')
+  pub_list_path <- system.file("extdata/pub_list.RDS", package = "allometric")
 
 
-  if(pub_list_path == "" || ignore_cache)  {
+  if (pub_list_path == "" || ignore_cache) {
     run_pub_list(verbose)
   } else {
     run <- check_run_pub_list(pub_list_path)
-    if(run) run_pub_list(verbose)
+    if (run) run_pub_list(verbose)
   }
 
-  pub_list_path <- system.file('extdata/pub_list.RDS', package = 'allometric')
+  pub_list_path <- system.file("extdata/pub_list.RDS", package = "allometric")
   readRDS(pub_list_path)
 }
 
@@ -73,14 +75,14 @@ get_pub_list <- function(ignore_cache, verbose) {
 #' We need some sort of stable data structure that will serve as a unique ID
 #' for a model, but will also change in the event that the model changes. This
 #' way, models can be "versioned" across time, which may be useful for debugging
-#' purposes down the line. This function trims whitespace and lowercases 
+#' purposes down the line. This function trims whitespace and lowercases
 #' the predict_fn_populated, which serves as a reasonable proxy for the model.
-#' 
+#'
 #' @keywords internal
 get_model_hash <- function(predict_fn_populated, descriptors) {
-  descriptors_string <- gsub(" ", "", tolower(paste(descriptors, collapse="")))
+  descriptors_string <- gsub(" ", "", tolower(paste(descriptors, collapse = "")))
   fn_string <- gsub(" ", "", tolower(paste(deparse(predict_fn_populated), collapse = "")))
-  hash_str <- paste(descriptors_string, fn_string, sep="")
+  hash_str <- paste(descriptors_string, fn_string, sep = "")
   as.character(openssl::md5(hash_str))
 }
 
@@ -94,7 +96,7 @@ append_search_descriptors <- function(row, model_descriptors) {
 }
 
 #' Transforms a set of searched models into a tibble of models and descriptors
-#' 
+#'
 #' @keywords internal
 aggregate_results_ext <- function(results) {
   search_descriptors <- c(
@@ -117,7 +119,7 @@ aggregate_results_ext <- function(results) {
 
     descriptors_row <- tibble::as_tibble(list(pub_id = pub@id))
 
-    descriptors_row$id <- result$id
+    descriptors_row$id <- result$id[[1]]
     descriptors_row$model <- c(model)
 
     # Gets rid of column not exist errors.
@@ -159,7 +161,7 @@ aggregate_results_ext <- function(results) {
 id_exists <- function(model_ids, proxy_id) {
   match_ix <- which(model_ids$proxy_id == proxy_id)
 
-  if(identical(match_ix, integer(0))) {
+  if (identical(match_ix, integer(0))) {
     return(FALSE)
   } else {
     return(TRUE)
@@ -179,16 +181,17 @@ append_id <- function(model_ids, proxy_id, id) {
 
 get_model_results <- function(pub_list) {
   results <- list()
-  model_ids_path <- system.file('model_ids.csv', package = 'allometric')
+  model_ids_path <- system.file("model_ids.csv", package = "allometric")
 
-  if(file.exists(model_ids_path)) {
+  if (file.exists(model_ids_path)) {
     model_ids <- read.csv(model_ids_path,
-      colClasses = c(proxy_id = 'character', id = 'character')) %>%
+      colClasses = c(proxy_id = "character", id = "character")
+    ) %>%
       tibble::as_tibble()
     current_ids <- model_ids$proxy_id
   } else {
-    model_ids <- tibble::tibble(id = character(0), proxy_id = character(0), .rows=0)
-    model_ids_path <- file.path(system.file("", package="allometric"), "model_ids.csv")
+    model_ids <- tibble::tibble(id = character(0), proxy_id = character(0), .rows = 0)
+    model_ids_path <- file.path(system.file("", package = "allometric"), "model_ids.csv")
     current_ids <- model_ids$proxy_id
   }
 
@@ -198,7 +201,7 @@ get_model_results <- function(pub_list) {
   for (i in seq_along(pub_list)) {
     pub <- pub_list[[i]]
     response_sets <- pub@response_sets
-    for (j in  seq_along(response_sets)) {
+    for (j in seq_along(response_sets)) {
       response_set <- response_sets[[j]]
       for (k in seq_along(response_set)) {
         model_set <- response_set[[k]]
@@ -206,14 +209,14 @@ get_model_results <- function(pub_list) {
           model <- model_set@models[[l]]
           proxy_id <- get_model_hash(model@predict_fn_populated, descriptors(model))
 
-          if(!proxy_id %in% current_ids) {
+          if (!proxy_id %in% current_ids) {
             id <- uuid8()
             model_ids <- append_id(model_ids, proxy_id, id)
           } else {
-            if(sum(model_ids$proxy_id == proxy_id) > 1) {
+            if (sum(model_ids$proxy_id == proxy_id) > 1) {
               stop("Duplicate model hash found for model")
             }
-            id <- model_ids[model_ids$proxy_id == proxy_id, 'id']
+            id <- model_ids[model_ids$proxy_id == proxy_id, "id"]
           }
 
           current_ids <- current_ids[!current_ids == proxy_id]
@@ -232,11 +235,11 @@ get_model_results <- function(pub_list) {
   delete_ids <- current_ids
   delete_ixs <- which(model_ids$proxy_id %in% delete_ids)
 
-  if(!identical(delete_ixs, integer(0))) {
-    model_ids <- model_ids[-delete_ixs,]
+  if (!identical(delete_ixs, integer(0))) {
+    model_ids <- model_ids[-delete_ixs, ]
   }
 
-  write.csv(model_ids, model_ids_path, row.names=F)
+  write.csv(model_ids, model_ids_path, row.names = F)
   results
 }
 

@@ -53,7 +53,7 @@ MixedEffectsModel <- function(response_unit, covariate_units, predict_ranef,
 #'    stand or plot).
 #' @rdname predict
 setMethod("predict", signature(mod = "MixedEffectsModel"), function(mod, ..., newdata = NULL) {
-  # TODO validity checks for predict_ranef, we should throw a warning if 
+  # TODO validity checks for predict_ranef, we should throw a warning if
   # the columna names of newdata are not the same set of args in predict_ranef
   # probabyl some opportunity for DRY with other validity checks..
   ranef_args <- names(as.list(args(mod@predict_ranef)))
@@ -91,8 +91,8 @@ setMethod("model_call", signature(model = "MixedEffectsModel"), function(model) 
 
   arg_names <- names(as.list(args(model@predict_fn)))
   arg_names <- arg_names[-length(arg_names)]
-  arg_names <- c(arg_names, 'newdata')
-  arg_names_str <- paste(arg_names, collapse = ', ')
+  arg_names <- c(arg_names, "newdata")
+  arg_names_str <- paste(arg_names, collapse = ", ")
 
-  paste(response_var, ' = ', 'f(', arg_names_str, ')', sep='')
+  paste(response_var, " = ", "f(", arg_names_str, ")", sep = "")
 })

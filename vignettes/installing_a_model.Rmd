@@ -44,17 +44,17 @@ is
 
 ```{r}
 paper_citation <- RefManageR::BibEntry(
-    bibtype = 'article',
-    key = 'temesgen_2008',
-    title = 'Analysis and comparison of nonlinear tree height prediction
-        strategies for Douglas-fir forests',
-    author = 'Temesgen, Hailemariam and Monleon, Vicente J. and Hann, David W.',
-    journal = 'Canadian Journal of Forest Research',
-    year = 2008,
-    volume = 38,
-    number = 3,
-    pages = '553-565',
-    year = 2008
+  bibtype = "article",
+  key = "temesgen_2008",
+  title = "Analysis and comparison of nonlinear tree height prediction
+        strategies for Douglas-fir forests",
+  author = "Temesgen, Hailemariam and Monleon, Vicente J. and Hann, David W.",
+  journal = "Canadian Journal of Forest Research",
+  year = 2008,
+  volume = 38,
+  number = 3,
+  pages = "553-565",
+  year = 2008
 )
 ```
 
@@ -72,14 +72,14 @@ With this in mind, we establish the `Publication` object.
 
 ```{r}
 temesgen_2008 <- Publication(
-    citation = paper_citation,
-    descriptors = list(
-        country = 'US',
-        region = "US-OR",
-        family = 'Pinaceae',
-        genus = 'Pseudotsuga',
-        species = 'menziesii'
-    )
+  citation = paper_citation,
+  descriptors = list(
+    country = "US",
+    region = "US-OR",
+    family = "Pinaceae",
+    genus = "Pseudotsuga",
+    species = "menziesii"
+  )
 )
 ```
 
@@ -102,10 +102,10 @@ $b_2$. This is a perfect candidate for the `FixedEffectsModel` class.
 ```{r}
 temesgen_2008_model_one <- FixedEffectsModel(
   response_unit = list(
-    hst = units::as_units('m')
+    hst = units::as_units("m")
   ),
   covariate_units = list(
-    dsob = units::as_units('cm')
+    dsob = units::as_units("cm")
   ),
   parameters = list(
     beta_0 = 51.9954,
@@ -163,20 +163,20 @@ defining the `Publication`.
 
 ```{r}
 bracket_1977_citation <- RefManageR::BibEntry(
-    bibtype = 'techreport',
-    key = 'brackett_1977',
-    title = 'Notes on tarif tree volume computation',
-    author = 'Brackett, Michael',
-    year = 1977,
-    institution = 'State of Washington, Dept. of Natural Resources'
+  bibtype = "techreport",
+  key = "brackett_1977",
+  title = "Notes on tarif tree volume computation",
+  author = "Brackett, Michael",
+  year = 1977,
+  institution = "State of Washington, Dept. of Natural Resources"
 )
 
 brackett_1977 <- Publication(
-    citation = bracket_1977_citation,
-    descriptors = list(
-        country = "US",
-        region = "US-WA"
-    )
+  citation = bracket_1977_citation,
+  descriptors = list(
+    country = "US",
+    region = "US-WA"
+  )
 )
 ```
 
@@ -214,18 +214,18 @@ same, but the implication is that `response unit`, `covariate units` and
 
 ```{r}
 brackett_1977_model_set <- FixedEffectsSet(
-    response_unit = list(
-        vsa = units::as_units('ft3')
-    ),
-    covariate_units = list(
-        dsob = units::as_units('in'),
-        hst  = units::as_units('ft')
-    ),
-    parameter_names = c('a', 'b', 'c'),
-    predict_fn = function(dsob, hst) {
-        10^a * dsob^b * hst^c
-    },
-    model_specifications = model_specifications
+  response_unit = list(
+    vsa = units::as_units("ft3")
+  ),
+  covariate_units = list(
+    dsob = units::as_units("in"),
+    hst  = units::as_units("ft")
+  ),
+  parameter_names = c("a", "b", "c"),
+  predict_fn = function(dsob, hst) {
+    10^a * dsob^b * hst^c
+  },
+  model_specifications = model_specifications
 )
 ```
 

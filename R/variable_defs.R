@@ -125,7 +125,7 @@ get_variable_def <- function(response_name) {
     def <- get_diameter_def(response_name)
   } else if (measure_char == "e") {
     def <- get_density_def(response_name)
-  } else if(measure_char == "r") {
+  } else if (measure_char == "r") {
     def <- get_ratio_def(response_name)
   } else {
     def <- list(description = character(0))

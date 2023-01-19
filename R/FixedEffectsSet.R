@@ -44,7 +44,8 @@ FixedEffectsSet <- function(response_unit, covariate_units, parameter_names,
     ModelSet(
       response_unit, covariate_units, predict_fn, model_specifications,
       descriptors, covariate_definitions
-    ), parameter_names = parameter_names
+    ),
+    parameter_names = parameter_names
   )
 
   mod_descriptors <- names(model_specifications)[!names(model_specifications) %in% fixed_effects_set@parameter_names]
@@ -65,4 +66,3 @@ FixedEffectsSet <- function(response_unit, covariate_units, parameter_names,
 
   fixed_effects_set
 }
-

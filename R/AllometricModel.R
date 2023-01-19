@@ -45,7 +45,6 @@ check_allometric_model_validity <- function(object) {
 AllometricModel <- function(response_unit, covariate_units, predict_fn,
                             descriptors = list(),
                             covariate_definitions = list()) {
-
   # Coerce to tibble
   descriptors <- tibble::as_tibble(descriptors)
 
@@ -56,7 +55,7 @@ AllometricModel <- function(response_unit, covariate_units, predict_fn,
     descriptors = descriptors,
     set_descriptors = tibble::tibble(),
     pub_descriptors = tibble::tibble(),
-    citation = RefManageR::BibEntry(bibtype="misc", title="", author="", year=0),
+    citation = RefManageR::BibEntry(bibtype = "misc", title = "", author = "", year = 0),
     covariate_definitions = covariate_definitions
   )
 
@@ -108,6 +107,3 @@ setMethod(
     RefManageR::Cite(x@citation)
   }
 )
-
-
-

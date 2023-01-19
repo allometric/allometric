@@ -24,7 +24,7 @@ check_body_vars_subset_description <- function(object) {
 
 
 #' Check validity of parametric model
-#' 
+#'
 #' @keywords internal
 check_parametric_model <- function(object) {
   errors <- c()
@@ -120,9 +120,9 @@ setMethod("model_call", signature(model = "ParametricModel"), function(model) {
 
   arg_names <- names(as.list(args(model@predict_fn)))
   arg_names <- arg_names[-length(arg_names)]
-  arg_names_str <- paste(arg_names, collapse = ', ')
+  arg_names_str <- paste(arg_names, collapse = ", ")
 
-  paste(response_var, ' = ', 'f(', arg_names_str, ')', sep='')
+  paste(response_var, " = ", "f(", arg_names_str, ")", sep = "")
 })
 
 
@@ -159,6 +159,3 @@ setMethod("get_model_str", "ParametricModel", function(mod) {
 setMethod("get_variable_descriptions", "ParametricModel", function(mod) {
   .get_variable_descriptions_fmt(mod)
 })
-
-
-

@@ -20,7 +20,7 @@ are fit to specific geographic regions and age classes. Let's take a look at
 the descriptors of one of those models
 
 ```{r}
-brackett_mod_1 <- select_model(allometric_models, '6de9245e')
+brackett_mod_1 <- select_model(allometric_models, "6de9245e")
 brackett_mod_1
 ```
 

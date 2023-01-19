@@ -4,15 +4,15 @@
 # to go further. this is a good start
 
 new_model_tbl <- function(tibble) {
-  structure(tibble, class = c('model_tbl', class(tibble)))
+  structure(tibble, class = c("model_tbl", class(tibble)))
 }
 
 model_tbl_can_reconstruct <- function(x, to) {
-    if(!'model' %in% names(x)) {
-        return(FALSE)
-    } else {
-        return(TRUE)
-    }
+  if (!"model" %in% names(x)) {
+    return(FALSE)
+  } else {
+    return(TRUE)
+  }
 }
 
 df_reconstruct <- function(x, to) {
@@ -35,7 +35,7 @@ new_bare_tibble <- function(x) {
 }
 
 model_tbl_reconstruct <- function(x, to) {
-  if(model_tbl_can_reconstruct(x, to)) {
+  if (model_tbl_can_reconstruct(x, to)) {
     df_reconstruct(x, to)
   } else {
     new_bare_tibble(x)
@@ -60,9 +60,9 @@ select_model <- function(data, id) {
 
 #' @export
 select_model.model_tbl <- function(data, id) {
-  if(is.character(id)) {
+  if (is.character(id)) {
     out <- data[data$id == id, "model"][[1, 1]][[1]]
-  } else if(is.numeric(id)) {
+  } else if (is.numeric(id)) {
     out <- data[id, "model"][[1, 1]][[1]]
   }
 

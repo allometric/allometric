@@ -15,7 +15,7 @@ load_publication <- function(pub_id) {
   # during model installation it will be helpful to regenerate this if changes
   # occurred during the session
   get_pub_list()
-  pub_list <- readRDS(system.file('extdata/pub_list.RDS', package = 'allometric'))
+  pub_list <- readRDS(system.file("extdata/pub_list.RDS", package = "allometric"))
   pub_list[[pub_id]]
 }
 
@@ -119,9 +119,9 @@ load_publication <- function(pub_id) {
 #' `r nrow(hann_first_author_models)` models in this package.
 #'
 #' ## Finding a Model with Specific Data Requirements
-#' 
-#' We can even check for models that contain certain types of data requirements. 
-#' For example, the following block finds diameter-height models, specifically 
+#'
+#' We can even check for models that contain certain types of data requirements.
+#' For example, the following block finds diameter-height models, specifically
 #' models that use diameter outside bark at breast height as the *only* covariate.
 #' The utility here is obvious, since many inventories are vastly limited by their
 #' available tree measurements.
@@ -137,12 +137,12 @@ load_publication <- function(pub_id) {
 #' ```
 #'
 #' Breaking this down, we have the first condition `measure=='height'` selecting
-#' only models concerned with heights as a response variable. The second line 
+#' only models concerned with heights as a response variable. The second line
 #' maps over each element of the `covt_name` column, which is a character vector.
 #' The `.` represents a given character vector for that row. First, we ensure that
 #' the vector is only one element in size using `length(.)==1`, then we ensure that
 #' the first (and only) element of this vector is equal to `'dsob'`, (diameter
-#' outside bark at breast height). In this case, `r nrow(dia_ht_models)` are 
+#' outside bark at breast height). In this case, `r nrow(dia_ht_models)` are
 #' available in the package.
 #'
 #' ## Finding a Model for a Region
@@ -160,7 +160,7 @@ load_publication <- function(pub_id) {
 #' nrow(us_or_models)
 #' ```
 #'
-#' We can see that `r nrow(us_or_models)` allometric models are defined for the 
+#' We can see that `r nrow(us_or_models)` allometric models are defined for the
 #' state of Oregon, US.
 #'
 #' @name allometric_models
