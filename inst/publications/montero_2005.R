@@ -32,7 +32,7 @@ for(b_param_name in b_param_names) {
   model_spec <- b_params %>% dplyr::filter(allo_var == b_param_name) %>%
     dplyr::select(-name) %>%
     dplyr::group_by(allo_var, family, genus, species, a, b, cf) %>%
-    summarise(region = list(region))
+    dplyr::summarise(region = list(region))
 
   model_spec <- model_spec[,-1] # drop allo_var column
 
@@ -57,7 +57,7 @@ bb_params <- load_parameter_frame('bb_montero_2005')
 bb_spec <- bb_params %>%
   dplyr::select(-name) %>%
   dplyr::group_by(family, genus, species, branch_size, a, b, cf) %>%
-  summarise(region = list(region))
+  dplyr::summarise(region = list(region))
 
 bb_set <- FixedEffectsSet(
   response_unit = list(bb = units::as_units('kg')),

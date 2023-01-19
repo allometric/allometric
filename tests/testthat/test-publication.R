@@ -49,7 +49,7 @@ fixed_effects_set <- FixedEffectsSet(
 
 test_that("Publication add_set adds set for fixed effects set", {
     pub_add_fixef <- add_set(pub, fixed_effects_set)
-    expect_equal(length(pub_add_fixef@response_sets[['vsa']][[1]]@models), 1)
+    expect_equal(length(pub_add_fixef@response_sets[['vsa']][[1]]@models), 2)
     expect_equal(n_models(pub_add_fixef), 2)
     expect_equal(n_sets(pub_add_fixef), 1)
 })

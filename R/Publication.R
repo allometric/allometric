@@ -152,7 +152,7 @@ setMethod(
     n <- 0
     for(i in seq_along(publication@response_sets)) {
       for(j in seq_along(publication@response_sets[[i]])) {
-        n <- n + length(publication@response_sets[[i]][[j]])
+        n <- n + length(publication@response_sets[[i]][[j]]@models)
       }
     }
 

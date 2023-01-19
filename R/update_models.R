@@ -37,7 +37,7 @@ run_pub_list <- function(verbose) {
       cat(paste("Updating publication list for:", pub_r_path, "\n"))
     }
 
-    source(pub_r_path, local = pub_env) # FIXME this loads all pubs into memory anyway...
+    source(pub_r_path, local = pub_env)
     pub_name <- tools::file_path_sans_ext(pub_r_file)
     pub <- get(pub_name, envir = pub_env)
 
@@ -180,10 +180,20 @@ append_id <- function(model_ids, proxy_id, id) {
 get_model_results <- function(pub_list) {
   results <- list()
   model_ids_path <- system.file('model_ids.csv', package = 'allometric')
-  model_ids <- read.csv(model_ids_path,
-    colClasses = c(proxy_id = 'character', id = 'character'))
 
-  current_ids <- model_ids$proxy_id
+  if(file.exists(model_ids_path)) {
+    model_ids <- read.csv(model_ids_path,
+      colClasses = c(proxy_id = 'character', id = 'character')) %>%
+      tibble::as_tibble()
+    current_ids <- model_ids$proxy_id
+  } else {
+    model_ids <- tibble::tibble(id = character(0), proxy_id = character(0), .rows=0)
+    model_ids_path <- file.path(system.file("", package="allometric"), "model_ids.csv")
+    current_ids <- model_ids$proxy_id
+  }
+
+
+
 
   for (i in seq_along(pub_list)) {
     pub <- pub_list[[i]]
@@ -200,6 +210,9 @@ get_model_results <- function(pub_list) {
             id <- uuid8()
             model_ids <- append_id(model_ids, proxy_id, id)
           } else {
+            if(sum(model_ids$proxy_id == proxy_id) > 1) {
+              stop("Duplicate model hash found for model")
+            }
             id <- model_ids[model_ids$proxy_id == proxy_id, 'id']
           }
 
@@ -215,6 +228,7 @@ get_model_results <- function(pub_list) {
   }
 
   # these models no longer exist
+  # FIXME this is not working at present, we have ~900 IDs but just 600-something models?
   delete_ids <- current_ids
   delete_ixs <- which(model_ids$proxy_id %in% delete_ids)
 
@@ -236,12 +250,4 @@ get_allometric_models_ext <- function(pub_list) {
   results <- get_model_results()
 
   aggregate_results_ext(results)
-}
-
-update_references <- function() {
-
-}
-
-update_reference_index <- function() {
-
 }

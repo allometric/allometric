@@ -20,8 +20,8 @@ country_frame <- load_parameter_frame('hst_feldpausch_2012_country')
 
 # Geog. region frame
 geog_region_frame <- country_frame %>%
-  group_by(continent, geographic_region, a, b, c) %>%
-  summarise(country = list(country))
+  dplyr::group_by(continent, geographic_region, a, b, c) %>%
+  dplyr::summarise(country = list(country))
 
 geog_region_set <- FixedEffectsSet(
   response_unit = list(
@@ -50,8 +50,8 @@ continent_params <- tibble::tibble(
 )
 
 continent_frame <- country_frame %>%
-  group_by(continent) %>%
-  summarise(country = list(country)) %>%
+  dplyr::group_by(continent) %>%
+  dplyr::summarise(country = list(country)) %>%
   dplyr::filter(!continent %in% c('Australia', 'Asia')) %>% # These two are redundant
   merge(continent_params) %>% tibble::as_tibble()
 
@@ -72,8 +72,8 @@ generic_set <- FixedEffectsSet(
 feldpausch_2012 <- add_set(feldpausch_2012, generic_set)
 
 pantropical_frame <- country_frame %>%
-  summarise(country = list(country)) %>%
-  mutate(a = 50.874, b = 0.0420, c = 0.784)
+  dplyr::summarise(country = list(country)) %>%
+  dplyr::mutate(a = 50.874, b = 0.0420, c = 0.784)
 
 pantropical_model <- FixedEffectsModel(
   response_unit = list(
