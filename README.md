@@ -1,12 +1,7 @@
 
-# allometric <a href="https://brycefrank.com/allometric/"><img src='man/figures/logo.png' align="right" height="139" /></a>
+# allometric <a href="https://brycefrank.com/allometric/"><img src='man/figures/logo.png' align="right" height="139"/></a>
 
 <!-- badges: start -->
-
-[![R-CMD-check](https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml)
-[![](https://img.shields.io/badge/devel%20version-0.0.1.9002-blue.svg)](https://github.com/brycefrank/allometric)
-[![](https://app.codecov.io/gh/brycefrank/allometric/branch/master/graph/badge.svg)](https://app.codecov.io/gh/brycefrank/allometric)
-[![codecov](https://codecov.io/gh/brycefrank/allometric/branch/master/graph/badge.svg?token=3V5KUFMO2X)](https://codecov.io/gh/brycefrank/allometric)
 <!-- badges: end -->
 
 `allometric` is an R package for predicting tree attributes with
