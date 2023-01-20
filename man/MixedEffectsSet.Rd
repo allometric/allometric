@@ -12,7 +12,8 @@ MixedEffectsSet(
   model_specifications,
   predict_ranef,
   fixed_only = FALSE,
-  descriptors = list()
+  descriptors = list(),
+  covariate_definitions = list()
 )
 }
 \arguments{
@@ -27,11 +28,6 @@ the coavariate using the \code{units::as_units} function.}
 \item{parameter_names}{A character vector naming the columns in \code{model_specifications} that
 represent the parameters.}
 
-\item{predict_fn}{A function that takes the covariates specified in \code{covariate_units} as
-arguments and produces an allometric prediction. The last line of the
-function must be a mathematical expression that does not use a \code{return}
-statement.}
-
 \item{model_specifications}{A dataframe such that each row of the dataframe provides model-level
 descriptors and parameter estimates for that model. Models must be
 uniquely identifiable using the descriptors.}
@@ -44,6 +40,9 @@ fixed effects. This is useful when publications do not provide sufficient
 information to predict the random effects.}
 
 \item{descriptors}{An optional list of descriptors that are specified at the model-level.}
+
+\item{covariate_definitions}{A named list of covariate definitions that
+are used instead of the descriptions given by the variable naming system.}
 }
 \description{
 A \code{MixedEffectsSet} represents a group of fixed-effects models that all have
@@ -52,4 +51,9 @@ many different species) using the same functional structure is a common
 pattern in allometric studies, and \code{MixedEffectsSet} facilitates the
 installation of these groups of models by allowing the user to specify the
 parameter estimates and descriptions in a dataframe or spreadsheet.
+}
+\details{
+Because mixed-effects models already accommodate a grouping structure,
+\code{MixedEffectsSet} tends to be a much rarer occurrence than \code{FixedEffectsSet}
+and \code{MixedEffectsModel}.
 }

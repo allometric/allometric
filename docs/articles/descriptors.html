@@ -33,7 +33,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">allometric</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1.9003</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -97,9 +97,12 @@ example.</p>
 models that are fit to specific geographic regions and age classes.
 Let’s take a look at the descriptors of one of those models</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">brackett_mod_1</span> <span class="op">&lt;-</span> <span class="fu">select_model</span><span class="op">(</span><span class="va">allometric_models</span>, <span class="st">'6de9245e'</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">brackett_mod_1</span> <span class="op">&lt;-</span> <span class="fu">select_model</span><span class="op">(</span><span class="va">allometric_models</span>, <span class="st">"ef95c311"</span><span class="op">)</span></span>
 <span><span class="va">brackett_mod_1</span></span></code></pre></div>
-<pre><code><span><span class="co">## Model Form: </span></span>
+<pre><code><span><span class="co">## Model Call: </span></span>
+<span><span class="co">## vsa = f(dsob, hst) </span></span>
+<span><span class="co">##  </span></span>
+<span><span class="co">## Model Form: </span></span>
 <span><span class="co">## vsa = 10^a * dsob^b * hst^c </span></span>
 <span><span class="co">##  </span></span>
 <span><span class="co">## vsa [ft3]: volume of the entire stem, including top and stump</span></span>
@@ -107,12 +110,16 @@ Let’s take a look at the descriptors of one of those models</p>
 <span><span class="co">## hst [ft]: total height of the stem</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## Parameter Estimates: </span></span>
-<span><span class="co">##           a        b        c</span></span>
-<span><span class="co">## 1 -2.672775 1.920617 1.074024</span></span>
+<span><span class="co">## <span style="color: #949494;"># A tibble: 1 × 3</span></span></span>
+<span><span class="co">##       a     b     c</span></span>
+<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span> -<span style="color: #BB0000;">2.67</span>  1.92  1.07</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## Model Descriptors: </span></span>
-<span><span class="co">##   country region     family genus species geographic_region age_class</span></span>
-<span><span class="co">## 1      US  US-WA Betulaceae Alnus   rubra              &lt;NA&gt;      &lt;NA&gt;</span></span></code></pre>
+<span><span class="co">## <span style="color: #949494;"># A tibble: 1 × 7</span></span></span>
+<span><span class="co">##   country region family     genus species geographic_region age_class</span></span>
+<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span> US      US-WA  Betulaceae Alnus rubra   <span style="color: #BB0000;">NA</span>                <span style="color: #BB0000;">NA</span></span></span></code></pre>
 <p>The last section of the output specifies all descriptors for this
 model, including <code>country</code>, <code>region</code>,
 <code>family</code>, <code>genus</code>, <code>species</code>,

@@ -11,7 +11,8 @@ MixedEffectsModel(
   predict_fn,
   parameters,
   fixed_only = FALSE,
-  descriptors = list()
+  descriptors = list(),
+  covariate_definitions = list()
 )
 }
 \arguments{
@@ -26,16 +27,17 @@ the coavariate using the \code{units::as_units} function.}
 \item{predict_ranef}{A function that predicts the random effects, takes any named covariates in
 \code{covariate_units} as arguments.}
 
-\item{predict_fn}{A function that takes the covariates specified in \code{covariate_units} as
-arguments and produces an allometric prediction. The last line of the
-function must be a mathematical expression that does not use a \code{return}
-statement.}
+\item{parameters}{a named list of parameters and their values that appear in
+\code{predict_fn}}
 
 \item{fixed_only}{A boolean value indicating if the model produces predictions using only
 fixed effects. This is useful when publications do not provide sufficient
 information to predict the random effects.}
 
 \item{descriptors}{An optional list of descriptors that are specified at the model-level.}
+
+\item{covariate_definitions}{A named list of covariate definitions that
+are used instead of the descriptions given by the variable naming system.}
 }
 \description{
 \code{MixedEffectsModel} represents an allometric model that uses fixed and

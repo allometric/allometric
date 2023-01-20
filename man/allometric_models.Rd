@@ -16,14 +16,14 @@ data
 
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{head(allometric_models)
 #> # A tibble: 6 x 13
-#>   id       component measure country   region    family        genus    species     model      pub_id        family_name covt_name pub_year
-#>   <chr>    <chr>     <chr>   <list>    <list>    <chr>         <chr>    <chr>       <list>     <chr>         <list>      <list>       <dbl>
-#> 1 3aff0a28 stem      volume  <chr [1]> <chr [1]> Aceraceae     Acer     <NA>        <FxdEffcM> brackett_1977 <chr [1]>   <chr [2]>     1977
-#> 2 2963f44d stem      volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira guianensis  <FxdEffcM> vibrans_2015  <chr [4]>   <chr [2]>     2015
-#> 3 fc847c75 tree      biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
-#> 4 1460a26f stem      biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
-#> 5 49464def branch    biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
-#> 6 4ddc8d53 branch    biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex     canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
+#>   id       component measure country   region    family        genus       species     model      pub_id        family_name covt_name pub_year
+#>   <chr>    <chr>     <chr>   <list>    <list>    <chr>         <chr>       <chr>       <list>     <chr>         <list>      <list>       <dbl>
+#> 1 18c3398d stem      volume  <chr [1]> <chr [1]> Aceraceae     Acer        <NA>        <FxdEffcM> brackett_1977 <chr [1]>   <chr [2]>     1977
+#> 2 94c9f45b stem      volume  <chr [1]> <chr [4]> Altingiaceae  Liquidambar styraciflua <FxdEffcM> hahn_1991     <chr [2]>   <chr [2]>     1991
+#> 3 90269872 stem      volume  <chr [1]> <chr [4]> Altingiaceae  Liquidambar styraciflua <FxdEffcM> hahn_1991     <chr [2]>   <chr [2]>     1991
+#> 4 f814022d stem      volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira    guianensis  <FxdEffcM> vibrans_2015  <chr [4]>   <chr [2]>     2015
+#> 5 6938ab84 tree      biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex        canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
+#> 6 b994e61a stem      biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex        canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
 }\if{html}{\out{</div>}}
 
 The columns are:
@@ -57,16 +57,16 @@ unnest_family \%>\% dplyr::filter(family_name == "Hann")
 #> # A tibble: 40 x 13
 #>    id       component measure  country   region    family       genus            species      model      pub_id       family_name covt_name pub_year
 #>    <chr>    <chr>     <chr>    <list>    <list>    <chr>        <chr>            <chr>        <list>     <chr>        <chr>       <list>       <dbl>
-#>  1 1f2cdb0a crown     ratio    <chr [1]> <chr [1]> Cupressaceae Calocedrus       decurrens    <FxdEffcM> ritchie_1987 Hann        <chr [4]>     1987
-#>  2 674d1a2a stem      diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus       <NA>         <FxdEffcM> hann_2011    Hann        <chr [2]>     2011
-#>  3 23c3a52c stump     diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus       <NA>         <FxdEffcM> hann_2011    Hann        <chr [2]>     2011
-#>  4 1fbf319c stem      volume   <chr [1]> <chr [1]> Cupressaceae Calocedrus       <NA>         <FxdEffcM> hann_2011    Hann        <chr [3]>     2011
-#>  5 0712ff73 crown     ratio    <chr [1]> <chr [1]> Ericaceae    Arbutus          menziesii    <FxdEffcM> ritchie_1987 Hann        <chr [3]>     1987
-#>  6 6615c8e6 crown     ratio    <chr [1]> <chr [1]> Fagaceae     Chrysolepis      chrysophylla <FxdEffcM> ritchie_1987 Hann        <chr [4]>     1987
-#>  7 70035419 crown     ratio    <chr [1]> <chr [1]> Fagaceae     Notholithocarpus densiflorus  <FxdEffcM> ritchie_1987 Hann        <chr [1]>     1987
-#>  8 c8d99f94 crown     ratio    <chr [1]> <chr [1]> Fagaceae     Quercus          chrysolepis  <FxdEffcM> ritchie_1987 Hann        <chr [1]>     1987
-#>  9 7f740a34 crown     ratio    <chr [1]> <chr [1]> Fagaceae     Quercus          garryana     <FxdEffcM> ritchie_1987 Hann        <chr [1]>     1987
-#> 10 a89ba95c crown     ratio    <chr [1]> <chr [1]> Fagaceae     Quercus          kelloggii    <FxdEffcM> ritchie_1987 Hann        <chr [3]>     1987
+#>  1 651aaa4a crown     ratio    <chr [1]> <chr [1]> Cupressaceae Calocedrus       decurrens    <FxdEffcM> ritchie_1987 Hann        <chr [4]>     1987
+#>  2 22003acc stem      diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus       <NA>         <FxdEffcM> hann_2011    Hann        <chr [2]>     2011
+#>  3 e5d4894e stump     diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus       <NA>         <FxdEffcM> hann_2011    Hann        <chr [2]>     2011
+#>  4 91e2d29d stem      volume   <chr [1]> <chr [1]> Cupressaceae Calocedrus       <NA>         <FxdEffcM> hann_2011    Hann        <chr [3]>     2011
+#>  5 53162fb2 crown     ratio    <chr [1]> <chr [1]> Ericaceae    Arbutus          menziesii    <FxdEffcM> ritchie_1987 Hann        <chr [3]>     1987
+#>  6 c0a86b32 crown     ratio    <chr [1]> <chr [1]> Fagaceae     Chrysolepis      chrysophylla <FxdEffcM> ritchie_1987 Hann        <chr [4]>     1987
+#>  7 ca55f6c1 crown     ratio    <chr [1]> <chr [1]> Fagaceae     Notholithocarpus densiflorus  <FxdEffcM> ritchie_1987 Hann        <chr [1]>     1987
+#>  8 3da0e21e crown     ratio    <chr [1]> <chr [1]> Fagaceae     Quercus          chrysolepis  <FxdEffcM> ritchie_1987 Hann        <chr [1]>     1987
+#>  9 77e11da9 crown     ratio    <chr [1]> <chr [1]> Fagaceae     Quercus          garryana     <FxdEffcM> ritchie_1987 Hann        <chr [1]>     1987
+#> 10 cca2d9dc crown     ratio    <chr [1]> <chr [1]> Fagaceae     Quercus          kelloggii    <FxdEffcM> ritchie_1987 Hann        <chr [3]>     1987
 #> # ... with 30 more rows
 }\if{html}{\out{</div>}}
 
@@ -94,12 +94,12 @@ head(hann_models)
 #> # A tibble: 6 x 13
 #>   id       component measure  country   region    family       genus       species      model      pub_id       family_name covt_name pub_year
 #>   <chr>    <chr>     <chr>    <list>    <list>    <chr>        <chr>       <chr>        <list>     <chr>        <list>      <list>       <dbl>
-#> 1 1f2cdb0a crown     ratio    <chr [1]> <chr [1]> Cupressaceae Calocedrus  decurrens    <FxdEffcM> ritchie_1987 <chr [2]>   <chr [4]>     1987
-#> 2 674d1a2a stem      diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus  <NA>         <FxdEffcM> hann_2011    <chr [1]>   <chr [2]>     2011
-#> 3 23c3a52c stump     diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus  <NA>         <FxdEffcM> hann_2011    <chr [1]>   <chr [2]>     2011
-#> 4 1fbf319c stem      volume   <chr [1]> <chr [1]> Cupressaceae Calocedrus  <NA>         <FxdEffcM> hann_2011    <chr [1]>   <chr [3]>     2011
-#> 5 0712ff73 crown     ratio    <chr [1]> <chr [1]> Ericaceae    Arbutus     menziesii    <FxdEffcM> ritchie_1987 <chr [2]>   <chr [3]>     1987
-#> 6 6615c8e6 crown     ratio    <chr [1]> <chr [1]> Fagaceae     Chrysolepis chrysophylla <FxdEffcM> ritchie_1987 <chr [2]>   <chr [4]>     1987
+#> 1 651aaa4a crown     ratio    <chr [1]> <chr [1]> Cupressaceae Calocedrus  decurrens    <FxdEffcM> ritchie_1987 <chr [2]>   <chr [4]>     1987
+#> 2 22003acc stem      diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus  <NA>         <FxdEffcM> hann_2011    <chr [1]>   <chr [2]>     2011
+#> 3 e5d4894e stump     diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus  <NA>         <FxdEffcM> hann_2011    <chr [1]>   <chr [2]>     2011
+#> 4 91e2d29d stem      volume   <chr [1]> <chr [1]> Cupressaceae Calocedrus  <NA>         <FxdEffcM> hann_2011    <chr [1]>   <chr [3]>     2011
+#> 5 53162fb2 crown     ratio    <chr [1]> <chr [1]> Ericaceae    Arbutus     menziesii    <FxdEffcM> ritchie_1987 <chr [2]>   <chr [3]>     1987
+#> 6 c0a86b32 crown     ratio    <chr [1]> <chr [1]> Fagaceae     Chrysolepis chrysophylla <FxdEffcM> ritchie_1987 <chr [2]>   <chr [4]>     1987
 nrow(hann_models)
 #> [1] 40
 }\if{html}{\out{</div>}}
@@ -128,12 +128,12 @@ head(hann_first_author_models)
 #> # A tibble: 6 x 13
 #>   id       component measure  country   region    family       genus      species  model      pub_id    family_name covt_name pub_year
 #>   <chr>    <chr>     <chr>    <list>    <list>    <chr>        <chr>      <chr>    <list>     <chr>     <list>      <list>       <dbl>
-#> 1 674d1a2a stem      diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>     <FxdEffcM> hann_2011 <chr [1]>   <chr [2]>     2011
-#> 2 23c3a52c stump     diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>     <FxdEffcM> hann_2011 <chr [1]>   <chr [2]>     2011
-#> 3 1fbf319c stem      volume   <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>     <FxdEffcM> hann_2011 <chr [1]>   <chr [3]>     2011
-#> 4 b9322f19 stem      diameter <chr [1]> <chr [1]> Pinaceae     Abies      concolor <FxdEffcM> hann_2011 <chr [1]>   <chr [2]>     2011
-#> 5 995f34c5 stump     diameter <chr [1]> <chr [1]> Pinaceae     Abies      concolor <FxdEffcM> hann_2011 <chr [1]>   <chr [2]>     2011
-#> 6 0c67fde9 stem      volume   <chr [1]> <chr [1]> Pinaceae     Abies      concolor <FxdEffcM> hann_2011 <chr [1]>   <chr [3]>     2011
+#> 1 22003acc stem      diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>     <FxdEffcM> hann_2011 <chr [1]>   <chr [2]>     2011
+#> 2 e5d4894e stump     diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>     <FxdEffcM> hann_2011 <chr [1]>   <chr [2]>     2011
+#> 3 91e2d29d stem      volume   <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>     <FxdEffcM> hann_2011 <chr [1]>   <chr [3]>     2011
+#> 4 88fa6033 stem      diameter <chr [1]> <chr [1]> Pinaceae     Abies      concolor <FxdEffcM> hann_2011 <chr [1]>   <chr [2]>     2011
+#> 5 4c61fd99 stump     diameter <chr [1]> <chr [1]> Pinaceae     Abies      concolor <FxdEffcM> hann_2011 <chr [1]>   <chr [2]>     2011
+#> 6 79fd8e44 stem      volume   <chr [1]> <chr [1]> Pinaceae     Abies      concolor <FxdEffcM> hann_2011 <chr [1]>   <chr [3]>     2011
 nrow(hann_first_author_models)
 #> [1] 20
 }\if{html}{\out{</div>}}

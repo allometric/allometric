@@ -12,11 +12,13 @@ reference:
   contents:
   - add_model
   - add_set
+  - fia_trees
   - FixedEffectsModel
   - FixedEffectsSet
   - MixedEffectsModel
   - MixedEffectsSet
   - model_call
+  - predict_allo
   - Publication
 - title: Allometric Models
   desc: Models are contained in publications, which are listed below.

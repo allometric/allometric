@@ -8,26 +8,23 @@ AllometricModel(
   response_unit,
   covariate_units,
   predict_fn,
-  descriptors = list()
+  descriptors = list(),
+  covariate_definitions = list()
 )
 }
 \arguments{
-\item{response_unit}{\itemize{
-\item A list containing one element with the name of the
-respone variable as the key and the units of the response variable as class
-\code{units::units}
-}}
+\item{response_unit}{A named list containing one element, with a name representing the response
+variable and a value representing the units of the response variable
+using the \code{units::as_units} function.}
 
-\item{covariate_units}{\itemize{
-\item A list containing all covariates used in the model
-with the name of the covariate as the key and the units of the covariate as
-class \code{units::units}
-}}
+\item{covariate_units}{A named list containing the covariate specifications, with names
+representing the covariate name and the values representing the units of
+the coavariate using the \code{units::as_units} function.}
 
-\item{predict_fn}{\itemize{
-\item A function that takes all covariates named in
-\code{covariate_units} as arguments.
-}}
+\item{descriptors}{An optional list of descriptors that are specified at the model-level.}
+
+\item{covariate_definitions}{A named list of covariate definitions that
+are used instead of the descriptions given by the variable naming system.}
 }
 \description{
 This class is primarily used as a parent class for other model

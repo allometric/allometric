@@ -13,11 +13,6 @@ montero_2005 <- Publication(
   )
 )
 
-# TODO ask paco about the representation of the different provinces. Table 1
-# (p. 27) seems to suggest a one-to-one relationship with province and species?
-# Is all of the data in the study from Spain?
-
-
 # Here we are going to specify model sets in a loop
 b_params <- load_parameter_frame("b_montero_2005")
 b_param_names <- unique(b_params$allo_var)
@@ -44,7 +39,6 @@ for (b_param_name in b_param_names) {
     predict_fn = function(dsob) {
       cf * exp(a) * dsob^b
     },
-    # TODO how to handle this with the different regions??
     model_specifications = model_spec
   )
 

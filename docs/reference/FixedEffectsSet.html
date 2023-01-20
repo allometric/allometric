@@ -20,7 +20,7 @@ parameter estimates and descriptions in a dataframe or spreadsheet."><meta prope
     
     <a class="navbar-brand me-2" href="../index.html">allometric</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1.9003</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,7 +76,8 @@ parameter estimates and descriptions in a dataframe or spreadsheet.</p>
 <span>  <span class="va">parameter_names</span>,</span>
 <span>  <span class="va">predict_fn</span>,</span>
 <span>  <span class="va">model_specifications</span>,</span>
-<span>  descriptors <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  descriptors <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  covariate_definitions <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -99,13 +100,6 @@ the coavariate using the <code><a href="https://rdrr.io/pkg/units/man/units.html
 represent the parameters.</p></dd>
 
 
-<dt>predict_fn</dt>
-<dd><p>A function that takes the covariates specified in <code>covariate_units</code> as
-arguments and produces an allometric prediction. The last line of the
-function must be a mathematical expression that does not use a <code>return</code>
-statement.</p></dd>
-
-
 <dt>model_specifications</dt>
 <dd><p>A dataframe such that each row of the dataframe provides model-level
 descriptors and parameter estimates for that model. Models must be
@@ -114,6 +108,11 @@ uniquely identifiable using the descriptors.</p></dd>
 
 <dt>descriptors</dt>
 <dd><p>An optional list of descriptors that are specified at the model-level.</p></dd>
+
+
+<dt>covariate_definitions</dt>
+<dd><p>A named list of covariate definitions that
+are used instead of the descriptions given by the variable naming system.</p></dd>
 
 </dl></div>
 

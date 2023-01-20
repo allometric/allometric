@@ -1,0 +1,186 @@
+---
+title: "Common Inventory Use Cases"
+---
+
+This vignette covers several common forest inventory use cases that can be 
+covered by `allometric`
+
+## Making Predictions of Volume for Multiple Species
+
+This vignette demonstrates a simple forest inventory example using `allometric`
+using plot data obtained from the Forest Inventory and Analysis (FIA) program.
+An example dataset is included in the package and can be loaded using 
+`data(fia_trees)`. Our objective is to calculate a plot-level volumes for 
+every plot in this dataset.
+
+Allometric predictions can be made in any manner of ways according to the 
+user's preference. We will use the suite of `tidyverse` packages to manipulate
+our data, but this is merely the author's preference. `allometric` is capable
+of producing predictions using base R if preferred.
+
+### Preparing the Data
+
+In reading `?fia_trees` the user will notice that all tree species are encoded
+using the FIA `SPCD` numbering system. The first task is to prepare a data frame
+that will translate these codes into taxonomic groupings.
+
+```{r}
+library(tibble)
+
+target_species <- tibble(
+  SPCD = c(202, 263, 15, 122),
+  genus = c('Pseudotsuga', 'Tsuga', 'Abies', 'Pinus'),
+  species = c('menziesii', 'heterophylla', 'concolor', 'ponderosa')
+)
+```
+
+The `target_species` dataframe serves two purposes. First, it allows us to link
+`genus` and `species` information to `fia_trees`. Second, it allows us to 
+easily filter out allometric models that are not related to these types of
+trees.
+
+### Finding Appropriate Models
+
+The user will note that `fia_trees` is composed entirely of trees from the state
+of Oregon in the United States. Using `dplyr` and `purrr` we can efficiently 
+filter out unnecessary models from the `allometric_models` table. Refer to the
+`?allometric_models` help page for more information.
+
+For this example, we need stem volume models for our species of interest that,
+preferably, were fit using data in the state of Oregon.
+
+```{r}
+library(allometric)
+library(dplyr)
+library(purrr)
+
+stemvol_mods <- allometric_models %>%
+  filter(
+    component == "stem",
+    measure == "volume")
+
+nrow(stemvol_mods)
+```
+
+We can see that `stemvol_mods` contains a huge amount of volume models. That is
+because `allometric` is global in scope. Most of these models are not relavent
+for our needs. Next, we will drill down and select models that were developed
+with data from `US-OR` (the state of Oregon, United States).
+
+```{r}
+stemvol_or_mods <- stemvol_mods %>%
+  filter(map_lgl(region, ~ 'US-OR' %in% .))
+
+nrow(stemvol_or_mods)
+```
+
+Here we see all stem volume models available fit using data from the state of
+Oregon. Still, the amount of models is very high. Next, we will select only our
+target species.
+
+```{r}
+stemvol_or_spc_mods <- stemvol_or_mods %>%
+  inner_join(target_species, by=c('genus', 'species'))
+
+nrow(stemvol_or_spc_mods)
+```
+
+Finally, something a bit more digestible. Even still, we have multiple models
+per species. The last step is to ensure that each of these remaining models are
+compatible with our available data. `fia_trees` only contains `DIA`, the 
+diameter at breast height, and `HT` the total height of the tree. In `allometric`
+these covariates are standardized as `dsob` and `hst` respectively. See the
+[Variable Naming System](https://brycefrank.com/allometric/articles/variable_naming_system.html)
+for more information. Using some clever filtering, we can find which models are
+compatible with this set of covariates.
+
+```{r}
+stemvol_or_spc_dia_ht_mods <- stemvol_or_spc_mods %>%
+  filter(map_lgl(covt_name, ~ length(.) == 2 & all(c('dsob', 'hst') %in% .)))
+```
+
+The call to `map_lgl` answers the question, "which models contain only two 
+covariates that are named `dsob` and `hst`"? Only a handful of models remain.
+
+```{r}
+stemvol_or_spc_dia_ht_mods
+```
+
+At this stage, we only need to determine a single model for Pseudotsuga
+menziesii. We will decide to select only those models from `poudel_2019`, a
+recent study that contains the volume models for the species we need.
+
+```{r}
+final_set <- stemvol_or_spc_dia_ht_mods %>% filter(pub_id == "poudel_2019") %>%
+  select(SPCD, model)
+final_set
+```
+
+At last we have all four species attached to one allometric model, and we can
+proceed with prediction. If the above steps seem cumbersome, fear not, the
+"Storing an Internal Set of Equations for Routine Use" section resolves these
+issues.
+
+### Making Volume Predictions
+
+To make a volume prediction correctly, we must know the order of the arguments
+to the allometric function. Inspecting the first model in our set reveals this
+order.
+
+```{r}
+final_set %>% mutate(call = model_call(model_call[[1]]))
+```
+
+The `model_call` function shows that `vsa = f(dsob, hst)` is the allometric 
+function call for each model we have specified, which means that the
+diameter of the stem outside bark at breast height (`dsob`) is the
+first argument and the total height of the stem (`hst`) is the second argument.
+
+Using `final_set`, we can easily merge the models to our tree-list and make
+predictions. Predictions made in this manner are done using the `predict_allo`
+function.
+
+5.76 cubic feet for a 3.9 in, 
+
+```{r}
+tree_vols <- final_set %>%
+  left_join(fia_trees, by = "SPCD") %>%
+  mutate(vol_m3 = predict_allo(model, DIA * 2.54, HT * 0.3048)) %>%
+  mutate(vol_cuft = vol_m3 * 35.3147)
+```
+
+`predict_allo` takes each model in the `model` column and applies it to the
+covariates, `DIA` and `HT` assigned in the function call. Aggregating to the
+plot-level we obtain
+
+```{r}
+tree_vols %>%
+  group_by(PLOT) %>%
+  summarise(vol_ac = sum(vol_cuft * TPA_UNADJ))
+```
+
+## Storing an Internal Set of Equations for Routine Use
+
+It is unlikely that most organizations need all models stored in
+`allometric_models` for routine use. For example, the Forest Inventory and 
+Analysis (FIA) program has specified sets of allometric models over the years
+that are used to produce cubic volumes and biomasses for the national FIA
+database. Subsets of the `allometric_models` table can be prepared by
+analysts and stored locally as `RDS` files, which can then be used in routine
+analysis or even as components of other software packages.
+
+For example, we can save the model table we created in the last section
+
+```{r eval=F}
+saveRDS(final_set, './my_directory/final_set.RDS')
+```
+
+It can be reloaded and used readily in other software
+
+```{r eval=F}
+readRDS('./my_directory/final_set.RDS')
+```
+
+If you will be using other `allometric` functionality in your software, (e.g.,
+`predict_allo`) it will be necessary to run `library(allometric)` to gain access
+to those functions.

@@ -4,8 +4,6 @@
   validity = check_parametric_model
 )
 
-# TODO can we just inherit these docstrings from AllometricModel?
-
 #' Create a fixed effects model
 #'
 #' `FixedEffectsModel` represents an allometric model that only uses fixed

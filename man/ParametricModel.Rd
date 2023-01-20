@@ -9,7 +9,8 @@ ParametricModel(
   covariate_units,
   predict_fn,
   parameters,
-  descriptors = list()
+  descriptors = list(),
+  covariate_definitions = list()
 )
 }
 \description{

@@ -23,6 +23,7 @@ Imports:
     tidyr,
     uuid
 Collate:
+    'data.R'
     'utils-pipe.R'
     'all_generics.R'
     'validity_checks.R'
@@ -46,3 +47,6 @@ Collate:
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+Depends: 
+    R (>= 2.10)
+LazyData: true

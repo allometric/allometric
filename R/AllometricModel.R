@@ -1,7 +1,6 @@
 setOldClass("units")
 setOldClass("BibEntry")
 
-# FIXME not working...too tired to finish
 check_allometric_model_validity <- function(object) {
   errors <- c()
   errors <- c(errors, check_descriptor_validity(object@descriptors))

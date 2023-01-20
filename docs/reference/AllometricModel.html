@@ -12,7 +12,7 @@ implementations."><meta property="og:image" content="http://brycefrank.com/allom
     
     <a class="navbar-brand me-2" href="../index.html">allometric</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1.9003</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,30 +62,32 @@ implementations.</p>
 <span>  <span class="va">response_unit</span>,</span>
 <span>  <span class="va">covariate_units</span>,</span>
 <span>  <span class="va">predict_fn</span>,</span>
-<span>  descriptors <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  descriptors <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  covariate_definitions <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>response_unit</dt>
-<dd><ul><li><p>A list containing one element with the name of the
-respone variable as the key and the units of the response variable as class
-<code><a href="https://rdrr.io/pkg/units/man/units.html" class="external-link">units::units</a></code></p></li>
-</ul></dd>
+<dd><p>A named list containing one element, with a name representing the response
+variable and a value representing the units of the response variable
+using the <code><a href="https://rdrr.io/pkg/units/man/units.html" class="external-link">units::as_units</a></code> function.</p></dd>
 
 
 <dt>covariate_units</dt>
-<dd><ul><li><p>A list containing all covariates used in the model
-with the name of the covariate as the key and the units of the covariate as
-class <code><a href="https://rdrr.io/pkg/units/man/units.html" class="external-link">units::units</a></code></p></li>
-</ul></dd>
+<dd><p>A named list containing the covariate specifications, with names
+representing the covariate name and the values representing the units of
+the coavariate using the <code><a href="https://rdrr.io/pkg/units/man/units.html" class="external-link">units::as_units</a></code> function.</p></dd>
 
 
-<dt>predict_fn</dt>
-<dd><ul><li><p>A function that takes all covariates named in
-<code>covariate_units</code> as arguments.</p></li>
-</ul></dd>
+<dt>descriptors</dt>
+<dd><p>An optional list of descriptors that are specified at the model-level.</p></dd>
+
+
+<dt>covariate_definitions</dt>
+<dd><p>A named list of covariate definitions that
+are used instead of the descriptions given by the variable naming system.</p></dd>
 
 </dl></div>
 

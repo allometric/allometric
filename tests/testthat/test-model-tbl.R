@@ -96,3 +96,11 @@ test_that("unnest models returns a model_tbl", {
   unnested <- unnest_models(model_tbl_good, 'country')
   expect_s3_class(unnested, "model_tbl")
 })
+
+test_that("predict_allo produces predictions", {
+  test_model_tbl <- new_model_tbl(
+    tibble::tibble(models = c(fixed_effects_model), dsob = 1))
+
+  out <- predict_allo(test_model_tbl$models, test_model_tbl$dsob)
+  expect_equal(out, 1)
+})

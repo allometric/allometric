@@ -5,7 +5,6 @@
 
 [![R-CMD-check](https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml)
 [![](https://img.shields.io/badge/devel%20version-0.0.1.9003-blue.svg)](https://github.com/brycefrank/allometric)
-[![](https://app.codecov.io/gh/brycefrank/allometric/branch/master/graph/badge.svg)](https://app.codecov.io/gh/brycefrank/allometric)
 [![codecov](https://codecov.io/gh/brycefrank/allometric/branch/master/graph/badge.svg?token=3V5KUFMO2X)](https://codecov.io/gh/brycefrank/allometric)
 <!-- badges: end -->
 
@@ -223,6 +222,8 @@ information to two primary audiences.
 Users interested in finding models for analysis will find the following
 documentation most useful:
 
+- [Common Inventory Use
+  Cases](https://brycefrank.com/allometric/articles/inventory_example.html)
 - `?allometric_models`
 
 Users interested in **contributing models** to the package will find

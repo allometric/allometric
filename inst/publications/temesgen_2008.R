@@ -105,7 +105,7 @@ temesgen_2008 <- add_model(temesgen_2008, FixedEffectsModel(
     beta_1 = -0.0194,
     beta_2 = 1.0805
   ),
-  predict_fn = function(ccfl, ba, dsob) { # FIXME variable names...
+  predict_fn = function(ccfl, ba, dsob) {
     1.37 + (beta_00 + beta_01 * ccfl + beta_02 * ba) *
       (1 - exp(beta_1 * dsob)^beta_2)
   }

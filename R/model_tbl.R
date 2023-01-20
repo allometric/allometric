@@ -92,3 +92,14 @@ unnest_models.model_tbl <- function(data, cols) {
 
   model_tbl_reconstruct(unnested, data)
 }
+
+#' Predict allometric attributes using a column of allometric models
+#'
+#' @param model_list A list of models, usually obtained from `allometric_models`
+#' `model` column.
+#' @param ... Additional arguments passed to each model's `predict_fn`
+#' @return A vector of predictions
+#' @export
+predict_allo <- function(model_list, ...) {
+  predict(model_list[[1]], ...)
+}

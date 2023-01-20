@@ -9,7 +9,8 @@ FixedEffectsModel(
   covariate_units,
   predict_fn,
   parameters,
-  descriptors = list()
+  descriptors = list(),
+  covariate_definitions = list()
 )
 }
 \arguments{
@@ -21,12 +22,13 @@ using the \code{units::as_units} function.}
 representing the covariate name and the values representing the units of
 the coavariate using the \code{units::as_units} function.}
 
-\item{predict_fn}{A function that takes the covariates specified in \code{covariate_units} as
-arguments and produces an allometric prediction. The last line of the
-function must be a mathematical expression that does not use a \code{return}
-statement.}
+\item{parameters}{a named list of parameters and their values that appear in
+\code{predict_fn}}
 
 \item{descriptors}{An optional list of descriptors that are specified at the model-level.}
+
+\item{covariate_definitions}{A named list of covariate definitions that
+are used instead of the descriptions given by the variable naming system.}
 }
 \value{
 An object of class \code{FixedEffectsModel}
