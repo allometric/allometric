@@ -1,5 +1,18 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# allometric 0.0.1.9003 (2023-01-20)
+
+## Code style
+
+- Styling publication files.
+
+## Testing
+
+- >= 90% coverage, closes #55.
+
+- Adding update_models and update_references tests.
+
+
 # allometric 0.0.1.9002 (2023-01-19)
 
 ## Bug fixes
