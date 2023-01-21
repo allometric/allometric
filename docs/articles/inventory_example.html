@@ -134,24 +134,9 @@ information.</p>
 interest that, preferably, were fit using data in the state of
 Oregon.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">allometric</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## </span></span>
-<span><span class="co">## Attaching package: 'allometric'</span></span></code></pre>
-<pre><code><span><span class="co">## The following object is masked from 'package:stats':</span></span>
-<span><span class="co">## </span></span>
-<span><span class="co">##     predict</span></span></code></pre>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## </span></span>
-<span><span class="co">## Attaching package: 'dplyr'</span></span></code></pre>
-<pre><code><span><span class="co">## The following objects are masked from 'package:stats':</span></span>
-<span><span class="co">## </span></span>
-<span><span class="co">##     filter, lag</span></span></code></pre>
-<pre><code><span><span class="co">## The following objects are masked from 'package:base':</span></span>
-<span><span class="co">## </span></span>
-<span><span class="co">##     intersect, setdiff, setequal, union</span></span></code></pre>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://purrr.tidyverse.org/" class="external-link">purrr</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">allometric</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://purrr.tidyverse.org/" class="external-link">purrr</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">stemvol_mods</span> <span class="op">&lt;-</span> <span class="va">allometric_models</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span></span>
@@ -165,7 +150,7 @@ volume models. That is because <code>allometric</code> is global in
 scope. Most of these models are not relavent for our needs. Next, we
 will drill down and select models that were developed with data from
 <code>US-OR</code> (the state of Oregon, United States).</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">stemvol_or_mods</span> <span class="op">&lt;-</span> <span class="va">stemvol_mods</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map_lgl</a></span><span class="op">(</span><span class="va">region</span>, <span class="op">~</span> <span class="st">'US-OR'</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="va">.</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
@@ -174,65 +159,49 @@ will drill down and select models that were developed with data from
 <p>Here we see all stem volume models available fit using data from the
 state of Oregon. Still, the amount of models is very high. Next, we will
 select only our target species.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">stemvol_or_spc_mods</span> <span class="op">&lt;-</span> <span class="va">stemvol_or_mods</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">inner_join</a></span><span class="op">(</span><span class="va">target_species</span>, by<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'genus'</span>, <span class="st">'species'</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">stemvol_or_spc_mods</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 12 × 14</span></span></span>
-<span><span class="co">##    id      compo…¹ measure country region family genus species model      pub_id</span></span>
-<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> 79fd8e… stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Abies concol… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> f1c40a… stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Abies concol… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> 5f0c3e… stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Pinus ponder… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> d09ad7… stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Pinus ponder… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> 4eddbc… stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> bruce…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> fc8221… stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> bruce…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> 07d48c… stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> hann_…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> dbe58f… stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> 22ad87… stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> rusta…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> b56bcb… stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> rusta…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">11</span> 5b2192… stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> rusta…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">12</span> 7f6764… stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Tsuga hetero… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude…</span></span>
-<span><span class="co">## <span style="color: #949494;"># … with 4 more variables: family_name &lt;list&gt;, covt_name &lt;list&gt;,</span></span></span>
-<span><span class="co">## <span style="color: #949494;">#   pub_year &lt;dbl&gt;, SPCD &lt;dbl&gt;, and abbreviated variable name ¹​component</span></span></span></code></pre>
+<span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">stemvol_or_spc_mods</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## [1] 12</span></span></code></pre>
 <p>Finally, something a bit more digestible. Even still, we have
 multiple models per species. The last step is to ensure that each of
 these remaining models are compatible with our available data.
 <code>fia_trees</code> only contains <code>DIA</code>, the diameter at
 breast height, and <code>HT</code> the total height of the tree. In
 <code>allometric</code> these covariates are standardized as
-<code>dsob</code> and <code>hst</code> respectively. Using some clever
-filtering, we can find which models are compatible with this set of
-covariates.</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code>dsob</code> and <code>hst</code> respectively. See the <a href="https://brycefrank.com/allometric/articles/variable_naming_system.html" class="external-link">Variable
+Naming System</a> for more information. Using some clever filtering, we
+can find which models are compatible with this set of covariates.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">stemvol_or_spc_dia_ht_mods</span> <span class="op">&lt;-</span> <span class="va">stemvol_or_spc_mods</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map_lgl</a></span><span class="op">(</span><span class="va">covt_name</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span> <span class="op">==</span> <span class="fl">2</span> <span class="op">&amp;</span> <span class="fu"><a href="https://rdrr.io/r/base/all.html" class="external-link">all</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'dsob'</span>, <span class="st">'hst'</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="va">.</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>The call to <code>map_lgl</code> answers the question, “which models
 contain only two covariates that are named <code>dsob</code> and
 <code>hst</code>”? Only a handful of models remain.</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">stemvol_or_spc_dia_ht_mods</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 6 × 14</span></span></span>
-<span><span class="co">##   id       compo…¹ measure country region family genus species model      pub_id</span></span>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 6 × 14</span></span>m</span>
+<span><span class="co">##   id       compo…¹ measure country region family genus species model      pub_id</span>_id</span>
 <span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">1</span> f1c40af8 stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Abies concol… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">2</span> d09ad76f stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Pinus ponder… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">3</span> 4eddbc35 stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> bruce…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">4</span> fc822111 stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> bruce…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">5</span> dbe58f0c stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">6</span> 7f6764b3 stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Tsuga hetero… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude…</span></span>
-<span><span class="co">## <span style="color: #949494;"># … with 4 more variables: family_name &lt;list&gt;, covt_name &lt;list&gt;,</span></span></span>
-<span><span class="co">## <span style="color: #949494;">#   pub_year &lt;dbl&gt;, SPCD &lt;dbl&gt;, and abbreviated variable name ¹​component</span></span></span></code></pre>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span> f1c40af8 stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Abies concol… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude…</span>udeâ€¦</span>
+<span><span class="co">## <span style="color: #BCBCBC;">2</span> d09ad76f stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Pinus ponder… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude…</span>udeâ€¦</span>
+<span><span class="co">## <span style="color: #BCBCBC;">3</span> 4eddbc35 stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> bruce…</span>bruceâ€¦</span>
+<span><span class="co">## <span style="color: #BCBCBC;">4</span> fc822111 stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> bruce…</span>bruceâ€¦</span>
+<span><span class="co">## <span style="color: #BCBCBC;">5</span> dbe58f0c stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude…</span>poudeâ€¦</span>
+<span><span class="co">## <span style="color: #BCBCBC;">6</span> 7f6764b3 stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Tsuga hetero… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude…</span>udeâ€¦</span>
+<span><span class="co">## <span style="color: #949494;"># … with 4 more variables: family_name &lt;list&gt;, covt_name &lt;list&gt;,</span></span>9m</span>
+<span><span class="co">## <span style="color: #949494;">#   pub_year &lt;dbl&gt;, SPCD &lt;dbl&gt;, and abbreviated variable name ¹​component</span></span>39m</span></code></pre>
 <p>At this stage, we only need to determine a single model for
 Pseudotsuga menziesii. We will decide to select only those models from
 <code>poudel_2019</code>, a recent study that contains the volume models
 for the species we need.</p>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">final_set</span> <span class="op">&lt;-</span> <span class="va">stemvol_or_spc_dia_ht_mods</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">pub_id</span> <span class="op">==</span> <span class="st">"poudel_2019"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">SPCD</span>, <span class="va">model</span><span class="op">)</span></span>
 <span><span class="va">final_set</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 4 × 2</span></span></span>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 4 × 2</span></span>m</span>
 <span><span class="co">##    SPCD model     </span></span>
 <span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;">1</span>    15 <span style="color: #949494;">&lt;FxdEffcM&gt;</span></span></span>
@@ -250,38 +219,50 @@ section resolves these issues.</p>
 <p>To make a volume prediction correctly, we must know the order of the
 arguments to the allometric function. Inspecting the first model in our
 set reveals this order.</p>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">final_set</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu">select_model</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="../reference/model_call.html">model_call</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] "vsa = f(dsob, hst)"</span></span></code></pre>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">final_set</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>call <span class="op">=</span> <span class="fu"><a href="../reference/model_call.html">model_call</a></span><span class="op">(</span><span class="va">model</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 4 × 3</span></span>m</span>
+<span><span class="co">##    SPCD model      call              </span></span>
+<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span>    15 <span style="color: #949494;">&lt;FxdEffcM&gt;</span> vsa = f(dsob, hst)</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">2</span>   122 <span style="color: #949494;">&lt;FxdEffcM&gt;</span> vsa = f(dsob, hst)</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">3</span>   202 <span style="color: #949494;">&lt;FxdEffcM&gt;</span> vsa = f(dsob, hst)</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">4</span>   263 <span style="color: #949494;">&lt;FxdEffcM&gt;</span> vsa = f(dsob, hst)</span></span></code></pre>
 <p>The <code>model_call</code> function shows that
-<code>vsa = f(dsob, hst)</code>, which means that the diameter of the
-stem outside bark at breast height (in centimeters) and the total height
-of the stem (in meters) are the arguments to the allometric
-function.</p>
+<code>vsa = f(dsob, hst)</code> is the allometric function call for each
+model we have specified, which means that the diameter of the stem
+outside bark at breast height (<code>dsob</code>) is the first argument
+and the total height of the stem (<code>hst</code>) is the second
+argument.</p>
 <p>Using <code>final_set</code>, we can easily merge the models to our
 tree-list and make predictions. Predictions made in this manner are done
 using the <code>predict_allo</code> function.</p>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">final_set</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">tree_vols</span> <span class="op">&lt;-</span> <span class="va">final_set</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">fia_trees</span>, by <span class="op">=</span> <span class="st">"SPCD"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>vol_pred <span class="op">=</span> <span class="fu"><a href="../reference/predict_allo.html">predict_allo</a></span><span class="op">(</span><span class="va">model</span>, <span class="va">DIA</span>, <span class="va">HT</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 298 × 7</span></span></span>
-<span><span class="co">##     SPCD model       PLOT   DIA    HT TPA_UNADJ vol_pred</span></span>
-<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span>    15 <span style="color: #949494;">&lt;FxdEffcM&gt;</span>     4 23.4  13.1       6.02  0.209  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span>    15 <span style="color: #949494;">&lt;FxdEffcM&gt;</span>     4 13.7   7.32      6.02  0.040<span style="text-decoration: underline;">9</span> </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span>    15 <span style="color: #949494;">&lt;FxdEffcM&gt;</span>     4  7.37  6.10     75.0   0.011<span style="text-decoration: underline;">9</span> </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span>    15 <span style="color: #949494;">&lt;FxdEffcM&gt;</span>     4  8.13  5.49     75.0   0.012<span style="text-decoration: underline;">0</span> </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span>    15 <span style="color: #949494;">&lt;FxdEffcM&gt;</span>     4  5.33  4.27     75.0   0.004<span style="text-decoration: underline;">38</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span>    15 <span style="color: #949494;">&lt;FxdEffcM&gt;</span>     4 22.9  16.8       6.02  0.282  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span>    15 <span style="color: #949494;">&lt;FxdEffcM&gt;</span>     4  4.83  4.57     75.0   0.004<span style="text-decoration: underline;">10</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span>    15 <span style="color: #949494;">&lt;FxdEffcM&gt;</span>     4 13.7  11.0       6.02  0.070<span style="text-decoration: underline;">5</span> </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span>    15 <span style="color: #949494;">&lt;FxdEffcM&gt;</span>     4 31.8  19.2       6.02  0.571  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span>    15 <span style="color: #949494;">&lt;FxdEffcM&gt;</span>     4 34.0  19.8       6.02  0.666  </span></span>
-<span><span class="co">## <span style="color: #949494;"># … with 288 more rows</span></span></span></code></pre>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>vol_m3 <span class="op">=</span> <span class="fu"><a href="../reference/predict_allo.html">predict_allo</a></span><span class="op">(</span><span class="va">model</span>, <span class="va">DIA</span> <span class="op">*</span> <span class="fl">2.54</span>, <span class="va">HT</span> <span class="op">*</span> <span class="fl">0.3048</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>vol_cuft <span class="op">=</span> <span class="va">vol_m3</span> <span class="op">*</span> <span class="fl">35.3147</span><span class="op">)</span></span></code></pre></div>
 <p><code>predict_allo</code> takes each model in the <code>model</code>
 column and applies it to the covariates, <code>DIA</code> and
-<code>HT</code> assigned in the function call.</p>
+<code>HT</code> assigned in the function call. Aggregating to the
+plot-level we obtain</p>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">tree_vols</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">PLOT</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>vol_ac <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">vol_cuft</span> <span class="op">*</span> <span class="va">TPA_UNADJ</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 10 × 2</span></span>m</span>
+<span><span class="co">##     PLOT vol_ac</span></span>
+<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span>     1  <span style="text-decoration: underline;">7</span>058.</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span>     2 <span style="text-decoration: underline;">20</span>391.</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span>     3 <span style="text-decoration: underline;">10</span>110.</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span>     4   914.</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span>     5  <span style="text-decoration: underline;">2</span>855.</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span>     6 <span style="text-decoration: underline;">13</span>592.</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span>     7 <span style="text-decoration: underline;">10</span>624.</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span>     8 <span style="text-decoration: underline;">17</span>822.</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span>     9  <span style="text-decoration: underline;">7</span>333.</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span>    10  <span style="text-decoration: underline;">4</span>037.</span></span></code></pre>
 </div>
 </div>
 <div class="section level2">
@@ -294,13 +275,13 @@ models over the years that are used to produce cubic volumes and
 biomasses for the national FIA database. Subsets of the
 <code>allometric_models</code> table can be prepared by analysts and
 stored locally as <code>RDS</code> files, which can then be used in
-routine analysis.</p>
+routine analysis or even as components of other software packages.</p>
 <p>For example, we can save the model table we created in the last
 section</p>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">saveRDS</a></span><span class="op">(</span><span class="va">final_set</span>, <span class="st">'./my_directory/final_set.RDS'</span><span class="op">)</span></span></code></pre></div>
 <p>It can be reloaded and used readily in other software</p>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">readRDS</a></span><span class="op">(</span><span class="st">'./my_directory/final_set.RDS'</span><span class="op">)</span></span></code></pre></div>
 <p>If you will be using other <code>allometric</code> functionality in
 your software, (e.g., <code>predict_allo</code>) it will be necessary to

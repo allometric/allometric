@@ -94,7 +94,7 @@ described in the next section, but let us start with just one model.
 
 The publication we are using implements several *fixed effects models* that
 predict the heights of trees using various covariates. One of the functions the
-authors use is $h = 1.37 + b_0 * (1 - \exp(b_1 * d)^{b_2}$ where $h$ represents
+authors use is $h = 1.37 + b_0 * (1 - \exp(b_1 * d)^{b_2})$ where $h$ represents
 height and $d$ represents the diameter outside bark. Note that the height is a 
 function of the covariate $d$ and a finite set of parameters, $b_0$, $b_1$ and
 $b_2$. This is a perfect candidate for the `FixedEffectsModel` class.
@@ -118,7 +118,7 @@ temesgen_2008_model_one <- FixedEffectsModel(
 )
 ```
 
-We can see that three arguments are used, `response_unit`, `covariate_units`, 
+We can see that four arguments are used, `response_unit`, `covariate_units`, 
 `parameters` and `predict_fn`.
 
 - `response_unit` - a named list containing one element, which is the name of
@@ -143,6 +143,15 @@ Finally, we add the model to the publication using `add_model`
 ```{r}
 temesgen_2008 <- add_model(temesgen_2008, temesgen_2008_model_one)
 ```
+
+and print the summary for the publication
+
+```{r}
+temesgen_2008
+```
+
+We can see that the publciation now contains one model set for the variable
+`hst` and that set contains one model.
 
 ## Adding a Model Set
 
@@ -199,16 +208,16 @@ head(model_specifications)
 
 We can see that `model_specifications` contains a number of individual models
 which are specified by column names referred to as `descriptors`. In this case,
-`descriptors` includes family, genus, species, geographic_region and age_class.
-The combination of these values uniquely identifies a model within this
-publication. `family`, `genus` and `species` are part of a standard set of 
+`descriptors` includes `family`, `genus`, `species`, `geographic_region` and
+`age_class`. The combination of these values uniquely identifies a model within
+this publication. `family`, `genus` and `species` are part of a standard set of 
 descriptors called ["search descriptors"](https://brycefrank.com/allometric/articles/descriptors.html),
 which get propagated to the searching functions described in the README.
 `geographic_region` and `age_class` are not search descriptors, but still help
 to clarify the purpose of the model within the publication.
 
 Next, we instantiate the `FixedEffectsSet`, which looks very similar to 
-`FixedEffectsModelModel` used in the previous section. The arguments are the
+`FixedEffectsModel` used in the previous section. The arguments are the
 same, but the implication is that `response unit`, `covariate units` and
 `prediction_fn` all apply uniformly to the models in the set.
 
@@ -250,6 +259,7 @@ initially gains access to the `allometric_models` table. If you are ever
 interested in viewing the source code for a model, just find the matching 
 `.R` file in `inst/publications`, which can be viewed locally or on GitHub. 
 The files used for this example are located at
-`inst/publications/temesgen_2008.R` and `inst/publications/brackett_1977.R`,
+[`inst/publications/temesgen_2008.R`](https://github.com/brycefrank/allometric/blob/master/inst/publications/temesgen_2008.R)
+and [`inst/publications/brackett_1977.R`](https://github.com/brycefrank/allometric/blob/master/inst/publications/brackett_1977.R),
 respectively.
 

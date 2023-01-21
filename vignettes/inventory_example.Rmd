@@ -49,7 +49,7 @@ filter out unnecessary models from the `allometric_models` table. Refer to the
 For this example, we need stem volume models for our species of interest that,
 preferably, were fit using data in the state of Oregon.
 
-```{r}
+```{r message = FALSE}
 library(allometric)
 library(dplyr)
 library(purrr)
@@ -128,7 +128,7 @@ to the allometric function. Inspecting the first model in our set reveals this
 order.
 
 ```{r}
-final_set %>% mutate(call = model_call(model_call[[1]]))
+final_set %>% mutate(call = model_call(model[[1]]))
 ```
 
 The `model_call` function shows that `vsa = f(dsob, hst)` is the allometric 
@@ -139,8 +139,6 @@ first argument and the total height of the stem (`hst`) is the second argument.
 Using `final_set`, we can easily merge the models to our tree-list and make
 predictions. Predictions made in this manner are done using the `predict_allo`
 function.
-
-5.76 cubic feet for a 3.9 in, 
 
 ```{r}
 tree_vols <- final_set %>%
