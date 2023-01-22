@@ -70,7 +70,7 @@ also provides a structured language for adding models to the package. If you
 are interested in helping the developer in this process please refer to the 
 [Installing a Model](https://brycefrank.com/allometric/articles/installing_a_model.html) vignette.
 
-In total **`allometric` contains `r n_models` across `r n_pubs` publications**, the following
+In total **`allometric` contains `r n_models` models across `r n_pubs` publications**, the following
 table displays the number of models by continent and category:
 
 ```{r echo=FALSE}

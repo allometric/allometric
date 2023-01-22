@@ -33,7 +33,7 @@
     
     <a class="navbar-brand me-2" href="index.html">allometric</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,7 +80,7 @@
 
 <p><code>allometric</code> is an R package for predicting tree attributes with allometric models. Thousands of allometric models exist in the scientific and technical forestry literature, and <code>allometric</code> is a platform for archiving and using this vast array of models in a robust and structured format.</p>
 <p><code>allometric</code> not only enables the use of allometric models for analysis, it also provides a structured language for adding models to the package. If you are interested in helping the developer in this process please refer to the <a href="https://brycefrank.com/allometric/articles/installing_a_model.html" class="external-link">Installing a Model</a> vignette.</p>
-<p>In total <strong><code>allometric</code> contains 629 across 23 publications</strong>, the following table displays the number of models by continent and categeory:</p>
+<p>In total <strong><code>allometric</code> contains 629 models across 23 publications</strong>, the following table displays the number of models by continent and category:</p>
 <table class="table">
 <thead><tr class="header">
 <th align="left">category</th>
@@ -265,7 +265,7 @@
 <p>or even using the convenience of <code>dplyr</code></p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_trees</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>vols <span class="op">=</span> <span class="fu"><a href="reference/predict.html">predict</a></span><span class="op">(</span><span class="va">brackett_alnus_mod</span>, <span class="va">dias</span>, <span class="va">heights</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu">mutate</span><span class="op">(</span>vols <span class="op">=</span> <span class="fu"><a href="reference/predict.html">predict</a></span><span class="op">(</span><span class="va">brackett_alnus_mod</span>, <span class="va">dias</span>, <span class="va">heights</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb18"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   dias heights     vols</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1   12      65 22.23470</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2   15      75 39.80216</span></span>
@@ -315,7 +315,7 @@
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml" class="external-link"><img src="https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://github.com/brycefrank/allometric" class="external-link"><img src="https://img.shields.io/badge/devel%20version-1.0.0-blue.svg"></a></li>
+<li><a href="https://github.com/brycefrank/allometric" class="external-link"><img src="https://img.shields.io/badge/devel%20version-1.0.0.9000-blue.svg"></a></li>
 <li><a href="https://codecov.io/gh/brycefrank/allometric" class="external-link"><img src="https://codecov.io/gh/brycefrank/allometric/branch/master/graph/badge.svg?token=3V5KUFMO2X" alt="codecov"></a></li>
 </ul>
 </div>

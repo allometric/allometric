@@ -21,8 +21,9 @@ refer to the [Installing a
 Model](https://brycefrank.com/allometric/articles/installing_a_model.html)
 vignette.
 
-In total **`allometric` contains 629 across 23 publications**, the
-following table displays the number of models by continent and category:
+In total **`allometric` contains 629 models across 23 publications**,
+the following table displays the number of models by continent and
+category:
 
 | category          |  AS |  EU |  NA |  AF |  OC |  SA |
 |:------------------|----:|----:|----:|----:|----:|----:|
