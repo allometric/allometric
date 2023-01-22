@@ -21,13 +21,26 @@ refer to the [Installing a
 Model](https://brycefrank.com/allometric/articles/installing_a_model.html)
 vignette.
 
-Currently, `allometric` contains 629 allometric models across 23
-publications. Refer to the
+In total **`allometric` contains 629 across 23 publications**, the
+following table displays the number of models by continent and
+categeory:
+
+| category          |  AS |  EU |  NA |  AF |  OC |  SA |
+|:------------------|----:|----:|----:|----:|----:|----:|
+| biomass component |  16 | 126 |  15 |   0 |   0 |   0 |
+| site index        |   0 |   0 |   2 |   0 |   0 |   0 |
+| stem height       |   7 |   0 |  26 |  12 |   2 |  18 |
+| stem volume       |   0 |   0 | 277 |   0 |   0 |  20 |
+| taper             |   0 |   0 |  18 |   0 |   0 |   0 |
+| tree biomass      |   0 |  34 |  90 |   0 |   0 |  16 |
+| other             |   0 |   0 |  30 |   0 |   0 |   0 |
+
+Refer to the
 [Reference](https://brycefrank.com/allometric/reference/index.html) for
 a full list of publications disaggregated by allometric model type.
 
-**If you are interested in collaboration (adding models or working on
-the package functions) please email me at <bfrank70@gmail.com>**
+If you are interested in collaboration (adding models or working on the
+package functions) please email me at <bfrank70@gmail.com>
 
 ## Installation
 
@@ -61,15 +74,15 @@ help for more information.
 head(allometric_models)
 ```
 
-    #> # A tibble: 6 × 13
-    #>   id       component measure country   region    family        genus       species     model      pub_id        family_name covt_name pub_year
-    #>   <chr>    <chr>     <chr>   <list>    <list>    <chr>         <chr>       <chr>       <list>     <chr>         <list>      <list>       <dbl>
-    #> 1 18c3398d stem      volume  <chr [1]> <chr [1]> Aceraceae     Acer        <NA>        <FxdEffcM> brackett_1977 <chr [1]>   <chr [2]>     1977
-    #> 2 94c9f45b stem      volume  <chr [1]> <chr [4]> Altingiaceae  Liquidambar styraciflua <FxdEffcM> hahn_1991     <chr [2]>   <chr [2]>     1991
-    #> 3 90269872 stem      volume  <chr [1]> <chr [4]> Altingiaceae  Liquidambar styraciflua <FxdEffcM> hahn_1991     <chr [2]>   <chr [2]>     1991
-    #> 4 f814022d stem      volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira    guianensis  <FxdEffcM> vibrans_2015  <chr [4]>   <chr [2]>     2015
-    #> 5 6938ab84 tree      biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex        canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
-    #> 6 b994e61a stem      biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex        canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
+    #> # A tibble: 6 × 12
+    #>   id       model_type   country   region    family        genus       species     model      pub_id        family_name covt_name pub_year
+    #>   <chr>    <chr>        <list>    <list>    <chr>         <chr>       <chr>       <list>     <chr>         <list>      <list>       <dbl>
+    #> 1 18c3398d stem volume  <chr [1]> <chr [1]> Aceraceae     Acer        <NA>        <FxdEffcM> brackett_1977 <chr [1]>   <chr [2]>     1977
+    #> 2 94c9f45b stem volume  <chr [1]> <chr [4]> Altingiaceae  Liquidambar styraciflua <FxdEffcM> hahn_1991     <chr [2]>   <chr [2]>     1991
+    #> 3 90269872 stem volume  <chr [1]> <chr [4]> Altingiaceae  Liquidambar styraciflua <FxdEffcM> hahn_1991     <chr [2]>   <chr [2]>     1991
+    #> 4 f814022d stem volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira    guianensis  <FxdEffcM> vibrans_2015  <chr [4]>   <chr [2]>     2015
+    #> 5 6938ab84 tree biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex        canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
+    #> 6 b994e61a stem biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex        canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
 
 **Finding and Selecting a Model**
 
@@ -92,19 +105,19 @@ unnested_models <- unnest_models(allometric_models, cols = "family_name")
 unnested_models
 ```
 
-    #> # A tibble: 1,783 × 13
-    #>    id       component measure country   region    family        genus       species     model      pub_id        family_name                 covt_name pub_year
-    #>    <chr>    <chr>     <chr>   <list>    <list>    <chr>         <chr>       <chr>       <list>     <chr>         <chr>                       <list>       <dbl>
-    #>  1 18c3398d stem      volume  <chr [1]> <chr [1]> Aceraceae     Acer        <NA>        <FxdEffcM> brackett_1977 "Brackett"                  <chr [2]>     1977
-    #>  2 94c9f45b stem      volume  <chr [1]> <chr [4]> Altingiaceae  Liquidambar styraciflua <FxdEffcM> hahn_1991     "Hahn"                      <chr [2]>     1991
-    #>  3 94c9f45b stem      volume  <chr [1]> <chr [4]> Altingiaceae  Liquidambar styraciflua <FxdEffcM> hahn_1991     "Hansen"                    <chr [2]>     1991
-    #>  4 90269872 stem      volume  <chr [1]> <chr [4]> Altingiaceae  Liquidambar styraciflua <FxdEffcM> hahn_1991     "Hahn"                      <chr [2]>     1991
-    #>  5 90269872 stem      volume  <chr [1]> <chr [4]> Altingiaceae  Liquidambar styraciflua <FxdEffcM> hahn_1991     "Hansen"                    <chr [2]>     1991
-    #>  6 f814022d stem      volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira    guianensis  <FxdEffcM> vibrans_2015  "Vibrans"                   <chr [2]>     2015
-    #>  7 f814022d stem      volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira    guianensis  <FxdEffcM> vibrans_2015  "Moser"                     <chr [2]>     2015
-    #>  8 f814022d stem      volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira    guianensis  <FxdEffcM> vibrans_2015  "Oliveira"                  <chr [2]>     2015
-    #>  9 f814022d stem      volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira    guianensis  <FxdEffcM> vibrans_2015  "c(\"de\", \"MaÃ§aneiro\")" <chr [2]>     2015
-    #> 10 6938ab84 tree      biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex        canariensis <FxdEffcM> montero_2005  "Montero"                   <chr [1]>     2005
+    #> # A tibble: 1,783 × 12
+    #>    id       model_type   country   region    family        genus       species     model      pub_id        family_name                 covt_name pub_year
+    #>    <chr>    <chr>        <list>    <list>    <chr>         <chr>       <chr>       <list>     <chr>         <chr>                       <list>       <dbl>
+    #>  1 18c3398d stem volume  <chr [1]> <chr [1]> Aceraceae     Acer        <NA>        <FxdEffcM> brackett_1977 "Brackett"                  <chr [2]>     1977
+    #>  2 94c9f45b stem volume  <chr [1]> <chr [4]> Altingiaceae  Liquidambar styraciflua <FxdEffcM> hahn_1991     "Hahn"                      <chr [2]>     1991
+    #>  3 94c9f45b stem volume  <chr [1]> <chr [4]> Altingiaceae  Liquidambar styraciflua <FxdEffcM> hahn_1991     "Hansen"                    <chr [2]>     1991
+    #>  4 90269872 stem volume  <chr [1]> <chr [4]> Altingiaceae  Liquidambar styraciflua <FxdEffcM> hahn_1991     "Hahn"                      <chr [2]>     1991
+    #>  5 90269872 stem volume  <chr [1]> <chr [4]> Altingiaceae  Liquidambar styraciflua <FxdEffcM> hahn_1991     "Hansen"                    <chr [2]>     1991
+    #>  6 f814022d stem volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira    guianensis  <FxdEffcM> vibrans_2015  "Vibrans"                   <chr [2]>     2015
+    #>  7 f814022d stem volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira    guianensis  <FxdEffcM> vibrans_2015  "Moser"                     <chr [2]>     2015
+    #>  8 f814022d stem volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira    guianensis  <FxdEffcM> vibrans_2015  "Oliveira"                  <chr [2]>     2015
+    #>  9 f814022d stem volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira    guianensis  <FxdEffcM> vibrans_2015  "c(\"de\", \"MaÃ§aneiro\")" <chr [2]>     2015
+    #> 10 6938ab84 tree biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex        canariensis <FxdEffcM> montero_2005  "Montero"                   <chr [1]>     2005
     #> # … with 1,773 more rows
 
 Now, each row represents unique data combinations for each model, which
@@ -115,17 +128,17 @@ example, to find a volume model for the genus Alnus that had
 ``` r
 brackett_alnus_vol <- unnested_models %>%
   dplyr::filter(
-    family_name == "Brackett", measure == "volume",
+    family_name == "Brackett", model_type == "stem volume",
     genus == "Alnus"
   )
 
 brackett_alnus_vol
 ```
 
-    #> # A tibble: 1 × 13
-    #>   id       component measure country   region    family     genus species model      pub_id        family_name covt_name pub_year
-    #>   <chr>    <chr>     <chr>   <list>    <list>    <chr>      <chr> <chr>   <list>     <chr>         <chr>       <list>       <dbl>
-    #> 1 ef95c311 stem      volume  <chr [1]> <chr [1]> Betulaceae Alnus rubra   <FxdEffcM> brackett_1977 Brackett    <chr [2]>     1977
+    #> # A tibble: 1 × 12
+    #>   id       model_type  country   region    family     genus species model      pub_id        family_name covt_name pub_year
+    #>   <chr>    <chr>       <list>    <list>    <chr>      <chr> <chr>   <list>     <chr>         <chr>       <list>       <dbl>
+    #> 1 ef95c311 stem volume <chr [1]> <chr [1]> Betulaceae Alnus rubra   <FxdEffcM> brackett_1977 Brackett    <chr [2]>     1977
 
 we can see that model `ef95c311` is a volume model written by Brackett
 for *Alnus rubra*. The model can be selected using the `id` field:

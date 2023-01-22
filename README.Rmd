@@ -5,8 +5,7 @@ output: github_document
 ```{r include=FALSE}
 library(dplyr)
 library(tidyr)
-
-
+library(lemon)
 library(allometric)
 options(width = 10000)
 
@@ -20,6 +19,37 @@ if (!exists("allometric_models")) {
 
 n_models <- nrow(allometric_models)
 n_pubs <- length(unique(allometric_models$pub_id, na.rm = T))
+
+continents <- read.csv(system.file("continents.csv", package = "allometric"),
+  na.strings = "")
+
+summ_categories <- data.frame(
+  category = c(rep("biomass component", 8), "other", "other", "other", "other"),
+  model_type = c("bark biomass", "branch biomass", "foliage biomass", "foliage ratio", "branch ratio", "root biomass", "stem biomass", "bark ratio", "stem diameter", "stem ratio", "crown ratio", "stump diameter")
+)
+
+model_summ <- allometric_models %>%
+  unnest_models("country") %>%
+  left_join(continents, by = c("country" = "iso_3166_1_a2")) %>%
+  group_by(model_type, continent) %>%
+  summarise(n=n()) %>%
+  merge(summ_categories, all.x=T)
+
+model_summ[is.na(model_summ$category), 'category'] <- model_summ$model_type[is.na(model_summ$category)]
+
+model_summ.fmt <- model_summ %>%
+  group_by(category, continent) %>%
+  summarise(n = sum(n)) %>%
+  tidyr::pivot_wider(names_from = "continent", values_from = "n") %>%
+  replace_na(list(AS = 0, `NA` = 0, EU = 0, AF = 0, OC = 0, SA = 0))
+
+model_summ.fmt <- bind_rows(
+  list(
+    model_summ.fmt %>% filter(category != "other"),
+    model_summ.fmt %>% filter(category == "other")
+  )
+)
+
 ```
 
 # allometric <a href="https://brycefrank.com/allometric/"><img src='man/figures/logo.png' align="right" height="139"/></a>
@@ -40,12 +70,18 @@ also provides a structured language for adding models to the package. If you
 are interested in helping the developer in this process please refer to the 
 [Installing a Model](https://brycefrank.com/allometric/articles/installing_a_model.html) vignette.
 
-Currently, `allometric` contains `r n_models` allometric models across
-`r n_pubs` publications. Refer to the [Reference](https://brycefrank.com/allometric/reference/index.html)
+In total **`allometric` contains `r n_models` across `r n_pubs` publications**, the following
+table displays the number of models by continent and category:
+
+```{r echo=FALSE}
+knitr::kable(model_summ.fmt, format = "markdown")
+```
+
+ Refer to the [Reference](https://brycefrank.com/allometric/reference/index.html)
 for a full list of publications disaggregated by allometric model type.
 
-**If you are interested in collaboration (adding models or working on the
-package functions) please email me at bfrank70@gmail.com**
+If you are interested in collaboration (adding models or working on the
+package functions) please email me at bfrank70@gmail.com
 
 ## Installation
 
