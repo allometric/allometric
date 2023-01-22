@@ -1,7 +1,7 @@
 component_defs <- utils::read.csv(system.file("variable_defs/components.csv", package = "allometric"))
 measure_defs <- utils::read.csv(system.file("variable_defs/measures.csv", package = "allometric"))
 
-var_defs <- list(
+var_defs.pre <- list(
   d = utils::read.csv(system.file("variable_defs/d.csv", package = "allometric")),
   v = utils::read.csv(system.file("variable_defs/v.csv", package = "allometric")),
   h = utils::read.csv(system.file("variable_defs/h.csv", package = "allometric")),
@@ -29,7 +29,7 @@ prepare_var_defs <- function(var_defs) {
   var_defs
 }
 
-var_defs <- prepare_var_defs(var_defs)
+var_defs <- prepare_var_defs(var_defs.pre)
 
 #' Get the definition of a variable in the variable naming system.
 #'
@@ -57,6 +57,7 @@ get_variable_def <- function(search_str, return_exact_only=FALSE) {
 
   matched_measure <- var_defs[[measure]]
   matches <- startsWith(matched_measure$search_str, search_str)
+  matched_measure <- matched_measure[matches,]
 
   if(sum(matches) == 0) {
     warning("No variable definition found for: ", search_str)
