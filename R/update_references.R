@@ -33,7 +33,7 @@ rd_lines <- function(pub) {
 
   for (i in 1:n_response_vars) {
     response_name <- names(pub@response_sets)[[i]]
-    response_def <- get_variable_def(response_name)
+    response_def <- get_variable_def(response_name, return_exact_only = T)
     section_title <- stringr::str_to_title(
       paste(
         response_def$component_name,
@@ -135,7 +135,7 @@ update_reference_index <- function() {
     for (i in seq_along(pub@response_sets)) {
       response_set <- pub@response_sets[[i]]
       response_name <- names(pub@response_sets)[[i]]
-      response_def <- get_variable_def(response_name)
+      response_def <- get_variable_def(response_name, return_exact_only = T)
       section_title <- stringr::str_to_title(paste(response_def$component_name, response_def$measure_name, "models"))
       ref_sections[[section_title]] <- c(ref_sections[[section_title]], pub@id)
     }

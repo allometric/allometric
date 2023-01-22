@@ -141,7 +141,7 @@ aggregate_results_ext <- function(results) {
     pub_year <- as.numeric(pub@citation$year)
     descriptors_row$pub_year <- pub_year
 
-    response_def <- get_variable_def(names(model@response_unit)[[1]])
+    response_def <- get_variable_def(names(model@response_unit)[[1]], return_exact_only = T)
     descriptors_row$component <- response_def$component_name
     descriptors_row$measure <- response_def$measure_name
 

@@ -26,9 +26,8 @@ publications. Refer to the
 [Reference](https://brycefrank.com/allometric/reference/index.html) for
 a full list of publications disaggregated by allometric model type.
 
-**`allometric` is currently in a pre-release state. If you are
-interested in collaboration (adding models or working on the package
-functions) please email me at <bfrank70@gmail.com>**
+**If you are interested in collaboration (adding models or working on
+the package functions) please email me at <bfrank70@gmail.com>**
 
 ## Installation
 

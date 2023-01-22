@@ -33,7 +33,7 @@
   if (variable_name %in% names(covariate_descriptions)) {
     variable_description <- covariate_descriptions[[variable_name]]
   } else {
-    variable_description <- get_variable_def(variable_name)$description
+    variable_description <- get_variable_def(variable_name, return_exact_only = T)$description
   }
 
   if (identical(variable_description, character(0))) {

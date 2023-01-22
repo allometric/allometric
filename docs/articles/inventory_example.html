@@ -33,7 +33,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">allometric</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1.9003</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -182,17 +182,17 @@ contain only two covariates that are named <code>dsob</code> and
 <code>hst</code>”? Only a handful of models remain.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">stemvol_or_spc_dia_ht_mods</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 6 × 14</span></span>m</span>
-<span><span class="co">##   id       compo…¹ measure country region family genus species model      pub_id</span>_id</span>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 6 × 14</span></span></span>
+<span><span class="co">##   id       compo…¹ measure country region family genus species model      pub_id</span></span>
 <span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">1</span> f1c40af8 stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Abies concol… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude…</span>udeâ€¦</span>
-<span><span class="co">## <span style="color: #BCBCBC;">2</span> d09ad76f stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Pinus ponder… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude…</span>udeâ€¦</span>
-<span><span class="co">## <span style="color: #BCBCBC;">3</span> 4eddbc35 stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> bruce…</span>bruceâ€¦</span>
-<span><span class="co">## <span style="color: #BCBCBC;">4</span> fc822111 stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> bruce…</span>bruceâ€¦</span>
-<span><span class="co">## <span style="color: #BCBCBC;">5</span> dbe58f0c stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude…</span>poudeâ€¦</span>
-<span><span class="co">## <span style="color: #BCBCBC;">6</span> 7f6764b3 stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Tsuga hetero… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude…</span>udeâ€¦</span>
-<span><span class="co">## <span style="color: #949494;"># … with 4 more variables: family_name &lt;list&gt;, covt_name &lt;list&gt;,</span></span>9m</span>
-<span><span class="co">## <span style="color: #949494;">#   pub_year &lt;dbl&gt;, SPCD &lt;dbl&gt;, and abbreviated variable name ¹​component</span></span>39m</span></code></pre>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span> f1c40af8 stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Abies concol… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">2</span> d09ad76f stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Pinus ponder… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">3</span> 4eddbc35 stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> bruce…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">4</span> fc822111 stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> bruce…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">5</span> dbe58f0c stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">6</span> 7f6764b3 stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Tsuga hetero… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude…</span></span>
+<span><span class="co">## <span style="color: #949494;"># … with 4 more variables: family_name &lt;list&gt;, covt_name &lt;list&gt;,</span></span></span>
+<span><span class="co">## <span style="color: #949494;">#   pub_year &lt;dbl&gt;, SPCD &lt;dbl&gt;, and abbreviated variable name ¹​component</span></span></span></code></pre>
 <p>At this stage, we only need to determine a single model for
 Pseudotsuga menziesii. We will decide to select only those models from
 <code>poudel_2019</code>, a recent study that contains the volume models
@@ -201,7 +201,7 @@ for the species we need.</p>
 <code class="sourceCode R"><span><span class="va">final_set</span> <span class="op">&lt;-</span> <span class="va">stemvol_or_spc_dia_ht_mods</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">pub_id</span> <span class="op">==</span> <span class="st">"poudel_2019"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">SPCD</span>, <span class="va">model</span><span class="op">)</span></span>
 <span><span class="va">final_set</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 4 × 2</span></span>m</span>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 4 × 2</span></span></span>
 <span><span class="co">##    SPCD model     </span></span>
 <span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>    </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;">1</span>    15 <span style="color: #949494;">&lt;FxdEffcM&gt;</span></span></span>
@@ -221,7 +221,7 @@ arguments to the allometric function. Inspecting the first model in our
 set reveals this order.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">final_set</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>call <span class="op">=</span> <span class="fu"><a href="../reference/model_call.html">model_call</a></span><span class="op">(</span><span class="va">model</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 4 × 3</span></span>m</span>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 4 × 3</span></span></span>
 <span><span class="co">##    SPCD model      call              </span></span>
 <span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             </span></span>
 <span><span class="co">## <span style="color: #BCBCBC;">1</span>    15 <span style="color: #949494;">&lt;FxdEffcM&gt;</span> vsa = f(dsob, hst)</span></span>
@@ -250,7 +250,7 @@ plot-level we obtain</p>
 <code class="sourceCode R"><span><span class="va">tree_vols</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">PLOT</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>vol_ac <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">vol_cuft</span> <span class="op">*</span> <span class="va">TPA_UNADJ</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 10 × 2</span></span>m</span>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 10 × 2</span></span></span>
 <span><span class="co">##     PLOT vol_ac</span></span>
 <span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 1</span>     1  <span style="text-decoration: underline;">7</span>058.</span></span>
