@@ -1,5 +1,26 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# allometric 1.0.0.9000 (2023-01-22)
+
+## Features
+
+- Adding model_types as a column to llometric_models, closes #47.
+
+## Chore
+
+- Cleaning up variable_defs functions.
+
+- Adding an issue template for model errors.
+
+## Documentation
+
+- Improving README with biomass category/continent table, closes #58.
+
+## Testing
+
+- Adding tests for new var_defs.
+
+
 # allometric 1.0.0 (2023-01-21)
 
 ## Documentation
