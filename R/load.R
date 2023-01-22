@@ -37,8 +37,7 @@ load_publication <- function(pub_id) {
 #'
 #' The columns are:
 #' * `id` - A unique ID for the model.
-#' * `component` - The component of the tree that is modeled.
-#' * `measure` - The measure of the component that is modeled.
+#' * `model_type` - The type of model (e.g., stem volume, site index, etc.)
 #' * `country` - The country or countries from which the model data is from.
 #' * `region` - The region or regions (e.g., state, province, etc.) from which
 #' the model data is from.
@@ -63,7 +62,7 @@ load_publication <- function(pub_id) {
 #' unnest_family <- allometric_models %>% unnest_models('family_name')
 #'
 #' unnest_family %>% dplyr::filter(family_name == "Hann")
-#' ````
+#' ```
 #'
 #' Any column or any combination of columns can be unnested, which allows for
 #' basic filtering of models using `dplyr::filter`.
@@ -129,15 +128,15 @@ load_publication <- function(pub_id) {
 #' ```{r}
 #' dia_ht_models <- dplyr::filter(
 #'     allometric_models,
-#'     measure == 'height',
+#'     model_type == 'stem height',
 #'     purrr::map_lgl(covt_name, ~ length(.)==1 & .[[1]] == 'dsob'),
 #' )
 #'
 #' nrow(dia_ht_models)
 #' ```
 #'
-#' Breaking this down, we have the first condition `measure=='height'` selecting
-#' only models concerned with heights as a response variable. The second line
+#' Breaking this down, we have the first condition `model_type=='stem_height'` selecting
+#' only models concerned with stem heights as a response variable. The second line
 #' maps over each element of the `covt_name` column, which is a character vector.
 #' The `.` represents a given character vector for that row. First, we ensure that
 #' the vector is only one element in size using `length(.)==1`, then we ensure that

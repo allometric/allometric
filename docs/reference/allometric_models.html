@@ -70,16 +70,7 @@ very much like a <code><a href="https://tibble.tidyverse.org/reference/tbl_df-cl
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>Printing the <code>head</code> of <code>allometric_models</code>, we can see the structure of the
 data</p>
-<p></p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">allometric_models</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 6 x 13</span></span>
-<span><span class="co">#&gt;   id       component measure country   region    family        genus       species     model      pub_id        family_name covt_name pub_year</span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;   &lt;list&gt;    &lt;list&gt;    &lt;chr&gt;         &lt;chr&gt;       &lt;chr&gt;       &lt;list&gt;     &lt;chr&gt;         &lt;list&gt;      &lt;list&gt;       &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt; 1 18c3398d stem      volume  &lt;chr [1]&gt; &lt;chr [1]&gt; Aceraceae     Acer        &lt;NA&gt;        &lt;FxdEffcM&gt; brackett_1977 &lt;chr [1]&gt;   &lt;chr [2]&gt;     1977</span></span>
-<span><span class="co">#&gt; 2 94c9f45b stem      volume  &lt;chr [1]&gt; &lt;chr [4]&gt; Altingiaceae  Liquidambar styraciflua &lt;FxdEffcM&gt; hahn_1991     &lt;chr [2]&gt;   &lt;chr [2]&gt;     1991</span></span>
-<span><span class="co">#&gt; 3 90269872 stem      volume  &lt;chr [1]&gt; &lt;chr [4]&gt; Altingiaceae  Liquidambar styraciflua &lt;FxdEffcM&gt; hahn_1991     &lt;chr [2]&gt;   &lt;chr [2]&gt;     1991</span></span>
-<span><span class="co">#&gt; 4 f814022d stem      volume  &lt;chr [1]&gt; &lt;chr [1]&gt; Anacardiaceae Tapirira    guianensis  &lt;FxdEffcM&gt; vibrans_2015  &lt;chr [4]&gt;   &lt;chr [2]&gt;     2015</span></span>
-<span><span class="co">#&gt; 5 6938ab84 tree      biomass &lt;chr [1]&gt; &lt;chr [1]&gt; Aquifoliaceae Ilex        canariensis &lt;FxdEffcM&gt; montero_2005  &lt;chr [3]&gt;   &lt;chr [1]&gt;     2005</span></span>
-<span><span class="co">#&gt; 6 b994e61a stem      biomass &lt;chr [1]&gt; &lt;chr [1]&gt; Aquifoliaceae Ilex        canariensis &lt;FxdEffcM&gt; montero_2005  &lt;chr [3]&gt;   &lt;chr [1]&gt;     2005</span></span></code></pre><p></p></div>
+<p></p><div class="sourceCode {r}"><pre><code></code></pre><p></p></div>
 <p>The columns are:</p><ul><li><p><code>id</code> - A unique ID for the model.</p></li>
 <li><p><code>component</code> - The component of the tree that is modeled.</p></li>
 <li><p><code>measure</code> - The measure of the component that is modeled.</p></li>
@@ -102,23 +93,7 @@ user to unnest any set of columns. For example, let's say we wanted to find
 a model from the author <code>"Hann"</code>. To do this, we will unnest the
 <code>family_name</code> column using <code>unnest_models</code>, then filter the resulting
 dataframe using <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">dplyr::filter</a></code>.</p>
-<p></p><div class="sourceCode r"><pre><code><span><span class="va">unnest_family</span> <span class="op">&lt;-</span> <span class="va">allometric_models</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu">unnest_models</span><span class="op">(</span><span class="st">'family_name'</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">unnest_family</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">family_name</span> <span class="op">==</span> <span class="st">"Hann"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 40 x 13</span></span>
-<span><span class="co">#&gt;    id       component measure  country   region    family       genus            species      model      pub_id       family_name covt_name pub_year</span></span>
-<span><span class="co">#&gt;    &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;    &lt;list&gt;    &lt;list&gt;    &lt;chr&gt;        &lt;chr&gt;            &lt;chr&gt;        &lt;list&gt;     &lt;chr&gt;        &lt;chr&gt;       &lt;list&gt;       &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt;  1 651aaa4a crown     ratio    &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus       decurrens    &lt;FxdEffcM&gt; ritchie_1987 Hann        &lt;chr [4]&gt;     1987</span></span>
-<span><span class="co">#&gt;  2 22003acc stem      diameter &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus       &lt;NA&gt;         &lt;FxdEffcM&gt; hann_2011    Hann        &lt;chr [2]&gt;     2011</span></span>
-<span><span class="co">#&gt;  3 e5d4894e stump     diameter &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus       &lt;NA&gt;         &lt;FxdEffcM&gt; hann_2011    Hann        &lt;chr [2]&gt;     2011</span></span>
-<span><span class="co">#&gt;  4 91e2d29d stem      volume   &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus       &lt;NA&gt;         &lt;FxdEffcM&gt; hann_2011    Hann        &lt;chr [3]&gt;     2011</span></span>
-<span><span class="co">#&gt;  5 53162fb2 crown     ratio    &lt;chr [1]&gt; &lt;chr [1]&gt; Ericaceae    Arbutus          menziesii    &lt;FxdEffcM&gt; ritchie_1987 Hann        &lt;chr [3]&gt;     1987</span></span>
-<span><span class="co">#&gt;  6 c0a86b32 crown     ratio    &lt;chr [1]&gt; &lt;chr [1]&gt; Fagaceae     Chrysolepis      chrysophylla &lt;FxdEffcM&gt; ritchie_1987 Hann        &lt;chr [4]&gt;     1987</span></span>
-<span><span class="co">#&gt;  7 ca55f6c1 crown     ratio    &lt;chr [1]&gt; &lt;chr [1]&gt; Fagaceae     Notholithocarpus densiflorus  &lt;FxdEffcM&gt; ritchie_1987 Hann        &lt;chr [1]&gt;     1987</span></span>
-<span><span class="co">#&gt;  8 3da0e21e crown     ratio    &lt;chr [1]&gt; &lt;chr [1]&gt; Fagaceae     Quercus          chrysolepis  &lt;FxdEffcM&gt; ritchie_1987 Hann        &lt;chr [1]&gt;     1987</span></span>
-<span><span class="co">#&gt;  9 77e11da9 crown     ratio    &lt;chr [1]&gt; &lt;chr [1]&gt; Fagaceae     Quercus          garryana     &lt;FxdEffcM&gt; ritchie_1987 Hann        &lt;chr [1]&gt;     1987</span></span>
-<span><span class="co">#&gt; 10 cca2d9dc crown     ratio    &lt;chr [1]&gt; &lt;chr [1]&gt; Fagaceae     Quercus          kelloggii    &lt;FxdEffcM&gt; ritchie_1987 Hann        &lt;chr [3]&gt;     1987</span></span>
-<span><span class="co">#&gt; # ... with 30 more rows</span></span></code></pre><p></p></div>
+<p></p><div class="sourceCode {r}"><pre><code></code></pre><p></p></div>
 <p>Any column or any combination of columns can be unnested, which allows for
 basic filtering of models using <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">dplyr::filter</a></code>.</p>
     </div>
@@ -134,23 +109,7 @@ of TRUE/FALSE values as it "maps" over a list of input.</p><div class="section">
 
 <p>Using this function, we can recreate the previous example, finding models
 that had <code>'Hann'</code> as a contributing author.</p>
-<p></p><div class="sourceCode r"><pre><code><span><span class="va">hann_models</span> <span class="op">&lt;-</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span></span>
-<span> <span class="va">allometric_models</span>,</span>
-<span> <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map_lgl</a></span><span class="op">(</span><span class="va">family_name</span>, <span class="op">~</span> <span class="st">'Hann'</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="va">.</span><span class="op">)</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">hann_models</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 6 x 13</span></span>
-<span><span class="co">#&gt;   id       component measure  country   region    family       genus       species      model      pub_id       family_name covt_name pub_year</span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;    &lt;list&gt;    &lt;list&gt;    &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;        &lt;list&gt;     &lt;chr&gt;        &lt;list&gt;      &lt;list&gt;       &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt; 1 651aaa4a crown     ratio    &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus  decurrens    &lt;FxdEffcM&gt; ritchie_1987 &lt;chr [2]&gt;   &lt;chr [4]&gt;     1987</span></span>
-<span><span class="co">#&gt; 2 22003acc stem      diameter &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus  &lt;NA&gt;         &lt;FxdEffcM&gt; hann_2011    &lt;chr [1]&gt;   &lt;chr [2]&gt;     2011</span></span>
-<span><span class="co">#&gt; 3 e5d4894e stump     diameter &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus  &lt;NA&gt;         &lt;FxdEffcM&gt; hann_2011    &lt;chr [1]&gt;   &lt;chr [2]&gt;     2011</span></span>
-<span><span class="co">#&gt; 4 91e2d29d stem      volume   &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus  &lt;NA&gt;         &lt;FxdEffcM&gt; hann_2011    &lt;chr [1]&gt;   &lt;chr [3]&gt;     2011</span></span>
-<span><span class="co">#&gt; 5 53162fb2 crown     ratio    &lt;chr [1]&gt; &lt;chr [1]&gt; Ericaceae    Arbutus     menziesii    &lt;FxdEffcM&gt; ritchie_1987 &lt;chr [2]&gt;   &lt;chr [3]&gt;     1987</span></span>
-<span><span class="co">#&gt; 6 c0a86b32 crown     ratio    &lt;chr [1]&gt; &lt;chr [1]&gt; Fagaceae     Chrysolepis chrysophylla &lt;FxdEffcM&gt; ritchie_1987 &lt;chr [2]&gt;   &lt;chr [4]&gt;     1987</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">hann_models</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] 40</span></span></code></pre><p></p></div>
+<p></p><div class="sourceCode {r}"><pre><code></code></pre><p></p></div>
 <p>Picking apart the above code block, we see that we are using the standard
 <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">dplyr::filter</a></code> function on the <code>allometric_models</code> dataframe. The second
 argument is a call using <code>purrr:map_lgl</code>, which will map over each list
@@ -167,25 +126,9 @@ considering, which is itself a list of author names.</p>
 
 <p>Maybe we are only interested in models where <code>'Hann'</code> is the first author. Using
 a simple modification we can easily do this.</p>
-<p></p><div class="sourceCode r"><pre><code><span><span class="va">hann_first_author_models</span> <span class="op">&lt;-</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span></span>
-<span>  <span class="va">allometric_models</span>,</span>
-<span>  <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map_lgl</a></span><span class="op">(</span><span class="va">family_name</span>, <span class="op">~</span> <span class="st">'Hann'</span> <span class="op">==</span> <span class="va">.</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">hann_first_author_models</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 6 x 13</span></span>
-<span><span class="co">#&gt;   id       component measure  country   region    family       genus      species  model      pub_id    family_name covt_name pub_year</span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;    &lt;list&gt;    &lt;list&gt;    &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt;    &lt;list&gt;     &lt;chr&gt;     &lt;list&gt;      &lt;list&gt;       &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt; 1 22003acc stem      diameter &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus &lt;NA&gt;     &lt;FxdEffcM&gt; hann_2011 &lt;chr [1]&gt;   &lt;chr [2]&gt;     2011</span></span>
-<span><span class="co">#&gt; 2 e5d4894e stump     diameter &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus &lt;NA&gt;     &lt;FxdEffcM&gt; hann_2011 &lt;chr [1]&gt;   &lt;chr [2]&gt;     2011</span></span>
-<span><span class="co">#&gt; 3 91e2d29d stem      volume   &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus &lt;NA&gt;     &lt;FxdEffcM&gt; hann_2011 &lt;chr [1]&gt;   &lt;chr [3]&gt;     2011</span></span>
-<span><span class="co">#&gt; 4 88fa6033 stem      diameter &lt;chr [1]&gt; &lt;chr [1]&gt; Pinaceae     Abies      concolor &lt;FxdEffcM&gt; hann_2011 &lt;chr [1]&gt;   &lt;chr [2]&gt;     2011</span></span>
-<span><span class="co">#&gt; 5 4c61fd99 stump     diameter &lt;chr [1]&gt; &lt;chr [1]&gt; Pinaceae     Abies      concolor &lt;FxdEffcM&gt; hann_2011 &lt;chr [1]&gt;   &lt;chr [2]&gt;     2011</span></span>
-<span><span class="co">#&gt; 6 79fd8e44 stem      volume   &lt;chr [1]&gt; &lt;chr [1]&gt; Pinaceae     Abies      concolor &lt;FxdEffcM&gt; hann_2011 &lt;chr [1]&gt;   &lt;chr [3]&gt;     2011</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">hann_first_author_models</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] 20</span></span></code></pre><p></p></div>
+<p></p><div class="sourceCode {r}"><pre><code></code></pre><p></p></div>
 <p>We can see that <code>'Hann'</code> is the first author for
-20 models in this package.</p>
+<code>r nrow(hann_first_author_models)</code> models in this package.</p>
 </div>
 
 <div class="section">
@@ -197,21 +140,14 @@ For example, the following block finds diameter-height models, specifically
 models that use diameter outside bark at breast height as the <em>only</em> covariate.
 The utility here is obvious, since many inventories are vastly limited by their
 available tree measurements.</p>
-<p></p><div class="sourceCode r"><pre><code><span><span class="va">dia_ht_models</span> <span class="op">&lt;-</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span></span>
-<span>    <span class="va">allometric_models</span>,</span>
-<span>    <span class="va">measure</span> <span class="op">==</span> <span class="st">'height'</span>,</span>
-<span>    <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map_lgl</a></span><span class="op">(</span><span class="va">covt_name</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">==</span><span class="fl">1</span> <span class="op">&amp;</span> <span class="va">.</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span> <span class="op">==</span> <span class="st">'dsob'</span><span class="op">)</span>,</span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">dia_ht_models</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] 34</span></span></code></pre><p></p></div>
+<p></p><div class="sourceCode {r}"><pre><code></code></pre><p></p></div>
 <p>Breaking this down, we have the first condition <code>measure=='height'</code> selecting
 only models concerned with heights as a response variable. The second line
 maps over each element of the <code>covt_name</code> column, which is a character vector.
 The <code>.</code> represents a given character vector for that row. First, we ensure that
 the vector is only one element in size using <code>length(.)==1</code>, then we ensure that
 the first (and only) element of this vector is equal to <code>'dsob'</code>, (diameter
-outside bark at breast height). In this case, 34 are
+outside bark at breast height). In this case, <code>r nrow(dia_ht_models)</code> are
 available in the package.</p>
 </div>
 
@@ -222,14 +158,8 @@ available in the package.</p>
 <p>By now the user should be sensing a pattern. We can apply the exact same logic
 as the <em>Finding Contributing Authors</em> section to find all models developed using
 data from <code>US-OR</code></p>
-<p></p><div class="sourceCode r"><pre><code><span><span class="va">us_or_models</span> <span class="op">&lt;-</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span></span>
-<span>    <span class="va">allometric_models</span>,</span>
-<span>    <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map_lgl</a></span><span class="op">(</span><span class="va">region</span>, <span class="op">~</span> <span class="st">"US-OR"</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="va">.</span><span class="op">)</span>,</span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">us_or_models</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] 159</span></span></code></pre><p></p></div>
-<p>We can see that 159 allometric models are defined for the
+<p></p><div class="sourceCode {r}"><pre><code></code></pre><p></p></div>
+<p>We can see that <code>r nrow(us_or_models)</code> allometric models are defined for the
 state of Oregon, US.</p>
 </div>
 

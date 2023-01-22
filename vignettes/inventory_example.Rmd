@@ -56,16 +56,16 @@ library(purrr)
 
 stemvol_mods <- allometric_models %>%
   filter(
-    component == "stem",
-    measure == "volume")
+    model_type == "stem volume"
+  )
 
 nrow(stemvol_mods)
 ```
 
-We can see that `stemvol_mods` contains a huge amount of volume models. That is
-because `allometric` is global in scope. Most of these models are not relavent
-for our needs. Next, we will drill down and select models that were developed
-with data from `US-OR` (the state of Oregon, United States).
+We can see that `stemvol_mods` contains a huge amount of stem volume models.
+That is because `allometric` is global in scope. Most of these models are not
+relavent for our needs. Next, we will drill down and select models that were 
+developed with data from `US-OR` (the state of Oregon, United States).
 
 ```{r}
 stemvol_or_mods <- stemvol_mods %>%

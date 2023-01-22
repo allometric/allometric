@@ -14,16 +14,7 @@ very much like a \code{tibble::tbl_df} or a \verb{data.frame``, and most functio
 Printing the \code{head} of \code{allometric_models}, we can see the structure of the
 data
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{head(allometric_models)
-#> # A tibble: 6 x 13
-#>   id       component measure country   region    family        genus       species     model      pub_id        family_name covt_name pub_year
-#>   <chr>    <chr>     <chr>   <list>    <list>    <chr>         <chr>       <chr>       <list>     <chr>         <list>      <list>       <dbl>
-#> 1 18c3398d stem      volume  <chr [1]> <chr [1]> Aceraceae     Acer        <NA>        <FxdEffcM> brackett_1977 <chr [1]>   <chr [2]>     1977
-#> 2 94c9f45b stem      volume  <chr [1]> <chr [4]> Altingiaceae  Liquidambar styraciflua <FxdEffcM> hahn_1991     <chr [2]>   <chr [2]>     1991
-#> 3 90269872 stem      volume  <chr [1]> <chr [4]> Altingiaceae  Liquidambar styraciflua <FxdEffcM> hahn_1991     <chr [2]>   <chr [2]>     1991
-#> 4 f814022d stem      volume  <chr [1]> <chr [1]> Anacardiaceae Tapirira    guianensis  <FxdEffcM> vibrans_2015  <chr [4]>   <chr [2]>     2015
-#> 5 6938ab84 tree      biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex        canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
-#> 6 b994e61a stem      biomass <chr [1]> <chr [1]> Aquifoliaceae Ilex        canariensis <FxdEffcM> montero_2005  <chr [3]>   <chr [1]>     2005
+\if{html}{\out{<div class="sourceCode {r}">}}\preformatted{head(allometric_models)
 }\if{html}{\out{</div>}}
 
 The columns are:
@@ -51,23 +42,9 @@ a model from the author \code{"Hann"}. To do this, we will unnest the
 \code{family_name} column using \code{unnest_models}, then filter the resulting
 dataframe using \code{dplyr::filter}.
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{unnest_family <- allometric_models \%>\% unnest_models('family_name')
+\if{html}{\out{<div class="sourceCode {r}">}}\preformatted{unnest_family <- allometric_models \%>\% unnest_models('family_name')
 
 unnest_family \%>\% dplyr::filter(family_name == "Hann")
-#> # A tibble: 40 x 13
-#>    id       component measure  country   region    family       genus            species      model      pub_id       family_name covt_name pub_year
-#>    <chr>    <chr>     <chr>    <list>    <list>    <chr>        <chr>            <chr>        <list>     <chr>        <chr>       <list>       <dbl>
-#>  1 651aaa4a crown     ratio    <chr [1]> <chr [1]> Cupressaceae Calocedrus       decurrens    <FxdEffcM> ritchie_1987 Hann        <chr [4]>     1987
-#>  2 22003acc stem      diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus       <NA>         <FxdEffcM> hann_2011    Hann        <chr [2]>     2011
-#>  3 e5d4894e stump     diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus       <NA>         <FxdEffcM> hann_2011    Hann        <chr [2]>     2011
-#>  4 91e2d29d stem      volume   <chr [1]> <chr [1]> Cupressaceae Calocedrus       <NA>         <FxdEffcM> hann_2011    Hann        <chr [3]>     2011
-#>  5 53162fb2 crown     ratio    <chr [1]> <chr [1]> Ericaceae    Arbutus          menziesii    <FxdEffcM> ritchie_1987 Hann        <chr [3]>     1987
-#>  6 c0a86b32 crown     ratio    <chr [1]> <chr [1]> Fagaceae     Chrysolepis      chrysophylla <FxdEffcM> ritchie_1987 Hann        <chr [4]>     1987
-#>  7 ca55f6c1 crown     ratio    <chr [1]> <chr [1]> Fagaceae     Notholithocarpus densiflorus  <FxdEffcM> ritchie_1987 Hann        <chr [1]>     1987
-#>  8 3da0e21e crown     ratio    <chr [1]> <chr [1]> Fagaceae     Quercus          chrysolepis  <FxdEffcM> ritchie_1987 Hann        <chr [1]>     1987
-#>  9 77e11da9 crown     ratio    <chr [1]> <chr [1]> Fagaceae     Quercus          garryana     <FxdEffcM> ritchie_1987 Hann        <chr [1]>     1987
-#> 10 cca2d9dc crown     ratio    <chr [1]> <chr [1]> Fagaceae     Quercus          kelloggii    <FxdEffcM> ritchie_1987 Hann        <chr [3]>     1987
-#> # ... with 30 more rows
 }\if{html}{\out{</div>}}
 
 Any column or any combination of columns can be unnested, which allows for
@@ -85,23 +62,13 @@ of TRUE/FALSE values as it "maps" over a list of input.
 Using this function, we can recreate the previous example, finding models
 that had \code{'Hann'} as a contributing author.
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{hann_models <- dplyr::filter(
+\if{html}{\out{<div class="sourceCode {r}">}}\preformatted{hann_models <- dplyr::filter(
  allometric_models,
  purrr::map_lgl(family_name, ~ 'Hann' \%in\% .)
 )
 
 head(hann_models)
-#> # A tibble: 6 x 13
-#>   id       component measure  country   region    family       genus       species      model      pub_id       family_name covt_name pub_year
-#>   <chr>    <chr>     <chr>    <list>    <list>    <chr>        <chr>       <chr>        <list>     <chr>        <list>      <list>       <dbl>
-#> 1 651aaa4a crown     ratio    <chr [1]> <chr [1]> Cupressaceae Calocedrus  decurrens    <FxdEffcM> ritchie_1987 <chr [2]>   <chr [4]>     1987
-#> 2 22003acc stem      diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus  <NA>         <FxdEffcM> hann_2011    <chr [1]>   <chr [2]>     2011
-#> 3 e5d4894e stump     diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus  <NA>         <FxdEffcM> hann_2011    <chr [1]>   <chr [2]>     2011
-#> 4 91e2d29d stem      volume   <chr [1]> <chr [1]> Cupressaceae Calocedrus  <NA>         <FxdEffcM> hann_2011    <chr [1]>   <chr [3]>     2011
-#> 5 53162fb2 crown     ratio    <chr [1]> <chr [1]> Ericaceae    Arbutus     menziesii    <FxdEffcM> ritchie_1987 <chr [2]>   <chr [3]>     1987
-#> 6 c0a86b32 crown     ratio    <chr [1]> <chr [1]> Fagaceae     Chrysolepis chrysophylla <FxdEffcM> ritchie_1987 <chr [2]>   <chr [4]>     1987
 nrow(hann_models)
-#> [1] 40
 }\if{html}{\out{</div>}}
 
 Picking apart the above code block, we see that we are using the standard
@@ -119,27 +86,17 @@ considering, which is itself a list of author names.
 Maybe we are only interested in models where \code{'Hann'} is the first author. Using
 a simple modification we can easily do this.
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{hann_first_author_models <- dplyr::filter(
+\if{html}{\out{<div class="sourceCode {r}">}}\preformatted{hann_first_author_models <- dplyr::filter(
   allometric_models,
   purrr::map_lgl(family_name, ~ 'Hann' == .[[1]])
 )
 
 head(hann_first_author_models)
-#> # A tibble: 6 x 13
-#>   id       component measure  country   region    family       genus      species  model      pub_id    family_name covt_name pub_year
-#>   <chr>    <chr>     <chr>    <list>    <list>    <chr>        <chr>      <chr>    <list>     <chr>     <list>      <list>       <dbl>
-#> 1 22003acc stem      diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>     <FxdEffcM> hann_2011 <chr [1]>   <chr [2]>     2011
-#> 2 e5d4894e stump     diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>     <FxdEffcM> hann_2011 <chr [1]>   <chr [2]>     2011
-#> 3 91e2d29d stem      volume   <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>     <FxdEffcM> hann_2011 <chr [1]>   <chr [3]>     2011
-#> 4 88fa6033 stem      diameter <chr [1]> <chr [1]> Pinaceae     Abies      concolor <FxdEffcM> hann_2011 <chr [1]>   <chr [2]>     2011
-#> 5 4c61fd99 stump     diameter <chr [1]> <chr [1]> Pinaceae     Abies      concolor <FxdEffcM> hann_2011 <chr [1]>   <chr [2]>     2011
-#> 6 79fd8e44 stem      volume   <chr [1]> <chr [1]> Pinaceae     Abies      concolor <FxdEffcM> hann_2011 <chr [1]>   <chr [3]>     2011
 nrow(hann_first_author_models)
-#> [1] 20
 }\if{html}{\out{</div>}}
 
 We can see that \code{'Hann'} is the first author for
-20 models in this package.
+\verb{r nrow(hann_first_author_models)} models in this package.
 }
 
 \subsection{Finding a Model with Specific Data Requirements}{
@@ -150,14 +107,13 @@ models that use diameter outside bark at breast height as the \emph{only} covari
 The utility here is obvious, since many inventories are vastly limited by their
 available tree measurements.
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{dia_ht_models <- dplyr::filter(
+\if{html}{\out{<div class="sourceCode {r}">}}\preformatted{dia_ht_models <- dplyr::filter(
     allometric_models,
     measure == 'height',
     purrr::map_lgl(covt_name, ~ length(.)==1 & .[[1]] == 'dsob'),
 )
 
 nrow(dia_ht_models)
-#> [1] 34
 }\if{html}{\out{</div>}}
 
 Breaking this down, we have the first condition \code{measure=='height'} selecting
@@ -166,7 +122,7 @@ maps over each element of the \code{covt_name} column, which is a character vect
 The \code{.} represents a given character vector for that row. First, we ensure that
 the vector is only one element in size using \code{length(.)==1}, then we ensure that
 the first (and only) element of this vector is equal to \code{'dsob'}, (diameter
-outside bark at breast height). In this case, 34 are
+outside bark at breast height). In this case, \verb{r nrow(dia_ht_models)} are
 available in the package.
 }
 
@@ -176,16 +132,15 @@ By now the user should be sensing a pattern. We can apply the exact same logic
 as the \emph{Finding Contributing Authors} section to find all models developed using
 data from \code{US-OR}
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{us_or_models <- dplyr::filter(
+\if{html}{\out{<div class="sourceCode {r}">}}\preformatted{us_or_models <- dplyr::filter(
     allometric_models,
     purrr::map_lgl(region, ~ "US-OR" \%in\% .),
 )
 
 nrow(us_or_models)
-#> [1] 159
 }\if{html}{\out{</div>}}
 
-We can see that 159 allometric models are defined for the
+We can see that \verb{r nrow(us_or_models)} allometric models are defined for the
 state of Oregon, US.
 }
 }

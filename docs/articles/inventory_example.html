@@ -140,13 +140,13 @@ Oregon.</p>
 <span></span>
 <span><span class="va">stemvol_mods</span> <span class="op">&lt;-</span> <span class="va">allometric_models</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span></span>
-<span>    <span class="va">component</span> <span class="op">==</span> <span class="st">"stem"</span>,</span>
-<span>    <span class="va">measure</span> <span class="op">==</span> <span class="st">"volume"</span><span class="op">)</span></span>
+<span>    <span class="va">model_type</span> <span class="op">==</span> <span class="st">"stem volume"</span></span>
+<span>  <span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">stemvol_mods</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## [1] 298</span></span></code></pre>
 <p>We can see that <code>stemvol_mods</code> contains a huge amount of
-volume models. That is because <code>allometric</code> is global in
+stem volume models. That is because <code>allometric</code> is global in
 scope. Most of these models are not relavent for our needs. Next, we
 will drill down and select models that were developed with data from
 <code>US-OR</code> (the state of Oregon, United States).</p>
@@ -182,17 +182,17 @@ contain only two covariates that are named <code>dsob</code> and
 <code>hst</code>”? Only a handful of models remain.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">stemvol_or_spc_dia_ht_mods</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 6 × 14</span></span></span>
-<span><span class="co">##   id       compo…¹ measure country region family genus species model      pub_id</span></span>
-<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">1</span> f1c40af8 stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Abies concol… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">2</span> d09ad76f stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Pinus ponder… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">3</span> 4eddbc35 stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> bruce…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">4</span> fc822111 stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> bruce…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">5</span> dbe58f0c stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude…</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">6</span> 7f6764b3 stem    volume  &lt;chr&gt;   &lt;chr&gt;  Pinac… Tsuga hetero… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude…</span></span>
-<span><span class="co">## <span style="color: #949494;"># … with 4 more variables: family_name &lt;list&gt;, covt_name &lt;list&gt;,</span></span></span>
-<span><span class="co">## <span style="color: #949494;">#   pub_year &lt;dbl&gt;, SPCD &lt;dbl&gt;, and abbreviated variable name ¹​component</span></span></span></code></pre>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 6 × 13</span></span></span>
+<span><span class="co">##   id       model…¹ country region family genus species model      pub_id famil…²</span></span>
+<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span> f1c40af8 stem v… &lt;chr&gt;   &lt;chr&gt;  Pinac… Abies concol… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude… &lt;chr&gt;  </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">2</span> d09ad76f stem v… &lt;chr&gt;   &lt;chr&gt;  Pinac… Pinus ponder… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude… &lt;chr&gt;  </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">3</span> 4eddbc35 stem v… &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> bruce… &lt;chr&gt;  </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">4</span> fc822111 stem v… &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> bruce… &lt;chr&gt;  </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">5</span> dbe58f0c stem v… &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude… &lt;chr&gt;  </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">6</span> 7f6764b3 stem v… &lt;chr&gt;   &lt;chr&gt;  Pinac… Tsuga hetero… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude… &lt;chr&gt;  </span></span>
+<span><span class="co">## <span style="color: #949494;"># … with 3 more variables: covt_name &lt;list&gt;, pub_year &lt;dbl&gt;, SPCD &lt;dbl&gt;, and</span></span></span>
+<span><span class="co">## <span style="color: #949494;">#   abbreviated variable names ¹​model_type, ²​family_name</span></span></span></code></pre>
 <p>At this stage, we only need to determine a single model for
 Pseudotsuga menziesii. We will decide to select only those models from
 <code>poudel_2019</code>, a recent study that contains the volume models
@@ -253,16 +253,16 @@ plot-level we obtain</p>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 10 × 2</span></span></span>
 <span><span class="co">##     PLOT vol_ac</span></span>
 <span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span>     1  <span style="text-decoration: underline;">7</span>058.</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span>     2 <span style="text-decoration: underline;">20</span>391.</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span>     3 <span style="text-decoration: underline;">10</span>110.</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span>     4   914.</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span>     5  <span style="text-decoration: underline;">2</span>855.</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span>     6 <span style="text-decoration: underline;">13</span>592.</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span>     7 <span style="text-decoration: underline;">10</span>624.</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span>     8 <span style="text-decoration: underline;">17</span>822.</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span>     9  <span style="text-decoration: underline;">7</span>333.</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span>    10  <span style="text-decoration: underline;">4</span>037.</span></span></code></pre>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span>     1  <span style="text-decoration: underline;">7</span>881.</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span>     2 <span style="text-decoration: underline;">22</span>768.</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span>     3 <span style="text-decoration: underline;">11</span>289.</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span>     4  <span style="text-decoration: underline;">1</span>021.</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span>     5  <span style="text-decoration: underline;">3</span>188.</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span>     6 <span style="text-decoration: underline;">15</span>176.</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span>     7 <span style="text-decoration: underline;">11</span>862.</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span>     8 <span style="text-decoration: underline;">19</span>900.</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span>     9  <span style="text-decoration: underline;">8</span>188.</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span>    10  <span style="text-decoration: underline;">4</span>507.</span></span></code></pre>
 </div>
 </div>
 <div class="section level2">

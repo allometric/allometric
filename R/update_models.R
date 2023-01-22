@@ -104,8 +104,8 @@ aggregate_results_ext <- function(results) {
   )
 
   out_order <- c(
-    "id", "component", "measure", "country", "region",
-    "family", "genus", "species", "model"
+    "id", "model_type", "country", "region", "family", "genus", "species",
+    "model"
   )
 
   agg_results <- list()
@@ -142,8 +142,7 @@ aggregate_results_ext <- function(results) {
     descriptors_row$pub_year <- pub_year
 
     response_def <- get_variable_def(names(model@response_unit)[[1]], return_exact_only = T)
-    descriptors_row$component <- response_def$component_name
-    descriptors_row$measure <- response_def$measure_name
+    descriptors_row$model_type <- model@model_type
 
     agg_results[[i]] <- descriptors_row
   }

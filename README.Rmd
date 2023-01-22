@@ -106,7 +106,7 @@ we can use
 ```{r}
 brackett_alnus_vol <- unnested_models %>%
   dplyr::filter(
-    family_name == "Brackett", measure == "volume",
+    family_name == "Brackett", model_type == "stem volume",
     genus == "Alnus"
   )
 
