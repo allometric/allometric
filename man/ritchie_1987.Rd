@@ -6,8 +6,8 @@
 \itemize{
 \item{\code{rc [ft ft-1]}}{ - crown ratio}
 \item{\code{hst [ft]}}{ - total height of the stem}
-\item{\code{ccfl [ft2 ft-2]}}{ - variable not defined}
-\item{\code{gn [ft2 acre-1]}}{ - variable not defined}
+\item{\code{ccfl [ft2 ft-2]}}{ - crown competition factor of large trees}
+\item{\code{gn [ft2 acre-1]}}{ - stand-level basal area}
 \item{\code{dsob [in]}}{ - diameter of the stem, outside bark at breast height}
 \item{\code{hstix50 [ft]}}{ - site index at 50 year base age}
 }
@@ -22,8 +22,8 @@
 \itemize{
 \item{\code{rc [ft ft-1]}}{ - crown ratio}
 \item{\code{hst [ft]}}{ - total height of the stem}
-\item{\code{ccfl [ft2 ft-2]}}{ - variable not defined}
-\item{\code{gn [ft2 acre-1]}}{ - variable not defined}
+\item{\code{ccfl [ft2 ft-2]}}{ - crown competition factor of large trees}
+\item{\code{gn [ft2 acre-1]}}{ - stand-level basal area}
 }
 \bold{Model Parameters}
 \preformatted{  family    genus   species       b_0      b_1      b_2    b_3
@@ -34,8 +34,8 @@
 \itemize{
 \item{\code{rc [ft ft-1]}}{ - crown ratio}
 \item{\code{hst [ft]}}{ - total height of the stem}
-\item{\code{ccfl [ft2 ft-2]}}{ - variable not defined}
-\item{\code{gn [ft2 acre-1]}}{ - variable not defined}
+\item{\code{ccfl [ft2 ft-2]}}{ - crown competition factor of large trees}
+\item{\code{gn [ft2 acre-1]}}{ - stand-level basal area}
 \item{\code{dsob [in]}}{ - diameter of the stem, outside bark at breast height}
 }
 \bold{Model Parameters}
@@ -46,7 +46,7 @@
 \code{rc = 1 - ((1)/(1 + exp(b_0 + b_2 * ccfl)))}
 \itemize{
 \item{\code{rc [ft ft-1]}}{ - crown ratio}
-\item{\code{ccfl [ft2 ft-2]}}{ - variable not defined}
+\item{\code{ccfl [ft2 ft-2]}}{ - crown competition factor of large trees}
 }
 \bold{Model Parameters}
 \preformatted{  family   genus   species        b_0      b_2
@@ -56,7 +56,7 @@
 \code{rc = 1 - ((1)/(1 + exp(b_2 * ccfl)))}
 \itemize{
 \item{\code{rc [ft ft-1]}}{ - crown ratio}
-\item{\code{ccfl [ft2 ft-2]}}{ - variable not defined}
+\item{\code{ccfl [ft2 ft-2]}}{ - crown competition factor of large trees}
 }
 \bold{Model Parameters}
 \preformatted{  family   genus            species           b_2
@@ -65,7 +65,7 @@
 \code{rc = 1 - ((1)/(1 + exp(b_0 + b_3 * log(gn))))}
 \itemize{
 \item{\code{rc [ft ft-1]}}{ - crown ratio}
-\item{\code{gn [ft2 acre-1]}}{ - variable not defined}
+\item{\code{gn [ft2 acre-1]}}{ - stand-level basal area}
 }
 \bold{Model Parameters}
 \preformatted{  family   genus   species       b_0    b_3
@@ -76,7 +76,7 @@
 \item{\code{rc [ft ft-1]}}{ - crown ratio}
 \item{\code{hst [ft]}}{ - total height of the stem}
 \item{\code{dsob [in]}}{ - diameter of the stem, outside bark at breast height}
-\item{\code{gn [ft2 acre-1]}}{ - variable not defined}
+\item{\code{gn [ft2 acre-1]}}{ - stand-level basal area}
 }
 \bold{Model Parameters}
 \preformatted{  family   genus   species     b_0    b_3   b_4
@@ -86,7 +86,7 @@
 \itemize{
 \item{\code{rc [ft ft-1]}}{ - crown ratio}
 \item{\code{hst [ft]}}{ - total height of the stem}
-\item{\code{ccfl [ft2 ft-2]}}{ - variable not defined}
+\item{\code{ccfl [ft2 ft-2]}}{ - crown competition factor of large trees}
 }
 \bold{Model Parameters}
 \preformatted{  family   genus   species     b_0      b_1      b_2

@@ -149,11 +149,11 @@ brackett_alnus_vol <- unnested_models %>%
 brackett_alnus_vol
 ```
 
-we can see that model `ef95c311` is a volume model written by Brackett for 
+we can see that model `f21028ef` is a volume model written by Brackett for 
 *Alnus rubra*. The model can be selected using the `id` field:
 
 ```{r}
-brackett_alnus_mod <- brackett_alnus_vol %>% select_model("ef95c311")
+brackett_alnus_mod <- brackett_alnus_vol %>% select_model("f21028ef")
 ```
 
 or by using the row index

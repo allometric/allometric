@@ -95,7 +95,7 @@ temesgen_2008 <- add_model(temesgen_2008, FixedEffectsModel(
   ),
   covariate_units = list(
     ccfl = units::as_units("m2 / ha"),
-    ba = units::as_units("m2 / ha"),
+    gn = units::as_units("m2 / ha"),
     dsob = units::as_units("cm")
   ),
   parameters = list(
@@ -105,10 +105,13 @@ temesgen_2008 <- add_model(temesgen_2008, FixedEffectsModel(
     beta_1 = -0.0194,
     beta_2 = 1.0805
   ),
-  predict_fn = function(ccfl, ba, dsob) {
-    1.37 + (beta_00 + beta_01 * ccfl + beta_02 * ba) *
+  predict_fn = function(ccfl, gn, dsob) {
+    1.37 + (beta_00 + beta_01 * ccfl + beta_02 * gn) *
       (1 - exp(beta_1 * dsob)^beta_2)
-  }
+  },
+  covariate_definitions = list(
+    ccfl = "crown competition factor of large trees"
+  )
 ))
 
 temesgen_2008 <- add_model(temesgen_2008, MixedEffectsModel(
@@ -134,7 +137,10 @@ temesgen_2008 <- add_model(temesgen_2008, MixedEffectsModel(
     1.37 + (beta_00 + beta_01 * ccfl + beta_02 * gn + b_i) *
       (1 - exp(beta_1 * dsob)^beta_2)
   },
-  fixed_only = T
+  fixed_only = T,
+  covariate_definitions = list(
+    ccfl = "crown competition factor of large trees"
+  )
 ))
 
 temesgen_2008 <- add_model(temesgen_2008, MixedEffectsModel(
@@ -159,5 +165,8 @@ temesgen_2008 <- add_model(temesgen_2008, MixedEffectsModel(
   predict_fn = function(ccfl, gn, dsob) {
     1.37 + (beta_00 + beta_01 * ccfl + beta_02 * gn + b_0_i) *
       (1 - exp(beta_1 * dsob)^(beta_2 + b_2_i))
-  }
+  },
+  covariate_definitions = list(
+    ccfl = "crown competition factor of large trees"
+  )
 ))

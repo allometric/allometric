@@ -30,6 +30,7 @@ reference:
   - chojnacky_1985
   - hahn_1991
   - hann_2011
+  - myers_1964
   - poudel_2019
   - rustagi_1991
   - vibrans_2015
@@ -74,6 +75,7 @@ reference:
   contents: montero_2005
 - subtitle: Stem Ratio Models
   contents:
+  - myers_1964
   - poudel_2018
   - poudel_2019
 - subtitle: Foliage Ratio Models

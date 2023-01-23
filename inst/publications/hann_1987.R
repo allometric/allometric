@@ -19,7 +19,7 @@ hstix50_psme <- FixedEffectsModel(
   ),
   covariate_units = list(
     hst = units::as_units("ft"),
-    age = units::as_units("yr")
+    atb = units::as_units("yr")
   ),
   parameters = list(
     b_1 = -0.0521778,
@@ -27,8 +27,8 @@ hstix50_psme <- FixedEffectsModel(
     b_3 = 0.00797252,
     b_4 = -0.000133377
   ),
-  predict_fn = function(hst, age) {
-    4.5 + (hst - 4.5) * exp(b_1 * (age - 50) + b_2 * (age - 50)^2 + b_3 * (age - 50) * log(hst - 4.5) + b_4 * (age - 50)^2 * log(hst - 4.5))
+  predict_fn = function(hst, atb) {
+    4.5 + (hst - 4.5) * exp(b_1 * (atb - 50) + b_2 * (atb - 50)^2 + b_3 * (atb - 50) * log(hst - 4.5) + b_4 * (atb - 50)^2 * log(hst - 4.5))
   },
   descriptors = list(
     family = "Pinaceae",
@@ -43,7 +43,7 @@ hstix50_pipo <- FixedEffectsModel(
   ),
   covariate_units = list(
     hst = units::as_units("ft"),
-    age = units::as_units("yr")
+    atb = units::as_units("yr")
   ),
   parameters = list(
     b_1 = -0.0699340,
@@ -51,8 +51,8 @@ hstix50_pipo <- FixedEffectsModel(
     b_3 = 0.0120483,
     b_4 = -0.0000718058
   ),
-  predict_fn = function(hst, age) {
-    4.5 + (hst - 4.5) * exp(b_1 * (age - 50) + b_2 * (age - 50)^2 + b_3 * (age - 50) * log(hst - 4.5) + b_4 * (age - 50)^2 * log(hst - 4.5))
+  predict_fn = function(hst, atb) {
+    4.5 + (hst - 4.5) * exp(b_1 * (atb - 50) + b_2 * (atb - 50)^2 + b_3 * (atb - 50) * log(hst - 4.5) + b_4 * (atb - 50)^2 * log(hst - 4.5))
   },
   descriptors = list(
     family = "Pinaceae",

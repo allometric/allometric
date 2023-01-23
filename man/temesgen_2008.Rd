@@ -29,11 +29,11 @@
 \preformatted{  beta_0  beta_1 beta_2
 1   41.8 -0.0241  0.860}
 \out{<hr>}
-\code{hst = 1.37 + (beta_00 + beta_01 * ccfl + beta_02 * ba) * (1 - exp(beta_1 * dsob)^beta_2)}
+\code{hst = 1.37 + (beta_00 + beta_01 * ccfl + beta_02 * gn) * (1 - exp(beta_1 * dsob)^beta_2)}
 \itemize{
 \item{\code{hst [m]}}{ - total height of the stem}
-\item{\code{ccfl [m2 ha-1]}}{ - variable not defined}
-\item{\code{ba [m2 ha-1]}}{ - variable not defined}
+\item{\code{ccfl [m2 ha-1]}}{ - crown competition factor of large trees}
+\item{\code{gn [m2 ha-1]}}{ - stand-level basal area}
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
 }
 \bold{Model Parameters}
@@ -43,8 +43,8 @@
 \code{hst = 1.37 + (beta_00 + beta_01 * ccfl + beta_02 * gn + b_i) * (1 - exp(beta_1 * dsob)^beta_2)}
 \itemize{
 \item{\code{hst [m]}}{ - total height of the stem}
-\item{\code{ccfl [m2 ha-1]}}{ - variable not defined}
-\item{\code{gn [m2 ha-1]}}{ - variable not defined}
+\item{\code{ccfl [m2 ha-1]}}{ - crown competition factor of large trees}
+\item{\code{gn [m2 ha-1]}}{ - stand-level basal area}
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
 }
 \bold{Model Parameters}
@@ -54,8 +54,8 @@
 \code{hst = 1.37 + (beta_00 + beta_01 * ccfl + beta_02 * gn + b_0_i) * (1 - exp(beta_1 * dsob)^(beta_2 + b_2_i))}
 \itemize{
 \item{\code{hst [m]}}{ - total height of the stem}
-\item{\code{ccfl [m2 ha-1]}}{ - variable not defined}
-\item{\code{gn [m2 ha-1]}}{ - variable not defined}
+\item{\code{ccfl [m2 ha-1]}}{ - crown competition factor of large trees}
+\item{\code{gn [m2 ha-1]}}{ - stand-level basal area}
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
 }
 \bold{Model Parameters}

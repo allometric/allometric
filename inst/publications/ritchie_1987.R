@@ -27,7 +27,10 @@ rc_1 <- FixedEffectsSet(
   predict_fn = function(hst, ccfl, gn, dsob, hstix50) {
     1 - ((1) / (1 + exp(b_0 + b_1 * hst + b_2 * ccfl + b_3 * log(gn) + b_4 * (dsob / hst) + b_5 * (hstix50 - 4.5))))
   },
-  model_specifications = load_parameter_frame("rc_ritchie_1987_1")
+  model_specifications = load_parameter_frame("rc_ritchie_1987_1"),
+  covariate_definitions = list(
+    ccfl = "crown competition factor of large trees"
+  )
 )
 
 rc_2 <- FixedEffectsSet(
@@ -43,7 +46,10 @@ rc_2 <- FixedEffectsSet(
   predict_fn = function(hst, ccfl, gn) {
     1 - ((1) / (1 + exp(b_0 + b_1 * hst + b_2 * ccfl + b_3 * log(gn))))
   },
-  model_specifications = load_parameter_frame("rc_ritchie_1987_2")
+  model_specifications = load_parameter_frame("rc_ritchie_1987_2"),
+  covariate_definitions = list(
+    ccfl = "crown competition factor of large trees"
+  )
 )
 
 rc_3 <- FixedEffectsSet(
@@ -60,7 +66,10 @@ rc_3 <- FixedEffectsSet(
   predict_fn = function(hst, ccfl, gn, dsob) {
     1 - ((1) / (1 + exp(b_0 + b_2 * ccfl + b_3 * log(gn) + b_4 * (dsob / hst))))
   },
-  model_specifications = load_parameter_frame("rc_ritchie_1987_3")
+  model_specifications = load_parameter_frame("rc_ritchie_1987_3"),
+  covariate_definitions = list(
+    ccfl = "crown competition factor of large trees"
+  )
 )
 
 rc_4 <- FixedEffectsSet(
@@ -74,7 +83,10 @@ rc_4 <- FixedEffectsSet(
   predict_fn = function(ccfl) {
     1 - ((1) / (1 + exp(b_0 + b_2 * ccfl)))
   },
-  model_specifications = load_parameter_frame("rc_ritchie_1987_4")
+  model_specifications = load_parameter_frame("rc_ritchie_1987_4"),
+  covariate_definitions = list(
+    ccfl = "crown competition factor of large trees"
+  )
 )
 
 rc_tanoak <- FixedEffectsModel(
@@ -90,7 +102,10 @@ rc_tanoak <- FixedEffectsModel(
   predict_fn = function(ccfl) {
     1 - ((1) / (1 + exp(b_2 * ccfl)))
   },
-  descriptors = list(family = "Fagaceae", genus = "Notholithocarpus", species = "densiflorus")
+  descriptors = list(family = "Fagaceae", genus = "Notholithocarpus", species = "densiflorus"),
+  covariate_definitions = list(
+    ccfl = "crown competition factor of large trees"
+  )
 )
 
 rc_canyon_live_oak <- FixedEffectsModel(
@@ -146,7 +161,10 @@ rc_bigleaf_maple <- FixedEffectsModel(
   predict_fn = function(hst, ccfl) {
     1 - ((1) / (1 + exp(b_0 + b_1 * hst + b_2 * ccfl)))
   },
-  descriptors = list(family = "Fagaceae", genus = "Quercus", species = "kelloggii")
+  descriptors = list(family = "Fagaceae", genus = "Quercus", species = "kelloggii"),
+  covariate_definitions = list(
+    ccfl = "crown competition factor of large trees"
+  )
 )
 
 ritchie_1987 <- ritchie_1987 %>%

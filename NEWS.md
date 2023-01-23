@@ -1,5 +1,19 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# allometric 1.0.0.9001 (2023-01-23)
+
+## Features
+
+- Adding a unit for (merchantable) logs.
+
+## Chore
+
+- Model IDs are now established using the first 8 characters of the.
+hash
+
+- Adding age to variable defs and other variable def adjustmenst.
+
+
 # allometric 1.0.0.9000 (2023-01-22)
 
 ## Features
