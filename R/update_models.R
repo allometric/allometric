@@ -209,7 +209,7 @@ get_model_results <- function(pub_list) {
           proxy_id <- get_model_hash(model@predict_fn_populated, descriptors(model))
 
           if (!proxy_id %in% current_ids) {
-            id <- uuid8()
+            id <- substr(proxy_id, 1, 8)
             model_ids <- append_id(model_ids, proxy_id, id)
           } else {
             if (sum(model_ids$proxy_id == proxy_id) > 1) {
