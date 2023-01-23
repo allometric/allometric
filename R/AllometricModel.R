@@ -30,10 +30,10 @@ model_types_defined <- read.csv(
 
 # TODO these feel like extra work, since they could just be defined in the csvs
 measure_def <- data.frame(
-  measure = c("d", "v", "g", "h", "b", "r"),
+  measure = c("d", "v", "g", "h", "b", "r", "a"),
   measure_label = c(
     "diameter", "volume", "basal area", "height", "biomass",
-    "ratio"
+    "ratio", "age"
   )
 )
 

@@ -7,7 +7,9 @@ var_defs.pre <- list(
   h = utils::read.csv(system.file("variable_defs/h.csv", package = "allometric")),
   b = utils::read.csv(system.file("variable_defs/b.csv", package = "allometric")),
   e = utils::read.csv(system.file("variable_defs/e.csv", package = "allometric")),
-  r = utils::read.csv(system.file("variable_defs/r.csv", package = "allometric"))
+  r = utils::read.csv(system.file("variable_defs/r.csv", package = "allometric")),
+  a = utils::read.csv(system.file("variable_defs/a.csv", package = "allometric")),
+  g = utils::read.csv(system.file("variable_defs/g.csv", package = "allometric"))
 )
 
 
