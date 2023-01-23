@@ -12,3 +12,13 @@ get_ranef_names <- function(predict_ranef) {
 build_publication <- function(pub_path) {
   source(pub_path)
 }
+
+# No clean way to check for existing custom units...
+tryCatch(
+  {
+    units::install_unit("log")
+    return(TRUE)
+  }, error = function(cond) {
+  }, warning = function(cond) {
+  }
+)
