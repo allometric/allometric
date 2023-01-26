@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">allometric</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9001</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,8 +59,8 @@
     <p><code>bt = a * (dsob^2 * (1.3 + ((b * dsob)/(c * dsob))) * rwd)^d</code></p><ul><li><p><code>bt [kg]</code> - tree biomass</p></li>
 <li><p><code>dsob [cm]</code> - diameter of the stem, outside bark at breast height</p></li>
 <li><p><code>rwd [g cm-3]</code> - wood specific gravity</p></li>
-</ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code>  geographic_region forest_type             a     b     c     d
-1 pantropical       dense ombrophilous 0.0568  31.2  30.1 0.989</code></pre></div><p></p><hr><code>bt = a/(1 + exp(b + c * dsoc + d * hst))</code><ul><li><p><code>bt [kg]</code> - tree biomass</p></li>
+</ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code>  geographic_region forest_type         a     b     c     d
+1 pantropical       dense ombroph~ 0.0568  31.2  30.1 0.989</code></pre></div><p></p><hr><code>bt = a/(1 + exp(b + c * dsoc + d * hst))</code><ul><li><p><code>bt [kg]</code> - tree biomass</p></li>
 <li><p><code>dsoc [cm]</code> - diameter outside bark above the root collar</p></li>
 <li><p><code>hst [m]</code> - total height of the stem</p></li>
 </ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code>  family    genus    species        a     b      c      d
@@ -75,8 +75,8 @@
 1 Arecaceae Euterpe edulist 0.0175  1.53  1.66</code></pre></div><p></p><hr><code>bt = a * (dsob^2 * (1.3 + b * exp(c/dsob)) * rwd)^d</code><ul><li><p><code>bt [kg]</code> - tree biomass</p></li>
 <li><p><code>dsob [cm]</code> - diameter of the stem, outside bark at breast height</p></li>
 <li><p><code>rwd [g cm-3]</code> - wood specific gravity</p></li>
-</ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code>  family        genus     species           a     b     c     d
-1 Araucariaceae Araucaria angustifolia 0.0568  23.1 -10.0 0.989</code></pre></div><p></p><hr><code>bt = a * (dsob^2 * (1.3 + b * (1 - exp(c * dsob))) * rwd)^d</code><ul><li><p><code>bt [kg]</code> - tree biomass</p></li>
+</ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code>  family        genus     species       a     b     c     d
+1 Araucariaceae Araucaria angusti~ 0.0568  23.1 -10.0 0.989</code></pre></div><p></p><hr><code>bt = a * (dsob^2 * (1.3 + b * (1 - exp(c * dsob))) * rwd)^d</code><ul><li><p><code>bt [kg]</code> - tree biomass</p></li>
 <li><p><code>dsob [cm]</code> - diameter of the stem, outside bark at breast height</p></li>
 <li><p><code>rwd [g cm-3]</code> - wood specific gravity</p></li>
 </ul><p><b>Model Parameters</b></p><div class="sourceCode"><pre><code>  forest_type      a     b      c     d

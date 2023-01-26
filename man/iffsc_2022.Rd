@@ -9,8 +9,8 @@
 \item{\code{rwd [g cm-3]}}{ - wood specific gravity}
 }
 \bold{Model Parameters}
-\preformatted{  geographic_region forest_type             a     b     c     d
-1 pantropical       dense ombrophilous 0.0568  31.2  30.1 0.989}
+\preformatted{  geographic_region forest_type         a     b     c     d
+1 pantropical       dense ombroph~ 0.0568  31.2  30.1 0.989}
 \out{<hr>}
 \code{bt = a/(1 + exp(b + c * dsoc + d * hst))}
 \itemize{
@@ -49,8 +49,8 @@
 \item{\code{rwd [g cm-3]}}{ - wood specific gravity}
 }
 \bold{Model Parameters}
-\preformatted{  family        genus     species           a     b     c     d
-1 Araucariaceae Araucaria angustifolia 0.0568  23.1 -10.0 0.989}
+\preformatted{  family        genus     species       a     b     c     d
+1 Araucariaceae Araucaria angusti~ 0.0568  23.1 -10.0 0.989}
 \out{<hr>}
 \code{bt = a * (dsob^2 * (1.3 + b * (1 - exp(c * dsob))) * rwd)^d}
 \itemize{
