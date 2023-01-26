@@ -1,0 +1,25 @@
+species_group,X_threshold,single_stem,family,genus,species,beta_3,beta_1,beta_4
+juniper,> 6,FALSE,Cupressaceae,Juniperus,osteosperma,10.786,2.0255,-43.663
+juniper,> 6,TRUE,Cupressaceae,Juniperus,osteosperma,15.675,2.1076,-62.827
+juniper,> 6,FALSE,Cupressaceae,Juniperus,monosperma,10.786,2.0255,-43.663
+juniper,> 6,TRUE,Cupressaceae,Juniperus,monosperma,15.675,2.1076,-62.827
+pinyon,> 3,,Pinaceae,Pinus,edulis,3.898,2.5139,-7.917
+pinyon,> 3,,Pinaceae,Pinus,cembroides,3.898,2.5139,-7.917
+mesquite,> 2,FALSE,Fabaceae,Prosopis,velutina,6.927,1.8972,-9.21
+mesquite,> 2,TRUE,Fabaceae,Prosopis,velutina,9.586,2.3378,-12.839
+mesquite,> 2,FALSE,Fabaceae,Senegalia,gregii,6.927,1.8972,-9.21
+mesquite,> 2,TRUE,Fabaceae,Senegalia,gregii,9.586,2.3378,-12.839
+mesquite,> 2,FALSE,Fabaceae,Olneya,tesota,6.927,1.8972,-9.21
+mesquite,> 2,TRUE,Fabaceae,Olneya,tesota,9.586,2.3378,-12.839
+oak,> 4,FALSE,Fagaceae,Quercus,emoryi,6.691,1.9545,-17.918
+oak,> 4,TRUE,Fagaceae,Quercus,emoryi,6.571,2.4048,-17.704
+oak,> 4,FALSE,Fagaceae,Quercus,arizonica,6.691,1.9545,-17.918
+oak,> 4,TRUE,Fagaceae,Quercus,arizonica,6.571,2.4048,-17.704
+oak,> 4,FALSE,Fagaceae,Quercus,oblongifolia,6.691,1.9545,-17.918
+oak,> 4,TRUE,Fagaceae,Quercus,oblongifolia,6.571,2.4048,-17.704
+oak,> 4,FALSE,Fagaceae,Quercus,gambelii,6.691,1.9545,-17.918
+oak,> 4,TRUE,Fagaceae,Quercus,gambelii,6.571,2.4048,-17.704
+oak,> 4,FALSE,Fagaceae,Quercus,turbinella,6.691,1.9545,-17.918
+oak,> 4,TRUE,Fagaceae,Quercus,turbinella,6.571,2.4048,-17.704
+oak,> 4,FALSE,Fagaceae,Quercus,chysolepis,6.691,1.9545,-17.918
+oak,> 4,TRUE,Fagaceae,Quercus,chysolepis,6.571,2.4048,-17.704
