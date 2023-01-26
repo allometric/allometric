@@ -28,6 +28,7 @@ reference:
   - brackett_1977
   - bruce_1974
   - chojnacky_1985
+  - hahn_1984
   - hahn_1991
   - hann_2011
   - myers_1964
@@ -45,6 +46,7 @@ reference:
 - subtitle: Stem Height Models
   contents:
   - feldpausch_2012
+  - hahn_1984
   - hann_1987
   - moore_1996
   - temesgen_2008
@@ -55,6 +57,14 @@ reference:
   - montero_2005
   - poudel_2019
   - uller_2019
+- subtitle: Stump Volume Models
+  contents: hahn_1984
+- subtitle: Stem Ratio Models
+  contents:
+  - hahn_1984
+  - myers_1964
+  - poudel_2018
+  - poudel_2019
 - subtitle: Stump Diameter Models
   contents: hann_2011
 - subtitle: Stem Biomass Models
@@ -74,11 +84,6 @@ reference:
   contents: huy_2019
 - subtitle: Root Biomass Models
   contents: montero_2005
-- subtitle: Stem Ratio Models
-  contents:
-  - myers_1964
-  - poudel_2018
-  - poudel_2019
 - subtitle: Foliage Ratio Models
   contents: poudel_2019
 - subtitle: Bark Ratio Models

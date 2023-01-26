@@ -12,13 +12,11 @@
 \item{\code{hstix50 [ft]}}{ - site index at 50 year base age}
 }
 \bold{Model Parameters}
-\preformatted{  family genus species   b_0      b_1      b_2    b_3   b_4
-1 Pinac~ Pseu~ menzie~  2.60 -0.00726 -0.00458 -0.442  1.61
-2 Pinac~ Abies grandis  2.71 -0.00367 -0.00455 -0.505  1.73
-3 Pinac~ Abies concol~  2.71 -0.00367 -0.00455 -0.505  1.73
-4 Pinac~ Pinus ponder~  2.35 -0.00206 -0.00260 -0.622  3.10
-# ... with 1 more variable: b_5 <dbl>
-# i Use `colnames()` to see all variable names}
+\preformatted{  family   genus       species     b_0      b_1      b_2    b_3   b_4     b_5
+1 Pinaceae Pseudotsuga menziesii  2.60 -0.00726 -0.00458 -0.442  1.61 0.00468
+2 Pinaceae Abies       grandis    2.71 -0.00367 -0.00455 -0.505  1.73 0.00473
+3 Pinaceae Abies       concolor   2.71 -0.00367 -0.00455 -0.505  1.73 0.00473
+4 Pinaceae Pinus       ponderosa  2.35 -0.00206 -0.00260 -0.622  3.10 0.00426}
 \out{<hr>}
 \code{rc = 1 - ((1)/(1 + exp(b_0 + b_1 * hst + b_2 * ccfl + b_3 * log(gn))))}
 \itemize{
@@ -28,9 +26,9 @@
 \item{\code{gn [ft2 acre-1]}}{ - stand-level basal area}
 }
 \bold{Model Parameters}
-\preformatted{  family    genus   species    b_0      b_1      b_2    b_3
-1 Pinaceae  Pinus   lambert~  2.60 -0.00726 -0.00458 -0.442
-2 Ericaceae Arbutus menzies~  2.71 -0.00367 -0.00455 -0.505}
+\preformatted{  family    genus   species       b_0      b_1      b_2    b_3
+1 Pinaceae  Pinus   lambertiana  2.60 -0.00726 -0.00458 -0.442
+2 Ericaceae Arbutus menziesii    2.71 -0.00367 -0.00455 -0.505}
 \out{<hr>}
 \code{rc = 1 - ((1)/(1 + exp(b_0 + b_2 * ccfl + b_3 * log(gn) + b_4 * (dsob/hst))))}
 \itemize{
@@ -41,9 +39,9 @@
 \item{\code{dsob [in]}}{ - diameter of the stem, outside bark at breast height}
 }
 \bold{Model Parameters}
-\preformatted{  family       genus    species   b_0      b_2    b_3   b_4
-1 Cupressaceae Caloced~ decurr~  4.40 -0.00267 -0.845  1.09
-2 Fagaceae     Chrysol~ chryso~  1.66 -0.00241 -0.355  1.25}
+\preformatted{  family       genus       species        b_0      b_2    b_3   b_4
+1 Cupressaceae Calocedrus  decurrens     4.40 -0.00267 -0.845  1.09
+2 Fagaceae     Chrysolepis chrysophylla  1.66 -0.00241 -0.355  1.25}
 \out{<hr>}
 \code{rc = 1 - ((1)/(1 + exp(b_0 + b_2 * ccfl)))}
 \itemize{

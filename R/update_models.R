@@ -213,7 +213,6 @@ get_model_results <- function(pub_list) {
             model_ids <- append_id(model_ids, proxy_id, id)
           } else {
             if (sum(model_ids$proxy_id == proxy_id) > 1) {
-              browser()
               stop(paste("Duplicate model hash found for model in pub:", pub@id))
             }
             id <- model_ids[model_ids$proxy_id == proxy_id, "id"]

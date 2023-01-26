@@ -33,7 +33,7 @@
     
     <a class="navbar-brand me-2" href="index.html">allometric</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9001</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,7 +80,7 @@
 
 <p><code>allometric</code> is an R package for predicting tree attributes with allometric models. Thousands of allometric models exist in the scientific and technical forestry literature, and <code>allometric</code> is a platform for archiving and using this vast array of models in a robust and structured format.</p>
 <p><code>allometric</code> not only enables the use of allometric models for analysis, it also provides a structured language for adding models to the package. If you are interested in helping the developer in this process please refer to the <a href="https://brycefrank.com/allometric/articles/installing_a_model.html" class="external-link">Installing a Model</a> vignette.</p>
-<p>In total <strong><code>allometric</code> contains 651 models across 24 publications</strong>, the following table displays the number of models by continent and category:</p>
+<p>In total <strong><code>allometric</code> contains 997 models across 26 publications</strong>, the following table displays the number of models by continent and category:</p>
 <table class="table">
 <thead><tr class="header">
 <th align="left">category</th>
@@ -123,7 +123,7 @@
 <td align="left">stem volume</td>
 <td align="right">0</td>
 <td align="right">0</td>
-<td align="right">289</td>
+<td align="right">315</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">20</td>
@@ -178,34 +178,34 @@
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">allometric_models</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 12</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   id       model_type   country   region    family        genus       species     model      pub_id        family_name covt_name pub_year</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;        &lt;list&gt;    &lt;list&gt;    &lt;chr&gt;         &lt;chr&gt;       &lt;chr&gt;       &lt;list&gt;     &lt;chr&gt;         &lt;list&gt;      &lt;list&gt;       &lt;dbl&gt;</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 218a0299 stem volume  &lt;chr [1]&gt; &lt;chr [1]&gt; Aceraceae     Acer        &lt;NA&gt;        &lt;FxdEffcM&gt; brackett_1977 &lt;chr [1]&gt;   &lt;chr [2]&gt;     1977</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 19b459f0 stem volume  &lt;chr [1]&gt; &lt;chr [4]&gt; Altingiaceae  Liquidambar styraciflua &lt;FxdEffcM&gt; hahn_1991     &lt;chr [2]&gt;   &lt;chr [2]&gt;     1991</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 18c333d1 stem volume  &lt;chr [1]&gt; &lt;chr [4]&gt; Altingiaceae  Liquidambar styraciflua &lt;FxdEffcM&gt; hahn_1991     &lt;chr [2]&gt;   &lt;chr [2]&gt;     1991</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 67ec8735 stem volume  &lt;chr [1]&gt; &lt;chr [1]&gt; Anacardiaceae Tapirira    guianensis  &lt;FxdEffcM&gt; vibrans_2015  &lt;chr [4]&gt;   &lt;chr [2]&gt;     2015</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 49ce7317 tree biomass &lt;chr [1]&gt; &lt;chr [1]&gt; Aquifoliaceae Ilex        canariensis &lt;FxdEffcM&gt; montero_2005  &lt;chr [3]&gt;   &lt;chr [1]&gt;     2005</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 172eeee3 stem biomass &lt;chr [1]&gt; &lt;chr [1]&gt; Aquifoliaceae Ilex        canariensis &lt;FxdEffcM&gt; montero_2005  &lt;chr [3]&gt;   &lt;chr [1]&gt;     2005</span></span></code></pre></div>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   id       model_type   country   region    family       genus  species    model      pub_id        family_name covt_name pub_year</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;        &lt;list&gt;    &lt;list&gt;    &lt;chr&gt;        &lt;chr&gt;  &lt;chr&gt;      &lt;list&gt;     &lt;chr&gt;         &lt;list&gt;      &lt;list&gt;       &lt;dbl&gt;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 7277d296 stem height  &lt;NULL&gt;    &lt;NULL&gt;    Accipitridae Circus canadensis &lt;FxdEffcM&gt; hahn_1984     &lt;chr [1]&gt;   &lt;chr [4]&gt;     1984</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 6372b6e0 stem volume  &lt;NULL&gt;    &lt;NULL&gt;    Accipitridae Circus canadensis &lt;FxdEffcM&gt; hahn_1984     &lt;chr [1]&gt;   &lt;chr [2]&gt;     1984</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 347eee07 stem volume  &lt;NULL&gt;    &lt;NULL&gt;    Accipitridae Circus canadensis &lt;FxdEffcM&gt; hahn_1984     &lt;chr [1]&gt;   &lt;chr [2]&gt;     1984</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 7188007e stump volume &lt;NULL&gt;    &lt;NULL&gt;    Accipitridae Circus canadensis &lt;FxdEffcM&gt; hahn_1984     &lt;chr [1]&gt;   &lt;chr [1]&gt;     1984</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 60aca0de stem ratio   &lt;NULL&gt;    &lt;NULL&gt;    Accipitridae Circus canadensis &lt;FxdEffcM&gt; hahn_1984     &lt;chr [1]&gt;   &lt;chr [1]&gt;     1984</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 218a0299 stem volume  &lt;chr [1]&gt; &lt;chr [1]&gt; Aceraceae    Acer   &lt;NA&gt;       &lt;FxdEffcM&gt; brackett_1977 &lt;chr [1]&gt;   &lt;chr [2]&gt;     1977</span></span></code></pre></div>
 <p><strong>Finding and Selecting a Model</strong></p>
 <p><code>allometric_models</code> is a <code><a href="https://tibble.tidyverse.org/reference/tbl_df-class.html" class="external-link">tibble::tbl_df</a></code> dataframe. Each row represents one allometric model with various attributes. Some columns are <code>list</code> columns, which are columns that contain lists with multiple values as their elements. One example of this is the <code>family_name</code> column, which contains the names of all authors for the publication that contains the model.</p>
 <p><code>list</code> columns enable rigorous searching of models covered in the <code><a href="reference/allometric_models.html">?allometric_models</a></code> help page, but to get started we will use a helper function called <code>unnest_models()</code> that will give us a clearer picture of the available data. Using the <code>cols</code> argument we can specify which columns we want to unnest. In this case we will unnest the <code>family_name</code> column.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">unnested_models</span> <span class="op">&lt;-</span> <span class="fu">unnest_models</span><span class="op">(</span><span class="va">allometric_models</span>, cols <span class="op">=</span> <span class="st">"family_name"</span><span class="op">)</span></span>
 <span><span class="va">unnested_models</span></span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1,805 × 12</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    id       model_type   country   region    family        genus       species     model      pub_id        family_name                 covt_name pub_year</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;chr&gt;    &lt;chr&gt;        &lt;list&gt;    &lt;list&gt;    &lt;chr&gt;         &lt;chr&gt;       &lt;chr&gt;       &lt;list&gt;     &lt;chr&gt;         &lt;chr&gt;                       &lt;list&gt;       &lt;dbl&gt;</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 218a0299 stem volume  &lt;chr [1]&gt; &lt;chr [1]&gt; Aceraceae     Acer        &lt;NA&gt;        &lt;FxdEffcM&gt; brackett_1977 "Brackett"                  &lt;chr [2]&gt;     1977</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 19b459f0 stem volume  &lt;chr [1]&gt; &lt;chr [4]&gt; Altingiaceae  Liquidambar styraciflua &lt;FxdEffcM&gt; hahn_1991     "Hahn"                      &lt;chr [2]&gt;     1991</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 19b459f0 stem volume  &lt;chr [1]&gt; &lt;chr [4]&gt; Altingiaceae  Liquidambar styraciflua &lt;FxdEffcM&gt; hahn_1991     "Hansen"                    &lt;chr [2]&gt;     1991</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 18c333d1 stem volume  &lt;chr [1]&gt; &lt;chr [4]&gt; Altingiaceae  Liquidambar styraciflua &lt;FxdEffcM&gt; hahn_1991     "Hahn"                      &lt;chr [2]&gt;     1991</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 18c333d1 stem volume  &lt;chr [1]&gt; &lt;chr [4]&gt; Altingiaceae  Liquidambar styraciflua &lt;FxdEffcM&gt; hahn_1991     "Hansen"                    &lt;chr [2]&gt;     1991</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 67ec8735 stem volume  &lt;chr [1]&gt; &lt;chr [1]&gt; Anacardiaceae Tapirira    guianensis  &lt;FxdEffcM&gt; vibrans_2015  "Vibrans"                   &lt;chr [2]&gt;     2015</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 67ec8735 stem volume  &lt;chr [1]&gt; &lt;chr [1]&gt; Anacardiaceae Tapirira    guianensis  &lt;FxdEffcM&gt; vibrans_2015  "Moser"                     &lt;chr [2]&gt;     2015</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 67ec8735 stem volume  &lt;chr [1]&gt; &lt;chr [1]&gt; Anacardiaceae Tapirira    guianensis  &lt;FxdEffcM&gt; vibrans_2015  "Oliveira"                  &lt;chr [2]&gt;     2015</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 67ec8735 stem volume  &lt;chr [1]&gt; &lt;chr [1]&gt; Anacardiaceae Tapirira    guianensis  &lt;FxdEffcM&gt; vibrans_2015  "c(\"de\", \"MaÃ§aneiro\")" &lt;chr [2]&gt;     2015</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 49ce7317 tree biomass &lt;chr [1]&gt; &lt;chr [1]&gt; Aquifoliaceae Ilex        canariensis &lt;FxdEffcM&gt; montero_2005  "Montero"                   &lt;chr [1]&gt;     2005</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 1,795 more rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 2,151 × 12</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    id       model_type   country   region    family       genus       species     model      pub_id        family_name covt_name pub_year</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;chr&gt;    &lt;chr&gt;        &lt;list&gt;    &lt;list&gt;    &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;       &lt;list&gt;     &lt;chr&gt;         &lt;chr&gt;       &lt;list&gt;       &lt;dbl&gt;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 7277d296 stem height  &lt;NULL&gt;    &lt;NULL&gt;    Accipitridae Circus      canadensis  &lt;FxdEffcM&gt; hahn_1984     Hahn        &lt;chr [4]&gt;     1984</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 6372b6e0 stem volume  &lt;NULL&gt;    &lt;NULL&gt;    Accipitridae Circus      canadensis  &lt;FxdEffcM&gt; hahn_1984     Hahn        &lt;chr [2]&gt;     1984</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 347eee07 stem volume  &lt;NULL&gt;    &lt;NULL&gt;    Accipitridae Circus      canadensis  &lt;FxdEffcM&gt; hahn_1984     Hahn        &lt;chr [2]&gt;     1984</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 7188007e stump volume &lt;NULL&gt;    &lt;NULL&gt;    Accipitridae Circus      canadensis  &lt;FxdEffcM&gt; hahn_1984     Hahn        &lt;chr [1]&gt;     1984</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 60aca0de stem ratio   &lt;NULL&gt;    &lt;NULL&gt;    Accipitridae Circus      canadensis  &lt;FxdEffcM&gt; hahn_1984     Hahn        &lt;chr [1]&gt;     1984</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 218a0299 stem volume  &lt;chr [1]&gt; &lt;chr [1]&gt; Aceraceae    Acer        &lt;NA&gt;        &lt;FxdEffcM&gt; brackett_1977 Brackett    &lt;chr [2]&gt;     1977</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 7399a925 stem height  &lt;NULL&gt;    &lt;NULL&gt;    Altingiaceae Liquidambar styraciflua &lt;FxdEffcM&gt; hahn_1984     Hahn        &lt;chr [4]&gt;     1984</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 5932e769 stem volume  &lt;NULL&gt;    &lt;NULL&gt;    Altingiaceae Liquidambar styraciflua &lt;FxdEffcM&gt; hahn_1984     Hahn        &lt;chr [2]&gt;     1984</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 1487666f stem volume  &lt;NULL&gt;    &lt;NULL&gt;    Altingiaceae Liquidambar styraciflua &lt;FxdEffcM&gt; hahn_1984     Hahn        &lt;chr [2]&gt;     1984</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 bd92b6c8 stump volume &lt;NULL&gt;    &lt;NULL&gt;    Altingiaceae Liquidambar styraciflua &lt;FxdEffcM&gt; hahn_1984     Hahn        &lt;chr [1]&gt;     1984</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 2,141 more rows</span></span></code></pre></div>
 <p>Now, each row represents unique data combinations for each model, which can be quickly filtered by most users using <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">dplyr::filter</a></code>. For example, to find a volume model for the genus Alnus that had <code>"Brackett"</code> as an author or co-author we can use</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">brackett_alnus_vol</span> <span class="op">&lt;-</span> <span class="va">unnested_models</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
@@ -315,7 +315,7 @@
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml" class="external-link"><img src="https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://github.com/brycefrank/allometric" class="external-link"><img src="https://img.shields.io/badge/devel%20version-1.0.0.9000-blue.svg"></a></li>
+<li><a href="https://github.com/brycefrank/allometric" class="external-link"><img src="https://img.shields.io/badge/devel%20version-1.0.0.9001-blue.svg"></a></li>
 <li><a href="https://codecov.io/gh/brycefrank/allometric" class="external-link"><img src="https://codecov.io/gh/brycefrank/allometric/branch/master/graph/badge.svg?token=3V5KUFMO2X" alt="codecov"></a></li>
 </ul>
 </div>
