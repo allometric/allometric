@@ -12,5 +12,5 @@ test_that("prepare_var_defs produces correct output", {
   var_defs_post <- prepare_var_defs(var_defs.pre)
 
   expect_true(is.list(var_defs))
-  expect_equal(length(var_defs), 6)
+  expect_equal(length(var_defs), 8)
 })
