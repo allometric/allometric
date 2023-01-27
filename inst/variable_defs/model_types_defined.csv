@@ -2,4 +2,5 @@ model_type,response_name_start
 taper,dsoh
 taper,dsih
 site index,hstix
-taper,rsd
+taper,rsd,
+VBAR,rsvg

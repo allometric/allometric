@@ -1,0 +1,8 @@
+"top_dsib","bdft_rule","size_class","a","b"
+6,"Scribner","<= 12000",-15.14666,0.01097
+6,"Scribner","> 12000",-27.91343,0.01202
+8,"Scribner",NA,-38.96822,0.01215
+6,"International 1/4-inch","<= 27300",-25.61022,0.01391
+6,"International 1/4-inch","> 27300",17.02079,0.01235
+8,"International 1/4-inch","<= 18900",-44.08214,0.01407
+8,"International 1/4-inch","> 18900",-21.43152,0.01287

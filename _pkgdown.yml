@@ -33,6 +33,8 @@ reference:
   - hahn_1991
   - hann_2011
   - myers_1964
+  - myers_1972
+  - myers_1972
   - poudel_2019
   - rustagi_1991
   - scott_1981
@@ -64,6 +66,7 @@ reference:
   contents:
   - hahn_1984
   - myers_1964
+  - myers_1972
   - poudel_2018
   - poudel_2019
 - subtitle: Stump Diameter Models
