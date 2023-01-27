@@ -7,6 +7,9 @@ chojnacky_1985 <- Publication(
     volume = 339,
     year = 1985,
     institution = "US Department of Agriculture, Forest Service"
+  ),
+  descriptors = list(
+    country = "US"
   )
 )
 

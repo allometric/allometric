@@ -1,6 +1,7 @@
 \name{vibrans_2015}
 \alias{vibrans_2015}
-\title{Vibrans, Moser, Oliveira et al. (2015)}
+\title{Vibrans, Moser, Oliveira, and de
+Maçaneiro (2015)}
 \description{Allometric models from Vibrans, Moser, Oliveira et al. (2015)}
 \section{Stem Volume Models}{\code{vsa = 1000 * exp(beta_0 + beta_1 * log(circ^2) + beta_2 * log(hst))}
 \itemize{
