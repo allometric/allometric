@@ -41,18 +41,17 @@ reference:
   - rustagi_1991
   - scott_1981
   - vibrans_2015
-- subtitle: Stem Diameter Models
+- subtitle: Taper Models
   contents:
   - bluhm_2007
-  - hann_2011
   - hibbs_2007
   - kozak_1988
+  - poudel_2018
   - poudel_2018
 - subtitle: Stem Height Models
   contents:
   - feldpausch_2012
   - hahn_1984
-  - hann_1987
   - moore_1996
   - temesgen_2008
 - subtitle: Tree Biomass Models
@@ -67,10 +66,11 @@ reference:
 - subtitle: Stem Ratio Models
   contents:
   - hahn_1984
-  - myers_1964
-  - myers_1972
-  - poudel_2018
   - poudel_2019
+- subtitle: Site Index Models
+  contents: hann_1987
+- subtitle: Stem Diameter Models
+  contents: hann_2011
 - subtitle: Stump Diameter Models
   contents: hann_2011
 - subtitle: Stem Biomass Models
@@ -90,6 +90,10 @@ reference:
   contents: huy_2019
 - subtitle: Root Biomass Models
   contents: montero_2005
+- subtitle: Vbar Models
+  contents:
+  - myers_1964
+  - myers_1972
 - subtitle: Foliage Ratio Models
   contents: poudel_2019
 - subtitle: Bark Ratio Models

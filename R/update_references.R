@@ -100,7 +100,7 @@ update_reference_index <- function() {
     internal <- check_internal(man_path)
 
     # Remove keyword: internal and publications from this section
-    if (!internal & !(man_file %in% pub_rd_names)) {
+    if (!internal && !(man_file %in% pub_rd_names)) {
       non_pub_rd_files <- c(non_pub_rd_files, man_file)
     }
   }
@@ -140,8 +140,8 @@ update_reference_index <- function() {
     for (i in seq_along(pub@response_sets)) {
       response_set <- pub@response_sets[[i]]
       response_name <- names(pub@response_sets)[[i]]
-      response_def <- get_variable_def(response_name, return_exact_only = T)
-      section_title <- stringr::str_to_title(paste(response_def$component_name, response_def$measure_name, "models"))
+      model_type <- get_model_type(response_name)
+      section_title <- stringr::str_to_title(paste(model_type, "models"))
       ref_sections[[section_title]] <- c(ref_sections[[section_title]], pub@id)
     }
   }
