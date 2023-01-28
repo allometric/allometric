@@ -16,13 +16,18 @@ response_section_lines <- function(response_set) {
 }
 
 rd_lines <- function(pub) {
+  citation <- RefManageR::TextCite(pub@citation, .opts = list(
+    max.names = 1,
+    longnamesfirst = F
+  ))
+
   header <- c(
     sprintf("\\name{%s}", pub@id),
     sprintf("\\alias{%s}", pub@id),
-    sprintf("\\title{%s}", RefManageR::TextCite(pub@citation)),
+    sprintf("\\title{%s}", citation),
     sprintf(
       "\\description{Allometric models from %s}",
-      RefManageR::TextCite(pub@citation)
+      citation
     )
   )
 

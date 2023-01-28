@@ -1,7 +1,7 @@
 \name{ritchie_1987}
 \alias{ritchie_1987}
-\title{Ritchie and Hann (1987)}
-\description{Allometric models from Ritchie and Hann (1987)}
+\title{Ritchie et al. (1987)}
+\description{Allometric models from Ritchie et al. (1987)}
 \section{Crown Ratio Models}{\code{rc = 1 - ((1)/(1 + exp(b_0 + b_1 * hst + b_2 * ccfl + b_3 * log(gn) + b_4 * (dsob/hst) + b_5 * (hstix50 - 4.5))))}
 \itemize{
 \item{\code{rc [ft ft-1]}}{ - crown ratio}

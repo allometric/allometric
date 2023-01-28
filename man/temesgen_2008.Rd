@@ -1,7 +1,7 @@
 \name{temesgen_2008}
 \alias{temesgen_2008}
-\title{Temesgen, Monleon, and Hann (2008)}
-\description{Allometric models from Temesgen, Monleon, and Hann (2008)}
+\title{Temesgen et al. (2008)}
+\description{Allometric models from Temesgen et al. (2008)}
 \section{Stem Height Models}{\code{hst = 1.37 + b_0 * (1 - exp(b_1 * dsob)^b_2)}
 \itemize{
 \item{\code{hst [m]}}{ - total height of the stem}

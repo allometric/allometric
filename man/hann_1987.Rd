@@ -1,7 +1,7 @@
 \name{hann_1987}
 \alias{hann_1987}
-\title{Hann, Scrivani, and others (1987)}
-\description{Allometric models from Hann, Scrivani, and others (1987)}
+\title{Hann et al. (1987)}
+\description{Allometric models from Hann et al. (1987)}
 \section{Stem Height Models}{\code{hstix50 = 4.5 + (hst - 4.5) * exp(b_1 * (atb - 50) + b_2 * (atb - 50)^2 + b_3 * (atb - 50) * log(hst - 4.5) + b_4 * (atb - 50)^2 * log(hst - 4.5))}
 \itemize{
 \item{\code{hstix50 [ft]}}{ - site index at 50 year base age}

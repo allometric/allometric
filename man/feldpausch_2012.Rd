@@ -1,7 +1,7 @@
 \name{feldpausch_2012}
 \alias{feldpausch_2012}
-\title{Feldpausch, Lloyd, Lewis, Brienen, Gloor, Monteagudo Mendoza, Lopez-Gonzalez, Banin, Abu Salim, Affum-Baffoe, and others (2012)}
-\description{Allometric models from Feldpausch, Lloyd, Lewis et al. (2012)}
+\title{Feldpausch et al. (2012)}
+\description{Allometric models from Feldpausch et al. (2012)}
 \section{Stem Height Models}{\code{hst = a * (1 - exp(-b * dsob^c))}
 \itemize{
 \item{\code{hst [m]}}{ - total height of the stem}

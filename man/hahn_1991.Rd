@@ -1,7 +1,7 @@
 \name{hahn_1991}
 \alias{hahn_1991}
-\title{Hahn and Hansen (1991)}
-\description{Allometric models from Hahn and Hansen (1991)}
+\title{Hahn et al. (1991)}
+\description{Allometric models from Hahn et al. (1991)}
 \section{Stem Volume Models}{\code{vsa = b_1 * hstix^b_2 * (1 - exp(b_3 * dsob^b_4))}
 \itemize{
 \item{\code{vsa [ft3]}}{ - volume of the entire stem, including top and stump}

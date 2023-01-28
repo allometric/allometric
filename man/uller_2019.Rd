@@ -1,7 +1,7 @@
 \name{uller_2019}
 \alias{uller_2019}
-\title{Uller, Zimermann Oliveira, Klitzke, Roberto Eleotério, Fantini, and Vibrans (2019)}
-\description{Allometric models from Uller, Zimermann Oliveira, Klitzke et al. (2019)}
+\title{Uller et al. (2019)}
+\description{Allometric models from Uller et al. (2019)}
 \section{Tree Biomass Models}{\code{bt = beta_0 + beta_1 * dsob^2}
 \itemize{
 \item{\code{bt [kg]}}{ - tree biomass}

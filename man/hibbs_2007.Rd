@@ -1,7 +1,7 @@
 \name{hibbs_2007}
 \alias{hibbs_2007}
-\title{Hibbs, Bluhm, and Garber (2007)}
-\description{Allometric models from Hibbs, Bluhm, and Garber (2007)}
+\title{Hibbs et al. (2007)}
+\description{Allometric models from Hibbs et al. (2007)}
 \section{Stem Diameter Models}{\code{dsih = a_1 * dsob^a_2 * x^(a_3 * (1.364409 * dsob^(1/3) * exp(a_4 * z) + exp(a_5 * (dsob/hst)^a_6 * z)))}
 \itemize{
 \item{\code{dsih [in]}}{ - diameter of the stem, inside bark at a specified height}

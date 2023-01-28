@@ -1,7 +1,7 @@
 \name{moore_1996}
 \alias{moore_1996}
-\title{Moore, Zhang, and Stuck (1996)}
-\description{Allometric models from Moore, Zhang, and Stuck (1996)}
+\title{Moore et al. (1996)}
+\description{Allometric models from Moore et al. (1996)}
 \section{Stem Height Models}{\code{hst = 4.5 + exp(a + (b/(dsob + 1)))}
 \itemize{
 \item{\code{hst [ft]}}{ - total height of the stem}

@@ -1,7 +1,7 @@
 \name{chittester_1984}
 \alias{chittester_1984}
-\title{Chittester and MacLean (1984)}
-\description{Allometric models from Chittester and MacLean (1984)}
+\title{Chittester et al. (1984)}
+\description{Allometric models from Chittester et al. (1984)}
 \section{Stem Volume Models}{\code{vsa = ba * f * hst * (hst/(hst - 4.5))^2}
 \itemize{
 \item{\code{vsa [ft3]}}{ - volume of the entire stem, including top and stump}

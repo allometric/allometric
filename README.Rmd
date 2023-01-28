@@ -24,8 +24,8 @@ continents <- read.csv(system.file("continents.csv", package = "allometric"),
   na.strings = "")
 
 summ_categories <- data.frame(
-  category = c(rep("biomass component", 8), "other", "other", "other", "other"),
-  model_type = c("bark biomass", "branch biomass", "foliage biomass", "foliage ratio", "branch ratio", "root biomass", "stem biomass", "bark ratio", "stem diameter", "stem ratio", "crown ratio", "stump diameter")
+  category = c(rep("biomass component", 8), "other", "other", "other", "other", "other"),
+  model_type = c("bark biomass", "branch biomass", "foliage biomass", "foliage ratio", "branch ratio", "root biomass", "stem biomass", "bark ratio", "stem diameter", "stem ratio", "crown ratio", "stump diameter", "VBAR")
 )
 
 model_summ <- allometric_models %>%

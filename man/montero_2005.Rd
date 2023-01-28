@@ -1,7 +1,7 @@
 \name{montero_2005}
 \alias{montero_2005}
-\title{Montero, Ruiz-Peinado, and Munoz (2005)}
-\description{Allometric models from Montero, Ruiz-Peinado, and Munoz (2005)}
+\title{Montero et al. (2005)}
+\description{Allometric models from Montero et al. (2005)}
 \section{Tree Biomass Models}{\code{bt = cf * exp(a) * dsob^b}
 \itemize{
 \item{\code{bt [kg]}}{ - tree biomass}

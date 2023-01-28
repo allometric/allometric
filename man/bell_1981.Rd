@@ -1,7 +1,7 @@
 \name{bell_1981}
 \alias{bell_1981}
-\title{Bell, Marshall, and Johnson (1981)}
-\description{Allometric models from Bell, Marshall, and Johnson (1981)}
+\title{Bell et al. (1981)}
+\description{Allometric models from Bell et al. (1981)}
 \section{Stem Volume Models}{\code{vsa = 10^a * dsob^b * hst^c}
 \itemize{
 \item{\code{vsa [ft3]}}{ - volume of the entire stem, including top and stump}

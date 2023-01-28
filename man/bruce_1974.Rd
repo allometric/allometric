@@ -1,7 +1,7 @@
 \name{bruce_1974}
 \alias{bruce_1974}
-\title{Bruce and DeMars (1974)}
-\description{Allometric models from Bruce and DeMars (1974)}
+\title{Bruce et al. (1974)}
+\description{Allometric models from Bruce et al. (1974)}
 \section{Stem Volume Models}{\code{vsa = d * fos * (dsob^2 * hst)}
 \itemize{
 \item{\code{vsa [ft3]}}{ - volume of the entire stem, including top and stump}

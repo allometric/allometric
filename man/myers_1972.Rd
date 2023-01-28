@@ -1,7 +1,7 @@
 \name{myers_1972}
 \alias{myers_1972}
-\title{Myers and Edminster (1972)}
-\description{Allometric models from Myers and Edminster (1972)}
+\title{Myers et al. (1972)}
+\description{Allometric models from Myers et al. (1972)}
 \section{Stem Volume Models}{\code{vsa = a + b * dsob^2 * hst}
 \itemize{
 \item{\code{vsa [ft3]}}{ - volume of the entire stem, including top and stump}

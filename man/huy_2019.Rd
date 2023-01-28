@@ -1,7 +1,7 @@
 \name{huy_2019}
 \alias{huy_2019}
-\title{Huy, Tinh, Poudel, Frank, and Temesgen (2019)}
-\description{Allometric models from Huy, Tinh, Poudel et al. (2019)}
+\title{Huy et al. (2019)}
+\description{Allometric models from Huy et al. (2019)}
 \section{Stem Biomass Models}{\code{bs = a_1 * dsob^b_11 * hst^b_12 * es^b_13}
 \itemize{
 \item{\code{bs [kg]}}{ - stem biomass}

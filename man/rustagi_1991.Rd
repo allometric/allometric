@@ -1,7 +1,7 @@
 \name{rustagi_1991}
 \alias{rustagi_1991}
-\title{Rustagi and Loveless Jr (1991)}
-\description{Allometric models from Rustagi and Loveless Jr (1991)}
+\title{Rustagi et al. (1991)}
+\description{Allometric models from Rustagi et al. (1991)}
 \section{Stem Volume Models}{\code{vso = kb_0 * (dsib)^2 * hso + kb_1 * (dsib)^2 * (hsdip75 - 1.37)}
 \itemize{
 \item{\code{vso [m3]}}{ - volume of the stem above breast height}

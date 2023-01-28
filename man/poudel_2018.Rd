@@ -1,7 +1,7 @@
 \name{poudel_2018}
 \alias{poudel_2018}
-\title{Poudel, Temesgen, and Gray (2018)}
-\description{Allometric models from Poudel, Temesgen, and Gray (2018)}
+\title{Poudel et al. (2018)}
+\description{Allometric models from Poudel et al. (2018)}
 \section{Stem Ratio Models}{\code{rsdodi = b_1 + b_2 * x + b_3 * x^2 + b_4 * x^3 + b_5 * x^4}
 \itemize{
 \item{\code{rsdodi [cm cm-1]}}{ - diameter of the stem inside bark at a height along the stem divided by diameter outside bark at breast height}
