@@ -1,5 +1,22 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# allometric 1.0.0.9003 (2023-01-28)
+
+## Bug fixes
+
+- BibOptions are set when constructing reference pages, this avoids fluctuating reference page titles, which was creating a lot of git tracking overhead. closes #69.
+
+## Features
+
+- Adding chittester_1984, closes #67.
+
+- Adding myers_1972, closes #66.
+
+## Chore
+
+- Models are sorted by model_type in the reference index, closes #68.
+
+
 # allometric 1.0.0.9002 (2023-01-26)
 
 ## Features
