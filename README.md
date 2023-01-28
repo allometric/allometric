@@ -4,7 +4,7 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml)
-[![](https://img.shields.io/badge/devel%20version-1.0.0.9002-blue.svg)](https://github.com/brycefrank/allometric)
+[![](https://img.shields.io/badge/devel%20version-1.0.0.9003-blue.svg)](https://github.com/brycefrank/allometric)
 [![codecov](https://codecov.io/gh/brycefrank/allometric/branch/master/graph/badge.svg?token=3V5KUFMO2X)](https://codecov.io/gh/brycefrank/allometric)
 <!-- badges: end -->
 
@@ -34,8 +34,7 @@ category:
 | stump volume      |   0 |   0 |  64 |   0 |   0 |   0 |
 | taper             |   0 |   0 |  18 |   0 |   0 |   0 |
 | tree biomass      |   0 |  34 |  90 |   0 |   0 |  16 |
-| VBAR              |   0 |   0 |  27 |   0 |   0 |   0 |
-| other             |   0 |   0 |  94 |   0 |   0 |   0 |
+| other             |   0 |   0 | 121 |   0 |   0 |   0 |
 
 Refer to the
 [Reference](https://brycefrank.com/allometric/reference/index.html) for
