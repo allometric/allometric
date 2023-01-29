@@ -1,0 +1,11 @@
+family,genus,species,national_forest,a_0,a_1
+Pinaceae,Pinus,strobus,"Lincoln, Santa Fe, Carson",0.160888987,0.0020325
+Pinaceae,Picea,engelmanii,"Lincoln, Santa Fe, Carson",0.225466084,0.0021697
+Pinaceae,Pinus,jeffreyi,"Coconino, Tonto, Lincoln, Santa Fe, Carson",0.237204154,0.002211229
+Pinaceae,Pinus,ponderosa,"Coconino, Tonto, Lincoln",0.08107248,0.00198351
+Pinaceae,Pinus,ponderosa,"Santa Fe, Carson",0.048308295,0.002049684
+Pinaceae,Pseudotsuga,menziesii,Lincoln,0.438373815,0.001756427
+Pinaceae,Pseudotsuga,menziesii,"Santa Fe, Carson",0.341133398,0.00191797
+Salicaceae,Populus,tremuloides,"Santa Fe, Carson",0.0327,0.002311235
+Pinaceae,Abies,concolor,Lincoln,0.210903832,0.001839958
+Pinaceae,Abies,concolor,"Santa Fe, Carson",0.157776859,0.002009123
