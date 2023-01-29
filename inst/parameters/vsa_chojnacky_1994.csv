@@ -1,0 +1,11 @@
+family,genus,species,min_branch_dia,beta_0,beta_1,beta_2,X_0
+Cupressaceae,Juniperus,deppeana,1.5,0.0255,1.7479,0.1994,4.0021
+Cupressaceae,Juniperus,scopulorum,1.5,0.0255,1.7479,0.1994,4.0021
+Cupressaceae,Juniperus,deppeana,3,-0.0601,1.3846,0.1566,5.2101
+Cupressaceae,Juniperus,scopulorum,3,-0.0601,1.3846,0.1566,5.2101
+Cupressaceae,Juniperus,monosperma,1.5,-0.0192,2.1297,0.11,2.5757
+Cupressaceae,Juniperus,osteosperma,1.5,-0.0192,2.1297,0.11,2.5757
+Cupressaceae,Juniperus,monosperma,3,-0.1063,1.4373,0.1324,4.0243
+Cupressaceae,Juniperus,osteosperma,3,-0.1063,1.4373,0.1324,4.0243
+Pinaceae,Pinus,edulis,1.5,-0.0594,2.6358,0.3248,2.0773
+Pinaceae,Pinus,edulis,3,-0.1231,2.0741,0.1831,3.5503

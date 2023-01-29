@@ -7,6 +7,10 @@ hann_1978 <- Publication(
     author = "Hann, DW and Bare, BB",
     number = "INT-209/No. INT-210",
     year = 1978
+  ),
+  descriptors = list(
+    country = "US",
+    region = c("US-AZ", "US-NM")
   )
 )
 
