@@ -76,7 +76,8 @@ get_pub_list <- function(ignore_cache, verbose) {
 #' for a model, but will also change in the event that the model changes. This
 #' way, models can be "versioned" across time, which may be useful for debugging
 #' purposes down the line. This function trims whitespace and lowercases
-#' the predict_fn_populated, which serves as a reasonable proxy for the model.
+#' the predict_fn_populated pasted with the descriptors, which serves as a
+#' reasonable proxy for the model.
 #'
 #' @keywords internal
 get_model_hash <- function(predict_fn_populated, descriptors) {
@@ -193,9 +194,6 @@ get_model_results <- function(pub_list) {
     model_ids_path <- file.path(system.file("", package = "allometric"), "model_ids.csv")
     current_ids <- model_ids$proxy_id
   }
-
-
-
 
   for (i in seq_along(pub_list)) {
     pub <- pub_list[[i]]
