@@ -33,7 +33,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">allometric</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9001</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9003</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,6 +49,7 @@
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
     <a class="dropdown-item" href="../articles/descriptors.html">Describing a Model with Descriptors</a>
+    <a class="dropdown-item" href="../articles/ignore/deep_dive.html">A Deep Dive into `allometric`</a>
     <a class="dropdown-item" href="../articles/installing_a_model.html">Installing a Model</a>
     <a class="dropdown-item" href="../articles/inventory_example.html">Common Inventory Use Cases</a>
     <a class="dropdown-item" href="../articles/mixed_effects.html">Mixed-Effects Models</a>
@@ -144,7 +145,7 @@ Oregon.</p>
 <span>  <span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">stemvol_mods</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 298</span></span></code></pre>
+<pre><code><span><span class="co">## [1] 563</span></span></code></pre>
 <p>We can see that <code>stemvol_mods</code> contains a huge amount of
 stem volume models. That is because <code>allometric</code> is global in
 scope. Most of these models are not relavent for our needs. Next, we
@@ -155,7 +156,7 @@ will drill down and select models that were developed with data from
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map_lgl</a></span><span class="op">(</span><span class="va">region</span>, <span class="op">~</span> <span class="st">'US-OR'</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="va">.</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">stemvol_or_mods</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 37</span></span></code></pre>
+<pre><code><span><span class="co">## [1] 39</span></span></code></pre>
 <p>Here we see all stem volume models available fit using data from the
 state of Oregon. Still, the amount of models is very high. Next, we will
 select only our target species.</p>
@@ -185,12 +186,12 @@ contain only two covariates that are named <code>dsob</code> and
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 6 × 13</span></span></span>
 <span><span class="co">##   id       model…¹ country region family genus species model      pub_id famil…²</span></span>
 <span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">1</span> f1c40af8 stem v… &lt;chr&gt;   &lt;chr&gt;  Pinac… Abies concol… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude… &lt;chr&gt;  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">2</span> d09ad76f stem v… &lt;chr&gt;   &lt;chr&gt;  Pinac… Pinus ponder… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude… &lt;chr&gt;  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">3</span> 4eddbc35 stem v… &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> bruce… &lt;chr&gt;  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">4</span> fc822111 stem v… &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> bruce… &lt;chr&gt;  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">5</span> dbe58f0c stem v… &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude… &lt;chr&gt;  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">6</span> 7f6764b3 stem v… &lt;chr&gt;   &lt;chr&gt;  Pinac… Tsuga hetero… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude… &lt;chr&gt;  </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span> fe138f46 stem v… &lt;chr&gt;   &lt;chr&gt;  Pinac… Abies concol… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude… &lt;chr&gt;  </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">2</span> 7cd15805 stem v… &lt;chr&gt;   &lt;chr&gt;  Pinac… Pinus ponder… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude… &lt;chr&gt;  </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">3</span> 87f5ecd3 stem v… &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> bruce… &lt;chr&gt;  </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">4</span> a570828b stem v… &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> bruce… &lt;chr&gt;  </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">5</span> 2b079499 stem v… &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude… &lt;chr&gt;  </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">6</span> 3e8447f2 stem v… &lt;chr&gt;   &lt;chr&gt;  Pinac… Tsuga hetero… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude… &lt;chr&gt;  </span></span>
 <span><span class="co">## <span style="color: #949494;"># … with 3 more variables: covt_name &lt;list&gt;, pub_year &lt;dbl&gt;, SPCD &lt;dbl&gt;, and</span></span></span>
 <span><span class="co">## <span style="color: #949494;">#   abbreviated variable names ¹​model_type, ²​family_name</span></span></span></code></pre>
 <p>At this stage, we only need to determine a single model for

@@ -1,9 +1,9 @@
 measure,measure_name
-d,diameter
-h,height
-v,volume
-g,basal area
-b,biomass
-r,ratio
-e,density
 a,age
+b,biomass
+d,diameter
+e,density
+g,basal area
+h,height
+r,ratio
+v,volume

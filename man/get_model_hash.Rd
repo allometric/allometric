@@ -11,6 +11,7 @@ We need some sort of stable data structure that will serve as a unique ID
 for a model, but will also change in the event that the model changes. This
 way, models can be "versioned" across time, which may be useful for debugging
 purposes down the line. This function trims whitespace and lowercases
-the predict_fn_populated, which serves as a reasonable proxy for the model.
+the predict_fn_populated pasted with the descriptors, which serves as a
+reasonable proxy for the model.
 }
 \keyword{internal}

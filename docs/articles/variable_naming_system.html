@@ -33,7 +33,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">allometric</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9001</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9003</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,6 +49,7 @@
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
     <a class="dropdown-item" href="../articles/descriptors.html">Describing a Model with Descriptors</a>
+    <a class="dropdown-item" href="../articles/ignore/deep_dive.html">A Deep Dive into `allometric`</a>
     <a class="dropdown-item" href="../articles/installing_a_model.html">Installing a Model</a>
     <a class="dropdown-item" href="../articles/inventory_example.html">Common Inventory Use Cases</a>
     <a class="dropdown-item" href="../articles/mixed_effects.html">Mixed-Effects Models</a>
@@ -86,29 +87,55 @@
     
 <p>The variable naming system is a standard approach for classifying
 allometric response variables and covariates. In the allometric modeling
-literature, a diverse set of names are often available for many similar
-types of variables. For example, one may wish to refer to the volume of
-the main stem of a tree, the volume of the stump, the diameter of a
-stump, the diameter at breast height, etc.</p>
+literature, a diverse set of names are available for many similar types
+of variables. For example, one may wish to refer to the volume of the
+main stem of a tree, the volume of the stump, the diameter of a stump,
+the diameter at breast height, etc.</p>
 <p>The variable naming system, while somewhat verbose and strict, is
 worth the effort. It allows <code>allometric</code> to efficiently
 categorize many allometric models in a standardized structure, which
-facilitates searching and documentation.</p>
+facilitates searching and documentation. Users can utilize the
+<code><a href="../reference/get_variable_def.html">get_variable_def()</a></code> function to search for partial matches
+of variables in the naming system. For example, to find all definitions
+for diameter variables use:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/get_variable_def.html">get_variable_def</a></span><span class="op">(</span><span class="st">"d"</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">##   component measure search_str bark_modifier height_modifier                                              description measure_name component_name</span></span>
+<span><span class="co">## 1         s       d       dsob             o               b      diameter of the stem, outside bark at breast height     diameter           stem</span></span>
+<span><span class="co">## 2         s       d       dsoh             o               h diameter of the stem, outside bark at a specified height     diameter           stem</span></span>
+<span><span class="co">## 3         s       d       dsih             i               h  diameter of the stem, inside bark at a specified height     diameter           stem</span></span>
+<span><span class="co">## 4         s       d       dsib             i               b       diameter of the stem, inside bark at breast height     diameter           stem</span></span>
+<span><span class="co">## 5         s       d       dsoc             o               c              diameter outside bark above the root collar     diameter           stem</span></span>
+<span><span class="co">## 6         u       d       dui1             i               1           diameter of the stump, inside bark at one unit     diameter          stump</span></span></code></pre>
+<p>This lists all variables in the naming system that have
+<code>"d"</code> as their first <code>search_str</code> character. We
+can inspect, e.g., <code>dsob</code></p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/get_variable_def.html">get_variable_def</a></span><span class="op">(</span><span class="st">"dsob"</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">##   component measure search_str bark_modifier height_modifier                                         description measure_name component_name</span></span>
+<span><span class="co">## 1         s       d       dsob             o               b diameter of the stem, outside bark at breast height     diameter           stem</span></span></code></pre>
+<p>and find that it is the diameter of the stem, outside bark at breast
+height.</p>
+<p>This vignette is not comprehensive for all variables stored in the
+package, but should cover the most common cases.
+<code><a href="../reference/get_variable_def.html">get_variable_def()</a></code> will contain all possible variables.</p>
 <div class="section level2">
 <h2 id="measures">Measures<a class="anchor" aria-label="anchor" href="#measures"></a>
 </h2>
-<p>All variable names begin with a “measure”, once this measure is
-established, a decision tree is used to determine the rest of the name.
-There are [xx] established measures:</p>
-<ol style="list-style-type: decimal">
-<li>d: diameter</li>
-<li>h: height</li>
-<li>v: volume</li>
-<li>g: basal area</li>
-<li>b: biomass (weight)</li>
-<li>r: ratio (unitless)</li>
-<li>e: density</li>
-</ol>
+<p>All variable names begin with a “measure”. In the example above, we
+searched the naming system for <code>d</code> measures, but others are
+available. There are 8 established measures:</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">measure_defs</span></span></code></pre></div>
+<pre><code><span><span class="co">##   measure measure_name</span></span>
+<span><span class="co">## 1       a          age</span></span>
+<span><span class="co">## 2       b      biomass</span></span>
+<span><span class="co">## 3       d     diameter</span></span>
+<span><span class="co">## 4       e      density</span></span>
+<span><span class="co">## 5       g   basal area</span></span>
+<span><span class="co">## 6       h       height</span></span>
+<span><span class="co">## 7       r        ratio</span></span>
+<span><span class="co">## 8       v       volume</span></span></code></pre>
 <p>We recognize that the use of “measure” here is somewhat loose (e.g.,
 diameter and height are both <em>measures</em> of length). However, the
 variable naming system is meant to preserve at least some connection to
@@ -118,24 +145,26 @@ commonly used terms for variables in allometric modeling.</p>
 <h2 id="components">Components<a class="anchor" aria-label="anchor" href="#components"></a>
 </h2>
 <p>All variable names then have a second character that specifies the
-tree component. Established components are:</p>
-<ol style="list-style-type: decimal">
-<li>s: stem (including top and stump)</li>
-<li>b: branch</li>
-<li>f: foliage</li>
-<li>k: bark</li>
-<li>c: crown</li>
-<li>n: stand - used to refer to stand-level variables (typically used as
-covariates)</li>
-<li>p: plot - used to refer to plot-level variables (typically used as
-covariates)</li>
-<li>u: stump</li>
-</ol>
+tree component. There are 11 established components:</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">component_defs</span></span></code></pre></div>
+<pre><code><span><span class="co">##    component component_name</span></span>
+<span><span class="co">## 1          b         branch</span></span>
+<span><span class="co">## 2          c          crown</span></span>
+<span><span class="co">## 3          f        foliage</span></span>
+<span><span class="co">## 4          k           bark</span></span>
+<span><span class="co">## 5          n          stand</span></span>
+<span><span class="co">## 6          p           plot</span></span>
+<span><span class="co">## 7          r           root</span></span>
+<span><span class="co">## 8          s           stem</span></span>
+<span><span class="co">## 9          t           tree</span></span>
+<span><span class="co">## 10         u          stump</span></span>
+<span><span class="co">## 11         w           wood</span></span></code></pre>
 <p>Mixing these first two character codes provides an expressive system
 to refer to measures and components. For example, the biomass of
 foliage, if one were interested in it, would begin <code>bf</code>, the
-volume including top and stump of the stem would be <code>va</code>, and
-the diameter of the stump would be <code>du</code>.</p>
+volume of the stem would be <code>vs</code>, and the diameter of the
+stump would be <code>du</code>.</p>
 </div>
 <div class="section level2">
 <h2 id="measure-component-modifiers">Measure-Component Modifiers<a class="anchor" aria-label="anchor" href="#measure-component-modifiers"></a>
@@ -151,50 +180,56 @@ specificity.</p>
 <p>Some of the most common allometric variables are that of stem
 diameter, which arises in taper modeling, merchantable heights and, of
 course, diameter at breast height. <code>ds</code> modifiers enable a
-user to specify these broad range of variables.</p>
-<p><code>ds</code> modifiers are broken down into two parts. The first
-character is the bark modifier and the second character is the height
-modifier. The bark modifiers are:</p>
-<ul>
-<li>
-<code>o</code>: outside bark</li>
-<li>
-<code>i</code>: inside bark</li>
-</ul>
-<p>and the height modifiers are:</p>
-<ul>
-<li>
-<code>b</code>: breast height</li>
-<li>
-<code>s</code>: stump height</li>
-<li>
-<code>m</code>: merchantable height</li>
-<li>
-<code>[##]</code>: specified height, using <code>p</code> as a
-decimal point if necessary.</li>
-</ul>
-<p>For example, diameter (of the stem) at breast height outside bark is
-<code>dsob</code> and <code>dso40</code> is diameter (of the stem)
-outside bark at 40 units of length along the stem.</p>
+user to specify these broad range of variables. The available
+<code>ds</code> variables are:</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/get_variable_def.html">get_variable_def</a></span><span class="op">(</span><span class="st">"ds"</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">##   component measure search_str bark_modifier height_modifier                                              description measure_name component_name</span></span>
+<span><span class="co">## 1         s       d       dsob             o               b      diameter of the stem, outside bark at breast height     diameter           stem</span></span>
+<span><span class="co">## 2         s       d       dsoh             o               h diameter of the stem, outside bark at a specified height     diameter           stem</span></span>
+<span><span class="co">## 3         s       d       dsih             i               h  diameter of the stem, inside bark at a specified height     diameter           stem</span></span>
+<span><span class="co">## 4         s       d       dsib             i               b       diameter of the stem, inside bark at breast height     diameter           stem</span></span>
+<span><span class="co">## 5         s       d       dsoc             o               c              diameter outside bark above the root collar     diameter           stem</span></span></code></pre>
 </div>
 <div class="section level3">
 <h3 id="height-of-stem-hs-modifiers">Height of Stem (<code>hs</code>) Modifiers<a class="anchor" aria-label="anchor" href="#height-of-stem-hs-modifiers"></a>
 </h3>
-<ul>
-<li>
-<code>t</code>: total (base to tip)</li>
-<li>
-<code>b</code>: crown base (base to crown base)</li>
-<li>
-<code>m</code>: merchantable diameter</li>
-<li>
-<code>s</code>: stump (base to stump)</li>
-</ul>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/get_variable_def.html">get_variable_def</a></span><span class="op">(</span><span class="st">"hs"</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">##    component measure search_str height_modifier modifier                                                                        description measure_name component_name</span></span>
+<span><span class="co">## 2          s       h        hst               t                                                                    total height of the stem       height           stem</span></span>
+<span><span class="co">## 3          s       h        hsm               m                                                             merchantable height of the stem       height           stem</span></span>
+<span><span class="co">## 4          s       h        hsd               d                                                      height to a specified diameter (taper)       height           stem</span></span>
+<span><span class="co">## 5          s       h        hso               o                                                      height of the stem above breast height       height           stem</span></span>
+<span><span class="co">## 6          s       h        hsb               b                                                            height of the stem to crown base       height           stem</span></span>
+<span><span class="co">## 7          s       h        hsv               v                                        height of the stem to crown base above breast height       height           stem</span></span>
+<span><span class="co">## 8          s       h    hsdip75               d     ip75  height to a diameter that is 0.75 times the diameter inside bark at breast height       height           stem</span></span>
+<span><span class="co">## 9          s       h    hsdop67               d     op67 height to a diameter that is 0.67 times the diameter outside bark at breast height       height           stem</span></span>
+<span><span class="co">## 10         s       h    hstix50               t     ix50                                                     site index at 50 year base age       height           stem</span></span></code></pre>
 </div>
 <div class="section level3">
 <h3 id="volume-of-stem-vs-modifiers">Volume of Stem (<code>vs</code>) Modifiers<a class="anchor" aria-label="anchor" href="#volume-of-stem-vs-modifiers"></a>
 </h3>
-<p>-[write later]</p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/get_variable_def.html">get_variable_def</a></span><span class="op">(</span><span class="st">"vs"</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">##   component measure search_str stem_modifier                                        description measure_name component_name</span></span>
+<span><span class="co">## 1         s       v        vsa             a volume of the entire stem, including top and stump       volume           stem</span></span>
+<span><span class="co">## 2         s       v        vsm             m     volume of the merchantable portion of the stem       volume           stem</span></span>
+<span><span class="co">## 3         s       v        vsb             b             volume of the stem below breast height       volume           stem</span></span>
+<span><span class="co">## 4         s       v        vso             o             volume of the stem above breast height       volume           stem</span></span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="biomass-b-components-and-modifiers">Biomass (<code>b</code>) Components and Modifiers<a class="anchor" aria-label="anchor" href="#biomass-b-components-and-modifiers"></a>
+</h3>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/get_variable_def.html">get_variable_def</a></span><span class="op">(</span><span class="st">"b"</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">##   component measure search_str     description measure_name component_name</span></span>
+<span><span class="co">## 1         b       b         bb  branch biomass      biomass         branch</span></span>
+<span><span class="co">## 2         f       b         bf foliage biomass      biomass        foliage</span></span>
+<span><span class="co">## 3         k       b         bk    bark biomass      biomass           bark</span></span>
+<span><span class="co">## 4         r       b         br    root biomass      biomass           root</span></span>
+<span><span class="co">## 5         s       b         bs    stem biomass      biomass           stem</span></span>
+<span><span class="co">## 6         t       b         bt    tree biomass      biomass           tree</span></span></code></pre>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

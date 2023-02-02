@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">allometric</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9001</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9003</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,6 +25,7 @@
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
     <a class="dropdown-item" href="../articles/descriptors.html">Describing a Model with Descriptors</a>
+    <a class="dropdown-item" href="../articles/ignore/deep_dive.html">A Deep Dive into `allometric`</a>
     <a class="dropdown-item" href="../articles/installing_a_model.html">Installing a Model</a>
     <a class="dropdown-item" href="../articles/inventory_example.html">Common Inventory Use Cases</a>
     <a class="dropdown-item" href="../articles/mixed_effects.html">Mixed-Effects Models</a>
@@ -48,6 +49,37 @@
       
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.0.0.9003" id="allometric-1009003-2023-01-28">allometric 1.0.0.9003 (2023-01-28)<a class="anchor" aria-label="anchor" href="#allometric-1009003-2023-01-28"></a></h2>
+<div class="section level3">
+<h3 id="bug-fixes-1-0-0-9003">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-1-0-0-9003"></a></h3>
+<ul><li>BibOptions are set when constructing reference pages, this avoids fluctuating reference page titles, which was creating a lot of git tracking overhead. closes #69.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="features-1-0-0-9003">Features<a class="anchor" aria-label="anchor" href="#features-1-0-0-9003"></a></h3>
+<ul><li><p>Adding chittester_1984, closes #67.</p></li>
+<li><p>Adding myers_1972, closes #66.</p></li>
+</ul></div>
+<div class="section level3">
+<h3 id="chore-1-0-0-9003">Chore<a class="anchor" aria-label="anchor" href="#chore-1-0-0-9003"></a></h3>
+<ul><li>Models are sorted by model_type in the reference index, closes #68.</li>
+</ul></div>
+</div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.0.0.9002" id="allometric-1009002-2023-01-26">allometric 1.0.0.9002 (2023-01-26)<a class="anchor" aria-label="anchor" href="#allometric-1009002-2023-01-26"></a></h2>
+<div class="section level3">
+<h3 id="features-1-0-0-9002">Features<a class="anchor" aria-label="anchor" href="#features-1-0-0-9002"></a></h3>
+<ul><li><p>Adding chojnacky_1988, closes #64.</p></li>
+<li><p>Adding hahn_1984, closes #62.</p></li>
+<li><p>Adding scott_1981, closes #61.</p></li>
+<li><p>Adding a unit for (merchantable) logs.</p></li>
+</ul></div>
+<div class="section level3">
+<h3 id="chore-1-0-0-9002">Chore<a class="anchor" aria-label="anchor" href="#chore-1-0-0-9002"></a></h3>
+<ul><li><p>Model IDs are now established using the first 8 characters of the. hash</p></li>
+<li><p>Adding age to variable defs and other variable def adjustmenst.</p></li>
+</ul></div>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.0.0.9001" id="allometric-1009001-2023-01-23">allometric 1.0.0.9001 (2023-01-23)<a class="anchor" aria-label="anchor" href="#allometric-1009001-2023-01-23"></a></h2>
 <div class="section level3">

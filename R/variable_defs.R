@@ -1,4 +1,7 @@
+#' @export
 component_defs <- utils::read.csv(system.file("variable_defs/components.csv", package = "allometric"))
+
+#' @export
 measure_defs <- utils::read.csv(system.file("variable_defs/measures.csv", package = "allometric"))
 
 var_defs.pre <- list(

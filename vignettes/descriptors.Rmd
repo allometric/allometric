@@ -15,12 +15,12 @@ and size classes. Descriptors answer the question: how would a user navigate
 models stored in `allometric` in a way that is consistent with the publication?
 We will take a look at Brackett (1977) as a motivating example.
 
-In Brackett(1977) some species, like Douglas-fir, have multiple models that
+In Brackett (1977) some species, like Douglas-fir, have multiple models that
 are fit to specific geographic regions and age classes. Let's take a look at
 the descriptors of one of those models
 
 ```{r}
-brackett_mod_1 <- select_model(allometric_models, "ef95c311")
+brackett_mod_1 <- select_model(allometric_models, "f21028ef")
 brackett_mod_1
 ```
 

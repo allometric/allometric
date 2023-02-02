@@ -1,12 +1,12 @@
 component,component_name
-s,stem
 b,branch
+c,crown
 f,foliage
 k,bark
-c,crown
 n,stand
 p,plot
-u,stump
-t,tree
 r,root
+s,stem
+t,tree
+u,stump
 w,wood
