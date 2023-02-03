@@ -78,18 +78,23 @@ reference:
 - subtitle: Stem Biomass Models
   contents:
   - huy_2019
+  - lambert_2005
   - montero_2005
 - subtitle: Branch Biomass Models
   contents:
   - huy_2019
+  - lambert_2005
   - montero_2005
 - subtitle: Foliage Biomass Models
   contents:
   - huy_2019
+  - lambert_2005
   - montero_2005
   - turner_2000
 - subtitle: Bark Biomass Models
-  contents: huy_2019
+  contents:
+  - huy_2019
+  - lambert_2005
 - subtitle: Root Biomass Models
   contents: montero_2005
 - subtitle: Vbar Models
