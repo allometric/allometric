@@ -1,0 +1,341 @@
+"model","region","code","family","genus","species","parameter","estimate"
+"DBH","CA-AB, CA-BC","ABIE.LAS","Pinaceae","Abies","lasiocarpa","bwood1",0.025036
+"DBH","CA-AB, CA-BC","ABIE.LAS","Pinaceae","Abies","lasiocarpa","bwood2",2.637781
+"DBH","CA-AB, CA-BC","ABIE.LAS","Pinaceae","Abies","lasiocarpa","bbark1",0.006119
+"DBH","CA-AB, CA-BC","ABIE.LAS","Pinaceae","Abies","lasiocarpa","bbark2",2.537534
+"DBH","CA-AB, CA-BC","ABIE.LAS","Pinaceae","Abies","lasiocarpa","bbranches1",0.017837
+"DBH","CA-AB, CA-BC","ABIE.LAS","Pinaceae","Abies","lasiocarpa","bbranches2",2.425492
+"DBH","CA-AB, CA-BC","ABIE.LAS","Pinaceae","Abies","lasiocarpa","bfoliage1",0.041575
+"DBH","CA-AB, CA-BC","ABIE.LAS","Pinaceae","Abies","lasiocarpa","bfoliage2",2.013012
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.MAR","Pinaceae","Picea","mariana","bwood1",0.0494
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.MAR","Pinaceae","Picea","mariana","bwood2",2.5025
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.MAR","Pinaceae","Picea","mariana","bbark1",0.0148
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.MAR","Pinaceae","Picea","mariana","bbark2",2.2494
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.MAR","Pinaceae","Picea","mariana","bbranches1",0.0291
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.MAR","Pinaceae","Picea","mariana","bbranches2",2.0751
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.MAR","Pinaceae","Picea","mariana","bfoliage1",0.1631
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.MAR","Pinaceae","Picea","mariana","bfoliage2",1.4222
+"DBH","CA-AB, CA-BC","PINU.CON","Pinaceae","Pinus","contorta","bwood1",0.0323
+"DBH","CA-AB, CA-BC","PINU.CON","Pinaceae","Pinus","contorta","bwood2",2.6825
+"DBH","CA-AB, CA-BC","PINU.CON","Pinaceae","Pinus","contorta","bbark1",0.0144
+"DBH","CA-AB, CA-BC","PINU.CON","Pinaceae","Pinus","contorta","bbark2",2.1768
+"DBH","CA-AB, CA-BC","PINU.CON","Pinaceae","Pinus","contorta","bbranches1",0.0209
+"DBH","CA-AB, CA-BC","PINU.CON","Pinaceae","Pinus","contorta","bbranches2",2.1772
+"DBH","CA-AB, CA-BC","PINU.CON","Pinaceae","Pinus","contorta","bfoliage1",0.0584
+"DBH","CA-AB, CA-BC","PINU.CON","Pinaceae","Pinus","contorta","bfoliage2",1.6432
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","POPU.TRE","Salicaceae","Populus","tremuloides","bwood1",0.0608
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","POPU.TRE","Salicaceae","Populus","tremuloides","bwood2",2.4735
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","POPU.TRE","Salicaceae","Populus","tremuloides","bbark1",0.0159
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","POPU.TRE","Salicaceae","Populus","tremuloides","bbark2",2.4123
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","POPU.TRE","Salicaceae","Populus","tremuloides","bbranches1",0.0082
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","POPU.TRE","Salicaceae","Populus","tremuloides","bbranches2",2.5139
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","POPU.TRE","Salicaceae","Populus","tremuloides","bfoliage1",0.0235
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","POPU.TRE","Salicaceae","Populus","tremuloides","bfoliage2",1.6656
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-ON, CA-QC, CA-SK","BETU.PAP","Betulaceae","Betula","papyrifera","bwood1",0.0604
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-ON, CA-QC, CA-SK","BETU.PAP","Betulaceae","Betula","papyrifera","bwood2",2.4959
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-ON, CA-QC, CA-SK","BETU.PAP","Betulaceae","Betula","papyrifera","bbark1",0.014
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-ON, CA-QC, CA-SK","BETU.PAP","Betulaceae","Betula","papyrifera","bbark2",2.3923
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-ON, CA-QC, CA-SK","BETU.PAP","Betulaceae","Betula","papyrifera","bbranches1",0.0147
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-ON, CA-QC, CA-SK","BETU.PAP","Betulaceae","Betula","papyrifera","bbranches2",2.5227
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-ON, CA-QC, CA-SK","BETU.PAP","Betulaceae","Betula","papyrifera","bfoliage1",0.0591
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-ON, CA-QC, CA-SK","BETU.PAP","Betulaceae","Betula","papyrifera","bfoliage2",1.6036
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.GLA","Pinaceae","Picea","glauca","bwood1",0.0334
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.GLA","Pinaceae","Picea","glauca","bwood2",2.598
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.GLA","Pinaceae","Picea","glauca","bbark1",0.0114
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.GLA","Pinaceae","Picea","glauca","bbark2",2.3057
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.GLA","Pinaceae","Picea","glauca","bbranches1",0.0302
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.GLA","Pinaceae","Picea","glauca","bbranches2",2.0927
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.GLA","Pinaceae","Picea","glauca","bfoliage1",0.1515
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.GLA","Pinaceae","Picea","glauca","bfoliage2",1.5012
+"DBH","CA-BC","PSEU.MEN","Pinaceae","Pseudotsuga","menziesii","bwood1",0.0204
+"DBH","CA-BC","PSEU.MEN","Pinaceae","Pseudotsuga","menziesii","bwood2",2.6974
+"DBH","CA-BC","PSEU.MEN","Pinaceae","Pseudotsuga","menziesii","bbark1",0.0069
+"DBH","CA-BC","PSEU.MEN","Pinaceae","Pseudotsuga","menziesii","bbark2",2.5462
+"DBH","CA-BC","PSEU.MEN","Pinaceae","Pseudotsuga","menziesii","bbranches1",0.0404
+"DBH","CA-BC","PSEU.MEN","Pinaceae","Pseudotsuga","menziesii","bbranches2",2.1388
+"DBH","CA-BC","PSEU.MEN","Pinaceae","Pseudotsuga","menziesii","bfoliage1",0.1233
+"DBH","CA-BC","PSEU.MEN","Pinaceae","Pseudotsuga","menziesii","bfoliage2",1.6636
+"DBH","CA-BC","PICE.ENG","Pinaceae","Picea","engelmannii","bwood1",0.0223
+"DBH","CA-BC","PICE.ENG","Pinaceae","Picea","engelmannii","bwood2",2.7169
+"DBH","CA-BC","PICE.ENG","Pinaceae","Picea","engelmannii","bbark1",0.0118
+"DBH","CA-BC","PICE.ENG","Pinaceae","Picea","engelmannii","bbark2",2.2733
+"DBH","CA-BC","PICE.ENG","Pinaceae","Picea","engelmannii","bbranches1",0.0336
+"DBH","CA-BC","PICE.ENG","Pinaceae","Picea","engelmannii","bbranches2",2.2123
+"DBH","CA-BC","PICE.ENG","Pinaceae","Picea","engelmannii","bfoliage1",0.0683
+"DBH","CA-BC","PICE.ENG","Pinaceae","Picea","engelmannii","bfoliage2",1.8022
+"DBH","CA-BC","ABIE.AMA","Pinaceae","Abies","amabilis","bwood1",0.0424
+"DBH","CA-BC","ABIE.AMA","Pinaceae","Abies","amabilis","bwood2",2.4289
+"DBH","CA-BC","ABIE.AMA","Pinaceae","Abies","amabilis","bbark1",0.0057
+"DBH","CA-BC","ABIE.AMA","Pinaceae","Abies","amabilis","bbark2",2.4786
+"DBH","CA-BC","ABIE.AMA","Pinaceae","Abies","amabilis","bbranches1",0.0322
+"DBH","CA-BC","ABIE.AMA","Pinaceae","Abies","amabilis","bbranches2",2.1313
+"DBH","CA-BC","ABIE.AMA","Pinaceae","Abies","amabilis","bfoliage1",0.0645
+"DBH","CA-BC","ABIE.AMA","Pinaceae","Abies","amabilis","bfoliage2",1.94
+"DBH","CA-BC","POPU.TRI","Salicaceae","Populus","trichocarpa","bwood1",0.046
+"DBH","CA-BC","POPU.TRI","Salicaceae","Populus","trichocarpa","bwood2",2.4312
+"DBH","CA-BC","POPU.TRI","Salicaceae","Populus","trichocarpa","bbark1",0.0074
+"DBH","CA-BC","POPU.TRI","Salicaceae","Populus","trichocarpa","bbark2",2.4442
+"DBH","CA-BC","POPU.TRI","Salicaceae","Populus","trichocarpa","bbranches1",0.0086
+"DBH","CA-BC","POPU.TRI","Salicaceae","Populus","trichocarpa","bbranches2",2.7326
+"DBH","CA-BC","POPU.TRI","Salicaceae","Populus","trichocarpa","bfoliage1",0.0114
+"DBH","CA-BC","POPU.TRI","Salicaceae","Populus","trichocarpa","bfoliage2",2.086
+"DBH","CA-BC","ALNU.RUB","Betulaceae","Alnus","rubra","bwood1",0.046
+"DBH","CA-BC","ALNU.RUB","Betulaceae","Alnus","rubra","bwood2",2.4312
+"DBH","CA-BC","ALNU.RUB","Betulaceae","Alnus","rubra","bbark1",0.0074
+"DBH","CA-BC","ALNU.RUB","Betulaceae","Alnus","rubra","bbark2",2.4442
+"DBH","CA-BC","ALNU.RUB","Betulaceae","Alnus","rubra","bbranches1",0.0086
+"DBH","CA-BC","ALNU.RUB","Betulaceae","Alnus","rubra","bbranches2",2.7326
+"DBH","CA-BC","ALNU.RUB","Betulaceae","Alnus","rubra","bfoliage1",0.0114
+"DBH","CA-BC","ALNU.RUB","Betulaceae","Alnus","rubra","bfoliage2",2.086
+"DBH","CA-BC","PICE.SIT","Pinaceae","Picea","sitchensis","bwood1",0.0302
+"DBH","CA-BC","PICE.SIT","Pinaceae","Picea","sitchensis","bwood2",2.5776
+"DBH","CA-BC","PICE.SIT","Pinaceae","Picea","sitchensis","bbark1",0.0066
+"DBH","CA-BC","PICE.SIT","Pinaceae","Picea","sitchensis","bbark2",2.4433
+"DBH","CA-BC","PICE.SIT","Pinaceae","Picea","sitchensis","bbranches1",0.0739
+"DBH","CA-BC","PICE.SIT","Pinaceae","Picea","sitchensis","bbranches2",1.8342
+"DBH","CA-BC","PICE.SIT","Pinaceae","Picea","sitchensis","bfoliage1",0.0157
+"DBH","CA-BC","PICE.SIT","Pinaceae","Picea","sitchensis","bfoliage2",2.3113
+"DBH","CA-BC","TSUG.HET","Pinaceae","Tsuga","heterophylla","bwood1",0.0141
+"DBH","CA-BC","TSUG.HET","Pinaceae","Tsuga","heterophylla","bwood2",2.8668
+"DBH","CA-BC","TSUG.HET","Pinaceae","Tsuga","heterophylla","bbark1",0.0025
+"DBH","CA-BC","TSUG.HET","Pinaceae","Tsuga","heterophylla","bbark2",2.8062
+"DBH","CA-BC","TSUG.HET","Pinaceae","Tsuga","heterophylla","bbranches1",0.0703
+"DBH","CA-BC","TSUG.HET","Pinaceae","Tsuga","heterophylla","bbranches2",1.9547
+"DBH","CA-BC","TSUG.HET","Pinaceae","Tsuga","heterophylla","bfoliage1",0.1676
+"DBH","CA-BC","TSUG.HET","Pinaceae","Tsuga","heterophylla","bfoliage2",1.4339
+"DBH","CA-BC","THUJ.PLI","Cupressaceae","Thuja","plicata","bwood1",0.0111
+"DBH","CA-BC","THUJ.PLI","Cupressaceae","Thuja","plicata","bwood2",2.8027
+"DBH","CA-BC","THUJ.PLI","Cupressaceae","Thuja","plicata","bbark1",3e-04
+"DBH","CA-BC","THUJ.PLI","Cupressaceae","Thuja","plicata","bbark2",3.2721
+"DBH","CA-BC","THUJ.PLI","Cupressaceae","Thuja","plicata","bbranches1",0.1158
+"DBH","CA-BC","THUJ.PLI","Cupressaceae","Thuja","plicata","bbranches2",1.7196
+"DBH","CA-BC","THUJ.PLI","Cupressaceae","Thuja","plicata","bfoliage1",0.1233
+"DBH","CA-BC","THUJ.PLI","Cupressaceae","Thuja","plicata","bfoliage2",1.5152
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.HWD",NA,NA,NA,"bwood1",0.0864
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.HWD",NA,NA,NA,"bwood2",2.3715
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.HWD",NA,NA,NA,"bbark1",0.0226
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.HWD",NA,NA,NA,"bbark2",2.2151
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.HWD",NA,NA,NA,"bbranches1",0.0186
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.HWD",NA,NA,NA,"bbranches2",2.4462
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.HWD",NA,NA,NA,"bfoliage1",0.0385
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.HWD",NA,NA,NA,"bfoliage2",1.6255
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SWD",NA,NA,NA,"bwood1",0.0564
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SWD",NA,NA,NA,"bwood2",2.4347
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SWD",NA,NA,NA,"bbark1",0.0153
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SWD",NA,NA,NA,"bbark2",2.211
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SWD",NA,NA,NA,"bbranches1",0.0194
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SWD",NA,NA,NA,"bbranches2",2.2408
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SWD",NA,NA,NA,"bfoliage1",0.0935
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SWD",NA,NA,NA,"bfoliage2",1.6106
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SPP",NA,NA,NA,"bwood1",0.0741
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SPP",NA,NA,NA,"bwood2",2.3875
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SPP",NA,NA,NA,"bbark1",0.0182
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SPP",NA,NA,NA,"bbark2",2.2181
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SPP",NA,NA,NA,"bbranches1",0.0227
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SPP",NA,NA,NA,"bbranches2",2.2797
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SPP",NA,NA,NA,"bfoliage1",0.0764
+"DBH","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SPP",NA,NA,NA,"bfoliage2",1.5861
+"DBHHT","CA-AB, CA-BC","ABIE.LAS","Pinaceae","Abies","lasiocarpa","bwood1",0.022
+"DBHHT","CA-AB, CA-BC","ABIE.LAS","Pinaceae","Abies","lasiocarpa","bwood2",1.6469
+"DBHHT","CA-AB, CA-BC","ABIE.LAS","Pinaceae","Abies","lasiocarpa","bwood3",1.1714
+"DBHHT","CA-AB, CA-BC","ABIE.LAS","Pinaceae","Abies","lasiocarpa","bbark1",0.0061
+"DBHHT","CA-AB, CA-BC","ABIE.LAS","Pinaceae","Abies","lasiocarpa","bbark2",1.8603
+"DBHHT","CA-AB, CA-BC","ABIE.LAS","Pinaceae","Abies","lasiocarpa","bbark3",0.7693
+"DBHHT","CA-AB, CA-BC","ABIE.LAS","Pinaceae","Abies","lasiocarpa","bbranches1",0.0265
+"DBHHT","CA-AB, CA-BC","ABIE.LAS","Pinaceae","Abies","lasiocarpa","bbranches2",3.6747
+"DBHHT","CA-AB, CA-BC","ABIE.LAS","Pinaceae","Abies","lasiocarpa","bbranches3",-1.5958
+"DBHHT","CA-AB, CA-BC","ABIE.LAS","Pinaceae","Abies","lasiocarpa","bfoliage1",0.0509
+"DBHHT","CA-AB, CA-BC","ABIE.LAS","Pinaceae","Abies","lasiocarpa","bfoliage2",2.9909
+"DBHHT","CA-AB, CA-BC","ABIE.LAS","Pinaceae","Abies","lasiocarpa","bfoliage3",-1.2271
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.MAR","Pinaceae","Picea","mariana","bwood1",0.0335
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.MAR","Pinaceae","Picea","mariana","bwood2",1.7389
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.MAR","Pinaceae","Picea","mariana","bwood3",0.9835
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.MAR","Pinaceae","Picea","mariana","bbark1",0.0132
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.MAR","Pinaceae","Picea","mariana","bbark2",1.7657
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.MAR","Pinaceae","Picea","mariana","bbark3",0.5775
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.MAR","Pinaceae","Picea","mariana","bbranches1",0.0405
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.MAR","Pinaceae","Picea","mariana","bbranches2",3.1917
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.MAR","Pinaceae","Picea","mariana","bbranches3",-1.3674
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.MAR","Pinaceae","Picea","mariana","bfoliage1",0.2078
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.MAR","Pinaceae","Picea","mariana","bfoliage2",2.5517
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.MAR","Pinaceae","Picea","mariana","bfoliage3",-1.3453
+"DBHHT","CA-AB, CA-BC","PINU.CON","Pinaceae","Pinus","contorta","bwood1",0.0239
+"DBHHT","CA-AB, CA-BC","PINU.CON","Pinaceae","Pinus","contorta","bwood2",1.6827
+"DBHHT","CA-AB, CA-BC","PINU.CON","Pinaceae","Pinus","contorta","bwood3",1.1878
+"DBHHT","CA-AB, CA-BC","PINU.CON","Pinaceae","Pinus","contorta","bbark1",0.0117
+"DBHHT","CA-AB, CA-BC","PINU.CON","Pinaceae","Pinus","contorta","bbark2",1.6398
+"DBHHT","CA-AB, CA-BC","PINU.CON","Pinaceae","Pinus","contorta","bbark3",0.6524
+"DBHHT","CA-AB, CA-BC","PINU.CON","Pinaceae","Pinus","contorta","bbranches1",0.0285
+"DBHHT","CA-AB, CA-BC","PINU.CON","Pinaceae","Pinus","contorta","bbranches2",3.3764
+"DBHHT","CA-AB, CA-BC","PINU.CON","Pinaceae","Pinus","contorta","bbranches3",-1.4395
+"DBHHT","CA-AB, CA-BC","PINU.CON","Pinaceae","Pinus","contorta","bfoliage1",0.0769
+"DBHHT","CA-AB, CA-BC","PINU.CON","Pinaceae","Pinus","contorta","bfoliage2",2.6834
+"DBHHT","CA-AB, CA-BC","PINU.CON","Pinaceae","Pinus","contorta","bfoliage3",-1.2484
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","POPU.TRE","Salicaceae","Populus","tremuloides","bwood1",0.0143
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","POPU.TRE","Salicaceae","Populus","tremuloides","bwood2",1.9369
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","POPU.TRE","Salicaceae","Populus","tremuloides","bwood3",1.0579
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","POPU.TRE","Salicaceae","Populus","tremuloides","bbark1",0.0063
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","POPU.TRE","Salicaceae","Populus","tremuloides","bbark2",2.0744
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","POPU.TRE","Salicaceae","Populus","tremuloides","bbark3",0.6691
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","POPU.TRE","Salicaceae","Populus","tremuloides","bbranches1",0.015
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","POPU.TRE","Salicaceae","Populus","tremuloides","bbranches2",2.9068
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","POPU.TRE","Salicaceae","Populus","tremuloides","bbranches3",-0.6306
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","POPU.TRE","Salicaceae","Populus","tremuloides","bfoliage1",0.0284
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","POPU.TRE","Salicaceae","Populus","tremuloides","bfoliage2",1.602
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","POPU.TRE","Salicaceae","Populus","tremuloides","bfoliage3",0
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-ON, CA-QC, CA-SK","BETU.PAP","Betulaceae","Betula","papyrifera","bwood1",0.0333
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-ON, CA-QC, CA-SK","BETU.PAP","Betulaceae","Betula","papyrifera","bwood2",2.0794
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-ON, CA-QC, CA-SK","BETU.PAP","Betulaceae","Betula","papyrifera","bwood3",0.6811
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-ON, CA-QC, CA-SK","BETU.PAP","Betulaceae","Betula","papyrifera","bbark1",0.0079
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-ON, CA-QC, CA-SK","BETU.PAP","Betulaceae","Betula","papyrifera","bbark2",1.9905
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-ON, CA-QC, CA-SK","BETU.PAP","Betulaceae","Betula","papyrifera","bbark3",0.6553
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-ON, CA-QC, CA-SK","BETU.PAP","Betulaceae","Betula","papyrifera","bbranches1",0.0253
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-ON, CA-QC, CA-SK","BETU.PAP","Betulaceae","Betula","papyrifera","bbranches2",3.1518
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-ON, CA-QC, CA-SK","BETU.PAP","Betulaceae","Betula","papyrifera","bbranches3",-0.9083
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-ON, CA-QC, CA-SK","BETU.PAP","Betulaceae","Betula","papyrifera","bfoliage1",0.1361
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-ON, CA-QC, CA-SK","BETU.PAP","Betulaceae","Betula","papyrifera","bfoliage2",2.2978
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-ON, CA-QC, CA-SK","BETU.PAP","Betulaceae","Betula","papyrifera","bfoliage3",-1.0934
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.GLA","Pinaceae","Picea","glauca","bwood1",0.0265
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.GLA","Pinaceae","Picea","glauca","bwood2",1.7952
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.GLA","Pinaceae","Picea","glauca","bwood3",0.9733
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.GLA","Pinaceae","Picea","glauca","bbark1",0.0124
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.GLA","Pinaceae","Picea","glauca","bbark2",1.6962
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.GLA","Pinaceae","Picea","glauca","bbark3",0.6489
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.GLA","Pinaceae","Picea","glauca","bbranches1",0.0325
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.GLA","Pinaceae","Picea","glauca","bbranches2",2.8573
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.GLA","Pinaceae","Picea","glauca","bbranches3",-0.9127
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.GLA","Pinaceae","Picea","glauca","bfoliage1",0.202
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.GLA","Pinaceae","Picea","glauca","bfoliage2",2.3802
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","PICE.GLA","Pinaceae","Picea","glauca","bfoliage3",-1.1103
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.HWD",NA,NA,NA,"bwood1",0.0353
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.HWD",NA,NA,NA,"bwood2",2.0249
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.HWD",NA,NA,NA,"bwood3",0.7048
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.HWD",NA,NA,NA,"bbark1",0.009
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.HWD",NA,NA,NA,"bbark2",1.8677
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.HWD",NA,NA,NA,"bbark3",0.7144
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.HWD",NA,NA,NA,"bbranches1",0.0448
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.HWD",NA,NA,NA,"bbranches2",2.6855
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.HWD",NA,NA,NA,"bbranches3",-0.5911
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.HWD",NA,NA,NA,"bfoliage1",0.0869
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.HWD",NA,NA,NA,"bfoliage2",1.8541
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.HWD",NA,NA,NA,"bfoliage3",-0.5491
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SWD",NA,NA,NA,"bwood1",0.0276
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SWD",NA,NA,NA,"bwood2",1.6868
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SWD",NA,NA,NA,"bwood3",1.0953
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SWD",NA,NA,NA,"bbark1",0.0101
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SWD",NA,NA,NA,"bbark2",1.8486
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SWD",NA,NA,NA,"bbark3",0.5525
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SWD",NA,NA,NA,"bbranches1",0.0313
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SWD",NA,NA,NA,"bbranches2",2.9974
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SWD",NA,NA,NA,"bbranches3",-1.0383
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SWD",NA,NA,NA,"bfoliage1",0.1379
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SWD",NA,NA,NA,"bfoliage2",2.3981
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SWD",NA,NA,NA,"bfoliage3",-1.0418
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SPP",NA,NA,NA,"bwood1",0.0283
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SPP",NA,NA,NA,"bwood2",1.8298
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SPP",NA,NA,NA,"bwood3",0.9546
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SPP",NA,NA,NA,"bbark1",0.012
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SPP",NA,NA,NA,"bbark2",1.6378
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SPP",NA,NA,NA,"bbark3",0.7746
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SPP",NA,NA,NA,"bbranches1",0.0338
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SPP",NA,NA,NA,"bbranches2",2.6624
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SPP",NA,NA,NA,"bbranches3",-0.5743
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SPP",NA,NA,NA,"bfoliage1",0.1699
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SPP",NA,NA,NA,"bfoliage2",2.3289
+"DBHHT","CA-AB, CA-BC, CA-MB, CA-NL, CA-NS, CA-NT, CA-ON, CA-QC, CA-SK, CA-YT","UNKN.SPP",NA,NA,NA,"bfoliage3",-1.1316
+"DBHHT","CA-BC","PSEU.MEN","Pinaceae","Pseudotsuga","menziesii","bwood1",0.0191
+"DBHHT","CA-BC","PSEU.MEN","Pinaceae","Pseudotsuga","menziesii","bwood2",1.5365
+"DBHHT","CA-BC","PSEU.MEN","Pinaceae","Pseudotsuga","menziesii","bwood3",1.3634
+"DBHHT","CA-BC","PSEU.MEN","Pinaceae","Pseudotsuga","menziesii","bbark1",0.0083
+"DBHHT","CA-BC","PSEU.MEN","Pinaceae","Pseudotsuga","menziesii","bbark2",2.4811
+"DBHHT","CA-BC","PSEU.MEN","Pinaceae","Pseudotsuga","menziesii","bbark3",0
+"DBHHT","CA-BC","PSEU.MEN","Pinaceae","Pseudotsuga","menziesii","bbranches1",0.0351
+"DBHHT","CA-BC","PSEU.MEN","Pinaceae","Pseudotsuga","menziesii","bbranches2",2.2421
+"DBHHT","CA-BC","PSEU.MEN","Pinaceae","Pseudotsuga","menziesii","bbranches3",0
+"DBHHT","CA-BC","PSEU.MEN","Pinaceae","Pseudotsuga","menziesii","bfoliage1",0.0718
+"DBHHT","CA-BC","PSEU.MEN","Pinaceae","Pseudotsuga","menziesii","bfoliage2",2.2935
+"DBHHT","CA-BC","PSEU.MEN","Pinaceae","Pseudotsuga","menziesii","bfoliage3",-0.4744
+"DBHHT","CA-BC","PICE.ENG","Pinaceae","Picea","engelmannii","bwood1",0.0133
+"DBHHT","CA-BC","PICE.ENG","Pinaceae","Picea","engelmannii","bwood2",1.3303
+"DBHHT","CA-BC","PICE.ENG","Pinaceae","Picea","engelmannii","bwood3",1.6877
+"DBHHT","CA-BC","PICE.ENG","Pinaceae","Picea","engelmannii","bbark1",0.0086
+"DBHHT","CA-BC","PICE.ENG","Pinaceae","Picea","engelmannii","bbark2",1.6216
+"DBHHT","CA-BC","PICE.ENG","Pinaceae","Picea","engelmannii","bbark3",0.8192
+"DBHHT","CA-BC","PICE.ENG","Pinaceae","Picea","engelmannii","bbranches1",0.0428
+"DBHHT","CA-BC","PICE.ENG","Pinaceae","Picea","engelmannii","bbranches2",2.7965
+"DBHHT","CA-BC","PICE.ENG","Pinaceae","Picea","engelmannii","bbranches3",-0.7328
+"DBHHT","CA-BC","PICE.ENG","Pinaceae","Picea","engelmannii","bfoliage1",0.0854
+"DBHHT","CA-BC","PICE.ENG","Pinaceae","Picea","engelmannii","bfoliage2",2.4388
+"DBHHT","CA-BC","PICE.ENG","Pinaceae","Picea","engelmannii","bfoliage3",-0.763
+"DBHHT","CA-BC","ABIE.AMA","Pinaceae","Abies","amabilis","bwood1",0.0315
+"DBHHT","CA-BC","ABIE.AMA","Pinaceae","Abies","amabilis","bwood2",1.8297
+"DBHHT","CA-BC","ABIE.AMA","Pinaceae","Abies","amabilis","bwood3",0.8056
+"DBHHT","CA-BC","ABIE.AMA","Pinaceae","Abies","amabilis","bbark1",0.0067
+"DBHHT","CA-BC","ABIE.AMA","Pinaceae","Abies","amabilis","bbark2",2.697
+"DBHHT","CA-BC","ABIE.AMA","Pinaceae","Abies","amabilis","bbark3",-0.3105
+"DBHHT","CA-BC","ABIE.AMA","Pinaceae","Abies","amabilis","bbranches1",0.042
+"DBHHT","CA-BC","ABIE.AMA","Pinaceae","Abies","amabilis","bbranches2",2.0313
+"DBHHT","CA-BC","ABIE.AMA","Pinaceae","Abies","amabilis","bbranches3",0
+"DBHHT","CA-BC","ABIE.AMA","Pinaceae","Abies","amabilis","bfoliage1",0.0453
+"DBHHT","CA-BC","ABIE.AMA","Pinaceae","Abies","amabilis","bfoliage2",2.4867
+"DBHHT","CA-BC","ABIE.AMA","Pinaceae","Abies","amabilis","bfoliage3",-0.4982
+"DBHHT","CA-BC","POPU.TRI","Salicaceae","Populus","trichocarpa","bwood1",0.0051
+"DBHHT","CA-BC","POPU.TRI","Salicaceae","Populus","trichocarpa","bwood2",1.0697
+"DBHHT","CA-BC","POPU.TRI","Salicaceae","Populus","trichocarpa","bwood3",2.2748
+"DBHHT","CA-BC","POPU.TRI","Salicaceae","Populus","trichocarpa","bbark1",9e-04
+"DBHHT","CA-BC","POPU.TRI","Salicaceae","Populus","trichocarpa","bbark2",1.3061
+"DBHHT","CA-BC","POPU.TRI","Salicaceae","Populus","trichocarpa","bbark3",2.0109
+"DBHHT","CA-BC","POPU.TRI","Salicaceae","Populus","trichocarpa","bbranches1",0.0131
+"DBHHT","CA-BC","POPU.TRI","Salicaceae","Populus","trichocarpa","bbranches2",2.576
+"DBHHT","CA-BC","POPU.TRI","Salicaceae","Populus","trichocarpa","bbranches3",0
+"DBHHT","CA-BC","POPU.TRI","Salicaceae","Populus","trichocarpa","bfoliage1",0.0224
+"DBHHT","CA-BC","POPU.TRI","Salicaceae","Populus","trichocarpa","bfoliage2",1.8368
+"DBHHT","CA-BC","POPU.TRI","Salicaceae","Populus","trichocarpa","bfoliage3",0
+"DBHHT","CA-BC","ALNU.RUB","Betulaceae","Alnus","rubra","bwood1",0.0051
+"DBHHT","CA-BC","ALNU.RUB","Betulaceae","Alnus","rubra","bwood2",1.0697
+"DBHHT","CA-BC","ALNU.RUB","Betulaceae","Alnus","rubra","bwood3",2.2748
+"DBHHT","CA-BC","ALNU.RUB","Betulaceae","Alnus","rubra","bbark1",9e-04
+"DBHHT","CA-BC","ALNU.RUB","Betulaceae","Alnus","rubra","bbark2",1.3061
+"DBHHT","CA-BC","ALNU.RUB","Betulaceae","Alnus","rubra","bbark3",2.0109
+"DBHHT","CA-BC","ALNU.RUB","Betulaceae","Alnus","rubra","bbranches1",0.0131
+"DBHHT","CA-BC","ALNU.RUB","Betulaceae","Alnus","rubra","bbranches2",2.576
+"DBHHT","CA-BC","ALNU.RUB","Betulaceae","Alnus","rubra","bbranches3",0
+"DBHHT","CA-BC","ALNU.RUB","Betulaceae","Alnus","rubra","bfoliage1",0.0224
+"DBHHT","CA-BC","ALNU.RUB","Betulaceae","Alnus","rubra","bfoliage2",1.8368
+"DBHHT","CA-BC","ALNU.RUB","Betulaceae","Alnus","rubra","bfoliage3",0
+"DBHHT","CA-BC","PICE.SIT","Pinaceae","Picea","sitchensis","bwood1",0.0237
+"DBHHT","CA-BC","PICE.SIT","Pinaceae","Picea","sitchensis","bwood2",2.5813
+"DBHHT","CA-BC","PICE.SIT","Pinaceae","Picea","sitchensis","bwood3",0.0822
+"DBHHT","CA-BC","PICE.SIT","Pinaceae","Picea","sitchensis","bbark1",0.0045
+"DBHHT","CA-BC","PICE.SIT","Pinaceae","Picea","sitchensis","bbark2",1.2275
+"DBHHT","CA-BC","PICE.SIT","Pinaceae","Picea","sitchensis","bbark3",1.519
+"DBHHT","CA-BC","PICE.SIT","Pinaceae","Picea","sitchensis","bbranches1",0.0498
+"DBHHT","CA-BC","PICE.SIT","Pinaceae","Picea","sitchensis","bbranches2",1.9671
+"DBHHT","CA-BC","PICE.SIT","Pinaceae","Picea","sitchensis","bbranches3",0
+"DBHHT","CA-BC","PICE.SIT","Pinaceae","Picea","sitchensis","bfoliage1",0.014
+"DBHHT","CA-BC","PICE.SIT","Pinaceae","Picea","sitchensis","bfoliage2",3.1305
+"DBHHT","CA-BC","PICE.SIT","Pinaceae","Picea","sitchensis","bfoliage3",-0.907
+"DBHHT","CA-BC","TSUG.HET","Pinaceae","Tsuga","heterophylla","bwood1",0.0113
+"DBHHT","CA-BC","TSUG.HET","Pinaceae","Tsuga","heterophylla","bwood2",1.9332
+"DBHHT","CA-BC","TSUG.HET","Pinaceae","Tsuga","heterophylla","bwood3",1.1125
+"DBHHT","CA-BC","TSUG.HET","Pinaceae","Tsuga","heterophylla","bbark1",0.0019
+"DBHHT","CA-BC","TSUG.HET","Pinaceae","Tsuga","heterophylla","bbark2",2.3356
+"DBHHT","CA-BC","TSUG.HET","Pinaceae","Tsuga","heterophylla","bbark3",0.6371
+"DBHHT","CA-BC","TSUG.HET","Pinaceae","Tsuga","heterophylla","bbranches1",0.0609
+"DBHHT","CA-BC","TSUG.HET","Pinaceae","Tsuga","heterophylla","bbranches2",2.0021
+"DBHHT","CA-BC","TSUG.HET","Pinaceae","Tsuga","heterophylla","bbranches3",0
+"DBHHT","CA-BC","TSUG.HET","Pinaceae","Tsuga","heterophylla","bfoliage1",0.2656
+"DBHHT","CA-BC","TSUG.HET","Pinaceae","Tsuga","heterophylla","bfoliage2",2.0107
+"DBHHT","CA-BC","TSUG.HET","Pinaceae","Tsuga","heterophylla","bfoliage3",-0.7963
+"DBHHT","CA-BC","THUJ.PLI","Cupressaceae","Thuja","plicata","bwood1",0.0188
+"DBHHT","CA-BC","THUJ.PLI","Cupressaceae","Thuja","plicata","bwood2",1.3376
+"DBHHT","CA-BC","THUJ.PLI","Cupressaceae","Thuja","plicata","bwood3",1.5293
+"DBHHT","CA-BC","THUJ.PLI","Cupressaceae","Thuja","plicata","bbark1",2e-04
+"DBHHT","CA-BC","THUJ.PLI","Cupressaceae","Thuja","plicata","bbark2",2.4369
+"DBHHT","CA-BC","THUJ.PLI","Cupressaceae","Thuja","plicata","bbark3",1.1315
+"DBHHT","CA-BC","THUJ.PLI","Cupressaceae","Thuja","plicata","bbranches1",0.0611
+"DBHHT","CA-BC","THUJ.PLI","Cupressaceae","Thuja","plicata","bbranches2",1.9208
+"DBHHT","CA-BC","THUJ.PLI","Cupressaceae","Thuja","plicata","bbranches3",0
+"DBHHT","CA-BC","THUJ.PLI","Cupressaceae","Thuja","plicata","bfoliage1",0.1097
+"DBHHT","CA-BC","THUJ.PLI","Cupressaceae","Thuja","plicata","bfoliage2",1.553
+"DBHHT","CA-BC","THUJ.PLI","Cupressaceae","Thuja","plicata","bfoliage3",0

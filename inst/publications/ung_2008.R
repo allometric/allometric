@@ -1,14 +1,18 @@
-lambert_2005 <- Publication(
+ung_2008 <- Publication(
   citation = RefManageR::BibEntry(
     bibtype = "article",
-    key = "lambert_2005",
-    title = "Canadian national tree aboveground biomass equations",
-    author = "Lambert, MC and Ung, CH and Raulier, Fr{\'e}d{\'e}ric",
+    key = "ung_2008",
+    title = "Canadian national biomass equations: new parameter estimates that include British Columbia data",
+    author = "Ung, Chhun-Huor and Bernier, Pierre and Guo, Xiao-Jing",
+    doi = "10.1139/X07-224",
+    issn = "0045-5067",
     journal = "Canadian Journal of Forest Research",
-    volume = 35,
-    number = 8,
-    pages = "1996--2018",
-    year = 2005,
+    volume = 38,
+    number = 5,
+    month = "may",
+    url = "http://www.nrcresearchpress.com/doi/abs/10.1139/X07-224",
+    pages = "1123--1132",
+    year = 2008,
     publisher = "NRC Research Press Ottawa, Canada"
   ),
   descriptors = list(
@@ -16,7 +20,7 @@ lambert_2005 <- Publication(
   )
 )
 
-b_params <- load_parameter_frame('b_lambert_2005')
+b_params <- load_parameter_frame('b_ung_2008')
 
 dia_b_params <- b_params %>% dplyr::filter(model == "DBH")
 dia_b_params_names <- unique(dia_b_params$parameter)
@@ -108,7 +112,7 @@ for(i in seq_along(dia_response_funcs)) {
     na_genus = FALSE
   )
 
-  lambert_2005 <- lambert_2005 %>% add_set(set)
+  ung_2008 <- ung_2008 %>% add_set(set)
 }
 
 # Dia-ht models with at least a genus defined
@@ -124,7 +128,7 @@ for(i in seq_along(dia_response_funcs)) {
     na_genus = FALSE
   )
 
-  lambert_2005 <- lambert_2005 %>% add_set(set)
+  ung_2008 <- ung_2008 %>% add_set(set)
 }
 
 # Diameter-only models of "pooled" models
@@ -140,7 +144,7 @@ for(i in seq_along(dia_response_funcs)) {
     na_genus = TRUE
   )
 
-  lambert_2005 <- lambert_2005 %>% add_set(set)
+  ung_2008 <- ung_2008 %>% add_set(set)
 }
 
 # Dia-ht models of "pooled" models
@@ -156,5 +160,5 @@ for(i in seq_along(dia_response_funcs)) {
     na_genus = TRUE
   )
 
-  lambert_2005 <- lambert_2005 %>% add_set(set)
+  ung_2008 <- ung_2008 %>% add_set(set)
 }
