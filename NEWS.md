@@ -1,5 +1,27 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# allometric 1.0.0.9004 (2023-02-04)
+
+## Features
+
+- Adding ung_2008, closes #73.
+
+- Adding lambert_2005.
+
+- Adding chojnacky_1994.
+
+- Adding hann_1978 volume models for unforked trees, updates #70.
+
+## Documentation
+
+- Updated Variable Naming System vignette.
+
+## Uncategorized
+
+- Merge branch 'master' of https://github.com/brycefrank/allometric.
+
+
+
 # allometric 1.0.0.9003 (2023-01-28)
 
 ## Bug fixes
