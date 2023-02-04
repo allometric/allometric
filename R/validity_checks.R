@@ -146,3 +146,20 @@ check_descriptor_validity <- function(descriptors) {
 
   errors
 }
+
+#' 
+check_model_specifications_unique <- function(model_specifications, parameter_names) {
+  errors <- c()
+  n <- nrow(model_specifications)
+
+  specs_distinct <- model_specifications %>%
+    dplyr::select(-parameter_names) %>%
+    dplyr::distinct()
+
+  if(nrow(specs_distinct) != n) {
+    browser()
+    errors <- c(errors, "Descriptors in the model specification must uniquely identify all models.")
+  }
+
+  errors
+}

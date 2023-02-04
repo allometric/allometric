@@ -21,7 +21,8 @@ country_frame <- load_parameter_frame("hst_feldpausch_2012_country")
 # Geog. region frame
 geog_region_frame <- country_frame %>%
   dplyr::group_by(continent, geographic_region, a, b, c) %>%
-  dplyr::summarise(country = list(country))
+  dplyr::summarise(country = list(country)) %>%
+  dplyr::ungroup()
 
 geog_region_set <- FixedEffectsSet(
   response_unit = list(

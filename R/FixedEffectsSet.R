@@ -1,8 +1,6 @@
 check_fixed_effects_set_validity <- function(object) {
-  # TODO the number of distinct rows of model_specifications using the
-  # non-parameter columns needs to be equalto the total number of rows
   errors <- c()
-  errors <- c(errors, check_descriptor_validity(object@descriptors))
+  errors <- c(errors, check_model_specifications_unique(object@model_specifications, object@parameter_names))
   errors <- c(errors, check_parameters_in_predict_fn(object))
   if (length(errors) == 0) TRUE else errors
 }

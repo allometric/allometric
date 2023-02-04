@@ -84,11 +84,20 @@ construct_ung_set <- function(category, b_params, b_params_names,
     b_params <- b_params %>% dplyr::filter(genus == "NA")
   }
 
-  model_specifications <- b_params %>%
-    dplyr::filter(parameter %in% parameter_names) %>%
-    tidyr::pivot_wider(names_from = parameter, values_from = estimate) %>%
-    dplyr::select(-c(model, code)) %>%
-    dplyr::mutate(region = as.list(strsplit(region, ", ")))
+  if(!na_genus) {
+    model_specifications <- b_params %>%
+      dplyr::filter(genus != "NA", parameter %in% parameter_names) %>%
+      tidyr::pivot_wider(names_from = parameter, values_from = estimate) %>%
+      dplyr::select(-c(model, code)) %>%
+      dplyr::mutate(region = as.list(strsplit(region, ", ")))
+  } else {
+    model_specifications <- b_params %>%
+      dplyr::filter(genus == "NA", parameter %in% parameter_names) %>%
+      tidyr::pivot_wider(names_from = parameter, values_from = estimate) %>%
+      dplyr::mutate(region = as.list(strsplit(region, ", "))) %>%
+      dplyr::mutate(species_group = dplyr::recode(code, UNKN.HWD = "hardwood", UNKN.SWD = "softwood", UNKN.SPP = "all")) %>%
+      dplyr::select(-c(model, code, family, genus, species))
+  }
 
   FixedEffectsSet(
     response_unit = response_unit,
