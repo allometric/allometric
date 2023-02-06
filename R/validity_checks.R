@@ -157,7 +157,6 @@ check_model_specifications_unique <- function(model_specifications, parameter_na
     dplyr::distinct()
 
   if(nrow(specs_distinct) != n) {
-    browser()
     errors <- c(errors, "Descriptors in the model specification must uniquely identify all models.")
   }
 

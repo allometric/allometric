@@ -1,5 +1,3 @@
-
-
 #' Checks if the pub_list should be generated
 #'
 #' The pub_list is regenerated if any file in inst/publications has been
@@ -115,7 +113,6 @@ aggregate_results_ext <- function(results) {
     model <- result$model
     pub <- result$pub
 
-    # FIXME these are not always tibbles!!!
     model_descriptors <- descriptors(model)
 
     descriptors_row <- tibble::as_tibble(list(pub_id = pub@id))
@@ -227,8 +224,6 @@ get_model_results <- function(pub_list) {
     }
   }
 
-  # these models no longer exist
-  # FIXME this is not working at present, we have ~900 IDs but just 600-something models?
   delete_ids <- current_ids
   delete_ixs <- which(model_ids$proxy_id %in% delete_ids)
 

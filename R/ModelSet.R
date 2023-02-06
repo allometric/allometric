@@ -1,8 +1,4 @@
-
-
 check_model_set_validity <- function(object) {
-  # TODO the number of distinct rows of model_specifications using the
-  # non-parameter columns needs to be equalto the total number of rows
   errors <- c()
   errors <- c(errors, check_covts_in_args(object))
   errors <- c(errors, check_args_in_predict_fn(object))

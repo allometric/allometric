@@ -85,10 +85,6 @@ ParametricModel <- function(response_unit, covariate_units, predict_fn,
   parametric_model
 }
 
-# TODO set validity...must have a finite set of parameters >= length of
-# covariates
-
-
 setMethod("model_call", signature(model = "ParametricModel"), function(model) {
   response_var <- names(model@response_unit)[[1]]
 

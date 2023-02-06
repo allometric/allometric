@@ -5,3 +5,4 @@ v,s,b,volume of the stem below breast height
 v,s,o,volume of the stem above breast height
 v,u,,volume of the stump
 v,t,,volume of the top
+v,c,,crown volume

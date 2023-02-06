@@ -21,7 +21,7 @@ refer to the [Installing a
 Model](https://brycefrank.com/allometric/articles/installing_a_model.html)
 vignette.
 
-In total **`allometric` contains 1537 models across 33 publications**,
+In total **`allometric` contains 1558 models across 34 publications**,
 the following table displays the number of models by continent and
 category:
 
@@ -33,7 +33,7 @@ category:
 | stem volume       |   0 |   0 | 573 |   0 |   0 |  20 |
 | stump volume      |   0 |   0 |  64 |   0 |   0 |   0 |
 | taper             |   0 |   0 |  18 |   0 |   0 |   0 |
-| tree biomass      |   0 |  34 |  90 |   0 |   0 |  16 |
+| tree biomass      |   0 |  34 |  90 |   0 |  21 |  16 |
 | other             |   0 |   0 | 121 |   0 |   0 |   0 |
 
 Refer to the
@@ -106,7 +106,7 @@ unnested_models <- unnest_models(allometric_models, cols = "family_name")
 unnested_models
 ```
 
-    #> # A tibble: 3,587 × 12
+    #> # A tibble: 3,692 × 12
     #>    id       model_type   country   region    family       genus       species     model      pub_id        family_name covt_name pub_year
     #>    <chr>    <chr>        <list>    <list>    <chr>        <chr>       <chr>       <list>     <chr>         <chr>       <list>       <dbl>
     #>  1 cd71c0b8 stem height  <chr [1]> <chr [3]> Accipitridae Circus      canadensis  <FxdEffcM> hahn_1984     Hahn        <chr [4]>     1984
@@ -119,7 +119,7 @@ unnested_models
     #>  8 f3698bb3 stem volume  <chr [1]> <chr [3]> Altingiaceae Liquidambar styraciflua <FxdEffcM> hahn_1984     Hahn        <chr [2]>     1984
     #>  9 14d46395 stem volume  <chr [1]> <chr [3]> Altingiaceae Liquidambar styraciflua <FxdEffcM> hahn_1984     Hahn        <chr [2]>     1984
     #> 10 07cbe95e stump volume <chr [1]> <chr [3]> Altingiaceae Liquidambar styraciflua <FxdEffcM> hahn_1984     Hahn        <chr [1]>     1984
-    #> # … with 3,577 more rows
+    #> # … with 3,682 more rows
 
 Now, each row represents unique data combinations for each model, which
 can be quickly filtered by most users using `dplyr::filter`. For
