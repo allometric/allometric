@@ -9,7 +9,7 @@ fixed_effects_set <- FixedEffectsSet(
     a * dsob^2
   },
   parameter_names = "a",
-  model_specifications = tibble::tibble(a = c(1, 2)),
+  model_specifications = tibble::tibble(mod = c(1,2), a = c(1, 2)),
   descriptors = list(
     test = "test_value"
   )
@@ -54,7 +54,7 @@ fixed_effects_covt_override <- FixedEffectsSet(
     a * dsob^2
   },
   parameter_names = "a",
-  model_specifications = tibble::tibble(a = c(1, 2)),
+  model_specifications = tibble::tibble(mod=c(1,2), a = c(1, 2)),
   descriptors = list(
     test = "test_value"
   ),

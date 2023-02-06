@@ -50,7 +50,7 @@ fixed_effects_set <- FixedEffectsSet(
     a * dsob
   },
   parameter_names = c("a"),
-  model_specifications = tibble::tibble(a = c(1, 2))
+  model_specifications = tibble::tibble(mod= c(1,2), a = c(1, 2))
 )
 
 pub_add_fixef <- add_set(pub, fixed_effects_set)

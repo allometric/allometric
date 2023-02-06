@@ -153,7 +153,7 @@ check_model_specifications_unique <- function(model_specifications, parameter_na
   n <- nrow(model_specifications)
 
   specs_distinct <- model_specifications %>%
-    dplyr::select(-parameter_names) %>%
+    dplyr::select(-dplyr::all_of(parameter_names)) %>%
     dplyr::distinct()
 
   if(nrow(specs_distinct) != n) {
