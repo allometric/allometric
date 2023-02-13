@@ -21,7 +21,8 @@ Imports:
     purrr,
     ISOcodes,
     tidyr,
-    uuid
+    uuid,
+    progress
 Collate:
     'data.R'
     'utils-pipe.R'
