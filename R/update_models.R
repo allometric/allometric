@@ -1,43 +1,68 @@
-#' Checks if the pub_list should be generated
+#' Determines which publication files need to be ran for installation
 #'
-#' The pub_list is regenerated if any file in inst/publications has been
-#' modified after the creation of the pub_list
+#' The pub_list is regenerated if any files in inst/publications have been
+#' modified after the creation of the pub_list. Only those files are returned
+#' unless ignore_cache is set to TRUE, in which case all files will be returned.
 #'
 #' @keywords internal
-check_run_pub_list <- function(pub_list_path) {
+get_run_pubs <- function(ignore_cache = FALSE, verbose = FALSE) {
+  pub_list_path <- system.file("extdata/pub_list.RDS", package = "allometric")
   pub_path <- system.file("publications", package = "allometric")
-  pub_file_paths <- file.path(pub_path, list.files(pub_path))
+
+  pub_file_names <- list.files(pub_path)
+  pub_file_paths <- file.path(pub_path, pub_file_names)
   file_info <- file.info(pub_file_paths)
   pub_info <- file.info(pub_list_path)
 
-  if (any(file_info$mtime >= pub_info$mtime)) {
-    return(TRUE)
+  file_info.fmt <- file_info %>% tibble::tibble() %>%
+    dplyr::mutate(file_path = pub_file_paths, file_name = pub_file_names)
+
+  if (pub_list_path == "" || ignore_cache) {
+    return(file_info.fmt)
   } else {
-    return(FALSE)
+    rerun_info <- file_info.fmt %>%
+      dplyr::mutate(rerun = mtime >= pub_info$mtime) %>%
+      dplyr::filter(rerun)
+
+    return(rerun_info)
   }
 }
 
-run_pub_list <- function(verbose) {
+get_pub_list <- function(pub_list_path) {
+  if (pub_list_path == "") {
+    return(list())
+  } else {
+    return(readRDS(pub_list_path))
+  }
+}
+
+update_pub_list <- function(run_pubs, verbose = TRUE) {
+  pub_list_path <- system.file("extdata/pub_list.RDS", package = "allometric")
   pub_path <- system.file("publications", package = "allometric")
-
-  pub_r_files <- list.files(pub_path)
-  pub_r_paths <- file.path(pub_path, pub_r_files)
-
-  pub_list <- list()
-
+  
+  pub_list <- get_pub_list(pub_list_path)
   pub_env <- new.env()
 
-  for (i in seq_along(pub_r_paths)) {
-    pub_r_path <- pub_r_paths[[i]]
-    pub_r_file <- pub_r_files[[i]]
+  pb <- progress::progress_bar$new(
+    format = "running publication file :pub_id [:bar] :percent",
+    total = nrow(run_pubs)
+  )
 
-    if (verbose) {
-      cat(paste("Updating publication list for:", pub_r_path, "\n"))
-    }
+  if(nrow(run_pubs) == 0 && verbose) {
+    cat("No publications required an update.")
+  }
+
+  for (i in seq_len(nrow(run_pubs))) {
+    pub_r_path <- run_pubs$file_path[[i]]
+    pub_r_file <- run_pubs$file_name[[i]]
 
     source(pub_r_path, local = pub_env)
     pub_name <- tools::file_path_sans_ext(pub_r_file)
     pub <- get(pub_name, envir = pub_env)
+
+    if (verbose) {
+      pb$tick(tokens = list(pub_id = pub@id))
+    }
 
     pub_list[[pub@id]] <- pub
   }
@@ -50,22 +75,6 @@ run_pub_list <- function(verbose) {
     "pub_list.RDS"
   )
   saveRDS(pub_list, pub_list_path)
-}
-
-#'
-get_pub_list <- function(ignore_cache, verbose) {
-  pub_list_path <- system.file("extdata/pub_list.RDS", package = "allometric")
-
-
-  if (pub_list_path == "" || ignore_cache) {
-    run_pub_list(verbose)
-  } else {
-    run <- check_run_pub_list(pub_list_path)
-    if (run) run_pub_list(verbose)
-  }
-
-  pub_list_path <- system.file("extdata/pub_list.RDS", package = "allometric")
-  readRDS(pub_list_path)
 }
 
 #' Hashes a function string
@@ -97,7 +106,7 @@ append_search_descriptors <- function(row, model_descriptors) {
 #' Transforms a set of searched models into a tibble of models and descriptors
 #'
 #' @keywords internal
-aggregate_results_ext <- function(results) {
+aggregate_results <- function(results) {
   search_descriptors <- c(
     "family", "genus", "species", "country", "region"
   )
@@ -176,7 +185,10 @@ append_id <- function(model_ids, proxy_id, id) {
   model_ids
 }
 
-get_model_results <- function(pub_list) {
+get_model_results <- function() {
+  pub_list_path <- system.file("extdata/pub_list.RDS", package = "allometric")
+  pub_list <- readRDS(pub_list_path)
+
   results <- list()
   model_ids_path <- system.file("model_ids.csv", package = "allometric")
 

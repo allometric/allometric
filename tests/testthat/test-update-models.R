@@ -1,18 +1,28 @@
 
 
-test_that("run_pub_list produces a pub_list.RDS file", {
-  run_pub_list(verbose = F)
+test_that("update_pub_list produces a pub_list.RDS file that contains all publications", {
+  run_pubs <- get_run_pubs(verbose = F)
+  update_pub_list(run_pubs)
 
   pub_list_path <- file.path(
     system.file("extdata", package = "allometric"),
     "pub_list.RDS"
   )
 
+  pubs <- readRDS(pub_list_path)
+  pubs_path <- system.file("publications", package="allometric")
+  n_files <- length(list.files(pubs_path))
+
+  expect_equal(n_files, length(pubs))
   expect_true(file.exists(pub_list_path))
 })
 
-pubs <- get_pub_list(ignore_cache = F, verbose = F)
+pub_list_path <- file.path(
+  system.file("extdata", package = "allometric"),
+  "pub_list.RDS"
+)
 
+pubs <- get_pub_list(pub_list_path)
 
 test_that("get_pub_list returns a list of publications", {
   expect_equal(class(pubs), "list")
@@ -49,7 +59,7 @@ test_that("append_search_descriptors creates a valid tibble row", {
   expect_equal(row, test_row)
 })
 
-model_results <- get_model_results(pubs)
+model_results <- get_model_results()
 model_ids <- read.csv(system.file("model_ids.csv", package = "allometric"))
 
 test_that("get_model_results returns a list of length equal to model_ids", {
@@ -58,8 +68,8 @@ test_that("get_model_results returns a list of length equal to model_ids", {
   expect_equal(nrow(model_ids), length(model_results))
 })
 
-test_that("aggregate_results_ext returns tbl_df of length equal to model_ids", {
-  out <- aggregate_results_ext(model_results)
+test_that("aggregate_results returns tbl_df of length equal to model_ids", {
+  out <- aggregate_results(model_results)
 
   expect_s3_class(out, "tbl_df")
   expect_equal(nrow(out), nrow(model_ids))
