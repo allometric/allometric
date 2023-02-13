@@ -9,7 +9,7 @@ install_models <- function(ignore_cache = FALSE, verbose = FALSE) {
   data <- aggregate_results(results)
   data <- new_model_tbl(data)
 
-  #out_path <- file.path(system.file("extdata", package = "allometric"), "allometric_models.RDS")
-  #saveRDS(data, out_path)
-  #.GlobalEnv$allometric_models <- data
+  out_path <- file.path(system.file("extdata", package = "allometric"), "allometric_models.RDS")
+  saveRDS(data, out_path)
+  .GlobalEnv$allometric_models <- data
 }

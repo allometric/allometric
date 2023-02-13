@@ -3,6 +3,7 @@ v,s,a,"volume of the entire stem, including top and stump"
 v,s,m,volume of the merchantable portion of the stem
 v,s,b,volume of the stem below breast height
 v,s,o,volume of the stem above breast height
+v,s,k,volume of the stem including bark
 v,u,,volume of the stump
 v,t,,volume of the top
 v,c,,crown volume
