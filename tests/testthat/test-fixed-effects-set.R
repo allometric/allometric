@@ -39,8 +39,14 @@ test_that("FixedEffectsSet with mis-specified parameter names is invalid.", {
 })
 
 test_that("FixedEffectsSet's models can predict", {
-  expect_equal(predict(fixed_effects_set@models[[1]], 1), 1 * 1^2)
-  expect_equal(predict(fixed_effects_set@models[[2]], 1), 2 * 1^2)
+  val1 <- 1 * 1^2
+  units(val1) <- "ft^3"
+
+  val2 <- 2 * 1^2
+  units(val2) <- "ft^3"
+
+  expect_equal(predict(fixed_effects_set@models[[1]], 1), val1)
+  expect_equal(predict(fixed_effects_set@models[[2]], 1), val2)
 })
 
 fixed_effects_covt_override <- FixedEffectsSet(

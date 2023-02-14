@@ -22,3 +22,19 @@ tryCatch(
   }, warning = function(cond) {
   }
 )
+
+
+convert_units <- function(..., units_list) {
+  args_l <- list(...)
+  for(i in seq_along(args_l)) {
+    covt <- args_l[[i]]
+    covt_unit <- units_list[[i]]
+
+    if("units" %in% class(covt)) {
+      deparsed <- units::deparse_unit(covt_unit)
+      args_l[[i]] <- do.call(units::set_units, list(covt, deparsed))
+    }
+  }
+
+  args_l
+}

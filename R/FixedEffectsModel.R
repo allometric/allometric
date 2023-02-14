@@ -28,8 +28,30 @@ FixedEffectsModel <- function(response_unit, covariate_units, predict_fn,
 }
 
 #' @rdname predict
-setMethod("predict", signature(mod = "FixedEffectsModel"), function(mod, ...) {
-  mod@predict_fn_populated(...)
+setMethod("predict", signature(mod = "FixedEffectsModel"), function(mod, ..., output_units = NULL) {
+  converted <- convert_units(..., units_list = mod@covariate_units)
+
+  out <- do.call(mod@predict_fn_populated, converted)
+
+  if("units" %in% class(out)) {
+    out_stripped <- units::drop_units(out)
+  } else {
+    out_stripped <- out
+  }
+
+  deparsed <- units::deparse_unit(mod@response_unit[[1]])
+  out_stripped <- do.call(units::set_units, list(out_stripped, deparsed))
+
+  if(!is.null(output_units)) {
+    converted <- convert_units(
+      out_stripped,
+      units_list = list(units::as_units(output_units))
+    )
+
+    out_stripped <- converted[[1]]
+  }
+
+  out_stripped
 })
 
 setMethod("init_set_of_one", signature(mod = "FixedEffectsModel"), function(mod) {

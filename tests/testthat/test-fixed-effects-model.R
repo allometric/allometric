@@ -16,7 +16,11 @@ fixed_effects_model <- FixedEffectsModel(
 
 test_that("Fixed effects model predicts correctly.", {
   pred <- predict(fixed_effects_model, 1)
-  expect_equal(pred, 1)
+
+  val <- 1
+  units(val) <- 'ft^3'
+
+  expect_equal(pred, val)
 })
 
 test_that("Using a nested list as descriptor throws error.", {

@@ -102,5 +102,8 @@ test_that("predict_allo produces predictions", {
     tibble::tibble(models = c(fixed_effects_model), dsob = 1))
 
   out <- predict_allo(test_model_tbl$models, test_model_tbl$dsob)
-  expect_equal(out, 1)
+
+  val <- 1
+  units(val) <- "ft^3"
+  expect_equal(out, val)
 })
