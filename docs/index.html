@@ -33,7 +33,7 @@
     
     <a class="navbar-brand me-2" href="index.html">allometric</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9003</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9005</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,7 +49,6 @@
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
     <a class="dropdown-item" href="articles/descriptors.html">Describing a Model with Descriptors</a>
-    <a class="dropdown-item" href="articles/ignore/deep_dive.html">A Deep Dive into `allometric`</a>
     <a class="dropdown-item" href="articles/installing_a_model.html">Installing a Model</a>
     <a class="dropdown-item" href="articles/inventory_example.html">Common Inventory Use Cases</a>
     <a class="dropdown-item" href="articles/mixed_effects.html">Mixed-Effects Models</a>
@@ -81,7 +80,7 @@
 
 <p><code>allometric</code> is an R package for predicting tree attributes with allometric models. Thousands of allometric models exist in the scientific and technical forestry literature, and <code>allometric</code> is a platform for archiving and using this vast array of models in a robust and structured format.</p>
 <p><code>allometric</code> not only enables the use of allometric models for analysis, it also provides a structured language for adding models to the package. If you are interested in helping the developer in this process please refer to the <a href="https://brycefrank.com/allometric/articles/installing_a_model.html" class="external-link">Installing a Model</a> vignette.</p>
-<p>In total <strong><code>allometric</code> contains 1113 models across 31 publications</strong>, the following table displays the number of models by continent and category:</p>
+<p>In total <strong><code>allometric</code> contains 1575 models across 36 publications</strong>, the following table displays the number of models by continent and category:</p>
 <table class="table">
 <thead><tr class="header">
 <th align="left">category</th>
@@ -94,15 +93,24 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left">biomass component</td>
-<td align="right">16</td>
-<td align="right">126</td>
-<td align="right">15</td>
+<td align="left">biomass</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
 </tr>
 <tr class="even">
+<td align="left">biomass component</td>
+<td align="right">24</td>
+<td align="right">134</td>
+<td align="right">439</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
 <td align="left">site index</td>
 <td align="right">0</td>
 <td align="right">0</td>
@@ -111,7 +119,7 @@
 <td align="right">0</td>
 <td align="right">0</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">stem height</td>
 <td align="right">7</td>
 <td align="right">0</td>
@@ -120,16 +128,16 @@
 <td align="right">2</td>
 <td align="right">18</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">stem volume</td>
-<td align="right">0</td>
+<td align="right">3</td>
 <td align="right">0</td>
 <td align="right">573</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">20</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">stump volume</td>
 <td align="right">0</td>
 <td align="right">0</td>
@@ -138,25 +146,25 @@
 <td align="right">0</td>
 <td align="right">0</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">taper</td>
-<td align="right">0</td>
+<td align="right">2</td>
 <td align="right">0</td>
 <td align="right">18</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">tree biomass</td>
-<td align="right">0</td>
-<td align="right">34</td>
+<td align="right">2</td>
+<td align="right">36</td>
 <td align="right">90</td>
 <td align="right">0</td>
-<td align="right">0</td>
+<td align="right">21</td>
 <td align="right">16</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">other</td>
 <td align="right">0</td>
 <td align="right">0</td>
@@ -202,7 +210,7 @@
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">unnested_models</span> <span class="op">&lt;-</span> <span class="fu">unnest_models</span><span class="op">(</span><span class="va">allometric_models</span>, cols <span class="op">=</span> <span class="st">"family_name"</span><span class="op">)</span></span>
 <span><span class="va">unnested_models</span></span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 2,315 × 12</span></span>
+<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 3,721 × 12</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    id       model_type   country   region    family       genus       species     model      pub_id        family_name covt_name pub_year</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;chr&gt;    &lt;chr&gt;        &lt;list&gt;    &lt;list&gt;    &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;       &lt;list&gt;     &lt;chr&gt;         &lt;chr&gt;       &lt;list&gt;       &lt;dbl&gt;</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 cd71c0b8 stem height  &lt;chr [1]&gt; &lt;chr [3]&gt; Accipitridae Circus      canadensis  &lt;FxdEffcM&gt; hahn_1984     Hahn        &lt;chr [4]&gt;     1984</span></span>
@@ -215,7 +223,7 @@
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 f3698bb3 stem volume  &lt;chr [1]&gt; &lt;chr [3]&gt; Altingiaceae Liquidambar styraciflua &lt;FxdEffcM&gt; hahn_1984     Hahn        &lt;chr [2]&gt;     1984</span></span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 14d46395 stem volume  &lt;chr [1]&gt; &lt;chr [3]&gt; Altingiaceae Liquidambar styraciflua &lt;FxdEffcM&gt; hahn_1984     Hahn        &lt;chr [2]&gt;     1984</span></span>
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 07cbe95e stump volume &lt;chr [1]&gt; &lt;chr [3]&gt; Altingiaceae Liquidambar styraciflua &lt;FxdEffcM&gt; hahn_1984     Hahn        &lt;chr [1]&gt;     1984</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 2,305 more rows</span></span></code></pre></div>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # … with 3,711 more rows</span></span></code></pre></div>
 <p>Now, each row represents unique data combinations for each model, which can be quickly filtered by most users using <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">dplyr::filter</a></code>. For example, to find a volume model for the genus Alnus that had <code>"Brackett"</code> as an author or co-author we can use</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">brackett_alnus_vol</span> <span class="op">&lt;-</span> <span class="va">unnested_models</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
@@ -266,20 +274,21 @@
 <p>Using the <code><a href="reference/predict.html">predict()</a></code> method we can easily use the function as defined by providing values of these two covariates.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/predict.html">predict</a></span><span class="op">(</span><span class="va">brackett_alnus_mod</span>, <span class="fl">12</span>, <span class="fl">65</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb14"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 22.2347</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 22.2347 [ft^3]</span></span></code></pre></div>
 <p>or we can use the prediction function with a data frame of values</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_trees</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>dias <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">12</span>, <span class="fl">15</span>, <span class="fl">20</span><span class="op">)</span>, heights <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">65</span>, <span class="fl">75</span>, <span class="fl">100</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/predict.html">predict</a></span><span class="op">(</span><span class="va">brackett_alnus_mod</span>, <span class="va">my_trees</span><span class="op">$</span><span class="va">dias</span>, <span class="va">my_trees</span><span class="op">$</span><span class="va">heights</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb16"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 22.23470 39.80216 94.20053</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Units: [ft^3]</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 22.23470 39.80216 94.20053</span></span></code></pre></div>
 <p>or even using the convenience of <code>dplyr</code></p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_trees</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu">mutate</span><span class="op">(</span>vols <span class="op">=</span> <span class="fu"><a href="reference/predict.html">predict</a></span><span class="op">(</span><span class="va">brackett_alnus_mod</span>, <span class="va">dias</span>, <span class="va">heights</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb18"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   dias heights     vols</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1   12      65 22.23470</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2   15      75 39.80216</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3   20     100 94.20053</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   dias heights            vols</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1   12      65 22.23470 [ft^3]</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2   15      75 39.80216 [ft^3]</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3   20     100 94.20053 [ft^3]</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="next-steps">Next Steps<a class="anchor" aria-label="anchor" href="#next-steps"></a>
@@ -325,7 +334,7 @@
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml" class="external-link"><img src="https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://github.com/brycefrank/allometric" class="external-link"><img src="https://img.shields.io/badge/devel%20version-1.0.0.9003-blue.svg"></a></li>
+<li><a href="https://github.com/brycefrank/allometric" class="external-link"><img src="https://img.shields.io/badge/devel%20version-1.0.0.9005-blue.svg"></a></li>
 <li><a href="https://codecov.io/gh/brycefrank/allometric" class="external-link"><img src="https://codecov.io/gh/brycefrank/allometric/branch/master/graph/badge.svg?token=3V5KUFMO2X" alt="codecov"></a></li>
 </ul>
 </div>

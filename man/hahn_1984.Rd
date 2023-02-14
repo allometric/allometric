@@ -63,7 +63,7 @@
 49 Sapindaceae  Acer         nigrum          5.34 0.230   1.15 0.542   83440     0.0637
 50 Sapindaceae  Acer         saccharum       5.34 0.230   1.15 0.542   83440     0.0637
 51 Sapindaceae  Acer         rubrum          6.86 0.277   1.43 0.401       0.853 0.124 
-52 Sapindaceae  Acer         saccharum       6.86 0.277   1.43 0.401       0.853 0.124 
+52 Sapindaceae  Acer         saccharinum     6.86 0.277   1.43 0.401       0.853 0.124 
 53 Ulmaceae     Ulmus        americana       8.46 0.275   1.96 0.349       0.892 0.126 
 54 Ulmaceae     Ulmus        rubra           8.46 0.275   1.96 0.349       0.892 0.126 
 55 Ulmaceae     Ulmus        thomasii        8.46 0.275   1.96 0.349       0.892 0.126 
@@ -136,7 +136,7 @@
 49 Sapindaceae  Acer         nigrum         1.37  0.00221
 50 Sapindaceae  Acer         saccharum      1.37  0.00221
 51 Sapindaceae  Acer         rubrum         1.73  0.00219
-52 Sapindaceae  Acer         saccharum      1.73  0.00219
+52 Sapindaceae  Acer         saccharinum    1.73  0.00219
 53 Ulmaceae     Ulmus        americana      0     0.00232
 54 Ulmaceae     Ulmus        rubra          0     0.00232
 55 Ulmaceae     Ulmus        thomasii       0     0.00232
@@ -209,7 +209,7 @@
 49 Sapindaceae  Acer         nigrum         36.9  0.0153
 50 Sapindaceae  Acer         saccharum      36.9  0.0153
 51 Sapindaceae  Acer         rubrum         64.0  0.0122
-52 Sapindaceae  Acer         saccharum      64.0  0.0122
+52 Sapindaceae  Acer         saccharinum    64.0  0.0122
 53 Ulmaceae     Ulmus        americana      28.9  0.0147
 54 Ulmaceae     Ulmus        rubra          28.9  0.0147
 55 Ulmaceae     Ulmus        thomasii       28.9  0.0147
@@ -281,7 +281,7 @@
 49 Sapindaceae  Acer         nigrum         0.00889
 50 Sapindaceae  Acer         saccharum      0.00889
 51 Sapindaceae  Acer         rubrum         0.00848
-52 Sapindaceae  Acer         saccharum      0.00848
+52 Sapindaceae  Acer         saccharinum    0.00848
 53 Ulmaceae     Ulmus        americana      0.0104 
 54 Ulmaceae     Ulmus        rubra          0.0104 
 55 Ulmaceae     Ulmus        thomasii       0.0104 
@@ -353,7 +353,7 @@
 49 Sapindaceae  Acer         nigrum            93.2 0.325
 50 Sapindaceae  Acer         saccharum         93.2 0.325
 51 Sapindaceae  Acer         rubrum            94.9 0.325
-52 Sapindaceae  Acer         saccharum         94.9 0.325
+52 Sapindaceae  Acer         saccharinum       94.9 0.325
 53 Ulmaceae     Ulmus        americana         91.9 0.325
 54 Ulmaceae     Ulmus        rubra             91.9 0.325
 55 Ulmaceae     Ulmus        thomasii          91.9 0.325

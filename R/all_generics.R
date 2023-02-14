@@ -29,6 +29,7 @@ setGeneric("summary", function(publication) standardGeneric("summary"))
 #'
 #' @param mod The allometric model used for prediction
 #' @param ... Additional arguments passed to the `predict_fn` of the input model
+#' @param output_units Optionally specify the output units of the model as a string, e.g., "ft^3"
 #' @rdname predict
 #' @export
 setGeneric("predict", function(mod, ...) standardGeneric("predict"),

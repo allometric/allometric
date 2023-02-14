@@ -91,10 +91,10 @@
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
 }
 \bold{Model Parameters}
-\preformatted{  region    family genus species bwood1 bwood2
-1 <chr [9]> NA     NA    NA      0.0871   2.37
-2 <chr [9]> NA     NA    NA      0.0648   2.39
-3 <chr [9]> NA     NA    NA      0.0787   2.37}
+\preformatted{  region    bwood1 bwood2 species_group
+1 <chr [9]> 0.0871   2.37 hardwood     
+2 <chr [9]> 0.0648   2.39 softwood     
+3 <chr [9]> 0.0787   2.37 all          }
 \out{<hr>}
 \code{bs = bwood1 * dsob^bwood2 * hst^bwood3}
 \itemize{
@@ -103,10 +103,10 @@
 \item{\code{hst [m]}}{ - total height of the stem}
 }
 \bold{Model Parameters}
-\preformatted{  region    family genus species bwood1 bwood2 bwood3
-1 <chr [9]> NA     NA    NA      0.0009   0.01 0.0168
-2 <chr [9]> NA     NA    NA      0.0284   1.69 1.09  
-3 <chr [9]> NA     NA    NA      0.0348   1.92 0.783 }
+\preformatted{  region    bwood1 bwood2 bwood3 species_group
+1 <chr [9]> 0.0009   0.01 0.0168 hardwood     
+2 <chr [9]> 0.0284   1.69 1.09   softwood     
+3 <chr [9]> 0.0348   1.92 0.783  all          }
 \out{<hr>}}
 \section{Bark Biomass Models}{\code{bk = bbark1 * dsob^bbark2}
 \itemize{
@@ -197,10 +197,10 @@
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
 }
 \bold{Model Parameters}
-\preformatted{  region    family genus species bbark1 bbark2
-1 <chr [9]> NA     NA    NA      0.0241   2.20
-2 <chr [9]> NA     NA    NA      0.0162   2.20
-3 <chr [9]> NA     NA    NA      0.0185   2.22}
+\preformatted{  region    bbark1 bbark2 species_group
+1 <chr [9]> 0.0241   2.20 hardwood     
+2 <chr [9]> 0.0162   2.20 softwood     
+3 <chr [9]> 0.0185   2.22 all          }
 \out{<hr>}
 \code{bk = bbark1 * dsob^bbark2 * hst^bbark3}
 \itemize{
@@ -209,10 +209,10 @@
 \item{\code{hst [m]}}{ - total height of the stem}
 }
 \bold{Model Parameters}
-\preformatted{  region    family genus species bbark1 bbark2 bbark3
-1 <chr [9]> NA     NA    NA      0.0005 0.0201 0.0327
-2 <chr [9]> NA     NA    NA      0.01   1.85   0.562 
-3 <chr [9]> NA     NA    NA      0.0139 1.54   0.819 }
+\preformatted{  region    bbark1 bbark2 bbark3 species_group
+1 <chr [9]> 0.0005 0.0201 0.0327 hardwood     
+2 <chr [9]> 0.01   1.85   0.562  softwood     
+3 <chr [9]> 0.0139 1.54   0.819  all          }
 \out{<hr>}}
 \section{Branch Biomass Models}{\code{bb = bbranches1 * dsob^bbranches2}
 \itemize{
@@ -303,10 +303,10 @@
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
 }
 \bold{Model Parameters}
-\preformatted{  region    family genus species bbranches1 bbranches2
-1 <chr [9]> NA     NA    NA          0.0167       2.48
-2 <chr [9]> NA     NA    NA          0.0156       2.29
-3 <chr [9]> NA     NA    NA          0.023        2.27}
+\preformatted{  region    bbranches1 bbranches2 species_group
+1 <chr [9]>     0.0167       2.48 hardwood     
+2 <chr [9]>     0.0156       2.29 softwood     
+3 <chr [9]>     0.023        2.27 all          }
 \out{<hr>}
 \code{bb = bbranches1 * dsob^bbranches2 * hst^bbranches3}
 \itemize{
@@ -315,10 +315,10 @@
 \item{\code{hst [m]}}{ - total height of the stem}
 }
 \bold{Model Parameters}
-\preformatted{  region    family genus species bbranches1 bbranches2 bbranches3
-1 <chr [9]> NA     NA    NA          0.0024     0.0309     0.0461
-2 <chr [9]> NA     NA    NA          0.0301     3.00      -1.05  
-3 <chr [9]> NA     NA    NA          0.0346     2.67      -0.603 }
+\preformatted{  region    bbranches1 bbranches2 bbranches3 species_group
+1 <chr [9]>     0.0024     0.0309     0.0461 hardwood     
+2 <chr [9]>     0.0301     3.00      -1.05   softwood     
+3 <chr [9]>     0.0346     2.67      -0.603  all          }
 \out{<hr>}}
 \section{Foliage Biomass Models}{\code{bf = bfoliage1 * dsob^bfoliage2}
 \itemize{
@@ -409,10 +409,10 @@
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
 }
 \bold{Model Parameters}
-\preformatted{  region    family genus species bfoliage1 bfoliage2
-1 <chr [9]> NA     NA    NA         0.039       1.62
-2 <chr [9]> NA     NA    NA         0.0861      1.63
-3 <chr [9]> NA     NA    NA         0.0767      1.57}
+\preformatted{  region    bfoliage1 bfoliage2 species_group
+1 <chr [9]>    0.039       1.62 hardwood     
+2 <chr [9]>    0.0861      1.63 softwood     
+3 <chr [9]>    0.0767      1.57 all          }
 \out{<hr>}
 \code{bf = bfoliage1 * dsob^bfoliage2 * hst^bfoliage3}
 \itemize{
@@ -421,8 +421,8 @@
 \item{\code{hst [m]}}{ - total height of the stem}
 }
 \bold{Model Parameters}
-\preformatted{  region    family genus species bfoliage1 bfoliage2 bfoliage3
-1 <chr [9]> NA     NA    NA         0.0038    0.0266    0.0412
-2 <chr [9]> NA     NA    NA         0.155     2.40     -1.10  
-3 <chr [9]> NA     NA    NA         0.182     2.29     -1.12  }
+\preformatted{  region    bfoliage1 bfoliage2 bfoliage3 species_group
+1 <chr [9]>    0.0038    0.0266    0.0412 hardwood     
+2 <chr [9]>    0.155     2.40     -1.10   softwood     
+3 <chr [9]>    0.182     2.29     -1.12   all          }
 \out{<hr>}}

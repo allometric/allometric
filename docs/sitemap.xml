@@ -55,6 +55,9 @@
     <loc>http://brycefrank.com/allometric/reference/add_set.html</loc>
   </url>
   <url>
+    <loc>http://brycefrank.com/allometric/reference/aggregate_results.html</loc>
+  </url>
+  <url>
     <loc>http://brycefrank.com/allometric/reference/aggregate_results_ext.html</loc>
   </url>
   <url>
@@ -118,6 +121,9 @@
     <loc>http://brycefrank.com/allometric/reference/chojnacky_1994.html</loc>
   </url>
   <url>
+    <loc>http://brycefrank.com/allometric/reference/delcourt_2022.html</loc>
+  </url>
+  <url>
     <loc>http://brycefrank.com/allometric/reference/feldpausch_2012.html</loc>
   </url>
   <url>
@@ -134,6 +140,9 @@
   </url>
   <url>
     <loc>http://brycefrank.com/allometric/reference/get_model_type.html</loc>
+  </url>
+  <url>
+    <loc>http://brycefrank.com/allometric/reference/get_run_pubs.html</loc>
   </url>
   <url>
     <loc>http://brycefrank.com/allometric/reference/get_variable_def.html</loc>
@@ -157,6 +166,9 @@
     <loc>http://brycefrank.com/allometric/reference/hibbs_2007.html</loc>
   </url>
   <url>
+    <loc>http://brycefrank.com/allometric/reference/huynh_2022.html</loc>
+  </url>
+  <url>
     <loc>http://brycefrank.com/allometric/reference/huy_2019.html</loc>
   </url>
   <url>
@@ -167,6 +179,12 @@
   </url>
   <url>
     <loc>http://brycefrank.com/allometric/reference/kozak_1988.html</loc>
+  </url>
+  <url>
+    <loc>http://brycefrank.com/allometric/reference/krisnawati_2016.html</loc>
+  </url>
+  <url>
+    <loc>http://brycefrank.com/allometric/reference/lambert_2005.html</loc>
   </url>
   <url>
     <loc>http://brycefrank.com/allometric/reference/MixedEffectsModel.html</loc>
@@ -230,6 +248,9 @@
   </url>
   <url>
     <loc>http://brycefrank.com/allometric/reference/uller_2019.html</loc>
+  </url>
+  <url>
+    <loc>http://brycefrank.com/allometric/reference/ung_2008.html</loc>
   </url>
   <url>
     <loc>http://brycefrank.com/allometric/reference/vibrans_2015.html</loc>

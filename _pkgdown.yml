@@ -22,6 +22,15 @@ reference:
   - Publication
 - title: Allometric Models
   desc: Models are contained in publications, which are listed below.
+- subtitle: Taper Models
+  contents:
+  - bluhm_2007
+  - hibbs_2007
+  - kozak_1988
+  - poudel_2018
+  - poudel_2018
+  - krisnawati_2016
+  - krisnawati_2016
 - subtitle: Stem Volume Models
   contents:
   - bell_1981
@@ -43,26 +52,51 @@ reference:
   - rustagi_1991
   - scott_1981
   - vibrans_2015
-- subtitle: Taper Models
+  - krisnawati_2016
+  - krisnawati_2016
+  - krisnawati_2016
+- subtitle: Stem Biomass Models
   contents:
-  - bluhm_2007
-  - hibbs_2007
-  - kozak_1988
-  - poudel_2018
-  - poudel_2018
+  - delcourt_2022
+  - huy_2019
+  - lambert_2005
+  - montero_2005
+  - ung_2008
+- subtitle: ' Biomass Models'
+  contents: delcourt_2022
+- subtitle: Bark Biomass Models
+  contents:
+  - delcourt_2022
+  - huy_2019
+  - lambert_2005
+  - ung_2008
+- subtitle: Root Biomass Models
+  contents:
+  - delcourt_2022
+  - montero_2005
+- subtitle: Foliage Biomass Models
+  contents:
+  - delcourt_2022
+  - huy_2019
+  - lambert_2005
+  - montero_2005
+  - turner_2000
+  - ung_2008
+- subtitle: Tree Biomass Models
+  contents:
+  - delcourt_2022
+  - feldpausch_2012
+  - huynh_2022
+  - iffsc_2022
+  - montero_2005
+  - poudel_2019
+  - uller_2019
 - subtitle: Stem Height Models
   contents:
   - feldpausch_2012
   - hahn_1984
   - moore_1996
   - temesgen_2008
-- subtitle: Tree Biomass Models
-  contents:
-  - feldpausch_2012
-  - iffsc_2022
-  - montero_2005
-  - poudel_2019
-  - uller_2019
 - subtitle: Stump Volume Models
   contents: hahn_1984
 - subtitle: Stem Ratio Models
@@ -75,32 +109,12 @@ reference:
   contents: hann_2011
 - subtitle: Stump Diameter Models
   contents: hann_2011
-- subtitle: Stem Biomass Models
-  contents:
-  - huy_2019
-  - lambert_2005
-  - montero_2005
-  - ung_2008
 - subtitle: Branch Biomass Models
   contents:
   - huy_2019
   - lambert_2005
   - montero_2005
   - ung_2008
-- subtitle: Foliage Biomass Models
-  contents:
-  - huy_2019
-  - lambert_2005
-  - montero_2005
-  - turner_2000
-  - ung_2008
-- subtitle: Bark Biomass Models
-  contents:
-  - huy_2019
-  - lambert_2005
-  - ung_2008
-- subtitle: Root Biomass Models
-  contents: montero_2005
 - subtitle: Vbar Models
   contents:
   - myers_1964

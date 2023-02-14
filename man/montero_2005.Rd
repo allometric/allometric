@@ -8,8 +8,7 @@
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
 }
 \bold{Model Parameters}
-\preformatted{# Groups:   family, genus, species, a, b [31]
-   <chr>         <chr>      <chr>         <dbl> <dbl> <dbl> <list>   
+\preformatted{   family        genus      species           a     b    cf region   
  1 Aquifoliaceae Ilex       canariensis  -0.637  2.96  1.03 <chr [1]>
  2 Betulaceae    Alnus      glutinosa    -0.825  2.90  1.05 <chr [1]>
  3 Betulaceae    Betula     NA           -1.61   2.27  1.01 <chr [1]>
@@ -59,8 +58,7 @@
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
 }
 \bold{Model Parameters}
-\preformatted{# Groups:   family, genus, species, a, b [27]
-   <chr>         <chr>     <chr>         <dbl> <dbl> <dbl> <list>   
+\preformatted{   family        genus     species           a     b    cf region   
  1 Aquifoliaceae Ilex      canariensis  -1.17   2.93  1.05 <chr [1]>
  2 Betulaceae    Alnus     glutinosa    -1.38   2.98  1.09 <chr [1]>
  3 Betulaceae    Betula    NA           -2.09   2.33  1.01 <chr [1]>
@@ -95,8 +93,7 @@
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
 }
 \bold{Model Parameters}
-\preformatted{# Groups:   family, genus, species, a, b [15]
-   <chr>        <chr>      <chr>        <dbl> <dbl> <dbl> <list>   
+\preformatted{   family       genus      species          a     b    cf region   
  1 Betulaceae   Alnus      glutinosa    -3.01  2.45  1.14 <chr [1]>
  2 Betulaceae   Betula     NA           -3.28  2.59  1.08 <chr [1]>
  3 Cupressaceae Juniperus  thurifera    -2.49  2.68  1.05 <chr [1]>
@@ -119,8 +116,7 @@
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
 }
 \bold{Model Parameters}
-\preformatted{# Groups:   family, genus, species, a, b [25]
-   <chr>        <chr>     <chr>         <dbl> <dbl> <dbl> <list>   
+\preformatted{   family       genus     species           a     b    cf region   
  1 Betulaceae   Alnus     glutinosa    -2.10   2.17  1.02 <chr [1]>
  2 Betulaceae   Betula    NA           -2.42   2.01  1.08 <chr [1]>
  3 Cupressaceae Juniperus oxycedrus    -2.28   2.70  1.09 <chr [1]>
@@ -164,8 +160,7 @@
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
 }
 \bold{Model Parameters}
-\preformatted{# Groups:   family, genus, species, branch_size, a, b [56]
-   <chr>         <chr>      <chr>        <chr>         <dbl> <dbl> <dbl> <list>   
+\preformatted{   family        genus      species      branch_size       a     b    cf region   
  1 Aquifoliaceae Ilex       canariensis  < 2 cm       -1.46   2.76  1.05 <chr [1]>
  2 Aquifoliaceae Ilex       canariensis  > 7 cm       -2.54   2.75  1.01 <chr [1]>
  3 Betulaceae    Alnus      glutinosa    < 2 cm       -2.40   2.45  1.14 <chr [1]>

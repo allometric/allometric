@@ -55,7 +55,8 @@ rd_lines <- function(pub) {
 }
 
 update_reference_pages <- function(verbose) {
-  pub_list <- get_pub_list(verbose = F, ignore_cache = F)
+  pub_list_path <- system.file("extdata/pub_list.RDS", package = "allometric")
+  pub_list <- get_pub_list(pub_list_path)
 
   for (pub in pub_list) {
     if(verbose) {
@@ -83,7 +84,8 @@ check_internal <- function(rd_path) {
 }
 
 update_reference_index <- function() {
-  pub_list <- get_pub_list(verbose = F, ignore_cache = F)
+  pub_list_path <- system.file("extdata/pub_list.RDS", package = "allometric")
+  pub_list <- get_pub_list(pub_list_path)
   pub_names <- names(pub_list)
   pub_rd_names <- paste(pub_names, ".Rd", sep = "")
 

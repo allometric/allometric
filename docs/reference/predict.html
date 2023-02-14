@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">allometric</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9003</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9005</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,7 +25,6 @@
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
     <a class="dropdown-item" href="../articles/descriptors.html">Describing a Model with Descriptors</a>
-    <a class="dropdown-item" href="../articles/ignore/deep_dive.html">A Deep Dive into `allometric`</a>
     <a class="dropdown-item" href="../articles/installing_a_model.html">Installing a Model</a>
     <a class="dropdown-item" href="../articles/inventory_example.html">Common Inventory Use Cases</a>
     <a class="dropdown-item" href="../articles/mixed_effects.html">Mixed-Effects Models</a>
@@ -59,10 +58,10 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">predict</span><span class="op">(</span><span class="va">mod</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S4 method for FixedEffectsModel</span></span>
-<span><span class="fu">predict</span><span class="op">(</span><span class="va">mod</span>, <span class="va">...</span><span class="op">)</span></span>
+<span><span class="fu">predict</span><span class="op">(</span><span class="va">mod</span>, <span class="va">...</span>, output_units <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S4 method for MixedEffectsModel</span></span>
-<span><span class="fu">predict</span><span class="op">(</span><span class="va">mod</span>, <span class="va">...</span>, newdata <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">predict</span><span class="op">(</span><span class="va">mod</span>, <span class="va">...</span>, newdata <span class="op">=</span> <span class="cn">NULL</span>, output_units <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -73,6 +72,10 @@
 
 <dt>...</dt>
 <dd><p>Additional arguments passed to the <code>predict_fn</code> of the input model</p></dd>
+
+
+<dt>output_units</dt>
+<dd><p>Optionally specify the output units of the model as a string, e.g., "ft^3"</p></dd>
 
 
 <dt>newdata</dt>

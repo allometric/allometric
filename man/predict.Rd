@@ -9,14 +9,16 @@
 \usage{
 predict(mod, ...)
 
-\S4method{predict}{FixedEffectsModel}(mod, ...)
+\S4method{predict}{FixedEffectsModel}(mod, ..., output_units = NULL)
 
-\S4method{predict}{MixedEffectsModel}(mod, ..., newdata = NULL)
+\S4method{predict}{MixedEffectsModel}(mod, ..., newdata = NULL, output_units = NULL)
 }
 \arguments{
 \item{mod}{The allometric model used for prediction}
 
 \item{...}{Additional arguments passed to the \code{predict_fn} of the input model}
+
+\item{output_units}{Optionally specify the output units of the model as a string, e.g., "ft^3"}
 
 \item{newdata}{A dataframe containing columns that match the names of the arguments given
 to \code{predict_ranef}. The values of this data represents information from a

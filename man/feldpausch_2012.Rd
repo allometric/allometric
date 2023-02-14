@@ -8,8 +8,7 @@
 \item{\code{dsob [cm]}}{ - diameter of the stem, outside bark at breast height}
 }
 \bold{Model Parameters}
-\preformatted{# Groups:   continent, geographic_region, a, b [8]
-  <chr>      <chr>             <dbl>  <dbl> <dbl> <list>   
+\preformatted{  continent  geographic_region     a      b     c country  
 1 Africa     C. Africa          50.4 0.0471 0.812 <chr [2]>
 2 Africa     E. Africa          44.0 0.0334 0.855 <chr [1]>
 3 Africa     W. Africa          53.1 0.0331 0.833 <chr [2]>
