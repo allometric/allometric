@@ -28,7 +28,10 @@ test_that("A mixed effects model with one ranef makes predictions", {
   newdata <- data.frame(hst = c(12, 10, 15), dsob = c(50, 43, 60))
   pred <- predict(mixed_effects_model_one_ranef, 10, newdata = newdata)
 
-  expect_equal(pred, 12.37626, tolerance = 0.001)
+  val <- 12.37626
+  units(val) <- "m"
+
+  expect_equal(pred, val, tolerance = 0.001)
 })
 
 test_that("Mixed effects model_call returns correctly formatted string", {
@@ -59,5 +62,8 @@ mixed_effects_model_fixed_only <- MixedEffectsModel(
 
 test_that("A mixed effects model can be flagged as fixed only and predict", {
   pred <- predict(mixed_effects_model_fixed_only, 10)
-  expect_equal(pred, 10.5726, tolerance = 0.001)
+  val <- 10.5726
+  units(val) <- "m"
+
+  expect_equal(pred, val, tolerance = 0.001)
 })

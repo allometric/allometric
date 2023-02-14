@@ -52,7 +52,7 @@ MixedEffectsModel <- function(response_unit, covariate_units, predict_ranef,
 #'    new group of observations for which predictions are desired (e.g., a new
 #'    stand or plot).
 #' @rdname predict
-setMethod("predict", signature(mod = "MixedEffectsModel"), function(mod, ..., newdata = NULL) {
+setMethod("predict", signature(mod = "MixedEffectsModel"), function(mod, ..., newdata = NULL, output_units = NULL) {
   # TODO validity checks for predict_ranef, we should throw a warning if
   # the column names of newdata are not the same set of args in predict_ranef
   # probabyl some opportunity for DRY with other validity checks..
@@ -69,7 +69,31 @@ setMethod("predict", signature(mod = "MixedEffectsModel"), function(mod, ..., ne
   predict_populated <- body(mod@predict_fn_populated)
   body(complete_fn) <- do.call("substitute", list(predict_populated, ranefs))
 
-  complete_fn(...)
+  converted <- convert_units(..., units_list = mod@covariate_units)
+  stripped <- strip_units(converted)
+
+  out <- do.call(complete_fn, stripped)
+
+  if("units" %in% class(out)) {
+    out_stripped <- units::drop_units(out)
+  } else {
+    out_stripped <- out
+  }
+
+  deparsed <- units::deparse_unit(mod@response_unit[[1]])
+  out_stripped <- do.call(units::set_units, list(out_stripped, deparsed))
+
+  if(!is.null(output_units)) {
+    converted <- convert_units(
+      out_stripped,
+      units_list = list(units::as_units(output_units))
+    )
+
+    out_stripped <- converted[[1]]
+  }
+
+  out_stripped
+
 })
 
 setMethod("init_set_of_one", signature(mod = "MixedEffectsModel"), function(mod) {
