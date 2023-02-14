@@ -38,3 +38,12 @@ convert_units <- function(..., units_list) {
 
   args_l
 }
+
+strip_units <- function(values_list)  {
+  for(i in seq_along(values_list)) {
+    if("units" %in% class(values_list[[i]])) {
+      values_list[[i]] <- units::drop_units(values_list[[i]])
+    }
+  }
+  values_list
+}

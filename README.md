@@ -204,7 +204,7 @@ by providing values of these two covariates.
 predict(brackett_alnus_mod, 12, 65)
 ```
 
-    #> [1] 22.2347
+    #> 22.2347 [ft^3]
 
 or we can use the prediction function with a data frame of values
 
@@ -213,6 +213,7 @@ my_trees <- data.frame(dias = c(12, 15, 20), heights = c(65, 75, 100))
 predict(brackett_alnus_mod, my_trees$dias, my_trees$heights)
 ```
 
+    #> Units: [ft^3]
     #> [1] 22.23470 39.80216 94.20053
 
 or even using the convenience of `dplyr`
@@ -222,10 +223,10 @@ my_trees %>%
   mutate(vols = predict(brackett_alnus_mod, dias, heights))
 ```
 
-    #>   dias heights     vols
-    #> 1   12      65 22.23470
-    #> 2   15      75 39.80216
-    #> 3   20     100 94.20053
+    #>   dias heights            vols
+    #> 1   12      65 22.23470 [ft^3]
+    #> 2   15      75 39.80216 [ft^3]
+    #> 3   20     100 94.20053 [ft^3]
 
 ## Next Steps
 

@@ -30,8 +30,9 @@ FixedEffectsModel <- function(response_unit, covariate_units, predict_fn,
 #' @rdname predict
 setMethod("predict", signature(mod = "FixedEffectsModel"), function(mod, ..., output_units = NULL) {
   converted <- convert_units(..., units_list = mod@covariate_units)
+  stripped <- strip_units(converted)
 
-  out <- do.call(mod@predict_fn_populated, converted)
+  out <- do.call(mod@predict_fn_populated, stripped)
 
   if("units" %in% class(out)) {
     out_stripped <- units::drop_units(out)
