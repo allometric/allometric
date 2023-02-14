@@ -1,5 +1,28 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# allometric 1.0.0.9005 (2023-02-14)
+
+## Bug fixes
+
+- Removing units before prediction.
+
+## Features
+
+- Adding automatic unit conversions when covariate units are specified, closes #63.
+
+- Adding krisnawati_2016, closes #75.
+
+- Improved the caching for publications, which will now only run recently updated (or added) publications instead of all publications.
+
+- Adding delcourt_2022, closes #77.
+
+- Adding huynh_2022, closes #76.
+
+## Chore
+
+- Model_specifications must be unique across the non-parameter column names, fixing various pubs that did not comply with this, closes #62.
+
+
 # allometric 1.0.0.9004 (2023-02-04)
 
 ## Features
