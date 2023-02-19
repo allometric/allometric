@@ -21,7 +21,7 @@ refer to the [Installing a
 Model](https://brycefrank.com/allometric/articles/installing_a_model.html)
 vignette.
 
-In total **`allometric` contains 1588 models across 37 publications**,
+In total **`allometric` contains 1590 models across 38 publications**,
 the following table displays the number of models by continent and
 category:
 
@@ -31,7 +31,7 @@ category:
 | biomass component |  24 | 134 | 439 |   0 |   0 |   0 |
 | site index        |   0 |   0 |   2 |   0 |   0 |   0 |
 | stem height       |   7 |   0 | 103 |  12 |   2 |  18 |
-| stem volume       |   3 |   0 | 573 |   0 |   0 |  20 |
+| stem volume       |   3 |   0 | 575 |   0 |   0 |  20 |
 | stump volume      |   0 |   0 |  64 |   0 |   0 |   0 |
 | taper             |   2 |   0 |  18 |   0 |   0 |   0 |
 | tree biomass      |   2 |  36 |  90 |   0 |  21 |  16 |
@@ -107,7 +107,7 @@ unnested_models <- unnest_models(allometric_models, cols = "family_name")
 unnested_models
 ```
 
-    #> # A tibble: 3,734 x 12
+    #> # A tibble: 3,740 x 12
     #>    id       model_type   country   region    family       genus       species     model      pub_id        family_name covt_name pub_year
     #>    <chr>    <chr>        <list>    <list>    <chr>        <chr>       <chr>       <list>     <chr>         <chr>       <list>       <dbl>
     #>  1 cd71c0b8 stem height  <chr [1]> <chr [3]> Accipitridae Circus      canadensis  <FxdEffcM> hahn_1984     Hahn        <chr [4]>     1984
@@ -120,7 +120,7 @@ unnested_models
     #>  8 f3698bb3 stem volume  <chr [1]> <chr [3]> Altingiaceae Liquidambar styraciflua <FxdEffcM> hahn_1984     Hahn        <chr [2]>     1984
     #>  9 14d46395 stem volume  <chr [1]> <chr [3]> Altingiaceae Liquidambar styraciflua <FxdEffcM> hahn_1984     Hahn        <chr [2]>     1984
     #> 10 07cbe95e stump volume <chr [1]> <chr [3]> Altingiaceae Liquidambar styraciflua <FxdEffcM> hahn_1984     Hahn        <chr [1]>     1984
-    #> # ... with 3,724 more rows
+    #> # ... with 3,730 more rows
 
 Now, each row represents unique data combinations for each model, which
 can be quickly filtered by most users using `dplyr::filter`. For
