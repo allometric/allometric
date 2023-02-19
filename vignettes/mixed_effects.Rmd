@@ -14,37 +14,105 @@ of  before proceeding with a mixed-effects model implementation.
 Implementing published mixed-effects models is, strictly speaking, 
 possible in `allometric`. However, predictions for groups with
 random parameters (e.g., field plots or stands) require knowledge of the 
-estimated variance-covariance matrix of the random parameters themselves
-[cite]. As well, partial derivatives of the model with respect to the
+estimated variance-covariance matrix of the random parameters themselves. As
+well, partial derivatives of the model with respect to the
 fixed-effects parameters are needed. These two components are not always
 explicitly provided in publications. 
 
 Because `allometric` directly cites publications and implements models from 
 them, it is best practice to only implement what is explicitly published, 
-rather than derive un-published portions of the models. @temesgen_2008 is one
-such example where the derivatives are evalutated (p. 557), while @sharma_2007
+rather than derive un-published portions of the models.
+[Temesgen et al. (2008)](https://cdnsciencepub.com/doi/full/10.1139/X07-104?casa_token=cS6uvsVOt9wAAAAA%3AQDIa9ji2K78DzvfT87xh1qJy0IaqFam2kh4xiaRN13AU0rXEHwQW243Gkfbek1SQ8RFmGqkrvklw)
+is one such example where the derivatives are evalutated (p. 557), while
+[Sharma and Parton (2007)][https://www.sciencedirect.com/science/article/pii/S0378112707004069?casa_token=kzkeRCmkwKIAAAAA:UgOjEJCXiwN7IDkyLdxzOUXheeaKEQk01z2YaQABnG15nEC4Hya_hQ22c0XMyUPzHiCEBXHV5g]
 is an example where the derivatives are not evaluated (Section 2.4). Using this
-approach, the mixed-effects models in @temesgen_2008 are appropriate for
-`allometric` but  the mixed-effects models in @sharma_2007 are not, since the 
-final model form is not strictly provided in the publication.
+approach, the mixed-effects models in Temesgen et al. (2008) are appropriate for
+`allometric` but  the mixed-effects models in Sharma and Parton (2007) are not,
+since the  final model form is not strictly provided in the publication.
 
 Alternatively, predictions from mixed-effects models can be generated using the
-fixed-effects estimates only [cite], which are often reported.. In fact, many studies will assess the
-performance of a mixed-effects model in this way, and the utility of using the
-fixed-effects estimates is obvious when observations from a new "target group"
-are not available. However, this activity does deviate from the purest intent of
-the model, and should be explicitly flagged in `allometric` by installing a
-`MixedEffectsModel` class with the argument `fixed_only = TRUE` to denote
-that only the fixed-effects are generating the predictions. This argument is
-propagated to further documentation and model summaries to alert users to this
-special case.
+fixed-effects estimates only, which are often reported. In fact, many studies
+will assess the performance of a mixed-effects model in this way, and the
+utility of using the fixed-effects estimates is obvious when observations from a
+new "target group" are not available. However, this activity does deviate from
+the purest intent of the model, and should be explicitly flagged in `allometric`
+by installing a `MixedEffectsModel` class with the argument `fixed_only = TRUE`
+to denote that only the fixed-effects are generating the predictions. This
+argument is propagated to further documentation and model summaries to alert
+users to this special case.
 
 Using this approach, we can still include the mixed-effects models in
-@sharma_2007 using only the fixed-effects estimates, but we flag the model with
-the `fixed_only` argument to maintain clarity.
+papers like Sharma and Parton (2007) using only the fixed-effects estimates,
+but we flag the model with the `fixed_only` argument to maintain clarity. Users
+with the technical skill needed to program mixed-effects models are free to 
+implement predicted random effects themselves.
 
 ## Implementing a Mixed Effects Model
 
-`predict_fn` *must* be a function of covariates, parameters and observations 
-from the target observation group. Furthermore the body of `predict_fn` can 
-only be a signle mathematical expression.
+```{r include=FALSE}
+library(allometric)
+```
+
+Mixed-effects models require an additional function to generate predictions for
+the random effects called `predict_ranef`. Similar to `predict_fn`, this 
+function takes covariates as arguments and generates predictions. However, the
+user must also provide a `newdata`, which represents data from a new group of
+observations, such as a field plot or stand. This dataframe must contain columns
+with the same covariates used in `predict_ranef` as well as new observed values
+of the response variables.
+
+`predict_ranef` must return a list with the names of the predicted random
+effects, which are then propagated to `predict_fn`. Let us examine on example 
+from Temesgen et al. (2008). We begin with the `predict_fn`:
+
+```{r}
+predict_fn <- function(dsob) {
+  1.37 + (beta_0 + b_i) * (1 - exp(beta_1 * dsob)^beta_2)
+}
+```
+
+Here we see a typical `predict_fn`. In this case, we know ahead of time that the
+authors are using `b_i` as the only random effect (by reading the paper,
+of course). `beta_0`, `beta_1` and `beta_2` are the fixed-effects. So, we need
+a function that will produce predictions of `b_i` given a set of new
+observations. We define `predict_ranef`
+
+```{r}
+predict_ranef <- function(hst, dsob) {
+  z <- hst - beta_0 * (1 - exp(beta_1 * dsob)^beta_2)
+  Id <- diag(length(hst))
+  b_i <- sigma_sq_b * t(z) %*% solve(sigma_sq_epsilon * Id * z %*% t(z)) %*%
+    (hst - beta_0 * (1 - exp(beta_1 * dsob))^beta_2)
+  list(b_i = as.numeric(b_i))
+}
+```
+
+While somewhat complicated, this function is merely producing predictions of 
+`b_i` (third line) after calculating some pre-requisite values. Then, the 
+random effect is stored in a named list and returned (last line).
+
+Finally, we prepare the entire model:
+
+```{r}
+mem <- MixedEffectsModel(
+  response_unit = list(
+    hst = units::as_units("m")
+  ),
+  covariate_units = list(
+    dsob = units::as_units("cm")
+  ),
+  parameters = list(
+    beta_0 = 40.4218,
+    beta_1 = -0.0276,
+    beta_2 = 0.936,
+    sigma_sq_b = 6.544,
+    sigma_sq_epsilon = 2.693
+  ),
+  predict_ranef = predict_ranef,
+  predict_fn = predict_fn
+)
+```
+
+Note that all parameters we need for `predict_ranef` and `predict_fn` are 
+defined in the `parameters` argument. Typically, these require estimates of 
+the variance components in addition to the betas.

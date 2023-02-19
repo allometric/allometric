@@ -99,42 +99,100 @@ implementation.</p>
 possible in <code>allometric</code>. However, predictions for groups
 with random parameters (e.g., field plots or stands) require knowledge
 of the estimated variance-covariance matrix of the random parameters
-themselves [cite]. As well, partial derivatives of the model with
-respect to the fixed-effects parameters are needed. These two components
-are not always explicitly provided in publications.</p>
+themselves. As well, partial derivatives of the model with respect to
+the fixed-effects parameters are needed. These two components are not
+always explicitly provided in publications.</p>
 <p>Because <code>allometric</code> directly cites publications and
 implements models from them, it is best practice to only implement what
 is explicitly published, rather than derive un-published portions of the
-models. <span class="citation">@temesgen_2008</span> is one such example
-where the derivatives are evalutated (p. 557), while <span class="citation">@sharma_2007</span> is an example where the derivatives
-are not evaluated (Section 2.4). Using this approach, the mixed-effects
-models in <span class="citation">@temesgen_2008</span> are appropriate
-for <code>allometric</code> but the mixed-effects models in <span class="citation">@sharma_2007</span> are not, since the final model form
-is not strictly provided in the publication.</p>
+models. <a href="https://cdnsciencepub.com/doi/full/10.1139/X07-104?casa_token=cS6uvsVOt9wAAAAA%3AQDIa9ji2K78DzvfT87xh1qJy0IaqFam2kh4xiaRN13AU0rXEHwQW243Gkfbek1SQ8RFmGqkrvklw" class="external-link">Temesgen
+et al. (2008)</a> is one such example where the derivatives are
+evalutated (p. 557), while [Sharma and Parton (2007)][<a href="https://www.sciencedirect.com/science/article/pii/S0378112707004069?casa_token=kzkeRCmkwKIAAAAA:UgOjEJCXiwN7IDkyLdxzOUXheeaKEQk01z2YaQABnG15nEC4Hya_hQ22c0XMyUPzHiCEBXHV5g" class="external-link uri">https://www.sciencedirect.com/science/article/pii/S0378112707004069?casa_token=kzkeRCmkwKIAAAAA:UgOjEJCXiwN7IDkyLdxzOUXheeaKEQk01z2YaQABnG15nEC4Hya_hQ22c0XMyUPzHiCEBXHV5g</a>]
+is an example where the derivatives are not evaluated (Section 2.4).
+Using this approach, the mixed-effects models in Temesgen et al. (2008)
+are appropriate for <code>allometric</code> but the mixed-effects models
+in Sharma and Parton (2007) are not, since the final model form is not
+strictly provided in the publication.</p>
 <p>Alternatively, predictions from mixed-effects models can be generated
-using the fixed-effects estimates only [cite], which are often
-reported.. In fact, many studies will assess the performance of a
-mixed-effects model in this way, and the utility of using the
-fixed-effects estimates is obvious when observations from a new “target
-group” are not available. However, this activity does deviate from the
-purest intent of the model, and should be explicitly flagged in
-<code>allometric</code> by installing a <code>MixedEffectsModel</code>
-class with the argument <code>fixed_only = TRUE</code> to denote that
-only the fixed-effects are generating the predictions. This argument is
-propagated to further documentation and model summaries to alert users
-to this special case.</p>
+using the fixed-effects estimates only, which are often reported. In
+fact, many studies will assess the performance of a mixed-effects model
+in this way, and the utility of using the fixed-effects estimates is
+obvious when observations from a new “target group” are not available.
+However, this activity does deviate from the purest intent of the model,
+and should be explicitly flagged in <code>allometric</code> by
+installing a <code>MixedEffectsModel</code> class with the argument
+<code>fixed_only = TRUE</code> to denote that only the fixed-effects are
+generating the predictions. This argument is propagated to further
+documentation and model summaries to alert users to this special
+case.</p>
 <p>Using this approach, we can still include the mixed-effects models in
-<span class="citation">@sharma_2007</span> using only the fixed-effects
+papers like Sharma and Parton (2007) using only the fixed-effects
 estimates, but we flag the model with the <code>fixed_only</code>
-argument to maintain clarity.</p>
+argument to maintain clarity. Users with the technical skill needed to
+program mixed-effects models are free to implement predicted random
+effects themselves.</p>
 </div>
 <div class="section level2">
 <h2 id="implementing-a-mixed-effects-model">Implementing a Mixed Effects Model<a class="anchor" aria-label="anchor" href="#implementing-a-mixed-effects-model"></a>
 </h2>
-<p><code>predict_fn</code> <em>must</em> be a function of covariates,
-parameters and observations from the target observation group.
-Furthermore the body of <code>predict_fn</code> can only be a signle
-mathematical expression.</p>
+<p>Mixed-effects models require an additional function to generate
+predictions for the random effects called <code>predict_ranef</code>.
+Similar to <code>predict_fn</code>, this function takes covariates as
+arguments and generates predictions. However, the user must also provide
+a <code>newdata</code>, which represents data from a new group of
+observations, such as a field plot or stand. This dataframe must contain
+columns with the same covariates used in <code>predict_ranef</code> as
+well as new observed values of the response variables.</p>
+<p><code>predict_ranef</code> must return a list with the names of the
+predicted random effects, which are then propagated to
+<code>predict_fn</code>. Let us examine on example from Temesgen et
+al. (2008). We begin with the <code>predict_fn</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">predict_fn</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">dsob</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fl">1.37</span> <span class="op">+</span> <span class="op">(</span><span class="va">beta_0</span> <span class="op">+</span> <span class="va">b_i</span><span class="op">)</span> <span class="op">*</span> <span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="va">beta_1</span> <span class="op">*</span> <span class="va">dsob</span><span class="op">)</span><span class="op">^</span><span class="va">beta_2</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
+<p>Here we see a typical <code>predict_fn</code>. In this case, we know
+ahead of time that the authors are using <code>b_i</code> as the only
+random effect (by reading the paper, of course). <code>beta_0</code>,
+<code>beta_1</code> and <code>beta_2</code> are the fixed-effects. So,
+we need a function that will produce predictions of <code>b_i</code>
+given a set of new observations. We define
+<code>predict_ranef</code></p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">predict_ranef</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">hst</span>, <span class="va">dsob</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">z</span> <span class="op">&lt;-</span> <span class="va">hst</span> <span class="op">-</span> <span class="va">beta_0</span> <span class="op">*</span> <span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="va">beta_1</span> <span class="op">*</span> <span class="va">dsob</span><span class="op">)</span><span class="op">^</span><span class="va">beta_2</span><span class="op">)</span></span>
+<span>  <span class="va">Id</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/diag.html" class="external-link">diag</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">hst</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="va">b_i</span> <span class="op">&lt;-</span> <span class="va">sigma_sq_b</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/t.html" class="external-link">t</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html" class="external-link">%*%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/solve.html" class="external-link">solve</a></span><span class="op">(</span><span class="va">sigma_sq_epsilon</span> <span class="op">*</span> <span class="va">Id</span> <span class="op">*</span> <span class="va">z</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html" class="external-link">%*%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/t.html" class="external-link">t</a></span><span class="op">(</span><span class="va">z</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html" class="external-link">%*%</a></span></span>
+<span>    <span class="op">(</span><span class="va">hst</span> <span class="op">-</span> <span class="va">beta_0</span> <span class="op">*</span> <span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="va">beta_1</span> <span class="op">*</span> <span class="va">dsob</span><span class="op">)</span><span class="op">)</span><span class="op">^</span><span class="va">beta_2</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>b_i <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="va">b_i</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
+<p>While somewhat complicated, this function is merely producing
+predictions of <code>b_i</code> (third line) after calculating some
+pre-requisite values. Then, the random effect is stored in a named list
+and returned (last line).</p>
+<p>Finally, we prepare the entire model:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">mem</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/MixedEffectsModel.html">MixedEffectsModel</a></span><span class="op">(</span></span>
+<span>  response_unit <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    hst <span class="op">=</span> <span class="fu">units</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/units/man/units.html" class="external-link">as_units</a></span><span class="op">(</span><span class="st">"m"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  covariate_units <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    dsob <span class="op">=</span> <span class="fu">units</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/units/man/units.html" class="external-link">as_units</a></span><span class="op">(</span><span class="st">"cm"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  parameters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    beta_0 <span class="op">=</span> <span class="fl">40.4218</span>,</span>
+<span>    beta_1 <span class="op">=</span> <span class="op">-</span><span class="fl">0.0276</span>,</span>
+<span>    beta_2 <span class="op">=</span> <span class="fl">0.936</span>,</span>
+<span>    sigma_sq_b <span class="op">=</span> <span class="fl">6.544</span>,</span>
+<span>    sigma_sq_epsilon <span class="op">=</span> <span class="fl">2.693</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  predict_ranef <span class="op">=</span> <span class="va">predict_ranef</span>,</span>
+<span>  predict_fn <span class="op">=</span> <span class="va">predict_fn</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<p>Note that all parameters we need for <code>predict_ranef</code> and
+<code>predict_fn</code> are defined in the <code>parameters</code>
+argument. Typically, these require estimates of the variance components
+in addition to the betas.</p>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
