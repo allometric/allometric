@@ -80,8 +80,20 @@ knitr::kable(model_summ.fmt, format = "markdown")
  Refer to the [Reference](https://brycefrank.com/allometric/reference/index.html)
 for a full list of publications disaggregated by allometric model type.
 
-If you are interested in collaboration (adding models or working on the
-package functions) please email me at bfrank70@gmail.com
+## How Can I Help?
+
+`allometric` is a monumental undertaking, and already several people have come
+forward and added hundreds of models. There are several ways to help out. The
+following list is ranked from the least to most difficult tasks.
+
+1. [Add missing publications as an Issue](https://github.com/brycefrank/allometric/issues/new?assignees=brycefrank&labels=add+publication&template=add-models-from-a-publication.md&title=%5BInsert+Author-Date+Citation%5D). 
+We always need help *finding publications* to add. If you know of a publication that is missing, feel free to add it as an Issue and we will eventually install the models contained inside.
+2. [Help us digitize publications](https://github.com/brycefrank/allometric/issues?q=is%3Aissue+is%3Aopen+label%3A%22digitization+needed%22). 
+We always need help *digitizing legacy reports*, at this link you will find a list of reports that need manual digitization. These can be handled by anyone with Excel and a cup of coffee.
+3. [Learn how to install and write models](https://brycefrank.com/allometric/articles/installing_a_model.html). 
+Motivated users can learn how to install models directly using the package functions and git pull requests. Users comfortable with R and git can handle this task.
+
+Other ideas? Contact bfrank70@gmail.com to help out.
 
 ## Installation
 

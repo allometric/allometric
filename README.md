@@ -41,8 +41,30 @@ Refer to the
 [Reference](https://brycefrank.com/allometric/reference/index.html) for
 a full list of publications disaggregated by allometric model type.
 
-If you are interested in collaboration (adding models or working on the
-package functions) please email me at <bfrank70@gmail.com>
+## How Can I Help?
+
+`allometric` is a monumental undertaking, and already several people
+have come forward and added hundreds of models. There are several ways
+to help out. The following list is ranked from the least to most
+difficult tasks.
+
+1.  [Add missing publications as an
+    Issue](https://github.com/brycefrank/allometric/issues/new?assignees=brycefrank&labels=add+publication&template=add-models-from-a-publication.md&title=%5BInsert+Author-Date+Citation%5D).
+    We always need help *finding publications* to add. If you know of a
+    publication that is missing, feel free to add it as an Issue and we
+    will eventually install the models contained inside.
+2.  [Help us digitize
+    publications](https://github.com/brycefrank/allometric/issues?q=is%3Aissue+is%3Aopen+label%3A%22digitization+needed%22).
+    We always need help *digitizing legacy reports*, at this link you
+    will find a list of reports that need manual digitization. These can
+    be handled by anyone with Excel and a cup of coffee.
+3.  [Learn how to install and write
+    models](https://brycefrank.com/allometric/articles/installing_a_model.html).
+    Motivated users can learn how to install models directly using the
+    package functions and git pull requests. Users comfortable with R
+    and git can handle this task.
+
+Other ideas? Contact <bfrank70@gmail.com> to help out.
 
 ## Installation
 
@@ -76,7 +98,7 @@ help for more information.
 head(allometric_models)
 ```
 
-    #> # A tibble: 6 x 12
+    #> # A tibble: 6 × 12
     #>   id       model_type   country   region    family       genus  species    model      pub_id        family_name covt_name pub_year
     #>   <chr>    <chr>        <list>    <list>    <chr>        <chr>  <chr>      <list>     <chr>         <list>      <list>       <dbl>
     #> 1 cd71c0b8 stem height  <chr [1]> <chr [3]> Accipitridae Circus canadensis <FxdEffcM> hahn_1984     <chr [1]>   <chr [4]>     1984
@@ -107,7 +129,7 @@ unnested_models <- unnest_models(allometric_models, cols = "family_name")
 unnested_models
 ```
 
-    #> # A tibble: 3,740 x 12
+    #> # A tibble: 3,740 × 12
     #>    id       model_type   country   region    family       genus       species     model      pub_id        family_name covt_name pub_year
     #>    <chr>    <chr>        <list>    <list>    <chr>        <chr>       <chr>       <list>     <chr>         <chr>       <list>       <dbl>
     #>  1 cd71c0b8 stem height  <chr [1]> <chr [3]> Accipitridae Circus      canadensis  <FxdEffcM> hahn_1984     Hahn        <chr [4]>     1984
@@ -120,7 +142,7 @@ unnested_models
     #>  8 f3698bb3 stem volume  <chr [1]> <chr [3]> Altingiaceae Liquidambar styraciflua <FxdEffcM> hahn_1984     Hahn        <chr [2]>     1984
     #>  9 14d46395 stem volume  <chr [1]> <chr [3]> Altingiaceae Liquidambar styraciflua <FxdEffcM> hahn_1984     Hahn        <chr [2]>     1984
     #> 10 07cbe95e stump volume <chr [1]> <chr [3]> Altingiaceae Liquidambar styraciflua <FxdEffcM> hahn_1984     Hahn        <chr [1]>     1984
-    #> # ... with 3,730 more rows
+    #> # … with 3,730 more rows
 
 Now, each row represents unique data combinations for each model, which
 can be quickly filtered by most users using `dplyr::filter`. For
@@ -137,7 +159,7 @@ brackett_alnus_vol <- unnested_models %>%
 brackett_alnus_vol
 ```
 
-    #> # A tibble: 1 x 12
+    #> # A tibble: 1 × 12
     #>   id       model_type  country   region    family     genus species model      pub_id        family_name covt_name pub_year
     #>   <chr>    <chr>       <list>    <list>    <chr>      <chr> <chr>   <list>     <chr>         <chr>       <list>       <dbl>
     #> 1 f21028ef stem volume <chr [1]> <chr [1]> Betulaceae Alnus rubra   <FxdEffcM> brackett_1977 Brackett    <chr [2]>     1977
@@ -180,13 +202,13 @@ brackett_alnus_mod
     #> hst [ft]: total height of the stem
     #> 
     #> Parameter Estimates: 
-    #> # A tibble: 1 x 3
+    #> # A tibble: 1 × 3
     #>       a     b     c
     #>   <dbl> <dbl> <dbl>
     #> 1 -2.67  1.92  1.07
     #> 
     #> Model Descriptors: 
-    #> # A tibble: 1 x 7
+    #> # A tibble: 1 × 7
     #>   country region family     genus species geographic_region age_class
     #>   <chr>   <chr>  <chr>      <chr> <chr>   <chr>             <chr>    
     #> 1 US      US-WA  Betulaceae Alnus rubra   <NA>              <NA>
