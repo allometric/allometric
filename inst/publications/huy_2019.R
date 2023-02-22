@@ -31,7 +31,7 @@ bs_huy_2019_1 <- FixedEffectsSet(
   predict_fn = function(dsob, hst, es) {
     a_1 * dsob^b_11 * hst^b_12 * es^b_13
   },
-  model_specifications = tibble::as_tibble(load_parameter_frame("bs_huy_2019_1"))
+  model_specifications = load_parameter_frame("bs_huy_2019_1")
 )
 
 bs_huy_2019_2 <- FixedEffectsSet(
@@ -45,7 +45,7 @@ bs_huy_2019_2 <- FixedEffectsSet(
   predict_fn = function(dsob) {
     a_1 * dsob^b_11
   },
-  model_specifications = tibble::as_tibble(load_parameter_frame("bs_huy_2019_2"))
+  model_specifications = load_parameter_frame("bs_huy_2019_2")
 )
 
 bb_huy_2019 <- FixedEffectsSet(
@@ -59,7 +59,7 @@ bb_huy_2019 <- FixedEffectsSet(
   predict_fn = function(dsob) {
     a_2 * dsob^b_21
   },
-  model_specifications = tibble::as_tibble(load_parameter_frame("bs_huy_2019_bb"))
+  model_specifications = load_parameter_frame("bs_huy_2019_bb")
 )
 
 bf_huy_2019 <- FixedEffectsSet(
@@ -73,7 +73,7 @@ bf_huy_2019 <- FixedEffectsSet(
   predict_fn = function(dsob) {
     a_3 * dsob^b_31
   },
-  model_specifications = tibble::as_tibble(load_parameter_frame("bf_huy_2019"))
+  model_specifications = load_parameter_frame("bf_huy_2019")
 )
 
 bk_huy_2019 <- FixedEffectsSet(
@@ -87,7 +87,7 @@ bk_huy_2019 <- FixedEffectsSet(
   predict_fn = function(dsob) {
     a_4 * dsob^b_41
   },
-  model_specifications = tibble::as_tibble(load_parameter_frame("bk_huy_2019"))
+  model_specifications = load_parameter_frame("bk_huy_2019")
 )
 
 huy_2019 <- huy_2019 %>%

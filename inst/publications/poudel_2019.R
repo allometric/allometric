@@ -24,7 +24,7 @@ poudel_2019 <- Publication(
 
 cvts <- FixedEffectsSet(
   response_unit = list(
-    vsa = units::as_units("m^3")
+    vsia = units::as_units("m^3")
   ),
   covariate_units = list(
     dsob = units::as_units("cm"),
@@ -90,11 +90,11 @@ v_to_agb <- FixedEffectsSet(
     bt = units::as_units("kg")
   ),
   covariate_units = list(
-    vsa = units::as_units("m^3")
+    vsia = units::as_units("m^3")
   ),
   parameter_names = c("a", "b", "cf"),
-  predict_fn = function(vsa) {
-    cf * exp(a + b * log(vsa))
+  predict_fn = function(vsia) {
+    cf * exp(a + b * log(vsia))
   },
   model_specifications = load_parameter_frame("bt_poudel_2019_4")
 )

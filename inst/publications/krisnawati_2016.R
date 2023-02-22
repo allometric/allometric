@@ -20,9 +20,9 @@ krisnawati_2016 <- Publication(
 )
 
 # Eq. 23
-vsk <- FixedEffectsModel(
+vsoa <- FixedEffectsModel(
   response_unit = list(
-    vsk = units::as_units("m^3")
+    vsoa = units::as_units("m^3")
   ),
   covariate_units = list(
     dsob = units::as_units("cm"),
@@ -39,9 +39,9 @@ vsk <- FixedEffectsModel(
 )
 
 # Eq. 24
-vsa <- FixedEffectsModel(
+vsia <- FixedEffectsModel(
   response_unit = list(
-    vsa = units::as_units("m^3")
+    vsia = units::as_units("m^3")
   ),
   covariate_units = list(
     dsob = units::as_units("cm"),
@@ -104,9 +104,9 @@ dsih <- FixedEffectsModel(
 )
 
 # Eq. 27
-vsm <- FixedEffectsModel(
+vsom <- FixedEffectsModel(
   response_unit = list(
-    vsm = units::as_units("m^3")
+    vsom = units::as_units("m^3")
   ),
   covariate_units = list(
     dsob = units::as_units("cm"),
@@ -129,9 +129,9 @@ vsm <- FixedEffectsModel(
 )
 
 # Eq. 28
-vskm <- FixedEffectsModel(
+vsim <- FixedEffectsModel(
   response_unit = list(
-    vsm = units::as_units("m^3")
+    vsim = units::as_units("m^3")
   ),
   covariate_units = list(
     dsob = units::as_units("cm"),
@@ -157,5 +157,9 @@ vskm <- FixedEffectsModel(
 )
 
 krisnawati_2016 <- krisnawati_2016 %>%
-  add_model(vsk) %>% add_model(vsa) %>% add_model(dsoh) %>%
-  add_model(dsih) %>% add_model(vsm)
+  add_model(vsoa) %>% 
+  add_model(vsia) %>% 
+  add_model(dsoh) %>%
+  add_model(dsih) %>% 
+  add_model(vsim) %>%
+  add_model(vsom)

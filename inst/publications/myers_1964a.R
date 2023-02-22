@@ -29,9 +29,9 @@ covariate_units_hsm <- list(
 parameter_names <- c('a', 'b')
 
 # Table 1
-vsm_cuft <- FixedEffectsSet(
+vsom_cuft <- FixedEffectsSet(
   response_unit = list(
-    vsm = units::as_units('ft^3')
+    vsom = units::as_units('ft^3')
   ),
   covariate_units = covariate_units_hst,
   predict_fn = function(dsob, hst) {
@@ -46,9 +46,9 @@ vsm_cuft <- FixedEffectsSet(
 )
 
 # Table 2
-vsm_cuft_2 <- FixedEffectsSet(
+vsom_cuft_2 <- FixedEffectsSet(
   response_unit = list(
-    vsm = units::as_units('ft^3')
+    vsom = units::as_units('ft^3')
   ),
   covariate_units = covariate_units_hst,
   predict_fn = function(dsob, hst) {
@@ -80,9 +80,9 @@ rsvg_cuft <- FixedEffectsSet(
 )
 
 # Table 4
-vsm_bdfts <- FixedEffectsSet(
+vsom_bdfts <- FixedEffectsSet(
   response_unit = list(
-    vsm = units::as_units("board_foot")
+    vsom = units::as_units("board_foot")
   ),
   covariate_units = covariate_units_hst,
   parameter_names = parameter_names,
@@ -116,9 +116,9 @@ rsvg_bdfts <- FixedEffectsSet(
 )
 
 # Table 6
-vsm_bdfts_logs <- FixedEffectsSet(
+vsom_bdfts_logs <- FixedEffectsSet(
   response_unit = list(
-    vsm = units::as_units("board_foot")
+    vsom = units::as_units("board_foot")
   ),
   covariate_units = covariate_units_hsm,
   parameter_names = parameter_names,
@@ -158,9 +158,9 @@ rsvg_bdfts_logs <- FixedEffectsSet(
 )
 
 # Table 8
-vsm_bdfti <- FixedEffectsSet(
+vsom_bdfti <- FixedEffectsSet(
   response_unit = list(
-    vsm = units::as_units("board_foot")
+    vsom = units::as_units("board_foot")
   ),
   covariate_units = covariate_units_hst,
   parameter_names = parameter_names,
@@ -194,9 +194,9 @@ rsvg_bdfti <- FixedEffectsSet(
 )
 
 # Table 10
-vsm_bdfti_logs <- FixedEffectsSet(
+vsom_bdfti_logs <- FixedEffectsSet(
   response_unit = list(
-    vsm = units::as_units("board_foot")
+    vsom = units::as_units("board_foot")
   ),
   covariate_units = covariate_units_hsm,
   parameter_names = parameter_names,
@@ -236,14 +236,14 @@ rsvg_bdfti_logs <- FixedEffectsSet(
 )
 
 myers_1964a <- myers_1964a %>%
-  add_set(vsm_cuft) %>%
-  add_set(vsm_cuft_2) %>%
+  add_set(vsom_cuft) %>%
+  add_set(vsom_cuft_2) %>%
   add_set(rsvg_cuft) %>%
-  add_set(vsm_bdfts) %>%
+  add_set(vsom_bdfts) %>%
   add_set(rsvg_bdfts) %>%
-  add_set(vsm_bdfts_logs) %>%
+  add_set(vsom_bdfts_logs) %>%
   add_set(rsvg_bdfts_logs) %>%
-  add_set(vsm_bdfti) %>%
+  add_set(vsom_bdfti) %>%
   add_set(rsvg_bdfti) %>%
-  add_set(vsm_bdfti_logs) %>%
+  add_set(vsom_bdfti_logs) %>%
   add_set(rsvg_bdfti_logs)

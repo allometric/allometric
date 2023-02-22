@@ -14,9 +14,9 @@ hann_1978 <- Publication(
   )
 )
 
-vsa <- FixedEffectsSet(
+vsia <- FixedEffectsSet(
   response_unit = list(
-    vsa = units::as_units('ft^3')
+    vsia = units::as_units('ft^3')
   ),
   covariate_units = list(
     dsob = units::as_units('in'),
@@ -30,4 +30,4 @@ vsa <- FixedEffectsSet(
 )
 
 hann_1978 <- hann_1978 %>%
-  add_set(vsa)
+  add_set(vsia)

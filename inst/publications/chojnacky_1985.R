@@ -16,7 +16,7 @@ chojnacky_1985 <- Publication(
 # two parameter species models
 two_params <- FixedEffectsSet(
   response_unit = list(
-    vsa = units::as_units("ft^3")
+    vsoa = units::as_units("ft^3")
   ),
   covariate_units = list(
     dsoc = units::as_units("in"),
@@ -32,7 +32,7 @@ two_params <- FixedEffectsSet(
 # three parameter species models
 three_params <- FixedEffectsSet(
   response_unit = list(
-    vsa = units::as_units("ft^3")
+    vsoa = units::as_units("ft^3")
   ),
   covariate_units = list(
     dsoc = units::as_units("in"),
@@ -52,7 +52,7 @@ three_params <- FixedEffectsSet(
 # hardwood models
 hardwoods <- FixedEffectsSet(
   response_unit = list(
-    vsa = units::as_units("ft^3")
+    vsoa = units::as_units("ft^3")
   ),
   covariate_units = list(
     dsoc = units::as_units("in"),

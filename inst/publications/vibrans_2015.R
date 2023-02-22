@@ -17,9 +17,9 @@ vibrans_2015 <- Publication(
   )
 )
 
-vsa_species <- FixedEffectsSet(
+vsoa_species <- FixedEffectsSet(
   response_unit = list(
-    vsa = units::as_units("m^3")
+    vsoa = units::as_units("m^3")
   ),
   covariate_units = list(
     dsob = units::as_units("cm"),
@@ -33,9 +33,9 @@ vsa_species <- FixedEffectsSet(
   model_specifications = load_parameter_frame("vsa_vibrans_2015")
 )
 
-vsa_generics <- FixedEffectsSet(
+vsoa_generics <- FixedEffectsSet(
   response_unit = list(
-    vsa = units::as_units("m^3")
+    vsoa = units::as_units("m^3")
   ),
   covariate_units = list(
     dsob = units::as_units("cm"),
@@ -56,5 +56,5 @@ vsa_generics <- FixedEffectsSet(
 )
 
 vibrans_2015 <- vibrans_2015 %>%
-  add_set(vsa_species) %>%
-  add_set(vsa_generics)
+  add_set(vsoa_species) %>%
+  add_set(vsoa_generics)

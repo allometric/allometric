@@ -38,7 +38,7 @@ param_names <- c('a', 'b')
 
 cuft_vol <- FixedEffectsSet(
   response_unit = list(
-    vsa = units::as_units('ft^3')
+    vsoa = units::as_units('ft^3')
   ),
   covariate_units = covt_units_ht,
   parameter_names = param_names,
@@ -58,7 +58,7 @@ cuft_vbar <- FixedEffectsSet(
 
 bdft_vol_logs <- FixedEffectsSet(
   response_unit = list(
-    vsm = units::as_units('board_foot')
+    vsom = units::as_units('board_foot')
   ),
   covariate_units = covt_units_logs,
   parameter_names = param_names,
@@ -71,7 +71,7 @@ bdft_vol_logs <- FixedEffectsSet(
 
 bdft_vol_feet <- FixedEffectsSet(
   response_unit = list(
-    vsm = units::as_units('board_foot')
+    vsim = units::as_units('board_foot')
   ),
   covariate_units = covt_units_ht,
   parameter_names = param_names,

@@ -18,7 +18,7 @@ bruce_1974 <- Publication(
 
 small <- FixedEffectsModel(
   response_unit = list(
-    vsa = units::as_units("ft^3")
+    vsia = units::as_units("ft^3")
   ),
   covariate_units = list(
     hst = units::as_units("ft"),
@@ -42,7 +42,7 @@ small <- FixedEffectsModel(
 
 large <- FixedEffectsModel(
   response_unit = list(
-    vsa = units::as_units("ft^3")
+    vsia = units::as_units("ft^3")
   ),
   covariate_units = list(
     hst = units::as_units("ft"),

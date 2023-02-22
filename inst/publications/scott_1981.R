@@ -19,7 +19,7 @@ scott_1981 <- Publication(
 
 vsm_spc <- FixedEffectsSet(
   response_unit = list(
-    vsa = units::as_units('ft^3')
+    vsia = units::as_units('ft^3')
   ),
   covariate_units = list(
     dsob = units::as_units('in'),
@@ -34,7 +34,7 @@ vsm_spc <- FixedEffectsSet(
 
 vsm_grp <- FixedEffectsSet(
   response_unit = list(
-    vsa = units::as_units('ft^3')
+    vsia = units::as_units('ft^3')
   ),
   covariate_units = list(
     dsob = units::as_units('in'),

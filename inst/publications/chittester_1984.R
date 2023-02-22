@@ -18,7 +18,7 @@ chittester_1984 <- Publication(
 
 cvts <- FixedEffectsModel(
   response_unit = list(
-    vsa = units::as_units("ft^3")
+    vsia = units::as_units("ft^3")
   ),
   covariate_units = list(
     dsob = units::as_units("in"),
@@ -38,10 +38,10 @@ cvts <- FixedEffectsModel(
 
 cv4 <- FixedEffectsModel(
   response_unit = list(
-    vsm = units::as_units("ft^3")
+    vsim = units::as_units("ft^3")
   ),
   covariate_units = list(
-    vsa = units::as_units("ft^3"),
+    vsoa = units::as_units("ft^3"),
     dsob = units::as_units("in")
   ),
   parameters = list(
@@ -50,8 +50,8 @@ cv4 <- FixedEffectsModel(
     c = 0.32736,
     d = 2.948
   ),
-  predict_fn = function(vsa, dsob) {
-    (vsa + a) / (b + c * exp(-0.1 * dsob)) - d
+  predict_fn = function(vsoa, dsob) {
+    (vsoa + a) / (b + c * exp(-0.1 * dsob)) - d
   }
 )
 

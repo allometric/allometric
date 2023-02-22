@@ -21,7 +21,7 @@ bell_1981 <- Publication(
 
 chosen_cvts_model <- FixedEffectsModel(
   response_unit = list(
-    vsa = units::as_units("ft^3")
+    vsia = units::as_units("ft^3")
   ),
   covariate_units = list(
     dsob = units::as_units("in"),

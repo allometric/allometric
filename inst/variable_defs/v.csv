@@ -3,9 +3,9 @@ v,s,i,a,"volume of the entire stem inside bark, including top and stump"
 v,s,o,a,"volume of the entire stem outside bark, including top and stump"
 v,s,i,m,volume of the merchantable portion of the stem inside bark
 v,s,o,m,volume of the merchantable portion of the stem inside bark
-v,s,,b,volume of the stem below breast height
-v,s,,o,volume of the stem above breast height
-v,s,,k,volume of the stem including bark
-v,u,,,volume of the stump
+v,s,i,b,volume of the stem below breast height inside bark
+v,s,i,o,volume of the stem above breast height inside bark
+v,s,o,o,volume of the stem above breast height outside bark
+v,u,i,,volume of the stump inside bark
 v,t,,,volume of the top
-v,c,,,crown volume
+v,c,,,volume of the crown

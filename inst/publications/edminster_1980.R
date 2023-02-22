@@ -18,8 +18,8 @@ edminster_1980 <- Publication(
 )
 
 # Table 1
-vsk <- FixedEffectsModel(
-  response_unit = list(vsk = units::as_units("ft^3")),
+vsia <- FixedEffectsModel(
+  response_unit = list(vsia = units::as_units("ft^3")),
   covariate_units = list(
     dsob = units::as_units("in"),
     hst = units::as_units("ft")
@@ -34,8 +34,8 @@ vsk <- FixedEffectsModel(
 )
 
 # Table 2
-vsa <- FixedEffectsModel(
-  response_unit = list(vsa = units::as_units("ft^3")),
+vsim <- FixedEffectsModel(
+  response_unit = list(vsim = units::as_units("ft^3")),
   covariate_units = list(
     dsob = units::as_units("in"),
     hst = units::as_units("ft")
@@ -50,5 +50,5 @@ vsa <- FixedEffectsModel(
 )
 
 edminster_1980 <- edminster_1980 %>%
-  add_model(vsk) %>%
-  add_model(vsa)
+  add_model(vsia) %>%
+  add_model(vsim)

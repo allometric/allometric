@@ -12,9 +12,9 @@ chojnacky_1994 <- Publication(
   )
 )
 
-vsa_small <- FixedEffectsSet(
+vsoa_small <- FixedEffectsSet(
   response_unit = list(
-    vsa = units::as_units('ft^3')
+    vsoa = units::as_units('ft^3')
   ),
   covariate_units = list(
     dsoc = units::as_units('in'),
@@ -28,9 +28,9 @@ vsa_small <- FixedEffectsSet(
   model_specifications = load_parameter_frame('vsa_chojnacky_1994')
 )
 
-vsa_large <- FixedEffectsSet(
+vsoa_large <- FixedEffectsSet(
   response_unit = list(
-    vsa = units::as_units('ft^3')
+    vsoa = units::as_units('ft^3')
   ),
   covariate_units = list(
     dsoc = units::as_units('in'),
@@ -45,5 +45,5 @@ vsa_large <- FixedEffectsSet(
 )
 
 chojnacky_1994 <- chojnacky_1994 %>%
-  add_set(vsa_small) %>%
-  add_set(vsa_large)
+  add_set(vsoa_small) %>%
+  add_set(vsoa_large)

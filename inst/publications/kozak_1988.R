@@ -35,5 +35,3 @@ taper <- FixedEffectsSet(
 )
 
 kozak_1988 <- kozak_1988 %>% add_set(taper)
-
-# https://cdnsciencepub.com/doi/pdf/10.1139/x88-213

@@ -21,7 +21,7 @@ rustagi_1991 <- Publication(
 
 eq_20 <- FixedEffectsModel(
   response_unit = list(
-    vso = units::as_units("m^3")
+    vsio = units::as_units("m^3")
   ),
   covariate_units = list(
     dsib = units::as_units("cm"),
@@ -39,7 +39,7 @@ eq_20 <- FixedEffectsModel(
 
 eq_21 <- FixedEffectsModel(
   response_unit = list(
-    vso = units::as_units("m^3")
+    vsio = units::as_units("m^3")
   ),
   covariate_units = list(
     dsib = units::as_units("cm"),
@@ -57,7 +57,7 @@ eq_21 <- FixedEffectsModel(
 
 eq_22 <- FixedEffectsModel(
   response_unit = list(
-    vso = units::as_units("m^3")
+    vsio = units::as_units("m^3")
   ),
   covariate_units = list(
     dsob = units::as_units("cm"),

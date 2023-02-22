@@ -36,7 +36,7 @@ hst <- FixedEffectsSet(
 
 cuft <- FixedEffectsSet(
   response_unit = list(
-    vsa = units::as_units('ft^3')
+    vsia = units::as_units('ft^3')
   ),
   covariate_units = list(
     dsob = units::as_units('in'),
@@ -51,7 +51,7 @@ cuft <- FixedEffectsSet(
 
 bdft <- FixedEffectsSet(
   response_unit = list(
-    vsa = units::as_units('board_foot')
+    vsia = units::as_units('board_foot')
   ),
   covariate_units = list(
     dsob = units::as_units('in'),
@@ -64,9 +64,9 @@ bdft <- FixedEffectsSet(
   model_specifications = load_parameter_frame('vsa_hahn_1984_2')
 )
 
-vu <- FixedEffectsSet(
+vui <- FixedEffectsSet(
   response_unit = list(
-    vu = units::as_units('ft^3')
+    vui = units::as_units('ft^3')
   ),
   covariate_units = list(
     dsob = units::as_units('in')
@@ -98,6 +98,6 @@ hahn_1984 <- hahn_1984 %>%
   add_set(hst) %>%
   add_set(cuft) %>%
   add_set(bdft) %>%
-  add_set(vu) %>%
+  add_set(vui) %>%
   add_set(rsk)
 
