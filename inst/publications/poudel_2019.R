@@ -99,12 +99,6 @@ v_to_agb <- FixedEffectsSet(
   model_specifications = load_parameter_frame("bt_poudel_2019_4")
 )
 
-# 1 - stem
-# 2 - bark
-# 3 - foliage
-# 4 - branch
-
-
 rsbt <- FixedEffectsSet(
   response_unit = list(
     rsbt = units::as_units("kg / kg")

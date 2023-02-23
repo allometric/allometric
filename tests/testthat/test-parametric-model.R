@@ -1,5 +1,5 @@
 param_mod <- ParametricModel(
-  response_unit = list(vsa = units::as_units("ft^3")),
+  response_unit = list(vsia = units::as_units("ft^3")),
   covariate_units = list(dsob = units::as_units("in")),
   predict_fn = function(dsob) {
     dsob * a
@@ -20,13 +20,13 @@ test_that("parameters returns correct tbl", {
 })
 
 test_that("model_call returns correct string", {
-  test_call <- "vsa = f(dsob)"
+  test_call <- "vsia = f(dsob)"
 
   expect_equal(test_call, model_call(param_mod))
 })
 
 test_that("get_model_str returns correct string", {
-  test_str <- "vsa = dsob * a"
+  test_str <- "vsia = dsob * a"
   expect_equal(test_str, get_model_str(param_mod))
 })
 
@@ -39,7 +39,7 @@ test_that("get_variable_descriptions returns correct strings", {
 
   expect_equal(
     descs[[1]],
-    "vsa [ft3]: volume of the entire stem, including top and stump"
+    "vsia [ft3]: volume of the entire stem inside bark, including top and stump"
   )
 
   expect_equal(

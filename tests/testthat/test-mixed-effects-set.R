@@ -1,6 +1,6 @@
 mixed_effects_set <- MixedEffectsSet(
   response_unit = list(
-    vsa = units::as_units("ft^3")
+    vsia = units::as_units("ft^3")
   ),
   covariate_units = list(
     dsob = units::as_units("in")
@@ -23,7 +23,7 @@ test_that("MixedEffectsSet with mis-specified parameter names is invalid.", {
   expect_error(
     MixedEffectsSet(
       response_unit = list(
-        vsa = units::as_units("ft^3")
+        vsia = units::as_units("ft^3")
       ),
       covariate_units = list(
         dsob = units::as_units("in")

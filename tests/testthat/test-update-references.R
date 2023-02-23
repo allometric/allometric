@@ -13,7 +13,7 @@ pub <- Publication(
 )
 
 ref_model <- FixedEffectsModel(
-  response_unit = list(vsa = units::as_units("ft^3")),
+  response_unit = list(vsia = units::as_units("ft^3")),
   covariate_units = list(dsob = units::as_units("in")),
   parameters = list(a = 1),
   descriptors = list(country = "US"),
@@ -23,8 +23,8 @@ ref_model <- FixedEffectsModel(
 pub <- pub %>% add_model(ref_model)
 
 test_that("response section lines are correct", {
-  test_str <- "\\code{vsa = a * dsob}\n\\itemize{\n\\item{\\code{vsa [ft3]}}{ - volume of the entire stem, including top and stump}\n\\item{\\code{dsob [in]}}{ - diameter of the stem, outside bark at breast height}\n}\n\\bold{Model Parameters}\n\\preformatted{  country     a\n1 US          1}\n\\out{<hr>}"
-  expect_equal(test_str, response_section_lines(pub@response_sets[['vsa']]))
+  test_str <- "\\code{vsia = a * dsob}\n\\itemize{\n\\item{\\code{vsia [ft3]}}{ - volume of the entire stem, including top and stump}\n\\item{\\code{dsob [in]}}{ - diameter of the stem, outside bark at breast height}\n}\n\\bold{Model Parameters}\n\\preformatted{  country     a\n1 US          1}\n\\out{<hr>}"
+  expect_equal(test_str, response_section_lines(pub@response_sets[['vsia']]))
 })
 
 test_that("rd_lines header is correct", {
