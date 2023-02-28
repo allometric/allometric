@@ -7,36 +7,61 @@ library(allometric)
 options(width=1000)
 ```
 
+## Variable Naming Structure
+
 The variable naming system is a standard approach for classifying allometric
 response variables and covariates. In the allometric modeling literature, 
 a diverse set of names are available for many similar types of variables.
 For example, one may wish to refer to the volume of the main stem of a tree, 
 the volume of the stump, the diameter of a stump, the diameter at breast height,
-etc.
+etc. Analysts may also wish to refer to different spatial scales, such as plot-
+or stand-level variables.
 
-The variable naming system, while somewhat verbose and strict, is worth the 
-effort. It allows `allometric` to efficiently categorize many allometric models
-in a standardized structure, which facilitates searching and documentation.
-Users can utilize the `get_variable_def()` function to search for partial 
-matches of variables in the naming system. For example, to find all definitions
-for diameter variables use:
+The basic structure of a variable name is:
 
-```{r}
-get_variable_def("d")
+```
+[increment_flag_][measure][component][...modifiers][_scale_flag]
 ```
 
-This lists all variables in the naming system that have `"d"` as their first
-`search_str` character. We can inspect, e.g., `dsob`
+The `[increment_flag_]` and `[_scale_flag]` portions are optional flags that
+allow a user to specify if the variable is an increment (e.g., diameter increment),
+and the scale flag allows a user to specify plot- or stand-level variables.
+If these flags are not specified, then the variable is assumed to be a
+non-increment tree-level variable.
+
+`[measure]` and `[component]` are both single characters that encode the type
+of measurement (e.g., diameter, height, etc.) and the portion of the tree 
+the variable is referred to (e.g., stem, foliage, etc.), respectively. These
+are followed by optional modifiers that allow further specification of the
+variable.
+
+The `get_variable_def` function allows the user to search for existing variable
+definitions. For example, we can examine a common variable name, `"dsob"`
 
 ```{r}
 get_variable_def("dsob")
 ```
 
-and find that it is the diameter of the stem, outside bark at breast height.
+and find that it is the diameter of the stem, outside bark at breast height. We
+see that the measure is `"d"` for diameter, the component is `"s"` for stem
+and two modifiers are used (bark and height modifiers) with values of `"o"` and
+`"b"` respectively.
 
-This vignette is not comprehensive for all variables stored in the package, 
-but should cover the most common cases. `get_variable_def()` will contain all
-possible variables.
+If we want to refer to a diameter outside bark increment, simply add the 
+increment flag `"i_"`:
+
+```{r}
+get_variable_def("i_dsob")
+```
+
+If we want to refer to a plot-level diameter outside bark (e.g., the mean
+diameter of trees on a plot), add a scale flag `"_p"` as a suffix.
+
+```{r}
+get_variable_def("dsob_p")
+```
+
+there is also a scale flag for stand-level variables, `"_s"`.
 
 ## Measures
 
