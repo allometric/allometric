@@ -33,7 +33,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">allometric</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9005</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9006</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -144,7 +144,7 @@ Oregon.</p>
 <span>  <span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">stemvol_mods</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## [1] 566</span></span></code></pre>
+<pre><code><span><span class="co">## [1] 569</span></span></code></pre>
 <p>We can see that <code>stemvol_mods</code> contains a huge amount of
 stem volume models. That is because <code>allometric</code> is global in
 scope. Most of these models are not relavent for our needs. Next, we
@@ -222,12 +222,12 @@ set reveals this order.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">final_set</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>call <span class="op">=</span> <span class="fu"><a href="../reference/model_call.html">model_call</a></span><span class="op">(</span><span class="va">model</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 4 × 3</span></span></span>
-<span><span class="co">##    SPCD model      call              </span></span>
-<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">1</span>    15 <span style="color: #949494;">&lt;FxdEffcM&gt;</span> vsa = f(dsob, hst)</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">2</span>   122 <span style="color: #949494;">&lt;FxdEffcM&gt;</span> vsa = f(dsob, hst)</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">3</span>   202 <span style="color: #949494;">&lt;FxdEffcM&gt;</span> vsa = f(dsob, hst)</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">4</span>   263 <span style="color: #949494;">&lt;FxdEffcM&gt;</span> vsa = f(dsob, hst)</span></span></code></pre>
+<span><span class="co">##    SPCD model      call               </span></span>
+<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span>    15 <span style="color: #949494;">&lt;FxdEffcM&gt;</span> vsia = f(dsob, hst)</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">2</span>   122 <span style="color: #949494;">&lt;FxdEffcM&gt;</span> vsia = f(dsob, hst)</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">3</span>   202 <span style="color: #949494;">&lt;FxdEffcM&gt;</span> vsia = f(dsob, hst)</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">4</span>   263 <span style="color: #949494;">&lt;FxdEffcM&gt;</span> vsia = f(dsob, hst)</span></span></code></pre>
 <p>The <code>model_call</code> function shows that
 <code>vsa = f(dsob, hst)</code> is the allometric function call for each
 model we have specified, which means that the diameter of the stem
@@ -252,7 +252,7 @@ plot-level we obtain</p>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>vol_ac <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">vol_cuft</span> <span class="op">*</span> <span class="va">TPA_UNADJ</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 10 × 2</span></span></span>
 <span><span class="co">##     PLOT vol_ac</span></span>
-<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>  <span style="color: #949494;">[m^3]</span></span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 1</span>     1  <span style="text-decoration: underline;">7</span>881.</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 2</span>     2 <span style="text-decoration: underline;">22</span>768.</span></span>
 <span><span class="co">## <span style="color: #BCBCBC;"> 3</span>     3 <span style="text-decoration: underline;">11</span>289.</span></span>
