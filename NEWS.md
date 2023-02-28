@@ -1,5 +1,32 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# allometric 1.0.0.9006 (2023-02-28)
+
+## Features
+
+- Adding increment and scale flags to variable naming system, closes #72, closes #85.
+
+- Adding edminster_1980, closes #82.
+
+- Adding eng_2012, closes #81.
+
+## Chore
+
+- Refactored volume names to accommodate inside/outside bark, closes #80.
+
+- Adding bark modifier to volume variables, updates #80.
+
+## Documentation
+
+- Added help section to readme.
+
+- Fleshing out mixed-effects models vignette, closes #83.
+
+## Testing
+
+- Refactored volume names in testing suite.
+
+
 # allometric 1.0.0.9005 (2023-02-14)
 
 ## Bug fixes
