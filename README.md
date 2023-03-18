@@ -27,15 +27,14 @@ category:
 
 | category          |  AS |  EU |  NA |  AF |  OC |  SA |
 |:------------------|----:|----:|----:|----:|----:|----:|
-| biomass           |   2 |   2 |   0 |   0 |   0 |   0 |
-| biomass component |  24 | 134 | 439 |   0 |   0 |   0 |
+| biomass component |  26 | 136 | 435 |   0 |   0 |   0 |
 | site index        |   0 |   0 |   2 |   0 |   0 |   0 |
 | stem height       |   7 |   0 | 103 |  12 |   2 |  18 |
 | stem volume       |   4 |   0 | 575 |   0 |   0 |  20 |
 | stump volume      |   0 |   0 |  64 |   0 |   0 |   0 |
 | taper             |   2 |   0 |  18 |   0 |   0 |   0 |
 | tree biomass      |   2 |  36 |  90 |   0 |  21 |  16 |
-| other             |   0 |   0 | 121 |   0 |   0 |   0 |
+| other             |   0 |   0 | 125 |   0 |   0 |   0 |
 
 Refer to the
 [Reference](https://brycefrank.com/allometric/reference/index.html) for
