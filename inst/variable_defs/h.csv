@@ -9,4 +9,5 @@ h,s,d,,height to a specified diameter (taper)
 h,s,d,ip75,height to a diameter that is 0.75 times the diameter inside bark at breast height
 h,s,d,op67,height to a diameter that is 0.67 times the diameter outside bark at breast height
 h,s,t,ix50,site index at 50 year base age
+h,s,t,ix100,site index at 100 year base age
 h,s,l,,distance from tip of stem to merchantibility limit
