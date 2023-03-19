@@ -6,10 +6,17 @@ hoyer_1989 <- Publication(
     volume = 418,
     year = 1989,
     institution = "US Department of Agriculture, Forest Service, Pacific Northwest Research Station"
+  ),
+  descriptors = list(
+    family = "Pinaceae",
+    genus = "abies",
+    species = "amibalis",
+    country = "US",
+    region = c("US-OR", "US-WA")
   )
 )
 
-# Eq. 4 - the height model
+# Eq. 4 - the selected height model
 hst <- FixedEffectsModel(
   response_unit = list(
     hst = units::as_units("ft")
@@ -23,8 +30,9 @@ hst <- FixedEffectsModel(
     d = 0.0000571,
     f = 1.39005
   ),
-  predict_fn = function(hstix100, ast)  {
-    hstix100 * (1 - exp(-(c + d *hstix100) * ast)) + 4.5
+  predict_fn = function(hstix100, atb)  {
+    hstix100 * (1 - exp(-(c + d *hstix100) * atb))^f /
+    (1 - exp(-(c+ d * S) * 100))
   }
 )
 
@@ -54,3 +62,7 @@ hstix100 <- FixedEffectsModel(
     )
   }
 )
+
+hoyer_1989 <- hoyer_1989 %>%
+  add_model(hst) %>%
+  add_model(hstix100)
