@@ -32,6 +32,12 @@ setMethod("descriptors", "ParametricModel", function(mod) {
 })
 
 
+setMethod("descriptors<-", "ParametricModel", function(mod, value) {
+  mod@specification[!names(mod@specification) %in% names(mod@parameters)] <- value
+  mod
+})
+
+
 setMethod("parameters", "ParametricModel", function(mod) {
   mod@parameters
 })
