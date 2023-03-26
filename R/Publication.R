@@ -63,12 +63,7 @@ Publication <- function(citation, descriptors = list()) {
     response_sets = list()
   )
 
-  publication@id <- paste(
-    tolower(publication@citation$author[[1]]$family),
-    publication@citation$year,
-    sep = "_"
-  )
-
+  publication@id <- citation$key
   publication
 }
 
