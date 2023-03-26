@@ -52,12 +52,18 @@ difficult tasks.
     We always need help *finding publications* to add. If you know of a
     publication that is missing, feel free to add it as an Issue and we
     will eventually install the models contained inside.
-2.  [Help us digitize
+2.  [Find source material for a
+    publication](https://github.com/brycefrank/allometric/labels/missing%20source).
+    Some publications are missing their original source material.
+    Usually these are very old legacy publications. If you know where a
+    publication might be found, or who to contact, leave a note on any
+    of these issues.
+3.  [Help us digitize
     publications](https://github.com/brycefrank/allometric/issues?q=is%3Aissue+is%3Aopen+label%3A%22digitization+needed%22).
     We always need help *digitizing legacy reports*, at this link you
     will find a list of reports that need manual digitization. These can
     be handled by anyone with Excel and a cup of coffee.
-3.  [Learn how to install and write
+4.  [Learn how to install and write
     models](https://brycefrank.com/allometric/articles/installing_a_model.html).
     Motivated users can learn how to install models directly using the
     package functions and git pull requests. Users comfortable with R
