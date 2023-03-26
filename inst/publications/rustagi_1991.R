@@ -1,6 +1,7 @@
 rustagi_1991 <- Publication(
   citation = RefManageR::BibEntry(
     bibtype = "article",
+    key = "rustagi_1991",
     title = "Compatible variable-form volume and stem-profile equations for Douglas-fir",
     author = "Rustagi, Krishna P and Loveless Jr, Robert S",
     journal = "Canadian Journal of Forest Research",

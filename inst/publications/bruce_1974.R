@@ -1,6 +1,7 @@
 bruce_1974 <- Publication(
   citation = RefManageR::BibEntry(
     bibtype = "techreport",
+    key = "bruce_1974",
     title = "Volume equations for second-growth Douglas-fir",
     author = "Bruce, David and DeMars, Donald J",
     volume = 239,

@@ -1,6 +1,7 @@
 chojnacky_1994 <- Publication(
   citation = RefManageR::BibEntry(
     bibtype = "techreport",
+    key = "chojnacky_1994",
     title = "Volume equations for New Mexico's pinyon-juniper dryland forests. Forest Service research paper",
     author = "Chojnacky, DC",
     year = 1994,

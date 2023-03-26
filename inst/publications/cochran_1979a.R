@@ -1,6 +1,7 @@
 cochran_1979a <- Publication(
   citation = RefManageR::BibEntry(
     bibtype = "techreport",
+    key = "cochran_1979a",
     title = "Site index and height growth curves for managed, even-aged stands of white or grand fir east of the Cascades in Oregon and Washington",
     author = "Cochran, PH",
     volume = 252,

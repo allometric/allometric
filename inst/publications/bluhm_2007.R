@@ -1,6 +1,7 @@
 bluhm_2007 <- Publication(
   citation = RefManageR::BibEntry(
     bibtype = "techreport",
+  key = "bluhm_2007",
     title = "Taper equation and volume tables for plantation-grown red alder",
     author = "Bluhm, Andrew A and Garber, Sean M and Hibbs, David E",
     volume = 735,

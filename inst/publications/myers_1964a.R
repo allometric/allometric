@@ -1,6 +1,7 @@
 myers_1964a <- Publication(
   citation = RefManageR::BibEntry(
     bibtype = "techreport",
+    key = "myers_1964a",
     title = "Volume tables and point-sampling factors for ponderosa pine in the Black Hills",
     author = "Myers, Clifford A",
     institution = "Rocky Mountain Forest and Range Experiment Station, Forest Service, US",

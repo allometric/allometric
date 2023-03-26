@@ -1,6 +1,7 @@
 hoyer_1989 <- Publication(
   citation = RefManageR::BibEntry(
     bibtype = "techreport",
+    key = "hoyer_1989",
     title = "Height-age and site index curves for Pacific silver fir in the Pacific Northwest",
     author = "Hoyer, Gerald E and Herman, Francis R",
     volume = 418,

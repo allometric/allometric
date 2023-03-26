@@ -1,6 +1,7 @@
 hann_1987 <- Publication(
   citation = RefManageR::BibEntry(
     bibtype = "techreport",
+    key = "hann_1987",
     title = "Dominant-height-growth and site-index equations for Douglas-fir and ponderosa pine in southwest Oregon",
     author = "Hann, David W and Scrivani, John A and others",
     institution = "Oregon State University",

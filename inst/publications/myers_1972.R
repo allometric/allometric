@@ -1,6 +1,7 @@
 myers_1972 <- Publication(
   citation = RefManageR::BibEntry(
     bibtype = "techreport",
+    key = "myers_1972",
     title = "Volume tables and point-sampling factors for Engelmann spruce in Colorado and Wyoming",
     author = "Myers, Clifford A and Edminster, Carleton B",
     volume = 95,
