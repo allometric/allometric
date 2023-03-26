@@ -21,7 +21,7 @@ refer to the [Installing a
 Model](https://brycefrank.com/allometric/articles/installing_a_model.html)
 vignette.
 
-In total **`allometric` contains 1595 models across 40 publications**,
+In total **`allometric` contains 1596 models across 41 publications**,
 the following table displays the number of models by continent and
 category:
 
@@ -29,7 +29,7 @@ category:
 |:------------------|----:|----:|----:|----:|----:|----:|
 | biomass component |  26 | 136 | 435 |   0 |   0 |   0 |
 | site index        |   0 |   0 |   5 |   0 |   0 |   0 |
-| stem height       |   7 |   0 | 104 |  12 |   2 |  18 |
+| stem height       |   7 |   0 | 105 |  12 |   2 |  18 |
 | stem volume       |   4 |   0 | 575 |   0 |   0 |  20 |
 | stump volume      |   0 |   0 |  64 |   0 |   0 |   0 |
 | taper             |   2 |   0 |  18 |   0 |   0 |   0 |
@@ -52,16 +52,12 @@ difficult tasks.
     We always need help *finding publications* to add. If you know of a
     publication that is missing, feel free to add it as an Issue and we
     will eventually install the models contained inside.
-2.  [Find source material for a publication](https://github.com/brycefrank/allometric/labels/missing%20source).
-    Some publications are missing their original source material. Usually these
-    are very old legacy publications. If you know where a publication might be
-    found, or who to contact, leave a note on any of these issues.
-3.  [Help us digitize
+2.  [Help us digitize
     publications](https://github.com/brycefrank/allometric/issues?q=is%3Aissue+is%3Aopen+label%3A%22digitization+needed%22).
     We always need help *digitizing legacy reports*, at this link you
     will find a list of reports that need manual digitization. These can
     be handled by anyone with Excel and a cup of coffee.
-4.  [Learn how to install and write
+3.  [Learn how to install and write
     models](https://brycefrank.com/allometric/articles/installing_a_model.html).
     Motivated users can learn how to install models directly using the
     package functions and git pull requests. Users comfortable with R
@@ -132,7 +128,7 @@ unnested_models <- unnest_models(allometric_models, cols = "family_name")
 unnested_models
 ```
 
-    #> # A tibble: 3,747 × 12
+    #> # A tibble: 3,748 × 12
     #>    id       model_type   country   region    family       genus       species     model      pub_id        family_name covt_name pub_year
     #>    <chr>    <chr>        <list>    <list>    <chr>        <chr>       <chr>       <list>     <chr>         <chr>       <list>       <dbl>
     #>  1 cd71c0b8 stem height  <chr [1]> <chr [3]> Accipitridae Circus      canadensis  <FxdEffcM> hahn_1984     Hahn        <chr [4]>     1984
@@ -145,7 +141,7 @@ unnested_models
     #>  8 f3698bb3 stem volume  <chr [1]> <chr [3]> Altingiaceae Liquidambar styraciflua <FxdEffcM> hahn_1984     Hahn        <chr [2]>     1984
     #>  9 14d46395 stem volume  <chr [1]> <chr [3]> Altingiaceae Liquidambar styraciflua <FxdEffcM> hahn_1984     Hahn        <chr [2]>     1984
     #> 10 07cbe95e stump volume <chr [1]> <chr [3]> Altingiaceae Liquidambar styraciflua <FxdEffcM> hahn_1984     Hahn        <chr [1]>     1984
-    #> # … with 3,737 more rows
+    #> # … with 3,738 more rows
 
 Now, each row represents unique data combinations for each model, which
 can be quickly filtered by most users using `dplyr::filter`. For
