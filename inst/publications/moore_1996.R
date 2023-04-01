@@ -1,6 +1,7 @@
 moore_1996 <- Publication(
   citation = RefManageR::BibEntry(
     bibtype = "article",
+    key = "moore_1996",
     title = "Height-diameter equations for ten tree species in the Inland Northwest",
     author = "Moore, James A and Zhang, Lianjun and Stuck, Dean",
     journal = "Western Journal of Applied Forestry",

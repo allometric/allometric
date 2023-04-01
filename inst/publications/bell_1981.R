@@ -1,7 +1,7 @@
 
 bell_1981_citation <- RefManageR::BibEntry(
   bibtype = "techreport",
-  key = "brackett_1977",
+  key = "bell_1981",
   title = "Tarif tables for mountain hemlock developed from an equation of total stem cubic-foot volume",
   author = "Bell, John F and Marshall, David D and Johnson, Gregory P",
   year = 1981,

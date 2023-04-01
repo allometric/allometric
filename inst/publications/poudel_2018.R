@@ -1,6 +1,7 @@
 poudel_2018 <- Publication(
   citation = RefManageR::BibEntry(
     bibtype = "article",
+    key = "poudel_2018",
     title = "Estimating upper stem diameters and volume of Douglas-fir and Western hemlock trees in the Pacific northwest",
     author = "Poudel, Krishna P and Temesgen, Hailemariam and Gray, Andrew N",
     journal = "Forest Ecosystems",

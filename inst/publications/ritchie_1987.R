@@ -1,6 +1,7 @@
 ritchie_1987 <- Publication(
   citation = RefManageR::BibEntry(
     bibtype = "techreport",
+    key = "ritche_1987",
     title = "Equations for predicting height to crown base for fourteen tree species in southwest Oregon",
     author = "Ritchie, Martin W and Hann, David W",
     institution = "Oregon State University",

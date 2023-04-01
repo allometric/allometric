@@ -2,6 +2,7 @@
 montero_2005 <- Publication(
   citation = RefManageR::BibEntry(
     bibtype = "techreport",
+    key = "montero_2005",
     title = "Biomass production and CO2 fixation by Spanish forests",
     author = "Montero, Gregorio and Ruiz-Peinado, Ricardo and Munoz, Marta",
     volume = 13,

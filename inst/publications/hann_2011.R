@@ -1,6 +1,7 @@
 hann_2011 <- Publication(
   citation = RefManageR::BibEntry(
     bibtype = "TechReport",
+    key = "hann_2011",
     title = "Revised volume and taper equations for six major conifer species in southwest Oregon",
     author = "Hann, David W",
     institution = "Oregon State University",

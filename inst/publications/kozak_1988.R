@@ -1,6 +1,7 @@
 kozak_1988 <- Publication(
   citation = RefManageR::BibEntry(
     bibtype = "article",
+    key = "kozak_1988",
     title = "A variable-exponent taper equation",
     journal = "Canadian Journal of Forest Research",
     author = "Kozak, A",

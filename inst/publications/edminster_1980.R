@@ -1,7 +1,7 @@
 edminster_1980 <- Publication(
   citation = RefManageR::BibEntry(
     bibtype = "techreport",
-    key =  "edminster_1989",
+    key =  "edminster_1980",
     author = "Edminster, Carleton B and Beeson, Robert T and Metcalf, Gary E",
     title = "Volume tables and point-sampling factors for ponderosa pine in the Front Range of Colorado",
     volume = 218,

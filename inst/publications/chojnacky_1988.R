@@ -1,6 +1,7 @@
 chojnacky_1988 <- Publication(
   citation = RefManageR::BibEntry(
     bibtype = "techreport",
+    key = "chojnacky_1988",
     title = "Juniper, pinyon, oak, and mesquite volume equations for Arizona",
     author = "Chojnacky, David C",
     volume = 391,
