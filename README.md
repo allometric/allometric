@@ -1,10 +1,11 @@
 
 # allometric
 
-<picture>
-<source media="(prefers-color-scheme: dark)" srcset="man/figures/allo2-darkmode.svg">
-<source media="(prefers-color-scheme: light)" srcset="man/figures/allo2.svg">
-\<img alt=“Isometric logo of a tree”, height=“139”\> </picture>
+<picture> \<source media=“(prefers-color-scheme: dark)”
+srcset=“man/figures/allo2-darkmode.svg”, height = “139”, align=“right”\>
+\<source media=“(prefers-color-scheme: light)”
+srcset=“man/figures/allo2.svg”, height = “139”, align = “right”\>
+<img alt="Isometric logo of a tree"> </picture>
 
 <!-- badges: start -->
 
