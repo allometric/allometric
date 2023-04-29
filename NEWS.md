@@ -1,5 +1,14 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+## Features
+
+- Adding barrett_1978, closes #98.
+
+- Adding curtis_1990, closes #97.
+
+- Adding dahms_1964, closes #96.
+
+
 # allometric 1.0.0.9007 (2023-04-01)
 
 - Same as previous version.
