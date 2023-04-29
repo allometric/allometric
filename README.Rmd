@@ -52,7 +52,7 @@ model_summ.fmt <- bind_rows(
 
 ```
 
-# allometric <a href="https://brycefrank.com/allometric/"><img src='man/figures/logo.svg' align="right" height="139"/></a>
+# allometric <a href="https://brycefrank.com/allometric/"><img src='man/figures/allometric.svg' align="right" height="139"/></a>
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml)
