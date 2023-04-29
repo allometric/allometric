@@ -1,3 +1,31 @@
+
+
+#' Retrieve all publication file names in the publication subdirectories
+#'
+#' The publication subdirectories divide the publications into groups sorted
+#' by last name. This function returns the publication file paths in alphabetic
+#' order.
+#'
+#' @keywords internal
+get_pub_file_spec <- function(pub_path) {
+  sub_dirs <- list.files(pub_path)
+  pub_paths <- c()
+  pub_names <- c()
+
+  for(dir in sub_dirs) {
+    dir_path <- file.path(pub_path, dir)
+    
+    names <- list.files(dir_path)
+    paths <- file.path(dir_path, names)
+    
+    pub_paths <- c(pub_paths, paths)
+    pub_names <- c(pub_names, names)
+  }
+
+  list(pub_paths = pub_paths, pub_names = pub_names)
+}
+
+
 #' Determines which publication files need to be ran for installation
 #'
 #' The pub_list is regenerated if any files in inst/publications have been
@@ -9,8 +37,10 @@ get_run_pubs <- function(ignore_cache = FALSE, verbose = FALSE) {
   pub_list_path <- system.file("extdata/pub_list.RDS", package = "allometric")
   pub_path <- system.file("publications", package = "allometric")
 
-  pub_file_names <- list.files(pub_path)
-  pub_file_paths <- file.path(pub_path, pub_file_names)
+  pub_file_spec <- get_pub_file_spec(pub_path)
+  pub_file_names <- pub_file_spec$pub_names
+  pub_file_paths <- pub_file_spec$pub_paths
+
   file_info <- file.info(pub_file_paths)
   pub_info <- file.info(pub_list_path)
 

@@ -11,7 +11,7 @@ test_that("update_pub_list produces a pub_list.RDS file that contains all public
 
   pubs <- readRDS(pub_list_path)
   pubs_path <- system.file("publications", package="allometric")
-  n_files <- length(list.files(pubs_path))
+  n_files <- length( get_pub_file_spec(pubs_path)$pub_paths )
 
   expect_equal(n_files, length(pubs))
   expect_true(file.exists(pub_list_path))
