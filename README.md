@@ -1,5 +1,5 @@
 
-# allometric <picture><source media="(prefers-color-scheme: dark)" srcset="man/figures/allo2-darkmode.svg"><source media="(prefers-color-scheme: light)" srcset="man/figures/allo2.svg"><img alt="Isometric logo of a tree" height="139" align="right"></picture>
+# allometric <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/brycefrank/allometric/master/man/figures/allo2-darkmode.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/brycefrank/allometric/master/man/figures/allo2.svg"><img alt="Isometric logo of a tree" height="210" width="165" align="right"></picture>
 
 <!-- badges: start -->
 
