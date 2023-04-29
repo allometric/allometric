@@ -1,6 +1,6 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
-## Features
+# Features
 
 - Adding barrett_1978, closes #98.
 

@@ -1,5 +1,10 @@
 
-# allometric <a href="https://brycefrank.com/allometric/"><img src='man/figures/allometric.svg' align="right" height="139"/></a>
+# allometric
+
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="man/figures/allo2-darkmode.svg">
+<source media="(prefers-color-scheme: light)" srcset="man/figures/allo2.svg">
+\<img alt=“Isometric logo of a tree”, height=“139”\> </picture>
 
 <!-- badges: start -->
 
