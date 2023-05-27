@@ -1,5 +1,23 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# allometric 1.0.0.9008 (2023-05-27)
+
+## Features
+
+- Adding curtis_1974, closes #106.
+
+- Adding barrett_1978, closes #98.
+
+- Adding curtis_1990, closes #97.
+
+- Adding dahms_1964, closes #96.
+
+## Uncategorized
+
+- Merge branch 'master' of https://github.com/brycefrank/allometric.
+
+
+
 # Features
 
 - Adding barrett_1978, closes #98.
