@@ -4,7 +4,7 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml)
-[![](https://img.shields.io/badge/devel%20version-1.0.0.9007-blue.svg)](https://github.com/brycefrank/allometric)
+[![](https://img.shields.io/badge/devel%20version-1.0.0.9008-blue.svg)](https://github.com/brycefrank/allometric)
 [![codecov](https://codecov.io/gh/brycefrank/allometric/branch/master/graph/badge.svg?token=3V5KUFMO2X)](https://codecov.io/gh/brycefrank/allometric)
 <!-- badges: end -->
 
