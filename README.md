@@ -1,5 +1,5 @@
 
-# allometric <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/brycefrank/allometric/master/man/figures/allo2-darkmode.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/brycefrank/allometric/master/man/figures/allo2.svg"><img alt="Isometric logo of a tree" height="210" width="165" align="right"></picture>
+# allometric <picture><source media="(prefers-color-scheme: dark)" srcset="https  "><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/brycefrank/allometric/master/man/figures/allo2.svg"><img alt="Isometric logo of a tree" height="210" width="165" align="right"></picture>
 
 <!-- badges: start -->
 
@@ -21,14 +21,14 @@ refer to the [Installing a
 Model](https://brycefrank.com/allometric/articles/installing_a_model.html)
 vignette.
 
-In total **`allometric` contains 1602 models across 46 publications**,
+In total **`allometric` contains 1606 models across 49 publications**,
 the following table displays the number of models by continent and
 category:
 
 | category          |  AS |  EU |  NA |  AF |  OC |  SA |
 |:------------------|----:|----:|----:|----:|----:|----:|
 | biomass component |  26 | 136 | 435 |   0 |   0 |   0 |
-| site index        |   0 |   0 |  11 |   0 |   0 |   0 |
+| site index        |   0 |   0 |  16 |   0 |   0 |   0 |
 | stem height       |   7 |   0 | 105 |  12 |   2 |  18 |
 | stem volume       |   4 |   0 | 575 |   0 |   0 |  20 |
 | stump volume      |   0 |   0 |  64 |   0 |   0 |   0 |
@@ -134,7 +134,7 @@ unnested_models <- unnest_models(allometric_models, cols = "family_name")
 unnested_models
 ```
 
-    #> # A tibble: 3,758 × 12
+    #> # A tibble: 3,766 × 12
     #>    id       model_type   country   region    family       genus       species     model      pub_id        family_name covt_name pub_year
     #>    <chr>    <chr>        <list>    <list>    <chr>        <chr>       <chr>       <list>     <chr>         <chr>       <list>       <dbl>
     #>  1 cd71c0b8 stem height  <chr [1]> <chr [3]> Accipitridae Circus      canadensis  <FxdEffcM> hahn_1984     Hahn        <chr [4]>     1984
@@ -147,7 +147,7 @@ unnested_models
     #>  8 f3698bb3 stem volume  <chr [1]> <chr [3]> Altingiaceae Liquidambar styraciflua <FxdEffcM> hahn_1984     Hahn        <chr [2]>     1984
     #>  9 14d46395 stem volume  <chr [1]> <chr [3]> Altingiaceae Liquidambar styraciflua <FxdEffcM> hahn_1984     Hahn        <chr [2]>     1984
     #> 10 07cbe95e stump volume <chr [1]> <chr [3]> Altingiaceae Liquidambar styraciflua <FxdEffcM> hahn_1984     Hahn        <chr [1]>     1984
-    #> # … with 3,748 more rows
+    #> # … with 3,756 more rows
 
 Now, each row represents unique data combinations for each model, which
 can be quickly filtered by most users using `dplyr::filter`. For
