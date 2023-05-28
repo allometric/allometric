@@ -27,7 +27,7 @@ eq3_lte100 <- FixedEffectsModel(
     hst = units::as_units("ft"),
     atb = units::as_units("years")
   ),
-  parameters = list(
+  parameters = c(
     alpha_1 = 0.010006,
     beta_1 = 1,
     beta_2 = 0.00549779,
