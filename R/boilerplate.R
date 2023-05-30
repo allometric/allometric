@@ -78,7 +78,6 @@ generate_footer <- function(pub_id, n_fixef_models) {
 }
 
 generate_pub <- function(pub_id, bibtype, n_fixef_models = 0) {
-  ## TODO do the dir finding
   pub_obj <- generate_pub_obj(pub_id, bibtype)
   text <- c(pub_obj, "")
 

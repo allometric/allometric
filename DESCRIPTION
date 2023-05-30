@@ -26,6 +26,7 @@ Imports:
 Collate:
     'data.R'
     'utils-pipe.R'
+    'boilerplate.R'
     'all_generics.R'
     'validity_checks.R'
     'model_tbl.R'
