@@ -3,6 +3,7 @@
 S3method(select_model,model_tbl)
 S3method(unnest_models,model_tbl)
 export("%>%")
+export("descriptors<-")
 export(AllometricModel)
 export(FixedEffectsModel)
 export(FixedEffectsSet)

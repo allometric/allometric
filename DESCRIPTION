@@ -4,7 +4,7 @@ Version: 1.0.0.9008
 Authors@R: 
     person("Bryce", "Frank", , "bfrank70@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-2980-6860"))
-Description: What the package does (one paragraph).
+Description: Predict tree attributes with allometric models.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE, knitr_chunk_options = list(R.options = list(width = 10000)))
@@ -51,3 +51,5 @@ Config/testthat/edition: 3
 Depends: 
     R (>= 2.10)
 LazyData: true
+BugReports: https://github.com/brycefrank/allometric/issues
+Contact: bfrank70@gmail.com
