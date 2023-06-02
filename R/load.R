@@ -21,11 +21,11 @@ load_publication <- function(pub_id) {
 
 #' A table of installed allometric models
 #'
-#' `allometric_models`is a `model_tbl` containing every installed
+#' `allometric_models` is a `model_tbl` containing every installed
 #' allometric model in `allometric`. It is available globally on package load.
 #' If not, run the `install_models` function which will install the models and
 #' expose the `allometric_models` table in your session. This table behaves
-#' very much like a `tibble::tbl_df` or a `data.frame``, and most functions that
+#' very much like a `tibble::tbl_df` or a `data.frame`, and most functions that
 #' work on these will work on `allometric_models` as well.
 #'
 #' Printing the `head` of `allometric_models`, we can see the structure of the
