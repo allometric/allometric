@@ -21,7 +21,7 @@ refer to the [Installing a
 Model](https://brycefrank.com/allometric/articles/installing_a_model.html)
 vignette.
 
-In total **`allometric` contains 1608 models across 51 publications**,
+In total **`allometric` contains 1756 models across 52 publications**,
 the following table displays the number of models by continent and
 category:
 
@@ -29,7 +29,7 @@ category:
 |:------------------|----:|----:|----:|----:|----:|----:|
 | biomass component |  26 | 136 | 435 |   0 |   0 |   0 |
 | site index        |   0 |   0 |  18 |   0 |   0 |   0 |
-| stem height       |   7 |   0 | 105 |  12 |   2 |  18 |
+| stem height       |   7 |   0 | 253 |  12 |   2 |  18 |
 | stem volume       |   4 |   0 | 575 |   0 |   0 |  20 |
 | stump volume      |   0 |   0 |  64 |   0 |   0 |   0 |
 | taper             |   2 |   0 |  18 |   0 |   0 |   0 |
@@ -104,14 +104,14 @@ head(allometric_models)
 ```
 
     #> # A tibble: 6 × 12
-    #>   id       model_type   country   region    family       genus  species    model      pub_id        family_name covt_name pub_year
-    #>   <chr>    <chr>        <list>    <list>    <chr>        <chr>  <chr>      <list>     <chr>         <list>      <list>       <dbl>
-    #> 1 cd71c0b8 stem height  <chr [1]> <chr [3]> Accipitridae Circus canadensis <FxdEffcM> hahn_1984     <chr [1]>   <chr [4]>     1984
-    #> 2 7bc0e06a stem volume  <chr [1]> <chr [3]> Accipitridae Circus canadensis <FxdEffcM> hahn_1984     <chr [1]>   <chr [2]>     1984
-    #> 3 1fa4219a stem volume  <chr [1]> <chr [3]> Accipitridae Circus canadensis <FxdEffcM> hahn_1984     <chr [1]>   <chr [2]>     1984
-    #> 4 b359d3ce stump volume <chr [1]> <chr [3]> Accipitridae Circus canadensis <FxdEffcM> hahn_1984     <chr [1]>   <chr [1]>     1984
-    #> 5 fb5c4575 stem ratio   <chr [1]> <chr [3]> Accipitridae Circus canadensis <FxdEffcM> hahn_1984     <chr [1]>   <chr [1]>     1984
-    #> 6 218a0299 stem volume  <chr [1]> <chr [1]> Aceraceae    Acer   <NA>       <FxdEffcM> brackett_1977 <chr [1]>   <chr [2]>     1977
+    #>   id       model_type   country   region    family       genus  species      model      pub_id    family_name covt_name pub_year
+    #>   <chr>    <chr>        <list>    <list>    <chr>        <chr>  <chr>        <list>     <chr>     <list>      <list>       <dbl>
+    #> 1 cd71c0b8 stem height  <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984 <chr [1]>   <chr [4]>     1984
+    #> 2 7bc0e06a stem volume  <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984 <chr [1]>   <chr [2]>     1984
+    #> 3 1fa4219a stem volume  <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984 <chr [1]>   <chr [2]>     1984
+    #> 4 b359d3ce stump volume <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984 <chr [1]>   <chr [1]>     1984
+    #> 5 fb5c4575 stem ratio   <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984 <chr [1]>   <chr [1]>     1984
+    #> 6 66a8d3f8 stem height  <chr [1]> <chr [2]> Aceraceae    Acer   macrophyllum <FxdEffcM> fvs_2008  <chr [1]>   <chr [1]>     2008
 
 **Finding and Selecting a Model**
 
@@ -134,20 +134,20 @@ unnested_models <- unnest_models(allometric_models, cols = "family_name")
 unnested_models
 ```
 
-    #> # A tibble: 3,769 × 12
-    #>    id       model_type   country   region    family       genus       species     model      pub_id        family_name covt_name pub_year
-    #>    <chr>    <chr>        <list>    <list>    <chr>        <chr>       <chr>       <list>     <chr>         <chr>       <list>       <dbl>
-    #>  1 cd71c0b8 stem height  <chr [1]> <chr [3]> Accipitridae Circus      canadensis  <FxdEffcM> hahn_1984     Hahn        <chr [4]>     1984
-    #>  2 7bc0e06a stem volume  <chr [1]> <chr [3]> Accipitridae Circus      canadensis  <FxdEffcM> hahn_1984     Hahn        <chr [2]>     1984
-    #>  3 1fa4219a stem volume  <chr [1]> <chr [3]> Accipitridae Circus      canadensis  <FxdEffcM> hahn_1984     Hahn        <chr [2]>     1984
-    #>  4 b359d3ce stump volume <chr [1]> <chr [3]> Accipitridae Circus      canadensis  <FxdEffcM> hahn_1984     Hahn        <chr [1]>     1984
-    #>  5 fb5c4575 stem ratio   <chr [1]> <chr [3]> Accipitridae Circus      canadensis  <FxdEffcM> hahn_1984     Hahn        <chr [1]>     1984
-    #>  6 218a0299 stem volume  <chr [1]> <chr [1]> Aceraceae    Acer        <NA>        <FxdEffcM> brackett_1977 Brackett    <chr [2]>     1977
-    #>  7 6321e7d1 stem height  <chr [1]> <chr [3]> Altingiaceae Liquidambar styraciflua <FxdEffcM> hahn_1984     Hahn        <chr [4]>     1984
-    #>  8 f3698bb3 stem volume  <chr [1]> <chr [3]> Altingiaceae Liquidambar styraciflua <FxdEffcM> hahn_1984     Hahn        <chr [2]>     1984
-    #>  9 14d46395 stem volume  <chr [1]> <chr [3]> Altingiaceae Liquidambar styraciflua <FxdEffcM> hahn_1984     Hahn        <chr [2]>     1984
-    #> 10 07cbe95e stump volume <chr [1]> <chr [3]> Altingiaceae Liquidambar styraciflua <FxdEffcM> hahn_1984     Hahn        <chr [1]>     1984
-    #> # ℹ 3,759 more rows
+    #> # A tibble: 3,917 × 12
+    #>    id       model_type   country   region    family       genus  species      model      pub_id        family_name covt_name pub_year
+    #>    <chr>    <chr>        <list>    <list>    <chr>        <chr>  <chr>        <list>     <chr>         <chr>       <list>       <dbl>
+    #>  1 cd71c0b8 stem height  <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984     Hahn        <chr [4]>     1984
+    #>  2 7bc0e06a stem volume  <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984     Hahn        <chr [2]>     1984
+    #>  3 1fa4219a stem volume  <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984     Hahn        <chr [2]>     1984
+    #>  4 b359d3ce stump volume <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984     Hahn        <chr [1]>     1984
+    #>  5 fb5c4575 stem ratio   <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984     Hahn        <chr [1]>     1984
+    #>  6 66a8d3f8 stem height  <chr [1]> <chr [2]> Aceraceae    Acer   macrophyllum <FxdEffcM> fvs_2008      Staff       <chr [1]>     2008
+    #>  7 ab39a39f stem height  <chr [1]> <chr [2]> Aceraceae    Acer   macrophyllum <FxdEffcM> fvs_2008      Staff       <chr [1]>     2008
+    #>  8 9f940e59 stem height  <chr [1]> <chr [2]> Aceraceae    Acer   macrophyllum <FxdEffcM> fvs_2008      Staff       <chr [1]>     2008
+    #>  9 84a32efd stem height  <chr [1]> <chr [2]> Aceraceae    Acer   macrophyllum <FxdEffcM> fvs_2008      Staff       <chr [1]>     2008
+    #> 10 218a0299 stem volume  <chr [1]> <chr [1]> Aceraceae    Acer   <NA>         <FxdEffcM> brackett_1977 Brackett    <chr [2]>     1977
+    #> # ℹ 3,907 more rows
 
 Now, each row represents unique data combinations for each model, which
 can be quickly filtered by most users using `dplyr::filter`. For
