@@ -1,5 +1,30 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# allometric 1.0.0.9009 (2023-06-02)
+
+## Bug fixes
+
+- Parameters and descriptors of ParametricModel are coerced to list before coercing to tibble, allows for use of named vectors. closes #99.
+
+## Features
+
+- Adding fvs PN variant height models, updates #113.
+
+- Adding harrington_1986, closes #111.
+
+- Added a basic boilerplate generator, closes #110.
+
+- Added cochran_1985, closes #104.
+
+## Documentation
+
+- Switching theme to preferably.
+
+- Removing auto-generated model reference pages, related code, and tests closes #112.
+
+- Fixing darkmode logo.
+
+
 # allometric 1.0.0.9008 (2023-05-27)
 
 ## Features
