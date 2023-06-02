@@ -4,11 +4,12 @@
 \alias{allometric_models}
 \title{A table of installed allometric models}
 \description{
-\code{allometric_models}is a \code{model_tbl} containing every installed
+\code{allometric_models} is a \code{model_tbl} containing every installed
 allometric model in \code{allometric}. It is available globally on package load.
 If not, run the \code{install_models} function which will install the models and
 expose the \code{allometric_models} table in your session. This table behaves
-very much like a \code{tibble::tbl_df} or a \verb{data.frame``, and most functions that work on these will work on }allometric_models` as well.
+very much like a \code{tibble::tbl_df} or a \code{data.frame}, and most functions that
+work on these will work on \code{allometric_models} as well.
 }
 \details{
 Printing the \code{head} of \code{allometric_models}, we can see the structure of the
@@ -16,14 +17,14 @@ data
 
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{head(allometric_models)
 #> # A tibble: 6 x 12
-#>   id       model_type   country   region    family       genus  species    model      pub_id        family_name covt_name pub_year
-#>   <chr>    <chr>        <list>    <list>    <chr>        <chr>  <chr>      <list>     <chr>         <list>      <list>       <dbl>
-#> 1 cd71c0b8 stem height  <chr [1]> <chr [3]> Accipitridae Circus canadensis <FxdEffcM> hahn_1984     <chr [1]>   <chr [4]>     1984
-#> 2 7bc0e06a stem volume  <chr [1]> <chr [3]> Accipitridae Circus canadensis <FxdEffcM> hahn_1984     <chr [1]>   <chr [2]>     1984
-#> 3 1fa4219a stem volume  <chr [1]> <chr [3]> Accipitridae Circus canadensis <FxdEffcM> hahn_1984     <chr [1]>   <chr [2]>     1984
-#> 4 b359d3ce stump volume <chr [1]> <chr [3]> Accipitridae Circus canadensis <FxdEffcM> hahn_1984     <chr [1]>   <chr [1]>     1984
-#> 5 fb5c4575 stem ratio   <chr [1]> <chr [3]> Accipitridae Circus canadensis <FxdEffcM> hahn_1984     <chr [1]>   <chr [1]>     1984
-#> 6 218a0299 stem volume  <chr [1]> <chr [1]> Aceraceae    Acer   <NA>       <FxdEffcM> brackett_1977 <chr [1]>   <chr [2]>     1977
+#>   id       model_type   country   region    family       genus  species      model      pub_id    family_name covt_name pub_year
+#>   <chr>    <chr>        <list>    <list>    <chr>        <chr>  <chr>        <list>     <chr>     <list>      <list>       <dbl>
+#> 1 cd71c0b8 stem height  <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984 <chr [1]>   <chr [4]>     1984
+#> 2 7bc0e06a stem volume  <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984 <chr [1]>   <chr [2]>     1984
+#> 3 1fa4219a stem volume  <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984 <chr [1]>   <chr [2]>     1984
+#> 4 b359d3ce stump volume <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984 <chr [1]>   <chr [1]>     1984
+#> 5 fb5c4575 stem ratio   <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984 <chr [1]>   <chr [1]>     1984
+#> 6 66a8d3f8 stem height  <chr [1]> <chr [2]> Aceraceae    Acer   macrophyllum <FxdEffcM> fvs_2008  <chr [1]>   <chr [1]>     2008
 }\if{html}{\out{</div>}}
 
 The columns are:
@@ -66,7 +67,7 @@ unnest_family \%>\% dplyr::filter(family_name == "Hann")
 #>  8 91bc2435 crown ratio    <chr [1]> <chr [1]> Fagaceae     Quercus          chrysolepis  <FxdEffcM> ritche_1987 Hann        <chr [1]>     1987
 #>  9 31653285 crown ratio    <chr [1]> <chr [1]> Fagaceae     Quercus          garryana     <FxdEffcM> ritche_1987 Hann        <chr [1]>     1987
 #> 10 089cb0da crown ratio    <chr [1]> <chr [1]> Fagaceae     Quercus          kelloggii    <FxdEffcM> ritche_1987 Hann        <chr [3]>     1987
-#> # ... with 40 more rows
+#> # i 40 more rows
 }\if{html}{\out{</div>}}
 
 Any column or any combination of columns can be unnested, which allows for
@@ -156,7 +157,7 @@ available tree measurements.
 )
 
 nrow(dia_ht_models)
-#> [1] 40
+#> [1] 188
 }\if{html}{\out{</div>}}
 
 Breaking this down, we have the first condition \code{model_type=='stem_height'} selecting
@@ -165,7 +166,7 @@ maps over each element of the \code{covt_name} column, which is a character vect
 The \code{.} represents a given character vector for that row. First, we ensure that
 the vector is only one element in size using \code{length(.)==1}, then we ensure that
 the first (and only) element of this vector is equal to \code{'dsob'}, (diameter
-outside bark at breast height). In this case, 40 are
+outside bark at breast height). In this case, 188 are
 available in the package.
 }
 
@@ -181,10 +182,10 @@ data from \code{US-OR}
 )
 
 nrow(us_or_models)
-#> [1] 174
+#> [1] 323
 }\if{html}{\out{</div>}}
 
-We can see that 174 allometric models are defined for the
+We can see that 323 allometric models are defined for the
 state of Oregon, US.
 }
 }

@@ -33,24 +33,23 @@ curtis_arney_not_df <- FixedEffectsSet(
     dplyr::filter(genus != "Pseudotsuga")
 )
 
-curtis_arney_df <- FixedEffectsModel(
-  response_unit = list(
-    hst = units::as_units("ft")
-  ),
-  covariate_units = list(
-    dsob = units::as_units("in")
-  ),
-  parameters = list(
-    p2 = 1091.853,
-    p3 = 5.2936,
-    p4 = -0.2648
-  ),
-  predict_fn = function(dsob) {
-    
-  }
-)
+#curtis_arney_df <- FixedEffectsModel(
+#  response_unit = list(
+#    hst = units::as_units("ft")
+#  ),
+#  covariate_units = list(
+#    dsob = units::as_units("in")
+#  ),
+#  parameters = list(
+#    p2 = 1091.853,
+#    p3 = 5.2936,
+#    p4 = -0.2648
+#  ),
+#  predict_fn = function(dsob) {
+#    
+#  }
+#)
 
 
 fvs_2008 <- fvs_2008 %>%
-  add_set(curtis_arney_not_df) %>%
-  add_model(curtis_arney_df)
+  add_set(curtis_arney_not_df)
