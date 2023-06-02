@@ -1,6 +1,7 @@
 url: http://brycefrank.com/allometric
 template:
   bootstrap: 5.0
+  package: preferably
 reference:
 - title: Analysis Functions
   desc: These functions are used to conduct inventory analysis with allometric models.

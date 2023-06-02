@@ -67,18 +67,6 @@
     <loc>http://brycefrank.com/allometric/reference/allometric_models.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/bell_1981.html</loc>
-  </url>
-  <url>
-    <loc>http://brycefrank.com/allometric/reference/bluhm_2007.html</loc>
-  </url>
-  <url>
-    <loc>http://brycefrank.com/allometric/reference/brackett_1977.html</loc>
-  </url>
-  <url>
-    <loc>http://brycefrank.com/allometric/reference/bruce_1974.html</loc>
-  </url>
-  <url>
     <loc>http://brycefrank.com/allometric/reference/check_args_in_predict_fn.html</loc>
   </url>
   <url>
@@ -115,24 +103,6 @@
     <loc>http://brycefrank.com/allometric/reference/check_valid_search_str.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/chittester_1984.html</loc>
-  </url>
-  <url>
-    <loc>http://brycefrank.com/allometric/reference/chojnacky_1985.html</loc>
-  </url>
-  <url>
-    <loc>http://brycefrank.com/allometric/reference/chojnacky_1988.html</loc>
-  </url>
-  <url>
-    <loc>http://brycefrank.com/allometric/reference/chojnacky_1994.html</loc>
-  </url>
-  <url>
-    <loc>http://brycefrank.com/allometric/reference/delcourt_2022.html</loc>
-  </url>
-  <url>
-    <loc>http://brycefrank.com/allometric/reference/feldpausch_2012.html</loc>
-  </url>
-  <url>
     <loc>http://brycefrank.com/allometric/reference/fia_trees.html</loc>
   </url>
   <url>
@@ -157,43 +127,7 @@
     <loc>http://brycefrank.com/allometric/reference/get_variable_def.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/hahn_1984.html</loc>
-  </url>
-  <url>
-    <loc>http://brycefrank.com/allometric/reference/hahn_1991.html</loc>
-  </url>
-  <url>
-    <loc>http://brycefrank.com/allometric/reference/hann_1978.html</loc>
-  </url>
-  <url>
-    <loc>http://brycefrank.com/allometric/reference/hann_1987.html</loc>
-  </url>
-  <url>
-    <loc>http://brycefrank.com/allometric/reference/hann_2011.html</loc>
-  </url>
-  <url>
-    <loc>http://brycefrank.com/allometric/reference/hibbs_2007.html</loc>
-  </url>
-  <url>
-    <loc>http://brycefrank.com/allometric/reference/huynh_2022.html</loc>
-  </url>
-  <url>
-    <loc>http://brycefrank.com/allometric/reference/huy_2019.html</loc>
-  </url>
-  <url>
-    <loc>http://brycefrank.com/allometric/reference/iffsc_2022.html</loc>
-  </url>
-  <url>
     <loc>http://brycefrank.com/allometric/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>http://brycefrank.com/allometric/reference/kozak_1988.html</loc>
-  </url>
-  <url>
-    <loc>http://brycefrank.com/allometric/reference/krisnawati_2016.html</loc>
-  </url>
-  <url>
-    <loc>http://brycefrank.com/allometric/reference/lambert_2005.html</loc>
   </url>
   <url>
     <loc>http://brycefrank.com/allometric/reference/MixedEffectsModel.html</loc>
@@ -205,28 +139,10 @@
     <loc>http://brycefrank.com/allometric/reference/model_call.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/montero_2005.html</loc>
-  </url>
-  <url>
-    <loc>http://brycefrank.com/allometric/reference/moore_1996.html</loc>
-  </url>
-  <url>
-    <loc>http://brycefrank.com/allometric/reference/myers_1964.html</loc>
-  </url>
-  <url>
-    <loc>http://brycefrank.com/allometric/reference/myers_1972.html</loc>
-  </url>
-  <url>
     <loc>http://brycefrank.com/allometric/reference/ParametricModel.html</loc>
   </url>
   <url>
     <loc>http://brycefrank.com/allometric/reference/pipe.html</loc>
-  </url>
-  <url>
-    <loc>http://brycefrank.com/allometric/reference/poudel_2018.html</loc>
-  </url>
-  <url>
-    <loc>http://brycefrank.com/allometric/reference/poudel_2019.html</loc>
   </url>
   <url>
     <loc>http://brycefrank.com/allometric/reference/predict.html</loc>
@@ -251,17 +167,5 @@
   </url>
   <url>
     <loc>http://brycefrank.com/allometric/reference/test.html</loc>
-  </url>
-  <url>
-    <loc>http://brycefrank.com/allometric/reference/turner_2000.html</loc>
-  </url>
-  <url>
-    <loc>http://brycefrank.com/allometric/reference/uller_2019.html</loc>
-  </url>
-  <url>
-    <loc>http://brycefrank.com/allometric/reference/ung_2008.html</loc>
-  </url>
-  <url>
-    <loc>http://brycefrank.com/allometric/reference/vibrans_2015.html</loc>
   </url>
 </urlset>
