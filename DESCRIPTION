@@ -44,7 +44,6 @@ Collate:
     'MixedEffectsModel.R'
     'Publication.R'
     'update_models.R'
-    'update_references.R'
     'zzz.R'
 Suggests: 
     testthat (>= 3.0.0)
