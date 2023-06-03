@@ -1,6 +1,6 @@
 url: http://brycefrank.com/allometric
 template:
-  bootstrap: 5.0
+  bootstrap: 3.0
   package: preferably
 reference:
 - title: Analysis Functions
