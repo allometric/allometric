@@ -11,7 +11,7 @@ reference:
   - predict_allo
   - model_call
 - title: Contributor Functions
-  desc: These functiosn are used to contribute and install models in `allometric`
+  desc: These functions are used to contribute and install models in `allometric`
   contents:
   - add_model
   - add_set
