@@ -2,7 +2,7 @@ fvs_2008 <- Publication(
   citation = RefManageR::BibEntry(
     key = "fvs_2008",
     bibtype = "techreport",
-    title = "Pacific Northwest Coast (PN) Variant Overview – Forest Vegetation Simulator",
+    title = "Pacific Northwest Coast (PN) Variant Overview - Forest Vegetation Simulator",
     author = "FVS Staff",
     year = 2008,
     institution = "U.S. Department of Agriculture, Forest Service, Forest Management Service Center"
@@ -29,7 +29,7 @@ curtis_arney_not_df <- FixedEffectsSet(
       ((4.5 + p2 * exp(-p3 * 3^p4) - 4.51) * ((dsob - 0.3) / 2.7)) + 4.51
     }
   },
-  model_specifications = load_parameter_frame("fvs_hst_2008_1") %>%
+  model_specifications = load_parameter_frame("hst_fvs_2008_1") %>%
     dplyr::filter(
       (
         genus == "Pseudotsuga" &
@@ -53,13 +53,14 @@ curtis_arney_df <- FixedEffectsSet(
       ((4.5 + p2 * exp(-p3 * 5^p4) - 4.51) * (dsob - 0.3) / 4.7) + 4.51
     }
   },
-  model_specifications = load_parameter_frame("fvs_hst_2008_1") %>%
+  model_specifications = load_parameter_frame("hst_fvs_2008_1") %>%
     dplyr::filter(
       genus == "Pseudotsuga" &
       geographic_region %in% c("612 Siuslaw, 712 BLM Coos", "708 BLM Salem")
     )
 )
 
+# Eq. 4.1.2
 wykoff <- FixedEffectsSet(
   response_unit = list(
     hst = units::as_units("ft")
@@ -71,12 +72,31 @@ wykoff <- FixedEffectsSet(
   predict_fn = function(dsob) {
     4.5 + exp(b1 + b2 / (dsob + 1))
   },
-  load_parameter_frame("fvs_hst_2008_2")
+  load_parameter_frame("hst_fvs_2008_2")
+)
+
+# Eq. 4.1.3. first group
+first_413 <- FixedEffectsSet(
+  response_unit = list(
+    hst = units::as_units("ft")
+  ),
+  covariate_units = list(
+    dsob = units::as_units("in"),
+    rc = units::as_units("ft/ft")
+  ),
+  parameter_names = c("h1", "h2", "h3", "h4", "h5"),
+  predict_fn = function(dsob, rc) {
+    exp(h1 + (h2 * dsob) + (h3 * rc * 100) + (h4 * dsob^2) + h5)
+  },
+  load_parameter_frame("hst_fvs_2008_3")
 )
 
 
+# Eq. 4.1.3. second group
 
+# Eq. 4.1.3. third group
 fvs_2008 <- fvs_2008 %>%
   add_set(curtis_arney_not_df) %>%
   add_set(curtis_arney_df) %>%
-  add_set(wykoff)
+  add_set(wykoff) %>%
+  add_set(first_413)
