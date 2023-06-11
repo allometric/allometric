@@ -33,7 +33,7 @@ curtis_arney_not_df <- FixedEffectsSet(
     dplyr::filter(
       (
         genus == "Pseudotsuga" &
-        !geographic_region %in% c("612 – Siuslaw, 712 – BLM Coos", "708 – BLM Salem")
+        !geographic_region %in% c("612 - Siuslaw, 712 - BLM Coos", "708 - BLM Salem")
       ) | genus != "Pseudotsuga"
     )
 )
@@ -56,7 +56,7 @@ curtis_arney_df <- FixedEffectsSet(
   model_specifications = load_parameter_frame("hst_fvs_2008_1") %>%
     dplyr::filter(
       genus == "Pseudotsuga" &
-      geographic_region %in% c("612 – Siuslaw, 712 – BLM Coos", "708 – BLM Salem")
+      geographic_region %in% c("612 - Siuslaw, 712 - BLM Coos", "708 - BLM Salem")
     )
 )
 
