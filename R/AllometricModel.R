@@ -42,10 +42,6 @@ component_def <- data.frame(
   component_label = c("stem", "branch", "foliage", "crown", "stand", "plot", "tree", "bark", "root", "stump")
 )
 
-# This obviously has combinations that will never be used, this should be
-# prevented at the administration phase
-measure_component_def <- merge(measure_def, component_def)
-
 #' Gets the model type for a response name.
 #'
 #' From the variable naming system, return the model type. Model types are

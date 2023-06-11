@@ -33,7 +33,7 @@ curtis_arney_not_df <- FixedEffectsSet(
     dplyr::filter(
       (
         genus == "Pseudotsuga" &
-        !geographic_region %in% c("612 Siuslaw, 712 BLM Coos", "708 BLM Salem")
+        !geographic_region %in% c("612 – Siuslaw, 712 – BLM Coos", "708 – BLM Salem")
       ) | genus != "Pseudotsuga"
     )
 )
@@ -56,7 +56,7 @@ curtis_arney_df <- FixedEffectsSet(
   model_specifications = load_parameter_frame("hst_fvs_2008_1") %>%
     dplyr::filter(
       genus == "Pseudotsuga" &
-      geographic_region %in% c("612 Siuslaw, 712 BLM Coos", "708 BLM Salem")
+      geographic_region %in% c("612 – Siuslaw, 712 – BLM Coos", "708 – BLM Salem")
     )
 )
 
@@ -93,10 +93,25 @@ first_413 <- FixedEffectsSet(
 
 
 # Eq. 4.1.3. second group
+second_413 <- FixedEffectsSet(
+  response_unit = list(
+    hst = units::as_units("ft")
+  ),
+  covariate_units = list(
+    dsob = units::as_units("in"),
+    rc = units::as_units("ft/ft")
+  ),
+  parameter_names = c("h1", "h2", "h3", "h4", "h5"),
+  predict_fn = function(dsob, rc) {
+    h1 + (h2 * dsob) + (h3 * rc * 100) + (h4 * dsob^2) + h5
+  },
+  load_parameter_frame("hst_fvs_2008_4")
+)
 
 # Eq. 4.1.3. third group
 fvs_2008 <- fvs_2008 %>%
   add_set(curtis_arney_not_df) %>%
   add_set(curtis_arney_df) %>%
   add_set(wykoff) %>%
-  add_set(first_413)
+  add_set(first_413) %>%
+  add_set(second_413)
