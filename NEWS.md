@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# allometric 1.0.0.9010 (2023-06-24)
+
+- Same as previous version.
+
+
 # allometric 1.0.0.9009 (2023-06-02)
 
 ## Bug fixes
