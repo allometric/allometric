@@ -49,7 +49,7 @@
     
     <a class="navbar-brand me-2" href="index.html">allometric</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0.9009</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -104,12 +104,12 @@
 
 <p><code>allometric</code> is an R package for predicting tree attributes with allometric models. Thousands of allometric models exist in the scientific and technical forestry literature, and <code>allometric</code> is a platform for archiving and using this vast array of models in a robust and structured format.</p>
 <p><code>allometric</code> not only enables the use of allometric models for analysis, it also provides a structured language for adding models to the package. If you are interested in helping the developer in this process please refer to the <a href="https://brycefrank.com/allometric/articles/installing_a_model.html" class="external-link">Installing a Model</a> vignette.</p>
-<p>In total <strong><code>allometric</code> contains 1756 models across 52 publications</strong>, the following table displays the number of models by continent and category:</p>
+<p>In total <strong><code>allometric</code> contains 2006 models across 56 publications</strong>, the following table displays the number of models by continent and category:</p>
 <table class="table">
 <thead><tr class="header">
 <th align="left">category</th>
-<th align="right">AS</th>
 <th align="right">EU</th>
+<th align="right">AS</th>
 <th align="right">NA</th>
 <th align="right">AF</th>
 <th align="right">OC</th>
@@ -117,10 +117,46 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
+<td align="left">biomass</td>
+<td align="right">19</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
 <td align="left">biomass component</td>
-<td align="right">26</td>
 <td align="right">136</td>
+<td align="right">26</td>
 <td align="right">435</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">biomass increment</td>
+<td align="right">28</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">diameter</td>
+<td align="right">39</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">height</td>
+<td align="right">28</td>
+<td align="right">0</td>
+<td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
@@ -129,24 +165,24 @@
 <td align="left">site index</td>
 <td align="right">0</td>
 <td align="right">0</td>
-<td align="right">18</td>
+<td align="right">19</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
 </tr>
 <tr class="odd">
 <td align="left">stem height</td>
-<td align="right">7</td>
 <td align="right">0</td>
-<td align="right">253</td>
+<td align="right">7</td>
+<td align="right">345</td>
 <td align="right">12</td>
 <td align="right">2</td>
 <td align="right">18</td>
 </tr>
 <tr class="even">
 <td align="left">stem volume</td>
-<td align="right">4</td>
 <td align="right">0</td>
+<td align="right">4</td>
 <td align="right">575</td>
 <td align="right">0</td>
 <td align="right">0</td>
@@ -163,8 +199,8 @@
 </tr>
 <tr class="even">
 <td align="left">taper</td>
-<td align="right">2</td>
 <td align="right">0</td>
+<td align="right">2</td>
 <td align="right">18</td>
 <td align="right">0</td>
 <td align="right">0</td>
@@ -172,8 +208,8 @@
 </tr>
 <tr class="odd">
 <td align="left">tree biomass</td>
-<td align="right">2</td>
 <td align="right">36</td>
+<td align="right">2</td>
 <td align="right">90</td>
 <td align="right">0</td>
 <td align="right">21</td>
@@ -183,7 +219,7 @@
 <td align="left">other</td>
 <td align="right">0</td>
 <td align="right">0</td>
-<td align="right">125</td>
+<td align="right">168</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
@@ -233,27 +269,27 @@
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 1fa4219a stem volume  &lt;chr [1]&gt; &lt;chr [3]&gt; Accipitridae Circus canadensis   &lt;FxdEffcM&gt; hahn_1984 &lt;chr [1]&gt;   &lt;chr [2]&gt;     1984</span></span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 b359d3ce stump volume &lt;chr [1]&gt; &lt;chr [3]&gt; Accipitridae Circus canadensis   &lt;FxdEffcM&gt; hahn_1984 &lt;chr [1]&gt;   &lt;chr [1]&gt;     1984</span></span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 fb5c4575 stem ratio   &lt;chr [1]&gt; &lt;chr [3]&gt; Accipitridae Circus canadensis   &lt;FxdEffcM&gt; hahn_1984 &lt;chr [1]&gt;   &lt;chr [1]&gt;     1984</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 66a8d3f8 stem height  &lt;chr [1]&gt; &lt;chr [2]&gt; Aceraceae    Acer   macrophyllum &lt;FxdEffcM&gt; fvs_2008  &lt;chr [1]&gt;   &lt;chr [1]&gt;     2008</span></span></code></pre></div>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 733186a1 stem height  &lt;chr [1]&gt; &lt;chr [2]&gt; Aceraceae    Acer   macrophyllum &lt;FxdEffcM&gt; fvs_2008  &lt;chr [1]&gt;   &lt;chr [1]&gt;     2008</span></span></code></pre></div>
 <p><strong>Finding and Selecting a Model</strong></p>
 <p><code>allometric_models</code> is a <code><a href="https://tibble.tidyverse.org/reference/tbl_df-class.html" class="external-link">tibble::tbl_df</a></code> dataframe. Each row represents one allometric model with various attributes. Some columns are <code>list</code> columns, which are columns that contain lists with multiple values as their elements. One example of this is the <code>family_name</code> column, which contains the names of all authors for the publication that contains the model.</p>
 <p><code>list</code> columns enable rigorous searching of models covered in the <code><a href="reference/allometric_models.html">?allometric_models</a></code> help page, but to get started we will use a helper function called <code>unnest_models()</code> that will give us a clearer picture of the available data. Using the <code>cols</code> argument we can specify which columns we want to unnest. In this case we will unnest the <code>family_name</code> column.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">unnested_models</span> <span class="op">&lt;-</span> <span class="fu">unnest_models</span><span class="op">(</span><span class="va">allometric_models</span>, cols <span class="op">=</span> <span class="st">"family_name"</span><span class="op">)</span></span>
 <span><span class="va">unnested_models</span></span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 3,917 × 12</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    id       model_type   country   region    family       genus  species      model      pub_id        family_name covt_name pub_year</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;chr&gt;    &lt;chr&gt;        &lt;list&gt;    &lt;list&gt;    &lt;chr&gt;        &lt;chr&gt;  &lt;chr&gt;        &lt;list&gt;     &lt;chr&gt;         &lt;chr&gt;       &lt;list&gt;       &lt;dbl&gt;</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 cd71c0b8 stem height  &lt;chr [1]&gt; &lt;chr [3]&gt; Accipitridae Circus canadensis   &lt;FxdEffcM&gt; hahn_1984     Hahn        &lt;chr [4]&gt;     1984</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 7bc0e06a stem volume  &lt;chr [1]&gt; &lt;chr [3]&gt; Accipitridae Circus canadensis   &lt;FxdEffcM&gt; hahn_1984     Hahn        &lt;chr [2]&gt;     1984</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 1fa4219a stem volume  &lt;chr [1]&gt; &lt;chr [3]&gt; Accipitridae Circus canadensis   &lt;FxdEffcM&gt; hahn_1984     Hahn        &lt;chr [2]&gt;     1984</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 b359d3ce stump volume &lt;chr [1]&gt; &lt;chr [3]&gt; Accipitridae Circus canadensis   &lt;FxdEffcM&gt; hahn_1984     Hahn        &lt;chr [1]&gt;     1984</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 fb5c4575 stem ratio   &lt;chr [1]&gt; &lt;chr [3]&gt; Accipitridae Circus canadensis   &lt;FxdEffcM&gt; hahn_1984     Hahn        &lt;chr [1]&gt;     1984</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 66a8d3f8 stem height  &lt;chr [1]&gt; &lt;chr [2]&gt; Aceraceae    Acer   macrophyllum &lt;FxdEffcM&gt; fvs_2008      Staff       &lt;chr [1]&gt;     2008</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 ab39a39f stem height  &lt;chr [1]&gt; &lt;chr [2]&gt; Aceraceae    Acer   macrophyllum &lt;FxdEffcM&gt; fvs_2008      Staff       &lt;chr [1]&gt;     2008</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 9f940e59 stem height  &lt;chr [1]&gt; &lt;chr [2]&gt; Aceraceae    Acer   macrophyllum &lt;FxdEffcM&gt; fvs_2008      Staff       &lt;chr [1]&gt;     2008</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 84a32efd stem height  &lt;chr [1]&gt; &lt;chr [2]&gt; Aceraceae    Acer   macrophyllum &lt;FxdEffcM&gt; fvs_2008      Staff       &lt;chr [1]&gt;     2008</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 218a0299 stem volume  &lt;chr [1]&gt; &lt;chr [1]&gt; Aceraceae    Acer   &lt;NA&gt;         &lt;FxdEffcM&gt; brackett_1977 Brackett    &lt;chr [2]&gt;     1977</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 3,907 more rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4,766 × 12</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    id       model_type   country   region    family       genus  species      model      pub_id    family_name covt_name pub_year</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;chr&gt;    &lt;chr&gt;        &lt;list&gt;    &lt;list&gt;    &lt;chr&gt;        &lt;chr&gt;  &lt;chr&gt;        &lt;list&gt;     &lt;chr&gt;     &lt;chr&gt;       &lt;list&gt;       &lt;dbl&gt;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 cd71c0b8 stem height  &lt;chr [1]&gt; &lt;chr [3]&gt; Accipitridae Circus canadensis   &lt;FxdEffcM&gt; hahn_1984 Hahn        &lt;chr [4]&gt;     1984</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 7bc0e06a stem volume  &lt;chr [1]&gt; &lt;chr [3]&gt; Accipitridae Circus canadensis   &lt;FxdEffcM&gt; hahn_1984 Hahn        &lt;chr [2]&gt;     1984</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 1fa4219a stem volume  &lt;chr [1]&gt; &lt;chr [3]&gt; Accipitridae Circus canadensis   &lt;FxdEffcM&gt; hahn_1984 Hahn        &lt;chr [2]&gt;     1984</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 b359d3ce stump volume &lt;chr [1]&gt; &lt;chr [3]&gt; Accipitridae Circus canadensis   &lt;FxdEffcM&gt; hahn_1984 Hahn        &lt;chr [1]&gt;     1984</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 fb5c4575 stem ratio   &lt;chr [1]&gt; &lt;chr [3]&gt; Accipitridae Circus canadensis   &lt;FxdEffcM&gt; hahn_1984 Hahn        &lt;chr [1]&gt;     1984</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 733186a1 stem height  &lt;chr [1]&gt; &lt;chr [2]&gt; Aceraceae    Acer   macrophyllum &lt;FxdEffcM&gt; fvs_2008  Staff       &lt;chr [1]&gt;     2008</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 a31af9a5 stem height  &lt;chr [1]&gt; &lt;chr [2]&gt; Aceraceae    Acer   macrophyllum &lt;FxdEffcM&gt; fvs_2008  Staff       &lt;chr [1]&gt;     2008</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 44f59d7d stem height  &lt;chr [1]&gt; &lt;chr [2]&gt; Aceraceae    Acer   macrophyllum &lt;FxdEffcM&gt; fvs_2008  Staff       &lt;chr [1]&gt;     2008</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 1d58b6d4 stem height  &lt;chr [1]&gt; &lt;chr [2]&gt; Aceraceae    Acer   macrophyllum &lt;FxdEffcM&gt; fvs_2008  Staff       &lt;chr [1]&gt;     2008</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 539ef85b stem height  &lt;chr [1]&gt; &lt;chr [2]&gt; Aceraceae    Acer   macrophyllum &lt;FxdEffcM&gt; fvs_2008  Staff       &lt;chr [1]&gt;     2008</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 4,756 more rows</span></span></code></pre></div>
 <p>Now, each row represents unique data combinations for each model, which can be quickly filtered by most users using <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">dplyr::filter</a></code>. For example, to find a volume model for the genus Alnus that had <code>"Brackett"</code> as an author or co-author we can use</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">brackett_alnus_vol</span> <span class="op">&lt;-</span> <span class="va">unnested_models</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
@@ -372,7 +408,7 @@
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml" class="external-link"><img src="https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://github.com/brycefrank/allometric" class="external-link"><img src="https://img.shields.io/badge/devel%20version-1.0.0.9009-blue.svg"></a></li>
+<li><a href="https://github.com/brycefrank/allometric" class="external-link"><img src="https://img.shields.io/badge/devel%20version-1.1.0-blue.svg"></a></li>
 <li><a href="https://codecov.io/gh/brycefrank/allometric" class="external-link"><img src="https://codecov.io/gh/brycefrank/allometric/branch/master/graph/badge.svg?token=3V5KUFMO2X" alt="codecov"></a></li>
 </ul>
 </div>
