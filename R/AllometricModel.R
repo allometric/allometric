@@ -54,6 +54,15 @@ component_def <- data.frame(
 #' @param response_name The response_name from the variable naming system.
 #' @keywords internal
 get_model_type <- function(response_name) {
+  # Check if increment model
+  # TODO this is not generic to any given prefix, but i_ is the only possible
+  # prefix at the moment
+  if(startsWith(response_name, "i_")) {
+    add <- "increment"
+    response_name <- substr(response_name, 3, nchar(response_name))
+  } else {
+    add <- ""
+  }
 
   # the defined model types are meant to be starting strings only, in some
   # cases they will be exact matches
@@ -76,6 +85,7 @@ get_model_type <- function(response_name) {
     }
   }
 
+  model_type <- trimws(paste(model_type, " ", add, sep = ""))
   model_type
 }
 

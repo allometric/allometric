@@ -50,3 +50,15 @@ test_that("Custom covariate definition is propagated to summary", {
 
   expect_equal(desc[[2]], paste("dsob [in]:", my_custom_dsob_description))
 })
+
+allo_increment <- AllometricModel(
+  response_unit = list(i_vsia = units::as_units("ft")),
+  covariate_units = list(dsob = units::as_units("in")),
+  predict_fn = function(dsob) {
+    dsob
+  }
+)
+
+test_that("Increment model returns correct model type", {
+  expect_equal(allo_increment@model_type, "stem volume increment")
+})
