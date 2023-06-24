@@ -8,3 +8,4 @@ r,b,bt,ratio of branch biomass to biomass of entire tree
 r,w,d,wood specific gravity
 r,s,vg,volume to basal area ratio
 r,s,k,bark correction factor
+r,v,,ratio of forest cover
