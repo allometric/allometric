@@ -1,5 +1,26 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# allometric 1.1.0 (2023-06-24)
+
+## Bug fixes
+
+- Increment models now return the correct model type, closes #117.
+
+## Features
+
+- Adding temesgen_2007, closes #119.
+
+- Adding FVS PN variant crown ratio models, updates #113.
+
+- Adding montero_2020, closes #31.
+
+- Adding larsen_1985, closes #115.
+
+- Adding means_1989, closes #102.
+
+- Adding fvs_2008 wykoff functions, updates #113.
+
+
 # allometric 1.0.0.9010 (2023-06-24)
 
 - Same as previous version.
