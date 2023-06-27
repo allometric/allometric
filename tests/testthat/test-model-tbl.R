@@ -107,3 +107,13 @@ test_that("predict_allo produces predictions", {
   units(val) <- "ft^3"
   expect_equal(out, val)
 })
+
+test_that("merging with model_tbl returns model_tbl", {
+  test_model_tbl <- new_model_tbl(
+    tibble::tibble(model = c(fixed_effects_model), dsob = 1, class = "a"))
+
+  merge_table <- data.frame(class = "a")
+  
+  merged_test_model_tbl <- merge(test_model_tbl, merge_table, by = "class")
+  expect_s3_class(merged_test_model_tbl, "model_tbl")
+})

@@ -24,7 +24,7 @@ data
 #> 3 1fa4219a stem volume  <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984 <chr [1]>   <chr [2]>     1984
 #> 4 b359d3ce stump volume <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984 <chr [1]>   <chr [1]>     1984
 #> 5 fb5c4575 stem ratio   <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984 <chr [1]>   <chr [1]>     1984
-#> 6 66a8d3f8 stem height  <chr [1]> <chr [2]> Aceraceae    Acer   macrophyllum <FxdEffcM> fvs_2008  <chr [1]>   <chr [1]>     2008
+#> 6 733186a1 stem height  <chr [1]> <chr [2]> Aceraceae    Acer   macrophyllum <FxdEffcM> fvs_2008  <chr [1]>   <chr [1]>     2008
 }\if{html}{\out{</div>}}
 
 The columns are:
@@ -54,20 +54,20 @@ dataframe using \code{dplyr::filter}.
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{unnest_family <- allometric_models \%>\% unnest_models('family_name')
 
 unnest_family \%>\% dplyr::filter(family_name == "Hann")
-#> # A tibble: 50 x 12
+#> # A tibble: 56 x 12
 #>    id       model_type     country   region    family       genus            species      model      pub_id      family_name covt_name pub_year
 #>    <chr>    <chr>          <list>    <list>    <chr>        <chr>            <chr>        <list>     <chr>       <chr>       <list>       <dbl>
 #>  1 d810797f crown ratio    <chr [1]> <chr [1]> Cupressaceae Calocedrus       decurrens    <FxdEffcM> ritche_1987 Hann        <chr [4]>     1987
-#>  2 e0873944 stem diameter  <chr [1]> <chr [1]> Cupressaceae Calocedrus       <NA>         <FxdEffcM> hann_2011   Hann        <chr [2]>     2011
-#>  3 71131513 stump diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus       <NA>         <FxdEffcM> hann_2011   Hann        <chr [2]>     2011
-#>  4 4ed0b955 stem volume    <chr [1]> <chr [1]> Cupressaceae Calocedrus       <NA>         <FxdEffcM> hann_2011   Hann        <chr [3]>     2011
-#>  5 42339820 crown ratio    <chr [1]> <chr [1]> Ericaceae    Arbutus          menziesii    <FxdEffcM> ritche_1987 Hann        <chr [3]>     1987
-#>  6 7f22b281 crown ratio    <chr [1]> <chr [1]> Fagaceae     Chrysolepis      chrysophylla <FxdEffcM> ritche_1987 Hann        <chr [4]>     1987
-#>  7 60575778 crown ratio    <chr [1]> <chr [1]> Fagaceae     Notholithocarpus densiflorus  <FxdEffcM> ritche_1987 Hann        <chr [1]>     1987
-#>  8 91bc2435 crown ratio    <chr [1]> <chr [1]> Fagaceae     Quercus          chrysolepis  <FxdEffcM> ritche_1987 Hann        <chr [1]>     1987
-#>  9 31653285 crown ratio    <chr [1]> <chr [1]> Fagaceae     Quercus          garryana     <FxdEffcM> ritche_1987 Hann        <chr [1]>     1987
-#> 10 089cb0da crown ratio    <chr [1]> <chr [1]> Fagaceae     Quercus          kelloggii    <FxdEffcM> ritche_1987 Hann        <chr [3]>     1987
-#> # i 40 more rows
+#>  2 2ac9b839 stem diameter  <chr [1]> <chr [1]> Cupressaceae Calocedrus       decurrens    <FxdEffcM> larsen_1985 Hann        <chr [1]>     1985
+#>  3 e0873944 stem diameter  <chr [1]> <chr [1]> Cupressaceae Calocedrus       <NA>         <FxdEffcM> hann_2011   Hann        <chr [2]>     2011
+#>  4 71131513 stump diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus       <NA>         <FxdEffcM> hann_2011   Hann        <chr [2]>     2011
+#>  5 4ed0b955 stem volume    <chr [1]> <chr [1]> Cupressaceae Calocedrus       <NA>         <FxdEffcM> hann_2011   Hann        <chr [3]>     2011
+#>  6 42339820 crown ratio    <chr [1]> <chr [1]> Ericaceae    Arbutus          menziesii    <FxdEffcM> ritche_1987 Hann        <chr [3]>     1987
+#>  7 7f22b281 crown ratio    <chr [1]> <chr [1]> Fagaceae     Chrysolepis      chrysophylla <FxdEffcM> ritche_1987 Hann        <chr [4]>     1987
+#>  8 60575778 crown ratio    <chr [1]> <chr [1]> Fagaceae     Notholithocarpus densiflorus  <FxdEffcM> ritche_1987 Hann        <chr [1]>     1987
+#>  9 91bc2435 crown ratio    <chr [1]> <chr [1]> Fagaceae     Quercus          chrysolepis  <FxdEffcM> ritche_1987 Hann        <chr [1]>     1987
+#> 10 31653285 crown ratio    <chr [1]> <chr [1]> Fagaceae     Quercus          garryana     <FxdEffcM> ritche_1987 Hann        <chr [1]>     1987
+#> # ... with 46 more rows
 }\if{html}{\out{</div>}}
 
 Any column or any combination of columns can be unnested, which allows for
@@ -92,16 +92,16 @@ that had \code{'Hann'} as a contributing author.
 
 head(hann_models)
 #> # A tibble: 6 x 12
-#>   id       model_type     country   region    family       genus       species      model      pub_id      family_name covt_name pub_year
-#>   <chr>    <chr>          <list>    <list>    <chr>        <chr>       <chr>        <list>     <chr>       <list>      <list>       <dbl>
-#> 1 d810797f crown ratio    <chr [1]> <chr [1]> Cupressaceae Calocedrus  decurrens    <FxdEffcM> ritche_1987 <chr [2]>   <chr [4]>     1987
-#> 2 e0873944 stem diameter  <chr [1]> <chr [1]> Cupressaceae Calocedrus  <NA>         <FxdEffcM> hann_2011   <chr [1]>   <chr [2]>     2011
-#> 3 71131513 stump diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus  <NA>         <FxdEffcM> hann_2011   <chr [1]>   <chr [2]>     2011
-#> 4 4ed0b955 stem volume    <chr [1]> <chr [1]> Cupressaceae Calocedrus  <NA>         <FxdEffcM> hann_2011   <chr [1]>   <chr [3]>     2011
-#> 5 42339820 crown ratio    <chr [1]> <chr [1]> Ericaceae    Arbutus     menziesii    <FxdEffcM> ritche_1987 <chr [2]>   <chr [3]>     1987
-#> 6 7f22b281 crown ratio    <chr [1]> <chr [1]> Fagaceae     Chrysolepis chrysophylla <FxdEffcM> ritche_1987 <chr [2]>   <chr [4]>     1987
+#>   id       model_type     country   region    family       genus      species   model      pub_id      family_name covt_name pub_year
+#>   <chr>    <chr>          <list>    <list>    <chr>        <chr>      <chr>     <list>     <chr>       <list>      <list>       <dbl>
+#> 1 d810797f crown ratio    <chr [1]> <chr [1]> Cupressaceae Calocedrus decurrens <FxdEffcM> ritche_1987 <chr [2]>   <chr [4]>     1987
+#> 2 2ac9b839 stem diameter  <chr [1]> <chr [1]> Cupressaceae Calocedrus decurrens <FxdEffcM> larsen_1985 <chr [3]>   <chr [1]>     1985
+#> 3 e0873944 stem diameter  <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>      <FxdEffcM> hann_2011   <chr [1]>   <chr [2]>     2011
+#> 4 71131513 stump diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>      <FxdEffcM> hann_2011   <chr [1]>   <chr [2]>     2011
+#> 5 4ed0b955 stem volume    <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>      <FxdEffcM> hann_2011   <chr [1]>   <chr [3]>     2011
+#> 6 42339820 crown ratio    <chr [1]> <chr [1]> Ericaceae    Arbutus    menziesii <FxdEffcM> ritche_1987 <chr [2]>   <chr [3]>     1987
 nrow(hann_models)
-#> [1] 50
+#> [1] 56
 }\if{html}{\out{</div>}}
 
 Picking apart the above code block, we see that we are using the standard
@@ -157,7 +157,7 @@ available tree measurements.
 )
 
 nrow(dia_ht_models)
-#> [1] 188
+#> [1] 230
 }\if{html}{\out{</div>}}
 
 Breaking this down, we have the first condition \code{model_type=='stem_height'} selecting
@@ -166,7 +166,7 @@ maps over each element of the \code{covt_name} column, which is a character vect
 The \code{.} represents a given character vector for that row. First, we ensure that
 the vector is only one element in size using \code{length(.)==1}, then we ensure that
 the first (and only) element of this vector is equal to \code{'dsob'}, (diameter
-outside bark at breast height). In this case, 188 are
+outside bark at breast height). In this case, 230 are
 available in the package.
 }
 
@@ -182,10 +182,10 @@ data from \code{US-OR}
 )
 
 nrow(us_or_models)
-#> [1] 323
+#> [1] 411
 }\if{html}{\out{</div>}}
 
-We can see that 323 allometric models are defined for the
+We can see that 411 allometric models are defined for the
 state of Oregon, US.
 }
 }
