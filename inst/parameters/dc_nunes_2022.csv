@@ -1,4 +1,4 @@
-﻿country,family,genus,species,sample_size,bo,b1,b2,r2
+﻿country,family,genus,species,sample_size,b0,b1,b2,r2
 EU-ES,Pinaceae,Pinus,Pinus pinaster,38311,0.225,0.851,0.078,0.725
 EU-ES,Pinaceae,Pinus,Pinus pinea,9147,0.277,0.859,0.043,0.808
 EU-ES,Pinaceae,Pinus,Pinus halepensis,35194,0.421,0.731,0.052,0.675
