@@ -103,3 +103,10 @@ unnest_models.model_tbl <- function(data, cols) {
 predict_allo <- function(model_list, ...) {
   predict(model_list[[1]], ...)
 }
+
+#' @export
+merge.model_tbl <- function(x, y, ...) {
+  x_ <- as.data.frame(x)
+  merged <- merge(x_, y, ...)
+  model_tbl_reconstruct(merged, x)
+}

@@ -47,6 +47,9 @@ setGeneric("specification<-", function(mod, value) standardGeneric("specificatio
 #' @export
 setGeneric("descriptors", function(mod) standardGeneric("descriptors"))
 
+#' @export
+setGeneric("descriptors<-", function(mod, value) standardGeneric("descriptors<-"))
+
 setGeneric("parameters", function(mod) standardGeneric("parameters"))
 
 setGeneric("get_model_str", function(mod) standardGeneric("get_model_str"))

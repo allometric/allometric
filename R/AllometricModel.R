@@ -42,10 +42,6 @@ component_def <- data.frame(
   component_label = c("stem", "branch", "foliage", "crown", "stand", "plot", "tree", "bark", "root", "stump")
 )
 
-# This obviously has combinations that will never be used, this should be
-# prevented at the administration phase
-measure_component_def <- merge(measure_def, component_def)
-
 #' Gets the model type for a response name.
 #'
 #' From the variable naming system, return the model type. Model types are
@@ -58,6 +54,15 @@ measure_component_def <- merge(measure_def, component_def)
 #' @param response_name The response_name from the variable naming system.
 #' @keywords internal
 get_model_type <- function(response_name) {
+  # Check if increment model
+  # TODO this is not generic to any given prefix, but i_ is the only possible
+  # prefix at the moment
+  if(startsWith(response_name, "i_")) {
+    add <- "increment"
+    response_name <- substr(response_name, 3, nchar(response_name))
+  } else {
+    add <- ""
+  }
 
   # the defined model types are meant to be starting strings only, in some
   # cases they will be exact matches
@@ -80,6 +85,7 @@ get_model_type <- function(response_name) {
     }
   }
 
+  model_type <- trimws(paste(model_type, " ", add, sep = ""))
   model_type
 }
 

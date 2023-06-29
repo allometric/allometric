@@ -32,6 +32,12 @@ setMethod("descriptors", "ParametricModel", function(mod) {
 })
 
 
+setMethod("descriptors<-", "ParametricModel", function(mod, value) {
+  mod@specification[!names(mod@specification) %in% names(mod@parameters)] <- value
+  mod
+})
+
+
 setMethod("parameters", "ParametricModel", function(mod) {
   mod@parameters
 })
@@ -46,8 +52,8 @@ ParametricModel <- function(response_unit, covariate_units, predict_fn,
                             parameters, descriptors = list(),
                             covariate_definitions = list()) {
   # Coerce to tbl_df
-  parameters <- tibble::as_tibble(parameters)
-  descriptors <- tibble::as_tibble(descriptors)
+  parameters <- tibble::as_tibble( as.list(parameters) )
+  descriptors <- tibble::as_tibble( as.list(descriptors) )
 
   parametric_model <- .ParametricModel(
     AllometricModel(
@@ -105,11 +111,7 @@ setMethod("show", "ParametricModel", function(object) {
 
   mod_call <- model_call(object)
   cat("Model Call:", "\n")
-  cat(mod_call, "\n", "\n")
-
-  cat("Model Form:", "\n")
-  cat(form, "\n", "\n")
-  cat(variable_descriptions, sep = "\n")
+  cat(mod_call, "\n")
 
   cat("\n")
   cat("Parameter Estimates:", "\n")

@@ -162,3 +162,16 @@ check_model_specifications_unique <- function(model_specifications, parameter_na
 
   errors
 }
+
+#' Checks if a citation contains a key
+#'
+#' @keywords internal
+check_citation_key <- function(citation) {
+  errors <- c()
+
+  if(is.null(citation$key)) {
+    errors <- c(errors, "No key defined for this publication.")
+  }
+
+  errors
+}

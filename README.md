@@ -1,10 +1,10 @@
 
-# allometric <a href="https://brycefrank.com/allometric/"><img src='man/figures/logo.png' align="right" height="139"/></a>
+# allometric <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/brycefrank/allometric/master/man/figures/allo2-darkmode.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/brycefrank/allometric/master/man/figures/allo2.svg"><img alt="Isometric logo of a tree" height="210" width="165" align="right"></picture>
 
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml)
-[![](https://img.shields.io/badge/devel%20version-1.0.0.9006-blue.svg)](https://github.com/brycefrank/allometric)
+[![](https://img.shields.io/badge/devel%20version-1.1.0-blue.svg)](https://github.com/brycefrank/allometric)
 [![codecov](https://codecov.io/gh/brycefrank/allometric/branch/master/graph/badge.svg?token=3V5KUFMO2X)](https://codecov.io/gh/brycefrank/allometric)
 <!-- badges: end -->
 
@@ -21,20 +21,26 @@ refer to the [Installing a
 Model](https://brycefrank.com/allometric/articles/installing_a_model.html)
 vignette.
 
-In total **`allometric` contains 1591 models across 38 publications**,
+In total **`allometric` contains 2067 models across 60 publications**,
 the following table displays the number of models by continent and
 category:
 
 | category          |  AS |  EU |  NA |  AF |  OC |  SA |
 |:------------------|----:|----:|----:|----:|----:|----:|
-| biomass component |  26 | 136 | 435 |   0 |   0 |   0 |
-| site index        |   0 |   0 |   2 |   0 |   0 |   0 |
-| stem height       |   7 |   0 | 103 |  12 |   2 |  18 |
-| stem volume       |   4 |   0 | 575 |   0 |   0 |  20 |
+| biomass           |   2 |  21 |   0 |   0 |   0 |   0 |
+| biomass component |  24 | 134 | 435 |   0 |   0 |   0 |
+| biomass increment |   0 |  28 |   0 |   0 |   0 |   0 |
+| crown diameter    |   0 |  12 |   0 |   0 |   0 |   0 |
+| crown height      |   0 |  12 |   0 |   0 |   0 |   0 |
+| diameter          |   0 |  39 |   0 |   0 |   0 |   0 |
+| height            |   0 |  28 |   0 |   0 |   0 |   0 |
+| site index        |   0 |   0 |  19 |   0 |   0 |   0 |
+| stem height       |   7 |   0 | 345 |  12 |   2 |  18 |
+| stem volume       |   4 |   0 | 587 |   0 |   0 |  20 |
 | stump volume      |   0 |   0 |  64 |   0 |   0 |   0 |
-| taper             |   2 |   0 |  18 |   0 |   0 |   0 |
+| taper             |   2 |   0 |  20 |   0 |   0 |   0 |
 | tree biomass      |   2 |  36 |  90 |   0 |  21 |  16 |
-| other             |   0 |   0 | 125 |   0 |   0 |   0 |
+| other             |   0 |   0 | 192 |   0 |   0 |   0 |
 
 Refer to the
 [Reference](https://brycefrank.com/allometric/reference/index.html) for
@@ -52,12 +58,18 @@ difficult tasks.
     We always need help *finding publications* to add. If you know of a
     publication that is missing, feel free to add it as an Issue and we
     will eventually install the models contained inside.
-2.  [Help us digitize
+2.  [Find source material for a
+    publication](https://github.com/brycefrank/allometric/labels/missing%20source).
+    Some publications are missing their original source material.
+    Usually these are very old legacy publications. If you know where a
+    publication might be found, or who to contact, leave a note on any
+    of these issues.
+3.  [Help us digitize
     publications](https://github.com/brycefrank/allometric/issues?q=is%3Aissue+is%3Aopen+label%3A%22digitization+needed%22).
     We always need help *digitizing legacy reports*, at this link you
     will find a list of reports that need manual digitization. These can
     be handled by anyone with Excel and a cup of coffee.
-3.  [Learn how to install and write
+4.  [Learn how to install and write
     models](https://brycefrank.com/allometric/articles/installing_a_model.html).
     Motivated users can learn how to install models directly using the
     package functions and git pull requests. Users comfortable with R
@@ -98,14 +110,14 @@ head(allometric_models)
 ```
 
     #> # A tibble: 6 × 12
-    #>   id       model_type   country   region    family       genus  species    model      pub_id        family_name covt_name pub_year
-    #>   <chr>    <chr>        <list>    <list>    <chr>        <chr>  <chr>      <list>     <chr>         <list>      <list>       <dbl>
-    #> 1 cd71c0b8 stem height  <chr [1]> <chr [3]> Accipitridae Circus canadensis <FxdEffcM> hahn_1984     <chr [1]>   <chr [4]>     1984
-    #> 2 7bc0e06a stem volume  <chr [1]> <chr [3]> Accipitridae Circus canadensis <FxdEffcM> hahn_1984     <chr [1]>   <chr [2]>     1984
-    #> 3 1fa4219a stem volume  <chr [1]> <chr [3]> Accipitridae Circus canadensis <FxdEffcM> hahn_1984     <chr [1]>   <chr [2]>     1984
-    #> 4 b359d3ce stump volume <chr [1]> <chr [3]> Accipitridae Circus canadensis <FxdEffcM> hahn_1984     <chr [1]>   <chr [1]>     1984
-    #> 5 fb5c4575 stem ratio   <chr [1]> <chr [3]> Accipitridae Circus canadensis <FxdEffcM> hahn_1984     <chr [1]>   <chr [1]>     1984
-    #> 6 218a0299 stem volume  <chr [1]> <chr [1]> Aceraceae    Acer   <NA>       <FxdEffcM> brackett_1977 <chr [1]>   <chr [2]>     1977
+    #>   id       model_type   country   region    family       genus  species      model      pub_id    family_name covt_name pub_year
+    #>   <chr>    <chr>        <list>    <list>    <chr>        <chr>  <chr>        <list>     <chr>     <list>      <list>       <dbl>
+    #> 1 cd71c0b8 stem height  <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984 <chr [1]>   <chr [4]>     1984
+    #> 2 7bc0e06a stem volume  <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984 <chr [1]>   <chr [2]>     1984
+    #> 3 1fa4219a stem volume  <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984 <chr [1]>   <chr [2]>     1984
+    #> 4 b359d3ce stump volume <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984 <chr [1]>   <chr [1]>     1984
+    #> 5 fb5c4575 stem ratio   <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984 <chr [1]>   <chr [1]>     1984
+    #> 6 733186a1 stem height  <chr [1]> <chr [2]> Aceraceae    Acer   macrophyllum <FxdEffcM> fvs_2008  <chr [1]>   <chr [1]>     2008
 
 **Finding and Selecting a Model**
 
@@ -128,20 +140,20 @@ unnested_models <- unnest_models(allometric_models, cols = "family_name")
 unnested_models
 ```
 
-    #> # A tibble: 3,741 × 12
-    #>    id       model_type   country   region    family       genus       species     model      pub_id        family_name covt_name pub_year
-    #>    <chr>    <chr>        <list>    <list>    <chr>        <chr>       <chr>       <list>     <chr>         <chr>       <list>       <dbl>
-    #>  1 cd71c0b8 stem height  <chr [1]> <chr [3]> Accipitridae Circus      canadensis  <FxdEffcM> hahn_1984     Hahn        <chr [4]>     1984
-    #>  2 7bc0e06a stem volume  <chr [1]> <chr [3]> Accipitridae Circus      canadensis  <FxdEffcM> hahn_1984     Hahn        <chr [2]>     1984
-    #>  3 1fa4219a stem volume  <chr [1]> <chr [3]> Accipitridae Circus      canadensis  <FxdEffcM> hahn_1984     Hahn        <chr [2]>     1984
-    #>  4 b359d3ce stump volume <chr [1]> <chr [3]> Accipitridae Circus      canadensis  <FxdEffcM> hahn_1984     Hahn        <chr [1]>     1984
-    #>  5 fb5c4575 stem ratio   <chr [1]> <chr [3]> Accipitridae Circus      canadensis  <FxdEffcM> hahn_1984     Hahn        <chr [1]>     1984
-    #>  6 218a0299 stem volume  <chr [1]> <chr [1]> Aceraceae    Acer        <NA>        <FxdEffcM> brackett_1977 Brackett    <chr [2]>     1977
-    #>  7 6321e7d1 stem height  <chr [1]> <chr [3]> Altingiaceae Liquidambar styraciflua <FxdEffcM> hahn_1984     Hahn        <chr [4]>     1984
-    #>  8 f3698bb3 stem volume  <chr [1]> <chr [3]> Altingiaceae Liquidambar styraciflua <FxdEffcM> hahn_1984     Hahn        <chr [2]>     1984
-    #>  9 14d46395 stem volume  <chr [1]> <chr [3]> Altingiaceae Liquidambar styraciflua <FxdEffcM> hahn_1984     Hahn        <chr [2]>     1984
-    #> 10 07cbe95e stump volume <chr [1]> <chr [3]> Altingiaceae Liquidambar styraciflua <FxdEffcM> hahn_1984     Hahn        <chr [1]>     1984
-    #> # … with 3,731 more rows
+    #> # A tibble: 5,011 × 12
+    #>    id       model_type   country   region    family       genus  species      model      pub_id    family_name covt_name pub_year
+    #>    <chr>    <chr>        <list>    <list>    <chr>        <chr>  <chr>        <list>     <chr>     <chr>       <list>       <dbl>
+    #>  1 cd71c0b8 stem height  <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984 Hahn        <chr [4]>     1984
+    #>  2 7bc0e06a stem volume  <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984 Hahn        <chr [2]>     1984
+    #>  3 1fa4219a stem volume  <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984 Hahn        <chr [2]>     1984
+    #>  4 b359d3ce stump volume <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984 Hahn        <chr [1]>     1984
+    #>  5 fb5c4575 stem ratio   <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984 Hahn        <chr [1]>     1984
+    #>  6 733186a1 stem height  <chr [1]> <chr [2]> Aceraceae    Acer   macrophyllum <FxdEffcM> fvs_2008  Staff       <chr [1]>     2008
+    #>  7 a31af9a5 stem height  <chr [1]> <chr [2]> Aceraceae    Acer   macrophyllum <FxdEffcM> fvs_2008  Staff       <chr [1]>     2008
+    #>  8 44f59d7d stem height  <chr [1]> <chr [2]> Aceraceae    Acer   macrophyllum <FxdEffcM> fvs_2008  Staff       <chr [1]>     2008
+    #>  9 1d58b6d4 stem height  <chr [1]> <chr [2]> Aceraceae    Acer   macrophyllum <FxdEffcM> fvs_2008  Staff       <chr [1]>     2008
+    #> 10 539ef85b stem height  <chr [1]> <chr [2]> Aceraceae    Acer   macrophyllum <FxdEffcM> fvs_2008  Staff       <chr [1]>     2008
+    #> # ℹ 5,001 more rows
 
 Now, each row represents unique data combinations for each model, which
 can be quickly filtered by most users using `dplyr::filter`. For

@@ -1,6 +1,7 @@
 
 pub <- Publication(
   citation = RefManageR::BibEntry(
+    key = "test_2000",
     bibtype = "article",
     author = "test",
     title = "test",

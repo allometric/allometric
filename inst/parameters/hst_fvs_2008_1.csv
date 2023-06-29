@@ -1,0 +1,153 @@
+"species_code","family","genus","species","geographic_region","p2","p3","p4"
+"AF","Pinaceae","Abies","lasiocarpa","609 - Olympic, 800 - Quinalt",89.0298,6.9507,-0.9871
+"AF","Pinaceae","Abies","lasiocarpa","612 - Siuslaw, 712 - BLM Coos",133.8689,6.7798,-0.7375
+"AF","Pinaceae","Abies","lasiocarpa","708 - BLM Salem",290.5142,6.4143,-0.4724
+"AF","Pinaceae","Abies","lasiocarpa","709 - BLM Eugene",133.8689,6.7798,-0.7375
+"AS","Salicaceae","Populus","tremuloides","609 - Olympic, 800 - Quinalt",1709.723,5.8887,-0.2286
+"AS","Salicaceae","Populus","tremuloides","612 - Siuslaw, 712 - BLM Coos",1709.723,5.8887,-0.2286
+"AS","Salicaceae","Populus","tremuloides","708 - BLM Salem",1709.723,5.8887,-0.2286
+"AS","Salicaceae","Populus","tremuloides","709 - BLM Eugene",1709.723,5.8887,-0.2286
+"BM","Aceraceae","Acer","macrophyllum","609 - Olympic, 800 - Quinalt",600.0957,3.8297,-0.238
+"BM","Aceraceae","Acer","macrophyllum","612 - Siuslaw, 712 - BLM Coos",92.2964,4.189,-0.983
+"BM","Aceraceae","Acer","macrophyllum","708 - BLM Salem",76.517,2.2107,-0.6365
+"BM","Aceraceae","Acer","macrophyllum","709 - BLM Eugene",160.2171,3.3044,-0.5299
+"CH","Pinaceae","Prunus","emarginata","609 - Olympic, 800 - Quinalt",73.3348,2.6548,-1.246
+"CH","Pinaceae","Prunus","emarginata","612 - Siuslaw, 712 - BLM Coos",73.3348,2.6548,-1.246
+"CH","Pinaceae","Prunus","emarginata","708 - BLM Salem",73.3348,2.6548,-1.246
+"CH","Pinaceae","Prunus","emarginata","709 - BLM Eugene",73.3348,2.6548,-1.246
+"CW","Salicaceae","Populus","trichocarpa","609 - Olympic, 800 - Quinalt",178.6441,4.5852,-0.6746
+"CW","Salicaceae","Populus","trichocarpa","612 - Siuslaw, 712 - BLM Coos",178.6441,4.5852,-0.6746
+"CW","Salicaceae","Populus","trichocarpa","708 - BLM Salem",178.6441,4.5852,-0.6746
+"CW","Salicaceae","Populus","trichocarpa","709 - BLM Eugene",178.6441,4.5852,-0.6746
+"DF","Pinaceae","Pseudotsuga","menziesii","609 - Olympic, 800 - Quinalt",1091.853,5.2936,-0.2648
+"DF","Pinaceae","Pseudotsuga","menziesii","612 - Siuslaw, 712 - BLM Coos",407.1595,7.2885,-0.5908
+"DF","Pinaceae","Pseudotsuga","menziesii","708 - BLM Salem",949.1046,5.8482,-0.3251
+"DF","Pinaceae","Pseudotsuga","menziesii","709 - BLM Eugene",439.1195,5.8176,-0.4854
+"DG","Cornaceae","Cornus","nuttallii","609 - Olympic, 800 - Quinalt",403.3221,4.3271,-0.2422
+"DG","Cornaceae","Cornus","nuttallii","612 - Siuslaw, 712 - BLM Coos",403.3221,4.3271,-0.2422
+"DG","Cornaceae","Cornus","nuttallii","708 - BLM Salem",403.3221,4.3271,-0.2422
+"DG","Cornaceae","Cornus","nuttallii","709 - BLM Eugene",444.5618,3.9205,-0.2397
+"ES","Pinaceae","Picea","engelmannii","609 - Olympic, 800 - Quinalt",206.3211,9.1227,-0.8281
+"ES","Pinaceae","Picea","engelmannii","612 - Siuslaw, 712 - BLM Coos",206.3211,9.1227,-0.8281
+"ES","Pinaceae","Picea","engelmannii","708 - BLM Salem",206.3211,9.1227,-0.8281
+"ES","Pinaceae","Picea","engelmannii","709 - BLM Eugene",206.3211,9.1277,-0.8281
+"GC","Fagaceae","Chrysolepis","chrysophylla","609 - Olympic, 800 - Quinalt",10707.39,8.467,-0.1863
+"GC","Fagaceae","Chrysolepis","chrysophylla","612 - Siuslaw, 712 - BLM Coos",10707.39,8.467,-0.1863
+"GC","Fagaceae","Chrysolepis","chrysophylla","708 - BLM Salem",10707.39,8.467,-0.1863
+"GC","Fagaceae","Chrysolepis","chrysophylla","709 - BLM Eugene",10707.39,8.467,-0.1863
+"GF","Pinaceae","Abies","grandis","609 - Olympic, 800 - Quinalt",356.1148,6.41,-0.5572
+"GF","Pinaceae","Abies","grandis","612 - Siuslaw, 712 - BLM Coos",432.2186,6.2941,-0.5028
+"GF","Pinaceae","Abies","grandis","708 - BLM Salem",432.2186,6.2941,-0.5028
+"GF","Pinaceae","Abies","grandis","709 - BLM Eugene",432.2186,6.2941,-0.5028
+"HT","Rosaceae","Crataegus","NA","609 - Olympic, 800 - Quinalt",55,5.5,-0.95
+"HT","Rosaceae","Crataegus","NA","612 - Siuslaw, 712 - BLM Coos",55,5.5,-0.95
+"HT","Rosaceae","Crataegus","NA","708 - BLM Salem",55,5.5,-0.95
+"HT","Rosaceae","Crataegus","NA","709 - BLM Eugene",55,5.5,-0.95
+"IC","Cupressaceae","Calocedrus","decurrens","609 - Olympic, 800 - Quinalt",4691.634,7.4671,-0.1989
+"IC","Cupressaceae","Calocedrus","decurrens","612 - Siuslaw, 712 - BLM Coos",4691.634,7.4671,-0.1989
+"IC","Cupressaceae","Calocedrus","decurrens","708 - BLM Salem",4691.634,7.4671,-0.1989
+"IC","Cupressaceae","Calocedrus","decurrens","709 - BLM Eugene",4691.634,7.4671,-0.1989
+"JP","Pinaceae","Pinus","jeffreyi","609 - Olympic, 800 - Quinalt",1031.52,7.6616,-0.3599
+"JP","Pinaceae","Pinus","jeffreyi","612 - Siuslaw, 712 - BLM Coos",1031.52,7.6616,-0.3599
+"JP","Pinaceae","Pinus","jeffreyi","708 - BLM Salem",1031.52,7.6616,-0.3599
+"JP","Pinaceae","Pinus","jeffreyi","709 - BLM Eugene",1031.52,7.6616,-0.3599
+"KP","Pinaceae","Pinus","attenuata","609 - Olympic, 800 - Quinalt",34749.47,9.1287,-0.1417
+"KP","Pinaceae","Pinus","attenuata","612 - Siuslaw, 712 - BLM Coos",34749.47,9.1287,-0.1417
+"KP","Pinaceae","Pinus","attenuata","708 - BLM Salem",34749.47,9.1287,-0.1417
+"KP","Pinaceae","Pinus","attenuata","709 - BLM Eugene",34749.47,9.1287,-0.1417
+"LL","Pinaceae","Larix","lyallii","609 - Olympic, 800 - Quinalt",503.6619,4.9544,-0.2085
+"LL","Pinaceae","Larix","lyallii","612 - Siuslaw, 712 - BLM Coos",503.6619,4.9544,-0.2085
+"LL","Pinaceae","Larix","lyallii","708 - BLM Salem",503.6619,4.9544,-0.2085
+"LL","Pinaceae","Larix","lyallii","709 - BLM Eugene",503.6619,4.9544,-0.2085
+"LP","Pinaceae","Pinus","contorta","609 - Olympic, 800 - Quinalt",100,6,-0.86
+"LP","Pinaceae","Pinus","contorta","612 - Siuslaw, 712 - BLM Coos",100,6,-0.86
+"LP","Pinaceae","Pinus","contorta","708 - BLM Salem",139.7159,4.0091,-0.708
+"LP","Pinaceae","Pinus","contorta","709 - BLM Eugene",105.4453,7.9694,-1.0916
+"MH","Pinaceae","Tsuga","mertensiana","609 - Olympic, 800 - Quinalt",170.2653,10.0684,-0.8791
+"MH","Pinaceae","Tsuga","mertensiana","612 - Siuslaw, 712 - BLM Coos",170.2653,10.0684,-0.8791
+"MH","Pinaceae","Tsuga","mertensiana","708 - BLM Salem",2478.099,7.0762,-0.2456
+"MH","Pinaceae","Tsuga","mertensiana","709 - BLM Eugene",192.9609,7.3876,-0.7231
+"NF","Pinaceae","Abies","procera","609 - Olympic, 800 - Quinalt",483.3751,7.2443,-0.5111
+"NF","Pinaceae","Abies","procera","612 - Siuslaw, 712 - BLM Coos",483.3751,7.2443,-0.5111
+"NF","Pinaceae","Abies","procera","708 - BLM Salem",247.7348,6.183,-0.6335
+"NF","Pinaceae","Abies","procera","709 - BLM Eugene",483.3751,7.2443,-0.5111
+"OT","NA","NA","NA","609 - Olympic, 800 - Quinalt",1709.723,5.8887,-0.2286
+"OT","NA","NA","NA","612 - Siuslaw, 712 - BLM Coos",1709.723,5.8887,-0.2286
+"OT","NA","NA","NA","708 - BLM Salem",1709.723,5.8887,-0.2286
+"OT","NA","NA","NA","709 - BLM Eugene",1709.723,5.8887,-0.2286
+"PB","Betulaceae","Betula","papyrifera","609 - Olympic, 800 - Quinalt",1709.723,5.8887,-0.2286
+"PB","Betulaceae","Betula","papyrifera","612 - Siuslaw, 712 - BLM Coos",1709.723,5.8887,-0.2286
+"PB","Betulaceae","Betula","papyrifera","708 - BLM Salem",1709.723,5.8887,-0.2286
+"PB","Betulaceae","Betula","papyrifera","709 - BLM Eugene",1709.723,5.8887,-0.2286
+"PP","Pinaceae","Pinus","ponderosa","609 - Olympic, 800 - Quinalt",1181.724,6.6981,-0.3151
+"PP","Pinaceae","Pinus","ponderosa","612 - Siuslaw, 712 - BLM Coos",1181.724,6.6981,-0.3151
+"PP","Pinaceae","Pinus","ponderosa","708 - BLM Salem",1181.724,6.6981,-0.3151
+"PP","Pinaceae","Pinus","ponderosa","709 - BLM Eugene",1181.724,6.6981,-0.3151
+"PY","Taxaceae","Taxus","brevifolia","609 - Olympic, 800 - Quinalt",127.1698,4.8977,-0.4668
+"PY","Taxaceae","Taxus","brevifolia","612 - Siuslaw, 712 - BLM Coos",139.0727,5.2062,-0.5409
+"PY","Taxaceae","Taxus","brevifolia","708 - BLM Salem",77.2207,3.5181,-0.5894
+"PY","Taxaceae","Taxus","brevifolia","709 - BLM Eugene",139.0727,5.2062,-0.5409
+"RA","Betulaceae","Alnus","rubra","609 - Olympic, 800 - Quinalt",139.4551,4.6989,-0.7682
+"RA","Betulaceae","Alnus","rubra","612 - Siuslaw, 712 - BLM Coos",254.9634,3.8495,-0.4149
+"RA","Betulaceae","Alnus","rubra","708 - BLM Salem",484.4591,4.5713,-0.3643
+"RA","Betulaceae","Alnus","rubra","709 - BLM Eugene",10099.72,7.6375,-0.1621
+"RC","Cupressaceae","Thuja","plicata","609 - Olympic, 800 - Quinalt",665.0944,5.5002,-0.3246
+"RC","Cupressaceae","Thuja","plicata","612 - Siuslaw, 712 - BLM Coos",227.14,6.1092,-0.6009
+"RC","Cupressaceae","Thuja","plicata","708 - BLM Salem",1560.685,6.2328,-0.2541
+"RC","Cupressaceae","Thuja","plicata","709 - BLM Eugene",1012.127,6.0957,-0.3083
+"RF","Pinaceae","Abies","magnifica","609 - Olympic, 800 - Quinalt",202.886,8.7469,-0.8317
+"RF","Pinaceae","Abies","magnifica","612 - Siuslaw, 712 - BLM Coos",202.886,8.7469,-0.8317
+"RF","Pinaceae","Abies","magnifica","708 - BLM Salem",375.382,6.088,-0.472
+"RF","Pinaceae","Abies","magnifica","709 - BLM Eugene",375.382,6.088,-0.472
+"RW","Cupressaceae","Sequoia","sempervirens","609 - Olympic, 800 - Quinalt",595.1068,5.8103,-0.3821
+"RW","Cupressaceae","Sequoia","sempervirens","612 - Siuslaw, 712 - BLM Coos",595.1068,5.8103,-0.3821
+"RW","Cupressaceae","Sequoia","sempervirens","708 - BLM Salem",595.1068,5.8103,-0.3821
+"RW","Cupressaceae","Sequoia","sempervirens","709 - BLM Eugene",595.1068,5.8103,-0.3821
+"SF","Pinaceae","Abies","amabilis","609 - Olympic, 800 - Quinalt",697.6316,6.6807,-0.4161
+"SF","Pinaceae","Abies","amabilis","612 - Siuslaw, 712 - BLM Coos",697.6316,6.6807,-0.4161
+"SF","Pinaceae","Abies","amabilis","708 - BLM Salem",223.3492,6.3964,-0.6566
+"SF","Pinaceae","Abies","amabilis","709 - BLM Eugene",237.9189,7.7948,-0.7261
+"SP","Pinaceae","Pinus","lambertiana","609 - Olympic, 800 - Quinalt",702.1856,5.7025,-0.3798
+"SP","Pinaceae","Pinus","lambertiana","612 - Siuslaw, 712 - BLM Coos",702.1856,5.7025,-0.3798
+"SP","Pinaceae","Pinus","lambertiana","708 - BLM Salem",702.1856,5.7025,-0.3798
+"SP","Pinaceae","Pinus","lambertiana","709 - BLM Eugene",702.1856,5.7025,-0.3798
+"SS","Pinaceae","Picea","sitchensis","609 - Olympic, 800 - Quinalt",3844.388,7.068,-0.2122
+"SS","Pinaceae","Picea","sitchensis","612 - Siuslaw, 712 - BLM Coos",708.7788,5.7677,-0.3629
+"SS","Pinaceae","Picea","sitchensis","708 - BLM Salem",375.382,6.088,-0.472
+"SS","Pinaceae","Picea","sitchensis","709 - BLM Eugene",375.382,6.088,-0.472
+"WA","Betulaceae","Alnus","rhombifolia","609 - Olympic, 800 - Quinalt",139.4551,4.6989,-0.7682
+"WA","Betulaceae","Alnus","rhombifolia","612 - Siuslaw, 712 - BLM Coos",254.8634,3.8495,-0.4149
+"WA","Betulaceae","Alnus","rhombifolia","708 - BLM Salem",133.7965,6.405,-0.8329
+"WA","Betulaceae","Alnus","rhombifolia","709 - BLM Eugene",133.7965,6.405,-0.8329
+"WB","Pinaceae","Pinus","albicaulis","609 - Olympic, 800 - Quinalt",89.5535,4.2281,-0.6438
+"WB","Pinaceae","Pinus","albicaulis","612 - Siuslaw, 712 - BLM Coos",89.5535,4.2281,-0.6438
+"WB","Pinaceae","Pinus","albicaulis","708 - BLM Salem",73.9147,3.963,-0.8277
+"WB","Pinaceae","Pinus","albicaulis","709 - BLM Eugene",73.9147,3.963,-0.8277
+"WF","Pinaceae","Abies","concolor","609 - Olympic, 800 - Quinalt",604.845,5.9835,-0.3789
+"WF","Pinaceae","Abies","concolor","612 - Siuslaw, 712 - BLM Coos",604.845,5.9835,-0.3789
+"WF","Pinaceae","Abies","concolor","708 - BLM Salem",475.1698,6.2472,-0.4812
+"WF","Pinaceae","Abies","concolor","709 - BLM Eugene",475.1698,6.2472,-0.4812
+"WH","Pinaceae","Tsuga","heterophylla","609 - Olympic, 800 - Quinalt",609.4235,5.5919,-0.3841
+"WH","Pinaceae","Tsuga","heterophylla","612 - Siuslaw, 712 - BLM Coos",1196.619,5.7904,-0.2906
+"WH","Pinaceae","Tsuga","heterophylla","708 - BLM Salem",317.8257,6.8287,-0.6034
+"WH","Pinaceae","Tsuga","heterophylla","709 - BLM Eugene",395.4976,6.4222,-0.532
+"WI","Salicaceae","Salix","Salix","609 - Olympic, 800 - Quinalt",149.5861,2.4231,-0.18
+"WI","Salicaceae","Salix","Salix","612 - Siuslaw, 712 - BLM Coos",149.5861,2.4231,-0.18
+"WI","Salicaceae","Salix","Salix","708 - BLM Salem",149.5861,2.4231,-0.18
+"WI","Salicaceae","Salix","Salix","709 - BLM Eugene",149.5861,2.4231,-0.18
+"WJ","Pinaceae","Juniperus","occidentalis","609 - Olympic, 800 - Quinalt",503.6619,4.9544,-0.2085
+"WJ","Pinaceae","Juniperus","occidentalis","612 - Siuslaw, 712 - BLM Coos",503.6619,4.9544,-0.2085
+"WJ","Pinaceae","Juniperus","occidentalis","708 - BLM Salem",503.6619,4.9544,-0.2085
+"WJ","Pinaceae","Juniperus","occidentalis","709 - BLM Eugene",503.6619,4.9544,-0.2085
+"WO","Fagaceae","Quercus","garryana","609 - Olympic, 800 - Quinalt",89.4301,6.6321,-0.8876
+"WO","Fagaceae","Quercus","garryana","612 - Siuslaw, 712 - BLM Coos",89.4301,6.6321,-0.8876
+"WO","Fagaceae","Quercus","garryana","708 - BLM Salem",59.4214,5.3178,-1.367
+"WO","Fagaceae","Quercus","garryana","709 - BLM Eugene",55,5.5,-0.95
+"WP","Pinaceae","Pinus","monticola","609 - Olympic, 800 - Quinalt",433.7807,6.3318,-0.4988
+"WP","Pinaceae","Pinus","monticola","612 - Siuslaw, 712 - BLM Coos",514.1575,6.3004,-0.4651
+"WP","Pinaceae","Pinus","monticola","708 - BLM Salem",1333.818,6.6219,-0.312
+"WP","Pinaceae","Pinus","monticola","709 - BLM Eugene",514.1575,6.3004,-0.4651
+"YC","Cupressaceae","Callitropsis","nootkatensis","609 - Olympic, 800 - Quinalt",1220.096,7.2995,-0.3211
+"YC","Cupressaceae","Callitropsis","nootkatensis","612 - Siuslaw, 712 - BLM Coos",1220.096,7.2995,-0.3211
+"YC","Cupressaceae","Callitropsis","nootkatensis","708 - BLM Salem",255.4638,5.5577,-0.6054
+"YC","Cupressaceae","Callitropsis","nootkatensis","709 - BLM Eugene",97.7769,8.8202,-1.0534

@@ -1,5 +1,88 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# allometric 1.1.0 (2023-06-24)
+
+## Bug fixes
+
+- Increment models now return the correct model type, closes #117.
+
+## Features
+
+- Adding temesgen_2007, closes #119.
+
+- Adding FVS PN variant crown ratio models, updates #113.
+
+- Adding montero_2020, closes #31.
+
+- Adding larsen_1985, closes #115.
+
+- Adding means_1989, closes #102.
+
+- Adding fvs_2008 wykoff functions, updates #113.
+
+
+# allometric 1.0.0.9010 (2023-06-24)
+
+- Same as previous version.
+
+
+# allometric 1.0.0.9009 (2023-06-02)
+
+## Bug fixes
+
+- Parameters and descriptors of ParametricModel are coerced to list before coercing to tibble, allows for use of named vectors. closes #99.
+
+## Features
+
+- Adding fvs PN variant height models, updates #113.
+
+- Adding harrington_1986, closes #111.
+
+- Added a basic boilerplate generator, closes #110.
+
+- Added cochran_1985, closes #104.
+
+## Documentation
+
+- Switching theme to preferably.
+
+- Removing auto-generated model reference pages, related code, and tests closes #112.
+
+- Fixing darkmode logo.
+
+
+# allometric 1.0.0.9008 (2023-05-27)
+
+## Features
+
+- Adding curtis_1974, closes #106.
+
+- Adding barrett_1978, closes #98.
+
+- Adding curtis_1990, closes #97.
+
+- Adding dahms_1964, closes #96.
+
+## Uncategorized
+
+- Merge branch 'master' of https://github.com/brycefrank/allometric.
+
+
+
+# Features
+
+- Adding barrett_1978, closes #98.
+
+- Adding curtis_1990, closes #97.
+
+- Adding dahms_1964, closes #96.
+
+
+# allometric 1.0.0.9007 (2023-04-01)
+
+- Same as previous version.
+
+
 # allometric 1.0.0.9006 (2023-02-28)
 
 ## Features
