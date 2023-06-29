@@ -111,11 +111,7 @@ setMethod("show", "ParametricModel", function(object) {
 
   mod_call <- model_call(object)
   cat("Model Call:", "\n")
-  cat(mod_call, "\n", "\n")
-
-  cat("Model Form:", "\n")
-  cat(form, "\n", "\n")
-  cat(variable_descriptions, sep = "\n")
+  cat(mod_call, "\n")
 
   cat("\n")
   cat("Parameter Estimates:", "\n")

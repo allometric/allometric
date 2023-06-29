@@ -20,13 +20,13 @@ rc_1 <- FixedEffectsSet(
   covariate_units = list(
     hst = units::as_units("ft"),
     ccfl = units::as_units("ft^2 / ft^2"),
-    gn = units::as_units("ft^2 / acre"),
+    gs_s = units::as_units("ft^2 / acre"),
     dsob = units::as_units("in"),
     hstix50 = units::as_units("ft")
   ),
   parameter_names = paste("b_", seq(0, 5), sep = ""),
-  predict_fn = function(hst, ccfl, gn, dsob, hstix50) {
-    1 - ((1) / (1 + exp(b_0 + b_1 * hst + b_2 * ccfl + b_3 * log(gn) + b_4 * (dsob / hst) + b_5 * (hstix50 - 4.5))))
+  predict_fn = function(hst, ccfl, gs_s, dsob, hstix50) {
+    1 - ((1) / (1 + exp(b_0 + b_1 * hst + b_2 * ccfl + b_3 * log(gs_s) + b_4 * (dsob / hst) + b_5 * (hstix50 - 4.5))))
   },
   model_specifications = load_parameter_frame("rc_ritchie_1987_1"),
   covariate_definitions = list(
@@ -41,11 +41,11 @@ rc_2 <- FixedEffectsSet(
   covariate_units = list(
     hst = units::as_units("ft"),
     ccfl = units::as_units("ft^2 / ft^2"),
-    gn = units::as_units("ft^2 / acre")
+    gs_s = units::as_units("ft^2 / acre")
   ),
   parameter_names = paste("b_", seq(0, 3), sep = ""),
-  predict_fn = function(hst, ccfl, gn) {
-    1 - ((1) / (1 + exp(b_0 + b_1 * hst + b_2 * ccfl + b_3 * log(gn))))
+  predict_fn = function(hst, ccfl, gs_s) {
+    1 - ((1) / (1 + exp(b_0 + b_1 * hst + b_2 * ccfl + b_3 * log(gs_s))))
   },
   model_specifications = load_parameter_frame("rc_ritchie_1987_2"),
   covariate_definitions = list(
@@ -60,12 +60,12 @@ rc_3 <- FixedEffectsSet(
   covariate_units = list(
     hst = units::as_units("ft"),
     ccfl = units::as_units("ft^2 / ft^2"),
-    gn = units::as_units("ft^2 / acre"),
+    gs_s = units::as_units("ft^2 / acre"),
     dsob = units::as_units("in")
   ),
   parameter_names = c("b_0", "b_2", "b_3", "b_4"),
-  predict_fn = function(hst, ccfl, gn, dsob) {
-    1 - ((1) / (1 + exp(b_0 + b_2 * ccfl + b_3 * log(gn) + b_4 * (dsob / hst))))
+  predict_fn = function(hst, ccfl, gs_s, dsob) {
+    1 - ((1) / (1 + exp(b_0 + b_2 * ccfl + b_3 * log(gs_s) + b_4 * (dsob / hst))))
   },
   model_specifications = load_parameter_frame("rc_ritchie_1987_3"),
   covariate_definitions = list(
@@ -114,14 +114,14 @@ rc_canyon_live_oak <- FixedEffectsModel(
     rc = units::as_units("ft / ft")
   ),
   covariate_units = list(
-    gn = units::as_units("ft^2 / acre")
+    gs_s = units::as_units("ft^2 / acre")
   ),
   parameters = list(
     b_0 = 2.22352,
     b_3 = -0.426931
   ),
-  predict_fn = function(gn) {
-    1 - ((1) / (1 + exp(b_0 + b_3 * log(gn))))
+  predict_fn = function(gs_s) {
+    1 - ((1) / (1 + exp(b_0 + b_3 * log(gs_s))))
   },
   descriptors = list(family = "Fagaceae", genus = "Quercus", species = "chrysolepis")
 )
@@ -133,15 +133,15 @@ rc_black_oak <- FixedEffectsModel(
   covariate_units = list(
     hst = units::as_units("ft"),
     dsob = units::as_units("in"),
-    gn = units::as_units("ft^2 / acre")
+    gs_s = units::as_units("ft^2 / acre")
   ),
   parameters = list(
     b_0 = 2.65524,
     b_3 = -0.646829,
     b_4 = 0.728396
   ),
-  predict_fn = function(dsob, hst, gn) {
-    1 - ((1) / (1 + exp(b_0 + b_3 * log(gn) + b_4 * (dsob / hst))))
+  predict_fn = function(dsob, hst, gs_s) {
+    1 - ((1) / (1 + exp(b_0 + b_3 * log(gs_s) + b_4 * (dsob / hst))))
   },
   descriptors = list(family = "Fagaceae", genus = "Quercus", species = "kelloggii")
 )
