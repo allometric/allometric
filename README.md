@@ -21,24 +21,26 @@ refer to the [Installing a
 Model](https://brycefrank.com/allometric/articles/installing_a_model.html)
 vignette.
 
-In total **`allometric` contains 2006 models across 56 publications**,
+In total **`allometric` contains 2067 models across 60 publications**,
 the following table displays the number of models by continent and
 category:
 
-| category          |  EU |  AS |  NA |  AF |  OC |  SA |
+| category          |  AS |  EU |  NA |  AF |  OC |  SA |
 |:------------------|----:|----:|----:|----:|----:|----:|
-| biomass           |  19 |   0 |   0 |   0 |   0 |   0 |
-| biomass component | 136 |  26 | 435 |   0 |   0 |   0 |
-| biomass increment |  28 |   0 |   0 |   0 |   0 |   0 |
-| diameter          |  39 |   0 |   0 |   0 |   0 |   0 |
-| height            |  28 |   0 |   0 |   0 |   0 |   0 |
+| biomass           |   2 |  21 |   0 |   0 |   0 |   0 |
+| biomass component |  24 | 134 | 435 |   0 |   0 |   0 |
+| biomass increment |   0 |  28 |   0 |   0 |   0 |   0 |
+| crown diameter    |   0 |  12 |   0 |   0 |   0 |   0 |
+| crown height      |   0 |  12 |   0 |   0 |   0 |   0 |
+| diameter          |   0 |  39 |   0 |   0 |   0 |   0 |
+| height            |   0 |  28 |   0 |   0 |   0 |   0 |
 | site index        |   0 |   0 |  19 |   0 |   0 |   0 |
-| stem height       |   0 |   7 | 345 |  12 |   2 |  18 |
-| stem volume       |   0 |   4 | 575 |   0 |   0 |  20 |
+| stem height       |   7 |   0 | 345 |  12 |   2 |  18 |
+| stem volume       |   4 |   0 | 587 |   0 |   0 |  20 |
 | stump volume      |   0 |   0 |  64 |   0 |   0 |   0 |
-| taper             |   0 |   2 |  18 |   0 |   0 |   0 |
-| tree biomass      |  36 |   2 |  90 |   0 |  21 |  16 |
-| other             |   0 |   0 | 168 |   0 |   0 |   0 |
+| taper             |   2 |   0 |  20 |   0 |   0 |   0 |
+| tree biomass      |   2 |  36 |  90 |   0 |  21 |  16 |
+| other             |   0 |   0 | 192 |   0 |   0 |   0 |
 
 Refer to the
 [Reference](https://brycefrank.com/allometric/reference/index.html) for
@@ -138,7 +140,7 @@ unnested_models <- unnest_models(allometric_models, cols = "family_name")
 unnested_models
 ```
 
-    #> # A tibble: 4,766 × 12
+    #> # A tibble: 5,011 × 12
     #>    id       model_type   country   region    family       genus  species      model      pub_id    family_name covt_name pub_year
     #>    <chr>    <chr>        <list>    <list>    <chr>        <chr>  <chr>        <list>     <chr>     <chr>       <list>       <dbl>
     #>  1 cd71c0b8 stem height  <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984 Hahn        <chr [4]>     1984
@@ -151,7 +153,7 @@ unnested_models
     #>  8 44f59d7d stem height  <chr [1]> <chr [2]> Aceraceae    Acer   macrophyllum <FxdEffcM> fvs_2008  Staff       <chr [1]>     2008
     #>  9 1d58b6d4 stem height  <chr [1]> <chr [2]> Aceraceae    Acer   macrophyllum <FxdEffcM> fvs_2008  Staff       <chr [1]>     2008
     #> 10 539ef85b stem height  <chr [1]> <chr [2]> Aceraceae    Acer   macrophyllum <FxdEffcM> fvs_2008  Staff       <chr [1]>     2008
-    #> # ℹ 4,756 more rows
+    #> # ℹ 5,001 more rows
 
 Now, each row represents unique data combinations for each model, which
 can be quickly filtered by most users using `dplyr::filter`. For
