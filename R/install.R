@@ -1,7 +1,35 @@
+check_models_downloaded <- function() {
+  model_dir_path <- system.file("models", package = "allometric")
 
+  if(model_dir_path == "") {
+    return(FALSE)
+  } else {
+    return(TRUE)
+  }
+}
 
 #' @export
 install_models <- function(ignore_cache = FALSE, verbose = FALSE) {
+  downloaded <- check_models_downloaded()
+
+  if(!downloaded) {
+    print("Cloning allometric/models repository.")
+
+    pkg_path <- system.file("", package = "allometric")
+    model_dir_path <- file.path(pkg_path, "models")
+
+    gert::git_clone(
+      "https://github.com/allometric/models.git",
+      path = model_dir_path
+    )
+  } else {
+    print("Pulling allometric/models repository.")
+
+    pkg_path <- system.file("", package = "allometric")
+    model_dir_path <- file.path(pkg_path, "models")
+    gert::git_pull(repo = model_dir_path)
+  }
+
   run_pub_list <- get_run_pubs(ignore_cache, verbose)
   update_pub_list(run_pub_list)
 
@@ -9,7 +37,10 @@ install_models <- function(ignore_cache = FALSE, verbose = FALSE) {
   data <- aggregate_results(results)
   data <- new_model_tbl(data)
 
-  out_path <- file.path(system.file("extdata", package = "allometric"), "allometric_models.RDS")
+  out_path <- file.path(
+    system.file("extdata", package = "allometric"), "allometric_models.RDS"
+  )
+
   saveRDS(data, out_path)
   .GlobalEnv$allometric_models <- data
 }

@@ -35,7 +35,7 @@ get_pub_file_spec <- function(pub_path) {
 #' @keywords internal
 get_run_pubs <- function(ignore_cache = FALSE, verbose = FALSE) {
   pub_list_path <- system.file("extdata/pub_list.RDS", package = "allometric")
-  pub_path <- system.file("publications", package = "allometric")
+  pub_path <- system.file("models/publications", package = "allometric")
 
   pub_file_spec <- get_pub_file_spec(pub_path)
   pub_file_names <- pub_file_spec$pub_names
