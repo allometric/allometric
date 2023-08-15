@@ -2,3 +2,4 @@ measure,component,modifier,description
 a,t,b,age of the tree at breast height
 a,t,t,age of the tree
 a,h,,age of the shrub
+a,t,i,index age for a base-age invariant site index function
