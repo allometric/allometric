@@ -18,7 +18,7 @@ and structured format.
 it also provides a structured language for adding models to the package.
 If you are interested in helping the developer in this process please
 refer to the [Installing a
-Model](https://brycefrank.com/allometric/articles/installing_a_model.html)
+Model](https://allometric.github.io/allometric/articles/installing_a_model.html)
 vignette.
 
 In total **`allometric` contains 2067 models across 60 publications**,
@@ -43,8 +43,8 @@ category:
 | other             |   0 |   0 | 192 |   0 |   0 |   0 |
 
 Refer to the
-[Reference](https://brycefrank.com/allometric/reference/index.html) for
-a full list of publications disaggregated by allometric model type.
+[Reference](https://allometric.github.io/allometric/reference/index.html)
+for a full list of publications disaggregated by allometric model type.
 
 ## How Can I Help?
 
@@ -70,7 +70,7 @@ difficult tasks.
     will find a list of reports that need manual digitization. These can
     be handled by anyone with Excel and a cup of coffee.
 4.  [Learn how to install and write
-    models](https://brycefrank.com/allometric/articles/installing_a_model.html).
+    models](https://allometric.github.io/allometric/articles/installing_a_model.html).
     Motivated users can learn how to install models directly using the
     package functions and git pull requests. Users comfortable with R
     and git can handle this task.
@@ -112,7 +112,7 @@ head(allometric_models)
     #> # A tibble: 6 × 12
     #>   id       model_type   country   region    family       genus  species      model      pub_id    family_name covt_name pub_year
     #>   <chr>    <chr>        <list>    <list>    <chr>        <chr>  <chr>        <list>     <chr>     <list>      <list>       <dbl>
-    #> 1 cd71c0b8 stem height  <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984 <chr [1]>   <chr [4]>     1984
+    #> 1 539629a5 stem height  <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984 <chr [1]>   <chr [4]>     1984
     #> 2 7bc0e06a stem volume  <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984 <chr [1]>   <chr [2]>     1984
     #> 3 1fa4219a stem volume  <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984 <chr [1]>   <chr [2]>     1984
     #> 4 b359d3ce stump volume <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984 <chr [1]>   <chr [1]>     1984
@@ -143,7 +143,7 @@ unnested_models
     #> # A tibble: 5,011 × 12
     #>    id       model_type   country   region    family       genus  species      model      pub_id    family_name covt_name pub_year
     #>    <chr>    <chr>        <list>    <list>    <chr>        <chr>  <chr>        <list>     <chr>     <chr>       <list>       <dbl>
-    #>  1 cd71c0b8 stem height  <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984 Hahn        <chr [4]>     1984
+    #>  1 539629a5 stem height  <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984 Hahn        <chr [4]>     1984
     #>  2 7bc0e06a stem volume  <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984 Hahn        <chr [2]>     1984
     #>  3 1fa4219a stem volume  <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984 Hahn        <chr [2]>     1984
     #>  4 b359d3ce stump volume <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984 Hahn        <chr [1]>     1984
@@ -204,13 +204,6 @@ brackett_alnus_mod
 
     #> Model Call: 
     #> vsia = f(dsob, hst) 
-    #>  
-    #> Model Form: 
-    #> vsia = 10^a * dsob^b * hst^c 
-    #>  
-    #> vsia [ft3]: volume of the entire stem inside bark, including top and stump
-    #> dsob [in]: diameter of the stem, outside bark at breast height
-    #> hst [ft]: total height of the stem
     #> 
     #> Parameter Estimates: 
     #> # A tibble: 1 × 3
@@ -264,22 +257,22 @@ my_trees %>%
 ## Next Steps
 
 The following vignettes available on the [package
-website](https://brycefrank.com/allometric/index.html) provide
+website](https://allometric.github.io/allometric/index.html) provide
 information to two primary audiences.
 
 Users interested in finding models for analysis will find the following
 documentation most useful:
 
 - [Common Inventory Use
-  Cases](https://brycefrank.com/allometric/articles/inventory_example.html)
+  Cases](https://allometric.github.io/allometric/articles/inventory_example.html)
 - `?allometric_models`
 
 Users interested in **contributing models** to the package will find
 these vignettes the most useful:
 
 - [Installing a
-  Model](https://brycefrank.com/allometric/articles/installing_a_model.html)
+  Model](https://allometric.github.io/allometric/articles/installing_a_model.html)
 - [Describing a Model with
-  Descriptors](https://brycefrank.com/allometric/articles/descriptors.html)
+  Descriptors](https://allometric.github.io/allometric/articles/descriptors.html)
 - [Variable Naming
-  System](https://brycefrank.com/allometric/articles/variable_naming_system.html)
+  System](https://allometric.github.io/allometric/articles/variable_naming_system.html)
