@@ -21,7 +21,7 @@ refer to the [Installing a
 Model](https://allometric.github.io/allometric/articles/installing_a_model.html)
 vignette.
 
-In total **`allometric` contains 2063 models across 58 publications**,
+In total **`allometric` contains 2099 models across 60 publications**,
 the following table displays the number of models by continent and
 category:
 
@@ -30,7 +30,7 @@ category:
 | biomass           |   2 |  21 |   0 |   0 |   0 |   0 |
 | biomass component |  24 | 134 | 435 |   0 |   0 |   0 |
 | biomass increment |   0 |  28 |   0 |   0 |   0 |   0 |
-| crown diameter    |   0 |  12 |   0 |   0 |   0 |   0 |
+| crown diameter    |   0 |  12 |  36 |   0 |   0 |   0 |
 | crown height      |   0 |  12 |   0 |   0 |   0 |   0 |
 | diameter          |   0 |  39 |   0 |   0 |   0 |   0 |
 | height            |   0 |  28 |   0 |   0 |   0 |   0 |
@@ -140,7 +140,7 @@ unnested_models <- unnest_models(allometric_models, cols = "family_name")
 unnested_models
 ```
 
-    #> # A tibble: 5,024 × 12
+    #> # A tibble: 5,076 × 12
     #>    id       model_type   country   region    family       genus  species      model      pub_id    family_name covt_name pub_year
     #>    <chr>    <chr>        <list>    <list>    <chr>        <chr>  <chr>        <list>     <chr>     <chr>       <list>       <dbl>
     #>  1 539629a5 stem height  <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984 Hahn        <chr [4]>     1984
@@ -153,7 +153,7 @@ unnested_models
     #>  8 44f59d7d stem height  <chr [1]> <chr [2]> Aceraceae    Acer   macrophyllum <FxdEffcM> fvs_2008  Staff       <chr [1]>     2008
     #>  9 1d58b6d4 stem height  <chr [1]> <chr [2]> Aceraceae    Acer   macrophyllum <FxdEffcM> fvs_2008  Staff       <chr [1]>     2008
     #> 10 539ef85b stem height  <chr [1]> <chr [2]> Aceraceae    Acer   macrophyllum <FxdEffcM> fvs_2008  Staff       <chr [1]>     2008
-    #> # … with 5,014 more rows
+    #> # … with 5,066 more rows
 
 Now, each row represents unique data combinations for each model, which
 can be quickly filtered by most users using `dplyr::filter`. For
