@@ -4,7 +4,7 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml)
-[![](https://img.shields.io/badge/devel%20version-1.1.0-blue.svg)](https://github.com/brycefrank/allometric)
+[![](https://img.shields.io/badge/devel%20version-1.1.0.9000-blue.svg)](https://github.com/brycefrank/allometric)
 [![codecov](https://codecov.io/gh/brycefrank/allometric/branch/master/graph/badge.svg?token=3V5KUFMO2X)](https://codecov.io/gh/brycefrank/allometric)
 <!-- badges: end -->
 
@@ -18,10 +18,10 @@ and structured format.
 it also provides a structured language for adding models to the package.
 If you are interested in helping the developer in this process please
 refer to the [Installing a
-Model](https://brycefrank.com/allometric/articles/installing_a_model.html)
+Model](https://allometric.github.io/allometric/articles/installing_a_model.html)
 vignette.
 
-In total **`allometric` contains 2063 models across 58 publications**,
+In total **`allometric` contains 2099 models across 60 publications**,
 the following table displays the number of models by continent and
 category:
 
@@ -30,7 +30,7 @@ category:
 | biomass           |   2 |  21 |   0 |   0 |   0 |   0 |
 | biomass component |  24 | 134 | 435 |   0 |   0 |   0 |
 | biomass increment |   0 |  28 |   0 |   0 |   0 |   0 |
-| crown diameter    |   0 |  12 |   0 |   0 |   0 |   0 |
+| crown diameter    |   0 |  12 |  36 |   0 |   0 |   0 |
 | crown height      |   0 |  12 |   0 |   0 |   0 |   0 |
 | diameter          |   0 |  39 |   0 |   0 |   0 |   0 |
 | height            |   0 |  28 |   0 |   0 |   0 |   0 |
@@ -43,8 +43,8 @@ category:
 | other             |   0 |   0 | 168 |   0 |   0 |   0 |
 
 Refer to the
-[Reference](https://brycefrank.com/allometric/reference/index.html) for
-a full list of publications disaggregated by allometric model type.
+[Reference](https://allometric.github.io/allometric/reference/index.html)
+for a full list of publications disaggregated by allometric model type.
 
 ## How Can I Help?
 
@@ -70,7 +70,7 @@ difficult tasks.
     will find a list of reports that need manual digitization. These can
     be handled by anyone with Excel and a cup of coffee.
 4.  [Learn how to install and write
-    models](https://brycefrank.com/allometric/articles/installing_a_model.html).
+    models](https://allometric.github.io/allometric/articles/installing_a_model.html).
     Motivated users can learn how to install models directly using the
     package functions and git pull requests. Users comfortable with R
     and git can handle this task.
@@ -140,7 +140,7 @@ unnested_models <- unnest_models(allometric_models, cols = "family_name")
 unnested_models
 ```
 
-    #> # A tibble: 5,024 × 12
+    #> # A tibble: 5,076 × 12
     #>    id       model_type   country   region    family       genus  species      model      pub_id    family_name covt_name pub_year
     #>    <chr>    <chr>        <list>    <list>    <chr>        <chr>  <chr>        <list>     <chr>     <chr>       <list>       <dbl>
     #>  1 539629a5 stem height  <chr [1]> <chr [3]> Accipitridae Circus canadensis   <FxdEffcM> hahn_1984 Hahn        <chr [4]>     1984
@@ -153,7 +153,7 @@ unnested_models
     #>  8 44f59d7d stem height  <chr [1]> <chr [2]> Aceraceae    Acer   macrophyllum <FxdEffcM> fvs_2008  Staff       <chr [1]>     2008
     #>  9 1d58b6d4 stem height  <chr [1]> <chr [2]> Aceraceae    Acer   macrophyllum <FxdEffcM> fvs_2008  Staff       <chr [1]>     2008
     #> 10 539ef85b stem height  <chr [1]> <chr [2]> Aceraceae    Acer   macrophyllum <FxdEffcM> fvs_2008  Staff       <chr [1]>     2008
-    #> # … with 5,014 more rows
+    #> # … with 5,066 more rows
 
 Now, each row represents unique data combinations for each model, which
 can be quickly filtered by most users using `dplyr::filter`. For
@@ -257,22 +257,22 @@ my_trees %>%
 ## Next Steps
 
 The following vignettes available on the [package
-website](https://brycefrank.com/allometric/index.html) provide
+website](https://allometric.github.io/allometric/index.html) provide
 information to two primary audiences.
 
 Users interested in finding models for analysis will find the following
 documentation most useful:
 
 - [Common Inventory Use
-  Cases](https://brycefrank.com/allometric/articles/inventory_example.html)
+  Cases](https://allometric.github.io/allometric/articles/inventory_example.html)
 - `?allometric_models`
 
 Users interested in **contributing models** to the package will find
 these vignettes the most useful:
 
 - [Installing a
-  Model](https://brycefrank.com/allometric/articles/installing_a_model.html)
+  Model](https://allometric.github.io/allometric/articles/installing_a_model.html)
 - [Describing a Model with
-  Descriptors](https://brycefrank.com/allometric/articles/descriptors.html)
+  Descriptors](https://allometric.github.io/allometric/articles/descriptors.html)
 - [Variable Naming
-  System](https://brycefrank.com/allometric/articles/variable_naming_system.html)
+  System](https://allometric.github.io/allometric/articles/variable_naming_system.html)
