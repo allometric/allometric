@@ -6,17 +6,17 @@ title: "Installing a Model"
 library(allometric)
 ```
 
-Models can be installed by anyone provided they are comfortable writing R and
-submitting `git` pull requests. The model installation process involves these
-basic steps.
+Motivated users are entirely capable of submitting models, provided they are
+comfortable using `git` pull requests.
 
-1. Fork and then clone the `allometric` git repository to your local enviroment.
-2. Write a new file in the `inst/publications` directory that
+1. Fork and then clone the [`models`](https://github.com/allometric/models.git)
+repository to your local enviroment.
+2. Write a new file in the `publications` directory that
     a. Establishes a citation for the originating publication of the model.
     b. Instantiates the model (usually a `ParametricModel` or
         `ModelSet`) with associated metadata and prediction function.
 3. Add and commit the new file to the remote forked repository from (1)
-4. Submit a pull request to `brycefrank/allometric` via GitHub.
+4. Submit a pull request to `allometric/models` via GitHub.
 
 After the completion of step 4, your pull request will be tested and reviewed
 for completion, and will become part of the main package if it passes review.
@@ -252,14 +252,12 @@ defined for the publication. We can see that there is 1 model set for `vsa`
 
 ## Where do Publications go from here?
 
-Once a publication and added models are located in a `.R` file in the
-`inst/publications` the models contained within can now be installed
-by the user using `install_models()`. In fact, this is exactly how the user
-initially gains access to the `allometric_models` table. If you are ever 
-interested in viewing the source code for a model, just find the matching 
-`.R` file in `inst/publications`, which can be viewed locally or on GitHub. 
-The files used for this example are located at
-[`inst/publications/temesgen_2008.R`](https://github.com/brycefrank/allometric/blob/master/inst/publications/temesgen_2008.R)
-and [`inst/publications/brackett_1977.R`](https://github.com/brycefrank/allometric/blob/master/inst/publications/brackett_1977.R),
+Once a publication is added to the `models` to the `publications` directory the
+models contained within can now be installed by the user using
+`install_models()`. In fact, this is exactly how the user initially gains access
+to the `allometric_models` table. If you are ever interested in viewing the
+source code for a model, just find the matching `.R` file in `publications`,
+which can be viewed locally or on GitHub. The files used for this example are
+located at [`publications/temesgen_2008.R`](https://github.com/allometric/models/blob/main/publications/p_t/temesgen_2008.R)
+and [`publications/brackett_1977.R`](https://github.com/allometric/models/blob/main/publications/a_e/barrett_1978.R),
 respectively.
-

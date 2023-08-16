@@ -77,12 +77,12 @@ generate_footer <- function(pub_id, n_fixef_models) {
   out
 }
 
-generate_pub <- function(pub_id, bibtype, n_fixef_models = 0) {
+generate_pub <- function(models_dir, pub_id, bibtype, n_fixef_models = 0) {
   pub_obj <- generate_pub_obj(pub_id, bibtype)
   text <- c(pub_obj, "")
 
-  if(n_fixef_models > 0) {
-    for(i in 1:n_fixef_models) {
+  if (n_fixef_models > 0) {
+    for (i in 1:n_fixef_models) {
       text <- c(text, generate_fixef_model(), "")
     }
 
@@ -91,7 +91,10 @@ generate_pub <- function(pub_id, bibtype, n_fixef_models = 0) {
 
   pub_dir <- find_pub_dir(pub_id)
   pub_file_name <- paste(pub_id, ".R", sep = "")
-  out_path <- file.path("./inst/publications/", pub_dir, pub_file_name)
+
+  out_path <- file.path(
+    models_dir, "/publications/", pub_dir, pub_file_name
+  )
 
   write(text, out_path)
 }
