@@ -8,6 +8,19 @@ check_models_downloaded <- function() {
   }
 }
 
+#' Delete the local models directory.
+#'
+#' @keywords internal
+delete_models <- function() {
+  models_path_check <- system.file("models", package = "allometric")
+
+  if(models_path_check != "") {
+    print("Deleting models directory.")
+    shell_command <- paste('rmdir /s /q "', models_path_check, '"', sep = "")
+    shell(shell_command)
+  }
+}
+
 #' @export
 install_models <- function(ignore_cache = FALSE, verbose = FALSE) {
   downloaded <- check_models_downloaded()
@@ -20,7 +33,8 @@ install_models <- function(ignore_cache = FALSE, verbose = FALSE) {
 
     gert::git_clone(
       "https://github.com/allometric/models.git",
-      path = model_dir_path
+      path = model_dir_path,
+      verbose = FALSE
     )
   } else {
     print("Pulling allometric/models repository.")
