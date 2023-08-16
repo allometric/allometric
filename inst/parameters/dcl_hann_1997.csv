@@ -1,0 +1,21 @@
+family,genus,species,common_name,geographic_region,b0,b1,b2
+Pinaceae,Pseudotsuga,menziesii,Douglas-fir,Northwest Oregon,0,0.00436324,0.602002
+Pinaceae,Pseudotsuga,menziesii,Douglas-fir,Southwest Oregon,0,0.00371834,0.808121
+Cupressaceae,Calocedrus,decurrens,Incense-cedar,Western Oregon,-0.251389,0.00692512,0.985922
+Pinaceae,Pinus,ponderosa,Ponderosa pine,Western Oregon,0.355532,0,0
+Pinaceae,Pinus,lambertiana,Sugar pine,Western Oregon,0,0.00339675,0.532418
+Pinaceae,Abies,concolor,True firs,Western Oregon,0,0.00308402,0
+Pinaceae,Abies,grandis,True firs,Western Oregon,0,0.00308402,0
+Pinaceae,Abies,magnifica,True firs,Western Oregon,0,0.00308402,0
+Pinaceae,Abies,procera,True firs,Western Oregon,0,0.00308402,0
+Pinaceae,Abies,lasiocarpa,True firs,Western Oregon,0,0.00308402,0
+Pinaceae,Abies,amabilis,True firs,Western Oregon,0,0.00308402,0
+Pinaceae,Tsuga,heterophylla,Western hemlock,Western Oregon,0,0,0
+Sapindaceae,Acer,macrophyllum,Bigleaf maple,Western Oregon,0,0,1.47018
+Fagaceae,Quercus,kelloggii,California black oak,Western Oregon,0,0,1.27196
+Fagaceae,Quercus,chrysolepis,Canyon live oak,Western Oregon,0,0.0207676,0
+Fagaceae,Chrysolepis,chrysophylla,Golden chinkapin,Western Oregon,0,0,1.16144
+Fagaceae,Quercus,garryana,Oregon white oak,Western Oregon,0.364811,0,0
+Ericaceae,Arbutus,menziesii,Pacific madrone,Western Oregon,0.118621,0.00384872,0
+Betulaceae,Alnus,rubra,Red alder,Western Oregon,0.322714,0,0
+Fagaceae,Notholithocarpus,densiflorus,Tanoak,Western Oregon,0,0.0111972,0
