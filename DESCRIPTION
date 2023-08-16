@@ -45,7 +45,6 @@ Collate:
     'Publication.R'
     'update_models.R'
     'zzz.R'
-    'tests/testthat/test-install.R'
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
