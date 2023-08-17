@@ -49,7 +49,7 @@
     
     <a class="navbar-brand me-2" href="index.html">allometric</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -103,13 +103,13 @@
 <!-- badges: start -->
 
 <p><code>allometric</code> is an R package for predicting tree attributes with allometric models. Thousands of allometric models exist in the scientific and technical forestry literature, and <code>allometric</code> is a platform for archiving and using this vast array of models in a robust and structured format.</p>
-<p><code>allometric</code> not only enables the use of allometric models for analysis, it also provides a structured language for adding models to the package. If you are interested in helping the developer in this process please refer to the <a href="https://brycefrank.com/allometric/articles/installing_a_model.html" class="external-link">Installing a Model</a> vignette.</p>
-<p>In total <strong><code>allometric</code> contains 2006 models across 56 publications</strong>, the following table displays the number of models by continent and category:</p>
+<p><code>allometric</code> not only enables the use of allometric models for analysis, it also provides a structured language for adding models to the package. If you are interested in helping the developer in this process please refer to the <a href="https://allometric.github.io/allometric/articles/installing_a_model.html" class="external-link">Installing a Model</a> vignette.</p>
+<p>In total <strong><code>allometric</code> contains 2063 models across 58 publications</strong>, the following table displays the number of models by continent and category:</p>
 <table class="table">
 <thead><tr class="header">
 <th align="left">category</th>
-<th align="right">EU</th>
 <th align="right">AS</th>
+<th align="right">EU</th>
 <th align="right">NA</th>
 <th align="right">AF</th>
 <th align="right">OC</th>
@@ -118,8 +118,8 @@
 <tbody>
 <tr class="odd">
 <td align="left">biomass</td>
-<td align="right">19</td>
-<td align="right">0</td>
+<td align="right">2</td>
+<td align="right">21</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
@@ -127,8 +127,8 @@
 </tr>
 <tr class="even">
 <td align="left">biomass component</td>
-<td align="right">136</td>
-<td align="right">26</td>
+<td align="right">24</td>
+<td align="right">134</td>
 <td align="right">435</td>
 <td align="right">0</td>
 <td align="right">0</td>
@@ -136,8 +136,26 @@
 </tr>
 <tr class="odd">
 <td align="left">biomass increment</td>
+<td align="right">0</td>
 <td align="right">28</td>
 <td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">crown diameter</td>
+<td align="right">0</td>
+<td align="right">12</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">crown height</td>
+<td align="right">0</td>
+<td align="right">12</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
@@ -145,8 +163,8 @@
 </tr>
 <tr class="even">
 <td align="left">diameter</td>
-<td align="right">39</td>
 <td align="right">0</td>
+<td align="right">39</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
@@ -154,8 +172,8 @@
 </tr>
 <tr class="odd">
 <td align="left">height</td>
-<td align="right">28</td>
 <td align="right">0</td>
+<td align="right">28</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
@@ -165,15 +183,15 @@
 <td align="left">site index</td>
 <td align="right">0</td>
 <td align="right">0</td>
-<td align="right">19</td>
+<td align="right">52</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
 </tr>
 <tr class="odd">
 <td align="left">stem height</td>
-<td align="right">0</td>
 <td align="right">7</td>
+<td align="right">0</td>
 <td align="right">345</td>
 <td align="right">12</td>
 <td align="right">2</td>
@@ -181,8 +199,8 @@
 </tr>
 <tr class="even">
 <td align="left">stem volume</td>
-<td align="right">0</td>
 <td align="right">4</td>
+<td align="right">0</td>
 <td align="right">575</td>
 <td align="right">0</td>
 <td align="right">0</td>
@@ -199,8 +217,8 @@
 </tr>
 <tr class="even">
 <td align="left">taper</td>
-<td align="right">0</td>
 <td align="right">2</td>
+<td align="right">0</td>
 <td align="right">18</td>
 <td align="right">0</td>
 <td align="right">0</td>
@@ -208,8 +226,8 @@
 </tr>
 <tr class="odd">
 <td align="left">tree biomass</td>
-<td align="right">36</td>
 <td align="right">2</td>
+<td align="right">36</td>
 <td align="right">90</td>
 <td align="right">0</td>
 <td align="right">21</td>
@@ -226,20 +244,20 @@
 </tr>
 </tbody>
 </table>
-<p>Refer to the <a href="https://brycefrank.com/allometric/reference/index.html" class="external-link">Reference</a> for a full list of publications disaggregated by allometric model type.</p>
+<p>Refer to the <a href="https://allometric.github.io/allometric/reference/index.html" class="external-link">Reference</a> for a full list of publications disaggregated by allometric model type.</p>
 <div class="section level2">
 <h2 id="how-can-i-help">How Can I Help?<a class="anchor" aria-label="anchor" href="#how-can-i-help"></a>
 </h2>
 <p><code>allometric</code> is a monumental undertaking, and already several people have come forward and added hundreds of models. There are several ways to help out. The following list is ranked from the least to most difficult tasks.</p>
 <ol style="list-style-type: decimal">
 <li>
-<a href="https://github.com/brycefrank/allometric/issues/new?assignees=brycefrank&amp;labels=add+publication&amp;template=add-models-from-a-publication.md&amp;title=%5BInsert+Author-Date+Citation%5D" class="external-link">Add missing publications as an Issue</a>. We always need help <em>finding publications</em> to add. If you know of a publication that is missing, feel free to add it as an Issue and we will eventually install the models contained inside.</li>
+<a href="https://github.com/allometric/models/issues/new?assignees=brycefrank&amp;labels=add+publication&amp;projects=&amp;template=add-models-from-a-publication.md&amp;title=%5BInsert+Author-Date+Citation%5D" class="external-link">Add missing publications as an Issue</a>. We always need help <em>finding publications</em> to add. If you know of a publication that is missing, feel free to add it as an Issue and we will eventually install the models contained inside.</li>
 <li>
-<a href="https://github.com/brycefrank/allometric/labels/missing%20source" class="external-link">Find source material for a publication</a>. Some publications are missing their original source material. Usually these are very old legacy publications. If you know where a publication might be found, or who to contact, leave a note on any of these issues.</li>
+<a href="https://github.com/allometric/models/labels/missing%20source" class="external-link">Find source material for a publication</a>. Some publications are missing their original source material. Usually these are very old legacy publications. If you know where a publication might be found, or who to contact, leave a note on any of these issues.</li>
 <li>
-<a href="https://github.com/brycefrank/allometric/issues?q=is%3Aissue+is%3Aopen+label%3A%22digitization+needed%22" class="external-link">Help us digitize publications</a>. We always need help <em>digitizing legacy reports</em>, at this link you will find a list of reports that need manual digitization. These can be handled by anyone with Excel and a cup of coffee.</li>
+<a href="https://github.com/allometric/models/labels/digitization%20needed" class="external-link">Help us digitize publications</a>. We always need help <em>digitizing legacy reports</em>, at this link you will find a list of reports that need manual digitization. These can be handled by anyone with Excel and a cup of coffee.</li>
 <li>
-<a href="https://brycefrank.com/allometric/articles/installing_a_model.html" class="external-link">Learn how to install and write models</a>. Motivated users can learn how to install models directly using the package functions and git pull requests. Users comfortable with R and git can handle this task.</li>
+<a href="https://allometric.github.io/allometric/articles/installing_a_model.html" class="external-link">Learn how to install and write models</a>. Motivated users can learn how to install models directly using the package functions and git pull requests. Users comfortable with R and git can handle this task.</li>
 </ol>
 <p>Other ideas? Contact <a href="mailto:bfrank70@gmail.com" class="email">bfrank70@gmail.com</a> to help out.</p>
 </div>
@@ -264,7 +282,7 @@
 <div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 12</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   id       model_type   country   region    family       genus  species      model      pub_id    family_name covt_name pub_year</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;        &lt;list&gt;    &lt;list&gt;    &lt;chr&gt;        &lt;chr&gt;  &lt;chr&gt;        &lt;list&gt;     &lt;chr&gt;     &lt;list&gt;      &lt;list&gt;       &lt;dbl&gt;</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 cd71c0b8 stem height  &lt;chr [1]&gt; &lt;chr [3]&gt; Accipitridae Circus canadensis   &lt;FxdEffcM&gt; hahn_1984 &lt;chr [1]&gt;   &lt;chr [4]&gt;     1984</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 539629a5 stem height  &lt;chr [1]&gt; &lt;chr [3]&gt; Accipitridae Circus canadensis   &lt;FxdEffcM&gt; hahn_1984 &lt;chr [1]&gt;   &lt;chr [4]&gt;     1984</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 7bc0e06a stem volume  &lt;chr [1]&gt; &lt;chr [3]&gt; Accipitridae Circus canadensis   &lt;FxdEffcM&gt; hahn_1984 &lt;chr [1]&gt;   &lt;chr [2]&gt;     1984</span></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 1fa4219a stem volume  &lt;chr [1]&gt; &lt;chr [3]&gt; Accipitridae Circus canadensis   &lt;FxdEffcM&gt; hahn_1984 &lt;chr [1]&gt;   &lt;chr [2]&gt;     1984</span></span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 b359d3ce stump volume &lt;chr [1]&gt; &lt;chr [3]&gt; Accipitridae Circus canadensis   &lt;FxdEffcM&gt; hahn_1984 &lt;chr [1]&gt;   &lt;chr [1]&gt;     1984</span></span>
@@ -276,10 +294,10 @@
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">unnested_models</span> <span class="op">&lt;-</span> <span class="fu">unnest_models</span><span class="op">(</span><span class="va">allometric_models</span>, cols <span class="op">=</span> <span class="st">"family_name"</span><span class="op">)</span></span>
 <span><span class="va">unnested_models</span></span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4,766 × 12</span></span>
+<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 5,024 × 12</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    id       model_type   country   region    family       genus  species      model      pub_id    family_name covt_name pub_year</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;chr&gt;    &lt;chr&gt;        &lt;list&gt;    &lt;list&gt;    &lt;chr&gt;        &lt;chr&gt;  &lt;chr&gt;        &lt;list&gt;     &lt;chr&gt;     &lt;chr&gt;       &lt;list&gt;       &lt;dbl&gt;</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 cd71c0b8 stem height  &lt;chr [1]&gt; &lt;chr [3]&gt; Accipitridae Circus canadensis   &lt;FxdEffcM&gt; hahn_1984 Hahn        &lt;chr [4]&gt;     1984</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 539629a5 stem height  &lt;chr [1]&gt; &lt;chr [3]&gt; Accipitridae Circus canadensis   &lt;FxdEffcM&gt; hahn_1984 Hahn        &lt;chr [4]&gt;     1984</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 7bc0e06a stem volume  &lt;chr [1]&gt; &lt;chr [3]&gt; Accipitridae Circus canadensis   &lt;FxdEffcM&gt; hahn_1984 Hahn        &lt;chr [2]&gt;     1984</span></span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 1fa4219a stem volume  &lt;chr [1]&gt; &lt;chr [3]&gt; Accipitridae Circus canadensis   &lt;FxdEffcM&gt; hahn_1984 Hahn        &lt;chr [2]&gt;     1984</span></span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 b359d3ce stump volume &lt;chr [1]&gt; &lt;chr [3]&gt; Accipitridae Circus canadensis   &lt;FxdEffcM&gt; hahn_1984 Hahn        &lt;chr [1]&gt;     1984</span></span>
@@ -289,7 +307,7 @@
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 44f59d7d stem height  &lt;chr [1]&gt; &lt;chr [2]&gt; Aceraceae    Acer   macrophyllum &lt;FxdEffcM&gt; fvs_2008  Staff       &lt;chr [1]&gt;     2008</span></span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 1d58b6d4 stem height  &lt;chr [1]&gt; &lt;chr [2]&gt; Aceraceae    Acer   macrophyllum &lt;FxdEffcM&gt; fvs_2008  Staff       &lt;chr [1]&gt;     2008</span></span>
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 539ef85b stem height  &lt;chr [1]&gt; &lt;chr [2]&gt; Aceraceae    Acer   macrophyllum &lt;FxdEffcM&gt; fvs_2008  Staff       &lt;chr [1]&gt;     2008</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 4,756 more rows</span></span></code></pre></div>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 5,014 more rows</span></span></code></pre></div>
 <p>Now, each row represents unique data combinations for each model, which can be quickly filtered by most users using <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">dplyr::filter</a></code>. For example, to find a volume model for the genus Alnus that had <code>"Brackett"</code> as an author or co-author we can use</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">brackett_alnus_vol</span> <span class="op">&lt;-</span> <span class="va">unnested_models</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
@@ -316,25 +334,18 @@
 <code class="sourceCode R"><span><span class="va">brackett_alnus_mod</span></span></code></pre></div>
 <div class="sourceCode" id="cb12"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Model Call: </span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; vsia = f(dsob, hst) </span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Model Form: </span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; vsia = 10^a * dsob^b * hst^c </span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; vsia [ft3]: volume of the entire stem inside bark, including top and stump</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; dsob [in]: diameter of the stem, outside bark at breast height</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; hst [ft]: total height of the stem</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Parameter Estimates: </span></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 × 3</span></span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       a     b     c</span></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 -2.67  1.92  1.07</span></span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Model Descriptors: </span></span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 × 7</span></span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   country region family     genus species geographic_region age_class</span></span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;             &lt;chr&gt;    </span></span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 US      US-WA  Betulaceae Alnus rubra   &lt;NA&gt;              &lt;NA&gt;</span></span></code></pre></div>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Parameter Estimates: </span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 × 3</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       a     b     c</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 -2.67  1.92  1.07</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Model Descriptors: </span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 × 7</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   country region family     genus species geographic_region age_class</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;             &lt;chr&gt;    </span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 US      US-WA  Betulaceae Alnus rubra   &lt;NA&gt;              &lt;NA&gt;</span></span></code></pre></div>
 <p>We can see from the <code>Model Call</code> section that <code>brackett_alnus_mod</code> will require two covariates called <code>dsob</code>, which refers to diameter outside bark at breast height, and <code>hst</code>, the height of the main stem.</p>
 <p><strong>Predict Using the Selected Model</strong></p>
 <p>Using the <code><a href="reference/predict.html">predict()</a></code> method we can easily use the function as defined by providing values of these two covariates.</p>
@@ -359,17 +370,17 @@
 <div class="section level2">
 <h2 id="next-steps">Next Steps<a class="anchor" aria-label="anchor" href="#next-steps"></a>
 </h2>
-<p>The following vignettes available on the <a href="https://brycefrank.com/allometric/index.html" class="external-link">package website</a> provide information to two primary audiences.</p>
+<p>The following vignettes available on the <a href="https://allometric.github.io/allometric/index.html" class="external-link">package website</a> provide information to two primary audiences.</p>
 <p>Users interested in finding models for analysis will find the following documentation most useful:</p>
 <ul>
-<li><a href="https://brycefrank.com/allometric/articles/inventory_example.html" class="external-link">Common Inventory Use Cases</a></li>
+<li><a href="https://allometric.github.io/allometric/articles/inventory_example.html" class="external-link">Common Inventory Use Cases</a></li>
 <li><code><a href="reference/allometric_models.html">?allometric_models</a></code></li>
 </ul>
 <p>Users interested in <strong>contributing models</strong> to the package will find these vignettes the most useful:</p>
 <ul>
-<li><a href="https://brycefrank.com/allometric/articles/installing_a_model.html" class="external-link">Installing a Model</a></li>
-<li><a href="https://brycefrank.com/allometric/articles/descriptors.html" class="external-link">Describing a Model with Descriptors</a></li>
-<li><a href="https://brycefrank.com/allometric/articles/variable_naming_system.html" class="external-link">Variable Naming System</a></li>
+<li><a href="https://allometric.github.io/allometric/articles/installing_a_model.html" class="external-link">Installing a Model</a></li>
+<li><a href="https://allometric.github.io/allometric/articles/descriptors.html" class="external-link">Describing a Model with Descriptors</a></li>
+<li><a href="https://allometric.github.io/allometric/articles/variable_naming_system.html" class="external-link">Variable Naming System</a></li>
 </ul>
 </div>
 </div>
@@ -408,7 +419,7 @@
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml" class="external-link"><img src="https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://github.com/brycefrank/allometric" class="external-link"><img src="https://img.shields.io/badge/devel%20version-1.1.0-blue.svg"></a></li>
+<li><a href="https://github.com/brycefrank/allometric" class="external-link"><img src="https://img.shields.io/badge/devel%20version-1.1.0.9000-blue.svg"></a></li>
 <li><a href="https://codecov.io/gh/brycefrank/allometric" class="external-link"><img src="https://codecov.io/gh/brycefrank/allometric/branch/master/graph/badge.svg?token=3V5KUFMO2X" alt="codecov"></a></li>
 </ul>
 </div>

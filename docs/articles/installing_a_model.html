@@ -49,7 +49,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">allometric</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -111,14 +111,12 @@
 
     
     
-<p>Models can be installed by anyone provided they are comfortable
-writing R and submitting <code>git</code> pull requests. The model
-installation process involves these basic steps.</p>
+<p>Motivated users are entirely capable of submitting models, provided
+they are comfortable using <code>git</code> pull requests.</p>
 <ol style="list-style-type: decimal">
-<li>Fork and then clone the <code>allometric</code> git repository to
-your local enviroment.</li>
-<li>Write a new file in the <code>inst/publications</code> directory
-that
+<li>Fork and then clone the <a href="https://github.com/allometric/models.git" class="external-link"><code>models</code></a>
+repository to your local enviroment.</li>
+<li>Write a new file in the <code>publications</code> directory that
 <ol style="list-style-type: lower-alpha">
 <li>Establishes a citation for the originating publication of the
 model.</li>
@@ -129,7 +127,7 @@ function.</li>
 </li>
 <li>Add and commit the new file to the remote forked repository from
 (1)</li>
-<li>Submit a pull request to <code>brycefrank/allometric</code> via
+<li>Submit a pull request to <code>allometric/models</code> via
 GitHub.</li>
 </ol>
 <p>After the completion of step 4, your pull request will be tested and
@@ -372,16 +370,15 @@ that contains 24 models.</p>
 <div class="section level2">
 <h2 id="where-do-publications-go-from-here">Where do Publications go from here?<a class="anchor" aria-label="anchor" href="#where-do-publications-go-from-here"></a>
 </h2>
-<p>Once a publication and added models are located in a <code>.R</code>
-file in the <code>inst/publications</code> the models contained within
-can now be installed by the user using <code>install_models()</code>. In
-fact, this is exactly how the user initially gains access to the
+<p>Once a publication is added to the <code>models</code> to the
+<code>publications</code> directory the models contained within can now
+be installed by the user using <code>install_models()</code>. In fact,
+this is exactly how the user initially gains access to the
 <code>allometric_models</code> table. If you are ever interested in
 viewing the source code for a model, just find the matching
-<code>.R</code> file in <code>inst/publications</code>, which can be
-viewed locally or on GitHub. The files used for this example are located
-at <a href="https://github.com/brycefrank/allometric/blob/master/inst/publications/temesgen_2008.R" class="external-link"><code>inst/publications/temesgen_2008.R</code></a>
-and <a href="https://github.com/brycefrank/allometric/blob/master/inst/publications/brackett_1977.R" class="external-link"><code>inst/publications/brackett_1977.R</code></a>,
+<code>.R</code> file in <code>publications</code>, which can be viewed
+locally or on GitHub. The files used for this example are located at <a href="https://github.com/allometric/models/blob/main/publications/p_t/temesgen_2008.R" class="external-link"><code>publications/temesgen_2008.R</code></a>
+and <a href="https://github.com/allometric/models/blob/main/publications/a_e/barrett_1978.R" class="external-link"><code>publications/brackett_1977.R</code></a>,
 respectively.</p>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
