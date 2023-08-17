@@ -21,12 +21,9 @@ repository to your local enviroment.
 After the completion of step 4, your pull request will be tested and reviewed
 for completion, and will become part of the main package if it passes review.
 
-This vignette will focus on the second step. Explanation of `git` pull requests
-are beyond the scope of this vignette, but interested readers can learn using
-[About Pull Requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
-Interested readers should also contact Bryce Frank
-(bfrank70@gmail.com), or open an issue on GitHub if they want their models 
-added but do not want to learn `git`.
+Users that are not familiar with `git` can simply email me their model files
+at bfrank70@gmail.com. All other users are encouraged to submit models via pull
+requests
 
 ## Establishing a Publication
 
@@ -249,6 +246,12 @@ brackett_1977
 This summary shows the publication name, followed by a list of all model sets
 defined for the publication. We can see that there is 1 model set for `vsa`
 (volume of the stem including top and stump) that contains 24 models.
+
+## Git Pull Request Example
+
+Users that are savvy with `git` are free to submit pull requests to the 
+`allometric/models` repository. This is a step-by-step instruction for this
+purpose.
 
 ## Where do Publications go from here?
 

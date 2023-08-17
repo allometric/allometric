@@ -1,6 +1,8 @@
 
 
 test_that("update_pub_list produces a pub_list.RDS file that contains all publications", {
+  install_models()
+
   run_pubs <- get_run_pubs(verbose = F)
   update_pub_list(run_pubs)
 
