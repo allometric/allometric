@@ -211,7 +211,7 @@ which are specified by column names referred to as `descriptors`. In this case,
 `descriptors` includes `family`, `genus`, `species`, `geographic_region` and
 `age_class`. The combination of these values uniquely identifies a model within
 this publication. `family`, `genus` and `species` are part of a standard set of 
-descriptors called ["search descriptors"](https://brycefrank.com/allometric/articles/descriptors.html),
+descriptors called ["search descriptors"](https://allometric.github.io/allometric/articles/descriptors.html),
 which get propagated to the searching functions described in the README.
 `geographic_region` and `age_class` are not search descriptors, but still help
 to clarify the purpose of the model within the publication.

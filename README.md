@@ -1,11 +1,11 @@
 
-# allometric <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/brycefrank/allometric/master/man/figures/allo2-darkmode.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/brycefrank/allometric/master/man/figures/allo2.svg"><img alt="Isometric logo of a tree" height="210" width="165" align="right"></picture>
+# allometric <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/allometric/allometric/master/man/figures/allo2-darkmode.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/allometric/allometric/master/man/figures/allo2.svg"><img alt="Isometric logo of a tree" height="210" width="165" align="right"></picture>
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml)
-[![](https://img.shields.io/badge/devel%20version-1.1.0.9000-blue.svg)](https://github.com/brycefrank/allometric)
-[![codecov](https://codecov.io/gh/brycefrank/allometric/branch/master/graph/badge.svg?token=3V5KUFMO2X)](https://codecov.io/gh/brycefrank/allometric)
+[![R-CMD-check](https://github.com/allometric/allometric/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/allometric/allometric/actions/workflows/check-standard.yaml)
+[![](https://img.shields.io/badge/devel%20version-1.1.0.9000-blue.svg)](https://github.com/allometric/allometric)
+[![codecov](https://codecov.io/gh/allometric/allometric/branch/master/graph/badge.svg?token=3V5KUFMO2X)](https://codecov.io/gh/allometric/allometric)
 <!-- badges: end -->
 
 `allometric` is an R package for predicting tree attributes with
@@ -83,7 +83,7 @@ Currently `allometric` is only available on GitHub, and can be installed
 using `devtools`.
 
 ``` r
-devtools::install_github("brycefrank/allometric")
+devtools::install_github("allometric/allometric")
 ```
 
 ## Getting Started

@@ -62,7 +62,7 @@ This means that **all** models in `brackett_1977` are constructed with data only
 from the state of Washington in the United States. The `FixedEffectsSet`,
 `MixedEffectsSet` and their respective `FixedEffectsModel` and `MixedEffectsModel`
 classes all have a `descriptors` argument that can be used for specifying
-descriptors at these levels. Refer to the [Installing a Model](https://brycefrank.com/allometric/articles/installing_a_model.html)
+descriptors at these levels. Refer to the [Installing a Model](https://allometric.github.io/allometric/articles/installing_a_model.html)
 vignette for more examples at these levels.
 
 ## Search Descriptors
