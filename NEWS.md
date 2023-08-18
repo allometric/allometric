@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# allometric 1.2.0 (2023-08-17)
+
+- Merge pull request #129 from allometric/model_migration.
+
+Model migration
+
+
 # allometric 1.1.0.9000 (2023-08-15)
 
 - Same as previous version.
