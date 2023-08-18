@@ -59,11 +59,7 @@ test_that("append_search_descriptors creates a valid tibble row", {
   expect_equal(row, test_row)
 })
 
-model_results <- get_model_results()
-model_ids <- read.csv(system.file("model_ids.csv", package = "allometric"))
-
 test_that("get_model_results returns a list of length equal to model_ids", {
-
   model_ids <- read.csv(system.file("model_ids.csv", package = "allometric"))
   expect_equal(nrow(model_ids), length(model_results))
 })
