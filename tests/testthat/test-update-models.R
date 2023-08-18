@@ -1,8 +1,4 @@
-
-
 test_that("update_pub_list produces a pub_list.RDS file that contains all publications", {
-  install_models()
-
   run_pubs <- get_run_pubs(verbose = F)
   update_pub_list(run_pubs)
 
@@ -19,14 +15,16 @@ test_that("update_pub_list produces a pub_list.RDS file that contains all public
   expect_true(file.exists(pub_list_path))
 })
 
-pub_list_path <- file.path(
-  system.file("extdata", package = "allometric"),
-  "pub_list.RDS"
-)
 
-pubs <- get_pub_list(pub_list_path)
 
 test_that("get_pub_list returns a list of publications", {
+  pub_list_path <- file.path(
+    system.file("extdata", package = "allometric"),
+    "pub_list.RDS"
+  )
+
+  pubs <- get_pub_list(pub_list_path)
+
   expect_equal(class(pubs), "list")
 
   pub_classes <- c()
