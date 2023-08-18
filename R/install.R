@@ -31,6 +31,8 @@ install_models <- function(ignore_cache = FALSE, verbose = FALSE) {
     pkg_path <- system.file("", package = "allometric")
     model_dir_path <- file.path(pkg_path, "models")
 
+    mkdir(model_dir_path)
+
     gert::git_clone(
       "https://github.com/allometric/models.git",
       path = model_dir_path,
