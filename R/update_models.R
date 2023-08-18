@@ -14,10 +14,10 @@ get_pub_file_spec <- function(pub_path) {
 
   for(dir in sub_dirs) {
     dir_path <- file.path(pub_path, dir)
-    
+
     names <- list.files(dir_path)
     paths <- file.path(dir_path, names)
-    
+
     pub_paths <- c(pub_paths, paths)
     pub_names <- c(pub_names, names)
   }
@@ -28,14 +28,14 @@ get_pub_file_spec <- function(pub_path) {
 
 #' Determines which publication files need to be ran for installation
 #'
-#' The pub_list is regenerated if any files in inst/publications have been
+#' The pub_list is regenerated if any files in models/publications have been
 #' modified after the creation of the pub_list. Only those files are returned
 #' unless ignore_cache is set to TRUE, in which case all files will be returned.
 #'
 #' @keywords internal
 get_run_pubs <- function(ignore_cache = FALSE, verbose = FALSE) {
   pub_list_path <- system.file("extdata/pub_list.RDS", package = "allometric")
-  pub_path <- system.file("publications", package = "allometric")
+  pub_path <- system.file("models/publications", package = "allometric")
 
   pub_file_spec <- get_pub_file_spec(pub_path)
   pub_file_names <- pub_file_spec$pub_names

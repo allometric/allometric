@@ -1,11 +1,11 @@
 
-# allometric <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/brycefrank/allometric/master/man/figures/allo2-darkmode.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/brycefrank/allometric/master/man/figures/allo2.svg"><img alt="Isometric logo of a tree" height="210" width="165" align="right"></picture>
+# allometric <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/allometric/allometric/master/man/figures/allo2-darkmode.svg"><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/allometric/allometric/master/man/figures/allo2.svg"><img alt="Isometric logo of a tree" height="210" width="165" align="right"></picture>
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/brycefrank/allometric/actions/workflows/check-standard.yaml)
-[![](https://img.shields.io/badge/devel%20version-1.1.0.9000-blue.svg)](https://github.com/brycefrank/allometric)
-[![codecov](https://codecov.io/gh/brycefrank/allometric/branch/master/graph/badge.svg?token=3V5KUFMO2X)](https://codecov.io/gh/brycefrank/allometric)
+[![R-CMD-check](https://github.com/allometric/allometric/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/allometric/allometric/actions/workflows/check-standard.yaml)
+[![](https://img.shields.io/badge/devel%20version-1.1.0.9000-blue.svg)](https://github.com/allometric/allometric)
+[![codecov](https://codecov.io/gh/allometric/allometric/branch/master/graph/badge.svg?token=3V5KUFMO2X)](https://codecov.io/gh/allometric/allometric)
 <!-- badges: end -->
 
 `allometric` is an R package for predicting tree attributes with
@@ -54,18 +54,18 @@ to help out. The following list is ranked from the least to most
 difficult tasks.
 
 1.  [Add missing publications as an
-    Issue](https://github.com/brycefrank/allometric/issues/new?assignees=brycefrank&labels=add+publication&template=add-models-from-a-publication.md&title=%5BInsert+Author-Date+Citation%5D).
+    Issue](https://github.com/allometric/models/issues/new?assignees=brycefrank&labels=add+publication&projects=&template=add-models-from-a-publication.md&title=%5BInsert+Author-Date+Citation%5D).
     We always need help *finding publications* to add. If you know of a
     publication that is missing, feel free to add it as an Issue and we
     will eventually install the models contained inside.
 2.  [Find source material for a
-    publication](https://github.com/brycefrank/allometric/labels/missing%20source).
+    publication](https://github.com/allometric/models/labels/missing%20source).
     Some publications are missing their original source material.
     Usually these are very old legacy publications. If you know where a
     publication might be found, or who to contact, leave a note on any
     of these issues.
 3.  [Help us digitize
-    publications](https://github.com/brycefrank/allometric/issues?q=is%3Aissue+is%3Aopen+label%3A%22digitization+needed%22).
+    publications](https://github.com/allometric/models/labels/digitization%20needed).
     We always need help *digitizing legacy reports*, at this link you
     will find a list of reports that need manual digitization. These can
     be handled by anyone with Excel and a cup of coffee.
@@ -83,7 +83,7 @@ Currently `allometric` is only available on GitHub, and can be installed
 using `devtools`.
 
 ``` r
-devtools::install_github("brycefrank/allometric")
+devtools::install_github("allometric/allometric")
 ```
 
 ## Getting Started
@@ -153,7 +153,7 @@ unnested_models
     #>  8 44f59d7d stem height  <chr [1]> <chr [2]> Aceraceae    Acer   macrophyllum <FxdEffcM> fvs_2008  Staff       <chr [1]>     2008
     #>  9 1d58b6d4 stem height  <chr [1]> <chr [2]> Aceraceae    Acer   macrophyllum <FxdEffcM> fvs_2008  Staff       <chr [1]>     2008
     #> 10 539ef85b stem height  <chr [1]> <chr [2]> Aceraceae    Acer   macrophyllum <FxdEffcM> fvs_2008  Staff       <chr [1]>     2008
-    #> # … with 5,066 more rows
+    #> # ℹ 5,066 more rows
 
 Now, each row represents unique data combinations for each model, which
 can be quickly filtered by most users using `dplyr::filter`. For

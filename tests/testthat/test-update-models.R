@@ -1,5 +1,3 @@
-
-
 test_that("update_pub_list produces a pub_list.RDS file that contains all publications", {
   run_pubs <- get_run_pubs(verbose = F)
   update_pub_list(run_pubs)
@@ -10,21 +8,23 @@ test_that("update_pub_list produces a pub_list.RDS file that contains all public
   )
 
   pubs <- readRDS(pub_list_path)
-  pubs_path <- system.file("publications", package="allometric")
-  n_files <- length( get_pub_file_spec(pubs_path)$pub_paths )
+  pubs_path <- system.file("models/publications", package = "allometric")
+  n_files <- length(get_pub_file_spec(pubs_path)$pub_paths)
 
   expect_equal(n_files, length(pubs))
   expect_true(file.exists(pub_list_path))
 })
 
-pub_list_path <- file.path(
-  system.file("extdata", package = "allometric"),
-  "pub_list.RDS"
-)
 
-pubs <- get_pub_list(pub_list_path)
 
 test_that("get_pub_list returns a list of publications", {
+  pub_list_path <- file.path(
+    system.file("extdata", package = "allometric"),
+    "pub_list.RDS"
+  )
+
+  pubs <- get_pub_list(pub_list_path)
+
   expect_equal(class(pubs), "list")
 
   pub_classes <- c()
@@ -59,23 +59,23 @@ test_that("append_search_descriptors creates a valid tibble row", {
   expect_equal(row, test_row)
 })
 
-model_results <- get_model_results()
-model_ids <- read.csv(system.file("model_ids.csv", package = "allometric"))
-
 test_that("get_model_results returns a list of length equal to model_ids", {
-
+  model_results <- get_model_results()
   model_ids <- read.csv(system.file("model_ids.csv", package = "allometric"))
   expect_equal(nrow(model_ids), length(model_results))
 })
 
 test_that("aggregate_results returns tbl_df of length equal to model_ids", {
+  model_results <- get_model_results()
   out <- aggregate_results(model_results)
+  model_ids <- read.csv(system.file("model_ids.csv", package = "allometric"))
 
   expect_s3_class(out, "tbl_df")
   expect_equal(nrow(out), nrow(model_ids))
 })
 
 test_that("bad id does not exist", {
+  model_ids <- read.csv(system.file("model_ids.csv", package = "allometric"))
   check <- id_exists(model_ids, "bad id")
   expect_false(check)
 })

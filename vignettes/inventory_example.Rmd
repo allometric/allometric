@@ -90,7 +90,7 @@ per species. The last step is to ensure that each of these remaining models are
 compatible with our available data. `fia_trees` only contains `DIA`, the 
 diameter at breast height, and `HT` the total height of the tree. In `allometric`
 these covariates are standardized as `dsob` and `hst` respectively. See the
-[Variable Naming System](https://brycefrank.com/allometric/articles/variable_naming_system.html)
+[Variable Naming System](https://allometric.github.io/allometric/articles/variable_naming_system.html)
 for more information. Using some clever filtering, we can find which models are
 compatible with this set of covariates.
 

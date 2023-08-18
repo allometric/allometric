@@ -49,7 +49,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">allometric</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -81,7 +81,7 @@
 
       <ul class="navbar-nav">
 <li class="nav-item">
-  <a class="external-link nav-link" href="https://github.com/brycefrank/allometric/" aria-label="github">
+  <a class="external-link nav-link" href="https://github.com/allometric/allometric/" aria-label="github">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -105,7 +105,7 @@
       <img src="" class="logo" alt=""><h1>Variable Naming System</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/brycefrank/allometric/blob/HEAD/vignettes/variable_naming_system.Rmd" class="external-link"><code>vignettes/variable_naming_system.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/allometric/allometric/blob/HEAD/vignettes/variable_naming_system.Rmd" class="external-link"><code>vignettes/variable_naming_system.Rmd</code></a></small>
       <div class="d-none name"><code>variable_naming_system.Rmd</code></div>
     </div>
 
@@ -140,7 +140,7 @@ variable name, <code>"dsob"</code></p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/get_variable_def.html">get_variable_def</a></span><span class="op">(</span><span class="st">"dsob"</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##   component measure search_str bark_modifier height_modifier                                         description measure_name component_name suffix scale_description</span></span>
-<span><span class="co">## 2         s       d       dsob             o               b diameter of the stem, outside bark at breast height     diameter           stem      t              tree</span></span></code></pre>
+<span><span class="co">## 5         s       d       dsob             o               b diameter of the stem, outside bark at breast height     diameter           stem      t              tree</span></span></code></pre>
 <p>and find that it is the diameter of the stem, outside bark at breast
 height. We see that the measure is <code>"d"</code> for diameter, the
 component is <code>"s"</code> for stem and two modifiers are used (bark
@@ -151,14 +151,14 @@ the increment flag <code>"i_"</code>:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/get_variable_def.html">get_variable_def</a></span><span class="op">(</span><span class="st">"i_dsob"</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##   component measure search_str bark_modifier height_modifier                                                     description measure_name component_name suffix scale_description prefix prefix_description</span></span>
-<span><span class="co">## 2         s       d       dsob             o               b diameter of the stem, outside bark at breast height (increment)     diameter           stem      t              tree      i          increment</span></span></code></pre>
+<span><span class="co">## 5         s       d       dsob             o               b diameter of the stem, outside bark at breast height (increment)     diameter           stem      t              tree      i          increment</span></span></code></pre>
 <p>If we want to refer to a plot-level diameter outside bark (e.g., the
 mean diameter of trees on a plot), add a scale flag <code>"_p"</code> as
 a suffix.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/get_variable_def.html">get_variable_def</a></span><span class="op">(</span><span class="st">"dsob_p"</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##   component measure search_str bark_modifier height_modifier                                                      description measure_name component_name suffix scale_description</span></span>
-<span><span class="co">## 2         s       d       dsob             o               b diameter of the stem, outside bark at breast height (plot-level)     diameter           stem      p              plot</span></span></code></pre>
+<span><span class="co">## 5         s       d       dsob             o               b diameter of the stem, outside bark at breast height (plot-level)     diameter           stem      p              plot</span></span></code></pre>
 <p>there is also a scale flag for stand-level variables,
 <code>"_s"</code>.</p>
 </div>
@@ -188,19 +188,21 @@ commonly used terms for variables in allometric modeling.</p>
 <h2 id="components">Components<a class="anchor" aria-label="anchor" href="#components"></a>
 </h2>
 <p>All variable names then have a second character that specifies the
-tree component. There are 9 established components:</p>
+tree component. There are 11 established components:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">component_defs</span></span></code></pre></div>
-<pre><code><span><span class="co">##   component component_name</span></span>
-<span><span class="co">## 1         b         branch</span></span>
-<span><span class="co">## 2         c          crown</span></span>
-<span><span class="co">## 3         f        foliage</span></span>
-<span><span class="co">## 4         k           bark</span></span>
-<span><span class="co">## 5         r           root</span></span>
-<span><span class="co">## 6         s           stem</span></span>
-<span><span class="co">## 7         t           tree</span></span>
-<span><span class="co">## 8         u          stump</span></span>
-<span><span class="co">## 9         w           wood</span></span></code></pre>
+<pre><code><span><span class="co">##    component component_name</span></span>
+<span><span class="co">## 1          b         branch</span></span>
+<span><span class="co">## 2          c          crown</span></span>
+<span><span class="co">## 3          f        foliage</span></span>
+<span><span class="co">## 4          k           bark</span></span>
+<span><span class="co">## 5          r           root</span></span>
+<span><span class="co">## 6          s           stem</span></span>
+<span><span class="co">## 7          t           tree</span></span>
+<span><span class="co">## 8          u          stump</span></span>
+<span><span class="co">## 9          w           wood</span></span>
+<span><span class="co">## 10         h          shrub</span></span>
+<span><span class="co">## 11         v          cover</span></span></code></pre>
 <p>Mixing these first two character codes provides an expressive system
 to refer to measures and components. For example, the biomass of
 foliage, if one were interested in it, would begin <code>bf</code>, the
@@ -226,11 +228,11 @@ user to specify these broad range of variables. The available
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/get_variable_def.html">get_variable_def</a></span><span class="op">(</span><span class="st">"ds"</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##   component measure search_str bark_modifier height_modifier                                              description measure_name component_name suffix scale_description</span></span>
-<span><span class="co">## 2         s       d       dsob             o               b      diameter of the stem, outside bark at breast height     diameter           stem      t              tree</span></span>
-<span><span class="co">## 3         s       d       dsoh             o               h diameter of the stem, outside bark at a specified height     diameter           stem      t              tree</span></span>
-<span><span class="co">## 4         s       d       dsih             i               h  diameter of the stem, inside bark at a specified height     diameter           stem      t              tree</span></span>
-<span><span class="co">## 5         s       d       dsib             i               b       diameter of the stem, inside bark at breast height     diameter           stem      t              tree</span></span>
-<span><span class="co">## 6         s       d       dsoc             o               c              diameter outside bark above the root collar     diameter           stem      t              tree</span></span></code></pre>
+<span><span class="co">## 5         s       d       dsob             o               b      diameter of the stem, outside bark at breast height     diameter           stem      t              tree</span></span>
+<span><span class="co">## 6         s       d       dsoh             o               h diameter of the stem, outside bark at a specified height     diameter           stem      t              tree</span></span>
+<span><span class="co">## 7         s       d       dsih             i               h  diameter of the stem, inside bark at a specified height     diameter           stem      t              tree</span></span>
+<span><span class="co">## 8         s       d       dsib             i               b       diameter of the stem, inside bark at breast height     diameter           stem      t              tree</span></span>
+<span><span class="co">## 9         s       d       dsoc             o               c              diameter outside bark above the root collar     diameter           stem      t              tree</span></span></code></pre>
 </div>
 <div class="section level3">
 <h3 id="height-of-stem-hs-modifiers">Height of Stem (<code>hs</code>) Modifiers<a class="anchor" aria-label="anchor" href="#height-of-stem-hs-modifiers"></a>
@@ -238,18 +240,19 @@ user to specify these broad range of variables. The available
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/get_variable_def.html">get_variable_def</a></span><span class="op">(</span><span class="st">"hs"</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##    component measure search_str height_modifier modifier                                                                        description measure_name component_name suffix scale_description</span></span>
-<span><span class="co">## 1          s       h        hst               t                                                                    total height of the stem       height           stem      t              tree</span></span>
-<span><span class="co">## 2          s       h        hsm               m                                                             merchantable height of the stem       height           stem      t              tree</span></span>
-<span><span class="co">## 3          s       h        hso               o                                                      height of the stem above breast height       height           stem      t              tree</span></span>
-<span><span class="co">## 4          s       h        hsb               b                                                            height of the stem to crown base       height           stem      t              tree</span></span>
-<span><span class="co">## 5          s       h        hsv               v                                        height of the stem to crown base above breast height       height           stem      t              tree</span></span>
-<span><span class="co">## 6          s       h        hsd               d                                                      height to a specified diameter (taper)       height           stem      t              tree</span></span>
-<span><span class="co">## 7          s       h    hsdip75               d     ip75  height to a diameter that is 0.75 times the diameter inside bark at breast height       height           stem      t              tree</span></span>
-<span><span class="co">## 8          s       h    hsdop67               d     op67 height to a diameter that is 0.67 times the diameter outside bark at breast height       height           stem      t              tree</span></span>
-<span><span class="co">## 9          s       h    hstix20               t     ix20                                                     site index at 20 year base age       height           stem      t              tree</span></span>
-<span><span class="co">## 10         s       h    hstix50               t     ix50                                                     site index at 50 year base age       height           stem      t              tree</span></span>
-<span><span class="co">## 11         s       h   hstix100               t    ix100                                                    site index at 100 year base age       height           stem      t              tree</span></span>
-<span><span class="co">## 12         s       h        hsl               l                                          distance from tip of stem to merchantibility limit       height           stem      t              tree</span></span></code></pre>
+<span><span class="co">## 3          s       h        hst               t                                                                    total height of the stem       height           stem      t              tree</span></span>
+<span><span class="co">## 4          s       h        hsm               m                                                             merchantable height of the stem       height           stem      t              tree</span></span>
+<span><span class="co">## 5          s       h        hso               o                                                      height of the stem above breast height       height           stem      t              tree</span></span>
+<span><span class="co">## 6          s       h        hsb               b                                                            height of the stem to crown base       height           stem      t              tree</span></span>
+<span><span class="co">## 7          s       h        hsv               v                                        height of the stem to crown base above breast height       height           stem      t              tree</span></span>
+<span><span class="co">## 8          s       h        hsd               d                                                      height to a specified diameter (taper)       height           stem      t              tree</span></span>
+<span><span class="co">## 9          s       h    hsdip75               d     ip75  height to a diameter that is 0.75 times the diameter inside bark at breast height       height           stem      t              tree</span></span>
+<span><span class="co">## 10         s       h    hsdop67               d     op67 height to a diameter that is 0.67 times the diameter outside bark at breast height       height           stem      t              tree</span></span>
+<span><span class="co">## 11         s       h     hstixi               t      ixi                                           site index (base age invariant function)       height           stem      t              tree</span></span>
+<span><span class="co">## 12         s       h    hstix20               t     ix20                                                     site index at 20 year base age       height           stem      t              tree</span></span>
+<span><span class="co">## 13         s       h    hstix50               t     ix50                                                     site index at 50 year base age       height           stem      t              tree</span></span>
+<span><span class="co">## 14         s       h   hstix100               t    ix100                                                    site index at 100 year base age       height           stem      t              tree</span></span>
+<span><span class="co">## 15         s       h        hsl               l                                          distance from tip of stem to merchantibility limit       height           stem      t              tree</span></span></code></pre>
 </div>
 <div class="section level3">
 <h3 id="volume-of-stem-vs-modifiers">Volume of Stem (<code>vs</code>) Modifiers<a class="anchor" aria-label="anchor" href="#volume-of-stem-vs-modifiers"></a>
@@ -273,11 +276,12 @@ user to specify these broad range of variables. The available
 <pre><code><span><span class="co">##   component measure search_str               description measure_name component_name suffix scale_description</span></span>
 <span><span class="co">## 1         b       b         bb            branch biomass      biomass         branch      t              tree</span></span>
 <span><span class="co">## 2         f       b         bf           foliage biomass      biomass        foliage      t              tree</span></span>
-<span><span class="co">## 3         k       b         bk              bark biomass      biomass           bark      t              tree</span></span>
-<span><span class="co">## 4         r       b         br              root biomass      biomass           root      t              tree</span></span>
-<span><span class="co">## 5         s       b         bs              stem biomass      biomass           stem      t              tree</span></span>
-<span><span class="co">## 6         t       b         bt              tree biomass      biomass           tree      t              tree</span></span>
-<span><span class="co">## 7         w       b         bw stem biomass without bark      biomass           wood      t              tree</span></span></code></pre>
+<span><span class="co">## 3         h       b         bh             shrub biomass      biomass          shrub      t              tree</span></span>
+<span><span class="co">## 4         k       b         bk              bark biomass      biomass           bark      t              tree</span></span>
+<span><span class="co">## 5         r       b         br              root biomass      biomass           root      t              tree</span></span>
+<span><span class="co">## 6         s       b         bs              stem biomass      biomass           stem      t              tree</span></span>
+<span><span class="co">## 7         t       b         bt              tree biomass      biomass           tree      t              tree</span></span>
+<span><span class="co">## 8         w       b         bw stem biomass without bark      biomass           wood      t              tree</span></span></code></pre>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

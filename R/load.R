@@ -3,7 +3,12 @@
 #' @export
 load_parameter_frame <- function(name) {
   csv_name <- paste(name, ".csv", sep = "")
-  file_path <- system.file("parameters", csv_name, package = "allometric")
+  
+  file_path <- system.file(
+    "models/parameters", csv_name,
+    package = "allometric"
+  )
+
   table <- utils::read.csv(file_path, na.strings = "")
   tibble::as_tibble(table)
 }

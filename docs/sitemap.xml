@@ -1,171 +1,171 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://brycefrank.com/allometric/404.html</loc>
+    <loc>http://allometric.github.io/allometric/404.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/articles/advanced_searching.html</loc>
+    <loc>http://allometric.github.io/allometric/articles/advanced_searching.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/articles/deep_dive.html</loc>
+    <loc>http://allometric.github.io/allometric/articles/deep_dive.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/articles/descriptors.html</loc>
+    <loc>http://allometric.github.io/allometric/articles/descriptors.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/articles/ignore/deep_dive.html</loc>
+    <loc>http://allometric.github.io/allometric/articles/ignore/deep_dive.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/articles/index.html</loc>
+    <loc>http://allometric.github.io/allometric/articles/index.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/articles/installing_a_model.html</loc>
+    <loc>http://allometric.github.io/allometric/articles/installing_a_model.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/articles/inventory_example.html</loc>
+    <loc>http://allometric.github.io/allometric/articles/inventory_example.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/articles/mixed_effects.html</loc>
+    <loc>http://allometric.github.io/allometric/articles/mixed_effects.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/articles/variable_naming.html</loc>
+    <loc>http://allometric.github.io/allometric/articles/variable_naming.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/articles/variable_naming_system.html</loc>
+    <loc>http://allometric.github.io/allometric/articles/variable_naming_system.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/authors.html</loc>
+    <loc>http://allometric.github.io/allometric/authors.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/index.html</loc>
+    <loc>http://allometric.github.io/allometric/index.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/LICENSE-text.html</loc>
+    <loc>http://allometric.github.io/allometric/LICENSE-text.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/LICENSE.html</loc>
+    <loc>http://allometric.github.io/allometric/LICENSE.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/news/index.html</loc>
+    <loc>http://allometric.github.io/allometric/news/index.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/add_model.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/add_model.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/add_set.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/add_set.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/aggregate_results.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/aggregate_results.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/aggregate_results_ext.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/aggregate_results_ext.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/AllometricModel.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/AllometricModel.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/allometric_models.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/allometric_models.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/check_args_in_predict_fn.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/check_args_in_predict_fn.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/check_citation_key.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/check_citation_key.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/check_country_in_iso.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/check_country_in_iso.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/check_covts_in_args.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/check_covts_in_args.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/check_descriptor_set.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/check_descriptor_set.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/check_descriptor_validity.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/check_descriptor_validity.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/check_parameters_in_mixed_fns.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/check_parameters_in_mixed_fns.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/check_parameters_in_predict_fn.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/check_parameters_in_predict_fn.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/check_parametric_model.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/check_parametric_model.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/check_region_in_iso.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/check_region_in_iso.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/check_run_pub_list.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/check_run_pub_list.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/check_valid_search_str.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/check_valid_search_str.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/fia_trees.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/fia_trees.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/FixedEffectsModel.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/FixedEffectsModel.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/FixedEffectsSet.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/FixedEffectsSet.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/get_model_hash.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/get_model_hash.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/get_model_type.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/get_model_type.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/get_pub_file_spec.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/get_pub_file_spec.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/get_run_pubs.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/get_run_pubs.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/get_variable_def.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/get_variable_def.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/index.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/index.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/MixedEffectsModel.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/MixedEffectsModel.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/MixedEffectsSet.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/MixedEffectsSet.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/model_call.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/model_call.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/ParametricModel.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/ParametricModel.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/pipe.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/pipe.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/predict.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/predict.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/predict_allo.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/predict_allo.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/Publication.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/Publication.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/ritchie_1987.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/ritchie_1987.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/rustagi_1991.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/rustagi_1991.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/scott_1981.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/scott_1981.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/temesgen_2008.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/temesgen_2008.html</loc>
   </url>
   <url>
-    <loc>http://brycefrank.com/allometric/reference/test.html</loc>
+    <loc>http://allometric.github.io/allometric/reference/test.html</loc>
   </url>
 </urlset>
