@@ -60,18 +60,22 @@ test_that("append_search_descriptors creates a valid tibble row", {
 })
 
 test_that("get_model_results returns a list of length equal to model_ids", {
+  model_results <- get_model_results()
   model_ids <- read.csv(system.file("model_ids.csv", package = "allometric"))
   expect_equal(nrow(model_ids), length(model_results))
 })
 
 test_that("aggregate_results returns tbl_df of length equal to model_ids", {
+  model_results <- get_model_results()
   out <- aggregate_results(model_results)
+  model_ids <- read.csv(system.file("model_ids.csv", package = "allometric"))
 
   expect_s3_class(out, "tbl_df")
   expect_equal(nrow(out), nrow(model_ids))
 })
 
 test_that("bad id does not exist", {
+  model_ids <- read.csv(system.file("model_ids.csv", package = "allometric"))
   check <- id_exists(model_ids, "bad id")
   expect_false(check)
 })
