@@ -4,7 +4,7 @@ title: "Variable Naming System"
 
 ```{r include=F}
 library(allometric)
-options(width=1000)
+options(width=100)
 ```
 
 ## Variable Naming Structure

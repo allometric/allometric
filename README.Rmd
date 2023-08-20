@@ -7,7 +7,7 @@ library(dplyr)
 library(tidyr)
 library(lemon)
 library(allometric)
-options(width = 10000)
+options(width = 100)
 
 knitr::opts_chunk$set(
   comment = "#>"

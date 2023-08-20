@@ -1,9 +1,20 @@
 Package: allometric
 Title: Allometric Models for Trees
 Version: 1.2.0
-Authors@R: 
-    person("Bryce", "Frank", , "bfrank70@gmail.com", role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0003-2980-6860"))
+Authors@R:
+    c(
+      person(
+        given = "Bryce", family = "Frank", email = "bfrank70@gmail.com",
+        role = c("aut", "cre"),
+        comment = c(ORCID = "0000-0003-2980-6860")
+      ),
+      person(given = "Francisco", family = "Mauro",
+        email = "francisco.mauro@uva.es", role = c("aut"),
+        comment = c(ORCID = "https://orcid.org/0000-0002-7832-6268")),
+      person(given  = "Elijah", family = "Allensworth",
+        email = "elijah.allensworth@protonmail.com",
+        role = c("aut"))
+    )
 Description: Predict tree attributes with allometric models.
 License: MIT + file LICENSE
 Encoding: UTF-8
