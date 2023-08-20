@@ -10,7 +10,7 @@ Authors@R:
       ),
       person(given = "Francisco", family = "Mauro",
         email = "francisco.mauro@uva.es", role = c("aut"),
-        comment = c(ORCID = "https://orcid.org/0000-0002-7832-6268")),
+        comment = c(ORCID = "0000-0002-7832-6268")),
       person(given  = "Elijah", family = "Allensworth",
         email = "elijah.allensworth@protonmail.com",
         role = c("aut"))
