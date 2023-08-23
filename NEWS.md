@@ -1,5 +1,14 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# allometric 1.2.0.9000 (2023-08-23)
+
+## Documentation
+
+- Improvement to various docstrings in preparation for CRAN.
+
+- Changed documentation theme.
+
+
 # allometric 1.2.0 (2023-08-17)
 
 - Merge pull request #129 from allometric/model_migration.
