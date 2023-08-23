@@ -4,7 +4,7 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/allometric/allometric/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/allometric/allometric/actions/workflows/check-standard.yaml)
-[![](https://img.shields.io/badge/devel%20version-1.2.0-blue.svg)](https://github.com/allometric/allometric)
+[![](https://img.shields.io/badge/devel%20version-1.2.0.9000-blue.svg)](https://github.com/allometric/allometric)
 [![codecov](https://codecov.io/gh/allometric/allometric/branch/master/graph/badge.svg?token=3V5KUFMO2X)](https://codecov.io/gh/allometric/allometric)
 <!-- badges: end -->
 
@@ -109,16 +109,16 @@ help for more information.
 head(allometric_models)
 ```
 
-    ## # A tibble: 6 × 12
-    ##   id       model_type   country region family  genus species model      pub_id family_name covt_name
-    ##   <chr>    <chr>        <list>  <list> <chr>   <chr> <chr>   <list>     <chr>  <list>      <list>   
-    ## 1 539629a5 stem height  <chr>   <chr>  Accipi… Circ… canade… <FxdEffcM> hahn_… <chr [1]>   <chr [4]>
-    ## 2 7bc0e06a stem volume  <chr>   <chr>  Accipi… Circ… canade… <FxdEffcM> hahn_… <chr [1]>   <chr [2]>
-    ## 3 1fa4219a stem volume  <chr>   <chr>  Accipi… Circ… canade… <FxdEffcM> hahn_… <chr [1]>   <chr [2]>
-    ## 4 b359d3ce stump volume <chr>   <chr>  Accipi… Circ… canade… <FxdEffcM> hahn_… <chr [1]>   <chr [1]>
-    ## 5 fb5c4575 stem ratio   <chr>   <chr>  Accipi… Circ… canade… <FxdEffcM> hahn_… <chr [1]>   <chr [1]>
-    ## 6 733186a1 stem height  <chr>   <chr>  Acerac… Acer  macrop… <FxdEffcM> fvs_2… <chr [1]>   <chr [1]>
-    ## # ℹ 1 more variable: pub_year <dbl>
+    #> # A tibble: 6 × 12
+    #>   id       model_type   country region family  genus species model      pub_id family_name covt_name
+    #>   <chr>    <chr>        <list>  <list> <chr>   <chr> <chr>   <list>     <chr>  <list>      <list>   
+    #> 1 539629a5 stem height  <chr>   <chr>  Accipi… Circ… canade… <FxdEffcM> hahn_… <chr [1]>   <chr [4]>
+    #> 2 7bc0e06a stem volume  <chr>   <chr>  Accipi… Circ… canade… <FxdEffcM> hahn_… <chr [1]>   <chr [2]>
+    #> 3 1fa4219a stem volume  <chr>   <chr>  Accipi… Circ… canade… <FxdEffcM> hahn_… <chr [1]>   <chr [2]>
+    #> 4 b359d3ce stump volume <chr>   <chr>  Accipi… Circ… canade… <FxdEffcM> hahn_… <chr [1]>   <chr [1]>
+    #> 5 fb5c4575 stem ratio   <chr>   <chr>  Accipi… Circ… canade… <FxdEffcM> hahn_… <chr [1]>   <chr [1]>
+    #> 6 733186a1 stem height  <chr>   <chr>  Acerac… Acer  macrop… <FxdEffcM> fvs_2… <chr [1]>   <chr [1]>
+    #> # ℹ 1 more variable: pub_year <dbl>
 
 **Finding and Selecting a Model**
 
@@ -141,21 +141,21 @@ unnested_models <- unnest_models(allometric_models, cols = "family_name")
 unnested_models
 ```
 
-    ## # A tibble: 5,076 × 12
-    ##    id       model_type   country region family genus species model      pub_id family_name covt_name
-    ##    <chr>    <chr>        <list>  <list> <chr>  <chr> <chr>   <list>     <chr>  <chr>       <list>   
-    ##  1 539629a5 stem height  <chr>   <chr>  Accip… Circ… canade… <FxdEffcM> hahn_… Hahn        <chr [4]>
-    ##  2 7bc0e06a stem volume  <chr>   <chr>  Accip… Circ… canade… <FxdEffcM> hahn_… Hahn        <chr [2]>
-    ##  3 1fa4219a stem volume  <chr>   <chr>  Accip… Circ… canade… <FxdEffcM> hahn_… Hahn        <chr [2]>
-    ##  4 b359d3ce stump volume <chr>   <chr>  Accip… Circ… canade… <FxdEffcM> hahn_… Hahn        <chr [1]>
-    ##  5 fb5c4575 stem ratio   <chr>   <chr>  Accip… Circ… canade… <FxdEffcM> hahn_… Hahn        <chr [1]>
-    ##  6 733186a1 stem height  <chr>   <chr>  Acera… Acer  macrop… <FxdEffcM> fvs_2… Staff       <chr [1]>
-    ##  7 a31af9a5 stem height  <chr>   <chr>  Acera… Acer  macrop… <FxdEffcM> fvs_2… Staff       <chr [1]>
-    ##  8 44f59d7d stem height  <chr>   <chr>  Acera… Acer  macrop… <FxdEffcM> fvs_2… Staff       <chr [1]>
-    ##  9 1d58b6d4 stem height  <chr>   <chr>  Acera… Acer  macrop… <FxdEffcM> fvs_2… Staff       <chr [1]>
-    ## 10 539ef85b stem height  <chr>   <chr>  Acera… Acer  macrop… <FxdEffcM> fvs_2… Staff       <chr [1]>
-    ## # ℹ 5,066 more rows
-    ## # ℹ 1 more variable: pub_year <dbl>
+    #> # A tibble: 5,076 × 12
+    #>    id       model_type   country region family genus species model      pub_id family_name covt_name
+    #>    <chr>    <chr>        <list>  <list> <chr>  <chr> <chr>   <list>     <chr>  <chr>       <list>   
+    #>  1 539629a5 stem height  <chr>   <chr>  Accip… Circ… canade… <FxdEffcM> hahn_… Hahn        <chr [4]>
+    #>  2 7bc0e06a stem volume  <chr>   <chr>  Accip… Circ… canade… <FxdEffcM> hahn_… Hahn        <chr [2]>
+    #>  3 1fa4219a stem volume  <chr>   <chr>  Accip… Circ… canade… <FxdEffcM> hahn_… Hahn        <chr [2]>
+    #>  4 b359d3ce stump volume <chr>   <chr>  Accip… Circ… canade… <FxdEffcM> hahn_… Hahn        <chr [1]>
+    #>  5 fb5c4575 stem ratio   <chr>   <chr>  Accip… Circ… canade… <FxdEffcM> hahn_… Hahn        <chr [1]>
+    #>  6 733186a1 stem height  <chr>   <chr>  Acera… Acer  macrop… <FxdEffcM> fvs_2… Staff       <chr [1]>
+    #>  7 a31af9a5 stem height  <chr>   <chr>  Acera… Acer  macrop… <FxdEffcM> fvs_2… Staff       <chr [1]>
+    #>  8 44f59d7d stem height  <chr>   <chr>  Acera… Acer  macrop… <FxdEffcM> fvs_2… Staff       <chr [1]>
+    #>  9 1d58b6d4 stem height  <chr>   <chr>  Acera… Acer  macrop… <FxdEffcM> fvs_2… Staff       <chr [1]>
+    #> 10 539ef85b stem height  <chr>   <chr>  Acera… Acer  macrop… <FxdEffcM> fvs_2… Staff       <chr [1]>
+    #> # ℹ 5,066 more rows
+    #> # ℹ 1 more variable: pub_year <dbl>
 
 Now, each row represents unique data combinations for each model, which
 can be quickly filtered by most users using `dplyr::filter`. For
@@ -172,11 +172,11 @@ brackett_alnus_vol <- unnested_models %>%
 brackett_alnus_vol
 ```
 
-    ## # A tibble: 1 × 12
-    ##   id       model_type  country   region family genus species model      pub_id family_name covt_name
-    ##   <chr>    <chr>       <list>    <list> <chr>  <chr> <chr>   <list>     <chr>  <chr>       <list>   
-    ## 1 f21028ef stem volume <chr [1]> <chr>  Betul… Alnus rubra   <FxdEffcM> brack… Brackett    <chr [2]>
-    ## # ℹ 1 more variable: pub_year <dbl>
+    #> # A tibble: 1 × 12
+    #>   id       model_type  country   region family genus species model      pub_id family_name covt_name
+    #>   <chr>    <chr>       <list>    <list> <chr>  <chr> <chr>   <list>     <chr>  <chr>       <list>   
+    #> 1 f21028ef stem volume <chr [1]> <chr>  Betul… Alnus rubra   <FxdEffcM> brack… Brackett    <chr [2]>
+    #> # ℹ 1 more variable: pub_year <dbl>
 
 we can see that model `f21028ef` is a volume model written by Brackett
 for *Alnus rubra*. The model can be selected using the `id` field:
@@ -205,20 +205,20 @@ unique within the publication), and estimates of the parameters.
 brackett_alnus_mod
 ```
 
-    ## Model Call: 
-    ## vsia = f(dsob, hst) 
-    ## 
-    ## Parameter Estimates: 
-    ## # A tibble: 1 × 3
-    ##       a     b     c
-    ##   <dbl> <dbl> <dbl>
-    ## 1 -2.67  1.92  1.07
-    ## 
-    ## Model Descriptors: 
-    ## # A tibble: 1 × 7
-    ##   country region family     genus species geographic_region age_class
-    ##   <chr>   <chr>  <chr>      <chr> <chr>   <chr>             <chr>    
-    ## 1 US      US-WA  Betulaceae Alnus rubra   <NA>              <NA>
+    #> Model Call: 
+    #> vsia = f(dsob, hst) 
+    #> 
+    #> Parameter Estimates: 
+    #> # A tibble: 1 × 3
+    #>       a     b     c
+    #>   <dbl> <dbl> <dbl>
+    #> 1 -2.67  1.92  1.07
+    #> 
+    #> Model Descriptors: 
+    #> # A tibble: 1 × 7
+    #>   country region family     genus species geographic_region age_class
+    #>   <chr>   <chr>  <chr>      <chr> <chr>   <chr>             <chr>    
+    #> 1 US      US-WA  Betulaceae Alnus rubra   <NA>              <NA>
 
 We can see from the `Model Call` section that `brackett_alnus_mod` will
 require two covariates called `dsob`, which refers to diameter outside
@@ -233,7 +233,7 @@ by providing values of these two covariates.
 predict(brackett_alnus_mod, 12, 65)
 ```
 
-    ## 22.2347 [ft^3]
+    #> 22.2347 [ft^3]
 
 or we can use the prediction function with a data frame of values
 
@@ -242,8 +242,8 @@ my_trees <- data.frame(dias = c(12, 15, 20), heights = c(65, 75, 100))
 predict(brackett_alnus_mod, my_trees$dias, my_trees$heights)
 ```
 
-    ## Units: [ft^3]
-    ## [1] 22.23470 39.80216 94.20053
+    #> Units: [ft^3]
+    #> [1] 22.23470 39.80216 94.20053
 
 or even using the convenience of `dplyr`
 
@@ -252,10 +252,10 @@ my_trees %>%
   mutate(vols = predict(brackett_alnus_mod, dias, heights))
 ```
 
-    ##   dias heights            vols
-    ## 1   12      65 22.23470 [ft^3]
-    ## 2   15      75 39.80216 [ft^3]
-    ## 3   20     100 94.20053 [ft^3]
+    #>   dias heights            vols
+    #> 1   12      65 22.23470 [ft^3]
+    #> 2   15      75 39.80216 [ft^3]
+    #> 3   20     100 94.20053 [ft^3]
 
 ## Next Steps
 

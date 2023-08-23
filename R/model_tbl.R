@@ -53,6 +53,7 @@ model_tbl_reconstruct <- function(x, to) {
   model_tbl_reconstruct(out, x)
 }
 
+#' @export
 select_model <- function(data, id) {
   UseMethod("select_model")
 }
@@ -90,6 +91,7 @@ unnest_cross <- function(data, cols, ...) {
   .df_out
 }
 
+#' @export
 unnest_models <- function(data, cols) {
   UseMethod("unnest_models")
 }
