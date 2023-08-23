@@ -53,17 +53,26 @@ model_tbl_reconstruct <- function(x, to) {
   model_tbl_reconstruct(out, x)
 }
 
-#' @export
 select_model <- function(data, id) {
   UseMethod("select_model")
 }
 
+#' Select a model from `allometric_models`
+#'
+#' This function is used to select a single model from the `allometric_models`
+#' dataframe using its id. While we typically suggest users construct tables of
+#' models, in some cases it is necessary to select one model at a time. This
+#' function satisfies this purpose.
+#'
+#' @param model_tbl A `model_tbl` object such as `allometric_models`
+#' @param id The `model_id` or index of the model within the dataframe
+#' @return An allometric model object
 #' @export
-select_model.model_tbl <- function(data, id) {
+select_model.model_tbl <- function(model_tbl, id) {
   if (is.character(id)) {
-    out <- data[data$id == id, "model"][[1, 1]][[1]]
+    out <- model_tbl[model_tbl$id == id, "model"][[1, 1]][[1]]
   } else if (is.numeric(id)) {
-    out <- data[id, "model"][[1, 1]][[1]]
+    out <- model_tbl[id, "model"][[1, 1]][[1]]
   }
 
   out
@@ -81,11 +90,18 @@ unnest_cross <- function(data, cols, ...) {
   .df_out
 }
 
-#' @export
 unnest_models <- function(data, cols) {
   UseMethod("unnest_models")
 }
 
+#' Unnest the columns of `model_tbl`
+#'
+#' A `model_tbl` often contains nested information within the cells of the
+#' table. This function allows a user to unnest the columns of interest.
+#'
+#' @param data A `model_tbl`
+#' @param cols A character vector of columns to unnest
+#' @return The unnested `model_tbl`
 #' @export
 unnest_models.model_tbl <- function(data, cols) {
   unnested <- unnest_cross(data, cols)
@@ -104,6 +120,12 @@ predict_allo <- function(model_list, ...) {
   predict(model_list[[1]], ...)
 }
 
+#' Merge a `model_tbl` with another data frame.
+#'
+#' @param x A data frame or `model_tbl`
+#' @param y A data frame or `model_tbl`
+#' @param ... Additional arguments passed to `merge`
+#' @return A `model_tbl` merged with the inputs
 #' @export
 merge.model_tbl <- function(x, y, ...) {
   x_ <- as.data.frame(x)

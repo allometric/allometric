@@ -13,7 +13,6 @@ setGeneric("Cite", function(x) {
 })
 
 
-
 setGeneric(
   "init_set_of_one",
   function(mod) standardGeneric("init_set_of_one")
@@ -29,42 +28,72 @@ setGeneric("summary", function(publication) standardGeneric("summary"))
 #'
 #' @param mod The allometric model used for prediction
 #' @param ... Additional arguments passed to the `predict_fn` of the input model
-#' @param output_units Optionally specify the output units of the model as a string, e.g., "ft^3"
+#' @param output_units Optionally specify the output units of the model as a
+#' string, e.g., "ft^3"
+#' @return A vector of allometric model predictions
 #' @rdname predict
 #' @export
 setGeneric("predict", function(mod, ...) standardGeneric("predict"),
   signature = "mod"
 )
 
-setGeneric("rd_model_equation", function(set) standardGeneric("rd_model_equation"))
-setGeneric("rd_variable_defs", function(set) standardGeneric("rd_variable_defs"))
-setGeneric("rd_parameter_table", function(set) standardGeneric("rd_parameter_table"))
+setGeneric(
+  "rd_model_equation", function(set) standardGeneric("rd_model_equation")
+)
 
+setGeneric(
+  "rd_variable_defs", function(set) standardGeneric("rd_variable_defs")
+)
 
-setGeneric("specification", function(mod) standardGeneric("specification"))
-setGeneric("specification<-", function(mod, value) standardGeneric("specification<-"))
+setGeneric(
+  "rd_parameter_table", function(set) standardGeneric("rd_parameter_table")
+)
 
-#' @export
+setGeneric(
+  "specification", function(mod) standardGeneric("specification")
+)
+
+setGeneric(
+  "specification<-", function(mod, value) standardGeneric("specification<-")
+)
+
+#' Get the descriptors of a model
+#'
+#' The model descriptors describe the context of an allometric model as it is
+#' situated within a publication, and contain information like family, genus,
+#' species, geographic region, etc. This function returns this information for
+#' a given model.
+#'
+#' @param mod The allometric model object
+#' @return A tibble:tbl_df of descriptors
+#' @keywords internal
 setGeneric("descriptors", function(mod) standardGeneric("descriptors"))
 
-#' @export
-setGeneric("descriptors<-", function(mod, value) standardGeneric("descriptors<-"))
+#' Set the descriptors of a model.
+#'
+#' @param value A tibble::tbl_df of descriptors
+#' @keywords internal
+setGeneric(
+  "descriptors<-", function(mod, value) standardGeneric("descriptors<-")
+)
 
 setGeneric("parameters", function(mod) standardGeneric("parameters"))
 
 setGeneric("get_model_str", function(mod) standardGeneric("get_model_str"))
 
-setGeneric("get_variable_descriptions", function(mod) standardGeneric("get_variable_descriptions"))
-
+setGeneric(
+  "get_variable_descriptions",
+  function(mod) standardGeneric("get_variable_descriptions")
+)
 
 #' Add a set of models to a publication
 #'
 #' This function adds objects of class `FixedEffectsSet` or `MixedEffectsSet` to
-#' a publication.
+#' a publication. This operation is not done in-place.
 #'
-#' @param publication The publication for which a set will be added.
+#' @param publication The publication for which a set will be added
 #' @param model_set The set of models to add to the publication
-#'
+#' @return A publication with the added set
 #' @rdname add_set
 #' @export
 setGeneric(
@@ -76,11 +105,11 @@ setGeneric(
 #'
 #' This function adds objects of class `FixedEffectsModel` or
 #' `MixedEffectsModel` to a publication. Models added in this way are added as
-#' a set containing only one model.
+#' a set containing only one model. This operation is not done in-place.
 #'
-#' @param publication The publication for which a set will be added.
+#' @param publication The publication for which a set will be added
 #' @param model The model to add to the publication
-#'
+#' @return A publication with the added model
 #' @rdname add_model
 #' @export
 setGeneric(
@@ -90,12 +119,12 @@ setGeneric(
 
 #' Get the function call for a model
 #'
-#' This function allows a user to see the structure of the function call for
-#' a given model in an easy-to-read format.
+#' The function call is the allometric model expressed as a function of its
+#' covariates. This function allows the user to see the function call.
 #'
 #' @param model The allometric model for which a function call will be
-#' retrieved.
-#'
+#' retrieved
+#' @return A string of the function call
 #' @export
 setGeneric(
   "model_call",

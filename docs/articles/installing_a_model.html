@@ -300,7 +300,7 @@ respect to <code>species</code> as it was in <code>temsegen_2008</code>,
 so we will have to define those descriptors at the model-level.</p>
 <p>Next, we load a data frame of model descriptions and examine it</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">model_specifications</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="fu">load_parameter_frame</span><span class="op">(</span><span class="st">"vsa_brackett_1977"</span><span class="op">)</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">model_specifications</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="fu"><a href="../reference/load_parameter_frame.html">load_parameter_frame</a></span><span class="op">(</span><span class="st">"vsa_brackett_1977"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">model_specifications</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 6 × 8</span></span></span>
 <span><span class="co">##   family   genus       species     geographic_region age_class     a     b     c</span></span>
@@ -370,7 +370,7 @@ step-by-step instruction for this purpose.</p>
 </h2>
 <p>Once a publication is added to the <code>models</code> to the
 <code>publications</code> directory the models contained within can now
-be installed by the user using <code>install_models()</code>. In fact,
+be installed by the user using <code><a href="../reference/install_models.html">install_models()</a></code>. In fact,
 this is exactly how the user initially gains access to the
 <code>allometric_models</code> table. If you are ever interested in
 viewing the source code for a model, just find the matching

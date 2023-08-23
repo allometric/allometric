@@ -52,7 +52,7 @@ listify <- function(list_of_vecs) {
 #' @param descriptors
 #'    A named list of descriptors that are defined for all models contained in
 #'    the publication.
-#'
+#' @return An instance of class Publication
 #' @export
 Publication <- function(citation, descriptors = list()) {
   descriptors <- tibble::as_tibble(listify(descriptors))

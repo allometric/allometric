@@ -1,26 +1,7 @@
-#' @export
-component_defs <- utils::read.csv(system.file("variable_defs/components.csv", package = "allometric"))
-
-#' @export
-measure_defs <- utils::read.csv(system.file("variable_defs/measures.csv", package = "allometric"))
-
-var_defs.pre <- list(
-  d = utils::read.csv(system.file("variable_defs/d.csv", package = "allometric")),
-  v = utils::read.csv(system.file("variable_defs/v.csv", package = "allometric")),
-  h = utils::read.csv(system.file("variable_defs/h.csv", package = "allometric")),
-  b = utils::read.csv(system.file("variable_defs/b.csv", package = "allometric")),
-  e = utils::read.csv(system.file("variable_defs/e.csv", package = "allometric")),
-  r = utils::read.csv(system.file("variable_defs/r.csv", package = "allometric")),
-  a = utils::read.csv(system.file("variable_defs/a.csv", package = "allometric")),
-  g = utils::read.csv(system.file("variable_defs/g.csv", package = "allometric"))
-)
-
-prefixes = utils::read.csv(system.file("variable_defs/prefix.csv", package = "allometric"))
-suffixes = utils::read.csv(system.file("variable_defs/suffix.csv", package = "allometric"))
 
 
-# TODO best to move this to .onLoad?
-prepare_var_defs <- function(var_defs) {
+
+prepare_var_defs <- function(var_defs, measure_defs, component_defs) {
   for(i in seq_along(var_defs)) {
     def <- var_defs[[i]]
     name <- names(var_defs)[[i]]
@@ -29,15 +10,14 @@ prepare_var_defs <- function(var_defs) {
 
     prepped_def <- tidyr::unite(def, "search_str", !!!paste_cols, sep="",
       remove=F) %>%
-      merge(measure_defs, by="measure") %>%
-      merge(component_defs, by="component")
+      merge(measure_defs, by = "measure") %>%
+      merge(component_defs, by = "component")
 
     var_defs[[name]] <- prepped_def
   }
   var_defs
 }
 
-var_defs <- prepare_var_defs(var_defs.pre)
 
 get_before_first_underscore <- function(str) {
   match <- regexpr("^[^_]+", str, perl=TRUE)
@@ -57,7 +37,7 @@ get_between <- function(str) {
 #'
 #' Search strings can have prefixes and suffixes, but these must only be one
 #' character.
-#' 
+#'
 #' @keywords internal
 check_valid_search_str <- function(num_underscores) {
   if(num_underscores > 2) {
@@ -110,7 +90,7 @@ parse_search_str <- function(search_str, num_underscores) {
 #' be returned.
 #' @export
 #' @keywords internal
-get_variable_def <- function(search_str, return_exact_only=FALSE) {
+get_variable_def <- function(search_str, return_exact_only = FALSE) {
   num_underscores <- stringr::str_count(search_str, "_")
   check_valid_search_str(num_underscores)
 
@@ -134,9 +114,9 @@ get_variable_def <- function(search_str, return_exact_only=FALSE) {
   ending <- "("
 
   if("suffix" %in% names(parsed_search_str)) {
-    matched_suffix <- suffixes[suffixes$suffix==parsed_search_str$suffix,]
+    matched_suffix <- suffixes[suffixes$suffix == parsed_search_str$suffix,]
     matched_measure <- cbind(matched_measure, matched_suffix)
-    ending <- paste(ending, matched_suffix$scale_description, "-level", sep="")
+    ending <- paste(ending, matched_suffix$scale_description, "-level", sep = "")
   } else {
     # No match, this means by default the suffix indicates a tree scale
     tree_prefix <- data.frame(suffix = "t", scale_description = "tree")

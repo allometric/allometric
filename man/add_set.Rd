@@ -10,11 +10,14 @@ add_set(publication, model_set)
 \S4method{add_set}{Publication}(publication, model_set)
 }
 \arguments{
-\item{publication}{The publication for which a set will be added.}
+\item{publication}{The publication for which a set will be added}
 
 \item{model_set}{The set of models to add to the publication}
 }
+\value{
+A publication with the added set
+}
 \description{
 This function adds objects of class \code{FixedEffectsSet} or \code{MixedEffectsSet} to
-a publication.
+a publication. This operation is not done in-place.
 }

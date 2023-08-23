@@ -70,12 +70,16 @@
 
     <table class="ref-index"><colgroup><col class="alias"><col class="title"></colgroup><tbody><tr><th colspan="2">
           <h2 id="analysis-functions">Analysis Functions <a href="#analysis-functions" class="anchor" aria-hidden="true"></a></h2>
-          <p class="section-desc"></p><p>These functions are used to conduct inventory analysis with allometric models.</p>
+          <p class="section-desc"></p><p>These functions are used to conduct inventory analysis with allometric models and inspect their contents.</p>
         </th>
       </tr></tbody><tbody><tr><td>
           <p><code><a href="allometric_models.html">allometric_models</a></code> </p>
         </td>
         <td><p>A table of installed allometric models</p></td>
+      </tr><tr><td>
+          <p><code><a href="install_models.html">install_models()</a></code> </p>
+        </td>
+        <td><p>Install allometric models</p></td>
       </tr><tr><td>
           <p><code><a href="predict.html">predict()</a></code> </p>
         </td>
@@ -88,9 +92,21 @@
           <p><code><a href="model_call.html">model_call()</a></code> </p>
         </td>
         <td><p>Get the function call for a model</p></td>
+      </tr><tr><td>
+          <p><code><a href="select_model.model_tbl.html">select_model(<i>&lt;model_tbl&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Select a model from <code>allometric_models</code></p></td>
+      </tr><tr><td>
+          <p><code><a href="merge.model_tbl.html">merge(<i>&lt;model_tbl&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Merge a <code>model_tbl</code> with another data frame.</p></td>
+      </tr><tr><td>
+          <p><code><a href="unnest_models.model_tbl.html">unnest_models(<i>&lt;model_tbl&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Unnest the columns of <code>model_tbl</code></p></td>
       </tr></tbody><tbody><tr><th colspan="2">
           <h2 id="contributor-functions">Contributor Functions <a href="#contributor-functions" class="anchor" aria-hidden="true"></a></h2>
-          <p class="section-desc"></p><p>These functions are used to contribute and install models in <code>allometric</code></p>
+          <p class="section-desc"></p><p>These functions are used to contribute models to <code>allometric</code>.</p>
         </th>
       </tr></tbody><tbody><tr><td>
           <p><code><a href="add_model.html">add_model()</a></code> </p>
@@ -104,6 +120,10 @@
           <p><code><a href="fia_trees.html">fia_trees</a></code> </p>
         </td>
         <td><p>FIA Trees Data</p></td>
+      </tr><tr><td>
+          <p><code><a href="load_parameter_frame.html">load_parameter_frame()</a></code> </p>
+        </td>
+        <td><p>Load a parameter frame from the models/parameters directory</p></td>
       </tr><tr><td>
           <p><code><a href="FixedEffectsModel.html">FixedEffectsModel()</a></code> </p>
         </td>

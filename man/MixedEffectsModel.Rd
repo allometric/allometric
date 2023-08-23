@@ -22,22 +22,26 @@ using the \code{units::as_units} function.}
 
 \item{covariate_units}{A named list containing the covariate specifications, with names
 representing the covariate name and the values representing the units of
-the coavariate using the \code{units::as_units} function.}
+the coavariate using the \code{units::as_units} function}
 
 \item{predict_ranef}{A function that predicts the random effects, takes any named covariates in
 \code{covariate_units} as arguments.}
 
-\item{parameters}{a named list of parameters and their values that appear in
-\code{predict_fn}}
+\item{predict_fn}{A function that takes the covariate names as arguments and returns a
+prediction of the response variable. This function should be vectorized.}
 
 \item{fixed_only}{A boolean value indicating if the model produces predictions using only
 fixed effects. This is useful when publications do not provide sufficient
 information to predict the random effects.}
 
-\item{descriptors}{An optional list of descriptors that are specified at the model-level.}
+\item{descriptors}{An optional named list of descriptors that describe the context of the
+allometric model}
 
-\item{covariate_definitions}{A named list of covariate definitions that
-are used instead of the descriptions given by the variable naming system.}
+\item{covariate_definitions}{An optional named list of custom covariate definitions that will supersede
+the definitions given by the variable naming system.}
+}
+\value{
+An instance of MixedEffectsModel
 }
 \description{
 \code{MixedEffectsModel} represents an allometric model that uses fixed and

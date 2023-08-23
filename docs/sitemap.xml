@@ -103,6 +103,15 @@
     <loc>http://allometric.github.io/allometric/reference/check_valid_search_str.html</loc>
   </url>
   <url>
+    <loc>http://allometric.github.io/allometric/reference/delete_models.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/descriptors-set.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/descriptors.html</loc>
+  </url>
+  <url>
     <loc>http://allometric.github.io/allometric/reference/fia_trees.html</loc>
   </url>
   <url>
@@ -128,6 +137,15 @@
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/install_models.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/load_parameter_frame.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/merge.model_tbl.html</loc>
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/reference/MixedEffectsModel.html</loc>
@@ -163,9 +181,18 @@
     <loc>http://allometric.github.io/allometric/reference/scott_1981.html</loc>
   </url>
   <url>
+    <loc>http://allometric.github.io/allometric/reference/select_model.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/select_model.model_tbl.html</loc>
+  </url>
+  <url>
     <loc>http://allometric.github.io/allometric/reference/temesgen_2008.html</loc>
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/reference/test.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/unnest_models.model_tbl.html</loc>
   </url>
 </urlset>

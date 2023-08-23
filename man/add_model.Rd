@@ -7,12 +7,15 @@
 add_model(publication, model)
 }
 \arguments{
-\item{publication}{The publication for which a set will be added.}
+\item{publication}{The publication for which a set will be added}
 
 \item{model}{The model to add to the publication}
+}
+\value{
+A publication with the added model
 }
 \description{
 This function adds objects of class \code{FixedEffectsModel} or
 \code{MixedEffectsModel} to a publication. Models added in this way are added as
-a set containing only one model.
+a set containing only one model. This operation is not done in-place.
 }

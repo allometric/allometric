@@ -46,6 +46,7 @@ setMethod("parameters", "ParametricModel", function(mod) {
 #'
 #' This is a base class used for `FixedEffectsModel` and `MixedEffectsModel`
 #'
+#' @inheritParams AllometricModel
 #' @export
 #' @keywords internal
 ParametricModel <- function(response_unit, covariate_units, predict_fn,

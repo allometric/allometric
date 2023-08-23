@@ -107,29 +107,41 @@ using the <code><a href="https://rdrr.io/pkg/units/man/units.html" class="extern
 <dt>covariate_units</dt>
 <dd><p>A named list containing the covariate specifications, with names
 representing the covariate name and the values representing the units of
-the coavariate using the <code><a href="https://rdrr.io/pkg/units/man/units.html" class="external-link">units::as_units</a></code> function.</p></dd>
+the coavariate using the <code><a href="https://rdrr.io/pkg/units/man/units.html" class="external-link">units::as_units</a></code> function</p></dd>
 
 
 <dt>parameter_names</dt>
 <dd><p>A character vector naming the columns in <code>model_specifications</code> that
-represent the parameters.</p></dd>
+represent the parameters</p></dd>
+
+
+<dt>predict_fn</dt>
+<dd><p>A function that takes the covariate names as arguments and returns a
+prediction of the response variable. This function should be vectorized.</p></dd>
 
 
 <dt>model_specifications</dt>
 <dd><p>A dataframe such that each row of the dataframe provides model-level
 descriptors and parameter estimates for that model. Models must be
-uniquely identifiable using the descriptors.</p></dd>
+uniquely identifiable using the descriptors</p></dd>
 
 
 <dt>descriptors</dt>
-<dd><p>An optional list of descriptors that are specified at the model-level.</p></dd>
+<dd><p>An optional named list of descriptors that describe the context of the
+allometric model</p></dd>
 
 
 <dt>covariate_definitions</dt>
-<dd><p>A named list of covariate definitions that
-are used instead of the descriptions given by the variable naming system.</p></dd>
+<dd><p>An optional named list of custom covariate definitions that will supersede
+the definitions given by the variable naming system.</p></dd>
 
 </dl></div>
+    <div id="value">
+    <h2>Value</h2>
+    
+
+<p>A set of fixed effects models</p>
+    </div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

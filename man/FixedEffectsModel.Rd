@@ -20,21 +20,21 @@ using the \code{units::as_units} function.}
 
 \item{covariate_units}{A named list containing the covariate specifications, with names
 representing the covariate name and the values representing the units of
-the coavariate using the \code{units::as_units} function.}
+the coavariate using the \code{units::as_units} function}
 
-\item{parameters}{a named list of parameters and their values that appear in
-\code{predict_fn}}
+\item{predict_fn}{A function that takes the covariate names as arguments and returns a
+prediction of the response variable. This function should be vectorized.}
 
-\item{descriptors}{An optional list of descriptors that are specified at the model-level.}
+\item{descriptors}{An optional named list of descriptors that describe the context of the
+allometric model}
 
-\item{covariate_definitions}{A named list of covariate definitions that
-are used instead of the descriptions given by the variable naming system.}
+\item{covariate_definitions}{An optional named list of custom covariate definitions that will supersede
+the definitions given by the variable naming system.}
 }
 \value{
 An object of class \code{FixedEffectsModel}
 }
 \description{
 \code{FixedEffectsModel} represents an allometric model that only uses fixed
-effects. Most allometric models, especially those from literature before
-the 2010's fall under this category.
+effects.
 }

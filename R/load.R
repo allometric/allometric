@@ -1,9 +1,15 @@
-
-
+#' Load a parameter frame from the models/parameters directory
+#'
+#' This is a convenience that allows a user to easily load parameter files from
+#' the models/parameters directory. It is typically used when constructing
+#' the `model_specifications` argument for `ModelSet`.
+#'
+#' @param name The name of the file, excluding the extension
+#' @return A tibble::tbl_df of the parameter data.
 #' @export
 load_parameter_frame <- function(name) {
   csv_name <- paste(name, ".csv", sep = "")
-  
+
   file_path <- system.file(
     "models/parameters", csv_name,
     package = "allometric"
@@ -11,17 +17,6 @@ load_parameter_frame <- function(name) {
 
   table <- utils::read.csv(file_path, na.strings = "")
   tibble::as_tibble(table)
-}
-
-
-#' @export
-load_publication <- function(pub_id) {
-  # Ensure publication list is up-to-date, for most users this wont matter, but
-  # during model installation it will be helpful to regenerate this if changes
-  # occurred during the session
-  get_pub_list()
-  pub_list <- readRDS(system.file("extdata/pub_list.RDS", package = "allometric"))
-  pub_list[[pub_id]]
 }
 
 #' A table of installed allometric models

@@ -26,11 +26,12 @@ check_fixed_effects_set_validity <- function(object) {
 #' @inheritParams FixedEffectsModel
 #' @param parameter_names
 #'    A character vector naming the columns in `model_specifications` that
-#'    represent the parameters.
+#'    represent the parameters
 #' @param model_specifications
 #'    A dataframe such that each row of the dataframe provides model-level
 #'    descriptors and parameter estimates for that model. Models must be
-#'    uniquely identifiable using the descriptors.
+#'    uniquely identifiable using the descriptors
+#' @return A set of fixed effects models
 #' @export
 FixedEffectsSet <- function(response_unit, covariate_units, parameter_names,
                             predict_fn, model_specifications,

@@ -13,6 +13,24 @@ ParametricModel(
   covariate_definitions = list()
 )
 }
+\arguments{
+\item{response_unit}{A named list containing one element, with a name representing the response
+variable and a value representing the units of the response variable
+using the \code{units::as_units} function.}
+
+\item{covariate_units}{A named list containing the covariate specifications, with names
+representing the covariate name and the values representing the units of
+the coavariate using the \code{units::as_units} function}
+
+\item{predict_fn}{A function that takes the covariate names as arguments and returns a
+prediction of the response variable. This function should be vectorized.}
+
+\item{descriptors}{An optional named list of descriptors that describe the context of the
+allometric model}
+
+\item{covariate_definitions}{An optional named list of custom covariate definitions that will supersede
+the definitions given by the variable naming system.}
+}
 \description{
 This is a base class used for \code{FixedEffectsModel} and \code{MixedEffectsModel}
 }

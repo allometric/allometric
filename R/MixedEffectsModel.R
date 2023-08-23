@@ -22,6 +22,7 @@
 #'    A boolean value indicating if the model produces predictions using only
 #'    fixed effects. This is useful when publications do not provide sufficient
 #'    information to predict the random effects.
+#' @return An instance of MixedEffectsModel
 #' @export
 MixedEffectsModel <- function(response_unit, covariate_units, predict_ranef,
                               predict_fn, parameters, fixed_only = FALSE,

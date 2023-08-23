@@ -8,9 +8,12 @@ model_call(model)
 }
 \arguments{
 \item{model}{The allometric model for which a function call will be
-retrieved.}
+retrieved}
+}
+\value{
+A string of the function call
 }
 \description{
-This function allows a user to see the structure of the function call for
-a given model in an easy-to-read format.
+The function call is the allometric model expressed as a function of its
+covariates. This function allows the user to see the function call.
 }

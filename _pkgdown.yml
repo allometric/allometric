@@ -4,18 +4,23 @@ template:
     bootswatch: cosmo
 reference:
 - title: Analysis Functions
-  desc: These functions are used to conduct inventory analysis with allometric models.
+  desc: These functions are used to conduct inventory analysis with allometric models and inspect their contents.
   contents:
   - allometric_models
+  - install_models
   - predict
   - predict_allo
   - model_call
+  - select_model.model_tbl
+  - merge.model_tbl
+  - unnest_models.model_tbl
 - title: Contributor Functions
-  desc: These functions are used to contribute and install models in `allometric`
+  desc: These functions are used to contribute models to `allometric`.
   contents:
   - add_model
   - add_set
   - fia_trees
+  - load_parameter_frame
   - FixedEffectsModel
   - FixedEffectsSet
   - MixedEffectsModel

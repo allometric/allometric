@@ -15,10 +15,15 @@ Authors@R:
         email = "elijah.allensworth@protonmail.com",
         role = c("aut"))
     )
-Description: Predict tree attributes with allometric models.
+Description: allometric provides access to allometric models used in forest
+    resource analysis, such as volume equations, taper equations, biomass
+    models, among many others. Users are able to efficiently find and select
+    allometric models suitable for their project area and use them in analysis.
+    Additionally, allometric provides a structured framework for adding new
+    models to an open-source models repository.
 License: MIT + file LICENSE
 Encoding: UTF-8
-Roxygen: list(markdown = TRUE, knitr_chunk_options = list(R.options = list(width = 10000)))
+Roxygen: list(markdown = TRUE, knitr_chunk_options = list(R.options = list(width = 1000)))
 RoxygenNote: 7.2.3
 Imports: 
     dplyr,

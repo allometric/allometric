@@ -7,7 +7,7 @@
 get_run_pubs(ignore_cache = FALSE, verbose = FALSE)
 }
 \description{
-The pub_list is regenerated if any files in inst/publications have been
+The pub_list is regenerated if any files in models/publications have been
 modified after the creation of the pub_list. Only those files are returned
 unless ignore_cache is set to TRUE, in which case all files will be returned.
 }

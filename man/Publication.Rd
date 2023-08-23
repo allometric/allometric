@@ -12,6 +12,9 @@ Publication(citation, descriptors = list())
 \item{descriptors}{A named list of descriptors that are defined for all models contained in
 the publication.}
 }
+\value{
+An instance of class Publication
+}
 \description{
 \code{Publication} represents a technical or scientific document that contains
 allometric models. Initially, publications do not contain models, and models

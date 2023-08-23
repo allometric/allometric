@@ -18,12 +18,16 @@ predict(mod, ...)
 
 \item{...}{Additional arguments passed to the \code{predict_fn} of the input model}
 
-\item{output_units}{Optionally specify the output units of the model as a string, e.g., "ft^3"}
+\item{output_units}{Optionally specify the output units of the model as a
+string, e.g., "ft^3"}
 
 \item{newdata}{A dataframe containing columns that match the names of the arguments given
 to \code{predict_ranef}. The values of this data represents information from a
 new group of observations for which predictions are desired (e.g., a new
 stand or plot).}
+}
+\value{
+A vector of allometric model predictions
 }
 \description{
 Predict with an allometric model

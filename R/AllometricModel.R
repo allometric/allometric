@@ -101,12 +101,22 @@ get_model_type <- function(response_name) {
 #' @param covariate_units
 #'    A named list containing the covariate specifications, with names
 #'    representing the covariate name and the values representing the units of
-#'    the coavariate using the `units::as_units` function.
+#'    the coavariate using the `units::as_units` function
 #' @param descriptors
-#'    An optional list of descriptors that are specified at the model-level.
+#'    An optional list of descriptors that are specified at the model-level
 #' @param covariate_definitions
 #'    A named list of covariate definitions that
-#'    are used instead of the descriptions given by the variable naming system.
+#'    are used instead of the descriptions given by the variable naming system
+#' @param predict_fn
+#'    A function that takes the covariate names as arguments and returns a
+#'    prediction of the response variable. This function should be vectorized.
+#' @param descriptors
+#'    An optional named list of descriptors that describe the context of the
+#'    allometric model
+#' @param covariate_definitions
+#'    An optional named list of custom covariate definitions that will supersede
+#'    the definitions given by the variable naming system.
+#' @return An instance of an AllometricModel
 #' @export
 #' @keywords internal
 AllometricModel <- function(response_unit, covariate_units, predict_fn,
@@ -125,14 +135,15 @@ AllometricModel <- function(response_unit, covariate_units, predict_fn,
     descriptors = descriptors,
     set_descriptors = tibble::tibble(),
     pub_descriptors = tibble::tibble(),
-    citation = RefManageR::BibEntry(bibtype = "misc", title = "", author = "", year = 0),
+    citation = RefManageR::BibEntry(
+      bibtype = "misc", title = "", author = "", year = 0
+    ),
     covariate_definitions = covariate_definitions,
     model_type = model_type
   )
 
   allometric_model
 }
-
 
 setMethod(
   "get_measure_label",
@@ -153,7 +164,6 @@ setMethod(
     component_def[component_def$component == component, "component_label"]
   }
 )
-
 
 setMethod(
   "Cite",

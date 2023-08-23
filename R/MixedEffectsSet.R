@@ -29,6 +29,7 @@ check_fixed_effects_set_validity <- function(object) {
 #'
 #' @inheritParams FixedEffectsSet
 #' @inheritParams MixedEffectsModel
+#' @return An instance of MixedEffectsSet
 #' @export
 MixedEffectsSet <- function(response_unit, covariate_units, parameter_names,
                             predict_fn, model_specifications, predict_ranef,

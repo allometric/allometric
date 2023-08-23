@@ -7,14 +7,11 @@
 #' Create a fixed effects model
 #'
 #' `FixedEffectsModel` represents an allometric model that only uses fixed
-#' effects. Most allometric models, especially those from literature before
-#' the 2010's fall under this category.
+#' effects.
 #'
-#' @param parameters a named list of parameters and their values that appear in
-#' `predict_fn`
 #' @return
 #'    An object of class `FixedEffectsModel`
-#' @inheritParams AllometricModel
+#' @inheritParams ParametricModel
 #' @export
 FixedEffectsModel <- function(response_unit, covariate_units, predict_fn,
                               parameters, descriptors = list(),
