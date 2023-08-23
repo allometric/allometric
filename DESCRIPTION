@@ -23,7 +23,7 @@ Description: allometric provides access to allometric models used in forest
     models to an open-source models repository.
 License: MIT + file LICENSE
 Encoding: UTF-8
-Roxygen: list(markdown = TRUE, knitr_chunk_options = list(R.options = list(width = 1000)))
+Roxygen: list(markdown = TRUE, knitr_chunk_options = list(R.options = list(width = 10000)))
 RoxygenNote: 7.2.3
 Imports: 
     dplyr,
