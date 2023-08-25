@@ -1,5 +1,9 @@
 ---
 title: "Variable Naming System"
+vignette: >
+  %\VignetteIndexEntry{Variable Naming System}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc} 
 ---
 
 ```{r include=F}
@@ -66,10 +70,10 @@ there is also a scale flag for stand-level variables, `"_s"`.
 
 All variable names begin with a "measure". In the example above, we searched 
 the naming system for `d` measures, but others are available. There are
-`r nrow(measure_defs)` established measures:
+`r nrow(get_measure_defs())` established measures:
 
 ```{r}
-measure_defs
+get_measure_defs()
 ```
 
 We recognize that the use of "measure" here is somewhat loose (e.g., diameter
@@ -80,10 +84,10 @@ variables in allometric modeling.
 ## Components
 
 All variable names then have a second character that specifies the tree 
-component. There are `r nrow(component_defs)` established components:
+component. There are `r nrow(get_component_defs())` established components:
 
 ```{r}
-component_defs
+get_component_defs()
 ```
 
 Mixing these first two character codes provides an expressive system to refer to 

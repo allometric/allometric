@@ -49,6 +49,12 @@
     <loc>http://allometric.github.io/allometric/news/index.html</loc>
   </url>
   <url>
+    <loc>http://allometric.github.io/allometric/reference/add_model-Publication-FixedEffectsModel-method.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/add_model-Publication-MixedEffectsModel-method.html</loc>
+  </url>
+  <url>
     <loc>http://allometric.github.io/allometric/reference/add_model.html</loc>
   </url>
   <url>
@@ -121,6 +127,12 @@
     <loc>http://allometric.github.io/allometric/reference/FixedEffectsSet.html</loc>
   </url>
   <url>
+    <loc>http://allometric.github.io/allometric/reference/get_component_defs.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/get_measure_defs.html</loc>
+  </url>
+  <url>
     <loc>http://allometric.github.io/allometric/reference/get_model_hash.html</loc>
   </url>
   <url>
@@ -152,6 +164,18 @@
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/reference/MixedEffectsSet.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/ModelSet.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/model_call-FixedEffectsModel-method.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/model_call-MixedEffectsModel-method.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/model_call-ParametricModel-method.html</loc>
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/reference/model_call.html</loc>
@@ -191,6 +215,9 @@
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/reference/test.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/unnest_models.html</loc>
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/reference/unnest_models.model_tbl.html</loc>

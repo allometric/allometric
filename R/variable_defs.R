@@ -19,6 +19,30 @@ prepare_var_defs <- function(var_defs, measure_defs, component_defs) {
 }
 
 
+#' Load the measure definitions
+#'
+#' Loads the measure definitions from a locally stored csv file
+#'
+#' @return A tibble::tbl_df containing the measure definitions
+#' @export
+get_measure_defs <- function() {
+  utils::read.csv(
+    system.file("variable_defs/measures.csv", package = "allometric")
+  ) 
+}
+
+#' Load the component definitions
+#'
+#' Loads the component definitions from a locally stored csv file
+#'
+#' @return A tibble::tbl_df containing the component definitions
+#' @export
+get_component_defs <- function() {
+  utils::read.csv(
+    system.file("variable_defs/components.csv", package = "allometric")
+  )
+}
+
 get_before_first_underscore <- function(str) {
   match <- regexpr("^[^_]+", str, perl=TRUE)
   substring(str, match, match + attr(match, "match.length") - 1)

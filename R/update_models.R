@@ -51,8 +51,8 @@ get_run_pubs <- function(ignore_cache = FALSE, verbose = FALSE) {
     return(file_info.fmt)
   } else {
     rerun_info <- file_info.fmt %>%
-      dplyr::mutate(rerun = mtime >= pub_info$mtime) %>%
-      dplyr::filter(rerun)
+      dplyr::mutate(rerun = .data$mtime >= pub_info$mtime) %>%
+      dplyr::filter(.data$rerun)
 
     return(rerun_info)
   }
@@ -167,8 +167,6 @@ aggregate_results <- function(results) {
       )
     )
 
-
-
     family_name <- pub@citation$author$family
     descriptors_row$family_name <- list(as.character(family_name))
 
@@ -185,7 +183,7 @@ aggregate_results <- function(results) {
   }
 
   agg_results <- dplyr::bind_rows(agg_results) %>%
-    dplyr::arrange(family, genus, species)
+    dplyr::arrange(.data$family, .data$genus, .data$species)
 
   # Order the columns
   not_in_order <- colnames(agg_results)[!colnames(agg_results) %in% out_order]
@@ -223,7 +221,7 @@ get_model_results <- function() {
   model_ids_path <- system.file("model_ids.csv", package = "allometric")
 
   if (file.exists(model_ids_path)) {
-    model_ids <- read.csv(model_ids_path,
+    model_ids <- utils::read.csv(model_ids_path,
       colClasses = c(proxy_id = "character", id = "character")
     ) %>%
       tibble::as_tibble()
@@ -273,6 +271,6 @@ get_model_results <- function() {
     model_ids <- model_ids[-delete_ixs, ]
   }
 
-  write.csv(model_ids, model_ids_path, row.names = F)
+  utils::write.csv(model_ids, model_ids_path, row.names = F)
   results
 }

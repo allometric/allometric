@@ -14,14 +14,10 @@
   model_str
 }
 
-#'
-#' @param variable A one-element list of either a response_unit or a
-#' covariate_unit
-#' @keywords internal
 .get_variable_description <- function(variable, covariate_descriptions) {
   variable_name <- names(variable)[[1]]
 
-  if (class(variable[[variable_name]]) == "symbolic_units") {
+  if (inherits(variable[[variable_name]], "symbolic_units")) {
     # Handles the unitless case
     unit_str <- ""
   } else {
@@ -67,7 +63,9 @@
 
   for (i in seq_len(nrow(variable_descs))) {
     desc_i <- variable_descs[i, ]
-    desc_str <- paste(desc_i$name, " ", desc_i$unit_label, ": ", desc_i$desc, sep = "")
+    desc_str <- paste(
+        desc_i$name, " ", desc_i$unit_label, ": ", desc_i$desc, sep = ""
+      )
     out <- c(out, desc_str)
   }
 

@@ -120,6 +120,8 @@ setMethod(
   }
 )
 
+#' @inherit add_model
+#' @keywords internal
 setMethod("add_model", signature(
   publication = "Publication",
   model = "FixedEffectsModel"
@@ -131,6 +133,8 @@ setMethod("add_model", signature(
   publication
 })
 
+#' @inherit add_model
+#' @keywords internal
 setMethod("add_model", signature(
   publication = "Publication",
   model = "MixedEffectsModel"

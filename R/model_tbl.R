@@ -53,20 +53,24 @@ model_tbl_reconstruct <- function(x, to) {
   model_tbl_reconstruct(out, x)
 }
 
+#' Select an allometric model
+#'
+#' This is a generic function used to select allometric models out of larger
+#' collections, like `model_tbl`.
+#'
+#' @param model_tbl A `model_tbl` object
+#' @param id The model id or index
 #' @export
-select_model <- function(data, id) {
+select_model <- function(model_tbl, id) {
   UseMethod("select_model")
 }
 
 #' Select a model from `allometric_models`
 #'
-#' This function is used to select a single model from the `allometric_models`
-#' dataframe using its id. While we typically suggest users construct tables of
-#' models, in some cases it is necessary to select one model at a time. This
-#' function satisfies this purpose.
+#' This function is used to select a single model from a `model_tbl`
+#' dataframe using its id.
 #'
-#' @param model_tbl A `model_tbl` object such as `allometric_models`
-#' @param id The `model_id` or index of the model within the dataframe
+#' @inheritParams select_model
 #' @return An allometric model object
 #' @export
 select_model.model_tbl <- function(model_tbl, id) {
@@ -79,7 +83,6 @@ select_model.model_tbl <- function(model_tbl, id) {
   out
 }
 
-
 unnest_cross <- function(data, cols, ...) {
   .df_out <- data
   purrr::walk(
@@ -91,6 +94,10 @@ unnest_cross <- function(data, cols, ...) {
   .df_out
 }
 
+#' Unnest columns of a dataframe
+#'
+#' @param data A dataframe
+#' @param cols A character vector indicating the columns to unnest
 #' @export
 unnest_models <- function(data, cols) {
   UseMethod("unnest_models")

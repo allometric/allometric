@@ -1,12 +1,16 @@
 ---
-title: "Installing a Model"
+title: "Contributing a Model"
+vignette: >
+  %\VignetteIndexEntry{Contributing a Model}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
 ---
 
 ```{r include=F}
 library(allometric)
 ```
 
-Motivated users are entirely capable of submitting models, provided they are
+Motivated users are entirely capable of contributing models, provided they are
 comfortable using `git` pull requests.
 
 1. Fork and then clone the [`models`](https://github.com/allometric/models.git)
@@ -246,12 +250,6 @@ brackett_1977
 This summary shows the publication name, followed by a list of all model sets
 defined for the publication. We can see that there is 1 model set for `vsa`
 (volume of the stem including top and stump) that contains 24 models.
-
-## Git Pull Request Example
-
-Users that are savvy with `git` are free to submit pull requests to the 
-`allometric/models` repository. This is a step-by-step instruction for this
-purpose.
 
 ## Where do Publications go from here?
 

@@ -1,3 +1,6 @@
+#' @importFrom methods new
+#' @importFrom rlang .data
+
 setGeneric(
   "get_measure_label",
   function(x) standardGeneric("get_measure_label")

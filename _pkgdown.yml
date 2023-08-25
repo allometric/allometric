@@ -11,8 +11,10 @@ reference:
   - predict
   - predict_allo
   - model_call
+  - select_model
   - select_model.model_tbl
   - merge.model_tbl
+  - unnest_models
   - unnest_models.model_tbl
 - title: Contributor Functions
   desc: These functions are used to contribute models to `allometric`.
@@ -20,6 +22,8 @@ reference:
   - add_model
   - add_set
   - fia_trees
+  - get_component_defs
+  - get_measure_defs
   - load_parameter_frame
   - FixedEffectsModel
   - FixedEffectsSet

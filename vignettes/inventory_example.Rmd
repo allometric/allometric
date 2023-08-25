@@ -1,5 +1,9 @@
 ---
 title: "Common Inventory Use Cases"
+vignette: >
+  %\VignetteIndexEntry{Common Inventory Use Cases}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
 ---
 
 This vignette covers several common forest inventory use cases that can be 

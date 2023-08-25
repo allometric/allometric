@@ -60,13 +60,10 @@
       <a href="../articles/descriptors.html">Describing a Model with Descriptors</a>
     </li>
     <li>
-      <a href="../articles/installing_a_model.html">Installing a Model</a>
+      <a href="../articles/installing_a_model.html">Contributing a Model</a>
     </li>
     <li>
       <a href="../articles/inventory_example.html">Common Inventory Use Cases</a>
-    </li>
-    <li>
-      <a href="../articles/mixed_effects.html">Mixed-Effects Models</a>
     </li>
     <li>
       <a href="../articles/variable_naming_system.html">Variable Naming System</a>
@@ -177,7 +174,7 @@ a suffix.</p>
 searched the naming system for <code>d</code> measures, but others are
 available. There are 8 established measures:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">measure_defs</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/get_measure_defs.html">get_measure_defs</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##   measure measure_name</span></span>
 <span><span class="co">## 1       a          age</span></span>
 <span><span class="co">## 2       b      biomass</span></span>
@@ -198,7 +195,7 @@ commonly used terms for variables in allometric modeling.</p>
 <p>All variable names then have a second character that specifies the
 tree component. There are 11 established components:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">component_defs</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/get_component_defs.html">get_component_defs</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##    component component_name</span></span>
 <span><span class="co">## 1          b         branch</span></span>
 <span><span class="co">## 2          c          crown</span></span>

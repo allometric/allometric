@@ -5,9 +5,8 @@ articles:
   descriptors: descriptors.html
   installing_a_model: installing_a_model.html
   inventory_example: inventory_example.html
-  mixed_effects: mixed_effects.html
   variable_naming_system: variable_naming_system.html
-last_built: 2023-08-23T22:48Z
+last_built: 2023-08-25T22:47Z
 urls:
   reference: http://allometric.github.io/allometric/reference
   article: http://allometric.github.io/allometric/articles

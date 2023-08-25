@@ -19,6 +19,21 @@ delete_models <- function() {
     shell_command <- paste('rmdir /s /q "', models_path_check, '"', sep = "")
     shell(shell_command)
   }
+
+  model_list_path_check <- system.file("extdata/model_list.RDS", package = "allometric")
+  pub_list_path_check <- system.file("extdata/pub_list.RDS", package = "allometric")
+
+  if(model_list_path_check != "") {
+    print("Deleting model list.")
+    shell_command <- paste('rm "', model_list_path_check, '"', sep = "")
+    shell(shell_command)
+  }
+
+  if(pub_list_path_check != "") {
+    print("Deleting publication list.")
+    shell_command <- paste('rm "', pub_list_path_check, '"', sep = "")
+    shell(shell_command)
+  }
 }
 
 #' Install allometric models
@@ -53,7 +68,6 @@ install_models <- function(ignore_cache = FALSE, verbose = FALSE) {
       verbose = FALSE
     )
   }
-
 
   run_pub_list <- get_run_pubs(ignore_cache, verbose)
   update_pub_list(run_pub_list)

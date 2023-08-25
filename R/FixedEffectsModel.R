@@ -9,6 +9,7 @@
 #' `FixedEffectsModel` represents an allometric model that only uses fixed
 #' effects.
 #'
+#' @param parameters A named list of parameters and their values
 #' @return
 #'    An object of class `FixedEffectsModel`
 #' @inheritParams ParametricModel
@@ -64,6 +65,8 @@ setMethod("init_set_of_one", signature(mod = "FixedEffectsModel"), function(mod)
 })
 
 
+#' @inherit model_call
+#' @keywords internal
 setMethod("model_call", signature(model = "FixedEffectsModel"), function(model) {
   response_var <- names(model@response_unit)[[1]]
 

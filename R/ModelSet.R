@@ -20,7 +20,17 @@ check_model_set_validity <- function(object) {
   ),
   validity = check_model_set_validity
 )
-
+#' Base class for model sets
+#'
+#' This class is primarily used as a parent class for other model set
+#' implementations.
+#'
+#' @inherit AllometricModel
+#' @param model_specifications A tbl_df of model specifications, which contain
+#'    columns for the parameters and the descriptors.
+#' @return An instance of a ModelSet
+#' @export
+#' @keywords internal
 ModelSet <- function(response_unit, covariate_units, predict_fn,
                      model_specifications, descriptors = list(),
                      covariate_definitions = list()) {
@@ -37,12 +47,6 @@ ModelSet <- function(response_unit, covariate_units, predict_fn,
   )
   model_set
 }
-
-setMethod("[[", signature(x = "ModelSet", i = "numeric"), function(x, i) {
-  x@models[[i]]
-})
-
-
 
 setMethod("rd_model_equation", "ModelSet", function(set) {
   response_name <- names(set@response_unit)[[1]]
@@ -83,8 +87,6 @@ setMethod("rd_variable_defs", "ModelSet", function(set) {
 setMethod("rd_parameter_table", "ModelSet", function(set) {
   n_mods <- nrow(set@model_specifications)
   lines <- utils::capture.output(print(set@model_specifications, n = n_mods))
-
-  # TODO this can shift the column names weirdly, but an issue for another day...
   lines_no_quote <- stringr::str_replace_all(lines, "\"", " ")
 
   lines_trim <- lines_no_quote[-c(1, 3)]

@@ -25,6 +25,8 @@ the coavariate using the \code{units::as_units} function}
 \item{predict_fn}{A function that takes the covariate names as arguments and returns a
 prediction of the response variable. This function should be vectorized.}
 
+\item{parameters}{A named list of parameters and their values}
+
 \item{descriptors}{An optional named list of descriptors that describe the context of the
 allometric model}
 

@@ -1,5 +1,9 @@
 ---
 title: "Describing a Model with Descriptors"
+vignette: >
+  %\VignetteIndexEntry{Describing a Model with Descriptors}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
 ---
 
 ```{r include = F}

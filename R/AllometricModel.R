@@ -1,5 +1,6 @@
 setOldClass("units")
 setOldClass("BibEntry")
+setOldClass("tbl_df")
 
 check_allometric_model_validity <- function(object) {
   errors <- c()
@@ -7,7 +8,7 @@ check_allometric_model_validity <- function(object) {
   if (length(errors) == 0) TRUE else errors
 }
 
-model_types_defined <- read.csv(
+model_types_defined <- utils::read.csv(
   system.file(
   "variable_defs", "model_types_defined.csv",
   package="allometric"

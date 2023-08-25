@@ -30,6 +30,8 @@ the coavariate using the \code{units::as_units} function}
 \item{predict_fn}{A function that takes the covariate names as arguments and returns a
 prediction of the response variable. This function should be vectorized.}
 
+\item{parameters}{A named list of parameters and their values}
+
 \item{fixed_only}{A boolean value indicating if the model produces predictions using only
 fixed effects. This is useful when publications do not provide sufficient
 information to predict the random effects.}
