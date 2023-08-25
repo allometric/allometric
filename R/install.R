@@ -52,7 +52,8 @@ install_models <- function(ignore_cache = FALSE, verbose = FALSE) {
     gert::git_clone(
       "https://github.com/allometric/models.git",
       path = model_dir_path,
-      verbose = FALSE
+      verbose = FALSE,
+      overwrite = TRUE
     )
   } else {
     print("Pulling allometric/models repository.")
