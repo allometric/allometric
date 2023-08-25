@@ -48,7 +48,7 @@ MixedEffectsSet <- function(response_unit, covariate_units, parameter_names,
   mod_descriptors <- names(model_specifications)[!names(model_specifications) %in% mixed_effects_set@parameter_names]
 
   for (i in seq_len(nrow(model_specifications))) {
-    mod <- MixedEffectsModel(
+    model <- MixedEffectsModel(
       response_unit = response_unit,
       covariate_units = covariate_units,
       predict_fn = predict_fn,
@@ -59,8 +59,8 @@ MixedEffectsSet <- function(response_unit, covariate_units, parameter_names,
       covariate_definitions = covariate_definitions
     )
 
-    mod@set_descriptors <- mixed_effects_set@descriptors
-    mixed_effects_set@models[[length(mixed_effects_set@models) + 1]] <- mod
+    model@set_descriptors <- mixed_effects_set@descriptors
+    mixed_effects_set@models[[length(mixed_effects_set@models) + 1]] <- model
   }
 
   mixed_effects_set

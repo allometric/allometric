@@ -21,25 +21,25 @@ check_parametric_model <- function(object) {
 )
 
 
-setMethod("specification", "ParametricModel", function(mod) mod@specification)
-setMethod("specification<-", "ParametricModel", function(mod, value) {
-  mod@specification <- value
-  mod
+setMethod("specification", "ParametricModel", function(model) model@specification)
+setMethod("specification<-", "ParametricModel", function(model, value) {
+  model@specification <- value
+  model
 })
 
-setMethod("descriptors", "ParametricModel", function(mod) {
-  mod@specification[!names(mod@specification) %in% names(mod@parameters)]
-})
-
-
-setMethod("descriptors<-", "ParametricModel", function(mod, value) {
-  mod@specification[!names(mod@specification) %in% names(mod@parameters)] <- value
-  mod
+setMethod("descriptors", "ParametricModel", function(model) {
+  model@specification[!names(model@specification) %in% names(model@parameters)]
 })
 
 
-setMethod("parameters", "ParametricModel", function(mod) {
-  mod@parameters
+setMethod("descriptors<-", "ParametricModel", function(model, value) {
+  model@specification[!names(model@specification) %in% names(model@parameters)] <- value
+  model
+})
+
+
+setMethod("parameters", "ParametricModel", function(model) {
+  model@parameters
 })
 
 #' Base class for all parametric models.
@@ -126,11 +126,11 @@ setMethod("show", "ParametricModel", function(object) {
 })
 
 
-setMethod("get_model_str", "ParametricModel", function(mod) {
-  .get_model_str(mod)
+setMethod("get_model_str", "ParametricModel", function(model) {
+  .get_model_str(model)
 })
 
 
-setMethod("get_variable_descriptions", "ParametricModel", function(mod) {
-  .get_variable_descriptions_fmt(mod)
+setMethod("get_variable_descriptions", "ParametricModel", function(model) {
+  .get_variable_descriptions_fmt(model)
 })

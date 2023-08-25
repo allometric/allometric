@@ -3,11 +3,9 @@
 here. The user must install
 these models themselves using this function. This function clones the models
 repository within the allometric package directory and constructs a local
-dataframe containing the models. This dataframe is stored in the variable
-allometric_models upon completion of the function. This function is only
-necessary to run when first installing allometric, or when updating from
-the models repository. allometric_models is otherwise loaded when the package
-is loaded."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
+dataframe containing the models. This dataframe is stored in the global
+environment variable allometric_models upon completion of the function.
+Refer to allometric::allometric_models for further information."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]--></head><body data-spy="scroll" data-target="#toc">
@@ -80,11 +78,9 @@ is loaded."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/
 <a href="https://github.com/allometric/models" class="external-link">here</a>. The user must install
 these models themselves using this function. This function clones the models
 repository within the allometric package directory and constructs a local
-dataframe containing the models. This dataframe is stored in the variable
-<code>allometric_models</code> upon completion of the function. This function is only
-necessary to run when first installing allometric, or when updating from
-the models repository. allometric_models is otherwise loaded when the package
-is loaded.</p>
+dataframe containing the models. This dataframe is stored in the global
+environment variable <code>allometric_models</code> upon completion of the function.
+Refer to <code><a href="allometric_models.html">allometric::allometric_models</a></code> for further information.</p>
     </div>
 
     <div id="ref-usage">
@@ -94,13 +90,13 @@ is loaded.</p>
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>ignore_cache</dt>
-<dd><p>If TRUE, models are re-installed regardless of their
+<dd><p>If `TRUE``, models are re-installed regardless of their
 installation timestamp. Otherwise, only newly modified model files are reran.
 This is primarily for development purposes.</p></dd>
 
 
 <dt>verbose</dt>
-<dd><p>If TRUE, print verbose messages as models are installed.</p></dd>
+<dd><p>If <code>TRUE</code>, print verbose messages as models are installed.</p></dd>
 
 </dl></div>
 

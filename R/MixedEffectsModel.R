@@ -53,24 +53,24 @@ MixedEffectsModel <- function(response_unit, covariate_units, predict_ranef,
 #'    new group of observations for which predictions are desired (e.g., a new
 #'    stand or plot).
 #' @rdname predict
-setMethod("predict", signature(mod = "MixedEffectsModel"), function(mod, ..., newdata = NULL, output_units = NULL) {
+setMethod("predict", signature(model = "MixedEffectsModel"), function(model, ..., newdata = NULL, output_units = NULL) {
   # TODO validity checks for predict_ranef, we should throw a warning if
   # the column names of newdata are not the same set of args in predict_ranef
   # probabyl some opportunity for DRY with other validity checks..
-  ranef_args <- names(as.list(args(mod@predict_ranef)))
+  ranef_args <- names(as.list(args(model@predict_ranef)))
   ranef_args <- ranef_args[-length(ranef_args)]
 
-  complete_fn <- mod@predict_fn
+  complete_fn <- model@predict_fn
 
   if (!is.null(newdata)) {
-    ranefs <- do.call(mod@predict_ranef_populated, newdata)
+    ranefs <- do.call(model@predict_ranef_populated, newdata)
   } else {
-    ranefs <- mod@predict_ranef_populated()
+    ranefs <- model@predict_ranef_populated()
   }
-  predict_populated <- body(mod@predict_fn_populated)
+  predict_populated <- body(model@predict_fn_populated)
   body(complete_fn) <- do.call("substitute", list(predict_populated, ranefs))
 
-  converted <- convert_units(..., units_list = mod@covariate_units)
+  converted <- convert_units(..., units_list = model@covariate_units)
   stripped <- strip_units(converted)
 
   out <- do.call(complete_fn, stripped)
@@ -81,7 +81,7 @@ setMethod("predict", signature(mod = "MixedEffectsModel"), function(mod, ..., ne
     out_stripped <- out
   }
 
-  deparsed <- units::deparse_unit(mod@response_unit[[1]])
+  deparsed <- units::deparse_unit(model@response_unit[[1]])
   out_stripped <- do.call(units::set_units, list(out_stripped, deparsed))
 
   if(!is.null(output_units)) {
@@ -97,16 +97,16 @@ setMethod("predict", signature(mod = "MixedEffectsModel"), function(mod, ..., ne
 
 })
 
-setMethod("init_set_of_one", signature(mod = "MixedEffectsModel"), function(mod) {
+setMethod("init_set_of_one", signature(model = "MixedEffectsModel"), function(model) {
   MixedEffectsSet(
-    response_unit = mod@response_unit,
-    covariate_units = mod@covariate_units,
-    predict_fn = mod@predict_fn,
-    parameter_names = names(mod@parameters),
-    model_specifications = mod@specification,
-    predict_ranef = mod@predict_ranef,
-    fixed_only = mod@fixed_only,
-    covariate_definitions = mod@covariate_definitions
+    response_unit = model@response_unit,
+    covariate_units = model@covariate_units,
+    predict_fn = model@predict_fn,
+    parameter_names = names(model@parameters),
+    model_specifications = model@specification,
+    predict_ranef = model@predict_ranef,
+    fixed_only = model@fixed_only,
+    covariate_definitions = model@covariate_definitions
   )
 })
 

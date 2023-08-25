@@ -7,14 +7,14 @@
 \alias{predict,MixedEffectsModel-method}
 \title{Predict with an allometric model}
 \usage{
-predict(mod, ...)
+predict(model, ...)
 
-\S4method{predict}{FixedEffectsModel}(mod, ..., output_units = NULL)
+\S4method{predict}{FixedEffectsModel}(model, ..., output_units = NULL)
 
-\S4method{predict}{MixedEffectsModel}(mod, ..., newdata = NULL, output_units = NULL)
+\S4method{predict}{MixedEffectsModel}(model, ..., newdata = NULL, output_units = NULL)
 }
 \arguments{
-\item{mod}{The allometric model used for prediction}
+\item{model}{The allometric model used for prediction}
 
 \item{...}{Additional arguments passed to the \code{predict_fn} of the input model}
 

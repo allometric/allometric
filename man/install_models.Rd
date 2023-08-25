@@ -7,20 +7,18 @@
 install_models(ignore_cache = FALSE, verbose = FALSE)
 }
 \arguments{
-\item{ignore_cache}{If TRUE, models are re-installed regardless of their
+\item{ignore_cache}{If `TRUE``, models are re-installed regardless of their
 installation timestamp. Otherwise, only newly modified model files are reran.
 This is primarily for development purposes.}
 
-\item{verbose}{If TRUE, print verbose messages as models are installed.}
+\item{verbose}{If \code{TRUE}, print verbose messages as models are installed.}
 }
 \description{
 Allometric models are stored in a remote repository located on GitHub located
 \href{https://github.com/allometric/models}{here}. The user must install
 these models themselves using this function. This function clones the models
 repository within the allometric package directory and constructs a local
-dataframe containing the models. This dataframe is stored in the variable
-\code{allometric_models} upon completion of the function. This function is only
-necessary to run when first installing allometric, or when updating from
-the models repository. allometric_models is otherwise loaded when the package
-is loaded.
+dataframe containing the models. This dataframe is stored in the global
+environment variable \code{allometric_models} upon completion of the function.
+Refer to \code{allometric::allometric_models} for further information.
 }

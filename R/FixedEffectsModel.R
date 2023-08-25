@@ -26,11 +26,11 @@ FixedEffectsModel <- function(response_unit, covariate_units, predict_fn,
 }
 
 #' @rdname predict
-setMethod("predict", signature(mod = "FixedEffectsModel"), function(mod, ..., output_units = NULL) {
-  converted <- convert_units(..., units_list = mod@covariate_units)
+setMethod("predict", signature(model = "FixedEffectsModel"), function(model, ..., output_units = NULL) {
+  converted <- convert_units(..., units_list = model@covariate_units)
   stripped <- strip_units(converted)
 
-  out <- do.call(mod@predict_fn_populated, stripped)
+  out <- do.call(model@predict_fn_populated, stripped)
 
   if("units" %in% class(out)) {
     out_stripped <- units::drop_units(out)
@@ -38,7 +38,7 @@ setMethod("predict", signature(mod = "FixedEffectsModel"), function(mod, ..., ou
     out_stripped <- out
   }
 
-  deparsed <- units::deparse_unit(mod@response_unit[[1]])
+  deparsed <- units::deparse_unit(model@response_unit[[1]])
   out_stripped <- do.call(units::set_units, list(out_stripped, deparsed))
 
   if(!is.null(output_units)) {
@@ -53,14 +53,14 @@ setMethod("predict", signature(mod = "FixedEffectsModel"), function(mod, ..., ou
   out_stripped
 })
 
-setMethod("init_set_of_one", signature(mod = "FixedEffectsModel"), function(mod) {
+setMethod("init_set_of_one", signature(model = "FixedEffectsModel"), function(model) {
   FixedEffectsSet(
-    response_unit = mod@response_unit,
-    covariate_units = mod@covariate_units,
-    parameter_names = names(mod@parameters),
-    predict_fn = mod@predict_fn,
-    model_specifications = mod@specification,
-    covariate_definitions = mod@covariate_definitions
+    response_unit = model@response_unit,
+    covariate_units = model@covariate_units,
+    parameter_names = names(model@parameters),
+    predict_fn = model@predict_fn,
+    model_specifications = model@specification,
+    covariate_definitions = model@covariate_definitions
   )
 })
 

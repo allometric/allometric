@@ -42,16 +42,14 @@ delete_models <- function() {
 #' \href{https://github.com/allometric/models}{here}. The user must install
 #' these models themselves using this function. This function clones the models
 #' repository within the allometric package directory and constructs a local
-#' dataframe containing the models. This dataframe is stored in the variable
-#' `allometric_models` upon completion of the function. This function is only
-#' necessary to run when first installing allometric, or when updating from
-#' the models repository. allometric_models is otherwise loaded when the package
-#' is loaded.
+#' dataframe containing the models. This dataframe is stored in the global
+#' environment variable `allometric_models` upon completion of the function.
+#' Refer to `allometric::allometric_models` for further information.
 #'
-#' @param ignore_cache If TRUE, models are re-installed regardless of their
+#' @param ignore_cache If `TRUE``, models are re-installed regardless of their
 #' installation timestamp. Otherwise, only newly modified model files are reran.
 #' This is primarily for development purposes.
-#' @param verbose If TRUE, print verbose messages as models are installed.
+#' @param verbose If `TRUE`, print verbose messages as models are installed.
 #' @export
 install_models <- function(ignore_cache = FALSE, verbose = FALSE) {
   downloaded <- check_models_downloaded()

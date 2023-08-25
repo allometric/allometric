@@ -18,7 +18,7 @@ setGeneric("Cite", function(x) {
 
 setGeneric(
   "init_set_of_one",
-  function(mod) standardGeneric("init_set_of_one")
+  function(model) standardGeneric("init_set_of_one")
 )
 
 setGeneric("n_models", function(publication) standardGeneric("n_models"))
@@ -29,15 +29,15 @@ setGeneric("summary", function(publication) standardGeneric("summary"))
 
 #' Predict with an allometric model
 #'
-#' @param mod The allometric model used for prediction
+#' @param model The allometric model used for prediction
 #' @param ... Additional arguments passed to the `predict_fn` of the input model
 #' @param output_units Optionally specify the output units of the model as a
 #' string, e.g., "ft^3"
 #' @return A vector of allometric model predictions
 #' @rdname predict
 #' @export
-setGeneric("predict", function(mod, ...) standardGeneric("predict"),
-  signature = "mod"
+setGeneric("predict", function(model, ...) standardGeneric("predict"),
+  signature = "model"
 )
 
 setGeneric(
@@ -53,11 +53,11 @@ setGeneric(
 )
 
 setGeneric(
-  "specification", function(mod) standardGeneric("specification")
+  "specification", function(model) standardGeneric("specification")
 )
 
 setGeneric(
-  "specification<-", function(mod, value) standardGeneric("specification<-")
+  "specification<-", function(model, value) standardGeneric("specification<-")
 )
 
 #' Get the descriptors of a model
@@ -67,26 +67,26 @@ setGeneric(
 #' species, geographic region, etc. This function returns this information for
 #' a given model.
 #'
-#' @param mod The allometric model object
+#' @param model The allometric model object
 #' @return A tibble:tbl_df of descriptors
 #' @keywords internal
-setGeneric("descriptors", function(mod) standardGeneric("descriptors"))
+setGeneric("descriptors", function(model) standardGeneric("descriptors"))
 
 #' Set the descriptors of a model.
 #'
 #' @param value A tibble::tbl_df of descriptors
 #' @keywords internal
 setGeneric(
-  "descriptors<-", function(mod, value) standardGeneric("descriptors<-")
+  "descriptors<-", function(model, value) standardGeneric("descriptors<-")
 )
 
-setGeneric("parameters", function(mod) standardGeneric("parameters"))
+setGeneric("parameters", function(model) standardGeneric("parameters"))
 
-setGeneric("get_model_str", function(mod) standardGeneric("get_model_str"))
+setGeneric("get_model_str", function(model) standardGeneric("get_model_str"))
 
 setGeneric(
   "get_variable_descriptions",
-  function(mod) standardGeneric("get_variable_descriptions")
+  function(model) standardGeneric("get_variable_descriptions")
 )
 
 #' Add a set of models to a publication

@@ -47,20 +47,20 @@ FixedEffectsSet <- function(response_unit, covariate_units, parameter_names,
     parameter_names = parameter_names
   )
 
-  mod_descriptors <- names(model_specifications)[!names(model_specifications) %in% fixed_effects_set@parameter_names]
+  model_descriptors <- names(model_specifications)[!names(model_specifications) %in% fixed_effects_set@parameter_names]
 
   for (i in seq_len(nrow(model_specifications))) {
-    mod <- FixedEffectsModel(
+    model <- FixedEffectsModel(
       response_unit = response_unit,
       covariate_units = covariate_units,
       predict_fn = predict_fn,
       parameters = model_specifications[i, fixed_effects_set@parameter_names],
-      descriptors = model_specifications[i, mod_descriptors],
+      descriptors = model_specifications[i, model_descriptors],
       covariate_definitions = covariate_definitions
     )
 
-    mod@set_descriptors <- fixed_effects_set@descriptors
-    fixed_effects_set@models[[length(fixed_effects_set@models) + 1]] <- mod
+    model@set_descriptors <- fixed_effects_set@descriptors
+    fixed_effects_set@models[[length(fixed_effects_set@models) + 1]] <- model
   }
 
   fixed_effects_set

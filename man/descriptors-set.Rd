@@ -4,7 +4,7 @@
 \alias{descriptors<-}
 \title{Set the descriptors of a model.}
 \usage{
-descriptors(mod) <- value
+descriptors(model) <- value
 }
 \arguments{
 \item{value}{A tibble::tbl_df of descriptors}

@@ -42,8 +42,8 @@ generate_pub_obj <- function(pub_id, bibtype) {
 }
 
 generate_fixef_model <- function() {
-  fixef_mod <- paste(c(
-    "<mod> <- FixedEffectsModel(",
+  fixef_model <- paste(c(
+    "<model> <- FixedEffectsModel(",
     "  response_unit = list(",
     "    <res> = units::as_units(<res_unit>)",
     "  )",
@@ -59,7 +59,7 @@ generate_fixef_model <- function() {
     ")"
   ), collapse = "\n")
 
-  fixef_mod
+  fixef_model
 }
 
 generate_footer <- function(pub_id, n_fixef_models) {
@@ -70,7 +70,7 @@ generate_footer <- function(pub_id, n_fixef_models) {
   for(i in 1:n_fixef_models) {
     out <- c(
       out,
-      paste("  add_model(<mod_", i, ">)", sep="")
+      paste("  add_model(<model_", i, ">)", sep="")
     )
   }
 
