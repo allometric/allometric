@@ -31,7 +31,8 @@ prediction of the response variable. This function should be vectorized.}
 
 \item{model_specifications}{A dataframe such that each row of the dataframe provides model-level
 descriptors and parameter estimates for that model. Models must be
-uniquely identifiable using the descriptors}
+uniquely identifiable using the descriptors. This is usually established
+using the \code{load_parameter_frame()} function.}
 
 \item{descriptors}{An optional named list of descriptors that describe the context of the
 allometric model}
@@ -49,4 +50,55 @@ many different species) using the same functional structure is a common
 pattern in allometric studies, and \code{FixedEffectsSet} facilitates the
 installation of these groups of models by allowing the user to specify the
 parameter estimates and descriptions in a dataframe or spreadsheet.
+}
+\section{Slots}{
+
+\describe{
+\item{\code{response_unit}}{A one-element list with the name indicating the response
+variable and the value as the response variable units obtained using
+\code{units::as_units()}}
+
+\item{\code{covariate_units}}{A list containing the covariate names as names and
+values as the values of the covariate units obtained using
+\code{units::as_units()}}
+
+\item{\code{predict_fn}}{The prediction function, which takes covariates as arguments
+and returns model predictions}
+
+\item{\code{descriptors}}{A \code{tibble::tbl_df} containing the model descriptors}
+
+\item{\code{set_descriptors}}{A \code{tibble::tbl_df} containing the set descriptors}
+
+\item{\code{pub_descriptors}}{A \code{tibble::tbl_df} containing the publication
+descriptors}
+
+\item{\code{citation}}{A \code{RefManageR::BibEntry} object containing the reference
+publication}
+
+\item{\code{covariate_definitions}}{User-provided covariate definitions}
+
+\item{\code{model_type}}{The model type, which is parsed from the \code{response_unit}
+name}
+
+\item{\code{parameter_names}}{A character vector indicating the parameter names}
+
+\item{\code{model_specifications}}{A \code{tibble::tbl_df} of model specifications, where
+each row reprents one model identified with descriptors and containing the
+parameter estimates.}
+}}
+
+\examples{
+fixef_set <- FixedEffectsSet(
+  response_unit = list(
+    vsia = units::as_units("ft^3")
+  ),
+  covariate_units = list(
+    dsob = units::as_units("in")
+  ),
+  predict_fn = function(dsob) {
+    a * dsob^2
+  },
+  parameter_names = "a",
+  model_specifications = tibble::tibble(mod = c(1,2), a = c(1, 2))
+)
 }

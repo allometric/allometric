@@ -22,6 +22,7 @@ reference:
   - add_model
   - add_set
   - fia_trees
+  - get_variable_def
   - get_component_defs
   - get_measure_defs
   - load_parameter_frame

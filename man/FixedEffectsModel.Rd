@@ -40,3 +40,59 @@ An object of class \code{FixedEffectsModel}
 \code{FixedEffectsModel} represents an allometric model that only uses fixed
 effects.
 }
+\section{Slots}{
+
+\describe{
+\item{\code{response_unit}}{A one-element list with the name indicating the response
+variable and the value as the response variable units obtained using
+\code{units::as_units()}}
+
+\item{\code{covariate_units}}{A list containing the covariate names as names and
+values as the values of the covariate units obtained using
+\code{units::as_units()}}
+
+\item{\code{predict_fn}}{The prediction function, which takes covariates as arguments
+and returns model predictions}
+
+\item{\code{descriptors}}{A \code{tibble::tbl_df} containing the model descriptors}
+
+\item{\code{set_descriptors}}{A \code{tibble::tbl_df} containing the set descriptors}
+
+\item{\code{pub_descriptors}}{A \code{tibble::tbl_df} containing the publication
+descriptors}
+
+\item{\code{citation}}{A \code{RefManageR::BibEntry} object containing the reference
+publication}
+
+\item{\code{covariate_definitions}}{User-provided covariate definitions}
+
+\item{\code{model_type}}{The model type, which is parsed from the \code{response_unit}
+name}
+
+\item{\code{parameters}}{A named list of parameters and their values}
+
+\item{\code{predict_fn_populated}}{The prediction function populated with the
+parameter values}
+
+\item{\code{specification}}{A tibble::tbl_df of the model specification, which are
+the parameters and the descriptors together}
+}}
+
+\examples{
+FixedEffectsModel(
+  response_unit = list(
+    hst = units::as_units("m")
+  ),
+  covariate_units = list(
+    dsob = units::as_units("cm")
+  ),
+  parameters = list(
+    beta_0 = 51.9954,
+    beta_1 = -0.0208,
+    beta_2 = 1.0182
+  ),
+  predict_fn = function(dsob) {
+    1.37 + beta_0 * (1 - exp(beta_1 * dsob)^beta_2)
+  }
+)
+}

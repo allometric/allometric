@@ -20,3 +20,31 @@ An instance of class Publication
 allometric models. Initially, publications do not contain models, and models
 are added using the \code{add_model} or \code{add_set} methods.
 }
+\section{Slots}{
+
+\describe{
+\item{\code{citation}}{A \code{RefManageR::BibEntry} of the reference publication}
+
+\item{\code{response_sets}}{A list containing the model sets indexed by the response
+variable names}
+
+\item{\code{descriptors}}{A named list containing descriptors that are defined for
+all models in the publication.}
+}}
+
+\examples{
+pub <- Publication(
+  citation = RefManageR::BibEntry(
+    key = "test_2000",
+    bibtype = "article",
+    author = "test",
+    title = "test",
+    journal = "test",
+    year = 2000,
+    volume = 0
+  ),
+  descriptors = list(
+    region = "US-WA"
+  )
+)
+}

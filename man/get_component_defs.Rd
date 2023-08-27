@@ -12,3 +12,6 @@ A tibble::tbl_df containing the component definitions
 \description{
 Loads the component definitions from a locally stored csv file
 }
+\examples{
+get_componente_defs()
+}

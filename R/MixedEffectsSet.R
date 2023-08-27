@@ -30,6 +30,32 @@ check_fixed_effects_set_validity <- function(object) {
 #' @inheritParams FixedEffectsSet
 #' @inheritParams MixedEffectsModel
 #' @return An instance of MixedEffectsSet
+#' @template ParametricModel_slots
+#' @slot predict_ranef The function that predicts the random effects
+#' @slot predict_ranef_populated The function that predicts the random effects
+#' populated with the fixed effect parameter estimates
+#' @slot fixed_only A boolean value indicating if the model produces predictions
+#' using only fixed effects
+#' @slot model_specifications A `tibble::tbl_df` of model specifications, where
+#' each row reprents one model identified with descriptors and containing the
+#' parameter estimates.
+#' @examples
+#' mixed_effects_set <- MixedEffectsSet(
+#'   response_unit = list(
+#'     vsia = units::as_units("ft^3")
+#'   ),
+#'   covariate_units = list(
+#'     dsob = units::as_units("in")
+#'   ),
+#'   parameter_names = "a",
+#'   predict_ranef = function(dsob, hst) {
+#'     list(a_i = 1)
+#'   },
+#'   predict_fn = function(dsob) {
+#'     (a + a_i) * dsob^2
+#'   },
+#'   model_specifications = tibble::tibble(a = c(1, 2))
+#' )
 #' @export
 MixedEffectsSet <- function(response_unit, covariate_units, parameter_names,
                             predict_fn, model_specifications, predict_ranef,

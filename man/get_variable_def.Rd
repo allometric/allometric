@@ -23,4 +23,3 @@ each variable name. For example input \code{"d"} will return all diameter
 definitions but input \code{"dsob"} will only return the definition for diameter
 outside bark at breast height.
 }
-\keyword{internal}

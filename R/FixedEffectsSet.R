@@ -30,8 +30,28 @@ check_fixed_effects_set_validity <- function(object) {
 #' @param model_specifications
 #'    A dataframe such that each row of the dataframe provides model-level
 #'    descriptors and parameter estimates for that model. Models must be
-#'    uniquely identifiable using the descriptors
+#'    uniquely identifiable using the descriptors. This is usually established
+#'    using the `load_parameter_frame()` function.
 #' @return A set of fixed effects models
+#' @template AllometricModel_slots
+#' @slot parameter_names A character vector indicating the parameter names
+#' @slot model_specifications A `tibble::tbl_df` of model specifications, where
+#' each row reprents one model identified with descriptors and containing the
+#' parameter estimates.
+#' @examples
+#' fixef_set <- FixedEffectsSet(
+#'   response_unit = list(
+#'     vsia = units::as_units("ft^3")
+#'   ),
+#'   covariate_units = list(
+#'     dsob = units::as_units("in")
+#'   ),
+#'   predict_fn = function(dsob) {
+#'     a * dsob^2
+#'   },
+#'   parameter_names = "a",
+#'   model_specifications = tibble::tibble(mod = c(1,2), a = c(1, 2))
+#' )
 #' @export
 FixedEffectsSet <- function(response_unit, covariate_units, parameter_names,
                             predict_fn, model_specifications,

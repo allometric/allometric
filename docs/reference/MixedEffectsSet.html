@@ -122,12 +122,13 @@ prediction of the response variable. This function should be vectorized.</p></dd
 <dt>model_specifications</dt>
 <dd><p>A dataframe such that each row of the dataframe provides model-level
 descriptors and parameter estimates for that model. Models must be
-uniquely identifiable using the descriptors</p></dd>
+uniquely identifiable using the descriptors. This is usually established
+using the <code><a href="load_parameter_frame.html">load_parameter_frame()</a></code> function.</p></dd>
 
 
 <dt>predict_ranef</dt>
 <dd><p>A function that predicts the random effects, takes any named covariates in
-<code>covariate_units</code> as arguments.</p></dd>
+<code>covariate_units</code> as arguments</p></dd>
 
 
 <dt>fixed_only</dt>
@@ -158,7 +159,66 @@ the definitions given by the variable naming system.</p></dd>
 <code>MixedEffectsSet</code> tends to be a much rarer occurrence than <code>FixedEffectsSet</code>
 and <code>MixedEffectsModel</code>.</p>
     </div>
+    <div id="slots">
+    <h2>Slots</h2>
+    
 
+<dl><dt><code>parameters</code></dt>
+<dd><p>A named list of parameters and their values</p></dd>
+
+
+<dt><code>predict_fn_populated</code></dt>
+<dd><p>The prediction function populated with the
+parameter values</p></dd>
+
+
+<dt><code>specification</code></dt>
+<dd><p>A tibble::tbl_df of the model specification, which are
+the parameters and the descriptors together</p></dd>
+
+
+<dt><code>predict_ranef</code></dt>
+<dd><p>The function that predicts the random effects</p></dd>
+
+
+<dt><code>predict_ranef_populated</code></dt>
+<dd><p>The function that predicts the random effects
+populated with the fixed effect parameter estimates</p></dd>
+
+
+<dt><code>fixed_only</code></dt>
+<dd><p>A boolean value indicating if the model produces predictions
+using only fixed effects</p></dd>
+
+
+<dt><code>model_specifications</code></dt>
+<dd><p>A <code><a href="https://tibble.tidyverse.org/reference/tbl_df-class.html" class="external-link">tibble::tbl_df</a></code> of model specifications, where
+each row reprents one model identified with descriptors and containing the
+parameter estimates.</p></dd>
+
+
+</dl></div>
+
+    <div id="ref-examples">
+    <h2>Examples</h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">mixed_effects_set</span> <span class="op">&lt;-</span> <span class="fu">MixedEffectsSet</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  response_unit <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    vsia <span class="op">=</span> <span class="fu">units</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/units/man/units.html" class="external-link">as_units</a></span><span class="op">(</span><span class="st">"ft^3"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span>,</span></span>
+<span class="r-in"><span>  covariate_units <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    dsob <span class="op">=</span> <span class="fu">units</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/units/man/units.html" class="external-link">as_units</a></span><span class="op">(</span><span class="st">"in"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span>,</span></span>
+<span class="r-in"><span>  parameter_names <span class="op">=</span> <span class="st">"a"</span>,</span></span>
+<span class="r-in"><span>  predict_ranef <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">dsob</span>, <span class="va">hst</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>a_i <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">}</span>,</span></span>
+<span class="r-in"><span>  predict_fn <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">dsob</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>    <span class="op">(</span><span class="va">a</span> <span class="op">+</span> <span class="va">a_i</span><span class="op">)</span> <span class="op">*</span> <span class="va">dsob</span><span class="op">^</span><span class="fl">2</span></span></span>
+<span class="r-in"><span>  <span class="op">}</span>,</span></span>
+<span class="r-in"><span>  model_specifications <span class="op">=</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+</code></pre></div>
+    </div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top"><h2 data-toc-skip>Contents</h2>

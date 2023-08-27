@@ -33,10 +33,11 @@ prediction of the response variable. This function should be vectorized.}
 
 \item{model_specifications}{A dataframe such that each row of the dataframe provides model-level
 descriptors and parameter estimates for that model. Models must be
-uniquely identifiable using the descriptors}
+uniquely identifiable using the descriptors. This is usually established
+using the \code{load_parameter_frame()} function.}
 
 \item{predict_ranef}{A function that predicts the random effects, takes any named covariates in
-\code{covariate_units} as arguments.}
+\code{covariate_units} as arguments}
 
 \item{fixed_only}{A boolean value indicating if the model produces predictions using only
 fixed effects. This is useful when publications do not provide sufficient
@@ -63,4 +64,46 @@ parameter estimates and descriptions in a dataframe or spreadsheet.
 Because mixed-effects models already accommodate a grouping structure,
 \code{MixedEffectsSet} tends to be a much rarer occurrence than \code{FixedEffectsSet}
 and \code{MixedEffectsModel}.
+}
+\section{Slots}{
+
+\describe{
+\item{\code{parameters}}{A named list of parameters and their values}
+
+\item{\code{predict_fn_populated}}{The prediction function populated with the
+parameter values}
+
+\item{\code{specification}}{A tibble::tbl_df of the model specification, which are
+the parameters and the descriptors together}
+
+\item{\code{predict_ranef}}{The function that predicts the random effects}
+
+\item{\code{predict_ranef_populated}}{The function that predicts the random effects
+populated with the fixed effect parameter estimates}
+
+\item{\code{fixed_only}}{A boolean value indicating if the model produces predictions
+using only fixed effects}
+
+\item{\code{model_specifications}}{A \code{tibble::tbl_df} of model specifications, where
+each row reprents one model identified with descriptors and containing the
+parameter estimates.}
+}}
+
+\examples{
+mixed_effects_set <- MixedEffectsSet(
+  response_unit = list(
+    vsia = units::as_units("ft^3")
+  ),
+  covariate_units = list(
+    dsob = units::as_units("in")
+  ),
+  parameter_names = "a",
+  predict_ranef = function(dsob, hst) {
+    list(a_i = 1)
+  },
+  predict_fn = function(dsob) {
+    (a + a_i) * dsob^2
+  },
+  model_specifications = tibble::tibble(a = c(1, 2))
+)
 }

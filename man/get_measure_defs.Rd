@@ -12,3 +12,6 @@ A tibble::tbl_df containing the measure definitions
 \description{
 Loads the measure definitions from a locally stored csv file
 }
+\examples{
+get_measure_defs()
+}

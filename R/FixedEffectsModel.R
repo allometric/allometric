@@ -10,9 +10,27 @@
 #' effects.
 #'
 #' @param parameters A named list of parameters and their values
-#' @return
-#'    An object of class `FixedEffectsModel`
+#' @return An object of class `FixedEffectsModel`
 #' @inheritParams ParametricModel
+#' @template AllometricModel_slots
+#' @template ParametricModel_slots
+#' @examples
+#' FixedEffectsModel(
+#'   response_unit = list(
+#'     hst = units::as_units("m")
+#'   ),
+#'   covariate_units = list(
+#'     dsob = units::as_units("cm")
+#'   ),
+#'   parameters = list(
+#'     beta_0 = 51.9954,
+#'     beta_1 = -0.0208,
+#'     beta_2 = 1.0182
+#'   ),
+#'   predict_fn = function(dsob) {
+#'     1.37 + beta_0 * (1 - exp(beta_1 * dsob)^beta_2)
+#'   }
+#' )
 #' @export
 FixedEffectsModel <- function(response_unit, covariate_units, predict_fn,
                               parameters, descriptors = list(),

@@ -74,8 +74,8 @@ select_model <- function(model_tbl, id) {
 #'
 #' @inheritParams select_model
 #' @return An allometric model object
-#' @export
 #' @keywords internal
+#' @export
 select_model.model_tbl <- function(model_tbl, id) {
   if (is.character(id)) {
     out <- model_tbl[model_tbl$id == id, "model"][[1, 1]][[1]]
@@ -114,6 +114,7 @@ unnest_models <- function(data, cols) {
 #' @param data A `model_tbl`
 #' @param cols A character vector of columns to unnest
 #' @return The unnested `model_tbl`
+#' @keywords internal
 #' @export
 unnest_models.model_tbl <- function(data, cols) {
   unnested <- unnest_cross(data, cols)

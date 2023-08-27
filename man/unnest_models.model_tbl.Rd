@@ -18,3 +18,4 @@ The unnested \code{model_tbl}
 A \code{model_tbl} often contains nested information within the cells of the
 table. This function allows a user to unnest the columns of interest.
 }
+\keyword{internal}

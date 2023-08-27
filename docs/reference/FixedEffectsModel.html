@@ -125,7 +125,101 @@ the definitions given by the variable naming system.</p></dd>
 
 
     </div>
+    <div id="slots">
+    <h2>Slots</h2>
+    
 
+<dl><dt><code>response_unit</code></dt>
+<dd><p>A one-element list with the name indicating the response
+variable and the value as the response variable units obtained using
+<code><a href="https://rdrr.io/pkg/units/man/units.html" class="external-link">units::as_units()</a></code></p></dd>
+
+
+<dt><code>covariate_units</code></dt>
+<dd><p>A list containing the covariate names as names and
+values as the values of the covariate units obtained using
+<code><a href="https://rdrr.io/pkg/units/man/units.html" class="external-link">units::as_units()</a></code></p></dd>
+
+
+<dt><code>predict_fn</code></dt>
+<dd><p>The prediction function, which takes covariates as arguments
+and returns model predictions</p></dd>
+
+
+<dt><code>descriptors</code></dt>
+<dd><p>A <code><a href="https://tibble.tidyverse.org/reference/tbl_df-class.html" class="external-link">tibble::tbl_df</a></code> containing the model descriptors</p></dd>
+
+
+<dt><code>set_descriptors</code></dt>
+<dd><p>A <code><a href="https://tibble.tidyverse.org/reference/tbl_df-class.html" class="external-link">tibble::tbl_df</a></code> containing the set descriptors</p></dd>
+
+
+<dt><code>pub_descriptors</code></dt>
+<dd><p>A <code><a href="https://tibble.tidyverse.org/reference/tbl_df-class.html" class="external-link">tibble::tbl_df</a></code> containing the publication
+descriptors</p></dd>
+
+
+<dt><code>citation</code></dt>
+<dd><p>A <code><a href="https://docs.ropensci.org/RefManageR/reference/BibEntry.html" class="external-link">RefManageR::BibEntry</a></code> object containing the reference
+publication</p></dd>
+
+
+<dt><code>covariate_definitions</code></dt>
+<dd><p>User-provided covariate definitions</p></dd>
+
+
+<dt><code>model_type</code></dt>
+<dd><p>The model type, which is parsed from the <code>response_unit</code>
+name</p></dd>
+
+
+<dt><code>parameters</code></dt>
+<dd><p>A named list of parameters and their values</p></dd>
+
+
+<dt><code>predict_fn_populated</code></dt>
+<dd><p>The prediction function populated with the
+parameter values</p></dd>
+
+
+<dt><code>specification</code></dt>
+<dd><p>A tibble::tbl_df of the model specification, which are
+the parameters and the descriptors together</p></dd>
+
+
+</dl></div>
+
+    <div id="ref-examples">
+    <h2>Examples</h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">FixedEffectsModel</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  response_unit <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    hst <span class="op">=</span> <span class="fu">units</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/units/man/units.html" class="external-link">as_units</a></span><span class="op">(</span><span class="st">"m"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span>,</span></span>
+<span class="r-in"><span>  covariate_units <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    dsob <span class="op">=</span> <span class="fu">units</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/units/man/units.html" class="external-link">as_units</a></span><span class="op">(</span><span class="st">"cm"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span>,</span></span>
+<span class="r-in"><span>  parameters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    beta_0 <span class="op">=</span> <span class="fl">51.9954</span>,</span></span>
+<span class="r-in"><span>    beta_1 <span class="op">=</span> <span class="op">-</span><span class="fl">0.0208</span>,</span></span>
+<span class="r-in"><span>    beta_2 <span class="op">=</span> <span class="fl">1.0182</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span>,</span></span>
+<span class="r-in"><span>  predict_fn <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">dsob</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>    <span class="fl">1.37</span> <span class="op">+</span> <span class="va">beta_0</span> <span class="op">*</span> <span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="va">beta_1</span> <span class="op">*</span> <span class="va">dsob</span><span class="op">)</span><span class="op">^</span><span class="va">beta_2</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">}</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model Call: </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> hst = f(dsob) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Parameter Estimates: </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 x 3</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   beta_0  beta_1 beta_2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>   52.0 -<span style="color: #BB0000;">0.020</span><span style="color: #BB0000; text-decoration: underline;">8</span>   1.02</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model Descriptors: </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 x 0</span></span>
+</code></pre></div>
+    </div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top"><h2 data-toc-skip>Contents</h2>

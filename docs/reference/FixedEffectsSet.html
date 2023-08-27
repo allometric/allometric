@@ -120,7 +120,8 @@ prediction of the response variable. This function should be vectorized.</p></dd
 <dt>model_specifications</dt>
 <dd><p>A dataframe such that each row of the dataframe provides model-level
 descriptors and parameter estimates for that model. Models must be
-uniquely identifiable using the descriptors</p></dd>
+uniquely identifiable using the descriptors. This is usually established
+using the <code><a href="load_parameter_frame.html">load_parameter_frame()</a></code> function.</p></dd>
 
 
 <dt>descriptors</dt>
@@ -139,7 +140,83 @@ the definitions given by the variable naming system.</p></dd>
 
 <p>A set of fixed effects models</p>
     </div>
+    <div id="slots">
+    <h2>Slots</h2>
+    
 
+<dl><dt><code>response_unit</code></dt>
+<dd><p>A one-element list with the name indicating the response
+variable and the value as the response variable units obtained using
+<code><a href="https://rdrr.io/pkg/units/man/units.html" class="external-link">units::as_units()</a></code></p></dd>
+
+
+<dt><code>covariate_units</code></dt>
+<dd><p>A list containing the covariate names as names and
+values as the values of the covariate units obtained using
+<code><a href="https://rdrr.io/pkg/units/man/units.html" class="external-link">units::as_units()</a></code></p></dd>
+
+
+<dt><code>predict_fn</code></dt>
+<dd><p>The prediction function, which takes covariates as arguments
+and returns model predictions</p></dd>
+
+
+<dt><code>descriptors</code></dt>
+<dd><p>A <code><a href="https://tibble.tidyverse.org/reference/tbl_df-class.html" class="external-link">tibble::tbl_df</a></code> containing the model descriptors</p></dd>
+
+
+<dt><code>set_descriptors</code></dt>
+<dd><p>A <code><a href="https://tibble.tidyverse.org/reference/tbl_df-class.html" class="external-link">tibble::tbl_df</a></code> containing the set descriptors</p></dd>
+
+
+<dt><code>pub_descriptors</code></dt>
+<dd><p>A <code><a href="https://tibble.tidyverse.org/reference/tbl_df-class.html" class="external-link">tibble::tbl_df</a></code> containing the publication
+descriptors</p></dd>
+
+
+<dt><code>citation</code></dt>
+<dd><p>A <code><a href="https://docs.ropensci.org/RefManageR/reference/BibEntry.html" class="external-link">RefManageR::BibEntry</a></code> object containing the reference
+publication</p></dd>
+
+
+<dt><code>covariate_definitions</code></dt>
+<dd><p>User-provided covariate definitions</p></dd>
+
+
+<dt><code>model_type</code></dt>
+<dd><p>The model type, which is parsed from the <code>response_unit</code>
+name</p></dd>
+
+
+<dt><code>parameter_names</code></dt>
+<dd><p>A character vector indicating the parameter names</p></dd>
+
+
+<dt><code>model_specifications</code></dt>
+<dd><p>A <code><a href="https://tibble.tidyverse.org/reference/tbl_df-class.html" class="external-link">tibble::tbl_df</a></code> of model specifications, where
+each row reprents one model identified with descriptors and containing the
+parameter estimates.</p></dd>
+
+
+</dl></div>
+
+    <div id="ref-examples">
+    <h2>Examples</h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">fixef_set</span> <span class="op">&lt;-</span> <span class="fu">FixedEffectsSet</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  response_unit <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    vsia <span class="op">=</span> <span class="fu">units</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/units/man/units.html" class="external-link">as_units</a></span><span class="op">(</span><span class="st">"ft^3"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span>,</span></span>
+<span class="r-in"><span>  covariate_units <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    dsob <span class="op">=</span> <span class="fu">units</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/units/man/units.html" class="external-link">as_units</a></span><span class="op">(</span><span class="st">"in"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span>,</span></span>
+<span class="r-in"><span>  predict_fn <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">dsob</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>    <span class="va">a</span> <span class="op">*</span> <span class="va">dsob</span><span class="op">^</span><span class="fl">2</span></span></span>
+<span class="r-in"><span>  <span class="op">}</span>,</span></span>
+<span class="r-in"><span>  parameter_names <span class="op">=</span> <span class="st">"a"</span>,</span></span>
+<span class="r-in"><span>  model_specifications <span class="op">=</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>mod <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span>, a <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+</code></pre></div>
+    </div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top"><h2 data-toc-skip>Contents</h2>

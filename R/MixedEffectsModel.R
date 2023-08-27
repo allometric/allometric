@@ -17,12 +17,39 @@
 #' @inheritParams FixedEffectsModel
 #' @param predict_ranef
 #'    A function that predicts the random effects, takes any named covariates in
-#'    `covariate_units` as arguments.
+#'    `covariate_units` as arguments
 #' @param fixed_only
 #'    A boolean value indicating if the model produces predictions using only
 #'    fixed effects. This is useful when publications do not provide sufficient
 #'    information to predict the random effects.
 #' @return An instance of MixedEffectsModel
+#' @template ParametricModel_slots
+#' @slot predict_ranef The function that predicts the random effects
+#' @slot predict_ranef_populated The function that predicts the random effects
+#' populated with the fixed effect parameter estimates
+#' @slot fixed_only A boolean value indicating if the model produces predictions
+#' using only fixed effects
+#' @examples
+#' MixedEffectsModel(
+#'   response_unit = list(
+#'     hst = units::as_units("m")
+#'   ),
+#'   covariate_units = list(
+#'     dsob = units::as_units("cm")
+#'   ),
+#'   parameters = list(
+#'     beta_0 = 40.4218,
+#'     beta_1 = -0.0276,
+#'     beta_2 = 0.936
+#'   ),
+#'   predict_ranef = function() {
+#'     list(b_0_i = 0, b_2_i = 0)
+#'   },
+#'   predict_fn = function(dsob) {
+#'     1.37 + (beta_0 + b_0_i) * (1 - exp(beta_1 * dsob)^(beta_2 + b_2_i))
+#'   },
+#'   fixed_only = T
+#' )
 #' @export
 MixedEffectsModel <- function(response_unit, covariate_units, predict_ranef,
                               predict_fn, parameters, fixed_only = FALSE,

@@ -102,7 +102,7 @@ the coavariate using the <code><a href="https://rdrr.io/pkg/units/man/units.html
 
 <dt>predict_ranef</dt>
 <dd><p>A function that predicts the random effects, takes any named covariates in
-<code>covariate_units</code> as arguments.</p></dd>
+<code>covariate_units</code> as arguments</p></dd>
 
 
 <dt>predict_fn</dt>
@@ -136,7 +136,75 @@ the definitions given by the variable naming system.</p></dd>
 
 <p>An instance of MixedEffectsModel</p>
     </div>
+    <div id="slots">
+    <h2>Slots</h2>
+    
 
+<dl><dt><code>parameters</code></dt>
+<dd><p>A named list of parameters and their values</p></dd>
+
+
+<dt><code>predict_fn_populated</code></dt>
+<dd><p>The prediction function populated with the
+parameter values</p></dd>
+
+
+<dt><code>specification</code></dt>
+<dd><p>A tibble::tbl_df of the model specification, which are
+the parameters and the descriptors together</p></dd>
+
+
+<dt><code>predict_ranef</code></dt>
+<dd><p>The function that predicts the random effects</p></dd>
+
+
+<dt><code>predict_ranef_populated</code></dt>
+<dd><p>The function that predicts the random effects
+populated with the fixed effect parameter estimates</p></dd>
+
+
+<dt><code>fixed_only</code></dt>
+<dd><p>A boolean value indicating if the model produces predictions
+using only fixed effects</p></dd>
+
+
+</dl></div>
+
+    <div id="ref-examples">
+    <h2>Examples</h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">MixedEffectsModel</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  response_unit <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    hst <span class="op">=</span> <span class="fu">units</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/units/man/units.html" class="external-link">as_units</a></span><span class="op">(</span><span class="st">"m"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span>,</span></span>
+<span class="r-in"><span>  covariate_units <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    dsob <span class="op">=</span> <span class="fu">units</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/units/man/units.html" class="external-link">as_units</a></span><span class="op">(</span><span class="st">"cm"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span>,</span></span>
+<span class="r-in"><span>  parameters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    beta_0 <span class="op">=</span> <span class="fl">40.4218</span>,</span></span>
+<span class="r-in"><span>    beta_1 <span class="op">=</span> <span class="op">-</span><span class="fl">0.0276</span>,</span></span>
+<span class="r-in"><span>    beta_2 <span class="op">=</span> <span class="fl">0.936</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span>,</span></span>
+<span class="r-in"><span>  predict_ranef <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>    <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>b_0_i <span class="op">=</span> <span class="fl">0</span>, b_2_i <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">}</span>,</span></span>
+<span class="r-in"><span>  predict_fn <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">dsob</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>    <span class="fl">1.37</span> <span class="op">+</span> <span class="op">(</span><span class="va">beta_0</span> <span class="op">+</span> <span class="va">b_0_i</span><span class="op">)</span> <span class="op">*</span> <span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="va">beta_1</span> <span class="op">*</span> <span class="va">dsob</span><span class="op">)</span><span class="op">^</span><span class="op">(</span><span class="va">beta_2</span> <span class="op">+</span> <span class="va">b_2_i</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">}</span>,</span></span>
+<span class="r-in"><span>  fixed_only <span class="op">=</span> <span class="cn">T</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model Call: </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> hst = f(dsob, newdata) </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Parameter Estimates: </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 x 3</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   beta_0  beta_1 beta_2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>   40.4 -<span style="color: #BB0000;">0.027</span><span style="color: #BB0000; text-decoration: underline;">6</span>  0.936</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model Descriptors: </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 x 0</span></span>
+</code></pre></div>
+    </div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top"><h2 data-toc-skip>Contents</h2>

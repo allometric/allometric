@@ -24,6 +24,8 @@ prepare_var_defs <- function(var_defs, measure_defs, component_defs) {
 #' Loads the measure definitions from a locally stored csv file
 #'
 #' @return A tibble::tbl_df containing the measure definitions
+#' @examples 
+#' get_measure_defs()
 #' @export
 get_measure_defs <- function() {
   utils::read.csv(
@@ -36,6 +38,8 @@ get_measure_defs <- function() {
 #' Loads the component definitions from a locally stored csv file
 #'
 #' @return A tibble::tbl_df containing the component definitions
+#' @examples 
+#' get_componente_defs()
 #' @export
 get_component_defs <- function() {
   utils::read.csv(
@@ -113,7 +117,6 @@ parse_search_str <- function(search_str, num_underscores) {
 #' strings starting with "hst" will be returned. If true, then only "hst" will
 #' be returned.
 #' @export
-#' @keywords internal
 get_variable_def <- function(search_str, return_exact_only = FALSE) {
   num_underscores <- stringr::str_count(search_str, "_")
   check_valid_search_str(num_underscores)
