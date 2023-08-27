@@ -7,8 +7,7 @@
 predict_allo(model_list, ...)
 }
 \arguments{
-\item{model_list}{A list of models, usually obtained from \code{allometric_models}
-\code{model} column.}
+\item{model_list}{A list-column of models}
 
 \item{...}{Additional arguments passed to each model's \code{predict_fn}}
 }
@@ -16,5 +15,20 @@ predict_allo(model_list, ...)
 A vector of predictions
 }
 \description{
-Predict allometric attributes using a column of allometric models
+A frequent pattern in forest inventory anaylsis is the need to produce
+predictions of models with the same functional form, but using different
+models. \code{predict_allo} enables this by allowing the user to pass a
+list-column of models as an argument, along with the associated covariates.
+This pattern plays well with \code{dplyr} functions such as \code{dplyr::mutate()}.
+}
+\examples{
+model_1 <- select_model(allometric_models, "f21028ef")
+model_2 <- select_model(allometric_models, "218a0299")
+
+tree_data <- tibble::tibble(
+ dbh = c(10, 20), ht = c(50, 75), model = c(list(model_1), list(model_2))
+)
+
+tree_data \%>\%
+  dplyr::mutate(vol = predict_allo(model, dbh, ht))
 }

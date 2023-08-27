@@ -7,7 +7,7 @@
 install_models(ignore_cache = FALSE, verbose = FALSE)
 }
 \arguments{
-\item{ignore_cache}{If `TRUE``, models are re-installed regardless of their
+\item{ignore_cache}{If \code{TRUE}, models are re-installed regardless of their
 installation timestamp. Otherwise, only newly modified model files are reran.
 This is primarily for development purposes.}
 

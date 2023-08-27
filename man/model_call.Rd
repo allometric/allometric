@@ -15,5 +15,10 @@ A string of the function call
 }
 \description{
 The function call is the allometric model expressed as a function of its
-covariates. This function allows the user to see the function call.
+covariates. Accessing the function call is important when determining the
+order of the covariates given to the prediction function.
+}
+\examples{
+model <- select_model(allometric_models, "f21028ef")
+model_call(model)
 }

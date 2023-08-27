@@ -46,7 +46,7 @@ delete_models <- function() {
 #' environment variable `allometric_models` upon completion of the function.
 #' Refer to `allometric::allometric_models` for further information.
 #'
-#' @param ignore_cache If `TRUE``, models are re-installed regardless of their
+#' @param ignore_cache If `TRUE`, models are re-installed regardless of their
 #' installation timestamp. Otherwise, only newly modified model files are reran.
 #' This is primarily for development purposes.
 #' @param verbose If `TRUE`, print verbose messages as models are installed.

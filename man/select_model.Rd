@@ -15,3 +15,6 @@ select_model(model_tbl, id)
 This is a generic function used to select allometric models out of larger
 collections, like \code{model_tbl}.
 }
+\examples{
+select_model(allometric_models, "f21028ef")
+}

@@ -61,6 +61,8 @@ model_tbl_reconstruct <- function(x, to) {
 #' @param model_tbl A `model_tbl` object
 #' @param id The model id or index
 #' @export
+#' @examples
+#' select_model(allometric_models, "f21028ef")
 select_model <- function(model_tbl, id) {
   UseMethod("select_model")
 }
@@ -73,6 +75,7 @@ select_model <- function(model_tbl, id) {
 #' @inheritParams select_model
 #' @return An allometric model object
 #' @export
+#' @keywords internal
 select_model.model_tbl <- function(model_tbl, id) {
   if (is.character(id)) {
     out <- model_tbl[model_tbl$id == id, "model"][[1, 1]][[1]]
@@ -120,11 +123,26 @@ unnest_models.model_tbl <- function(data, cols) {
 
 #' Predict allometric attributes using a column of allometric models
 #'
-#' @param model_list A list of models, usually obtained from `allometric_models`
-#' `model` column.
+#' A frequent pattern in forest inventory anaylsis is the need to produce
+#' predictions of models with the same functional form, but using different
+#' models. `predict_allo` enables this by allowing the user to pass a
+#' list-column of models as an argument, along with the associated covariates.
+#' This pattern plays well with `dplyr` functions such as `dplyr::mutate()`.
+#'
+#' @param model_list A list-column of models
 #' @param ... Additional arguments passed to each model's `predict_fn`
 #' @return A vector of predictions
 #' @export
+#' @examples
+#' model_1 <- select_model(allometric_models, "f21028ef")
+#' model_2 <- select_model(allometric_models, "218a0299")
+#'
+#' tree_data <- tibble::tibble(
+#'  dbh = c(10, 20), ht = c(50, 75), model = c(list(model_1), list(model_2))
+#' )
+#'
+#' tree_data %>%
+#'   dplyr::mutate(vol = predict_allo(model, dbh, ht))
 predict_allo <- function(model_list, ...) {
   predict(model_list[[1]], ...)
 }

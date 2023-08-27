@@ -36,6 +36,10 @@ setGeneric("summary", function(publication) standardGeneric("summary"))
 #' @return A vector of allometric model predictions
 #' @rdname predict
 #' @export
+#' @examples
+#' model <- select_model(allometric_models, "f21028ef")
+#' predict(model, 10, 50)
+#' predict(model, 10, 50, output_units = "m^3")
 setGeneric("predict", function(model, ...) standardGeneric("predict"),
   signature = "model"
 )
@@ -123,12 +127,16 @@ setGeneric(
 #' Get the function call for a model
 #'
 #' The function call is the allometric model expressed as a function of its
-#' covariates. This function allows the user to see the function call.
+#' covariates. Accessing the function call is important when determining the
+#' order of the covariates given to the prediction function.
 #'
 #' @param model The allometric model for which a function call will be
 #' retrieved
 #' @return A string of the function call
 #' @export
+#' @examples
+#' model <- select_model(allometric_models, "f21028ef")
+#' model_call(model)
 setGeneric(
   "model_call",
   function(model) standardGeneric("model_call")

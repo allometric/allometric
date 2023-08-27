@@ -67,7 +67,7 @@ unnest_family \%>\% dplyr::filter(family_name == "Hann")
 #>  8 4ed0b955 stem volume    <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>      <FxdEffcM> hann_2011     Hann        <chr [3]>     2011
 #>  9 bfdfc523 crown diameter <chr [1]> <chr [1]> Ericaceae    Arbutus    menziesii <FxdEffcM> hann_1997     Hann        <chr [4]>     1997
 #> 10 7433cb66 crown ratio    <chr [1]> <chr [1]> Ericaceae    Arbutus    menziesii <FxdEffcM> ritche_1987   Hann        <chr [3]>     1987
-#> # i 77 more rows
+#> # ... with 77 more rows
 }\if{html}{\out{</div>}}
 
 Any column or any combination of columns can be unnested, which allows for

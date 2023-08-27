@@ -18,3 +18,4 @@ An allometric model object
 This function is used to select a single model from a \code{model_tbl}
 dataframe using its id.
 }
+\keyword{internal}
