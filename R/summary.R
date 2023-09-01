@@ -14,7 +14,7 @@
   model_str
 }
 
-.get_variable_description <- function(variable, covariate_descriptions) {
+parse_unit_str <- function(variable) {
   variable_name <- names(variable)[[1]]
 
   if (inherits(variable[[variable_name]], "symbolic_units")) {
@@ -24,6 +24,13 @@
     unit_str <- units::deparse_unit(variable[[variable_name]])
   }
 
+  unit_str
+}
+
+.get_variable_description <- function(variable, covariate_descriptions) {
+  variable_name <- names(variable)[[1]]
+
+  unit_str <- parse_unit_str(variable)
   unit_str <- paste("[", unit_str, "]", sep = "")
 
   if (variable_name %in% names(covariate_descriptions)) {

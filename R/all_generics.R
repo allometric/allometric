@@ -45,18 +45,6 @@ setGeneric("predict", function(model, ...) standardGeneric("predict"),
 )
 
 setGeneric(
-  "rd_model_equation", function(set) standardGeneric("rd_model_equation")
-)
-
-setGeneric(
-  "rd_variable_defs", function(set) standardGeneric("rd_variable_defs")
-)
-
-setGeneric(
-  "rd_parameter_table", function(set) standardGeneric("rd_parameter_table")
-)
-
-setGeneric(
   "specification", function(model) standardGeneric("specification")
 )
 
