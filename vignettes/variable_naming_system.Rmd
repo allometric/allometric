@@ -15,56 +15,36 @@ library(allometric)
 The variable naming system is a standard approach for classifying allometric
 response variables and covariates. In the allometric modeling literature, 
 a diverse set of names are available for many similar types of variables.
-For example, one may wish to refer to the volume of the main stem of a tree, 
-the volume of the stump, the diameter of a stump, the diameter at breast height,
-etc. Analysts may also wish to refer to different spatial scales, such as plot-
-or stand-level variables.
+For example, the frequently used acronym "DBH" is used to refer to the diameter
+at breast height, but DBH can refer to different measures of the stem, such as
+the diameter inside bark at breast height, or the diameter outside bark at
+breast height.
+
+The variable naming system attempts to provide a standard set of names that can
+clarify the use of the variable while remaining succinct and easy to write.
+In the variable naming system, the diameter outside bark at breast height is
+referred to as **dsob**. Let us inspect what this name means further.
+
+The first two characters in any variable name are referred to as the "measure"
+and "component", respectively. In the case of **dsob** the **d** refers to the
+diameter and the **s** refers to the stem. The remaining characters are 
+modifiers that clarify the context of the measure-component pair. In this case
+**o** refers to outside bark and **b** refers to breast height.
 
 The basic structure of a variable name is:
 
 ```
-[increment_flag_][measure][component][...modifiers][_scale_flag]
+[measure][component][...modifiers]
 ```
 
-The `[increment_flag_]` and `[_scale_flag]` portions are optional flags that
-allow a user to specify if the variable is an increment (e.g., diameter increment),
-and the scale flag allows a user to specify plot- or stand-level variables.
-If these flags are not specified, then the variable is assumed to be a
-non-increment tree-level variable.
-
-`[measure]` and `[component]` are both single characters that encode the type
-of measurement (e.g., diameter, height, etc.) and the portion of the tree 
-the variable is referred to (e.g., stem, foliage, etc.), respectively. These
-are followed by optional modifiers that allow further specification of the
-variable.
-
 The `get_variable_def` function allows the user to search for existing variable
-definitions. For example, we can examine a common variable name, `"dsob"`
+definitions. For example, we can examine our example variable `"dsob"`
 
 ```{r}
 get_variable_def("dsob")
 ```
 
-and find that it is the diameter of the stem, outside bark at breast height. We
-see that the measure is `"d"` for diameter, the component is `"s"` for stem
-and two modifiers are used (bark and height modifiers) with values of `"o"` and
-`"b"` respectively.
-
-If we want to refer to a diameter outside bark increment, simply add the 
-increment flag `"i_"`:
-
-```{r}
-get_variable_def("i_dsob")
-```
-
-If we want to refer to a plot-level diameter outside bark (e.g., the mean
-diameter of trees on a plot), add a scale flag `"_p"` as a suffix.
-
-```{r}
-get_variable_def("dsob_p")
-```
-
-there is also a scale flag for stand-level variables, `"_s"`.
+and find that it is the diameter of the stem, outside bark at breast height.
 
 ## Measures
 
@@ -98,9 +78,9 @@ and the diameter of the stump would be `du`.
 ## Measure-Component Modifiers
 
 Within a given measure-component pair, a number of useful modifiers are 
-available. These are specific to the measure-component pair. For example, an
-astute modeler may be wondering, "how do I refer to diameter at breast height
-outside bark"? These modifiers enable this level of specificity. 
+available. These are specific to the measure-component pair. We highlight a few
+useful groups of modifiers below. For further information users can call
+`get_variable_def` with the measure-component pair of their choice.
 
 ### Diameter of Stem (`ds`) Modifiers
 
@@ -115,11 +95,20 @@ get_variable_def("ds")
 
 ### Height of Stem (`hs`) Modifiers
 
+Another common group of variables are those that describe stem height, such as
+the total height of the stem, site index, height of the stem to crown base,
+and many others.
+
 ```{r}
 get_variable_def("hs")
 ```
 
 ### Volume of Stem (`vs`) Modifiers
+
+Stem volume models are among the most common models available in `allometric`,
+including volume of the stem inside or outside bark, volume of the stem above
+breast height, and many others.
+
 
 ```{r}
 get_variable_def("vs")
@@ -127,6 +116,40 @@ get_variable_def("vs")
 
 ### Biomass (`b`) Components and Modifiers
 
+Biomass models compose a vast portion of the allometric modeling literature.
+All biomass models are stored under the `b` measure, and include component
+biomass models (e.g., branch, foliage, etc.) as well as whole-tree biomass
+models.
+
 ```{r}
 get_variable_def("b")
+```
+
+## Increment and Scale Flags
+
+Two additional flags can be added to any variable name to indicate increment
+models (e.g., height increment) or change the spatial scale of the variable
+(e.g., plot-level biomass).
+
+Increment flags exist as the prefix `i_`. For example, we can modify the `dsob`
+variable to describe diameter outside bark increment via `i_dsob`:
+
+```{r}
+get_variable_def("i_dsob")
+```
+
+Scale flags exist as a suffix, with two suffixes available, one for the plot
+scale, `_p`, and one for the stand scale, `_s`. For example, we can refer to
+the stand-level basal area as
+
+```{r}
+get_variable_def("gs_s")
+```
+
+We can even combine increment and scale flags to describe, for example,
+stand-level growth variables, e.g., a stand-level basal area increment would
+be expressed as `i_gs_s`
+
+```{r}
+get_variable_def("i_gs_s")
 ```

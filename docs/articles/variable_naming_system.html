@@ -110,26 +110,27 @@
 <p>The variable naming system is a standard approach for classifying
 allometric response variables and covariates. In the allometric modeling
 literature, a diverse set of names are available for many similar types
-of variables. For example, one may wish to refer to the volume of the
-main stem of a tree, the volume of the stump, the diameter of a stump,
-the diameter at breast height, etc. Analysts may also wish to refer to
-different spatial scales, such as plot- or stand-level variables.</p>
+of variables. For example, the frequently used acronym “DBH” is used to
+refer to the diameter at breast height, but DBH can refer to different
+measures of the stem, such as the diameter inside bark at breast height,
+or the diameter outside bark at breast height.</p>
+<p>The variable naming system attempts to provide a standard set of
+names that can clarify the use of the variable while remaining succinct
+and easy to write. In the variable naming system, the diameter outside
+bark at breast height is referred to as <strong>dsob</strong>. Let us
+inspect what this name means further.</p>
+<p>The first two characters in any variable name are referred to as the
+“measure” and “component”, respectively. In the case of
+<strong>dsob</strong> the <strong>d</strong> refers to the diameter and
+the <strong>s</strong> refers to the stem. The remaining characters are
+modifiers that clarify the context of the measure-component pair. In
+this case <strong>o</strong> refers to outside bark and
+<strong>b</strong> refers to breast height.</p>
 <p>The basic structure of a variable name is:</p>
-<pre><code>[increment_flag_][measure][component][...modifiers][_scale_flag]</code></pre>
-<p>The <code>[increment_flag_]</code> and <code>[_scale_flag]</code>
-portions are optional flags that allow a user to specify if the variable
-is an increment (e.g., diameter increment), and the scale flag allows a
-user to specify plot- or stand-level variables. If these flags are not
-specified, then the variable is assumed to be a non-increment tree-level
-variable.</p>
-<p><code>[measure]</code> and <code>[component]</code> are both single
-characters that encode the type of measurement (e.g., diameter, height,
-etc.) and the portion of the tree the variable is referred to (e.g.,
-stem, foliage, etc.), respectively. These are followed by optional
-modifiers that allow further specification of the variable.</p>
+<pre><code>[measure][component][...modifiers]</code></pre>
 <p>The <code>get_variable_def</code> function allows the user to search
-for existing variable definitions. For example, we can examine a common
-variable name, <code>"dsob"</code></p>
+for existing variable definitions. For example, we can examine our
+example variable <code>"dsob"</code></p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/get_variable_def.html">get_variable_def</a></span><span class="op">(</span><span class="st">"dsob"</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##   component measure search_str bark_modifier height_modifier</span></span>
@@ -139,33 +140,7 @@ variable name, <code>"dsob"</code></p>
 <span><span class="co">##   component_name suffix scale_description</span></span>
 <span><span class="co">## 5           stem      t              tree</span></span></code></pre>
 <p>and find that it is the diameter of the stem, outside bark at breast
-height. We see that the measure is <code>"d"</code> for diameter, the
-component is <code>"s"</code> for stem and two modifiers are used (bark
-and height modifiers) with values of <code>"o"</code> and
-<code>"b"</code> respectively.</p>
-<p>If we want to refer to a diameter outside bark increment, simply add
-the increment flag <code>"i_"</code>:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/get_variable_def.html">get_variable_def</a></span><span class="op">(</span><span class="st">"i_dsob"</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">##   component measure search_str bark_modifier height_modifier</span></span>
-<span><span class="co">## 5         s       d       dsob             o               b</span></span>
-<span><span class="co">##                                                       description measure_name</span></span>
-<span><span class="co">## 5 diameter of the stem, outside bark at breast height (increment)     diameter</span></span>
-<span><span class="co">##   component_name suffix scale_description prefix prefix_description</span></span>
-<span><span class="co">## 5           stem      t              tree      i          increment</span></span></code></pre>
-<p>If we want to refer to a plot-level diameter outside bark (e.g., the
-mean diameter of trees on a plot), add a scale flag <code>"_p"</code> as
-a suffix.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/get_variable_def.html">get_variable_def</a></span><span class="op">(</span><span class="st">"dsob_p"</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">##   component measure search_str bark_modifier height_modifier</span></span>
-<span><span class="co">## 5         s       d       dsob             o               b</span></span>
-<span><span class="co">##                                                        description measure_name</span></span>
-<span><span class="co">## 5 diameter of the stem, outside bark at breast height (plot-level)     diameter</span></span>
-<span><span class="co">##   component_name suffix scale_description</span></span>
-<span><span class="co">## 5           stem      p              plot</span></span></code></pre>
-<p>there is also a scale flag for stand-level variables,
-<code>"_s"</code>.</p>
+height.</p>
 </div>
 <div class="section level2">
 <h2 id="measures">Measures<a class="anchor" aria-label="anchor" href="#measures"></a>
@@ -173,7 +148,7 @@ a suffix.</p>
 <p>All variable names begin with a “measure”. In the example above, we
 searched the naming system for <code>d</code> measures, but others are
 available. There are 8 established measures:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/get_measure_defs.html">get_measure_defs</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##   measure measure_name</span></span>
 <span><span class="co">## 1       a          age</span></span>
@@ -194,7 +169,7 @@ commonly used terms for variables in allometric modeling.</p>
 </h2>
 <p>All variable names then have a second character that specifies the
 tree component. There are 11 established components:</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/get_component_defs.html">get_component_defs</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##    component component_name</span></span>
 <span><span class="co">## 1          b         branch</span></span>
@@ -218,10 +193,10 @@ stump would be <code>du</code>.</p>
 <h2 id="measure-component-modifiers">Measure-Component Modifiers<a class="anchor" aria-label="anchor" href="#measure-component-modifiers"></a>
 </h2>
 <p>Within a given measure-component pair, a number of useful modifiers
-are available. These are specific to the measure-component pair. For
-example, an astute modeler may be wondering, “how do I refer to diameter
-at breast height outside bark”? These modifiers enable this level of
-specificity.</p>
+are available. These are specific to the measure-component pair. We
+highlight a few useful groups of modifiers below. For further
+information users can call <code>get_variable_def</code> with the
+measure-component pair of their choice.</p>
 <div class="section level3">
 <h3 id="diameter-of-stem-ds-modifiers">Diameter of Stem (<code>ds</code>) Modifiers<a class="anchor" aria-label="anchor" href="#diameter-of-stem-ds-modifiers"></a>
 </h3>
@@ -230,7 +205,7 @@ diameter, which arises in taper modeling, merchantable heights and, of
 course, diameter at breast height. <code>ds</code> modifiers enable a
 user to specify these broad range of variables. The available
 <code>ds</code> variables are:</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/get_variable_def.html">get_variable_def</a></span><span class="op">(</span><span class="st">"ds"</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##   component measure search_str bark_modifier height_modifier</span></span>
 <span><span class="co">## 5         s       d       dsob             o               b</span></span>
@@ -254,7 +229,10 @@ user to specify these broad range of variables. The available
 <div class="section level3">
 <h3 id="height-of-stem-hs-modifiers">Height of Stem (<code>hs</code>) Modifiers<a class="anchor" aria-label="anchor" href="#height-of-stem-hs-modifiers"></a>
 </h3>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<p>Another common group of variables are those that describe stem
+height, such as the total height of the stem, site index, height of the
+stem to crown base, and many others.</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/get_variable_def.html">get_variable_def</a></span><span class="op">(</span><span class="st">"hs"</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##    component measure search_str height_modifier modifier</span></span>
 <span><span class="co">## 3          s       h        hst               t         </span></span>
@@ -302,7 +280,10 @@ user to specify these broad range of variables. The available
 <div class="section level3">
 <h3 id="volume-of-stem-vs-modifiers">Volume of Stem (<code>vs</code>) Modifiers<a class="anchor" aria-label="anchor" href="#volume-of-stem-vs-modifiers"></a>
 </h3>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<p>Stem volume models are among the most common models available in
+<code>allometric</code>, including volume of the stem inside or outside
+bark, volume of the stem above breast height, and many others.</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/get_variable_def.html">get_variable_def</a></span><span class="op">(</span><span class="st">"vs"</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##   component measure search_str modifier_1 modifier_2</span></span>
 <span><span class="co">## 2         s       v       vsia          i          a</span></span>
@@ -332,7 +313,11 @@ user to specify these broad range of variables. The available
 <div class="section level3">
 <h3 id="biomass-b-components-and-modifiers">Biomass (<code>b</code>) Components and Modifiers<a class="anchor" aria-label="anchor" href="#biomass-b-components-and-modifiers"></a>
 </h3>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<p>Biomass models compose a vast portion of the allometric modeling
+literature. All biomass models are stored under the <code>b</code>
+measure, and include component biomass models (e.g., branch, foliage,
+etc.) as well as whole-tree biomass models.</p>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/get_variable_def.html">get_variable_def</a></span><span class="op">(</span><span class="st">"b"</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##   component measure search_str               description measure_name</span></span>
 <span><span class="co">## 1         b       b         bb            branch biomass      biomass</span></span>
@@ -353,6 +338,43 @@ user to specify these broad range of variables. The available
 <span><span class="co">## 7           tree      t              tree</span></span>
 <span><span class="co">## 8           wood      t              tree</span></span></code></pre>
 </div>
+</div>
+<div class="section level2">
+<h2 id="increment-and-scale-flags">Increment and Scale Flags<a class="anchor" aria-label="anchor" href="#increment-and-scale-flags"></a>
+</h2>
+<p>Two additional flags can be added to any variable name to indicate
+increment models (e.g., height increment) or change the spatial scale of
+the variable (e.g., plot-level biomass).</p>
+<p>Increment flags exist as the prefix <code>i_</code>. For example, we
+can modify the <code>dsob</code> variable to describe diameter outside
+bark increment via <code>i_dsob</code>:</p>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/get_variable_def.html">get_variable_def</a></span><span class="op">(</span><span class="st">"i_dsob"</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">##   component measure search_str bark_modifier height_modifier</span></span>
+<span><span class="co">## 5         s       d       dsob             o               b</span></span>
+<span><span class="co">##                                                       description measure_name</span></span>
+<span><span class="co">## 5 diameter of the stem, outside bark at breast height (increment)     diameter</span></span>
+<span><span class="co">##   component_name suffix scale_description prefix prefix_description</span></span>
+<span><span class="co">## 5           stem      t              tree      i          increment</span></span></code></pre>
+<p>Scale flags exist as a suffix, with two suffixes available, one for
+the plot scale, <code>_p</code>, and one for the stand scale,
+<code>_s</code>. For example, we can refer to the stand-level basal area
+as</p>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/get_variable_def.html">get_variable_def</a></span><span class="op">(</span><span class="st">"gs_s"</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">##   component measure search_str              description measure_name</span></span>
+<span><span class="co">## 1         s       g         gs basal area (stand-level)   basal area</span></span>
+<span><span class="co">##   component_name suffix scale_description</span></span>
+<span><span class="co">## 1           stem      s             stand</span></span></code></pre>
+<p>We can even combine increment and scale flags to describe, for
+example, stand-level growth variables, e.g., a stand-level basal area
+increment would be expressed as <code>i_gs_s</code></p>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/get_variable_def.html">get_variable_def</a></span><span class="op">(</span><span class="st">"i_gs_s"</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">##   component measure search_str                        description measure_name</span></span>
+<span><span class="co">## 1         s       g         gs basal area (stand-level increment)   basal area</span></span>
+<span><span class="co">##   component_name suffix scale_description prefix prefix_description</span></span>
+<span><span class="co">## 1           stem      s             stand      i          increment</span></span></code></pre>
 </div>
   </div>
 
