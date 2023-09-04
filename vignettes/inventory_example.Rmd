@@ -148,7 +148,9 @@ function.
 tree_vols <- final_set %>%
   left_join(fia_trees, by = "SPCD") %>%
   mutate(vol_m3 = predict_allo(model, DIA * 2.54, HT * 0.3048)) %>%
-  mutate(vol_cuft = vol_m3 * 35.3147)
+  mutate(vol_cuft = units::set_units(vol_m3, "ft^3"))
+
+head(tree_vols)
 ```
 
 `predict_allo` takes each model in the `model` column and applies it to the
@@ -160,6 +162,17 @@ tree_vols %>%
   group_by(PLOT) %>%
   summarise(vol_ac = sum(vol_cuft * TPA_UNADJ))
 ```
+
+Note that all models in `final_set` take centimeters for diameter and meters for
+height. This can be checked by printing the model summary
+
+```{r}
+final_set$model[[1]]
+```
+
+It is always important to check the model summary before implementing a model
+in an analysis. Indeed, users should carefully read the publication source as
+well to be absolutely sure the model is implemented appropriately.
 
 ## Storing an Internal Set of Equations for Routine Use
 

@@ -75,7 +75,7 @@ vast array of models in a robust and structured format.
 `allometric` not only enables the use of allometric models for analysis, it 
 also provides a structured language for adding models to the package. If you
 are interested in helping the developer in this process please refer to the 
-[Installing a Model](https://allometric.github.io/allometric/articles/installing_a_model.html) vignette.
+[Contributing a Model](https://allometric.github.io/allometric/articles/installing_a_model.html) vignette.
 
 In total **`allometric` contains `r n_models` models across `r n_pubs` publications**, the following
 table displays the number of models by continent and category:
