@@ -50,7 +50,7 @@ prepare_variables <- function(variables) {
   for(i in 1:length(variables)) {
     out[[i]] <- list(
       name = variable_names[[i]],
-      unit = parse_unit_str(variables[i])
+      unit = parse_unit_str(variables[[i]])
     )
   }
 
@@ -86,6 +86,41 @@ prepare_descriptors <- function(descriptors) {
   descriptors_list
 }
 
+#' The RefManageR::Cite function is notoriously unreliable. Instead, we create
+#' our own inline citation directly.
+prepare_inline_citation <- function(citation) {
+  n_authors <- length(citation$author)
+
+  pub_year <- citation$year
+  family_names <- c()
+
+  for(i in 1:n_authors) {
+    family_names <- c(family_names, citation$author[[i]]$family)
+  }
+
+  if(n_authors == 2) {
+    out <- paste(
+      family_names[[1]], " and ", family_names[[2]],
+      " (", pub_year, ")",
+      sep = ""
+    )
+  } else if(n_authors == 1) {
+    out <- paste(
+      family_names[[1]], " ",
+      "(", pub_year, ")",
+      sep = ""
+    )
+  } else {
+    out <- paste(
+      family_names[[1]], " et al. ",
+      "(", pub_year, ")",
+      sep = ""
+    )
+  }
+
+  out
+}
+
 prepare_model <- function(model, pub) {
   proxy_id <- get_model_hash(
     model@predict_fn_populated, descriptors(model)
@@ -93,7 +128,7 @@ prepare_model <- function(model, pub) {
 
   model_id <- substr(proxy_id, 1, 8)
   model_descriptors <- descriptors(model)
-  inline_citation <- RefManageR::Cite(pub@citation, textual = T)
+  inline_citation <- prepare_inline_citation(pub@citation)
 
   list(
     model_id = jsonlite::unbox(model_id),

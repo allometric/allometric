@@ -17,12 +17,8 @@
 .get_variable_description <- function(variable, covariate_descriptions) {
   variable_name <- names(variable)[[1]]
 
-  if (inherits(variable[[variable_name]], "symbolic_units")) {
-    # Handles the unitless case
-    unit_str <- ""
-  } else {
-    unit_str <- units::deparse_unit(variable[[variable_name]])
-  }
+
+  unit_str <- parse_unit_str(variable[[variable_name]])
 
   unit_str <- paste("[", unit_str, "]", sep = "")
 

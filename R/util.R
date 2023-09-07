@@ -47,3 +47,14 @@ strip_units <- function(values_list)  {
   }
   values_list
 }
+
+parse_unit_str <- function(variable_val) {
+  if (inherits(variable_val, "symbolic_units")) {
+    # Handles the unitless case
+    unit_str <- ""
+  } else {
+    unit_str <- units::deparse_unit(variable_val)
+  }
+
+  unit_str
+}
