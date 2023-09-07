@@ -54,20 +54,20 @@ dataframe using \code{dplyr::filter}.
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{unnest_family <- allometric_models \%>\% unnest_models('family_name')
 
 unnest_family \%>\% dplyr::filter(family_name == "Hann")
-#> # A tibble: 67 x 12
-#>    id       model_type     country   region    family       genus       species      model      pub_id        family_name covt_name pub_year
-#>    <chr>    <chr>          <list>    <list>    <chr>        <chr>       <chr>        <list>     <chr>         <chr>       <list>       <dbl>
-#>  1 26f5c147 stem diameter  <chr [1]> <chr [1]> Cupressaceae Calocedrus  decurrens    <FxdEffcM> larsen_1985   Hann        <chr [1]>     1985
-#>  2 0762ba42 crown ratio    <chr [1]> <chr [1]> Cupressaceae Calocedrus  decurrens    <FxdEffcM> ritche_1987   Hann        <chr [4]>     1987
-#>  3 aa38254f stem height    <chr [1]> <chr [1]> Cupressaceae Calocedrus  decurrens    <FxdEffcM> temesgen_2007 Hann        <chr [1]>     2007
-#>  4 e0873944 stem diameter  <chr [1]> <chr [1]> Cupressaceae Calocedrus  <NA>         <FxdEffcM> hann_2011     Hann        <chr [2]>     2011
-#>  5 71131513 stump diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus  <NA>         <FxdEffcM> hann_2011     Hann        <chr [2]>     2011
-#>  6 4ed0b955 stem volume    <chr [1]> <chr [1]> Cupressaceae Calocedrus  <NA>         <FxdEffcM> hann_2011     Hann        <chr [3]>     2011
-#>  7 7433cb66 crown ratio    <chr [1]> <chr [1]> Ericaceae    Arbutus     menziesii    <FxdEffcM> ritche_1987   Hann        <chr [3]>     1987
-#>  8 8c9e74a1 stem height    <chr [1]> <chr [1]> Ericaceae    Arbutus     menziesii    <FxdEffcM> temesgen_2007 Hann        <chr [1]>     2007
-#>  9 7ad421ce crown ratio    <chr [1]> <chr [1]> Fagaceae     Chrysolepis chrysophylla <FxdEffcM> ritche_1987   Hann        <chr [4]>     1987
-#> 10 a24aff10 stem height    <chr [1]> <chr [1]> Fagaceae     Chrysolepis chysophylla  <FxdEffcM> temesgen_2007 Hann        <chr [1]>     2007
-#> # ... with 57 more rows
+#> # A tibble: 87 x 12
+#>    id       model_type     country   region    family       genus      species   model      pub_id        family_name covt_name pub_year
+#>    <chr>    <chr>          <list>    <list>    <chr>        <chr>      <chr>     <list>     <chr>         <chr>       <list>       <dbl>
+#>  1 20332bd3 crown diameter <chr [1]> <chr [1]> Betulaceae   Alnus      rubra     <FxdEffcM> hann_1997     Hann        <chr [4]>     1997
+#>  2 26f5c147 stem diameter  <chr [1]> <chr [1]> Cupressaceae Calocedrus decurrens <FxdEffcM> larsen_1985   Hann        <chr [1]>     1985
+#>  3 0762ba42 crown ratio    <chr [1]> <chr [1]> Cupressaceae Calocedrus decurrens <FxdEffcM> ritche_1987   Hann        <chr [4]>     1987
+#>  4 aa38254f stem height    <chr [1]> <chr [1]> Cupressaceae Calocedrus decurrens <FxdEffcM> temesgen_2007 Hann        <chr [1]>     2007
+#>  5 c6a30071 crown diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus decurrens <FxdEffcM> hann_1997     Hann        <chr [4]>     1997
+#>  6 e0873944 stem diameter  <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>      <FxdEffcM> hann_2011     Hann        <chr [2]>     2011
+#>  7 71131513 stump diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>      <FxdEffcM> hann_2011     Hann        <chr [2]>     2011
+#>  8 4ed0b955 stem volume    <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>      <FxdEffcM> hann_2011     Hann        <chr [3]>     2011
+#>  9 7433cb66 crown ratio    <chr [1]> <chr [1]> Ericaceae    Arbutus    menziesii <FxdEffcM> ritche_1987   Hann        <chr [3]>     1987
+#> 10 8c9e74a1 stem height    <chr [1]> <chr [1]> Ericaceae    Arbutus    menziesii <FxdEffcM> temesgen_2007 Hann        <chr [1]>     2007
+#> # ... with 77 more rows
 }\if{html}{\out{</div>}}
 
 Any column or any combination of columns can be unnested, which allows for
@@ -94,14 +94,14 @@ head(hann_models)
 #> # A tibble: 6 x 12
 #>   id       model_type     country   region    family       genus      species   model      pub_id        family_name covt_name pub_year
 #>   <chr>    <chr>          <list>    <list>    <chr>        <chr>      <chr>     <list>     <chr>         <list>      <list>       <dbl>
-#> 1 26f5c147 stem diameter  <chr [1]> <chr [1]> Cupressaceae Calocedrus decurrens <FxdEffcM> larsen_1985   <chr [2]>   <chr [1]>     1985
-#> 2 0762ba42 crown ratio    <chr [1]> <chr [1]> Cupressaceae Calocedrus decurrens <FxdEffcM> ritche_1987   <chr [2]>   <chr [4]>     1987
-#> 3 aa38254f stem height    <chr [1]> <chr [1]> Cupressaceae Calocedrus decurrens <FxdEffcM> temesgen_2007 <chr [3]>   <chr [1]>     2007
-#> 4 e0873944 stem diameter  <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>      <FxdEffcM> hann_2011     <chr [1]>   <chr [2]>     2011
-#> 5 71131513 stump diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>      <FxdEffcM> hann_2011     <chr [1]>   <chr [2]>     2011
-#> 6 4ed0b955 stem volume    <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>      <FxdEffcM> hann_2011     <chr [1]>   <chr [3]>     2011
+#> 1 20332bd3 crown diameter <chr [1]> <chr [1]> Betulaceae   Alnus      rubra     <FxdEffcM> hann_1997     <chr [1]>   <chr [4]>     1997
+#> 2 26f5c147 stem diameter  <chr [1]> <chr [1]> Cupressaceae Calocedrus decurrens <FxdEffcM> larsen_1985   <chr [2]>   <chr [1]>     1985
+#> 3 0762ba42 crown ratio    <chr [1]> <chr [1]> Cupressaceae Calocedrus decurrens <FxdEffcM> ritche_1987   <chr [2]>   <chr [4]>     1987
+#> 4 aa38254f stem height    <chr [1]> <chr [1]> Cupressaceae Calocedrus decurrens <FxdEffcM> temesgen_2007 <chr [3]>   <chr [1]>     2007
+#> 5 c6a30071 crown diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus decurrens <FxdEffcM> hann_1997     <chr [1]>   <chr [4]>     1997
+#> 6 e0873944 stem diameter  <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>      <FxdEffcM> hann_2011     <chr [1]>   <chr [2]>     2011
 nrow(hann_models)
-#> [1] 67
+#> [1] 87
 }\if{html}{\out{</div>}}
 
 Picking apart the above code block, we see that we are using the standard
@@ -126,20 +126,20 @@ a simple modification we can easily do this.
 
 head(hann_first_author_models)
 #> # A tibble: 6 x 12
-#>   id       model_type     country   region    family       genus      species  model      pub_id    family_name covt_name pub_year
-#>   <chr>    <chr>          <list>    <list>    <chr>        <chr>      <chr>    <list>     <chr>     <list>      <list>       <dbl>
-#> 1 e0873944 stem diameter  <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>     <FxdEffcM> hann_2011 <chr [1]>   <chr [2]>     2011
-#> 2 71131513 stump diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>     <FxdEffcM> hann_2011 <chr [1]>   <chr [2]>     2011
-#> 3 4ed0b955 stem volume    <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>     <FxdEffcM> hann_2011 <chr [1]>   <chr [3]>     2011
-#> 4 fbc0b420 stem volume    <chr [1]> <chr [2]> Pinaceae     Abies      concolor <FxdEffcM> hann_1978 <chr [2]>   <chr [2]>     1978
-#> 5 073e9b2f stem volume    <chr [1]> <chr [2]> Pinaceae     Abies      concolor <FxdEffcM> hann_1978 <chr [2]>   <chr [2]>     1978
-#> 6 52523241 stem diameter  <chr [1]> <chr [1]> Pinaceae     Abies      concolor <FxdEffcM> hann_2011 <chr [1]>   <chr [2]>     2011
+#>   id       model_type     country   region    family       genus      species   model      pub_id    family_name covt_name pub_year
+#>   <chr>    <chr>          <list>    <list>    <chr>        <chr>      <chr>     <list>     <chr>     <list>      <list>       <dbl>
+#> 1 20332bd3 crown diameter <chr [1]> <chr [1]> Betulaceae   Alnus      rubra     <FxdEffcM> hann_1997 <chr [1]>   <chr [4]>     1997
+#> 2 c6a30071 crown diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus decurrens <FxdEffcM> hann_1997 <chr [1]>   <chr [4]>     1997
+#> 3 e0873944 stem diameter  <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>      <FxdEffcM> hann_2011 <chr [1]>   <chr [2]>     2011
+#> 4 71131513 stump diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>      <FxdEffcM> hann_2011 <chr [1]>   <chr [2]>     2011
+#> 5 4ed0b955 stem volume    <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>      <FxdEffcM> hann_2011 <chr [1]>   <chr [3]>     2011
+#> 6 bfdfc523 crown diameter <chr [1]> <chr [1]> Ericaceae    Arbutus    menziesii <FxdEffcM> hann_1997 <chr [1]>   <chr [4]>     1997
 nrow(hann_first_author_models)
-#> [1] 30
+#> [1] 50
 }\if{html}{\out{</div>}}
 
 We can see that \code{'Hann'} is the first author for
-30 models in this package.
+50 models in this package.
 }
 
 \subsection{Finding a Model with Specific Data Requirements}{
@@ -182,10 +182,10 @@ data from \code{US-OR}
 )
 
 nrow(us_or_models)
-#> [1] 459
+#> [1] 495
 }\if{html}{\out{</div>}}
 
-We can see that 459 allometric models are defined for the
+We can see that 495 allometric models are defined for the
 state of Oregon, US.
 }
 }
