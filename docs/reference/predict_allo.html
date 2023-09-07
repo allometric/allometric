@@ -103,18 +103,19 @@ This pattern plays well with <code>dplyr</code> functions such as <code><a href=
     <div id="ref-examples">
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">model_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="select_model.html">select_model</a></span><span class="op">(</span><span class="va">allometric_models</span>, <span class="st">"f21028ef"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in select_model(allometric_models, "f21028ef"):</span> object 'allometric_models' not found</span>
 <span class="r-in"><span><span class="va">model_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="select_model.html">select_model</a></span><span class="op">(</span><span class="va">allometric_models</span>, <span class="st">"218a0299"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in select_model(allometric_models, "218a0299"):</span> object 'allometric_models' not found</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">tree_data</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span> dbh <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">20</span><span class="op">)</span>, ht <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">50</span>, <span class="fl">75</span><span class="op">)</span>, model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">model_1</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">model_2</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in eval_tidy(xs[[j]], mask):</span> object 'model_1' not found</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">tree_data</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>vol <span class="op">=</span> <span class="fu">predict_allo</span><span class="op">(</span><span class="va">model</span>, <span class="va">dbh</span>, <span class="va">ht</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in dplyr::mutate(., vol = predict_allo(model, dbh, ht)):</span> object 'tree_data' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 2 × 4</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     dbh    ht model         vol</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>     <span style="color: #949494;">[ft^3]</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>    10    50 <span style="color: #949494;">&lt;FxdEffcM&gt;</span>   11.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span>    20    75 <span style="color: #949494;">&lt;FxdEffcM&gt;</span>   69.2</span>
 </code></pre></div>
     </div>
   </div>

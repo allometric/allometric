@@ -39,7 +39,7 @@ get_measure_defs <- function() {
 #'
 #' @return A tibble::tbl_df containing the component definitions
 #' @examples 
-#' get_componente_defs()
+#' get_component_defs()
 #' @export
 get_component_defs <- function() {
   utils::read.csv(

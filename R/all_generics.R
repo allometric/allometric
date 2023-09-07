@@ -32,7 +32,8 @@ setGeneric("summary", function(publication) standardGeneric("summary"))
 #' @param model The allometric model used for prediction
 #' @param ... Additional arguments passed to the `predict_fn` of the input model
 #' @param output_units Optionally specify the output units of the model as a
-#' string, e.g., "ft^3"
+#' string, e.g., "ft^3". The provided string must be compatible with the
+#' `units::set_units()` function.
 #' @return A vector of allometric model predictions
 #' @rdname predict
 #' @export

@@ -8,11 +8,12 @@ vignette: >
 
 ```{r include=F}
 library(allometric)
+options(width = 10000)
 ```
 
 ## Variable Naming Structure
 
-The variable naming system is a standard approach for classifying allometric
+The variable naming system is a standard approach for naming allometric
 response variables and covariates. In the allometric modeling literature, 
 a diverse set of names are available for many similar types of variables.
 For example, the frequently used acronym "DBH" is used to refer to the diameter
@@ -20,10 +21,10 @@ at breast height, but DBH can refer to different measures of the stem, such as
 the diameter inside bark at breast height, or the diameter outside bark at
 breast height.
 
-The variable naming system attempts to provide a standard set of names that can
-clarify the use of the variable while remaining succinct and easy to write.
-In the variable naming system, the diameter outside bark at breast height is
-referred to as **dsob**. Let us inspect what this name means further.
+The variable naming system provides a standard set of names that clarify the use
+of the variable while remaining succinct and easy to write. In the variable
+naming system, the diameter outside bark at breast height is referred to as
+**dsob**. Let us inspect what this name means further as a motivating example.
 
 The first two characters in any variable name are referred to as the "measure"
 and "component", respectively. In the case of **dsob** the **d** refers to the
@@ -31,7 +32,7 @@ diameter and the **s** refers to the stem. The remaining characters are
 modifiers that clarify the context of the measure-component pair. In this case
 **o** refers to outside bark and **b** refers to breast height.
 
-The basic structure of a variable name is:
+The core structure of a variable name is:
 
 ```
 [measure][component][...modifiers]
@@ -41,16 +42,25 @@ The `get_variable_def` function allows the user to search for existing variable
 definitions. For example, we can examine our example variable `"dsob"`
 
 ```{r}
+get_variable_def("dsob")$description
+```
+
+and find that it is the diameter of the stem, outside bark at breast height. We
+can view the full definition below, which includes a complete breakdown of the
+measure, component and modifiers of the variable name:
+
+```{r}
 get_variable_def("dsob")
 ```
 
-and find that it is the diameter of the stem, outside bark at breast height.
+In the following sections we will discuss how variable names are structured.
 
 ## Measures
 
-All variable names begin with a "measure". In the example above, we searched 
-the naming system for `d` measures, but others are available. There are
-`r nrow(get_measure_defs())` established measures:
+All variable names begin with a "measure". Measures describe the dimensional
+aspects of what is being measured for the variable. In the example above, we
+searched the naming system for `d` (diameter) measures, but others are
+available. There are `r nrow(get_measure_defs())` established measures:
 
 ```{r}
 get_measure_defs()
@@ -64,7 +74,8 @@ variables in allometric modeling.
 ## Components
 
 All variable names then have a second character that specifies the tree 
-component. There are `r nrow(get_component_defs())` established components:
+component. Components describe the part of the tree that is being measured.
+There are `r nrow(get_component_defs())` established components:
 
 ```{r}
 get_component_defs()
@@ -85,7 +96,7 @@ useful groups of modifiers below. For further information users can call
 ### Diameter of Stem (`ds`) Modifiers
 
 Some of the most common allometric variables are that of stem diameter, which
-arises in taper modeling, merchantable heights and, of course, diameter at 
+arise in taper modeling, merchantable heights and, of course, diameter at 
 breast height. `ds` modifiers enable a user to specify these broad range of 
 variables. The available `ds` variables are:
 
@@ -108,7 +119,6 @@ get_variable_def("hs")
 Stem volume models are among the most common models available in `allometric`,
 including volume of the stem inside or outside bark, volume of the stem above
 breast height, and many others.
-
 
 ```{r}
 get_variable_def("vs")

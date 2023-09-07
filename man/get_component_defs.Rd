@@ -13,5 +13,5 @@ A tibble::tbl_df containing the component definitions
 Loads the component definitions from a locally stored csv file
 }
 \examples{
-get_componente_defs()
+get_component_defs()
 }
