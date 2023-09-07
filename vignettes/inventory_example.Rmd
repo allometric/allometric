@@ -132,7 +132,7 @@ to the allometric function. Inspecting the first model in our set reveals this
 order.
 
 ```{r}
-final_set %>% mutate(call = model_call(model[[1]]))
+final_set %>% mutate(call = map_chr(model, ~model_call(.)))
 ```
 
 The `model_call` function shows that `vsa = f(dsob, hst)` is the allometric 
