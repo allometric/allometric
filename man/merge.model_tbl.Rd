@@ -17,5 +17,6 @@
 A \code{model_tbl} merged with the inputs
 }
 \description{
-Merge a \code{model_tbl} with another data frame.
+This merge function ensures that, when \code{model_tbl} is used in a merge that
+the resultant dataframe is still a \code{model_tbl}.
 }

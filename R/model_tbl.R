@@ -150,6 +150,9 @@ predict_allo <- function(model_list, ...) {
 
 #' Merge a `model_tbl` with another data frame.
 #'
+#' This merge function ensures that, when `model_tbl` is used in a merge that
+#' the resultant dataframe is still a `model_tbl`.
+#'
 #' @param x A data frame or `model_tbl`
 #' @param y A data frame or `model_tbl`
 #' @param ... Additional arguments passed to `merge`
