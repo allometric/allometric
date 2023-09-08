@@ -1,5 +1,5 @@
 Package: allometric
-Title: Allometric Models for Trees
+Title: Structured Allometric Models for Trees
 Version: 1.2.1.9000
 Authors@R:
     c(
@@ -15,7 +15,7 @@ Authors@R:
         email = "elijah.allensworth@protonmail.com",
         role = c("aut"))
     )
-Description: allometric provides access to allometric models used in forest
+Description: This package provides access to allometric models used in forest
     resource analysis, such as volume equations, taper equations, biomass
     models, among many others. Users are able to efficiently find and select
     allometric models suitable for their project area and use them in analysis.
