@@ -28,9 +28,6 @@
     <loc>http://allometric.github.io/allometric/articles/mixed_effects.html</loc>
   </url>
   <url>
-    <loc>http://allometric.github.io/allometric/articles/model_viewer.html</loc>
-  </url>
-  <url>
     <loc>http://allometric.github.io/allometric/articles/variable_naming.html</loc>
   </url>
   <url>
@@ -112,6 +109,9 @@
     <loc>http://allometric.github.io/allometric/reference/check_valid_search_str.html</loc>
   </url>
   <url>
+    <loc>http://allometric.github.io/allometric/reference/clone_models.html</loc>
+  </url>
+  <url>
     <loc>http://allometric.github.io/allometric/reference/delete_models.html</loc>
   </url>
   <url>
@@ -155,6 +155,9 @@
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/reference/install_models.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/load_models.html</loc>
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/reference/load_parameter_frame.html</loc>

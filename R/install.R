@@ -15,7 +15,7 @@ delete_models <- function() {
   models_path_check <- system.file("models", package = "allometric")
 
   if(models_path_check != "") {
-    print("Deleting models directory.")
+    cat("Deleting models directory.\n")
     shell_command <- paste('rmdir /s /q "', models_path_check, '"', sep = "")
     shell(shell_command)
   }
@@ -24,16 +24,36 @@ delete_models <- function() {
   pub_list_path_check <- system.file("extdata/pub_list.RDS", package = "allometric")
 
   if(model_list_path_check != "") {
-    print("Deleting model list.")
+    cat("Deleting model list.\n")
     shell_command <- paste('rm "', model_list_path_check, '"', sep = "")
     shell(shell_command)
   }
 
   if(pub_list_path_check != "") {
-    print("Deleting publication list.")
+    cat("Deleting publication list.\n")
     shell_command <- paste('rm "', pub_list_path_check, '"', sep = "")
     shell(shell_command)
   }
+}
+
+#' Clone allometric models
+#'
+#' This clones allometric models from GitHub into the local package directory
+#' @keywords internal
+clone_models <- function() {
+  pkg_path <- system.file("", package = "allometric")
+  model_dir_path <- file.path(pkg_path, "models")
+
+  delete_models()
+
+  dir.create(model_dir_path)
+  cat("Cloning allometric/models repository.\n")
+
+  gert::git_clone(
+    "https://github.com/allometric/models.git",
+    path = model_dir_path,
+    verbose = FALSE
+  )
 }
 
 #' Install allometric models
@@ -46,25 +66,20 @@ delete_models <- function() {
 #' environment variable `allometric_models` upon completion of the function.
 #' Refer to `allometric::allometric_models` for further information.
 #'
+#' @param redownload If `TRUE`, models are re-downloaded from the remote
+#' repository.
 #' @param ignore_cache If `TRUE`, models are re-installed regardless of their
 #' installation timestamp. Otherwise, only newly modified model files are reran.
 #' This is primarily for development purposes.
 #' @param verbose If `TRUE`, print verbose messages as models are installed.
 #' @export
-install_models <- function(ignore_cache = FALSE, verbose = FALSE) {
+install_models <- function(redownload = FALSE,
+    ignore_cache = FALSE, verbose = FALSE
+  ) {
   downloaded <- check_models_downloaded()
-  pkg_path <- system.file("", package = "allometric")
-  model_dir_path <- file.path(pkg_path, "models")
 
-  if(!downloaded) {
-    dir.create(model_dir_path)
-
-    print("Cloning allometric/models repository.")
-    gert::git_clone(
-      "https://github.com/allometric/models.git",
-      path = model_dir_path,
-      verbose = FALSE
-    )
+  if(!downloaded || redownload) {
+    clone_models()
   }
 
   run_pub_list <- get_run_pubs(ignore_cache, verbose)

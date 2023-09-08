@@ -1,4 +1,5 @@
 test_that("update_pub_list produces a pub_list.RDS file that contains all publications", {
+  skip_on_cran()
   run_pubs <- get_run_pubs(verbose = F)
   update_pub_list(run_pubs)
 
@@ -18,6 +19,7 @@ test_that("update_pub_list produces a pub_list.RDS file that contains all public
 
 
 test_that("get_pub_list returns a list of publications", {
+  skip_on_cran()
   pub_list_path <- file.path(
     system.file("extdata", package = "allometric"),
     "pub_list.RDS"
@@ -60,12 +62,14 @@ test_that("append_search_descriptors creates a valid tibble row", {
 })
 
 test_that("get_model_results returns a list of length equal to model_ids", {
+  skip_on_cran()
   model_results <- get_model_results()
   model_ids <- read.csv(system.file("model_ids.csv", package = "allometric"))
   expect_equal(nrow(model_ids), length(model_results))
 })
 
 test_that("aggregate_results returns tbl_df of length equal to model_ids", {
+  skip_on_cran()
   model_results <- get_model_results()
   out <- aggregate_results(model_results)
   model_ids <- read.csv(system.file("model_ids.csv", package = "allometric"))
@@ -75,6 +79,7 @@ test_that("aggregate_results returns tbl_df of length equal to model_ids", {
 })
 
 test_that("bad id does not exist", {
+  skip_on_cran()
   model_ids <- read.csv(system.file("model_ids.csv", package = "allometric"))
   check <- id_exists(model_ids, "bad id")
   expect_false(check)

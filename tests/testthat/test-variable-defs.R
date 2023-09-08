@@ -28,10 +28,3 @@ test_that("get_variable_def returns correct defintion with prefix and suffix", {
 
   expect_equal(matches$description, "tree biomass (plot-level increment)")
 })
-
-test_that("prepare_var_defs produces correct output", {
-  load_var_defs()
-
-  expect_true(is.list(var_defs))
-  expect_equal(length(var_defs), 8)
-})

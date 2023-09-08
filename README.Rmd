@@ -12,9 +12,8 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 
-if (!exists("allometric_models")) {
-  allometric::install_models()
-}
+install_models()
+allometric_models <- load_models()
 
 n_models <- nrow(allometric_models)
 n_pubs <- length(unique(allometric_models$pub_id, na.rm = T))
@@ -235,10 +234,9 @@ Users interested in finding models for analysis will find the following
 documentation most useful:
 
 - [Common Inventory Use Cases](https://allometric.github.io/allometric/articles/inventory_example.html)
-- `?allometric_models`
 
 Users interested in **contributing models** to the package will find these vignettes the most useful:
 
-- [Installing a Model](https://allometric.github.io/allometric/articles/installing_a_model.html)
+- [Contributing a Model](https://allometric.github.io/allometric/articles/installing_a_model.html)
 - [Describing a Model with Descriptors](https://allometric.github.io/allometric/articles/descriptors.html)
 - [Variable Naming System](https://allometric.github.io/allometric/articles/variable_naming_system.html)

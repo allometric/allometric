@@ -80,16 +80,21 @@ these models themselves using this function. This function clones the models
 repository within the allometric package directory and constructs a local
 dataframe containing the models. This dataframe is stored in the global
 environment variable <code>allometric_models</code> upon completion of the function.
-Refer to <code><a href="allometric_models.html">allometric::allometric_models</a></code> for further information.</p>
+Refer to <code>allometric::allometric_models</code> for further information.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">install_models</span><span class="op">(</span>ignore_cache <span class="op">=</span> <span class="cn">FALSE</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">install_models</span><span class="op">(</span>redownload <span class="op">=</span> <span class="cn">FALSE</span>, ignore_cache <span class="op">=</span> <span class="cn">FALSE</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <dl><dt>ignore_cache</dt>
+    <dl><dt>redownload</dt>
+<dd><p>If <code>TRUE</code>, models are re-downloaded from the remote
+repository.</p></dd>
+
+
+<dt>ignore_cache</dt>
 <dd><p>If <code>TRUE</code>, models are re-installed regardless of their
 installation timestamp. Otherwise, only newly modified model files are reran.
 This is primarily for development purposes.</p></dd>

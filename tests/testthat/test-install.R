@@ -1,4 +1,5 @@
 test_that("Models install from allometric/models repository", {
+  skip_on_cran()
   delete_models()
   install_models()
 

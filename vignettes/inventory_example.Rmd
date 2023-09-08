@@ -61,6 +61,9 @@ library(allometric)
 library(dplyr)
 library(purrr)
 
+install_models()
+allometric_models <- load_models()
+
 stemvol_mods <- allometric_models %>%
   filter(
     model_type == "stem volume"

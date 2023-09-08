@@ -6,8 +6,8 @@ reference:
 - title: Analysis Functions
   desc: These functions are used to conduct inventory analysis with allometric models and inspect their contents.
   contents:
-  - allometric_models
   - install_models
+  - load_models
   - predict
   - predict_allo
   - model_call

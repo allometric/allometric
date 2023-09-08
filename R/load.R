@@ -19,19 +19,18 @@ load_parameter_frame <- function(name) {
   tibble::as_tibble(table)
 }
 
-#' A table of installed allometric models
+#' Load a locally installed table of allometric models
 #'
-#' `allometric_models` is a `model_tbl` containing every installed
-#' allometric model in `allometric`. It is available globally on package load.
-#' If not, run the `install_models` function which will install the models and
-#' expose the `allometric_models` table in your session. This table behaves
-#' very much like a `tibble::tbl_df` or a `data.frame`, and most functions that
-#' work on these will work on `allometric_models` as well.
+#' This function loads all locally installed allometric models if they are
+#' downloaded and installed, if not run the `install_models` function. The 
+#' result is of class `model_tbl`, which behaves very much like a
+#' `tibble::tbl_df` or a `data.frame`.
 #'
 #' Printing the `head` of `allometric_models`, we can see the structure of the
 #' data
 #'
 #' ```{r}
+#' allometric_models <- load_models()
 #' head(allometric_models)
 #' ```
 #'
@@ -101,8 +100,8 @@ load_parameter_frame <- function(name) {
 #'
 #' ## Finding First Authors
 #'
-#' Maybe we are only interested in models where `'Hann'` is the first author. Using
-#' a simple modification we can easily do this.
+#' Maybe we are only interested in models where `'Hann'` is the first author.
+#' Using a simple modification we can easily do this.
 #'
 #' ```{r}
 #' hann_first_author_models <- dplyr::filter(
@@ -121,9 +120,9 @@ load_parameter_frame <- function(name) {
 #'
 #' We can even check for models that contain certain types of data requirements.
 #' For example, the following block finds diameter-height models, specifically
-#' models that use diameter outside bark at breast height as the *only* covariate.
-#' The utility here is obvious, since many inventories are vastly limited by their
-#' available tree measurements.
+#' models that use diameter outside bark at breast height as the *only*
+#' covariate. The utility here is obvious, since many inventories are vastly
+#' limited by their available tree measurements.
 #'
 #' ```{r}
 #' dia_ht_models <- dplyr::filter(
@@ -135,20 +134,20 @@ load_parameter_frame <- function(name) {
 #' nrow(dia_ht_models)
 #' ```
 #'
-#' Breaking this down, we have the first condition `model_type=='stem_height'` selecting
-#' only models concerned with stem heights as a response variable. The second line
-#' maps over each element of the `covt_name` column, which is a character vector.
-#' The `.` represents a given character vector for that row. First, we ensure that
-#' the vector is only one element in size using `length(.)==1`, then we ensure that
-#' the first (and only) element of this vector is equal to `'dsob'`, (diameter
-#' outside bark at breast height). In this case, `r nrow(dia_ht_models)` are
-#' available in the package.
+#' Breaking this down, we have the first condition `model_type=='stem_height'`
+#' selecting only models concerned with stem heights as a response variable. The
+#' second line maps over each element of the `covt_name` column, which is a
+#' character vector. The `.` represents a given character vector for that row.
+#' First, we ensure that the vector is only one element in size using
+#' `length(.)==1`, then we ensure that the first (and only) element of this
+#' vector is equal to `'dsob'`, (diameter outside bark at breast height). In
+#' this case, `r nrow(dia_ht_models)` are available in the package.
 #'
 #' ## Finding a Model for a Region
 #'
-#' By now the user should be sensing a pattern. We can apply the exact same logic
-#' as the *Finding Contributing Authors* section to find all models developed using
-#' data from `US-OR`
+#' By now the user should be sensing a pattern. We can apply the exact same
+#' logic as the *Finding Contributing Authors* section to find all models
+#' developed using data from `US-OR`
 #'
 #' ```{r}
 #' us_or_models <- dplyr::filter(
@@ -162,5 +161,17 @@ load_parameter_frame <- function(name) {
 #' We can see that `r nrow(us_or_models)` allometric models are defined for the
 #' state of Oregon, US.
 #'
-#' @name allometric_models
-NULL
+#' @export
+load_models <- function() {
+  rds_path <- system.file(
+    "extdata/allometric_models.RDS",
+    package = "allometric"
+  )
+
+  if (!rds_path == "") {
+    allometric_models <- readRDS(rds_path)
+    return(allometric_models)
+  } else {
+    stop("No allometric models are installed. Use install_models()")
+  }
+}

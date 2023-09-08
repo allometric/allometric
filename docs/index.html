@@ -277,7 +277,7 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">allometric</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/install_models.html">install_models</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p>This compiles the allometric models, and enables their use. <code><a href="reference/install_models.html">install_models()</a></code> only needs to be ran at installation or following any package updates. After running this function, the models are available in the variable <code>allometric_models</code>. Refer to the <code><a href="reference/allometric_models.html">?allometric_models</a></code> help for more information.</p>
+<p>This compiles the allometric models, and enables their use. <code><a href="reference/install_models.html">install_models()</a></code> only needs to be ran at installation or following any package updates. After running this function, the models are available in the variable <code>allometric_models</code>. Refer to the <code>?allometric_models</code> help for more information.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">allometric_models</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 12</span></span>
@@ -292,7 +292,7 @@
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 3 more variables: family_name &lt;list&gt;, covt_name &lt;list&gt;, pub_year &lt;dbl&gt;</span></span></code></pre></div>
 <p><strong>Finding and Selecting a Model</strong></p>
 <p><code>allometric_models</code> is a <code><a href="https://tibble.tidyverse.org/reference/tbl_df-class.html" class="external-link">tibble::tbl_df</a></code> dataframe. Each row represents one allometric model with various attributes. Some columns are <code>list</code> columns, which are columns that contain lists with multiple values as their elements. One example of this is the <code>family_name</code> column, which contains the names of all authors for the publication that contains the model.</p>
-<p><code>list</code> columns enable rigorous searching of models covered in the <code><a href="reference/allometric_models.html">?allometric_models</a></code> help page, but to get started we will use a helper function called <code><a href="reference/unnest_models.html">unnest_models()</a></code> that will give us a clearer picture of the available data. Using the <code>cols</code> argument we can specify which columns we want to unnest. In this case we will unnest the <code>family_name</code> column.</p>
+<p><code>list</code> columns enable rigorous searching of models covered in the <code>?allometric_models</code> help page, but to get started we will use a helper function called <code><a href="reference/unnest_models.html">unnest_models()</a></code> that will give us a clearer picture of the available data. Using the <code>cols</code> argument we can specify which columns we want to unnest. In this case we will unnest the <code>family_name</code> column.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">unnested_models</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/unnest_models.html">unnest_models</a></span><span class="op">(</span><span class="va">allometric_models</span>, cols <span class="op">=</span> <span class="st">"family_name"</span><span class="op">)</span></span>
 <span><span class="va">unnested_models</span></span></code></pre></div>
@@ -378,7 +378,7 @@
 <p>Users interested in finding models for analysis will find the following documentation most useful:</p>
 <ul>
 <li><a href="https://allometric.github.io/allometric/articles/inventory_example.html" class="external-link">Common Inventory Use Cases</a></li>
-<li><code><a href="reference/allometric_models.html">?allometric_models</a></code></li>
+<li><code>?allometric_models</code></li>
 </ul>
 <p>Users interested in <strong>contributing models</strong> to the package will find these vignettes the most useful:</p>
 <ul>
