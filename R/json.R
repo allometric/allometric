@@ -121,6 +121,21 @@ prepare_inline_citation <- function(citation) {
   out
 }
 
+parse_func_body <- function(func_body) {
+  body_list <- as.list(body(func_body))[-1]
+  body_characters <- c()
+
+  for(i in 1:length(body_list)) {
+    deparsed_line <- deparse(body_list[[i]])
+    pasted_line <- paste(deparsed_line, collapse = "")
+    squished_line <- stringr::str_squish(pasted_line)
+
+    body_characters <- c(body_characters, squished_line)
+  }
+
+  body_characters
+}
+
 prepare_model <- function(model, pub) {
   proxy_id <- get_model_hash(
     model@predict_fn_populated, descriptors(model)
@@ -140,8 +155,8 @@ prepare_model <- function(model, pub) {
     descriptors = prepare_descriptors(model_descriptors),
     parameters = unbox_nonnested(as.list(model@parameters)),
     model_call = jsonlite::unbox(model_call(model)),
-    predict_fn = jsonlite::unbox(deparse1(model@predict_fn)),
-    predict_fn_populated = jsonlite::unbox(deparse1(model@predict_fn_populated))
+    predict_fn_body = parse_func_body(model@predict_fn),
+    predict_fn_populated_body = parse_func_body(model@predict_fn_populated)
   )
 }
 
