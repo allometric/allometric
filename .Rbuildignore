@@ -11,3 +11,7 @@
 ^LICENSE\.md$
 ^README\.Rmd$
 ^Meta$
+^allometric.Rproj$
+^man-roxygen$
+^scratch.R$
+

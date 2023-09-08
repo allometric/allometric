@@ -19,7 +19,7 @@ order of the covariates given to the prediction function."><!-- mathjax --><scri
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">allometric</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.2.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.2.1</span>
       </span>
     </div>
 
@@ -96,10 +96,8 @@ retrieved</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="select_model.html">select_model</a></span><span class="op">(</span><span class="va">allometric_models</span>, <span class="st">"f21028ef"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in select_model(allometric_models, "f21028ef"):</span> object 'allometric_models' not found</span>
-<span class="r-in"><span><span class="fu"><a href="model_call.html">model_call</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in h(simpleError(msg, call)):</span> error in evaluating the argument 'model' in selecting a method for function 'model_call': object 'model' not found</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="model_call.html">model_call</a></span><span class="op">(</span><span class="va">brackett_rubra</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "vsia = f(dsob, hst)"</span>
 </code></pre></div>
     </div>
   </div>

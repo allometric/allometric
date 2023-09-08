@@ -13,3 +13,17 @@
 #' }
 #' @source https://experience.arcgis.com/experience/3641cea45d614ab88791aef54f3a1849/
 "fia_trees"
+
+#' Brackett Acer Volume Model
+#'
+#' An example allometric model that predicts volume for the genus *Acer*.
+#' 
+"brackett_acer"
+
+#' An object of class `FixedEffectsModel`
+#'
+#' Brackett Rubra Volume Model
+#'
+#' An example allometric model that predicts volume for *Alnus rubra*.
+#' 
+"brackett_rubra"

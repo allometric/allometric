@@ -19,6 +19,5 @@ covariates. Accessing the function call is important when determining the
 order of the covariates given to the prediction function.
 }
 \examples{
-model <- select_model(allometric_models, "f21028ef")
-model_call(model)
+model_call(brackett_rubra)
 }

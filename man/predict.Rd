@@ -34,7 +34,6 @@ A vector of allometric model predictions
 Predict with an allometric model
 }
 \examples{
-model <- select_model(allometric_models, "f21028ef")
-predict(model, 10, 50)
-predict(model, 10, 50, output_units = "m^3")
+predict(brackett_rubra, 10, 50)
+predict(brackett_rubra, 10, 50, output_units = "m^3")
 }

@@ -21,7 +21,6 @@ reference:
   contents:
   - add_model
   - add_set
-  - fia_trees
   - get_variable_def
   - get_component_defs
   - get_measure_defs
@@ -31,3 +30,9 @@ reference:
   - MixedEffectsModel
   - MixedEffectsSet
   - Publication
+- title: Example Data
+  desc: Example data included with `allometric`.
+  contents:
+  - fia_trees
+  - brackett_acer
+  - brackett_rubra

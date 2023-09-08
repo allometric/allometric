@@ -61,8 +61,6 @@ model_tbl_reconstruct <- function(x, to) {
 #' @param model_tbl A `model_tbl` object
 #' @param id The model id or index
 #' @export
-#' @examples
-#' select_model(allometric_models, "f21028ef")
 select_model <- function(model_tbl, id) {
   UseMethod("select_model")
 }
@@ -135,11 +133,8 @@ unnest_models.model_tbl <- function(data, cols) {
 #' @return A vector of predictions
 #' @export
 #' @examples
-#' model_1 <- select_model(allometric_models, "f21028ef")
-#' model_2 <- select_model(allometric_models, "218a0299")
-#'
 #' tree_data <- tibble::tibble(
-#'  dbh = c(10, 20), ht = c(50, 75), model = c(list(model_1), list(model_2))
+#'  dbh = c(10, 20), ht = c(50, 75), model = c(list(brackett_rubra), list(brackett_acer))
 #' )
 #'
 #' tree_data %>%

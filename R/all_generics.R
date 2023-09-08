@@ -38,9 +38,8 @@ setGeneric("summary", function(publication) standardGeneric("summary"))
 #' @rdname predict
 #' @export
 #' @examples
-#' model <- select_model(allometric_models, "f21028ef")
-#' predict(model, 10, 50)
-#' predict(model, 10, 50, output_units = "m^3")
+#' predict(brackett_rubra, 10, 50)
+#' predict(brackett_rubra, 10, 50, output_units = "m^3")
 setGeneric("predict", function(model, ...) standardGeneric("predict"),
   signature = "model"
 )
@@ -124,8 +123,7 @@ setGeneric(
 #' @return A string of the function call
 #' @export
 #' @examples
-#' model <- select_model(allometric_models, "f21028ef")
-#' model_call(model)
+#' model_call(brackett_rubra)
 setGeneric(
   "model_call",
   function(model) standardGeneric("model_call")

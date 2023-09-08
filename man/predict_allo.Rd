@@ -22,11 +22,8 @@ list-column of models as an argument, along with the associated covariates.
 This pattern plays well with \code{dplyr} functions such as \code{dplyr::mutate()}.
 }
 \examples{
-model_1 <- select_model(allometric_models, "f21028ef")
-model_2 <- select_model(allometric_models, "218a0299")
-
 tree_data <- tibble::tibble(
- dbh = c(10, 20), ht = c(50, 75), model = c(list(model_1), list(model_2))
+ dbh = c(10, 20), ht = c(50, 75), model = c(list(brackett_rubra), list(brackett_acer))
 )
 
 tree_data \%>\%
