@@ -71,9 +71,6 @@ Suggests:
 Config/testthat/edition: 3
 Depends: 
     R (>= 2.10)
-VignetteBuilder:
-    knitr,
-    rmarkdown
 LazyData: true
 BugReports: https://github.com/allometric/allometric/issues
 Contact: bfrank70@gmail.com
