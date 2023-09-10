@@ -12,7 +12,7 @@ check_models_downloaded <- function() {
 #'
 #' @keywords internal
 delete_models <- function() {
-  models_path_check <- system.file("models", package = "allometric")
+  models_path_check <- system.file("models-main", package = "allometric")
 
   if(models_path_check != "") {
     cat("Deleting models directory.\n")
@@ -36,24 +36,28 @@ delete_models <- function() {
   }
 }
 
-#' Clone allometric models
+#' Download allometric models
 #'
 #' This clones allometric models from GitHub into the local package directory
 #' @keywords internal
-clone_models <- function() {
-  pkg_path <- system.file("", package = "allometric")
-  model_dir_path <- file.path(pkg_path, "models")
-
+download_models <- function() {
   delete_models()
 
-  dir.create(model_dir_path)
-  cat("Cloning allometric/models repository.\n")
+  pkg_path <- system.file("", package = "allometric")
+  
+  model_dir_path <- file.path(pkg_path, "models-main")
+  zip_path <- file.path(pkg_path, "models.zip")
 
-  gert::git_clone(
-    "https://github.com/allometric/models.git",
-    path = model_dir_path,
-    verbose = FALSE
+  dir.create(model_dir_path)
+  cat("Downloading allometric/models repository.\n")
+
+  curl::curl_download(
+    "https://github.com/allometric/models/archive/refs/heads/main.zip",
+    zip_path
   )
+
+  unzip(zip_path, exdir = pkg_path)
+  rm(zip_path)
 }
 
 #' Install allometric models
@@ -79,7 +83,7 @@ install_models <- function(redownload = FALSE,
   downloaded <- check_models_downloaded()
 
   if(!downloaded || redownload) {
-    clone_models()
+    download_models()
   }
 
   run_pub_list <- get_run_pubs(ignore_cache, verbose)
