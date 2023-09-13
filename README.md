@@ -4,7 +4,7 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/allometric/allometric/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/allometric/allometric/actions/workflows/check-standard.yaml)
-[![](https://img.shields.io/badge/devel%20version-1.2.1.9001-blue.svg)](https://github.com/allometric/allometric)
+[![](https://img.shields.io/badge/devel%20version-1.3.1-blue.svg)](https://github.com/allometric/allometric)
 [![codecov](https://app.codecov.io/gh/allometric/allometric/branch/master/graph/badge.svg?token=3V5KUFMO2X)](https://app.codecov.io/gh/allometric/allometric)
 <!-- badges: end -->
 
@@ -101,25 +101,24 @@ install_models()
 
 This compiles the allometric models, and enables their use.
 `install_models()` only needs to be ran at installation or following any
-package updates. After running this function, the models are available
-in the variable `allometric_models`. Refer to the `?allometric_models`
-help for more information.
+package updates. The user can then call `load_models()` to load all
+available allometric models into memory.
 
 ``` r
+allometric_models <- load_models()
 head(allometric_models)
 ```
 
     #> # A tibble: 6 × 12
-    #>   id       model…¹ country region family genus species model      pub_id famil…²
-    #>   <chr>    <chr>   <list>  <list> <chr>  <chr> <chr>   <list>     <chr>  <list> 
-    #> 1 539629a5 stem h… <chr>   <chr>  Accip… Circ… canade… <FxdEffcM> hahn_… <chr>  
-    #> 2 7bc0e06a stem v… <chr>   <chr>  Accip… Circ… canade… <FxdEffcM> hahn_… <chr>  
-    #> 3 1fa4219a stem v… <chr>   <chr>  Accip… Circ… canade… <FxdEffcM> hahn_… <chr>  
-    #> 4 b359d3ce stump … <chr>   <chr>  Accip… Circ… canade… <FxdEffcM> hahn_… <chr>  
-    #> 5 fb5c4575 stem r… <chr>   <chr>  Accip… Circ… canade… <FxdEffcM> hahn_… <chr>  
-    #> 6 733186a1 stem h… <chr>   <chr>  Acera… Acer  macrop… <FxdEffcM> fvs_2… <chr>  
-    #> # … with 2 more variables: covt_name <list>, pub_year <dbl>, and abbreviated
-    #> #   variable names ¹​model_type, ²​family_name
+    #>   id       model_type   country   region family  genus species model      pub_id
+    #>   <chr>    <chr>        <list>    <list> <chr>   <chr> <chr>   <list>     <chr> 
+    #> 1 539629a5 stem height  <chr [1]> <chr>  Accipi… Circ… canade… <FxdEffcM> hahn_…
+    #> 2 7bc0e06a stem volume  <chr [1]> <chr>  Accipi… Circ… canade… <FxdEffcM> hahn_…
+    #> 3 1fa4219a stem volume  <chr [1]> <chr>  Accipi… Circ… canade… <FxdEffcM> hahn_…
+    #> 4 b359d3ce stump volume <chr [1]> <chr>  Accipi… Circ… canade… <FxdEffcM> hahn_…
+    #> 5 fb5c4575 stem ratio   <chr [1]> <chr>  Accipi… Circ… canade… <FxdEffcM> hahn_…
+    #> 6 733186a1 stem height  <chr [1]> <chr>  Acerac… Acer  macrop… <FxdEffcM> fvs_2…
+    #> # ℹ 3 more variables: family_name <list>, covt_name <list>, pub_year <dbl>
 
 **Finding and Selecting a Model**
 
@@ -143,20 +142,20 @@ unnested_models
 ```
 
     #> # A tibble: 5,076 × 12
-    #>    id      model…¹ country region family genus species model      pub_id famil…²
-    #>    <chr>   <chr>   <list>  <list> <chr>  <chr> <chr>   <list>     <chr>  <chr>  
-    #>  1 539629… stem h… <chr>   <chr>  Accip… Circ… canade… <FxdEffcM> hahn_… Hahn   
-    #>  2 7bc0e0… stem v… <chr>   <chr>  Accip… Circ… canade… <FxdEffcM> hahn_… Hahn   
-    #>  3 1fa421… stem v… <chr>   <chr>  Accip… Circ… canade… <FxdEffcM> hahn_… Hahn   
-    #>  4 b359d3… stump … <chr>   <chr>  Accip… Circ… canade… <FxdEffcM> hahn_… Hahn   
-    #>  5 fb5c45… stem r… <chr>   <chr>  Accip… Circ… canade… <FxdEffcM> hahn_… Hahn   
-    #>  6 733186… stem h… <chr>   <chr>  Acera… Acer  macrop… <FxdEffcM> fvs_2… Staff  
-    #>  7 a31af9… stem h… <chr>   <chr>  Acera… Acer  macrop… <FxdEffcM> fvs_2… Staff  
-    #>  8 44f59d… stem h… <chr>   <chr>  Acera… Acer  macrop… <FxdEffcM> fvs_2… Staff  
-    #>  9 1d58b6… stem h… <chr>   <chr>  Acera… Acer  macrop… <FxdEffcM> fvs_2… Staff  
-    #> 10 539ef8… stem h… <chr>   <chr>  Acera… Acer  macrop… <FxdEffcM> fvs_2… Staff  
-    #> # … with 5,066 more rows, 2 more variables: covt_name <list>, pub_year <dbl>,
-    #> #   and abbreviated variable names ¹​model_type, ²​family_name
+    #>    id       model_type   country   region family genus species model      pub_id
+    #>    <chr>    <chr>        <list>    <list> <chr>  <chr> <chr>   <list>     <chr> 
+    #>  1 539629a5 stem height  <chr [1]> <chr>  Accip… Circ… canade… <FxdEffcM> hahn_…
+    #>  2 7bc0e06a stem volume  <chr [1]> <chr>  Accip… Circ… canade… <FxdEffcM> hahn_…
+    #>  3 1fa4219a stem volume  <chr [1]> <chr>  Accip… Circ… canade… <FxdEffcM> hahn_…
+    #>  4 b359d3ce stump volume <chr [1]> <chr>  Accip… Circ… canade… <FxdEffcM> hahn_…
+    #>  5 fb5c4575 stem ratio   <chr [1]> <chr>  Accip… Circ… canade… <FxdEffcM> hahn_…
+    #>  6 733186a1 stem height  <chr [1]> <chr>  Acera… Acer  macrop… <FxdEffcM> fvs_2…
+    #>  7 a31af9a5 stem height  <chr [1]> <chr>  Acera… Acer  macrop… <FxdEffcM> fvs_2…
+    #>  8 44f59d7d stem height  <chr [1]> <chr>  Acera… Acer  macrop… <FxdEffcM> fvs_2…
+    #>  9 1d58b6d4 stem height  <chr [1]> <chr>  Acera… Acer  macrop… <FxdEffcM> fvs_2…
+    #> 10 539ef85b stem height  <chr [1]> <chr>  Acera… Acer  macrop… <FxdEffcM> fvs_2…
+    #> # ℹ 5,066 more rows
+    #> # ℹ 3 more variables: family_name <chr>, covt_name <list>, pub_year <dbl>
 
 Now, each row represents unique data combinations for each model, which
 can be quickly filtered by most users using `dplyr::filter`. For
@@ -174,11 +173,10 @@ brackett_alnus_vol
 ```
 
     #> # A tibble: 1 × 12
-    #>   id       model…¹ country region family genus species model      pub_id famil…²
-    #>   <chr>    <chr>   <list>  <list> <chr>  <chr> <chr>   <list>     <chr>  <chr>  
-    #> 1 f21028ef stem v… <chr>   <chr>  Betul… Alnus rubra   <FxdEffcM> brack… Bracke…
-    #> # … with 2 more variables: covt_name <list>, pub_year <dbl>, and abbreviated
-    #> #   variable names ¹​model_type, ²​family_name
+    #>   id       model_type  country   region family   genus species model      pub_id
+    #>   <chr>    <chr>       <list>    <list> <chr>    <chr> <chr>   <list>     <chr> 
+    #> 1 f21028ef stem volume <chr [1]> <chr>  Betulac… Alnus rubra   <FxdEffcM> brack…
+    #> # ℹ 3 more variables: family_name <chr>, covt_name <list>, pub_year <dbl>
 
 we can see that model `f21028ef` is a volume model written by Brackett
 for *Alnus rubra*. The model can be selected using the `id` field:
