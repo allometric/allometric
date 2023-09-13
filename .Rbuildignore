@@ -20,3 +20,7 @@
 ^vignettes/inventory_example\.Rmd$
 ^vignettes/variable_naming_system\.Rmd$
 ^CRAN-SUBMISSION$
+^\.releaserc$
+^package-lock\.json$
+^package\.json$
+^set-version\.ps1$
