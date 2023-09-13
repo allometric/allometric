@@ -97,7 +97,6 @@ update_pub_list <- function(run_pubs, verbose = TRUE) {
 
     # Remove pub_env from memory
     rm("pub_env")
-
     pub_list[[pub@id]] <- pub
   }
 
