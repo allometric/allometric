@@ -1,6 +1,5 @@
 { 
   "name": "allometric",
-  "version": "0.0.1",
   "dependencies": {
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^10.0.1",
