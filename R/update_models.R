@@ -69,9 +69,8 @@ get_pub_list <- function(pub_list_path) {
 update_pub_list <- function(run_pubs, verbose = TRUE) {
   pub_list_path <- system.file("extdata/pub_list.RDS", package = "allometric")
   pub_path <- system.file("publications", package = "allometric")
-  
+
   pub_list <- get_pub_list(pub_list_path)
-  pub_env <- new.env()
 
   pb <- progress::progress_bar$new(
     format = "running publication file :pub_id [:bar] :percent",
@@ -83,6 +82,8 @@ update_pub_list <- function(run_pubs, verbose = TRUE) {
   }
 
   for (i in seq_len(nrow(run_pubs))) {
+    pub_env <- new.env()
+
     pub_r_path <- run_pubs$file_path[[i]]
     pub_r_file <- run_pubs$file_name[[i]]
 
@@ -94,11 +95,12 @@ update_pub_list <- function(run_pubs, verbose = TRUE) {
       pb$tick(tokens = list(pub_id = pub@id))
     }
 
+    # Remove pub_env from memory
+    rm("pub_env")
+
     pub_list[[pub@id]] <- pub
   }
 
-  # Remove pub_env from memory
-  rm("pub_env")
 
   pub_list_path <- file.path(
     system.file("extdata", package = "allometric"),
