@@ -66,19 +66,20 @@ get_pub_list <- function(pub_list_path) {
   }
 }
 
-update_pub_list <- function(run_pubs, verbose = TRUE) {
+update_pub_list <- function(run_pubs, verbose) {
   pub_list_path <- system.file("extdata/pub_list.RDS", package = "allometric")
   pub_path <- system.file("publications", package = "allometric")
 
   pub_list <- get_pub_list(pub_list_path)
 
   pb <- progress::progress_bar$new(
-    format = "running publication file :pub_id [:bar] :percent",
-    total = nrow(run_pubs)
+    format = "Running publication file: :pub_id [:bar] :percent",
+    total = nrow(run_pubs),
+    width = 75
   )
 
   if(nrow(run_pubs) == 0 && verbose) {
-    cat("No publications required an update.")
+    cat("No publications required an update.\n")
   }
 
   for (i in seq_len(nrow(run_pubs))) {
@@ -137,7 +138,7 @@ append_search_descriptors <- function(row, model_descriptors) {
 #' Transforms a set of searched models into a tibble of models and descriptors
 #'
 #' @keywords internal
-aggregate_results <- function(results) {
+aggregate_results <- function(results, verbose) {
   search_descriptors <- c(
     "family", "genus", "species", "country", "region"
   )
@@ -146,6 +147,10 @@ aggregate_results <- function(results) {
     "id", "model_type", "country", "region", "family", "genus", "species",
     "model"
   )
+
+  if(verbose) {
+    cat("Aggregating model data to model_tbl.\n")
+  }
 
   agg_results <- list()
   for (i in seq_along(results)) {
@@ -214,7 +219,7 @@ append_id <- function(model_ids, proxy_id, id) {
   model_ids
 }
 
-get_model_results <- function() {
+get_model_results <- function(verbose) {
   pub_list_path <- system.file("extdata/pub_list.RDS", package = "allometric")
   pub_list <- readRDS(pub_list_path)
 
@@ -231,6 +236,10 @@ get_model_results <- function() {
     model_ids <- tibble::tibble(id = character(0), proxy_id = character(0), .rows = 0)
     model_ids_path <- file.path(system.file("", package = "allometric"), "model_ids.csv")
     current_ids <- model_ids$proxy_id
+  }
+
+  if(verbose) {
+    cat("Determining model IDs.\n")
   }
 
   for (i in seq_along(pub_list)) {

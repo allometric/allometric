@@ -1,9 +1,15 @@
-check_models_downloaded <- function() {
-  model_dir_path <- system.file("models", package = "allometric")
+check_models_downloaded <- function(verbose) {
+  model_dir_path <- system.file("models-main", package = "allometric")
 
   if(model_dir_path == "") {
+    if(verbose) {
+      cat("No previously downloaded models are found.\n")
+    }
     return(FALSE)
   } else {
+    if(verbose) {
+      cat("Previously downloaded models found.\n")
+    }
     return(TRUE)
   }
 }
@@ -11,26 +17,38 @@ check_models_downloaded <- function() {
 #' Delete the local models directory.
 #'
 #' @keywords internal
-delete_models <- function() {
+delete_models <- function(verbose) {
   models_path_check <- system.file("models-main", package = "allometric")
 
   if(models_path_check != "") {
-    cat("Deleting models directory.\n")
+    if(verbose) {
+      cat("Deleting models directory.\n")
+    }
+
     shell_command <- paste('rmdir /s /q "', models_path_check, '"', sep = "")
     shell(shell_command)
   }
 
-  model_list_path_check <- system.file("extdata/model_list.RDS", package = "allometric")
-  pub_list_path_check <- system.file("extdata/pub_list.RDS", package = "allometric")
+  model_list_path_check <- system.file(
+    "extdata/model_list.RDS", package = "allometric"
+  )
+
+  pub_list_path_check <- system.file(
+    "extdata/pub_list.RDS", package = "allometric"
+  )
 
   if(model_list_path_check != "") {
-    cat("Deleting model list.\n")
+    if(verbose) {
+      cat("Deleting model list.\n")
+    }
     shell_command <- paste('rm "', model_list_path_check, '"', sep = "")
     shell(shell_command)
   }
 
   if(pub_list_path_check != "") {
-    cat("Deleting publication list.\n")
+    if(verbose) {
+      cat("Deleting publication list.\n")
+    }
     shell_command <- paste('rm "', pub_list_path_check, '"', sep = "")
     shell(shell_command)
   }
@@ -38,18 +56,31 @@ delete_models <- function() {
 
 #' Download allometric models
 #'
-#' This clones allometric models from GitHub into the local package directory
+#' This function downloads allometric models from GitHub into the local package
+#' directory. Any existing models are removed before downloading.
+#'
 #' @keywords internal
-download_models <- function() {
-  delete_models()
+download_models <- function(verbose) {
+  delete_models(verbose)
 
   pkg_path <- system.file("", package = "allometric")
-  
+
   model_dir_path <- file.path(pkg_path, "models-main")
   zip_path <- file.path(pkg_path, "models.zip")
 
   dir.create(model_dir_path)
-  cat("Downloading allometric/models repository.\n")
+
+  latest_commit <- gh::gh("GET /repos/allometric/models/commits/main")
+  sha_7 <- substr(latest_commit$sha, 1, 7)
+
+  if(verbose) {
+    msg <- paste(
+      "Downloading allometric/models repository.\n   Retrieving latest commit: ", sha_7, "\n",
+      sep = ""
+    )
+
+    cat(msg)
+  }
 
   curl::curl_download(
     "https://github.com/allometric/models/archive/refs/heads/main.zip",
@@ -78,25 +109,30 @@ download_models <- function() {
 #' @param verbose If `TRUE`, print verbose messages as models are installed.
 #' @export
 install_models <- function(redownload = FALSE,
-    ignore_cache = FALSE, verbose = FALSE
+    ignore_cache = FALSE, verbose = TRUE
   ) {
-  downloaded <- check_models_downloaded()
+  downloaded <- check_models_downloaded(verbose)
 
   if(!downloaded || redownload) {
-    download_models()
+    download_models(verbose)
   }
 
   run_pub_list <- get_run_pubs(ignore_cache, verbose)
-  update_pub_list(run_pub_list)
+  update_pub_list(run_pub_list, verbose)
 
-  results <- get_model_results()
-  data <- aggregate_results(results)
+  results <- get_model_results(verbose)
+  data <- aggregate_results(results, verbose)
   data <- new_model_tbl(data)
 
   out_path <- file.path(
     system.file("extdata", package = "allometric"), "allometric_models.RDS"
   )
 
+  if(verbose) {
+    n_models <- nrow(data)
+    msg <- paste(n_models, "models succesfully installed, use load_models() to view them.\n")
+    cat(msg)
+  }
+
   saveRDS(data, out_path)
-  .GlobalEnv$allometric_models <- data
 }

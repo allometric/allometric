@@ -1,7 +1,7 @@
 test_that("update_pub_list produces a pub_list.RDS file that contains all publications", {
   skip_on_cran()
   run_pubs <- get_run_pubs(verbose = F)
-  update_pub_list(run_pubs)
+  update_pub_list(run_pubs, FALSE)
 
   pub_list_path <- file.path(
     system.file("extdata", package = "allometric"),
@@ -63,15 +63,15 @@ test_that("append_search_descriptors creates a valid tibble row", {
 
 test_that("get_model_results returns a list of length equal to model_ids", {
   skip_on_cran()
-  model_results <- get_model_results()
+  model_results <- get_model_results(FALSE)
   model_ids <- read.csv(system.file("model_ids.csv", package = "allometric"))
   expect_equal(nrow(model_ids), length(model_results))
 })
 
 test_that("aggregate_results returns tbl_df of length equal to model_ids", {
   skip_on_cran()
-  model_results <- get_model_results()
-  out <- aggregate_results(model_results)
+  model_results <- get_model_results(FALSE)
+  out <- aggregate_results(model_results, FALSE)
   model_ids <- read.csv(system.file("model_ids.csv", package = "allometric"))
 
   expect_s3_class(out, "tbl_df")

@@ -1,6 +1,6 @@
 test_that("Models install from allometric/models repository", {
   skip_on_cran()
-  delete_models()
+  delete_models(verbose = FALSE)
   install_models()
 
   models_dir_check <- system.file("models-main", package = "allometric")
