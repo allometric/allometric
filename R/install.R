@@ -91,7 +91,7 @@ download_models <- function(verbose) {
   rm(zip_path)
 }
 
-#' Install allometric models
+#' Install allometric models from the models repository
 #'
 #' Allometric models are stored in a remote repository located on GitHub located
 #' \href{https://github.com/allometric/models}{here}. The user must install
@@ -117,22 +117,32 @@ install_models <- function(redownload = FALSE,
     download_models(verbose)
   }
 
-  run_pub_list <- get_run_pubs(ignore_cache, verbose)
-  update_pub_list(run_pub_list, verbose)
-
-  results <- get_model_results(verbose)
-  data <- aggregate_results(results, verbose)
-  data <- new_model_tbl(data)
+  allometric_models <- ingest_models(verbose)
+  allometric_models <- new_model_tbl(allometric_models)
 
   out_path <- file.path(
     system.file("extdata", package = "allometric"), "allometric_models.RDS"
   )
 
   if(verbose) {
-    n_models <- nrow(data)
+    n_models <- nrow(allometric_models)
     msg <- paste(n_models, "models succesfully installed, use load_models() to view them.\n")
     cat(msg)
   }
 
-  saveRDS(data, out_path)
+  saveRDS(allometric_models, out_path)
+}
+
+#' Install allometric models from local files
+#'
+#' For the purposes of contributing models, it is useful for contributors to
+#' run a local set of allometric model files. For example, when contributors
+#' add new publication files to `allometric/models`, this function can be used
+#' to ensure that the local model files run correctly.
+#'
+#' @export
+install_local_models <- function(publications_path, parameters_path) {
+  allometric_options[["param_search_path"]] <- parameters_path
+
+  allometric_options[["param_search_path"]] <- "package"
 }

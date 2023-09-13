@@ -2,9 +2,9 @@
 % Please edit documentation in R/install.R
 \name{install_models}
 \alias{install_models}
-\title{Install allometric models}
+\title{Install allometric models from the models repository}
 \usage{
-install_models(redownload = FALSE, ignore_cache = FALSE, verbose = FALSE)
+install_models(redownload = FALSE, ignore_cache = FALSE, verbose = TRUE)
 }
 \arguments{
 \item{redownload}{If \code{TRUE}, models are re-downloaded from the remote

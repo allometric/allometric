@@ -49,6 +49,9 @@
     <loc>http://allometric.github.io/allometric/news/index.html</loc>
   </url>
   <url>
+    <loc>http://allometric.github.io/allometric/NEWS_old.html</loc>
+  </url>
+  <url>
     <loc>http://allometric.github.io/allometric/reference/add_model-Publication-FixedEffectsModel-method.html</loc>
   </url>
   <url>
@@ -61,6 +64,9 @@
     <loc>http://allometric.github.io/allometric/reference/add_set.html</loc>
   </url>
   <url>
+    <loc>http://allometric.github.io/allometric/reference/aggregate_pub_models.html</loc>
+  </url>
+  <url>
     <loc>http://allometric.github.io/allometric/reference/aggregate_results.html</loc>
   </url>
   <url>
@@ -71,6 +77,12 @@
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/reference/allometric_models.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/brackett_acer.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/brackett_rubra.html</loc>
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/reference/check_args_in_predict_fn.html</loc>
@@ -112,6 +124,9 @@
     <loc>http://allometric.github.io/allometric/reference/clone_models.html</loc>
   </url>
   <url>
+    <loc>http://allometric.github.io/allometric/reference/create_model_row.html</loc>
+  </url>
+  <url>
     <loc>http://allometric.github.io/allometric/reference/delete_models.html</loc>
   </url>
   <url>
@@ -119,6 +134,9 @@
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/reference/descriptors.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/download_models.html</loc>
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/reference/fia_trees.html</loc>
@@ -145,6 +163,9 @@
     <loc>http://allometric.github.io/allometric/reference/get_pub_file_spec.html</loc>
   </url>
   <url>
+    <loc>http://allometric.github.io/allometric/reference/get_pub_file_specs.html</loc>
+  </url>
+  <url>
     <loc>http://allometric.github.io/allometric/reference/get_run_pubs.html</loc>
   </url>
   <url>
@@ -152,6 +173,12 @@
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/ingest_models.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/install_local_models.html</loc>
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/reference/install_models.html</loc>

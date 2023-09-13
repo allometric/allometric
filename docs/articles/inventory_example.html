@@ -40,7 +40,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">allometric</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.2.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.3.1</span>
       </span>
     </div>
 
@@ -69,9 +69,6 @@
       <a href="../articles/variable_naming_system.html">Variable Naming System</a>
     </li>
   </ul>
-</li>
-<li>
-  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
@@ -212,16 +209,16 @@ contain only two covariates that are named <code>dsob</code> and
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">stemvol_or_spc_dia_ht_mods</span></span></code></pre></div>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 6 × 13</span></span></span>
-<span><span class="co">##   id       model…¹ country region family genus species model      pub_id famil…²</span></span>
-<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">1</span> fe138f46 stem v… &lt;chr&gt;   &lt;chr&gt;  Pinac… Abies concol… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude… &lt;chr&gt;  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">2</span> 7cd15805 stem v… &lt;chr&gt;   &lt;chr&gt;  Pinac… Pinus ponder… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude… &lt;chr&gt;  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">3</span> 87f5ecd3 stem v… &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> bruce… &lt;chr&gt;  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">4</span> a570828b stem v… &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> bruce… &lt;chr&gt;  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">5</span> 2b079499 stem v… &lt;chr&gt;   &lt;chr&gt;  Pinac… Pseu… menzie… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude… &lt;chr&gt;  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">6</span> 3e8447f2 stem v… &lt;chr&gt;   &lt;chr&gt;  Pinac… Tsuga hetero… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude… &lt;chr&gt;  </span></span>
-<span><span class="co">## <span style="color: #949494;"># … with 3 more variables: covt_name &lt;list&gt;, pub_year &lt;dbl&gt;, SPCD &lt;dbl&gt;, and</span></span></span>
-<span><span class="co">## <span style="color: #949494;">#   abbreviated variable names ¹​model_type, ²​family_name</span></span></span></code></pre>
+<span><span class="co">##   id       model_type  country   region family   genus species model      pub_id</span></span>
+<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span> fe138f46 stem volume <span style="color: #949494;">&lt;chr [2]&gt;</span> <span style="color: #949494;">&lt;chr&gt;</span>  Pinaceae Abies concol… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">2</span> 7cd15805 stem volume <span style="color: #949494;">&lt;chr [2]&gt;</span> <span style="color: #949494;">&lt;chr&gt;</span>  Pinaceae Pinus ponder… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">3</span> 87f5ecd3 stem volume <span style="color: #949494;">&lt;chr [2]&gt;</span> <span style="color: #949494;">&lt;chr&gt;</span>  Pinaceae Pseu… menzie… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> bruce…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">4</span> a570828b stem volume <span style="color: #949494;">&lt;chr [2]&gt;</span> <span style="color: #949494;">&lt;chr&gt;</span>  Pinaceae Pseu… menzie… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> bruce…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">5</span> 2b079499 stem volume <span style="color: #949494;">&lt;chr [2]&gt;</span> <span style="color: #949494;">&lt;chr&gt;</span>  Pinaceae Pseu… menzie… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">6</span> 3e8447f2 stem volume <span style="color: #949494;">&lt;chr [2]&gt;</span> <span style="color: #949494;">&lt;chr&gt;</span>  Pinaceae Tsuga hetero… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude…</span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 4 more variables: family_name &lt;list&gt;, covt_name &lt;list&gt;, pub_year &lt;dbl&gt;,</span></span></span>
+<span><span class="co">## <span style="color: #949494;">#   SPCD &lt;dbl&gt;</span></span></span></code></pre>
 <p>At this stage, we only need to determine a single model for
 Pseudotsuga menziesii. We will decide to select only those models from
 <code>poudel_2019</code>, a recent study that contains the volume models
@@ -270,7 +267,7 @@ using the <code>predict_allo</code> function.</p>
 <code class="sourceCode R"><span><span class="va">tree_vols</span> <span class="op">&lt;-</span> <span class="va">final_set</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">fia_trees</span>, by <span class="op">=</span> <span class="st">"SPCD"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>vol_m3 <span class="op">=</span> <span class="fu"><a href="../reference/predict_allo.html">predict_allo</a></span><span class="op">(</span><span class="va">model</span>, <span class="va">DIA</span> <span class="op">*</span> <span class="fl">2.54</span>, <span class="va">HT</span> <span class="op">*</span> <span class="fl">0.3048</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>vol_cuft <span class="op">=</span> <span class="fu">units</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/units/man/units.html" class="external-link">set_units</a></span><span class="op">(</span><span class="va">vol_m3</span>, <span class="st">"ft^3"</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>vol_cuft <span class="op">=</span> <span class="fu">units</span><span class="fu">::</span><span class="fu"><a href="https://r-quantities.github.io/units/reference/units.html" class="external-link">set_units</a></span><span class="op">(</span><span class="va">vol_m3</span>, <span class="st">"ft^3"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">tree_vols</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 6 × 8</span></span></span>
@@ -400,17 +397,16 @@ obtain:</p>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">tree_agbs</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 6 × 18</span></span></span>
-<span><span class="co">##   genus species  id      model…¹ country region family model      pub_id famil…²</span></span>
-<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">1</span> Abies concolor 12ff28… tree b… &lt;chr&gt;   &lt;chr&gt;  Pinac… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude… &lt;chr&gt;  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">2</span> Abies concolor 12ff28… tree b… &lt;chr&gt;   &lt;chr&gt;  Pinac… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude… &lt;chr&gt;  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">3</span> Abies concolor 12ff28… tree b… &lt;chr&gt;   &lt;chr&gt;  Pinac… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude… &lt;chr&gt;  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">4</span> Abies concolor 12ff28… tree b… &lt;chr&gt;   &lt;chr&gt;  Pinac… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude… &lt;chr&gt;  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">5</span> Abies concolor 12ff28… tree b… &lt;chr&gt;   &lt;chr&gt;  Pinac… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude… &lt;chr&gt;  </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">6</span> Abies concolor 12ff28… tree b… &lt;chr&gt;   &lt;chr&gt;  Pinac… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude… &lt;chr&gt;  </span></span>
-<span><span class="co">## <span style="color: #949494;"># … with 8 more variables: pub_year &lt;dbl&gt;, call &lt;chr&gt;, SPCD &lt;dbl&gt;, PLOT &lt;int&gt;,</span></span></span>
-<span><span class="co">## <span style="color: #949494;">#   DIA &lt;dbl&gt;, HT &lt;dbl&gt;, TPA_UNADJ &lt;dbl&gt;, agb_kg [kg], and abbreviated variable</span></span></span>
-<span><span class="co">## <span style="color: #949494;">#   names ¹​model_type, ²​family_name</span></span></span></code></pre>
+<span><span class="co">##   genus species  id       model_type   country   region family model      pub_id</span></span>
+<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;list&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span> Abies concolor 12ff2868 tree biomass <span style="color: #949494;">&lt;chr [2]&gt;</span> <span style="color: #949494;">&lt;chr&gt;</span>  Pinac… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">2</span> Abies concolor 12ff2868 tree biomass <span style="color: #949494;">&lt;chr [2]&gt;</span> <span style="color: #949494;">&lt;chr&gt;</span>  Pinac… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">3</span> Abies concolor 12ff2868 tree biomass <span style="color: #949494;">&lt;chr [2]&gt;</span> <span style="color: #949494;">&lt;chr&gt;</span>  Pinac… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">4</span> Abies concolor 12ff2868 tree biomass <span style="color: #949494;">&lt;chr [2]&gt;</span> <span style="color: #949494;">&lt;chr&gt;</span>  Pinac… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">5</span> Abies concolor 12ff2868 tree biomass <span style="color: #949494;">&lt;chr [2]&gt;</span> <span style="color: #949494;">&lt;chr&gt;</span>  Pinac… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude…</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">6</span> Abies concolor 12ff2868 tree biomass <span style="color: #949494;">&lt;chr [2]&gt;</span> <span style="color: #949494;">&lt;chr&gt;</span>  Pinac… <span style="color: #949494;">&lt;FxdEffcM&gt;</span> poude…</span></span>
+<span><span class="co">## <span style="color: #949494;"># ℹ 9 more variables: family_name &lt;list&gt;, pub_year &lt;dbl&gt;, call &lt;chr&gt;,</span></span></span>
+<span><span class="co">## <span style="color: #949494;">#   SPCD &lt;dbl&gt;, PLOT &lt;int&gt;, DIA &lt;dbl&gt;, HT &lt;dbl&gt;, TPA_UNADJ &lt;dbl&gt;, agb_kg [kg]</span></span></span></code></pre>
 <p>Finally, we can aggregate the <code>tree_agbs</code> to the
 plot-level as before.</p>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">

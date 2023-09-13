@@ -41,7 +41,8 @@ Imports:
     progress,
     gert,
     vctrs,
-    openssl
+    openssl,
+    gh
 Collate:
     'data.R'
     'utils-pipe.R'
@@ -62,7 +63,7 @@ Collate:
     'FixedEffectsModel.R'
     'MixedEffectsModel.R'
     'Publication.R'
-    'update_models.R'
+    'ingest_models.R'
     'zzz.R'
 Suggests: 
     testthat (>= 3.0.0),

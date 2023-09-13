@@ -25,6 +25,7 @@ reference:
   - get_component_defs
   - get_measure_defs
   - load_parameter_frame
+  - install_local_models
   - FixedEffectsModel
   - FixedEffectsSet
   - MixedEffectsModel
