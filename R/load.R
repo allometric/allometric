@@ -10,10 +10,14 @@
 load_parameter_frame <- function(name) {
   csv_name <- paste(name, ".csv", sep = "")
 
-  file_path <- system.file(
-    "models-main/parameters", csv_name,
-    package = "allometric"
-  )
+  if(allometric_options$param_search_path == "package") {
+    file_path <- system.file(
+      "models-main/parameters", csv_name,
+      package = "allometric"
+    )
+  } else {
+    file_path <- file.path(allometric_options$param_search_path, csv_name)
+  }
 
   table <- utils::read.csv(file_path, na.strings = "")
   tibble::as_tibble(table)

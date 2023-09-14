@@ -125,8 +125,11 @@ aggregate_pub_models <- function(pub, current_ids = c()) {
 #' `load_models()`. See `install_models()` for the end-user entrypoint.
 #'
 #' @keywords internal
-ingest_models <- function(verbose) {
-  pub_path <- system.file("models-main/publications", package = "allometric")
+ingest_models <- function(verbose, pub_path = NULL) {
+  if(is.null(pub_path)) {
+    pub_path <- system.file("models-main/publications", package = "allometric")
+  }
+
   pub_specs <- get_pub_file_specs(pub_path)
 
   n_pubs <- length(pub_specs$pub_paths)
@@ -177,5 +180,5 @@ ingest_models <- function(verbose) {
 
   order_cols <- c(out_order, not_in_order)
 
-  allometric_models[, order_cols]
+  new_model_tbl(allometric_models[, order_cols])
 }
