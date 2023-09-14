@@ -21,7 +21,7 @@ check_parametric_model <- function(object) {
 )
 
 
-setMethod("specification", "ParametricModel", function(model) model@specification)
+setMethod("specification", "ParametricModel", function(object) object@specification)
 setMethod("specification<-", "ParametricModel", function(model, value) {
   model@specification <- value
   model
@@ -38,8 +38,8 @@ setMethod("descriptors<-", "ParametricModel", function(model, value) {
 })
 
 
-setMethod("parameters", "ParametricModel", function(model) {
-  model@parameters
+setMethod("parameters", "ParametricModel", function(object) {
+  object@parameters
 })
 
 #' Base class for all parametric models.
@@ -94,10 +94,10 @@ ParametricModel <- function(response_unit, covariate_units, predict_fn,
 
 #' @inherit model_call
 #' @keywords internal
-setMethod("model_call", signature(model = "ParametricModel"), function(model) {
-  response_var <- names(model@response_unit)[[1]]
+setMethod("model_call", signature(object = "ParametricModel"), function(object) {
+  response_var <- names(object@response_unit)[[1]]
 
-  arg_names <- names(as.list(args(model@predict_fn)))
+  arg_names <- names(as.list(args(object@predict_fn)))
   arg_names <- arg_names[-length(arg_names)]
   arg_names_str <- paste(arg_names, collapse = ", ")
 
@@ -106,7 +106,6 @@ setMethod("model_call", signature(model = "ParametricModel"), function(model) {
 
 
 setMethod("show", "ParametricModel", function(object) {
-  form <- get_model_str(object)
   # TODO format the descriptions. They should be indented by 2 spaces and the
   # unit left backets should align by inserting spaces. Seems like do the
   # latter then the former.
@@ -128,12 +127,10 @@ setMethod("show", "ParametricModel", function(object) {
   print(descriptors(object))
 })
 
-
-setMethod("get_model_str", "ParametricModel", function(model) {
-  .get_model_str(model)
+setMethod("get_model_str", "ParametricModel", function(object) {
+  .get_model_str(object)
 })
 
-
-setMethod("get_variable_descriptions", "ParametricModel", function(model) {
-  .get_variable_descriptions_fmt(model)
+setMethod("get_variable_descriptions", "ParametricModel", function(object) {
+  .get_variable_descriptions_fmt(object)
 })

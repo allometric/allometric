@@ -85,10 +85,10 @@ setMethod("init_set_of_one", signature(model = "FixedEffectsModel"), function(mo
 
 #' @inherit model_call
 #' @keywords internal
-setMethod("model_call", signature(model = "FixedEffectsModel"), function(model) {
-  response_var <- names(model@response_unit)[[1]]
+setMethod("model_call", signature(object = "FixedEffectsModel"), function(object) {
+  response_var <- names(object@response_unit)[[1]]
 
-  arg_names <- names(as.list(args(model@predict_fn)))
+  arg_names <- names(as.list(args(object@predict_fn)))
   arg_names <- arg_names[-length(arg_names)]
   arg_names_str <- paste(arg_names, collapse = ", ")
 

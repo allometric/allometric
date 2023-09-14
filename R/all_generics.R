@@ -45,7 +45,7 @@ setGeneric("predict", function(model, ...) standardGeneric("predict"),
 )
 
 setGeneric(
-  "specification", function(model) standardGeneric("specification")
+  "specification", function(object) standardGeneric("specification")
 )
 
 setGeneric(
@@ -72,13 +72,13 @@ setGeneric(
   "descriptors<-", function(model, value) standardGeneric("descriptors<-")
 )
 
-setGeneric("parameters", function(model) standardGeneric("parameters"))
+setGeneric("parameters", function(object) standardGeneric("parameters"))
 
-setGeneric("get_model_str", function(model) standardGeneric("get_model_str"))
+setGeneric("get_model_str", function(object) standardGeneric("get_model_str"))
 
 setGeneric(
   "get_variable_descriptions",
-  function(model) standardGeneric("get_variable_descriptions")
+  function(object) standardGeneric("get_variable_descriptions")
 )
 
 #' Add a set of models to a publication
@@ -126,5 +126,5 @@ setGeneric(
 #' model_call(brackett_rubra)
 setGeneric(
   "model_call",
-  function(model) standardGeneric("model_call")
+  function(object) standardGeneric("model_call")
 )

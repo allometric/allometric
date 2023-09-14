@@ -4,7 +4,7 @@
 \alias{model_call}
 \title{Get the function call for a model}
 \usage{
-model_call(model)
+model_call(object)
 }
 \arguments{
 \item{model}{The allometric model for which a function call will be

@@ -81,3 +81,27 @@ FixedEffectsSet <- function(response_unit, covariate_units, parameter_names,
 
   fixed_effects_set
 }
+
+
+
+setMethod("show", "FixedEffectsSet", function(object) {
+  variable_descriptions <- get_variable_descriptions(object)
+  variable_descriptions <- paste(variable_descriptions, collapse = "\n")
+
+  mod_call <- model_call(object)
+  n_models <- length(object@models)
+
+  header <- paste("FixedEffectsSet (", n_models, " models):", sep="")
+
+  cat(header, "\n", "\n")
+  cat(mod_call, "\n")
+
+  cat(variable_descriptions, "\n", "\n")
+
+  cat("Parameter Names:", "\n")
+  cat(paste(object@parameter_names, collapse = ", "), "\n", "\n")
+
+  cat("Model Specifications (head): ", "\n")
+
+  print(head(specification(object)))
+})

@@ -4,11 +4,7 @@
 \alias{model_call,ParametricModel-method}
 \title{Get the function call for a model}
 \usage{
-\S4method{model_call}{ParametricModel}(model)
-}
-\arguments{
-\item{model}{The allometric model for which a function call will be
-retrieved}
+\S4method{model_call}{ParametricModel}(object)
 }
 \value{
 A string of the function call
