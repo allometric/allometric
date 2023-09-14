@@ -59,10 +59,10 @@ setGeneric(
 #' species, geographic region, etc. This function returns this information for
 #' a given model.
 #'
-#' @param model The allometric model object
+#' @param model The allometric model or model set object
 #' @return A tibble:tbl_df of descriptors
 #' @keywords internal
-setGeneric("descriptors", function(model) standardGeneric("descriptors"))
+setGeneric("descriptors", function(object) standardGeneric("descriptors"))
 
 #' Set the descriptors of a model.
 #'

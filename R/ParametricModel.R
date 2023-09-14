@@ -27,8 +27,8 @@ setMethod("specification<-", "ParametricModel", function(model, value) {
   model
 })
 
-setMethod("descriptors", "ParametricModel", function(model) {
-  model@specification[!names(model@specification) %in% names(model@parameters)]
+setMethod("descriptors", "ParametricModel", function(object) {
+  object@specification[!names(object@specification) %in% names(object@parameters)]
 })
 
 

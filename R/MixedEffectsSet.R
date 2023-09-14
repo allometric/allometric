@@ -5,11 +5,10 @@ check_fixed_effects_set_validity <- function(object) {
 }
 
 .MixedEffectsSet <- setClass("MixedEffectsSet",
-  contains = "ModelSet",
+  contains = "ParametricSet",
   slots = c(
     predict_ranef = "function",
-    fixed_only = "logical",
-    parameter_names = "character"
+    fixed_only = "logical"
   ),
   validity = check_fixed_effects_set_validity
 )
@@ -62,12 +61,12 @@ MixedEffectsSet <- function(response_unit, covariate_units, parameter_names,
                             fixed_only = FALSE, descriptors = list(),
                             covariate_definitions = list()) {
   mixed_effects_set <- .MixedEffectsSet(
-    ModelSet(
+    ParametricSet(
       response_unit, covariate_units, predict_fn, model_specifications,
-      descriptors, covariate_definitions
+      parameter_names, descriptors, covariate_definitions
     ),
-    predict_ranef = predict_ranef, fixed_only = fixed_only,
-    parameter_names = parameter_names
+    predict_ranef = predict_ranef,
+    fixed_only = fixed_only
   )
 
   ranef_names <- get_ranef_names(mixed_effects_set@predict_ranef)

@@ -57,6 +57,7 @@ Collate:
     'load.R'
     'AllometricModel.R'
     'ModelSet.R'
+    'ParametricSet.R'
     'FixedEffectsSet.R'
     'ParametricModel.R'
     'MixedEffectsSet.R'

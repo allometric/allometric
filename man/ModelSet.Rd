@@ -8,7 +8,6 @@ ModelSet(
   response_unit,
   covariate_units,
   predict_fn,
-  model_specifications,
   descriptors = list(),
   covariate_definitions = list()
 )
@@ -24,9 +23,6 @@ the coavariate using the \code{units::as_units} function}
 
 \item{predict_fn}{A function that takes the covariate names as arguments and returns a
 prediction of the response variable. This function should be vectorized.}
-
-\item{model_specifications}{A tbl_df of model specifications, which contain
-columns for the parameters and the descriptors.}
 
 \item{descriptors}{An optional named list of descriptors that describe the context of the
 allometric model}
