@@ -158,7 +158,7 @@ setMethod("show", "MixedEffectsModel", function(object) {
   cat("Model Call:", "\n")
   cat(mod_call, "\n", "\n")
   cat(variable_descriptions, "\n", "\n")
-
+ 
   cat("Random Effects Variables:", "\n")
   ranef_vars <- names(as.list(args(object@predict_ranef)))
   ranef_vars <- ranef_vars[-length(ranef_vars)]
