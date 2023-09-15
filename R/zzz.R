@@ -27,6 +27,9 @@ var_defs_pre <- list(
   ),
   g = utils::read.csv(
     system.file("variable_defs/g.csv", package = "allometric")
+  ),
+  n = utils::read.csv(
+    system.file("variable_defs/n.csv", package = "allometric")
   )
 )
 
