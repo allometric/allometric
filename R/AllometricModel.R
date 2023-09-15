@@ -29,67 +29,6 @@ model_types_defined <- utils::read.csv(
   validity = check_allometric_model_validity
 )
 
-# TODO these feel like extra work, since they could just be defined in the csvs
-measure_def <- data.frame(
-  measure = c("d", "v", "g", "h", "b", "r", "a"),
-  measure_label = c(
-    "diameter", "volume", "basal area", "height", "biomass",
-    "ratio", "age"
-  )
-)
-
-component_def <- data.frame(
-  component = c("s", "b", "f", "c", "n", "p", "t", "k", "r", "u"),
-  component_label = c("stem", "branch", "foliage", "crown", "stand", "plot", "tree", "bark", "root", "stump")
-)
-
-#' Gets the model type for a response name.
-#'
-#' From the variable naming system, return the model type. Model types are
-#' custom names that are easier to understand than the usual component-measure
-#' pairing. For example, site index models would be called "stem height models"
-#' hecause the component is the stem and the measure is the height. However,
-#' site index models need a special name. Model types are these names. If a
-#' model type is not defined, the component-measure pairing is used instead.
-#'
-#' @param response_name The response_name from the variable naming system.
-#' @keywords internal
-get_model_type <- function(response_name) {
-  # Check if increment model
-  # TODO this is not generic to any given prefix, but i_ is the only possible
-  # prefix at the moment
-  if(startsWith(response_name, "i_")) {
-    add <- "increment"
-    response_name <- substr(response_name, 3, nchar(response_name))
-  } else {
-    add <- ""
-  }
-
-  # the defined model types are meant to be starting strings only, in some
-  # cases they will be exact matches
-  matches <- startsWith(response_name, model_types_defined$response_name_start)
-
-  if(all(!matches)) { # no matches
-    measure <- substr(response_name, 1, 1)
-    component <- substr(response_name, 2, 2)
-
-    measure_label <- measure_def[measure_def$measure == measure, "measure_label"]
-    component_label <- component_def[component_def$component == component, "component_label"]
-    model_type <- paste(component_label, measure_label)
-
-  } else { # at least one match, return the exact match if more than one row
-    matched <- model_types_defined[matches,]
-    if(nrow(matched) == 1) {
-      model_type <- matched$model_type
-    } else {
-      model_type <- matched[matched$response_name_start == response_name, 'model_type']
-    }
-  }
-
-  model_type <- trimws(paste(model_type, " ", add, sep = ""))
-  model_type
-}
-
 #' Base class for allometric models
 #'
 #' This class is primarily used as a parent class for other model
@@ -147,22 +86,22 @@ AllometricModel <- function(response_unit, covariate_units, predict_fn,
 }
 
 setMethod(
-  "get_measure_label",
+  "get_measure_name",
   signature(x = "AllometricModel"),
   function(x) {
     response_name <- names(x@response_unit)[[1]]
     measure <- substr(response_name, 1, 1)
-    measure_def[measure_def$measure == measure, "measure_label"]
+    measure_defs[measure_defs$measure == measure, "measure_name"]
   }
 )
 
 setMethod(
-  "get_component_label",
+  "get_component_name",
   signature(x = "AllometricModel"),
   function(x) {
     response_name <- names(x@response_unit)[[1]]
     component <- substr(response_name, 2, 2)
-    component_def[component_def$component == component, "component_label"]
+    component_defs[component_defs$component == component, "component_name"]
   }
 )
 

@@ -2,13 +2,13 @@
 #' @importFrom rlang .data
 
 setGeneric(
-  "get_measure_label",
-  function(x) standardGeneric("get_measure_label")
+  "get_measure_name",
+  function(x) standardGeneric("get_measure_name")
 )
 
 setGeneric(
-  "get_component_label",
-  function(x) standardGeneric("get_component_label")
+  "get_component_name",
+  function(x) standardGeneric("get_component_name")
 )
 
 setGeneric("Cite", function(x) {

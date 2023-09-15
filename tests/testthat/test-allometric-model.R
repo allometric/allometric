@@ -19,12 +19,12 @@ allo_mod <- AllometricModel(
   }
 )
 
-test_that("Get measure label is correct", {
-  expect_equal(get_measure_label(allo_mod), "volume")
+test_that("Get measure name is correct", {
+  expect_equal(get_measure_name(allo_mod), "volume")
 })
 
 test_that("Get component label is correct", {
-  expect_equal(get_component_label(allo_mod), "stem")
+  expect_equal(get_component_name(allo_mod), "stem")
 })
 
 # TODO produces a warning, but a fairly inconsequential test...
