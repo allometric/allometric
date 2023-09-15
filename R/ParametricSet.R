@@ -56,7 +56,7 @@ setMethod("model_call", signature(object = "ParametricSet"), function(object) {
 })
 
 setMethod("parameters", "ParametricSet", function(object) {
-  object@parameters
+  object@model_specifications[, object@parameter_names]
 })
 
 setMethod("specification", "ParametricSet", function(object) {
