@@ -94,3 +94,25 @@ setMethod("model_call", signature(object = "FixedEffectsModel"), function(object
 
   paste(response_var, " = ", "f(", arg_names_str, ")", sep = "")
 })
+
+setMethod("show", "FixedEffectsModel", function(object) {
+  # TODO format the descriptions. They should be indented by 2 spaces and the
+  # unit left backets should align by inserting spaces. Seems like do the
+  # latter then the former.
+  variable_descriptions <- get_variable_descriptions(object)
+  variable_descriptions <- paste(variable_descriptions, collapse = "\n")
+
+  mod_call <- model_call(object)
+  cat("Model Call:", "\n")
+  cat(mod_call, "\n", "\n")
+
+  cat(variable_descriptions, "\n")
+
+  cat("\n")
+  cat("Parameter Estimates:", "\n")
+  print(parameters(object))
+
+  cat("\n")
+  cat("Model Descriptors:", "\n")
+  print(descriptors(object))
+})

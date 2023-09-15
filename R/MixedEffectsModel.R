@@ -149,3 +149,27 @@ setMethod("model_call", signature(object = "MixedEffectsModel"), function(object
 
   paste(response_var, " = ", "f(", arg_names_str, ")", sep = "")
 })
+
+setMethod("show", "MixedEffectsModel", function(object) {
+  variable_descriptions <- get_variable_descriptions(object)
+  variable_descriptions <- paste(variable_descriptions, collapse = "\n")
+
+  mod_call <- model_call(object)
+  cat("Model Call:", "\n")
+  cat(mod_call, "\n", "\n")
+  cat(variable_descriptions, "\n", "\n")
+
+  cat("Random Effects Variables:", "\n")
+  ranef_vars <- names(as.list(args(object@predict_ranef)))
+  ranef_vars <- ranef_vars[-length(ranef_vars)]
+  ranef_vars_fmt <- paste(ranef_vars, collapse = ", ")
+  cat(ranef_vars_fmt, "\n")
+
+  cat("\n")
+  cat("Parameter Estimates:", "\n")
+  print(parameters(object))
+
+  cat("\n")
+  cat("Model Descriptors:", "\n")
+  print(descriptors(object))
+})
