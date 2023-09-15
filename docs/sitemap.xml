@@ -214,10 +214,16 @@
     <loc>http://allometric.github.io/allometric/reference/model_call-ParametricModel-method.html</loc>
   </url>
   <url>
+    <loc>http://allometric.github.io/allometric/reference/model_call-ParametricSet-method.html</loc>
+  </url>
+  <url>
     <loc>http://allometric.github.io/allometric/reference/model_call.html</loc>
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/reference/ParametricModel.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/ParametricSet.html</loc>
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/reference/pipe.html</loc>
