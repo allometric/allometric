@@ -88,7 +88,7 @@ download_models <- function(verbose) {
   )
 
   unzip(zip_path, exdir = pkg_path)
-  rm(zip_path)
+  file.remove(zip_path)
 }
 
 #' Install allometric models from the models repository
