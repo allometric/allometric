@@ -32,9 +32,9 @@ setMethod("descriptors", "ParametricModel", function(object) {
 })
 
 
-setMethod("descriptors<-", "ParametricModel", function(model, value) {
-  model@specification[!names(model@specification) %in% names(model@parameters)] <- value
-  model
+setMethod("descriptors<-", "ParametricModel", function(object, value) {
+  object@specification[!names(object@specification) %in% names(object@parameters)] <- value
+  object
 })
 
 
@@ -47,6 +47,7 @@ setMethod("parameters", "ParametricModel", function(object) {
 #' This is a base class used for `FixedEffectsModel` and `MixedEffectsModel`
 #'
 #' @inheritParams AllometricModel
+#' @return An object of class ParametricModel
 #' @export
 #' @keywords internal
 ParametricModel <- function(response_unit, covariate_units, predict_fn,

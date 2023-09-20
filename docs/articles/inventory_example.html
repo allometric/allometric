@@ -132,9 +132,10 @@ species are encoded using the FIA <code>SPCD</code> numbering system.
 The first task is to prepare a data frame that will translate these
 codes into taxonomic groupings.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tibble.tidyverse.org/" class="external-link">tibble</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">target_species</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tibble.tidyverse.org/" class="external-link">tibble</a></span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## Warning: package 'tibble' was built under R version 4.2.3</span></span></code></pre>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">target_species</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
 <span>  SPCD <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">202</span>, <span class="fl">263</span>, <span class="fl">15</span>, <span class="fl">122</span><span class="op">)</span>,</span>
 <span>  genus <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'Pseudotsuga'</span>, <span class="st">'Tsuga'</span>, <span class="st">'Abies'</span>, <span class="st">'Pinus'</span><span class="op">)</span>,</span>
 <span>  species <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'menziesii'</span>, <span class="st">'heterophylla'</span>, <span class="st">'concolor'</span>, <span class="st">'ponderosa'</span><span class="op">)</span></span>
@@ -157,15 +158,18 @@ information.</p>
 <p>For this example, we need stem volume models for our species of
 interest that, preferably, were fit using data in the state of
 Oregon.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">allometric</span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://purrr.tidyverse.org/" class="external-link">purrr</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="../reference/install_models.html">install_models</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## Warning: package 'dplyr' was built under R version 4.2.3</span></span></code></pre>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://purrr.tidyverse.org/" class="external-link">purrr</a></span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## Warning: package 'purrr' was built under R version 4.2.3</span></span></code></pre>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/install_models.html">install_models</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## Previously downloaded models found.</span></span>
 <span><span class="co">## 2099 models succesfully installed, use load_models() to view them.</span></span></code></pre>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">allometric_models</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/load_models.html">load_models</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">stemvol_mods</span> <span class="op">&lt;-</span> <span class="va">allometric_models</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
@@ -180,7 +184,7 @@ stem volume models. That is because <code>allometric</code> is global in
 scope. Most of these models are not relavent for our needs. Next, we
 will drill down and select models that were developed with data from
 <code>US-OR</code> (the state of Oregon, United States).</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">stemvol_or_mods</span> <span class="op">&lt;-</span> <span class="va">stemvol_mods</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map_lgl</a></span><span class="op">(</span><span class="va">region</span>, <span class="op">~</span> <span class="st">'US-OR'</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="va">.</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
@@ -189,7 +193,7 @@ will drill down and select models that were developed with data from
 <p>Here we see all stem volume models available fit using data from the
 state of Oregon. Still, the amount of models is very high. Next, we will
 select only our target species.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">stemvol_or_spc_mods</span> <span class="op">&lt;-</span> <span class="va">stemvol_or_mods</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">inner_join</a></span><span class="op">(</span><span class="va">target_species</span>, by<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'genus'</span>, <span class="st">'species'</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
@@ -204,13 +208,13 @@ breast height, and <code>HT</code> the total height of the tree. In
 <code>dsob</code> and <code>hst</code> respectively. See the <a href="https://allometric.github.io/allometric/articles/variable_naming_system.html" class="external-link">Variable
 Naming System</a> for more information. Using some clever filtering, we
 can find which models are compatible with this set of covariates.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">stemvol_or_spc_dia_ht_mods</span> <span class="op">&lt;-</span> <span class="va">stemvol_or_spc_mods</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map_lgl</a></span><span class="op">(</span><span class="va">covt_name</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span> <span class="op">==</span> <span class="fl">2</span> <span class="op">&amp;</span> <span class="fu"><a href="https://rdrr.io/r/base/all.html" class="external-link">all</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'dsob'</span>, <span class="st">'hst'</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="va">.</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>The call to <code>map_lgl</code> answers the question, “which models
 contain only two covariates that are named <code>dsob</code> and
 <code>hst</code>”? Only a handful of models remain.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">stemvol_or_spc_dia_ht_mods</span></span></code></pre></div>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 6 × 13</span></span></span>
 <span><span class="co">##   id       model_type  country   region family   genus species model      pub_id</span></span>
@@ -227,7 +231,7 @@ contain only two covariates that are named <code>dsob</code> and
 Pseudotsuga menziesii. We will decide to select only those models from
 <code>poudel_2019</code>, a recent study that contains the volume models
 for the species we need.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">final_set</span> <span class="op">&lt;-</span> <span class="va">stemvol_or_spc_dia_ht_mods</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">pub_id</span> <span class="op">==</span> <span class="st">"poudel_2019"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">SPCD</span>, <span class="va">model</span><span class="op">)</span></span>
 <span><span class="va">final_set</span></span></code></pre></div>
@@ -249,7 +253,7 @@ section resolves these issues.</p>
 <p>To make a volume prediction correctly, we must know the order of the
 arguments to the allometric function. Inspecting the first model in our
 set reveals this order.</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">final_set</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>call <span class="op">=</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map_chr</a></span><span class="op">(</span><span class="va">model</span>, <span class="op">~</span><span class="fu"><a href="../reference/model_call.html">model_call</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 4 × 3</span></span></span>
 <span><span class="co">##    SPCD model      call               </span></span>
@@ -267,7 +271,7 @@ argument.</p>
 <p>Using <code>final_set</code>, we can easily merge the models to our
 tree-list and make predictions. Predictions made in this manner are done
 using the <code>predict_allo</code> function.</p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">tree_vols</span> <span class="op">&lt;-</span> <span class="va">final_set</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">fia_trees</span>, by <span class="op">=</span> <span class="st">"SPCD"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>vol_m3 <span class="op">=</span> <span class="fu"><a href="../reference/predict_allo.html">predict_allo</a></span><span class="op">(</span><span class="va">model</span>, <span class="va">DIA</span> <span class="op">*</span> <span class="fl">2.54</span>, <span class="va">HT</span> <span class="op">*</span> <span class="fl">0.3048</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
@@ -287,7 +291,7 @@ using the <code>predict_allo</code> function.</p>
 column and applies it to the covariates, <code>DIA</code> and
 <code>HT</code> assigned in the function call. Aggregating to the
 plot-level we obtain</p>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">tree_vols</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">PLOT</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>vol_ac <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">vol_cuft</span> <span class="op">*</span> <span class="va">TPA_UNADJ</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
@@ -307,7 +311,7 @@ plot-level we obtain</p>
 <p>Note that all models in <code>final_set</code> take centimeters for
 diameter and meters for height. This can be checked by printing the
 model summary</p>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">final_set</span><span class="op">$</span><span class="va">model</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span></code></pre></div>
 <pre><code><span><span class="co">## Model Call: </span></span>
 <span><span class="co">## vsia = f(dsob, hst) </span></span>
@@ -352,7 +356,7 @@ publication, Poudel et al. (2019) to calculate tree biomass
 want a set of tree-level biomass models from <code>poudel_2019</code>
 that use <code>dsob</code> or <code>hst</code> as covariates. We
 obtain</p>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">biomass_models</span> <span class="op">&lt;-</span> <span class="va">allometric_models</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span></span>
 <span>    <span class="va">pub_id</span> <span class="op">==</span> <span class="st">"poudel_2019"</span>,</span>
@@ -378,7 +382,7 @@ result.</p>
 its covariate key. This allows us to implement different prediction
 logic for each call group using a tree of <code>if</code> statements. We
 obtain:</p>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">call_group_predict</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">data</span>, <span class="va">covt_key</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="kw">if</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/identical.html" class="external-link">identical</a></span><span class="op">(</span><span class="va">covt_key</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"dsob"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span>    <span class="va">data</span><span class="op">$</span><span class="va">agb_kg</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/predict_allo.html">predict_allo</a></span><span class="op">(</span><span class="va">data</span><span class="op">$</span><span class="va">model</span>, <span class="va">data</span><span class="op">$</span><span class="va">DIA</span> <span class="op">*</span> <span class="fl">2.54</span><span class="op">)</span></span>
@@ -392,12 +396,12 @@ obtain:</p>
 <code>covt_name</code> column, and utilize
 <code><a href="https://dplyr.tidyverse.org/reference/group_map.html" class="external-link">dplyr::group_map()</a></code> to apply our
 <code>call_group_predict</code> function to each group of trees.</p>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">tree_agbs</span> <span class="op">&lt;-</span> <span class="va">biomass_models</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">fia_trees</span>, by <span class="op">=</span> <span class="st">"SPCD"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">covt_name</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_map.html" class="external-link">group_map</a></span><span class="op">(</span><span class="va">call_group_predict</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html" class="external-link">bind_rows</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_rows.html" class="external-link">bind_rows</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">tree_agbs</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 6 × 18</span></span></span>
@@ -413,7 +417,7 @@ obtain:</p>
 <span><span class="co">## <span style="color: #949494;">#   SPCD &lt;dbl&gt;, PLOT &lt;int&gt;, DIA &lt;dbl&gt;, HT &lt;dbl&gt;, TPA_UNADJ &lt;dbl&gt;, agb_kg [kg]</span></span></span></code></pre>
 <p>Finally, we can aggregate the <code>tree_agbs</code> to the
 plot-level as before.</p>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">agb_plot</span> <span class="op">&lt;-</span> <span class="va">tree_agbs</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">PLOT</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span>agb_ac <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">agb_kg</span> <span class="op">*</span> <span class="va">TPA_UNADJ</span><span class="op">)</span><span class="op">)</span></span>
@@ -443,10 +447,10 @@ stored locally as <code>RDS</code> files, which can then be used in
 routine analysis or even as components of other software packages.</p>
 <p>For example, we can save the model table we created in the last
 section</p>
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">saveRDS</a></span><span class="op">(</span><span class="va">final_set</span>, <span class="st">'./my_directory/final_set.RDS'</span><span class="op">)</span></span></code></pre></div>
 <p>It can be reloaded and used readily in other software</p>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">readRDS</a></span><span class="op">(</span><span class="st">'./my_directory/final_set.RDS'</span><span class="op">)</span></span></code></pre></div>
 <p>If you will be using other <code>allometric</code> functionality in
 your software, (e.g., <code>predict_allo</code>) it will be necessary to

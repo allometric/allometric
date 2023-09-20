@@ -7,7 +7,7 @@
 model_call(object)
 }
 \arguments{
-\item{model}{The allometric model for which a function call will be
+\item{object}{The allometric model or set for which a function call will be
 retrieved}
 }
 \value{

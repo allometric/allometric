@@ -165,6 +165,7 @@ load_parameter_frame <- function(name) {
 #' We can see that `r nrow(us_or_models)` allometric models are defined for the
 #' state of Oregon, US.
 #'
+#' @return A model_tbl containing the locally installed models.
 #' @export
 load_models <- function() {
   rds_path <- system.file(

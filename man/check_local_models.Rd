@@ -13,6 +13,9 @@ check_local_models(publications_path, parameters_path, verbose = TRUE)
 
 \item{verbose}{Whether or not to print verbose messages}
 }
+\value{
+A model_tbl of the locally checked models
+}
 \description{
 For the purposes of contributing models, it is useful for contributors to
 run a local set of allometric model files. For example, when contributors

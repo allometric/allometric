@@ -12,6 +12,7 @@
 #' This is a base class used for `FixedEffectsSet` and `MixedEffectsSet`
 #'
 #' @inheritParams ModelSet
+#' @return An object of class ParametricSet
 #' @export
 #' @keywords internal
 ParametricSet <- function(response_unit, covariate_units, predict_fn,

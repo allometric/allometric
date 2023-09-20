@@ -116,6 +116,7 @@ parse_search_str <- function(search_str, num_underscores) {
 #' of a tree, but "hstix" refers to a site index. If this argument is false, all
 #' strings starting with "hst" will be returned. If true, then only "hst" will
 #' be returned.
+#' @return A data.frame containing the matched variable definitions.
 #' @export
 get_variable_def <- function(search_str, return_exact_only = FALSE) {
   num_underscores <- stringr::str_count(search_str, "_")

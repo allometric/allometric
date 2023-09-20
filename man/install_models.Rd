@@ -16,6 +16,9 @@ This is primarily for development purposes.}
 
 \item{verbose}{If \code{TRUE}, print verbose messages as models are installed.}
 }
+\value{
+No return value, installs models into the package directory.
+}
 \description{
 Allometric models are stored in a remote repository located on GitHub located
 \href{https://github.com/allometric/models}{here}. The user must install

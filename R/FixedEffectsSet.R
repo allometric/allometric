@@ -103,5 +103,5 @@ setMethod("show", "FixedEffectsSet", function(object) {
 
   cat("Model Specifications (head): ", "\n")
 
-  print(head(specification(object)))
+  print(utils::head(specification(object)))
 })
