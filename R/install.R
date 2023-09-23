@@ -87,7 +87,7 @@ download_models <- function(verbose) {
     zip_path
   )
 
-  unzip(zip_path, exdir = pkg_path)
+  utils::unzip(zip_path, exdir = pkg_path)
   file.remove(zip_path)
 }
 
@@ -107,6 +107,7 @@ download_models <- function(verbose) {
 #' installation timestamp. Otherwise, only newly modified model files are reran.
 #' This is primarily for development purposes.
 #' @param verbose If `TRUE`, print verbose messages as models are installed.
+#' @return No return value, installs models into the package directory.
 #' @export
 install_models <- function(redownload = FALSE,
     ignore_cache = FALSE, verbose = TRUE
@@ -146,6 +147,7 @@ install_models <- function(redownload = FALSE,
 #' @param publications_path The path to publication files
 #' @param parameters_path The path to parameter files
 #' @param verbose Whether or not to print verbose messages
+#' @return A model_tbl of the locally checked models
 #' @export
 check_local_models <- function(
     publications_path, parameters_path, verbose = TRUE

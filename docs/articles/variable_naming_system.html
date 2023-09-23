@@ -40,7 +40,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">allometric</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.4.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.4.1</span>
       </span>
     </div>
 
@@ -140,8 +140,8 @@ breakdown of the measure, component and modifiers of the variable
 name:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/get_variable_def.html">get_variable_def</a></span><span class="op">(</span><span class="st">"dsob"</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">##   component measure search_str bark_modifier height_modifier                                         description measure_name component_name suffix scale_description</span></span>
-<span><span class="co">## 5         s       d       dsob             o               b diameter of the stem, outside bark at breast height     diameter           stem      t              tree</span></span></code></pre>
+<pre><code><span><span class="co">##   component measure search_str modifier_1 modifier_2                                         description measure_name component_name suffix scale_description</span></span>
+<span><span class="co">## 5         s       d       dsob          o          b diameter of the stem, outside bark at breast height     diameter           stem      t              tree</span></span></code></pre>
 <p>In the following sections we will discuss how variable names are
 structured.</p>
 </div>
@@ -151,7 +151,7 @@ structured.</p>
 <p>All variable names begin with a “measure”. Measures describe the
 dimensional aspects of what is being measured for the variable. In the
 example above, we searched the naming system for <code>d</code>
-(diameter) measures, but others are available. There are 8 established
+(diameter) measures, but others are available. There are 9 established
 measures:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/get_measure_defs.html">get_measure_defs</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
@@ -163,7 +163,8 @@ measures:</p>
 <span><span class="co">## 5       g   basal area</span></span>
 <span><span class="co">## 6       h       height</span></span>
 <span><span class="co">## 7       r        ratio</span></span>
-<span><span class="co">## 8       v       volume</span></span></code></pre>
+<span><span class="co">## 8       v       volume</span></span>
+<span><span class="co">## 9       n        angle</span></span></code></pre>
 <p>We recognize that the use of “measure” here is somewhat loose (e.g.,
 diameter and height are both <em>measures</em> of length). However, the
 variable naming system is meant to preserve at least some connection to
@@ -174,7 +175,7 @@ commonly used terms for variables in allometric modeling.</p>
 </h2>
 <p>All variable names then have a second character that specifies the
 tree component. Components describe the part of the tree that is being
-measured. There are 11 established components:</p>
+measured. There are 13 established components:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/get_component_defs.html">get_component_defs</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">##    component component_name</span></span>
@@ -188,7 +189,9 @@ measured. There are 11 established components:</p>
 <span><span class="co">## 8          u          stump</span></span>
 <span><span class="co">## 9          w           wood</span></span>
 <span><span class="co">## 10         h          shrub</span></span>
-<span><span class="co">## 11         v          cover</span></span></code></pre>
+<span><span class="co">## 11         v          cover</span></span>
+<span><span class="co">## 12         o    topographic</span></span>
+<span><span class="co">## 13         l       climatic</span></span></code></pre>
 <p>Mixing these first two character codes provides an expressive system
 to refer to measures and components. For example, the biomass of
 foliage, if one were interested in it, would begin <code>bf</code>, the
@@ -213,12 +216,12 @@ user to specify these broad range of variables. The available
 <code>ds</code> variables are:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/get_variable_def.html">get_variable_def</a></span><span class="op">(</span><span class="st">"ds"</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">##   component measure search_str bark_modifier height_modifier                                              description measure_name component_name suffix scale_description</span></span>
-<span><span class="co">## 5         s       d       dsob             o               b      diameter of the stem, outside bark at breast height     diameter           stem      t              tree</span></span>
-<span><span class="co">## 6         s       d       dsoh             o               h diameter of the stem, outside bark at a specified height     diameter           stem      t              tree</span></span>
-<span><span class="co">## 7         s       d       dsih             i               h  diameter of the stem, inside bark at a specified height     diameter           stem      t              tree</span></span>
-<span><span class="co">## 8         s       d       dsib             i               b       diameter of the stem, inside bark at breast height     diameter           stem      t              tree</span></span>
-<span><span class="co">## 9         s       d       dsoc             o               c              diameter outside bark above the root collar     diameter           stem      t              tree</span></span></code></pre>
+<pre><code><span><span class="co">##   component measure search_str modifier_1 modifier_2                                              description measure_name component_name suffix scale_description</span></span>
+<span><span class="co">## 5         s       d       dsob          o          b      diameter of the stem, outside bark at breast height     diameter           stem      t              tree</span></span>
+<span><span class="co">## 6         s       d       dsoh          o          h diameter of the stem, outside bark at a specified height     diameter           stem      t              tree</span></span>
+<span><span class="co">## 7         s       d       dsih          i          h  diameter of the stem, inside bark at a specified height     diameter           stem      t              tree</span></span>
+<span><span class="co">## 8         s       d       dsib          i          b       diameter of the stem, inside bark at breast height     diameter           stem      t              tree</span></span>
+<span><span class="co">## 9         s       d       dsoc          o          c              diameter outside bark above the root collar     diameter           stem      t              tree</span></span></code></pre>
 </div>
 <div class="section level3">
 <h3 id="height-of-stem-hs-modifiers">Height of Stem (<code>hs</code>) Modifiers<a class="anchor" aria-label="anchor" href="#height-of-stem-hs-modifiers"></a>
@@ -291,8 +294,8 @@ can modify the <code>dsob</code> variable to describe diameter outside
 bark increment via <code>i_dsob</code>:</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/get_variable_def.html">get_variable_def</a></span><span class="op">(</span><span class="st">"i_dsob"</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">##   component measure search_str bark_modifier height_modifier                                                     description measure_name component_name suffix scale_description prefix prefix_description</span></span>
-<span><span class="co">## 5         s       d       dsob             o               b diameter of the stem, outside bark at breast height (increment)     diameter           stem      t              tree      i          increment</span></span></code></pre>
+<pre><code><span><span class="co">##   component measure search_str modifier_1 modifier_2                                                     description measure_name component_name suffix scale_description prefix prefix_description</span></span>
+<span><span class="co">## 5         s       d       dsob          o          b diameter of the stem, outside bark at breast height (increment)     diameter           stem      t              tree      i          increment</span></span></code></pre>
 <p>Scale flags exist as a suffix, with two suffixes available, one for
 the plot scale, <code>_p</code>, and one for the stand scale,
 <code>_s</code>. For example, we can refer to the stand-level basal area

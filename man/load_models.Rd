@@ -6,6 +6,9 @@
 \usage{
 load_models()
 }
+\value{
+A model_tbl containing the locally installed models.
+}
 \description{
 This function loads all locally installed allometric models if they are
 downloaded and installed, if not run the \code{install_models} function. The

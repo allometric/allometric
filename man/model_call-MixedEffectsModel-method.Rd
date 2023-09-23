@@ -6,6 +6,10 @@
 \usage{
 \S4method{model_call}{MixedEffectsModel}(object)
 }
+\arguments{
+\item{object}{The allometric model or set for which a function call will be
+retrieved}
+}
 \value{
 A string of the function call
 }

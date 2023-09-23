@@ -15,6 +15,9 @@ of a tree, but "hstix" refers to a site index. If this argument is false, all
 strings starting with "hst" will be returned. If true, then only "hst" will
 be returned.}
 }
+\value{
+A data.frame containing the matched variable definitions.
+}
 \description{
 When possible, variables are given standard names using the variable naming
 system. The definitions for a variable can be found using this function.

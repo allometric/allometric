@@ -7,7 +7,7 @@
 descriptors(object)
 }
 \arguments{
-\item{model}{The allometric model or model set object}
+\item{object}{The allometric model or model set object}
 }
 \value{
 A tibble:tbl_df of descriptors

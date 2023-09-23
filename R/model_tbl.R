@@ -60,6 +60,7 @@ model_tbl_reconstruct <- function(x, to) {
 #'
 #' @param model_tbl A `model_tbl` object
 #' @param id The model id or index
+#' @return An allometric model object
 #' @export
 select_model <- function(model_tbl, id) {
   UseMethod("select_model")
@@ -99,6 +100,7 @@ unnest_cross <- function(data, cols, ...) {
 #'
 #' @param data A dataframe
 #' @param cols A character vector indicating the columns to unnest
+#' @return The unnested `model_tbl`
 #' @export
 unnest_models <- function(data, cols) {
   UseMethod("unnest_models")

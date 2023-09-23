@@ -1,6 +1,6 @@
 Package: allometric
 Title: Structured Allometric Models for Trees
-Version: 1.4.0
+Version: 1.4.1
 Authors@R:
     c(
       person(
@@ -18,7 +18,7 @@ Authors@R:
 Description: Access allometric models used in forest resource analysis, such as
     volume equations, taper equations, biomass models, among many others. Users
     are able to efficiently find and select allometric models suitable for their
-    project area and use them in analysis. Additionally, allometric provides a
+    project area and use them in analysis. Additionally, 'allometric' provides a
     structured framework for adding new models to an open-source models
     repository.
 License: MIT + file LICENSE
@@ -37,13 +37,13 @@ Imports:
     purrr,
     ISOcodes,
     tidyr,
-    uuid,
     progress,
-    gert,
     vctrs,
     openssl,
-    gh
+    gh,
+    curl
 Collate:
+    'allometric.R'
     'data.R'
     'utils-pipe.R'
     'boilerplate.R'

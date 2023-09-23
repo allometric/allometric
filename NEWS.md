@@ -1,5 +1,12 @@
 # allometric changelog
 
+## [1.4.1](https://github.com/brycefrank/allometric/compare/v1.4.0...v1.4.1) (2023-09-20)
+
+
+### Bug Fixes
+
+* documentation updates for CRAN resubmission ([78938ac](https://github.com/brycefrank/allometric/commit/78938acd11ec64824f0779de2f84f5b8a38c3bbf))
+
 # [1.4.0](https://github.com/allometric/allometric/compare/v1.3.1...v1.4.0) (2023-09-15)
 
 

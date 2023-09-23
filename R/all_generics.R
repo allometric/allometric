@@ -59,17 +59,18 @@ setGeneric(
 #' species, geographic region, etc. This function returns this information for
 #' a given model.
 #'
-#' @param model The allometric model or model set object
+#' @param object The allometric model or model set object
 #' @return A tibble:tbl_df of descriptors
 #' @keywords internal
 setGeneric("descriptors", function(object) standardGeneric("descriptors"))
 
 #' Set the descriptors of a model.
 #'
+#' @param object The allometric model or model set object
 #' @param value A tibble::tbl_df of descriptors
 #' @keywords internal
 setGeneric(
-  "descriptors<-", function(model, value) standardGeneric("descriptors<-")
+  "descriptors<-", function(object, value) standardGeneric("descriptors<-")
 )
 
 setGeneric("parameters", function(object) standardGeneric("parameters"))
@@ -118,7 +119,7 @@ setGeneric(
 #' covariates. Accessing the function call is important when determining the
 #' order of the covariates given to the prediction function.
 #'
-#' @param model The allometric model for which a function call will be
+#' @param object The allometric model or set for which a function call will be
 #' retrieved
 #' @return A string of the function call
 #' @export

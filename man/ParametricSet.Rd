@@ -32,6 +32,9 @@ allometric model}
 \item{covariate_definitions}{An optional named list of custom covariate definitions that will supersede
 the definitions given by the variable naming system.}
 }
+\value{
+An object of class ParametricSet
+}
 \description{
 This is a base class used for \code{FixedEffectsSet} and \code{MixedEffectsSet}
 }
