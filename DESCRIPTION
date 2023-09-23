@@ -43,6 +43,7 @@ Imports:
     gh,
     curl
 Collate:
+    'allometric.R'
     'data.R'
     'utils-pipe.R'
     'boilerplate.R'
