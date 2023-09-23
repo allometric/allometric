@@ -13,7 +13,7 @@ library(allometric)
 Motivated users are entirely capable of contributing models, provided they are
 comfortable using `git` pull requests.
 
-1. Fork and then clone the [`models`](https://github.com/allometric/models.git)
+1. Fork and then clone the [`models`](https://github.com/allometric/models)
 repository to your local enviroment.
 2. Write a new file in the `publications` directory that
     a. Establishes a citation for the originating publication of the model.

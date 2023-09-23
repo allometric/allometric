@@ -4,8 +4,8 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/allometric/allometric/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/allometric/allometric/actions/workflows/check-standard.yaml)
-[![](https://img.shields.io/badge/devel%20version-1.2.0.9000-blue.svg)](https://github.com/allometric/allometric)
-[![codecov](https://codecov.io/gh/allometric/allometric/branch/master/graph/badge.svg?token=3V5KUFMO2X)](https://codecov.io/gh/allometric/allometric)
+[![](https://img.shields.io/badge/devel%20version-1.4.1-blue.svg)](https://github.com/allometric/allometric)
+[![codecov](https://codecov.io/gh/allometric/allometric/branch/master/graph/badge.svg?token=3V5KUFMO2X)](https://app.codecov.io/gh/allometric/allometric)
 <!-- badges: end -->
 
 `allometric` is an R package for predicting tree attributes with
@@ -17,7 +17,7 @@ and structured format.
 `allometric` not only enables the use of allometric models for analysis,
 it also provides a structured language for adding models to the package.
 If you are interested in helping the developer in this process please
-refer to the [Installing a
+refer to the [Contributing a
 Model](https://allometric.github.io/allometric/articles/installing_a_model.html)
 vignette.
 
@@ -25,22 +25,22 @@ In total **`allometric` contains 2099 models across 60 publications**,
 the following table displays the number of models by continent and
 category:
 
-| category          |  AS |  EU |  NA |  AF |  OC |  SA |
-|:------------------|----:|----:|----:|----:|----:|----:|
-| biomass           |   2 |  21 |   0 |   0 |   0 |   0 |
-| biomass component |  24 | 134 | 435 |   0 |   0 |   0 |
-| biomass increment |   0 |  28 |   0 |   0 |   0 |   0 |
-| crown diameter    |   0 |  12 |  36 |   0 |   0 |   0 |
-| crown height      |   0 |  12 |   0 |   0 |   0 |   0 |
-| diameter          |   0 |  39 |   0 |   0 |   0 |   0 |
-| height            |   0 |  28 |   0 |   0 |   0 |   0 |
-| site index        |   0 |   0 |  52 |   0 |   0 |   0 |
-| stem height       |   7 |   0 | 345 |  12 |   2 |  18 |
-| stem volume       |   4 |   0 | 575 |   0 |   0 |  20 |
-| stump volume      |   0 |   0 |  64 |   0 |   0 |   0 |
-| taper             |   2 |   0 |  18 |   0 |   0 |   0 |
-| tree biomass      |   2 |  36 |  90 |   0 |  21 |  16 |
-| other             |   0 |   0 | 168 |   0 |   0 |   0 |
+| category                |  AS |  EU |  NA |  AF |  OC |  SA |
+|:------------------------|----:|----:|----:|----:|----:|----:|
+| biomass component       |  26 | 136 | 435 |   0 |   0 |   0 |
+| crown diameter          |   0 |  12 |  36 |   0 |   0 |   0 |
+| crown height            |   0 |  12 |   0 |   0 |   0 |   0 |
+| shrub biomass           |   0 |  19 |   0 |   0 |   0 |   0 |
+| shrub biomass increment |   0 |  28 |   0 |   0 |   0 |   0 |
+| shrub diameter          |   0 |  39 |   0 |   0 |   0 |   0 |
+| shrub height            |   0 |  28 |   0 |   0 |   0 |   0 |
+| site index              |   0 |   0 |  52 |   0 |   0 |   0 |
+| stem height             |   7 |   0 | 345 |  12 |   2 |  18 |
+| stem volume             |   4 |   0 | 575 |   0 |   0 |  20 |
+| stump volume            |   0 |   0 |  64 |   0 |   0 |   0 |
+| taper                   |   2 |   0 |  18 |   0 |   0 |   0 |
+| tree biomass            |   2 |  36 |  90 |   0 |  21 |  16 |
+| other                   |   0 |   0 | 168 |   0 |   0 |   0 |
 
 Refer to the
 [Reference](https://allometric.github.io/allometric/reference/index.html)
@@ -101,24 +101,24 @@ install_models()
 
 This compiles the allometric models, and enables their use.
 `install_models()` only needs to be ran at installation or following any
-package updates. After running this function, the models are available
-in the variable `allometric_models`. Refer to the `?allometric_models`
-help for more information.
+package updates. The user can then call `load_models()` to load all
+available allometric models into memory.
 
 ``` r
+allometric_models <- load_models()
 head(allometric_models)
 ```
 
     #> # A tibble: 6 × 12
-    #>   id       model_type   country region family  genus species model      pub_id family_name covt_name
-    #>   <chr>    <chr>        <list>  <list> <chr>   <chr> <chr>   <list>     <chr>  <list>      <list>   
-    #> 1 539629a5 stem height  <chr>   <chr>  Accipi… Circ… canade… <FxdEffcM> hahn_… <chr [1]>   <chr [4]>
-    #> 2 7bc0e06a stem volume  <chr>   <chr>  Accipi… Circ… canade… <FxdEffcM> hahn_… <chr [1]>   <chr [2]>
-    #> 3 1fa4219a stem volume  <chr>   <chr>  Accipi… Circ… canade… <FxdEffcM> hahn_… <chr [1]>   <chr [2]>
-    #> 4 b359d3ce stump volume <chr>   <chr>  Accipi… Circ… canade… <FxdEffcM> hahn_… <chr [1]>   <chr [1]>
-    #> 5 fb5c4575 stem ratio   <chr>   <chr>  Accipi… Circ… canade… <FxdEffcM> hahn_… <chr [1]>   <chr [1]>
-    #> 6 733186a1 stem height  <chr>   <chr>  Acerac… Acer  macrop… <FxdEffcM> fvs_2… <chr [1]>   <chr [1]>
-    #> # ℹ 1 more variable: pub_year <dbl>
+    #>   id       model_type   country   region family  genus species model      pub_id
+    #>   <chr>    <chr>        <list>    <list> <chr>   <chr> <chr>   <list>     <chr> 
+    #> 1 539629a5 stem height  <chr [1]> <chr>  Accipi… Circ… canade… <FxdEffcM> hahn_…
+    #> 2 7bc0e06a stem volume  <chr [1]> <chr>  Accipi… Circ… canade… <FxdEffcM> hahn_…
+    #> 3 1fa4219a stem volume  <chr [1]> <chr>  Accipi… Circ… canade… <FxdEffcM> hahn_…
+    #> 4 b359d3ce stump volume <chr [1]> <chr>  Accipi… Circ… canade… <FxdEffcM> hahn_…
+    #> 5 fb5c4575 stem ratio   <chr [1]> <chr>  Accipi… Circ… canade… <FxdEffcM> hahn_…
+    #> 6 733186a1 stem height  <chr [1]> <chr>  Acerac… Acer  macrop… <FxdEffcM> fvs_2…
+    #> # ℹ 3 more variables: family_name <list>, covt_name <list>, pub_year <dbl>
 
 **Finding and Selecting a Model**
 
@@ -142,20 +142,20 @@ unnested_models
 ```
 
     #> # A tibble: 5,076 × 12
-    #>    id       model_type   country region family genus species model      pub_id family_name covt_name
-    #>    <chr>    <chr>        <list>  <list> <chr>  <chr> <chr>   <list>     <chr>  <chr>       <list>   
-    #>  1 539629a5 stem height  <chr>   <chr>  Accip… Circ… canade… <FxdEffcM> hahn_… Hahn        <chr [4]>
-    #>  2 7bc0e06a stem volume  <chr>   <chr>  Accip… Circ… canade… <FxdEffcM> hahn_… Hahn        <chr [2]>
-    #>  3 1fa4219a stem volume  <chr>   <chr>  Accip… Circ… canade… <FxdEffcM> hahn_… Hahn        <chr [2]>
-    #>  4 b359d3ce stump volume <chr>   <chr>  Accip… Circ… canade… <FxdEffcM> hahn_… Hahn        <chr [1]>
-    #>  5 fb5c4575 stem ratio   <chr>   <chr>  Accip… Circ… canade… <FxdEffcM> hahn_… Hahn        <chr [1]>
-    #>  6 733186a1 stem height  <chr>   <chr>  Acera… Acer  macrop… <FxdEffcM> fvs_2… Staff       <chr [1]>
-    #>  7 a31af9a5 stem height  <chr>   <chr>  Acera… Acer  macrop… <FxdEffcM> fvs_2… Staff       <chr [1]>
-    #>  8 44f59d7d stem height  <chr>   <chr>  Acera… Acer  macrop… <FxdEffcM> fvs_2… Staff       <chr [1]>
-    #>  9 1d58b6d4 stem height  <chr>   <chr>  Acera… Acer  macrop… <FxdEffcM> fvs_2… Staff       <chr [1]>
-    #> 10 539ef85b stem height  <chr>   <chr>  Acera… Acer  macrop… <FxdEffcM> fvs_2… Staff       <chr [1]>
+    #>    id       model_type   country   region family genus species model      pub_id
+    #>    <chr>    <chr>        <list>    <list> <chr>  <chr> <chr>   <list>     <chr> 
+    #>  1 539629a5 stem height  <chr [1]> <chr>  Accip… Circ… canade… <FxdEffcM> hahn_…
+    #>  2 7bc0e06a stem volume  <chr [1]> <chr>  Accip… Circ… canade… <FxdEffcM> hahn_…
+    #>  3 1fa4219a stem volume  <chr [1]> <chr>  Accip… Circ… canade… <FxdEffcM> hahn_…
+    #>  4 b359d3ce stump volume <chr [1]> <chr>  Accip… Circ… canade… <FxdEffcM> hahn_…
+    #>  5 fb5c4575 stem ratio   <chr [1]> <chr>  Accip… Circ… canade… <FxdEffcM> hahn_…
+    #>  6 733186a1 stem height  <chr [1]> <chr>  Acera… Acer  macrop… <FxdEffcM> fvs_2…
+    #>  7 a31af9a5 stem height  <chr [1]> <chr>  Acera… Acer  macrop… <FxdEffcM> fvs_2…
+    #>  8 44f59d7d stem height  <chr [1]> <chr>  Acera… Acer  macrop… <FxdEffcM> fvs_2…
+    #>  9 1d58b6d4 stem height  <chr [1]> <chr>  Acera… Acer  macrop… <FxdEffcM> fvs_2…
+    #> 10 539ef85b stem height  <chr [1]> <chr>  Acera… Acer  macrop… <FxdEffcM> fvs_2…
     #> # ℹ 5,066 more rows
-    #> # ℹ 1 more variable: pub_year <dbl>
+    #> # ℹ 3 more variables: family_name <chr>, covt_name <list>, pub_year <dbl>
 
 Now, each row represents unique data combinations for each model, which
 can be quickly filtered by most users using `dplyr::filter`. For
@@ -173,10 +173,10 @@ brackett_alnus_vol
 ```
 
     #> # A tibble: 1 × 12
-    #>   id       model_type  country   region family genus species model      pub_id family_name covt_name
-    #>   <chr>    <chr>       <list>    <list> <chr>  <chr> <chr>   <list>     <chr>  <chr>       <list>   
-    #> 1 f21028ef stem volume <chr [1]> <chr>  Betul… Alnus rubra   <FxdEffcM> brack… Brackett    <chr [2]>
-    #> # ℹ 1 more variable: pub_year <dbl>
+    #>   id       model_type  country   region family   genus species model      pub_id
+    #>   <chr>    <chr>       <list>    <list> <chr>    <chr> <chr>   <list>     <chr> 
+    #> 1 f21028ef stem volume <chr [1]> <chr>  Betulac… Alnus rubra   <FxdEffcM> brack…
+    #> # ℹ 3 more variables: family_name <chr>, covt_name <list>, pub_year <dbl>
 
 we can see that model `f21028ef` is a volume model written by Brackett
 for *Alnus rubra*. The model can be selected using the `id` field:
@@ -207,6 +207,10 @@ brackett_alnus_mod
 
     #> Model Call: 
     #> vsia = f(dsob, hst) 
+    #>  
+    #> vsia [ft3]: volume of the entire stem inside bark, including top and stump
+    #> dsob [in]: diameter of the stem, outside bark at breast height
+    #> hst [ft]: total height of the stem 
     #> 
     #> Parameter Estimates: 
     #> # A tibble: 1 × 3
@@ -223,6 +227,9 @@ brackett_alnus_mod
 We can see from the `Model Call` section that `brackett_alnus_mod` will
 require two covariates called `dsob`, which refers to diameter outside
 bark at breast height, and `hst`, the height of the main stem.
+`allometric` uses a variable naming system to determine the names of
+response variables and covariates (refer to the [Variable Naming System
+vignette](https://allometric.github.io/allometric/articles/variable_naming_system.html)).
 
 **Predict Using the Selected Model**
 
@@ -268,12 +275,11 @@ documentation most useful:
 
 - [Common Inventory Use
   Cases](https://allometric.github.io/allometric/articles/inventory_example.html)
-- `?allometric_models`
 
 Users interested in **contributing models** to the package will find
 these vignettes the most useful:
 
-- [Installing a
+- [Contributing a
   Model](https://allometric.github.io/allometric/articles/installing_a_model.html)
 - [Describing a Model with
   Descriptors](https://allometric.github.io/allometric/articles/descriptors.html)

@@ -88,6 +88,6 @@ MixedEffectsModel(
   predict_fn = function(dsob) {
     1.37 + (beta_0 + b_0_i) * (1 - exp(beta_1 * dsob)^(beta_2 + b_2_i))
   },
-  fixed_only = T
+  fixed_only = TRUE
 )
 }

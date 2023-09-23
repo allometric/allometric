@@ -11,10 +11,10 @@ select_model(model_tbl, id)
 
 \item{id}{The model id or index}
 }
+\value{
+An allometric model object
+}
 \description{
 This is a generic function used to select allometric models out of larger
 collections, like \code{model_tbl}.
-}
-\examples{
-select_model(allometric_models, "f21028ef")
 }

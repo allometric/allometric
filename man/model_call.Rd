@@ -4,10 +4,10 @@
 \alias{model_call}
 \title{Get the function call for a model}
 \usage{
-model_call(model)
+model_call(object)
 }
 \arguments{
-\item{model}{The allometric model for which a function call will be
+\item{object}{The allometric model or set for which a function call will be
 retrieved}
 }
 \value{
@@ -19,6 +19,5 @@ covariates. Accessing the function call is important when determining the
 order of the covariates given to the prediction function.
 }
 \examples{
-model <- select_model(allometric_models, "f21028ef")
-model_call(model)
+model_call(brackett_rubra)
 }

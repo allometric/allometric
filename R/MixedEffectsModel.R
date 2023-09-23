@@ -48,7 +48,7 @@
 #'   predict_fn = function(dsob) {
 #'     1.37 + (beta_0 + b_0_i) * (1 - exp(beta_1 * dsob)^(beta_2 + b_2_i))
 #'   },
-#'   fixed_only = T
+#'   fixed_only = TRUE
 #' )
 #' @export
 MixedEffectsModel <- function(response_unit, covariate_units, predict_ranef,
@@ -139,13 +139,37 @@ setMethod("init_set_of_one", signature(model = "MixedEffectsModel"), function(mo
 
 #' @inherit model_call
 #' @keywords internal
-setMethod("model_call", signature(model = "MixedEffectsModel"), function(model) {
-  response_var <- names(model@response_unit)[[1]]
+setMethod("model_call", signature(object = "MixedEffectsModel"), function(object) {
+  response_var <- names(object@response_unit)[[1]]
 
-  arg_names <- names(as.list(args(model@predict_fn)))
+  arg_names <- names(as.list(args(object@predict_fn)))
   arg_names <- arg_names[-length(arg_names)]
   arg_names <- c(arg_names, "newdata")
   arg_names_str <- paste(arg_names, collapse = ", ")
 
   paste(response_var, " = ", "f(", arg_names_str, ")", sep = "")
+})
+
+setMethod("show", "MixedEffectsModel", function(object) {
+  variable_descriptions <- get_variable_descriptions(object)
+  variable_descriptions <- paste(variable_descriptions, collapse = "\n")
+
+  mod_call <- model_call(object)
+  cat("Model Call:", "\n")
+  cat(mod_call, "\n", "\n")
+  cat(variable_descriptions, "\n", "\n")
+ 
+  cat("Random Effects Variables:", "\n")
+  ranef_vars <- names(as.list(args(object@predict_ranef)))
+  ranef_vars <- ranef_vars[-length(ranef_vars)]
+  ranef_vars_fmt <- paste(ranef_vars, collapse = ", ")
+  cat(ranef_vars_fmt, "\n")
+
+  cat("\n")
+  cat("Parameter Estimates:", "\n")
+  print(parameters(object))
+
+  cat("\n")
+  cat("Model Descriptors:", "\n")
+  print(descriptors(object))
 })

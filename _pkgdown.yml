@@ -6,8 +6,8 @@ reference:
 - title: Analysis Functions
   desc: These functions are used to conduct inventory analysis with allometric models and inspect their contents.
   contents:
-  - allometric_models
   - install_models
+  - load_models
   - predict
   - predict_allo
   - model_call
@@ -21,13 +21,19 @@ reference:
   contents:
   - add_model
   - add_set
-  - fia_trees
   - get_variable_def
   - get_component_defs
   - get_measure_defs
   - load_parameter_frame
+  - check_local_models
   - FixedEffectsModel
   - FixedEffectsSet
   - MixedEffectsModel
   - MixedEffectsSet
   - Publication
+- title: Example Data
+  desc: Example data included with `allometric`.
+  contents:
+  - fia_trees
+  - brackett_acer
+  - brackett_rubra

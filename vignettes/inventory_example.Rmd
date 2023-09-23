@@ -9,7 +9,7 @@ vignette: >
 This vignette covers several common forest inventory use cases that can be 
 covered by `allometric`
 
-## Making Predictions of Volume for Multiple Species
+## Making Predictions of Volume for Multiple Species with Models of the Same Form
 
 This vignette demonstrates a simple forest inventory example using `allometric`
 using plot data obtained from the Forest Inventory and Analysis (FIA) program.
@@ -20,7 +20,10 @@ every plot in this dataset.
 Allometric predictions can be made in any manner of ways according to the 
 user's preference. We will use the suite of `tidyverse` packages to manipulate
 our data, but this is merely the author's preference. `allometric` is capable
-of producing predictions using base R if preferred.
+of producing predictions using base R if preferred. For this example, we will
+use a set of models that all have the same functional form. That is, the
+required covariates are identitcal across models, and are in the same order.
+For a more advanced case, refer to the following section.
 
 ### Preparing the Data
 
@@ -57,6 +60,9 @@ preferably, were fit using data in the state of Oregon.
 library(allometric)
 library(dplyr)
 library(purrr)
+
+install_models()
+allometric_models <- load_models()
 
 stemvol_mods <- allometric_models %>%
   filter(
@@ -132,7 +138,7 @@ to the allometric function. Inspecting the first model in our set reveals this
 order.
 
 ```{r}
-final_set %>% mutate(call = model_call(model[[1]]))
+final_set %>% mutate(call = map_chr(model, ~model_call(.)))
 ```
 
 The `model_call` function shows that `vsa = f(dsob, hst)` is the allometric 
@@ -148,7 +154,9 @@ function.
 tree_vols <- final_set %>%
   left_join(fia_trees, by = "SPCD") %>%
   mutate(vol_m3 = predict_allo(model, DIA * 2.54, HT * 0.3048)) %>%
-  mutate(vol_cuft = vol_m3 * 35.3147)
+  mutate(vol_cuft = units::set_units(vol_m3, "ft^3"))
+
+head(tree_vols)
 ```
 
 `predict_allo` takes each model in the `model` column and applies it to the
@@ -159,6 +167,95 @@ plot-level we obtain
 tree_vols %>%
   group_by(PLOT) %>%
   summarise(vol_ac = sum(vol_cuft * TPA_UNADJ))
+```
+
+Note that all models in `final_set` take centimeters for diameter and meters for
+height. This can be checked by printing the model summary
+
+```{r}
+final_set$model[[1]]
+```
+
+It is always important to check the model summary before implementing a model
+in an analysis. Indeed, users should carefully read the publication source as
+well to be absolutely sure the model is implemented appropriately.
+
+## Making Predictions of Volume for Multiple Species with Models of Different Forms
+
+In many cases, allometric model inputs will differ in the required covariates
+and, potentially, their order. This complicates the use of `predict_allo`, which
+assumes that the covariates are identical and of the same order for each model
+used in the analysis.
+
+For this example we will use a different set of models from the same
+publication, Poudel et al. (2019) to calculate tree biomass (`bt`) for the same
+set of trees.
+
+### Finding Appropriate Models
+
+In this case we have a publication in mind, and can filter `allometric_models`
+directly to obtain the models we want. We want a set of tree-level biomass
+models from `poudel_2019` that use `dsob` or `hst` as covariates. We obtain
+
+```{r}
+biomass_models <- allometric_models %>%
+  filter(
+    pub_id == "poudel_2019",
+    model_type == "tree biomass",
+    map_lgl(covt_name, ~(any(c("dsob", "hst") %in% .) & length(.) <= 2))
+  ) %>%
+  mutate(call = map_chr(model, ~model_call(.))) %>%
+  merge(target_species)
+```
+
+We can see that the model for *Abies concolor* takes only a `dsob` argument but
+the remaining models take `dsob` and `hst` arguments. This renders the direct
+use of `predict_allo` on `biomass_models` infeasible.
+
+Instead we must engage in some clever programming and break our dataframe of
+models into call groups, use `predict_allo` for each group, and stitch the
+prediction frame back together for our final result.
+
+### Making Biomass Predictions with Different Model Forms
+
+First, we need to make a function that will take each call group and its
+covariate key. This allows us to implement different prediction logic for each
+call group using a tree of `if` statements. We obtain:
+
+```{r}
+call_group_predict <- function(data, covt_key) {
+  if(identical(covt_key[[1]][[1]], c("dsob"))) {
+    data$agb_kg <- predict_allo(data$model, data$DIA * 2.54)
+  } else if (identical(covt_key[[1]][[1]], c("dsob", "hst"))) {
+    data$agb_kg <- predict_allo(data$model, data$DIA * 2.54, data$HT * 0.3048)
+  }
+
+  data
+}
+```
+
+Then, we simply merge the models to the tree list, group by the `covt_name`
+column, and utilize `dplyr::group_map()` to apply our `call_group_predict`
+function to each group of trees.
+
+```{r}
+tree_agbs <- biomass_models %>%
+  left_join(fia_trees, by = "SPCD") %>%
+  group_by(covt_name) %>%
+  group_map(call_group_predict) %>%
+  bind_rows()
+
+head(tree_agbs)
+```
+
+Finally, we can aggregate the `tree_agbs` to the plot-level as before.
+
+```{r}
+agb_plot <- tree_agbs %>%
+  group_by(PLOT) %>%
+  summarise(agb_ac = sum(agb_kg * TPA_UNADJ))
+
+head(agb_plot)
 ```
 
 ## Storing an Internal Set of Equations for Routine Use

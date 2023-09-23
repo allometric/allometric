@@ -24,6 +24,8 @@ are fit to specific geographic regions and age classes. Let's take a look at
 the descriptors of one of those models
 
 ```{r}
+allometric_models <- load_models()
+
 brackett_mod_1 <- select_model(allometric_models, "f21028ef")
 brackett_mod_1
 ```

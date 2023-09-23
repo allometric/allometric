@@ -4,10 +4,10 @@
 \alias{descriptors}
 \title{Get the descriptors of a model}
 \usage{
-descriptors(model)
+descriptors(object)
 }
 \arguments{
-\item{model}{The allometric model object}
+\item{object}{The allometric model or model set object}
 }
 \value{
 A tibble:tbl_df of descriptors

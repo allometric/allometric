@@ -30,7 +30,7 @@ prepare_var_defs <- function(var_defs, measure_defs, component_defs) {
 get_measure_defs <- function() {
   utils::read.csv(
     system.file("variable_defs/measures.csv", package = "allometric")
-  ) 
+  )
 }
 
 #' Load the component definitions
@@ -39,7 +39,7 @@ get_measure_defs <- function() {
 #'
 #' @return A tibble::tbl_df containing the component definitions
 #' @examples 
-#' get_componente_defs()
+#' get_component_defs()
 #' @export
 get_component_defs <- function() {
   utils::read.csv(
@@ -116,6 +116,7 @@ parse_search_str <- function(search_str, num_underscores) {
 #' of a tree, but "hstix" refers to a site index. If this argument is false, all
 #' strings starting with "hst" will be returned. If true, then only "hst" will
 #' be returned.
+#' @return A data.frame containing the matched variable definitions.
 #' @export
 get_variable_def <- function(search_str, return_exact_only = FALSE) {
   num_underscores <- stringr::str_count(search_str, "_")
@@ -172,4 +173,51 @@ get_variable_def <- function(search_str, return_exact_only = FALSE) {
   } else {
     return(matched_measure)
   }
+}
+
+#' Gets the model type for a response name.
+#'
+#' From the variable naming system, return the model type. Model types are
+#' custom names that are easier to understand than the usual component-measure
+#' pairing. For example, site index models would be called "stem height models"
+#' hecause the component is the stem and the measure is the height. However,
+#' site index models need a special name. Model types are these names. If a
+#' model type is not defined, the component-measure pairing is used instead.
+#'
+#' @param response_name The response_name from the variable naming system.
+#' @keywords internal
+get_model_type <- function(response_name) {
+  # Check if increment model
+  # TODO this is not generic to any given prefix, but i_ is the only possible
+  # prefix at the moment
+  if(startsWith(response_name, "i_")) {
+    add <- "increment"
+    response_name <- substr(response_name, 3, nchar(response_name))
+  } else {
+    add <- ""
+  }
+
+  # the defined model types are meant to be starting strings only, in some
+  # cases they will be exact matches
+  matches <- startsWith(response_name, model_types_defined$response_name_start)
+
+  if(all(!matches)) { # no matches
+    measure <- substr(response_name, 1, 1)
+    component <- substr(response_name, 2, 2)
+
+    measure_name <- measure_defs[measure_defs$measure == measure, "measure_name"]
+    component_name <- component_defs[component_defs$component == component, "component_name"]
+    model_type <- paste(component_name, measure_name)
+
+  } else { # at least one match, return the exact match if more than one row
+    matched <- model_types_defined[matches,]
+    if(nrow(matched) == 1) {
+      model_type <- matched$model_type
+    } else {
+      model_type <- matched[matched$response_name_start == response_name, 'model_type']
+    }
+  }
+
+  model_type <- trimws(paste(model_type, " ", add, sep = ""))
+  model_type
 }

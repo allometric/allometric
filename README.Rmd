@@ -12,9 +12,8 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 
-if (!exists("allometric_models")) {
-  allometric::install_models()
-}
+install_models()
+allometric_models <- load_models()
 
 n_models <- nrow(allometric_models)
 n_pubs <- length(unique(allometric_models$pub_id, na.rm = T))
@@ -64,7 +63,7 @@ model_summ.fmt <- bind_rows(
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/allometric/allometric/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/allometric/allometric/actions/workflows/check-standard.yaml)
 `r badger::badge_devel("allometric/allometric", "blue")`
-[![codecov](https://codecov.io/gh/allometric/allometric/branch/master/graph/badge.svg?token=3V5KUFMO2X)](https://codecov.io/gh/allometric/allometric)
+[![codecov](https://codecov.io/gh/allometric/allometric/branch/master/graph/badge.svg?token=3V5KUFMO2X)](https://app.codecov.io/gh/allometric/allometric)
 <!-- badges: end -->
 
 `allometric` is an R package for predicting tree attributes with allometric 
@@ -75,7 +74,7 @@ vast array of models in a robust and structured format.
 `allometric` not only enables the use of allometric models for analysis, it 
 also provides a structured language for adding models to the package. If you
 are interested in helping the developer in this process please refer to the 
-[Installing a Model](https://allometric.github.io/allometric/articles/installing_a_model.html) vignette.
+[Contributing a Model](https://allometric.github.io/allometric/articles/installing_a_model.html) vignette.
 
 In total **`allometric` contains `r n_models` models across `r n_pubs` publications**, the following
 table displays the number of models by continent and category:
@@ -127,12 +126,12 @@ install_models()
 ```
 
 This compiles the allometric models, and enables their use. `install_models()`
-only needs to be ran at installation or following any package updates. After
-running this function, the models are available in the variable
-`allometric_models`. Refer to the `?allometric_models` help for more
-information.
+only needs to be ran at installation or following any package updates. The user
+can then call `load_models()` to load all available allometric models into
+memory.
 
 ```{r}
+allometric_models <- load_models()
 head(allometric_models)
 ```
 
@@ -199,7 +198,9 @@ brackett_alnus_mod
 
 We can see from the `Model Call` section that `brackett_alnus_mod` will require
 two covariates called `dsob`, which refers to diameter outside bark at
-breast height, and `hst`, the height of the main stem. 
+breast height, and `hst`, the height of the main stem. `allometric` uses a
+variable naming system to determine the names of response variables and
+covariates (refer to the [Variable Naming System vignette](https://allometric.github.io/allometric/articles/variable_naming_system.html)).
 
 **Predict Using the Selected Model**
 
@@ -233,10 +234,9 @@ Users interested in finding models for analysis will find the following
 documentation most useful:
 
 - [Common Inventory Use Cases](https://allometric.github.io/allometric/articles/inventory_example.html)
-- `?allometric_models`
 
 Users interested in **contributing models** to the package will find these vignettes the most useful:
 
-- [Installing a Model](https://allometric.github.io/allometric/articles/installing_a_model.html)
+- [Contributing a Model](https://allometric.github.io/allometric/articles/installing_a_model.html)
 - [Describing a Model with Descriptors](https://allometric.github.io/allometric/articles/descriptors.html)
 - [Variable Naming System](https://allometric.github.io/allometric/articles/variable_naming_system.html)

@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">allometric</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.2.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.4.1</span>
       </span>
     </div>
 
@@ -93,7 +93,8 @@
 
 <dt>output_units</dt>
 <dd><p>Optionally specify the output units of the model as a
-string, e.g., "ft^3"</p></dd>
+string, e.g., "ft^3". The provided string must be compatible with the
+<code><a href="https://r-quantities.github.io/units/reference/units.html" class="external-link">units::set_units()</a></code> function.</p></dd>
 
 
 <dt>newdata</dt>
@@ -112,10 +113,9 @@ stand or plot).</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="select_model.html">select_model</a></span><span class="op">(</span><span class="va">allometric_models</span>, <span class="st">"f21028ef"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu">predict</span><span class="op">(</span><span class="va">model</span>, <span class="fl">10</span>, <span class="fl">50</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">predict</span><span class="op">(</span><span class="va">brackett_rubra</span>, <span class="fl">10</span>, <span class="fl">50</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 11.81889 [ft^3]</span>
-<span class="r-in"><span><span class="fu">predict</span><span class="op">(</span><span class="va">model</span>, <span class="fl">10</span>, <span class="fl">50</span>, output_units <span class="op">=</span> <span class="st">"m^3"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">predict</span><span class="op">(</span><span class="va">brackett_rubra</span>, <span class="fl">10</span>, <span class="fl">50</span>, output_units <span class="op">=</span> <span class="st">"m^3"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 0.3346736 [m^3]</span>
 </code></pre></div>
     </div>

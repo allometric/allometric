@@ -2,16 +2,22 @@
 % Please edit documentation in R/install.R
 \name{install_models}
 \alias{install_models}
-\title{Install allometric models}
+\title{Install allometric models from the models repository}
 \usage{
-install_models(ignore_cache = FALSE, verbose = FALSE)
+install_models(redownload = FALSE, ignore_cache = FALSE, verbose = TRUE)
 }
 \arguments{
+\item{redownload}{If \code{TRUE}, models are re-downloaded from the remote
+repository.}
+
 \item{ignore_cache}{If \code{TRUE}, models are re-installed regardless of their
 installation timestamp. Otherwise, only newly modified model files are reran.
 This is primarily for development purposes.}
 
 \item{verbose}{If \code{TRUE}, print verbose messages as models are installed.}
+}
+\value{
+No return value, installs models into the package directory.
 }
 \description{
 Allometric models are stored in a remote repository located on GitHub located

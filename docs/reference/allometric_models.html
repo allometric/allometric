@@ -124,16 +124,16 @@ dataframe using <code><a href="https://dplyr.tidyverse.org/reference/filter.html
 <span><span class="co">#&gt;    id       model_type     country   region    family       genus      species   model      pub_id        family_name covt_name pub_year</span></span>
 <span><span class="co">#&gt;    &lt;chr&gt;    &lt;chr&gt;          &lt;list&gt;    &lt;list&gt;    &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt;     &lt;list&gt;     &lt;chr&gt;         &lt;chr&gt;       &lt;list&gt;       &lt;dbl&gt;</span></span>
 <span><span class="co">#&gt;  1 20332bd3 crown diameter &lt;chr [1]&gt; &lt;chr [1]&gt; Betulaceae   Alnus      rubra     &lt;FxdEffcM&gt; hann_1997     Hann        &lt;chr [4]&gt;     1997</span></span>
-<span><span class="co">#&gt;  2 c6a30071 crown diameter &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus decurrens &lt;FxdEffcM&gt; hann_1997     Hann        &lt;chr [4]&gt;     1997</span></span>
-<span><span class="co">#&gt;  3 26f5c147 stem diameter  &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus decurrens &lt;FxdEffcM&gt; larsen_1985   Hann        &lt;chr [1]&gt;     1985</span></span>
-<span><span class="co">#&gt;  4 0762ba42 crown ratio    &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus decurrens &lt;FxdEffcM&gt; ritche_1987   Hann        &lt;chr [4]&gt;     1987</span></span>
-<span><span class="co">#&gt;  5 aa38254f stem height    &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus decurrens &lt;FxdEffcM&gt; temesgen_2007 Hann        &lt;chr [1]&gt;     2007</span></span>
+<span><span class="co">#&gt;  2 26f5c147 stem diameter  &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus decurrens &lt;FxdEffcM&gt; larsen_1985   Hann        &lt;chr [1]&gt;     1985</span></span>
+<span><span class="co">#&gt;  3 0762ba42 crown ratio    &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus decurrens &lt;FxdEffcM&gt; ritche_1987   Hann        &lt;chr [4]&gt;     1987</span></span>
+<span><span class="co">#&gt;  4 aa38254f stem height    &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus decurrens &lt;FxdEffcM&gt; temesgen_2007 Hann        &lt;chr [1]&gt;     2007</span></span>
+<span><span class="co">#&gt;  5 c6a30071 crown diameter &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus decurrens &lt;FxdEffcM&gt; hann_1997     Hann        &lt;chr [4]&gt;     1997</span></span>
 <span><span class="co">#&gt;  6 e0873944 stem diameter  &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus &lt;NA&gt;      &lt;FxdEffcM&gt; hann_2011     Hann        &lt;chr [2]&gt;     2011</span></span>
 <span><span class="co">#&gt;  7 71131513 stump diameter &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus &lt;NA&gt;      &lt;FxdEffcM&gt; hann_2011     Hann        &lt;chr [2]&gt;     2011</span></span>
 <span><span class="co">#&gt;  8 4ed0b955 stem volume    &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus &lt;NA&gt;      &lt;FxdEffcM&gt; hann_2011     Hann        &lt;chr [3]&gt;     2011</span></span>
-<span><span class="co">#&gt;  9 bfdfc523 crown diameter &lt;chr [1]&gt; &lt;chr [1]&gt; Ericaceae    Arbutus    menziesii &lt;FxdEffcM&gt; hann_1997     Hann        &lt;chr [4]&gt;     1997</span></span>
-<span><span class="co">#&gt; 10 7433cb66 crown ratio    &lt;chr [1]&gt; &lt;chr [1]&gt; Ericaceae    Arbutus    menziesii &lt;FxdEffcM&gt; ritche_1987   Hann        &lt;chr [3]&gt;     1987</span></span>
-<span><span class="co">#&gt; # i 77 more rows</span></span></code></pre><p></p></div>
+<span><span class="co">#&gt;  9 7433cb66 crown ratio    &lt;chr [1]&gt; &lt;chr [1]&gt; Ericaceae    Arbutus    menziesii &lt;FxdEffcM&gt; ritche_1987   Hann        &lt;chr [3]&gt;     1987</span></span>
+<span><span class="co">#&gt; 10 8c9e74a1 stem height    &lt;chr [1]&gt; &lt;chr [1]&gt; Ericaceae    Arbutus    menziesii &lt;FxdEffcM&gt; temesgen_2007 Hann        &lt;chr [1]&gt;     2007</span></span>
+<span><span class="co">#&gt; # ... with 77 more rows</span></span></code></pre><p></p></div>
 <p>Any column or any combination of columns can be unnested, which allows for
 basic filtering of models using <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">dplyr::filter</a></code>.</p>
     </div>
@@ -159,10 +159,10 @@ that had <code>'Hann'</code> as a contributing author.</p>
 <span><span class="co">#&gt;   id       model_type     country   region    family       genus      species   model      pub_id        family_name covt_name pub_year</span></span>
 <span><span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;          &lt;list&gt;    &lt;list&gt;    &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt;     &lt;list&gt;     &lt;chr&gt;         &lt;list&gt;      &lt;list&gt;       &lt;dbl&gt;</span></span>
 <span><span class="co">#&gt; 1 20332bd3 crown diameter &lt;chr [1]&gt; &lt;chr [1]&gt; Betulaceae   Alnus      rubra     &lt;FxdEffcM&gt; hann_1997     &lt;chr [1]&gt;   &lt;chr [4]&gt;     1997</span></span>
-<span><span class="co">#&gt; 2 c6a30071 crown diameter &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus decurrens &lt;FxdEffcM&gt; hann_1997     &lt;chr [1]&gt;   &lt;chr [4]&gt;     1997</span></span>
-<span><span class="co">#&gt; 3 26f5c147 stem diameter  &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus decurrens &lt;FxdEffcM&gt; larsen_1985   &lt;chr [2]&gt;   &lt;chr [1]&gt;     1985</span></span>
-<span><span class="co">#&gt; 4 0762ba42 crown ratio    &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus decurrens &lt;FxdEffcM&gt; ritche_1987   &lt;chr [2]&gt;   &lt;chr [4]&gt;     1987</span></span>
-<span><span class="co">#&gt; 5 aa38254f stem height    &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus decurrens &lt;FxdEffcM&gt; temesgen_2007 &lt;chr [3]&gt;   &lt;chr [1]&gt;     2007</span></span>
+<span><span class="co">#&gt; 2 26f5c147 stem diameter  &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus decurrens &lt;FxdEffcM&gt; larsen_1985   &lt;chr [2]&gt;   &lt;chr [1]&gt;     1985</span></span>
+<span><span class="co">#&gt; 3 0762ba42 crown ratio    &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus decurrens &lt;FxdEffcM&gt; ritche_1987   &lt;chr [2]&gt;   &lt;chr [4]&gt;     1987</span></span>
+<span><span class="co">#&gt; 4 aa38254f stem height    &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus decurrens &lt;FxdEffcM&gt; temesgen_2007 &lt;chr [3]&gt;   &lt;chr [1]&gt;     2007</span></span>
+<span><span class="co">#&gt; 5 c6a30071 crown diameter &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus decurrens &lt;FxdEffcM&gt; hann_1997     &lt;chr [1]&gt;   &lt;chr [4]&gt;     1997</span></span>
 <span><span class="co">#&gt; 6 e0873944 stem diameter  &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus &lt;NA&gt;      &lt;FxdEffcM&gt; hann_2011     &lt;chr [1]&gt;   &lt;chr [2]&gt;     2011</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">hann_models</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 87</span></span></code></pre><p></p></div>

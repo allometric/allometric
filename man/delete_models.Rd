@@ -4,7 +4,7 @@
 \alias{delete_models}
 \title{Delete the local models directory.}
 \usage{
-delete_models()
+delete_models(verbose)
 }
 \description{
 Delete the local models directory.

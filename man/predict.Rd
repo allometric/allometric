@@ -19,7 +19,8 @@ predict(model, ...)
 \item{...}{Additional arguments passed to the \code{predict_fn} of the input model}
 
 \item{output_units}{Optionally specify the output units of the model as a
-string, e.g., "ft^3"}
+string, e.g., "ft^3". The provided string must be compatible with the
+\code{units::set_units()} function.}
 
 \item{newdata}{A dataframe containing columns that match the names of the arguments given
 to \code{predict_ranef}. The values of this data represents information from a
@@ -33,7 +34,6 @@ A vector of allometric model predictions
 Predict with an allometric model
 }
 \examples{
-model <- select_model(allometric_models, "f21028ef")
-predict(model, 10, 50)
-predict(model, 10, 50, output_units = "m^3")
+predict(brackett_rubra, 10, 50)
+predict(brackett_rubra, 10, 50, output_units = "m^3")
 }

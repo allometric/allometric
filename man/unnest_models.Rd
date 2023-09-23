@@ -11,6 +11,9 @@ unnest_models(data, cols)
 
 \item{cols}{A character vector indicating the columns to unnest}
 }
+\value{
+The unnested \code{model_tbl}
+}
 \description{
 Unnest columns of a dataframe
 }

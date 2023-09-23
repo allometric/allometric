@@ -85,12 +85,34 @@ setMethod("init_set_of_one", signature(model = "FixedEffectsModel"), function(mo
 
 #' @inherit model_call
 #' @keywords internal
-setMethod("model_call", signature(model = "FixedEffectsModel"), function(model) {
-  response_var <- names(model@response_unit)[[1]]
+setMethod("model_call", signature(object = "FixedEffectsModel"), function(object) {
+  response_var <- names(object@response_unit)[[1]]
 
-  arg_names <- names(as.list(args(model@predict_fn)))
+  arg_names <- names(as.list(args(object@predict_fn)))
   arg_names <- arg_names[-length(arg_names)]
   arg_names_str <- paste(arg_names, collapse = ", ")
 
   paste(response_var, " = ", "f(", arg_names_str, ")", sep = "")
+})
+
+setMethod("show", "FixedEffectsModel", function(object) {
+  # TODO format the descriptions. They should be indented by 2 spaces and the
+  # unit left backets should align by inserting spaces. Seems like do the
+  # latter then the former.
+  variable_descriptions <- get_variable_descriptions(object)
+  variable_descriptions <- paste(variable_descriptions, collapse = "\n")
+
+  mod_call <- model_call(object)
+  cat("Model Call:", "\n")
+  cat(mod_call, "\n", "\n")
+
+  cat(variable_descriptions, "\n")
+
+  cat("\n")
+  cat("Parameter Estimates:", "\n")
+  print(parameters(object))
+
+  cat("\n")
+  cat("Model Descriptors:", "\n")
+  print(descriptors(object))
 })

@@ -4,9 +4,11 @@
 \alias{descriptors<-}
 \title{Set the descriptors of a model.}
 \usage{
-descriptors(model) <- value
+descriptors(object) <- value
 }
 \arguments{
+\item{object}{The allometric model or model set object}
+
 \item{value}{A tibble::tbl_df of descriptors}
 }
 \description{

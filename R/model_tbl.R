@@ -60,9 +60,8 @@ model_tbl_reconstruct <- function(x, to) {
 #'
 #' @param model_tbl A `model_tbl` object
 #' @param id The model id or index
+#' @return An allometric model object
 #' @export
-#' @examples
-#' select_model(allometric_models, "f21028ef")
 select_model <- function(model_tbl, id) {
   UseMethod("select_model")
 }
@@ -101,6 +100,7 @@ unnest_cross <- function(data, cols, ...) {
 #'
 #' @param data A dataframe
 #' @param cols A character vector indicating the columns to unnest
+#' @return The unnested `model_tbl`
 #' @export
 unnest_models <- function(data, cols) {
   UseMethod("unnest_models")
@@ -135,11 +135,8 @@ unnest_models.model_tbl <- function(data, cols) {
 #' @return A vector of predictions
 #' @export
 #' @examples
-#' model_1 <- select_model(allometric_models, "f21028ef")
-#' model_2 <- select_model(allometric_models, "218a0299")
-#'
 #' tree_data <- tibble::tibble(
-#'  dbh = c(10, 20), ht = c(50, 75), model = c(list(model_1), list(model_2))
+#'  dbh = c(10, 20), ht = c(50, 75), model = c(list(brackett_rubra), list(brackett_acer))
 #' )
 #'
 #' tree_data %>%
@@ -149,6 +146,9 @@ predict_allo <- function(model_list, ...) {
 }
 
 #' Merge a `model_tbl` with another data frame.
+#'
+#' This merge function ensures that, when `model_tbl` is used in a merge that
+#' the resultant dataframe is still a `model_tbl`.
 #'
 #' @param x A data frame or `model_tbl`
 #' @param y A data frame or `model_tbl`

@@ -49,7 +49,7 @@ the same functional structure. Fitting a large family of models (e.g., for
 many different species) using the same functional structure is a common
 pattern in allometric studies, and \code{FixedEffectsSet} facilitates the
 installation of these groups of models by allowing the user to specify the
-parameter estimates and descriptions in a dataframe or spreadsheet.
+parameter estimates and descriptions in a dataframe.
 }
 \section{Slots}{
 

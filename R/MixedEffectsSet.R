@@ -5,11 +5,10 @@ check_fixed_effects_set_validity <- function(object) {
 }
 
 .MixedEffectsSet <- setClass("MixedEffectsSet",
-  contains = "ModelSet",
+  contains = "ParametricSet",
   slots = c(
     predict_ranef = "function",
-    fixed_only = "logical",
-    parameter_names = "character"
+    fixed_only = "logical"
   ),
   validity = check_fixed_effects_set_validity
 )
@@ -62,12 +61,12 @@ MixedEffectsSet <- function(response_unit, covariate_units, parameter_names,
                             fixed_only = FALSE, descriptors = list(),
                             covariate_definitions = list()) {
   mixed_effects_set <- .MixedEffectsSet(
-    ModelSet(
+    ParametricSet(
       response_unit, covariate_units, predict_fn, model_specifications,
-      descriptors, covariate_definitions
+      parameter_names, descriptors, covariate_definitions
     ),
-    predict_ranef = predict_ranef, fixed_only = fixed_only,
-    parameter_names = parameter_names
+    predict_ranef = predict_ranef,
+    fixed_only = fixed_only
   )
 
   ranef_names <- get_ranef_names(mixed_effects_set@predict_ranef)
@@ -93,3 +92,31 @@ MixedEffectsSet <- function(response_unit, covariate_units, parameter_names,
   mixed_effects_set@fixed_only <- fixed_only
   mixed_effects_set
 }
+
+setMethod("show", "MixedEffectsSet", function(object) {
+  variable_descriptions <- get_variable_descriptions(object)
+  variable_descriptions <- paste(variable_descriptions, collapse = "\n")
+
+  mod_call <- model_call(object)
+  n_models <- length(object@models)
+
+  header <- paste("MixedEffectsSet (", n_models, " models):", sep="")
+
+  cat(header, "\n", "\n")
+  cat(mod_call, "\n")
+
+  cat(variable_descriptions, "\n", "\n")
+
+  cat("Parameter Names:", "\n")
+  cat(paste(object@parameter_names, collapse = ", "), "\n", "\n")
+
+  cat("Random Effects Variables:", "\n")
+  ranef_vars <- names(as.list(args(object@predict_ranef)))
+  ranef_vars <- ranef_vars[-length(ranef_vars)]
+  ranef_vars_fmt <- paste(ranef_vars, collapse = ", ")
+  cat(ranef_vars_fmt, "\n", "\n")
+
+  cat("Model Specifications (head): ", "\n")
+
+  print(utils::head(specification(object)))
+})

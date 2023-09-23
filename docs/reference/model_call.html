@@ -19,7 +19,7 @@ order of the covariates given to the prediction function."><!-- mathjax --><scri
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">allometric</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.2.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.4.1</span>
       </span>
     </div>
 
@@ -76,13 +76,13 @@ order of the covariates given to the prediction function.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">model_call</span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">model_call</span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <dl><dt>model</dt>
-<dd><p>The allometric model for which a function call will be
+    <dl><dt>object</dt>
+<dd><p>The allometric model or set for which a function call will be
 retrieved</p></dd>
 
 </dl></div>
@@ -95,8 +95,7 @@ retrieved</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="select_model.html">select_model</a></span><span class="op">(</span><span class="va">allometric_models</span>, <span class="st">"f21028ef"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu">model_call</span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">model_call</span><span class="op">(</span><span class="va">brackett_rubra</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "vsia = f(dsob, hst)"</span>
 </code></pre></div>
     </div>

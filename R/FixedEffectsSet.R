@@ -1,4 +1,4 @@
-check_fixed_effects_set_validity <- function(object) {
+check_fixed_effects_set <- function(object) {
   errors <- c()
   errors <- c(errors, check_model_specifications_unique(object@model_specifications, object@parameter_names))
   errors <- c(errors, check_parameters_in_predict_fn(object))
@@ -7,11 +7,8 @@ check_fixed_effects_set_validity <- function(object) {
 
 
 .FixedEffectsSet <- setClass("FixedEffectsSet",
-  contains = "ModelSet",
-  slots = c(
-    parameter_names = "character"
-  ),
-  validity = check_fixed_effects_set_validity
+  contains = "ParametricSet",
+  validity = check_fixed_effects_set
 )
 
 #' Create a set of fixed effects models
@@ -21,7 +18,7 @@ check_fixed_effects_set_validity <- function(object) {
 #' many different species) using the same functional structure is a common
 #' pattern in allometric studies, and `FixedEffectsSet` facilitates the
 #' installation of these groups of models by allowing the user to specify the
-#' parameter estimates and descriptions in a dataframe or spreadsheet.
+#' parameter estimates and descriptions in a dataframe.
 #'
 #' @inheritParams FixedEffectsModel
 #' @param parameter_names
@@ -60,14 +57,13 @@ FixedEffectsSet <- function(response_unit, covariate_units, parameter_names,
   descriptors <- tibble::tibble(descriptors)
 
   fixed_effects_set <- .FixedEffectsSet(
-    ModelSet(
+    ParametricSet(
       response_unit, covariate_units, predict_fn, model_specifications,
-      descriptors, covariate_definitions
-    ),
-    parameter_names = parameter_names
+      parameter_names, descriptors, covariate_definitions
+    )
   )
 
-  model_descriptors <- names(model_specifications)[!names(model_specifications) %in% fixed_effects_set@parameter_names]
+  model_descriptors <- descriptors(fixed_effects_set)
 
   for (i in seq_len(nrow(model_specifications))) {
     model <- FixedEffectsModel(
@@ -85,3 +81,27 @@ FixedEffectsSet <- function(response_unit, covariate_units, parameter_names,
 
   fixed_effects_set
 }
+
+
+
+setMethod("show", "FixedEffectsSet", function(object) {
+  variable_descriptions <- get_variable_descriptions(object)
+  variable_descriptions <- paste(variable_descriptions, collapse = "\n")
+
+  mod_call <- model_call(object)
+  n_models <- length(object@models)
+
+  header <- paste("FixedEffectsSet (", n_models, " models):", sep="")
+
+  cat(header, "\n", "\n")
+  cat(mod_call, "\n")
+
+  cat(variable_descriptions, "\n", "\n")
+
+  cat("Parameter Names:", "\n")
+  cat(paste(object@parameter_names, collapse = ", "), "\n", "\n")
+
+  cat("Model Specifications (head): ", "\n")
+
+  print(utils::head(specification(object)))
+})

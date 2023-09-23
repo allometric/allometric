@@ -1,4 +1,4 @@
-measure,component,bark_modifier,height_modifier,description
+measure,component,modifier_1,modifier_2,description
 d,s,o,b,"diameter of the stem, outside bark at breast height"
 d,s,o,h,"diameter of the stem, outside bark at a specified height"
 d,s,i,h,"diameter of the stem, inside bark at a specified height"

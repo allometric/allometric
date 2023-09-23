@@ -2,13 +2,13 @@
 #' @importFrom rlang .data
 
 setGeneric(
-  "get_measure_label",
-  function(x) standardGeneric("get_measure_label")
+  "get_measure_name",
+  function(x) standardGeneric("get_measure_name")
 )
 
 setGeneric(
-  "get_component_label",
-  function(x) standardGeneric("get_component_label")
+  "get_component_name",
+  function(x) standardGeneric("get_component_name")
 )
 
 setGeneric("Cite", function(x) {
@@ -32,32 +32,20 @@ setGeneric("summary", function(publication) standardGeneric("summary"))
 #' @param model The allometric model used for prediction
 #' @param ... Additional arguments passed to the `predict_fn` of the input model
 #' @param output_units Optionally specify the output units of the model as a
-#' string, e.g., "ft^3"
+#' string, e.g., "ft^3". The provided string must be compatible with the
+#' `units::set_units()` function.
 #' @return A vector of allometric model predictions
 #' @rdname predict
 #' @export
 #' @examples
-#' model <- select_model(allometric_models, "f21028ef")
-#' predict(model, 10, 50)
-#' predict(model, 10, 50, output_units = "m^3")
+#' predict(brackett_rubra, 10, 50)
+#' predict(brackett_rubra, 10, 50, output_units = "m^3")
 setGeneric("predict", function(model, ...) standardGeneric("predict"),
   signature = "model"
 )
 
 setGeneric(
-  "rd_model_equation", function(set) standardGeneric("rd_model_equation")
-)
-
-setGeneric(
-  "rd_variable_defs", function(set) standardGeneric("rd_variable_defs")
-)
-
-setGeneric(
-  "rd_parameter_table", function(set) standardGeneric("rd_parameter_table")
-)
-
-setGeneric(
-  "specification", function(model) standardGeneric("specification")
+  "specification", function(object) standardGeneric("specification")
 )
 
 setGeneric(
@@ -71,26 +59,27 @@ setGeneric(
 #' species, geographic region, etc. This function returns this information for
 #' a given model.
 #'
-#' @param model The allometric model object
+#' @param object The allometric model or model set object
 #' @return A tibble:tbl_df of descriptors
 #' @keywords internal
-setGeneric("descriptors", function(model) standardGeneric("descriptors"))
+setGeneric("descriptors", function(object) standardGeneric("descriptors"))
 
 #' Set the descriptors of a model.
 #'
+#' @param object The allometric model or model set object
 #' @param value A tibble::tbl_df of descriptors
 #' @keywords internal
 setGeneric(
-  "descriptors<-", function(model, value) standardGeneric("descriptors<-")
+  "descriptors<-", function(object, value) standardGeneric("descriptors<-")
 )
 
-setGeneric("parameters", function(model) standardGeneric("parameters"))
+setGeneric("parameters", function(object) standardGeneric("parameters"))
 
-setGeneric("get_model_str", function(model) standardGeneric("get_model_str"))
+setGeneric("get_model_str", function(object) standardGeneric("get_model_str"))
 
 setGeneric(
   "get_variable_descriptions",
-  function(model) standardGeneric("get_variable_descriptions")
+  function(object) standardGeneric("get_variable_descriptions")
 )
 
 #' Add a set of models to a publication
@@ -130,14 +119,13 @@ setGeneric(
 #' covariates. Accessing the function call is important when determining the
 #' order of the covariates given to the prediction function.
 #'
-#' @param model The allometric model for which a function call will be
+#' @param object The allometric model or set for which a function call will be
 #' retrieved
 #' @return A string of the function call
 #' @export
 #' @examples
-#' model <- select_model(allometric_models, "f21028ef")
-#' model_call(model)
+#' model_call(brackett_rubra)
 setGeneric(
   "model_call",
-  function(model) standardGeneric("model_call")
+  function(object) standardGeneric("model_call")
 )
