@@ -18,7 +18,7 @@ Authors@R:
 Description: Access allometric models used in forest resource analysis, such as
     volume equations, taper equations, biomass models, among many others. Users
     are able to efficiently find and select allometric models suitable for their
-    project area and use them in analysis. Additionally, 'allometric'P provides a
+    project area and use them in analysis. Additionally, 'allometric' provides a
     structured framework for adding new models to an open-source models
     repository.
 License: MIT + file LICENSE
