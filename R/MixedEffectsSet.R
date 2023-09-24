@@ -15,7 +15,7 @@ check_fixed_effects_set_validity <- function(object) {
 
 #' Create a set of mixed effects models
 #'
-#' A `MixedEffectsSet` represents a group of fixed-effects models that all have
+#' A `MixedEffectsSet` represents a group of mixed-effects models that all have
 #' the same functional structure. Fitting a large family of models (e.g., for
 #' many different species) using the same functional structure is a common
 #' pattern in allometric studies, and `MixedEffectsSet` facilitates the
@@ -59,11 +59,12 @@ check_fixed_effects_set_validity <- function(object) {
 MixedEffectsSet <- function(response_unit, covariate_units, parameter_names,
                             predict_fn, model_specifications, predict_ranef,
                             fixed_only = FALSE, descriptors = list(),
+                            response_definition = NA_character_,
                             covariate_definitions = list()) {
   mixed_effects_set <- .MixedEffectsSet(
     ParametricSet(
       response_unit, covariate_units, predict_fn, model_specifications,
-      parameter_names, descriptors, covariate_definitions
+      parameter_names, descriptors, response_definition, covariate_definitions
     ),
     predict_ranef = predict_ranef,
     fixed_only = fixed_only
@@ -81,6 +82,7 @@ MixedEffectsSet <- function(response_unit, covariate_units, parameter_names,
       descriptors = model_specifications[i, mod_descriptors],
       predict_ranef = mixed_effects_set@predict_ranef,
       fixed_only = fixed_only,
+      response_definition =  response_definition,
       covariate_definitions = covariate_definitions
     )
 

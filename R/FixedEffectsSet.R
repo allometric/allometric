@@ -53,13 +53,14 @@ check_fixed_effects_set <- function(object) {
 FixedEffectsSet <- function(response_unit, covariate_units, parameter_names,
                             predict_fn, model_specifications,
                             descriptors = list(),
+                            response_definition = NA_character_,
                             covariate_definitions = list()) {
   descriptors <- tibble::tibble(descriptors)
 
   fixed_effects_set <- .FixedEffectsSet(
     ParametricSet(
       response_unit, covariate_units, predict_fn, model_specifications,
-      parameter_names, descriptors, covariate_definitions
+      parameter_names, descriptors, response_definition, covariate_definitions
     )
   )
 

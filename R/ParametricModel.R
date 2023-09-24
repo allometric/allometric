@@ -52,6 +52,7 @@ setMethod("parameters", "ParametricModel", function(object) {
 #' @keywords internal
 ParametricModel <- function(response_unit, covariate_units, predict_fn,
                             parameters, descriptors = list(),
+                            response_definition = NA_character_,
                             covariate_definitions = list()) {
   # Coerce to tbl_df
   parameters <- tibble::as_tibble( as.list(parameters) )
@@ -60,7 +61,7 @@ ParametricModel <- function(response_unit, covariate_units, predict_fn,
   parametric_model <- .ParametricModel(
     AllometricModel(
       response_unit, covariate_units, predict_fn, descriptors,
-      covariate_definitions
+      response_definition, covariate_definitions
     ),
     parameters = parameters,
     specification = tibble::tibble()

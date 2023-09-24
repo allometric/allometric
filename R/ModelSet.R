@@ -15,6 +15,7 @@ check_model_set_validity <- function(object) {
     descriptors = "tbl_df",
     pub_descriptors = "tbl_df",
     models = "list",
+    response_definition = "character",
     covariate_definitions = "list"
   ),
   validity = check_model_set_validity
@@ -29,7 +30,9 @@ check_model_set_validity <- function(object) {
 #' @export
 #' @keywords internal
 ModelSet <- function(response_unit, covariate_units, predict_fn,
-                     descriptors = list(), covariate_definitions = list()) {
+                     descriptors = list(),
+                     response_definition = NA_character_,
+                     covariate_definitions = list()) {
   descriptors <- tibble::as_tibble(descriptors)
 
   model_set <- .ModelSet(
@@ -38,6 +41,7 @@ ModelSet <- function(response_unit, covariate_units, predict_fn,
     predict_fn = predict_fn,
     descriptors = descriptors,
     pub_descriptors = tibble::tibble(),
+    response_definition = response_definition,
     covariate_definitions = covariate_definitions
   )
 

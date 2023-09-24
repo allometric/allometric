@@ -11,6 +11,7 @@ FixedEffectsSet(
   predict_fn,
   model_specifications,
   descriptors = list(),
+  response_definition = NA_character_,
   covariate_definitions = list()
 )
 }
@@ -37,8 +38,12 @@ using the \code{load_parameter_frame()} function.}
 \item{descriptors}{An optional named list of descriptors that describe the context of the
 allometric model}
 
+\item{response_definition}{A string containing an optional custom response definition, which is used
+instead of the description given by the variable naming system.}
+
 \item{covariate_definitions}{An optional named list of custom covariate definitions that will supersede
-the definitions given by the variable naming system.}
+the definitions given by the variable naming system. The names of the list
+must match the covariate names given in \code{covariate_units}.}
 }
 \value{
 A set of fixed effects models

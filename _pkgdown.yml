@@ -37,3 +37,6 @@ reference:
   - fia_trees
   - brackett_acer
   - brackett_rubra
+- title: Package Summary
+  contents:
+  - allometric-package

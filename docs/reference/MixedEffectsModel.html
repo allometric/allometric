@@ -82,6 +82,7 @@ random effects.</p>
 <span>  <span class="va">parameters</span>,</span>
 <span>  fixed_only <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  descriptors <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  response_definition <span class="op">=</span> <span class="cn">NA_character_</span>,</span>
 <span>  covariate_definitions <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -125,9 +126,15 @@ information to predict the random effects.</p></dd>
 allometric model</p></dd>
 
 
+<dt>response_definition</dt>
+<dd><p>A string containing an optional custom response definition, which is used
+instead of the description given by the variable naming system.</p></dd>
+
+
 <dt>covariate_definitions</dt>
 <dd><p>An optional named list of custom covariate definitions that will supersede
-the definitions given by the variable naming system.</p></dd>
+the definitions given by the variable naming system. The names of the list
+must match the covariate names given in <code>covariate_units</code>.</p></dd>
 
 </dl></div>
     <div id="value">
@@ -202,13 +209,13 @@ using only fixed effects</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Parameter Estimates: </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 3</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 x 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   beta_0  beta_1 beta_2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span>   40.4 -<span style="color: #BB0000;">0.027</span><span style="color: #BB0000; text-decoration: underline;">6</span>  0.936</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Model Descriptors: </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 0</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 x 0</span></span>
 </code></pre></div>
     </div>
   </div>
