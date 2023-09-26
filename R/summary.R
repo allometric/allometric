@@ -14,15 +14,6 @@
   model_str
 }
 
-parse_unit_str <- function(variable) {
-  variable_name <- names(variable)[[1]]
-
-
-  unit_str <- parse_unit_str(variable[[variable_name]])
-
-  unit_str
-}
-
 .get_response_description <- function(response, response_description) {
   variable_name <- names(response)[[1]]
 

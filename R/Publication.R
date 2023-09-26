@@ -117,6 +117,7 @@ setMethod(
       model_set@models[[i]]@pub_descriptors <- publication@descriptors
       model_set@models[[i]]@set_descriptors <- model_set@descriptors
       model_set@models[[i]]@citation <- publication@citation
+      model_set@models[[i]]@pub_id <- publication@id
 
       # FIXME if any tibble is empty this will be empty
       model_set@models[[i]]@specification <- bind2(

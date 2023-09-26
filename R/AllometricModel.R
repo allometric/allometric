@@ -25,7 +25,8 @@ model_types_defined <- utils::read.csv(
     citation = "BibEntry",
     response_definition = "character",
     covariate_definitions = "list",
-    model_type = "character"
+    model_type = "character",
+    pub_id = "character"
   ),
   validity = check_allometric_model_validity
 )
@@ -83,7 +84,8 @@ AllometricModel <- function(response_unit, covariate_units, predict_fn,
     ),
     response_definition = response_definition,
     covariate_definitions = covariate_definitions,
-    model_type = model_type
+    model_type = model_type,
+    pub_id = NA_character_
   )
 
   allometric_model

@@ -146,6 +146,7 @@ prepare_model <- function(model) {
 
   list(
     model_id = jsonlite::unbox(model_id),
+    pub_id = jsonlite::unbox(model@pub_id),
     model_type = jsonlite::unbox(get_model_type(names(model@response_unit))[[1]]),
     response = prepare_variables(model@response_unit)[[1]],
     covariates = unbox_nested(prepare_variables(model@covariate_units)),

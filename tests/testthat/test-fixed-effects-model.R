@@ -74,8 +74,6 @@ unitless_model <- FixedEffectsModel(
   }
 )
 
-
-
 test_that("Model specified with units::unitless returns correct covariate formatting", {
   match_str <- "dsob []: diameter of the stem, outside bark at breast height"
   expect_equal(match_str, .get_variable_descriptions_fmt(unitless_model)[[2]])
