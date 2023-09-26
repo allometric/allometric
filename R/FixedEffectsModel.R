@@ -116,3 +116,8 @@ setMethod("show", "FixedEffectsModel", function(object) {
   cat("Model Descriptors:", "\n")
   print(descriptors(object))
 })
+
+setMethod("toJSON", "FixedEffectsModel", function(object) {
+  json_list <- prepare_model(object)
+  jsonlite::toJSON(json_list, pretty = T)
+})
