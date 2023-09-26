@@ -136,19 +136,16 @@ parse_func_body <- function(func_body) {
   body_characters
 }
 
-prepare_model <- function(model, pub) {
+prepare_model <- function(model) {
   proxy_id <- get_model_hash(
     model@predict_fn_populated, descriptors(model)
   )
 
   model_id <- substr(proxy_id, 1, 8)
   model_descriptors <- descriptors(model)
-  inline_citation <- prepare_inline_citation(pub@citation)
 
   list(
     model_id = jsonlite::unbox(model_id),
-    pub_id = jsonlite::unbox(pub@id),
-    inline_citation = jsonlite::unbox(inline_citation),
     model_type = jsonlite::unbox(get_model_type(names(model@response_unit))[[1]]),
     response = prepare_variables(model@response_unit)[[1]],
     covariates = unbox_nested(prepare_variables(model@covariate_units)),

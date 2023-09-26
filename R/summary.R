@@ -26,7 +26,7 @@ parse_unit_str <- function(variable) {
 .get_response_description <- function(response, response_description) {
   variable_name <- names(response)[[1]]
 
-  unit_str <- parse_unit_str(response)
+  unit_str <- parse_unit_str(response[[1]])
   unit_str <- paste("[", unit_str, "]", sep = "")
 
   if(!is.na(response_description)) {
@@ -49,7 +49,7 @@ parse_unit_str <- function(variable) {
 .get_covariate_description <- function(covariate, covariate_descriptions) {
   variable_name <- names(covariate)[[1]]
 
-  unit_str <- parse_unit_str(covariate)
+  unit_str <- parse_unit_str(covariate[[1]])
   unit_str <- paste("[", unit_str, "]", sep = "")
 
   if (variable_name %in% names(covariate_descriptions)) {
