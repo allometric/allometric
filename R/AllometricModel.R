@@ -23,6 +23,7 @@ model_types_defined <- utils::read.csv(
     set_descriptors = "tbl_df",
     pub_descriptors = "tbl_df",
     citation = "BibEntry",
+    response_definition = "character",
     covariate_definitions = "list",
     model_type = "character"
   ),
@@ -44,23 +45,25 @@ model_types_defined <- utils::read.csv(
 #'    the coavariate using the `units::as_units` function
 #' @param descriptors
 #'    An optional list of descriptors that are specified at the model-level
-#' @param covariate_definitions
-#'    A named list of covariate definitions that
-#'    are used instead of the descriptions given by the variable naming system
 #' @param predict_fn
 #'    A function that takes the covariate names as arguments and returns a
 #'    prediction of the response variable. This function should be vectorized.
 #' @param descriptors
 #'    An optional named list of descriptors that describe the context of the
 #'    allometric model
+#' @param response_definition
+#'    A string containing an optional custom response definition, which is used
+#'    instead of the description given by the variable naming system.
 #' @param covariate_definitions
 #'    An optional named list of custom covariate definitions that will supersede
-#'    the definitions given by the variable naming system.
+#'    the definitions given by the variable naming system. The names of the list
+#'    must match the covariate names given in `covariate_units`.
 #' @return An instance of an AllometricModel
 #' @export
 #' @keywords internal
 AllometricModel <- function(response_unit, covariate_units, predict_fn,
                             descriptors = list(),
+                            response_definition = NA_character_,
                             covariate_definitions = list()) {
   # Coerce to tibble
   descriptors <- tibble::as_tibble(descriptors)
@@ -78,6 +81,7 @@ AllometricModel <- function(response_unit, covariate_units, predict_fn,
     citation = RefManageR::BibEntry(
       bibtype = "misc", title = "", author = "", year = 0
     ),
+    response_definition = response_definition,
     covariate_definitions = covariate_definitions,
     model_type = model_type
   )

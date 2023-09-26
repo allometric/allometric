@@ -34,10 +34,11 @@
 #' @export
 FixedEffectsModel <- function(response_unit, covariate_units, predict_fn,
                               parameters, descriptors = list(),
+                              response_definition = NA_character_,
                               covariate_definitions = list()) {
   fixed_effects_model <- .FixedEffectsModel(ParametricModel(
     response_unit, covariate_units, predict_fn, parameters, descriptors,
-    covariate_definitions
+    response_definition, covariate_definitions
   ))
 
   fixed_effects_model
@@ -78,6 +79,7 @@ setMethod("init_set_of_one", signature(model = "FixedEffectsModel"), function(mo
     parameter_names = names(model@parameters),
     predict_fn = model@predict_fn,
     model_specifications = model@specification,
+    response_definition = model@response_definition,
     covariate_definitions = model@covariate_definitions
   )
 })
