@@ -64,7 +64,7 @@ Collate:
     'FixedEffectsModel.R'
     'MixedEffectsModel.R'
     'Publication.R'
-    'update_models.R'
+    'publication_processing.R'
     'json.R'
     'zzz.R'
 Suggests: 
