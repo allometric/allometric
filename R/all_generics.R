@@ -137,11 +137,12 @@ setGeneric(
 #' hosted MongoDatabase.
 #'
 #' @param object An allometric model or publication
+#' @param ... Additional arguments passed to jsonlite::toJSON
 #' @return A string containing the JSON representation of the object
 #' @export
 #' @examples
 #' toJSON(brackett_rubra)
 setGeneric(
   "toJSON",
-  function(object) standardGeneric("toJSON")
+  function(object, ...) standardGeneric("toJSON")
 )

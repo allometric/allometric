@@ -119,7 +119,7 @@ setMethod("show", "FixedEffectsModel", function(object) {
   print(descriptors(object))
 })
 
-setMethod("toJSON", "FixedEffectsModel", function(object) {
+setMethod("toJSON", "FixedEffectsModel", function(object, ...) {
   json_list <- prepare_model(object)
-  jsonlite::toJSON(json_list, pretty = T)
+  jsonlite::toJSON(json_list, ...)
 })
