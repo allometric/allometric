@@ -92,7 +92,7 @@ mixef_fromJSON <- function(parsed_json) {
     parameters = parameters_to_S4(parsed_json$parameters),
     predict_fn = predict_fn_to_S4(parsed_json$predict_fn_body, parsed_json$covariates),
     descriptors = descriptors_to_S4(parsed_json$descriptors),
-    response_definition = res_def_to_S4(parsed_json$response_definition),
+    response_definition = parsed_json$response_definition,
     covariate_definitions = covt_defs_to_S4(parsed_json$covariate_definitions)
   )
 }

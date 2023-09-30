@@ -1,6 +1,6 @@
 # Functions used to convert models and publications to JSON
 
-prepare_authors <- function(authors) {
+authors_to_json <- function(authors) {
   out <- list()
 
   for(i in seq_along(authors)) {
@@ -15,10 +15,10 @@ prepare_authors <- function(authors) {
   out
 }
 
-prepare_citation <- function(citation) {
+citation_to_json <- function(citation) {
   # Prepare output list with required fields
   unclassed_citation <- attributes(unclass(citation)[[1]])
-  prepared_authors <- prepare_authors(citation$author)
+  prepared_authors <- authors_to_json(citation$author)
 
   optional <- c(
     "institution", "publisher", "journal", "volume", "number", "pages",
@@ -45,7 +45,7 @@ prepare_citation <- function(citation) {
   required
 }
 
-prepare_variables <- function(variables) {
+variables_to_json <- function(variables) {
   variable_names <- names(variables)
   out <- list()
 
@@ -76,7 +76,7 @@ unbox_nonnested <- function(object) {
   object
 }
 
-prepare_descriptors <- function(descriptors) {
+descriptors_to_json <- function(descriptors) {
   descriptors_list <- as.list(descriptors)
 
   for(i in 1:length(descriptors_list)) {
@@ -138,7 +138,7 @@ parse_func_body <- function(func_body) {
   body_characters
 }
 
-prepare_covariate_definitions <- function(covt_def_data) {
+covariate_definitions_to_json <- function(covt_def_data) {
   if(length(covt_def_data) == 0) {
     return(list())
   } else {
@@ -175,9 +175,9 @@ model_to_json <- function(model) {
     pub_id = jsonlite::unbox(model@pub_id),
     model_type = jsonlite::unbox(get_model_type(names(model@response_unit))[[1]]),
     model_class = jsonlite::unbox(model_class),
-    response = unbox_nested(prepare_variables(model@response_unit))[[1]],
-    covariates = unbox_nested(prepare_variables(model@covariate_units)),
-    descriptors = prepare_descriptors(model_descriptors),
+    response = unbox_nested(variables_to_json(model@response_unit))[[1]],
+    covariates = unbox_nested(variables_to_json(model@covariate_units)),
+    descriptors = descriptors_to_json(model_descriptors),
     parameters = unbox_nonnested(as.list(model@parameters)),
     predict_fn_body = parse_func_body(model@predict_fn)
   )
@@ -187,14 +187,14 @@ model_to_json <- function(model) {
   }
 
   if(!length(model@covariate_definitions) == 0) {
-    required[["covariate_definitions"]] <- prepare_covariate_definitions(model@covariate_definitions)
+    required[["covariate_definitions"]] <- covariate_definitions_to_json(model@covariate_definitions)
   }
 
   required
 }
 
-prepare_publication <- function(publication) {
-  prepared_citation <- prepare_citation(publication@citation)
+publication_to_json <- function(publication) {
+  citation_json <- citation_to_json(publication@citation)
   models <- list()
 
 
@@ -207,7 +207,7 @@ prepare_publication <- function(publication) {
       for(k in 1:length(model_set_ij@models)) {
         model_ijk <- model_set_ij@models[[k]]
 
-        models[[l]] <- prepare_model(model_ijk, publication)
+        models[[l]] <- model_to_json(model_ijk, publication)
 
         l <- l + 1
       }
@@ -219,7 +219,7 @@ prepare_publication <- function(publication) {
   list(
     pub = list(
       "_id" = jsonlite::unbox(publication@id),
-      citation = prepared_citation,
+      citation = citation_json,
       pub_descriptors = ifelse(nrow(publication@descriptors) == 0, list(), as.list(publication@descriptors))
     ),
     models = models

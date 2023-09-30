@@ -12,13 +12,19 @@
 allometric models. Thousands of allometric models exist in the
 scientific and technical forestry literature, and `allometric` is a
 platform for archiving and using this vast array of models in a robust
-and structured format.
+and structured format. Get started by going to the
+[Installtion](#installation) section or the [documentation
+website](https://allometric.github.io/allometric/).
 
 `allometric` also provides a structured language for adding models to
 the package. If you are interested in helping the developer in this
 process please refer to the [Contributing a
 Model](https://allometric.github.io/allometric/articles/installing_a_model.html)
 vignette.
+
+In total **`allometric` contains 2099 models across 60 publications**,
+refer to the [Current Status](#current-status) for a more complete view
+of available models.
 
 ## Installation
 
@@ -184,9 +190,7 @@ for more complex examples.
 
 ## Current Status
 
-In total **`allometric` contains 2099 models across 60 publications**,
-the following table displays the number of models by continent and
-category:
+In total **`allometric` contains 2099 models across 60 publications**.
 
 | category                |  AS |  EU |  NA |  AF |  OC |  SA |
 |:------------------------|----:|----:|----:|----:|----:|----:|

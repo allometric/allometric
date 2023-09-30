@@ -65,7 +65,8 @@ Collate:
     'MixedEffectsModel.R'
     'Publication.R'
     'publication_processing.R'
-    'json.R'
+    'toJSON.R'
+    'fromJSON.R'
     'zzz.R'
 Suggests: 
     testthat (>= 3.0.0),
