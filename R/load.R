@@ -26,7 +26,7 @@ load_parameter_frame <- function(name) {
 #' Load a locally installed table of allometric models
 #'
 #' This function loads all locally installed allometric models if they are
-#' downloaded and installed, if not run the `install_models` function. The 
+#' downloaded and installed, if not run the `install_models` function. The
 #' result is of class `model_tbl`, which behaves very much like a
 #' `tibble::tbl_df` or a `data.frame`.
 #'
@@ -52,36 +52,22 @@ load_parameter_frame <- function(name) {
 #' * `covt_name` - The names of the covariates used in the model.
 #' * `pub_year` - The publication year.
 #'
-#' # Basic Searching for Models
+#' # Searching for Models
 #'
-#' Filtering out nested data from a table is slightly more involved than
-#' strictly tabular data. Fortunately the `unnest_models` function allows the
-#' user to unnest any set of columns. For example, let's say we wanted to find
-#' a model from the author `"Hann"`. To do this, we will unnest the
-#' `family_name` column using `unnest_models`, then filter the resulting
-#' dataframe using `dplyr::filter`.
-#'
-#' ```{r}
-#' unnest_family <- allometric_models %>% unnest_models('family_name')
-#'
-#' unnest_family %>% dplyr::filter(family_name == "Hann")
-#' ```
-#'
-#' Any column or any combination of columns can be unnested, which allows for
-#' basic filtering of models using `dplyr::filter`.
-#'
-#' # Advanced Searching for Models
-#'
-#' Nested data can be searched directly without the use of `unnest_models`.
-#' This requires the use of `purrr::map_lgl` which is used to determine
-#' truthiness of expressions for each element in a `list` column.
-#' Before beginning, it is helpful to know that `purrr::map_lgl` returns a list
-#' of TRUE/FALSE values as it "maps" over a list of input.
+#' Models can be searched by their attirbutes. Note that some of the columns
+#' are `list` columns, which contain lists as their elements. Filtering on
+#' data in these columns requires the use of `purrr::map_lgl` which is used to
+#' determine truthiness of expressions for each element in a `list` column.
+#' While this may seem complicated, we believe the nested data structures are
+#' more descriptive and concise for storing the models, and users will quickly
+#' find that searching models in this way can be very powerful.
 #'
 #' ## Finding Contributing Authors
 #'
-#' Using this function, we can recreate the previous example, finding models
-#' that had `'Hann'` as a contributing author.
+#' Using `purr::map_lgl` to filter the `family_name` column, we are able to
+#' find publications that contain specific authors of interst. For example, we
+#' may want models only authored by `"Hann"`. This is elementary to do in
+#' `allometric`:
 #'
 #' ```{r}
 #' hann_models <- dplyr::filter(
