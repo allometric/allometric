@@ -1,3 +1,5 @@
+# Functions used to convert models and publications to JSON
+
 prepare_authors <- function(authors) {
   out <- list()
 
@@ -136,26 +138,59 @@ parse_func_body <- function(func_body) {
   body_characters
 }
 
-prepare_model <- function(model) {
+prepare_covariate_definitions <- function(covt_def_data) {
+  if(length(covt_def_data) == 0) {
+    return(list())
+  } else {
+
+    variable_names <- names(covt_def_data)
+    out <- list()
+
+    for(i in 1:length(covt_def_data)) {
+      out[[i]] <- list(
+        name = variable_names[[i]],
+        definition = covt_def_data[[i]]
+      )
+    }
+
+    return(unbox_nested(out))
+  }
+}
+
+model_to_json <- function(model) {
   proxy_id <- get_model_hash(
     model@predict_fn_populated, descriptors(model)
   )
 
   model_id <- substr(proxy_id, 1, 8)
   model_descriptors <- descriptors(model)
+  model_class <- as.character(class(model))
 
-  list(
+  response_definition <- ifelse(
+    is.na(model@response_definition), "", model@response_definition
+  )
+
+  required <- list(
     model_id = jsonlite::unbox(model_id),
     pub_id = jsonlite::unbox(model@pub_id),
     model_type = jsonlite::unbox(get_model_type(names(model@response_unit))[[1]]),
+    model_class = jsonlite::unbox(model_class),
     response = unbox_nested(prepare_variables(model@response_unit))[[1]],
     covariates = unbox_nested(prepare_variables(model@covariate_units)),
     descriptors = prepare_descriptors(model_descriptors),
     parameters = unbox_nonnested(as.list(model@parameters)),
-    model_call = jsonlite::unbox(model_call(model)),
-    predict_fn_body = parse_func_body(model@predict_fn),
-    predict_fn_populated_body = parse_func_body(model@predict_fn_populated)
+    predict_fn_body = parse_func_body(model@predict_fn)
   )
+
+  if(!is.na(model@response_definition)) {
+    required[["response_definition"]] <- jsonlite::unbox(response_definition)
+  }
+
+  if(!length(model@covariate_definitions) == 0) {
+    required[["covariate_definitions"]] <- prepare_covariate_definitions(model@covariate_definitions)
+  }
+
+  required
 }
 
 prepare_publication <- function(publication) {
@@ -188,72 +223,5 @@ prepare_publication <- function(publication) {
       pub_descriptors = ifelse(nrow(publication@descriptors) == 0, list(), as.list(publication@descriptors))
     ),
     models = models
-  )
-}
-
-predict_fn_to_S4 <- function(predict_fn_data) {
-  browser()
-}
-
-response_to_S4 <- function(response_data) {
-  response_unit <- list()
-  response_unit[[response_data$name]] <- units::as_units(response_data$unit)
-
-  response_unit
-}
-
-covariates_to_S4 <- function(covariates_data) {
-  covariate_units <- list()
-
-  for(i in 1:nrow(covariates_data)) {
-    covariate_units[[covariates_data$name[[i]]]] <- units::as_units(covariates_data$unit[[i]])
-  }
-
-  covariate_units
-}
-
-parameters_to_S4 <- function(parameters_data) {
-  parameters <- list()
-
-  for(i in 1:length(parameters_data)) {
-    parameters[[names(parameters_data)[[i]]]] <- parameters_data[[i]]
-  }
-
-  parameters
-}
-
-predict_fn_to_S4 <- function(predict_fn_data, covariates_data) {
-  func_args <- paste(covariates_data$name, collapse = ",")
-
-  base_func_str <- paste(
-    "function(", func_args, ") {}", sep = ""
-  )
-
-  func <- eval(parse(text = base_func_str))
-
-  # TODO would be nice to preserve the linebreaks
-  body(func) <- parse(text = paste(" {",paste(predict_fn_data, collapse = ";") , "}") )
-
-  func
-}
-
-descriptors_to_S4 <- function(descriptors_data) {
-  list_colnames <- c("country", "region")
-  descriptors_data[c(list_colnames)] <- listify(descriptors_data[c(list_colnames)])
-  
-  tibble::as_tibble(descriptors_data)
-}
-
-
-fromJSON <- function(json_data) {
-  list_data <- jsonlite::fromJSON(json_data)
-
-  # TODO add response & covariate definitions
-  FixedEffectsModel(
-    response_unit = response_to_S4(list_data$response),
-    covariate_units = covariates_to_S4(list_data$covariates),
-    parameters = parameters_to_S4(list_data$parameters),
-    predict_fn = predict_fn_to_S4(list_data$predict_fn_body, list_data$covariates),
-    descriptors = descriptors_to_S4(list_data$descriptors)
   )
 }

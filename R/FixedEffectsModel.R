@@ -120,6 +120,6 @@ setMethod("show", "FixedEffectsModel", function(object) {
 })
 
 setMethod("toJSON", "FixedEffectsModel", function(object, ...) {
-  json_list <- prepare_model(object)
+  json_list <- model_to_json(object)
   jsonlite::toJSON(json_list, ...)
 })

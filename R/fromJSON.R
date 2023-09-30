@@ -1,0 +1,114 @@
+# Functions used to convert models and publications to S4 objects from JSON
+
+response_to_S4 <- function(response_data) {
+  response_unit <- list()
+  response_unit[[response_data$name]] <- units::as_units(response_data$unit)
+
+  response_unit
+}
+
+covariates_to_S4 <- function(covariates_data) {
+  covariate_units <- list()
+
+  for(i in 1:nrow(covariates_data)) {
+    covariate_units[[covariates_data$name[[i]]]] <- units::as_units(covariates_data$unit[[i]])
+  }
+
+  covariate_units
+}
+
+parameters_to_S4 <- function(parameters_data) {
+  parameters <- list()
+
+  for(i in 1:length(parameters_data)) {
+    parameters[[names(parameters_data)[[i]]]] <- parameters_data[[i]]
+  }
+
+  parameters
+}
+
+predict_fn_to_S4 <- function(predict_fn_data, covariates_data) {
+  func_args <- paste(covariates_data$name, collapse = ",")
+
+  base_func_str <- paste(
+    "function(", func_args, ") {}", sep = ""
+  )
+
+  func <- eval(parse(text = base_func_str))
+
+  # TODO would be nice to preserve the linebreaks
+  body(func) <- parse(text = paste(" {",paste(predict_fn_data, collapse = ";") , "}") )
+
+  func
+}
+
+descriptors_to_S4 <- function(descriptors_data) {
+  list_colnames <- c("country", "region")
+  descriptors_data[c(list_colnames)] <- listify(descriptors_data[c(list_colnames)])
+  
+  tibble::as_tibble(descriptors_data)
+}
+
+covt_defs_to_S4 <- function(covt_defs_data) {
+  covt_defs <- list()
+
+  for(i in 1:nrow(covt_defs_data)) {
+    covt_defs[[covt_defs_data$name[[i]]]] <- covt_defs_data$definition
+  }
+
+  covt_defs
+}
+
+
+fixef_fromJSON <- function(parsed_json) {
+  if(!is.null(parsed_json$response_definition)) {
+    response_definition <- parsed_json$response_definition
+  } else {
+    response_definition <- NA_character_
+  }
+
+  if(!is.null(parsed_json$covariate_definitions)) {
+    covariate_definitions <- covt_defs_to_S4(parsed_json$covariate_definitions)
+  } else {
+    covariate_definitions <- list()
+  }
+
+  FixedEffectsModel(
+    response_unit = response_to_S4(parsed_json$response),
+    covariate_units = covariates_to_S4(parsed_json$covariates),
+    parameters = parameters_to_S4(parsed_json$parameters),
+    predict_fn = predict_fn_to_S4(parsed_json$predict_fn_body, parsed_json$covariates),
+    descriptors = descriptors_to_S4(parsed_json$descriptors),
+    response_definition = response_definition,
+    covariate_definitions = covariate_definitions
+  )
+}
+
+mixef_fromJSON <- function(parsed_json) {
+  # TODO add response & covariate definitions
+  MixedEffectsModel(
+    response_unit = response_to_S4(parsed_json$response),
+    covariate_units = covariates_to_S4(parsed_json$covariates),
+    parameters = parameters_to_S4(parsed_json$parameters),
+    predict_fn = predict_fn_to_S4(parsed_json$predict_fn_body, parsed_json$covariates),
+    descriptors = descriptors_to_S4(parsed_json$descriptors),
+    response_definition = res_def_to_S4(parsed_json$response_definition),
+    covariate_definitions = covt_defs_to_S4(parsed_json$covariate_definitions)
+  )
+}
+
+fromJSON <- function(json_data) {
+  parsed_json <- jsonlite::fromJSON(json_data)
+
+  model_class <- parsed_json$model_class
+
+  if(model_class == "FixedEffectsModel") {
+    s4 <- fixef_fromJSON(parsed_json)
+  } else if(model_class == "MixedEffectsModel") {
+    s4 <- mixef_fromJSON(parsed_json)
+  } else {
+    stop("Invalid model_class when parsing from JSON.")
+  }
+
+  s4
+}
