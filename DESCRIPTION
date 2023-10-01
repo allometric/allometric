@@ -55,6 +55,7 @@ Collate:
     'util.R'
     'variable_defs.R'
     'load.R'
+    'eq.R'
     'AllometricModel.R'
     'ModelSet.R'
     'ParametricSet.R'
@@ -65,7 +66,6 @@ Collate:
     'MixedEffectsModel.R'
     'Publication.R'
     'ingest_models.R'
-    'eq.R'
     'zzz.R'
 Suggests: 
     testthat (>= 3.0.0),
