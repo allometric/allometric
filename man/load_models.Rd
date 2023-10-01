@@ -48,47 +48,20 @@ that are modeled.
 \item \code{pub_year} - The publication year.
 }
 }
-\section{Basic Searching for Models}{
-Filtering out nested data from a table is slightly more involved than
-strictly tabular data. Fortunately the \code{unnest_models} function allows the
-user to unnest any set of columns. For example, let's say we wanted to find
-a model from the author \code{"Hann"}. To do this, we will unnest the
-\code{family_name} column using \code{unnest_models}, then filter the resulting
-dataframe using \code{dplyr::filter}.
-
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{unnest_family <- allometric_models \%>\% unnest_models('family_name')
-
-unnest_family \%>\% dplyr::filter(family_name == "Hann")
-#> # A tibble: 87 x 12
-#>    id       model_type     country   region    family       genus      species   model      pub_id        family_name covt_name pub_year
-#>    <chr>    <chr>          <list>    <list>    <chr>        <chr>      <chr>     <list>     <chr>         <chr>       <list>       <dbl>
-#>  1 20332bd3 crown diameter <chr [1]> <chr [1]> Betulaceae   Alnus      rubra     <FxdEffcM> hann_1997     Hann        <chr [4]>     1997
-#>  2 c6a30071 crown diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus decurrens <FxdEffcM> hann_1997     Hann        <chr [4]>     1997
-#>  3 26f5c147 stem diameter  <chr [1]> <chr [1]> Cupressaceae Calocedrus decurrens <FxdEffcM> larsen_1985   Hann        <chr [1]>     1985
-#>  4 0762ba42 crown ratio    <chr [1]> <chr [1]> Cupressaceae Calocedrus decurrens <FxdEffcM> ritche_1987   Hann        <chr [4]>     1987
-#>  5 aa38254f stem height    <chr [1]> <chr [1]> Cupressaceae Calocedrus decurrens <FxdEffcM> temesgen_2007 Hann        <chr [1]>     2007
-#>  6 e0873944 stem diameter  <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>      <FxdEffcM> hann_2011     Hann        <chr [2]>     2011
-#>  7 71131513 stump diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>      <FxdEffcM> hann_2011     Hann        <chr [2]>     2011
-#>  8 4ed0b955 stem volume    <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>      <FxdEffcM> hann_2011     Hann        <chr [3]>     2011
-#>  9 bfdfc523 crown diameter <chr [1]> <chr [1]> Ericaceae    Arbutus    menziesii <FxdEffcM> hann_1997     Hann        <chr [4]>     1997
-#> 10 7433cb66 crown ratio    <chr [1]> <chr [1]> Ericaceae    Arbutus    menziesii <FxdEffcM> ritche_1987   Hann        <chr [3]>     1987
-#> # i 77 more rows
-}\if{html}{\out{</div>}}
-
-Any column or any combination of columns can be unnested, which allows for
-basic filtering of models using \code{dplyr::filter}.
-}
-
-\section{Advanced Searching for Models}{
-Nested data can be searched directly without the use of \code{unnest_models}.
-This requires the use of \code{purrr::map_lgl} which is used to determine
-truthiness of expressions for each element in a \code{list} column.
-Before beginning, it is helpful to know that \code{purrr::map_lgl} returns a list
-of TRUE/FALSE values as it "maps" over a list of input.
+\section{Searching for Models}{
+Models can be searched by their attirbutes. Note that some of the columns
+are \code{list} columns, which contain lists as their elements. Filtering on
+data in these columns requires the use of \code{purrr::map_lgl} which is used to
+determine truthiness of expressions for each element in a \code{list} column.
+While this may seem complicated, we believe the nested data structures are
+more descriptive and concise for storing the models, and users will quickly
+find that searching models in this way can be very powerful.
 \subsection{Finding Contributing Authors}{
 
-Using this function, we can recreate the previous example, finding models
-that had \code{'Hann'} as a contributing author.
+Using \code{purr::map_lgl} to filter the \code{family_name} column, we are able to
+find publications that contain specific authors of interst. For example, we
+may want models only authored by \code{"Hann"}. This is elementary to do in
+\code{allometric}:
 
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{hann_models <- dplyr::filter(
  allometric_models,

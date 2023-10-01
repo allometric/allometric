@@ -81,22 +81,6 @@ test_that("select_model returns model", {
   expect_s4_class(mod_id, "FixedEffectsModel")
 })
 
-test_that("unnest_cross unnests all columns", {
-  test_tbl <- tibble::tibble(
-    a = list(c(1), c(1,2)),
-    b = list(c(1), c(1,2))
-  )
-
-  unnested <- unnest_cross(test_tbl, c('a', 'b'))
-
-  expect_equal(nrow(unnested), 5)
-})
-
-test_that("unnest models returns a model_tbl", {
-  unnested <- unnest_models(model_tbl_good, 'country')
-  expect_s3_class(unnested, "model_tbl")
-})
-
 test_that("predict_allo produces predictions", {
   test_model_tbl <- new_model_tbl(
     tibble::tibble(models = c(fixed_effects_model), dsob = 1))
