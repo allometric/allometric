@@ -65,6 +65,7 @@ Collate:
     'MixedEffectsModel.R'
     'Publication.R'
     'ingest_models.R'
+    'eq.R'
     'zzz.R'
 Suggests: 
     testthat (>= 3.0.0),

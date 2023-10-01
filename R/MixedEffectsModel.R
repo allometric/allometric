@@ -175,3 +175,46 @@ setMethod("show", "MixedEffectsModel", function(object) {
   cat("Model Descriptors:", "\n")
   print(descriptors(object))
 })
+
+
+#' Check equivalence of mixed effects models
+#'
+#' Fixed effects models are considered equal if all of the following are true:
+#' \itemize{
+#'  \item{The model IDs are equal (or not present)}
+#'  \item{The response unit names and units are the same}
+#'  \item{The covariate names and units are the same and are in the same order}
+#'  \item{The specification names and values are the same}
+#'  \item{The predict_fn are the same}
+#'  \item{The predict_ranef are the same}
+#'  \item{The fixed_only slots are the same}
+#'  \item{The response definitions are the same}
+#'  \item{The covariate definitions are the same}
+#' }
+#'
+#' @param e1 A `MixedEffectsModel` object
+#' @param e2 A `MixedEffectsModel` object
+setMethod("==", signature(e1 = "MixedEffectsModel", e2 = "MixedEffectsModel"),
+  function(e1, e2) {
+  ids_equal <- check_ids_equal(e1, e2)
+  response_equal <- check_response_equal(e1, e2)
+  covariates_equal <- check_covariates_equal(e1, e2)
+  specifications_equal <- check_list_equal(e1, e2)
+  predict_fn_equal <- check_predict_fn_equal(e1@predict_fn, e2@predict_fn)
+  predict_ranef_equal <- check_predict_fn_equal(e1@predict_ranef, e2@predict_ranef)
+  fixed_only_equal <- e1@fixed_only == e2@fixed_only
+  res_def_equal <- check_res_def_equal(e1, e2)
+  covt_defs_equal <- check_list_equal(e1, e2)
+
+  all(
+    ids_equal,
+    response_equal,
+    covariates_equal,
+    specifications_equal,
+    predict_fn_equal,
+    predict_ranef_equal,
+    fixed_only_equal,
+    res_def_equal,
+    covt_defs_equal
+  )
+})
