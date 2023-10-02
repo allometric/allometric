@@ -41,7 +41,8 @@ Imports:
     vctrs,
     openssl,
     gh,
-    curl
+    curl,
+    jsonlite
 Collate:
     'allometric.R'
     'data.R'

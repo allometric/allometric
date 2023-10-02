@@ -119,9 +119,9 @@ aggregate_pub_models <- function(pub) {
 #' @param verbose Whether or not to print verbose messages to console
 #' @param func The publication processing function. It should take a Publication
 #' object as its only argument.
-#' @param publications_path An optional path to a publication directory, by
+#' @param pub_path An optional path to a publication directory, by
 #' default the internally stored set of publications is used.
-#' @param parameters_path An optional path to a parameters directory, by
+#' @param params_path An optional path to a parameters directory, by
 #' default the internally stored set of parameter files is used.
 #' @export
 map_publications <- function(verbose, func, pub_path = NULL, params_path = NULL) {

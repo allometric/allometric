@@ -88,8 +88,6 @@ descriptors_to_json <- function(descriptors) {
   descriptors_list
 }
 
-#' The RefManageR::Cite function is notoriously unreliable. Instead, we create
-#' our own inline citation directly.
 prepare_inline_citation <- function(citation) {
   n_authors <- length(citation$author)
 
@@ -207,7 +205,7 @@ publication_to_json <- function(publication) {
       for(k in 1:length(model_set_ij@models)) {
         model_ijk <- model_set_ij@models[[k]]
 
-        models[[l]] <- model_to_json(model_ijk, publication)
+        models[[l]] <- model_to_json(model_ijk)
 
         l <- l + 1
       }

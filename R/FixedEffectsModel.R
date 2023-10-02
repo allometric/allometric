@@ -119,6 +119,18 @@ setMethod("show", "FixedEffectsModel", function(object) {
   print(descriptors(object))
 })
 
+#' Convert a fixed effects model to a JSON representation
+#'
+#' This function converts a fixed effects model into a JSON representation.
+#' Primarily, this is used internally to populate a remotely hosted
+#' MongoDatabase.
+#'
+#' @param object A fixed effects model
+#' @param ... Additional arguments passed to jsonlite::toJSON
+#' @return A string containing the JSON representation of the object
+#' @export
+#' @examples
+#' toJSON(brackett_rubra)
 setMethod("toJSON", "FixedEffectsModel", function(object, ...) {
   json_list <- model_to_json(object)
   jsonlite::toJSON(json_list, ...)
