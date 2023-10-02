@@ -119,6 +119,42 @@ setMethod("show", "FixedEffectsModel", function(object) {
   print(descriptors(object))
 })
 
+#' Check equivalence of fixed effects models
+#'
+#' Fixed effects models are considered equal if all of the following are true:
+#' \itemize{
+#'  \item{The model IDs are equal (or not present)}
+#'  \item{The response unit names and units are the same}
+#'  \item{The covariate names and units are the same and are in the same order}
+#'  \item{The specification names and values are the same}
+#'  \item{The predict_fn is the same}
+#'  \item{The response definitions are the same}
+#'  \item{The covariate definitions are the same}
+#' }
+#'
+#' @param e1 A `FixedEffectsModel` object
+#' @param e2 A `FixedEffectsModel` object
+setMethod("==", signature(e1 = "FixedEffectsModel", e2 = "FixedEffectsModel"),
+  function(e1, e2) {
+  ids_equal <- check_ids_equal(e1, e2)
+  response_equal <- check_response_equal(e1, e2)
+  covariates_equal <- check_covariates_equal(e1, e2)
+  specifications_equal <- check_list_equal(e1, e2)
+  predict_fn_equal <- check_predict_fn_equal(e1@predict_fn, e2@predict_fn)
+  res_def_equal <- check_res_def_equal(e1, e2)
+  covt_defs_equal <- check_list_equal(e1, e2)
+
+  all(
+    ids_equal,
+    response_equal,
+    covariates_equal,
+    specifications_equal,
+    predict_fn_equal,
+    res_def_equal,
+    covt_defs_equal
+  )
+})
+
 #' Convert a fixed effects model to a JSON representation
 #'
 #' This function converts a fixed effects model into a JSON representation.

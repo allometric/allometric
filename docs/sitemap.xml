@@ -73,6 +73,9 @@
     <loc>http://allometric.github.io/allometric/reference/aggregate_results_ext.html</loc>
   </url>
   <url>
+    <loc>http://allometric.github.io/allometric/reference/allometric-package.html</loc>
+  </url>
+  <url>
     <loc>http://allometric.github.io/allometric/reference/AllometricModel.html</loc>
   </url>
   <url>
@@ -94,6 +97,9 @@
     <loc>http://allometric.github.io/allometric/reference/check_country_in_iso.html</loc>
   </url>
   <url>
+    <loc>http://allometric.github.io/allometric/reference/check_covariates_equal.html</loc>
+  </url>
+  <url>
     <loc>http://allometric.github.io/allometric/reference/check_covts_in_args.html</loc>
   </url>
   <url>
@@ -101,6 +107,12 @@
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/reference/check_descriptor_validity.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/check_ids_equal.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/check_list_equal.html</loc>
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/reference/check_local_models.html</loc>
@@ -115,7 +127,16 @@
     <loc>http://allometric.github.io/allometric/reference/check_parametric_model.html</loc>
   </url>
   <url>
+    <loc>http://allometric.github.io/allometric/reference/check_predict_fn_equal.html</loc>
+  </url>
+  <url>
     <loc>http://allometric.github.io/allometric/reference/check_region_in_iso.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/check_response_equal.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/check_res_def_equal.html</loc>
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/reference/check_run_pub_list.html</loc>
@@ -140,6 +161,12 @@
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/reference/download_models.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/equals-FixedEffectsModel-FixedEffectsModel-method.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/equals-MixedEffectsModel-MixedEffectsModel-method.html</loc>
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/reference/fia_trees.html</loc>

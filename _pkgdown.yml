@@ -30,6 +30,8 @@ reference:
   - MixedEffectsModel
   - MixedEffectsSet
   - Publication
+  - ==,FixedEffectsModel,FixedEffectsModel-method
+  - ==,MixedEffectsModel,MixedEffectsModel-method
 - title: Example Data
   desc: Example data included with `allometric`.
   contents:

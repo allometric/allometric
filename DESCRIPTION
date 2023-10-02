@@ -56,6 +56,7 @@ Collate:
     'util.R'
     'variable_defs.R'
     'load.R'
+    'eq.R'
     'AllometricModel.R'
     'ModelSet.R'
     'ParametricSet.R'
