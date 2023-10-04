@@ -52,7 +52,7 @@ append_search_descriptors <- function(row, model_descriptors) {
 }
 
 #' Creates a dataframe row from model information
-#' 
+#'
 #' @keywords internal
 create_model_row <- function(model, pub, model_id) {
   model_descriptors <- descriptors(model)
@@ -154,16 +154,19 @@ ingest_models <- function(verbose, pub_path = NULL) {
 
     pub_r_path <- pub_specs$pub_paths[[i]]
     pub_r_file <- pub_specs$pub_names[[i]]
-
-    source(pub_r_path, local = pub_env)
     pub_name <- tools::file_path_sans_ext(pub_r_file)
-    pub <- get(pub_name, envir = pub_env)
 
-    model_list[[pub_name]] <- aggregate_pub_models(pub, current_ids)
-    current_ids <- c(current_ids, model_list[[pub_name]][["id"]])
+    tryCatch({
+      source(pub_r_path, local = pub_env)
+      pub <- get(pub_name, envir = pub_env)
+      model_list[[pub_name]] <- aggregate_pub_models(pub, current_ids)
+      current_ids <- c(current_ids, model_list[[pub_name]][["id"]])
+    }, error = function(e) {
+      warning(paste("Publication file", pub_name, "encountered an error during execution."))
+    })
 
     if (verbose) {
-      pb$tick(tokens = list(pub_id = pub@id))
+      pb$tick(tokens = list(pub_id = pub_name))
     }
 
     # Remove pub_env from memory
