@@ -1,0 +1,35 @@
+{
+  "model_id": "218a0299",
+  "pub_id": "brackett_1977",
+  "model_type": "stem volume",
+  "model_class": "FixedEffectsModel",
+  "response": {
+    "name": "vsia",
+    "unit": "ft3"
+  },
+  "covariates": [
+    {
+      "name": "dsob",
+      "unit": "in"
+    },
+    {
+      "name": "hst",
+      "unit": "ft"
+    }
+  ],
+  "descriptors": {
+    "country": ["US"],
+    "region": ["US-WA", "US-OR"],
+    "family": ["Aceraceae"],
+    "genus": ["Acer"],
+    "species": [],
+    "geographic_region": [],
+    "age_class": []
+  },
+  "parameters": {
+    "a": -2.7703,
+    "b": 1.8858,
+    "c": 1.119
+  },
+  "predict_fn_body": ["10^a * dsob^b * hst^c"]
+}

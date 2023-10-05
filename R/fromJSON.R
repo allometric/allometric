@@ -9,9 +9,12 @@ response_to_S4 <- function(response_data) {
 
 covariates_to_S4 <- function(covariates_data) {
   covariate_units <- list()
+  
+  for(i in seq_along(covariates_data)) {
+    covt_name_i <- covariates_data[[i]]$name
+    covt_unit_i <- covariates_data[[i]]$unit
 
-  for(i in 1:nrow(covariates_data)) {
-    covariate_units[[covariates_data$name[[i]]]] <- units::as_units(covariates_data$unit[[i]])
+    covariate_units[[covt_name_i]] <- units::as_units(covt_unit_i)
   }
 
   covariate_units
@@ -28,7 +31,13 @@ parameters_to_S4 <- function(parameters_data) {
 }
 
 predict_fn_to_S4 <- function(predict_fn_data, covariates_data) {
-  func_args <- paste(covariates_data$name, collapse = ",")
+  func_args <- c()
+
+  for(i in seq_along(covariates_data)) {
+    func_args <- c(func_args, covariates_data[[i]][["name"]])
+  }
+
+  func_args <- paste(func_args, collapse = ", ")
 
   base_func_str <- paste(
     "function(", func_args, ") {}", sep = ""
@@ -42,12 +51,24 @@ predict_fn_to_S4 <- function(predict_fn_data, covariates_data) {
   func
 }
 
+#' Convert the descriptors JSON data to a named list of descriptors
 descriptors_to_S4 <- function(descriptors_data) {
-  list_colnames <- c("country", "region")
-  descriptors_data[c(list_colnames)] <- listify(descriptors_data[c(list_colnames)])
-  browser()
- 
-  tibble::as_tibble(descriptors_data)
+  listcol_names <- c("country", "region")
+
+  for(i in seq_along(descriptors_data)) {
+    name_i <- names(descriptors_data)[[i]]
+    val_i <- descriptors_data[[i]]
+
+    if(length(val_i) == 0) {
+      descriptors_data[[name_i]] <- NA
+    } else if(name_i %in% listcol_names) {
+      descriptors_data[[name_i]] <- list(unlist(val_i))
+    } else {
+      descriptors_data[[name_i]] <- val_i[[1]]
+    }
+  }
+
+  tibble::as_tibble_row(descriptors_data)
 }
 
 covt_defs_to_S4 <- function(covt_defs_data) {
@@ -99,8 +120,7 @@ mixef_fromJSON <- function(parsed_json) {
 }
 
 fromJSON <- function(json_data) {
-  parsed_json <- jsonlite::fromJSON(json_data, simplifyDataFrame = FALSE, simplifyMatrix = FALSE)
-
+  parsed_json <- jsonlite::fromJSON(json_data, simplifyVector = TRUE, simplifyMatrix = FALSE, simplifyDataFrame = FALSE)
   model_class <- parsed_json$model_class
 
 

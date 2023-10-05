@@ -105,7 +105,10 @@ check_list_equal <- function(mod1, mod2) {
 check_predict_fn_equal <- function(predict_fn_1, predict_fn_2) {
   val <- all.equal(predict_fn_1, predict_fn_2)
 
-  if(val == TRUE) {
+  args_same <- all.equal(args(predict_fn_1), args(predict_fn_2))
+  body_same <- all.equal(body(predict_fn_1), body(predict_fn_2))
+
+  if(all(args_same, body_same)) {
     return(TRUE)
   } else {
     return(FALSE)

@@ -79,11 +79,13 @@ unbox_nonnested <- function(object) {
 descriptors_to_json <- function(descriptors) {
   descriptors_list <- as.list(descriptors)
   if(length(descriptors_list) == 0) {
-    return(list())
+    return(NULL) # A null value will be encoded as an empty object in JSON
   } else {
     for(i in 1:length(descriptors_list)) {
       if(typeof(descriptors_list[[i]]) == "list")  {
         descriptors_list[[i]] <- unlist(descriptors_list[[i]])
+      } else if(is.na(descriptors_list[[i]])) {
+        descriptors_list[[i]] <- list()
       }
     }
   }
