@@ -45,7 +45,8 @@ predict_fn_to_S4 <- function(predict_fn_data, covariates_data) {
 descriptors_to_S4 <- function(descriptors_data) {
   list_colnames <- c("country", "region")
   descriptors_data[c(list_colnames)] <- listify(descriptors_data[c(list_colnames)])
-  
+  browser()
+ 
   tibble::as_tibble(descriptors_data)
 }
 
@@ -98,9 +99,10 @@ mixef_fromJSON <- function(parsed_json) {
 }
 
 fromJSON <- function(json_data) {
-  parsed_json <- jsonlite::fromJSON(json_data)
+  parsed_json <- jsonlite::fromJSON(json_data, simplifyDataFrame = FALSE, simplifyMatrix = FALSE)
 
   model_class <- parsed_json$model_class
+
 
   if(model_class == "FixedEffectsModel") {
     s4 <- fixef_fromJSON(parsed_json)

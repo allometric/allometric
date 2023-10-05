@@ -52,7 +52,7 @@ variables_to_json <- function(variables) {
   for(i in 1:length(variables)) {
     out[[i]] <- list(
       name = variable_names[[i]],
-      unit = parse_unit_str(variables[[i]])
+      unit = parse_unit_str(variables[i])
     )
   }
 
@@ -78,10 +78,13 @@ unbox_nonnested <- function(object) {
 
 descriptors_to_json <- function(descriptors) {
   descriptors_list <- as.list(descriptors)
-
-  for(i in 1:length(descriptors_list)) {
-    if(typeof(descriptors_list[[i]]) == "list")  {
-      descriptors_list[[i]] <- unlist(descriptors_list[[i]])
+  if(length(descriptors_list) == 0) {
+    return(list())
+  } else {
+    for(i in 1:length(descriptors_list)) {
+      if(typeof(descriptors_list[[i]]) == "list")  {
+        descriptors_list[[i]] <- unlist(descriptors_list[[i]])
+      }
     }
   }
 
