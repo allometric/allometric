@@ -139,10 +139,10 @@ setMethod("==", signature(e1 = "FixedEffectsModel", e2 = "FixedEffectsModel"),
   ids_equal <- check_ids_equal(e1, e2)
   response_equal <- check_response_equal(e1, e2)
   covariates_equal <- check_covariates_equal(e1, e2)
-  specifications_equal <- check_list_equal(e1, e2)
+  specifications_equal <- check_list_equal(specification(e1), specification(e2))
   predict_fn_equal <- check_predict_fn_equal(e1@predict_fn, e2@predict_fn)
   res_def_equal <- check_res_def_equal(e1, e2)
-  covt_defs_equal <- check_list_equal(e1, e2)
+  covt_defs_equal <- check_list_equal(e1@covariate_definitions, e2@covariate_definitions)
 
   all(
     ids_equal,
@@ -169,5 +169,5 @@ setMethod("==", signature(e1 = "FixedEffectsModel", e2 = "FixedEffectsModel"),
 #' toJSON(brackett_rubra)
 setMethod("toJSON", "FixedEffectsModel", function(object, ...) {
   json_list <- model_to_json(object)
-  jsonlite::toJSON(json_list, ...)
+  jsonlite::toJSON(json_list, digits = NA, ...)
 })

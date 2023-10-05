@@ -82,12 +82,12 @@ check_covariates_equal <- function(mod1, mod2) {
 #'
 #' @inheritParams check_ids_equal
 #' @keywords internal
-check_list_equal <- function(mod1, mod2) {
-  names_1 <- names(mod1@specification)
-  names_2 <- names(mod2@specification)
+check_list_equal <- function(list1, list2) {
+  names_1 <- names(list1)
+  names_2 <- names(list2)
 
   if (!setequal(names_1, names_2)) {return(FALSE)}
-  if (!setequal(mod1@specification, mod1@specification)) {
+  if (!setequal(list1, list2)) {
     return(FALSE)
   } else{
     return(TRUE)
@@ -96,15 +96,13 @@ check_list_equal <- function(mod1, mod2) {
 
 #' Check for equivalence of two rediction functions
 #'
-#' The prediction functions are considered equal if they parse to the same value
-#' using `all.equal()`
+#' The prediction functions are considered equal if the arguments and body are
+#' identical using `all.equal()`
 #'
 #' @param predict_fn_1 A prediction function
 #' @param predict_fn_1 A prediction function to compare to
 #' @keywords internal
 check_predict_fn_equal <- function(predict_fn_1, predict_fn_2) {
-  val <- all.equal(predict_fn_1, predict_fn_2)
-
   args_same <- all.equal(args(predict_fn_1), args(predict_fn_2))
   body_same <- all.equal(body(predict_fn_1), body(predict_fn_2))
 

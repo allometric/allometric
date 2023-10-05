@@ -53,18 +53,21 @@ predict_fn_to_S4 <- function(predict_fn_data, covariates_data) {
 
 #' Convert the descriptors JSON data to a named list of descriptors
 descriptors_to_S4 <- function(descriptors_data) {
-  listcol_names <- c("country", "region")
+  # Which columns must be scalars (one value, not lists)
+  scalar_col_names <- c("family", "genus", "species")
 
   for(i in seq_along(descriptors_data)) {
     name_i <- names(descriptors_data)[[i]]
     val_i <- descriptors_data[[i]]
 
-    if(length(val_i) == 0) {
+    if(length(val_i) == 0 && name_i %in% scalar_col_names) {
       descriptors_data[[name_i]] <- NA
-    } else if(name_i %in% listcol_names) {
-      descriptors_data[[name_i]] <- list(unlist(val_i))
+    } else if(length(val_i) == 0) {
+      descriptors_data[[name_i]] <- NA
+    } else if (name_i %in% scalar_col_names) {
+      descriptors_data[[name_i]] <- val_i
     } else {
-      descriptors_data[[name_i]] <- val_i[[1]]
+      descriptors_data[[name_i]] <- list(unlist(val_i))
     }
   }
 
