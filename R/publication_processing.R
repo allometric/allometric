@@ -150,15 +150,18 @@ map_publications <- function(verbose, func, pub_path = NULL, params_path = NULL)
 
     pub_r_path <- pub_specs$pub_paths[[i]]
     pub_r_file <- pub_specs$pub_names[[i]]
-
-    source(pub_r_path, local = pub_env)
     pub_name <- tools::file_path_sans_ext(pub_r_file)
-    pub <- get(pub_name, envir = pub_env)
 
-    output[[pub_name]] <- func(pub)
+    tryCatch({
+      source(pub_r_path, local = pub_env)
+      pub <- get(pub_name, envir = pub_env)
+      output[[pub_name]] <- func(pub)
+    }, error = function(e) {
+      warning(paste("Publication file", pub_name, "encountered an error during execution."))
+    })
 
     if (verbose) {
-      pb$tick(tokens = list(pub_id = pub@id))
+      pb$tick(tokens = list(pub_id = pub_name))
     }
 
     # Remove pub_env from memory
