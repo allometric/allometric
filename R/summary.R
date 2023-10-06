@@ -2,7 +2,7 @@
 # methods
 
 .get_model_str <- function(object) {
-  response_name <- names(object@response_unit)[[1]]
+  response_name <- names(object@response)[[1]]
   predict_body <- body(object@predict_fn)
   last_line_ix <- length(predict_body)
 
@@ -74,7 +74,7 @@ parse_unit_str <- function(variable) {
 }
 
 .get_variable_descriptions <- function(object) {
-  vars <- c(object@response_unit, object@covariate_units)
+  vars <- c(object@response, object@covariates)
   var_descs <- list()
 
   var_descs[[1]] <- .get_response_description(

@@ -50,7 +50,7 @@ setMethod("parameters", "ParametricModel", function(object) {
 #' @return An object of class ParametricModel
 #' @export
 #' @keywords internal
-ParametricModel <- function(response_unit, covariate_units, predict_fn,
+ParametricModel <- function(response, covariates, predict_fn,
                             parameters, descriptors = list(),
                             response_definition = NA_character_,
                             covariate_definitions = list()) {
@@ -60,7 +60,7 @@ ParametricModel <- function(response_unit, covariate_units, predict_fn,
 
   parametric_model <- .ParametricModel(
     AllometricModel(
-      response_unit, covariate_units, predict_fn, descriptors,
+      response, covariates, predict_fn, descriptors,
       response_definition, covariate_definitions
     ),
     parameters = parameters,
@@ -97,7 +97,7 @@ ParametricModel <- function(response_unit, covariate_units, predict_fn,
 #' @inherit model_call
 #' @keywords internal
 setMethod("model_call", signature(object = "ParametricModel"), function(object) {
-  response_var <- names(object@response_unit)[[1]]
+  response_var <- names(object@response)[[1]]
 
   arg_names <- names(as.list(args(object@predict_fn)))
   arg_names <- arg_names[-length(arg_names)]

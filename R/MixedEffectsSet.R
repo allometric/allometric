@@ -40,10 +40,10 @@ check_fixed_effects_set_validity <- function(object) {
 #' parameter estimates.
 #' @examples
 #' mixed_effects_set <- MixedEffectsSet(
-#'   response_unit = list(
+#'   response = list(
 #'     vsia = units::as_units("ft^3")
 #'   ),
-#'   covariate_units = list(
+#'   covariates = list(
 #'     dsob = units::as_units("in")
 #'   ),
 #'   parameter_names = "a",
@@ -56,14 +56,14 @@ check_fixed_effects_set_validity <- function(object) {
 #'   model_specifications = tibble::tibble(a = c(1, 2))
 #' )
 #' @export
-MixedEffectsSet <- function(response_unit, covariate_units, parameter_names,
+MixedEffectsSet <- function(response, covariates, parameter_names,
                             predict_fn, model_specifications, predict_ranef,
                             fixed_only = FALSE, descriptors = list(),
                             response_definition = NA_character_,
                             covariate_definitions = list()) {
   mixed_effects_set <- .MixedEffectsSet(
     ParametricSet(
-      response_unit, covariate_units, predict_fn, model_specifications,
+      response, covariates, predict_fn, model_specifications,
       parameter_names, descriptors, response_definition, covariate_definitions
     ),
     predict_ranef = predict_ranef,
@@ -75,8 +75,8 @@ MixedEffectsSet <- function(response_unit, covariate_units, parameter_names,
 
   for (i in seq_len(nrow(model_specifications))) {
     model <- MixedEffectsModel(
-      response_unit = response_unit,
-      covariate_units = covariate_units,
+      response = response,
+      covariates = covariates,
       predict_fn = predict_fn,
       parameters = model_specifications[i, mixed_effects_set@parameter_names],
       descriptors = model_specifications[i, mod_descriptors],

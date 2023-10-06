@@ -70,13 +70,13 @@ create_model_row <- function(model, pub, model_id) {
   family_name <- pub@citation$author$family
   model_row$family_name <- list(as.character(family_name))
 
-  covt_name <- names(model@covariate_units)
+  covt_name <- names(model@covariates)
   model_row$covt_name <- list(covt_name)
 
   pub_year <- as.numeric(pub@citation$year)
   model_row$pub_year <- pub_year
 
-  response_def <- get_variable_def(names(model@response_unit)[[1]], return_exact_only = T)
+  response_def <- get_variable_def(names(model@response)[[1]], return_exact_only = T)
   model_row$model_type <- model@model_type
 
   model_row
@@ -126,7 +126,7 @@ aggregate_pub_models <- function(pub) {
 #' @export
 map_publications <- function(verbose, func, pub_path = NULL, params_path = NULL) {
   if(is.null(pub_path)) {
-    pub_path <- system.file("models-main/publications", package = "allometric")
+    pub_path <- system.file("models-refactor_variable_args/publications", package = "allometric")
   }
 
   if(!is.null(params_path)) {

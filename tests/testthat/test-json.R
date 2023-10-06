@@ -1,8 +1,8 @@
 fixed_effects_model_no_descriptors <- FixedEffectsModel(
-  response_unit = list(
+  response = list(
     vsia = units::as_units("ft^3")
   ),
-  covariate_units = list(
+  covariates = list(
     dsob = units::as_units("in")
   ),
   parameters = list(
@@ -20,10 +20,10 @@ fixed_effects_model_no_descriptors <- FixedEffectsModel(
 
 
 fixed_effects_model_descriptors <- FixedEffectsModel(
-  response_unit = list(
+  response = list(
     vsia = units::as_units("ft^3")
   ),
-  covariate_units = list(
+  covariates = list(
     dsob = units::as_units("in")
   ),
   parameters = list(
@@ -63,5 +63,6 @@ test_that("FixedEffectsModel converts to S4 from JSON", {
 })
 
 test_that("FixedEffectsModel toJSON inverts", {
+  # FIXME still not working
   expect_true(brackett_acer == fromJSON(toJSON(brackett_acer)))
 })

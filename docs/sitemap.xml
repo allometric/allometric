@@ -160,6 +160,9 @@
     <loc>http://allometric.github.io/allometric/reference/descriptors.html</loc>
   </url>
   <url>
+    <loc>http://allometric.github.io/allometric/reference/descriptors_to_S4.html</loc>
+  </url>
+  <url>
     <loc>http://allometric.github.io/allometric/reference/download_models.html</loc>
   </url>
   <url>
@@ -218,6 +221,9 @@
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/reference/load_parameter_frame.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/map_publications.html</loc>
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/reference/merge.model_tbl.html</loc>
@@ -284,6 +290,12 @@
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/reference/test.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/toJSON-FixedEffectsModel-method.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/toJSON.html</loc>
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/reference/unnest_models.html</loc>

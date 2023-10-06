@@ -10,7 +10,7 @@ check_predict_fn_equal(predict_fn_1, predict_fn_2)
 \item{predict_fn_1}{A prediction function to compare to}
 }
 \description{
-The prediction functions are considered equal if they parse to the same value
-using \code{all.equal()}
+The prediction functions are considered equal if the arguments and body are
+identical using \code{all.equal()}
 }
 \keyword{internal}

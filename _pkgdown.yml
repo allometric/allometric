@@ -25,6 +25,7 @@ reference:
   - get_component_defs
   - get_measure_defs
   - load_parameter_frame
+  - map_publications
   - FixedEffectsModel
   - FixedEffectsSet
   - MixedEffectsModel
@@ -32,6 +33,8 @@ reference:
   - Publication
   - ==,FixedEffectsModel,FixedEffectsModel-method
   - ==,MixedEffectsModel,MixedEffectsModel-method
+  - toJSON,FixedEffectsModel-method
+  - toJSON
 - title: Example Data
   desc: Example data included with `allometric`.
   contents:

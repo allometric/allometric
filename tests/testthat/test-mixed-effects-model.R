@@ -1,8 +1,8 @@
 mixed_effects_model_one_ranef <- MixedEffectsModel(
-  response_unit = list(
+  response = list(
     "hst" = units::as_units("m")
   ),
-  covariate_units = list(
+  covariates = list(
     "dsob" = units::as_units("cm")
   ),
   parameters = list(
@@ -39,10 +39,10 @@ test_that("Mixed effects model_call returns correctly formatted string", {
 })
 
 mixed_effects_model_fixed_only <- MixedEffectsModel(
-  response_unit = list(
+  response = list(
     hst = units::as_units("m")
   ),
-  covariate_units = list(
+  covariates = list(
     dsob = units::as_units("cm")
   ),
   parameters = list(

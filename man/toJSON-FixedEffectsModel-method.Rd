@@ -20,5 +20,5 @@ Primarily, this is used internally to populate a remotely hosted
 MongoDatabase.
 }
 \examples{
-toJSON(brackett_rubra)
+toJSON(brackett_rubra, pretty = TRUE)
 }

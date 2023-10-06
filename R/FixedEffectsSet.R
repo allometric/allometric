@@ -37,10 +37,10 @@ check_fixed_effects_set <- function(object) {
 #' parameter estimates.
 #' @examples
 #' fixef_set <- FixedEffectsSet(
-#'   response_unit = list(
+#'   response = list(
 #'     vsia = units::as_units("ft^3")
 #'   ),
-#'   covariate_units = list(
+#'   covariates = list(
 #'     dsob = units::as_units("in")
 #'   ),
 #'   predict_fn = function(dsob) {
@@ -50,7 +50,7 @@ check_fixed_effects_set <- function(object) {
 #'   model_specifications = tibble::tibble(mod = c(1,2), a = c(1, 2))
 #' )
 #' @export
-FixedEffectsSet <- function(response_unit, covariate_units, parameter_names,
+FixedEffectsSet <- function(response, covariates, parameter_names,
                             predict_fn, model_specifications,
                             descriptors = list(),
                             response_definition = NA_character_,
@@ -59,7 +59,7 @@ FixedEffectsSet <- function(response_unit, covariate_units, parameter_names,
 
   fixed_effects_set <- .FixedEffectsSet(
     ParametricSet(
-      response_unit, covariate_units, predict_fn, model_specifications,
+      response, covariates, predict_fn, model_specifications,
       parameter_names, descriptors, response_definition, covariate_definitions
     )
   )
@@ -68,8 +68,8 @@ FixedEffectsSet <- function(response_unit, covariate_units, parameter_names,
 
   for (i in seq_len(nrow(model_specifications))) {
     model <- FixedEffectsModel(
-      response_unit = response_unit,
-      covariate_units = covariate_units,
+      response = response,
+      covariates = covariates,
       predict_fn = predict_fn,
       parameters = model_specifications[i, fixed_effects_set@parameter_names],
       descriptors = model_specifications[i, model_descriptors],

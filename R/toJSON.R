@@ -176,10 +176,10 @@ model_to_json <- function(model) {
   required <- list(
     model_id = jsonlite::unbox(model_id),
     pub_id = jsonlite::unbox(model@pub_id),
-    model_type = jsonlite::unbox(get_model_type(names(model@response_unit))[[1]]),
+    model_type = jsonlite::unbox(get_model_type(names(model@response))[[1]]),
     model_class = jsonlite::unbox(model_class),
-    response = unbox_nested(variables_to_json(model@response_unit))[[1]],
-    covariates = unbox_nested(variables_to_json(model@covariate_units)),
+    response = unbox_nested(variables_to_json(model@response))[[1]],
+    covariates = unbox_nested(variables_to_json(model@covariates)),
     descriptors = descriptors_to_json(model_descriptors),
     parameters = unbox_nonnested(as.list(model@parameters)),
     predict_fn_body = parse_func_body(model@predict_fn)

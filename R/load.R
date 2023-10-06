@@ -12,7 +12,7 @@ load_parameter_frame <- function(name) {
 
   if(allometric_options$param_search_path == "package") {
     file_path <- system.file(
-      "models-main/parameters", csv_name,
+      "models-refactor_variable_args/parameters", csv_name,
       package = "allometric"
     )
   } else {

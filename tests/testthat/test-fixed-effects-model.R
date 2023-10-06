@@ -1,8 +1,8 @@
 fixed_effects_model <- FixedEffectsModel(
-  response_unit = list(
+  response = list(
     vsia = units::as_units("ft^3")
   ),
-  covariate_units = list(
+  covariates = list(
     dsob = units::as_units("in")
   ),
   parameters = list(
@@ -26,8 +26,8 @@ test_that("Fixed effects model predicts correctly.", {
 test_that("Using a nested list as descriptor throws error.", {
   expect_error(
     FixedEffectsModel(
-      response_unit = list(vsia = units::as_units("ft^3")),
-      covariate_units = list(dsob = units::as_units("in")),
+      response = list(vsia = units::as_units("ft^3")),
+      covariates = list(dsob = units::as_units("in")),
       parameters = list(a = 1),
       predict_fn = function(dsob) {
         a * dsob
@@ -41,8 +41,8 @@ test_that("Using a nested list as descriptor throws error.", {
 test_that("Columns with lists as their elements throws an error", {
   expect_error(
     FixedEffectsModel(
-      response_unit = list(vsia = units::as_units("ft^3")),
-      covariate_units = list(dsob = units::as_units("in")),
+      response = list(vsia = units::as_units("ft^3")),
+      covariates = list(dsob = units::as_units("in")),
       parameters = list(a = 1),
       predict_fn = function(dsob) {
         a * dsob
@@ -59,10 +59,10 @@ test_that("Fixed effects model_call returns correctly formatted string", {
 
 
 unitless_model <- FixedEffectsModel(
-  response_unit = list(
+  response = list(
     vsia = units::as_units("ft^3")
   ),
-  covariate_units = list(
+  covariates = list(
     dsob = units::unitless
   ),
   parameters = list(

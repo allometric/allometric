@@ -36,11 +36,11 @@ check_ids_equal <- function(mod1, mod2) {
 #' @inheritParams check_ids_equal
 #' @keywords internal
 check_response_equal <- function(mod1, mod2) {
-  res_name_1 <- names(mod1@response_unit)[[1]]
-  res_name_2 <- names(mod2@response_unit)[[1]]
+  res_name_1 <- names(mod1@response)[[1]]
+  res_name_2 <- names(mod2@response)[[1]]
 
-  units_1 <- parse_unit_str(mod1@response_unit)
-  units_2 <- parse_unit_str(mod2@response_unit)
+  units_1 <- parse_unit_str(mod1@response)
+  units_2 <- parse_unit_str(mod2@response)
 
   names_equal <- res_name_1 == res_name_2
   units_equal <- units_1 == units_2
@@ -57,16 +57,16 @@ check_response_equal <- function(mod1, mod2) {
 #' @inheritParams check_ids_equal
 #' @keywords internal
 check_covariates_equal <- function(mod1, mod2) {
-  p1 <- length(mod1@covariate_units)
-  p2 <- length(mod2@covariate_units)
+  p1 <- length(mod1@covariates)
+  p2 <- length(mod2@covariates)
 
   if(p1 != p2) {return (FALSE)}
-  if(!identical(mod1@covariate_units, mod1@covariate_units)) {return (FALSE)}
+  if(!identical(mod1@covariates, mod1@covariates)) {return (FALSE)}
 
   units_1 <- c()
   units_2 <- c()
-  for(i in 1:p1) {units_1 <- c(units_1, mod1@covariate_units[i])}
-  for(i in 1:p2) {units_2 <- c(units_2, mod2@covariate_units[i])}
+  for(i in 1:p1) {units_1 <- c(units_1, mod1@covariates[i])}
+  for(i in 1:p2) {units_2 <- c(units_2, mod2@covariates[i])}
 
   if(!identical(units_1, units_2)) {
     return (FALSE)

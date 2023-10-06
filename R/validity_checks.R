@@ -27,7 +27,7 @@ check_parameters_in_mixed_fns <- function(object) {
   }
 }
 
-#' Check if all covariates in covariate_units are used as arguments in
+#' Check if all covariates in covariates are used as arguments in
 #' predict_fn
 #'
 #' @keywords internal
@@ -36,9 +36,9 @@ check_covts_in_args <- function(object) {
   fn_args <- names(as.list(args(object@predict_fn)))
   fn_args <- fn_args[-length(fn_args)]
 
-  covt_names <- names(object@covariate_units)
+  covt_names <- names(object@covariates)
   if (!(all(covt_names %in% fn_args) & all(fn_args %in% covt_names))) {
-    msg <- paste("The predict_fn arguments and the names in covariate_units mismatch.")
+    msg <- paste("The predict_fn arguments and the names in covariates mismatch.")
     errors <- c(errors, msg)
   }
 

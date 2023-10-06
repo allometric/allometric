@@ -1,23 +1,23 @@
 # Functions used to convert models and publications to S4 objects from JSON
 
 response_to_S4 <- function(response_data) {
-  response_unit <- list()
-  response_unit[[response_data$name]] <- units::as_units(response_data$unit)
+  response <- list()
+  response[[response_data$name]] <- units::as_units(response_data$unit)
 
-  response_unit
+  response
 }
 
 covariates_to_S4 <- function(covariates_data) {
-  covariate_units <- list()
+  covariates <- list()
   
   for(i in seq_along(covariates_data)) {
     covt_name_i <- covariates_data[[i]]$name
     covt_unit_i <- covariates_data[[i]]$unit
 
-    covariate_units[[covt_name_i]] <- units::as_units(covt_unit_i)
+    covariates[[covt_name_i]] <- units::as_units(covt_unit_i)
   }
 
-  covariate_units
+  covariates
 }
 
 parameters_to_S4 <- function(parameters_data) {
@@ -52,6 +52,8 @@ predict_fn_to_S4 <- function(predict_fn_data, covariates_data) {
 }
 
 #' Convert the descriptors JSON data to a named list of descriptors
+#'
+#' @keywords internal
 descriptors_to_S4 <- function(descriptors_data) {
   # Which columns must be scalars (one value, not lists)
   scalar_col_names <- c("family", "genus", "species")
@@ -99,8 +101,8 @@ fixef_fromJSON <- function(parsed_json) {
   }
 
   FixedEffectsModel(
-    response_unit = response_to_S4(parsed_json$response),
-    covariate_units = covariates_to_S4(parsed_json$covariates),
+    response = response_to_S4(parsed_json$response),
+    covariates = covariates_to_S4(parsed_json$covariates),
     parameters = parameters_to_S4(parsed_json$parameters),
     predict_fn = predict_fn_to_S4(parsed_json$predict_fn_body, parsed_json$covariates),
     descriptors = descriptors_to_S4(parsed_json$descriptors),
@@ -112,8 +114,8 @@ fixef_fromJSON <- function(parsed_json) {
 mixef_fromJSON <- function(parsed_json) {
   # TODO add response & covariate definitions
   MixedEffectsModel(
-    response_unit = response_to_S4(parsed_json$response),
-    covariate_units = covariates_to_S4(parsed_json$covariates),
+    response = response_to_S4(parsed_json$response),
+    covariates = covariates_to_S4(parsed_json$covariates),
     parameters = parameters_to_S4(parsed_json$parameters),
     predict_fn = predict_fn_to_S4(parsed_json$predict_fn_body, parsed_json$covariates),
     descriptors = descriptors_to_S4(parsed_json$descriptors),
