@@ -23,7 +23,6 @@ tryCatch(
   }
 )
 
-
 convert_units <- function(..., units_list) {
   args_l <- list(...)
   for(i in seq_along(args_l)) {
@@ -46,4 +45,17 @@ strip_units <- function(values_list)  {
     }
   }
   values_list
+}
+
+descriptors_to_tibble_row <- function(descriptors) {
+  if(length(descriptors) == 0) {
+    return(tibble::tibble(.rows=0))
+  } else {
+    for(i in 1:length(descriptors)) {
+      if(length(descriptors[[i]]) > 1) {
+        descriptors[[i]] <- list(descriptors[[i]])
+      }
+    }
+    return(tibble::as_tibble(descriptors))
+  }
 }

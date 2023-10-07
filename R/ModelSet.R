@@ -33,7 +33,8 @@ ModelSet <- function(response, covariates, predict_fn,
                      descriptors = list(),
                      response_definition = NA_character_,
                      covariate_definitions = list()) {
-  descriptors <- tibble::as_tibble(descriptors)
+  
+  descriptors <- descriptors_to_tibble_row(descriptors)
 
   model_set <- .ModelSet(
     response = response,

@@ -79,3 +79,14 @@ allo_increment <- AllometricModel(
 test_that("Increment model returns correct model type", {
   expect_equal(allo_increment@model_type, "stem volume increment")
 })
+
+test_that("Model with nested list of descriptors runs", {
+  expect_no_error(AllometricModel(
+    response = list(vsia = units::as_units("ft^3")),
+    covariates = list(dsob = units::as_units("in")),
+    predict_fn = function(dsob) a * dsob,
+    descriptors = list(
+      region = c("US-OR", "US-WA")
+    )
+  ))
+})

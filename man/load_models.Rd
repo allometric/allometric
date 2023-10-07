@@ -75,11 +75,11 @@ head(hann_models)
 #> 1 20332bd3 crown diameter <chr [1]> <chr [1]> Betulaceae   Alnus      rubra     <FxdEffcM> hann_1997     <chr [1]>   <chr [4]>     1997
 #> 2 c6a30071 crown diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus decurrens <FxdEffcM> hann_1997     <chr [1]>   <chr [4]>     1997
 #> 3 26f5c147 stem diameter  <chr [1]> <chr [1]> Cupressaceae Calocedrus decurrens <FxdEffcM> larsen_1985   <chr [2]>   <chr [1]>     1985
-#> 4 0762ba42 crown ratio    <chr [1]> <chr [1]> Cupressaceae Calocedrus decurrens <FxdEffcM> ritche_1987   <chr [2]>   <chr [4]>     1987
-#> 5 aa38254f stem height    <chr [1]> <chr [1]> Cupressaceae Calocedrus decurrens <FxdEffcM> temesgen_2007 <chr [3]>   <chr [1]>     2007
-#> 6 e0873944 stem diameter  <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>      <FxdEffcM> hann_2011     <chr [1]>   <chr [2]>     2011
+#> 4 aa38254f stem height    <chr [1]> <chr [1]> Cupressaceae Calocedrus decurrens <FxdEffcM> temesgen_2007 <chr [3]>   <chr [1]>     2007
+#> 5 e0873944 stem diameter  <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>      <FxdEffcM> hann_2011     <chr [1]>   <chr [2]>     2011
+#> 6 71131513 stump diameter <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>      <FxdEffcM> hann_2011     <chr [1]>   <chr [2]>     2011
 nrow(hann_models)
-#> [1] 87
+#> [1] 65
 }\if{html}{\out{</div>}}
 
 Picking apart the above code block, we see that we are using the standard
@@ -113,11 +113,11 @@ head(hann_first_author_models)
 #> 5 4ed0b955 stem volume    <chr [1]> <chr [1]> Cupressaceae Calocedrus <NA>      <FxdEffcM> hann_2011 <chr [1]>   <chr [3]>     2011
 #> 6 bfdfc523 crown diameter <chr [1]> <chr [1]> Ericaceae    Arbutus    menziesii <FxdEffcM> hann_1997 <chr [1]>   <chr [4]>     1997
 nrow(hann_first_author_models)
-#> [1] 50
+#> [1] 48
 }\if{html}{\out{</div>}}
 
 We can see that \code{'Hann'} is the first author for
-50 models in this package.
+48 models in this package.
 }
 
 \subsection{Finding a Model with Specific Data Requirements}{
@@ -135,7 +135,7 @@ limited by their available tree measurements.
 )
 
 nrow(dia_ht_models)
-#> [1] 241
+#> [1] 227
 }\if{html}{\out{</div>}}
 
 Breaking this down, we have the first condition \code{model_type=='stem_height'}
@@ -145,7 +145,7 @@ character vector. The \code{.} represents a given character vector for that row.
 First, we ensure that the vector is only one element in size using
 \code{length(.)==1}, then we ensure that the first (and only) element of this
 vector is equal to \code{'dsob'}, (diameter outside bark at breast height). In
-this case, 241 are available in the package.
+this case, 227 are available in the package.
 }
 
 \subsection{Finding a Model for a Region}{
@@ -160,10 +160,10 @@ developed using data from \code{US-OR}
 )
 
 nrow(us_or_models)
-#> [1] 495
+#> [1] 370
 }\if{html}{\out{</div>}}
 
-We can see that 495 allometric models are defined for the
+We can see that 370 allometric models are defined for the
 state of Oregon, US.
 }
 }

@@ -67,7 +67,7 @@ AllometricModel <- function(response, covariates, predict_fn,
                             response_definition = NA_character_,
                             covariate_definitions = list()) {
   # Coerce to tibble
-  descriptors <- tibble::as_tibble(descriptors)
+  descriptors <- descriptors_to_tibble_row(descriptors)
 
   # Retrieve the model type
   model_type <- get_model_type(names(response)[[1]])
