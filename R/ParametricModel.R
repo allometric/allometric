@@ -56,7 +56,6 @@ ParametricModel <- function(response, covariates, predict_fn,
                             covariate_definitions = list()) {
   # Coerce to tbl_df
   parameters <- tibble::as_tibble( as.list(parameters) )
-  descriptors <- tibble::as_tibble( as.list(descriptors) )
 
   parametric_model <- .ParametricModel(
     AllometricModel(

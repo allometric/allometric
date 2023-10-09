@@ -4,7 +4,7 @@
 \alias{check_country_in_iso}
 \title{Checks if a country code is defined in ISO_3166_1$Alpha_2}
 \usage{
-check_country_in_iso(country_code)
+check_country_in_iso(country_codes)
 }
 \description{
 Checks if a country code is defined in ISO_3166_1$Alpha_2

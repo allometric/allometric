@@ -54,6 +54,9 @@ descriptors_to_tibble_row <- function(descriptors) {
     for(i in 1:length(descriptors)) {
       if(length(descriptors[[i]]) > 1) {
         descriptors[[i]] <- list(descriptors[[i]])
+      } else if(typeof(descriptors[[i]]) == "list" && length(descriptors[[i]]) == 1) {
+        # Handles the case when only one list is within a list (e.g., taxa with only one taxon)
+        descriptors[[i]] <- list(descriptors[[i]])
       }
     }
     return(tibble::as_tibble(descriptors))

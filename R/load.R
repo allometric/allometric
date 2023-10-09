@@ -23,6 +23,37 @@ load_parameter_frame <- function(name) {
   tibble::as_tibble(table)
 }
 
+
+
+aggregate_taxa_row <- function(family, genus, species) {
+  
+}
+
+#' Aggregate family, genus, and species columns of `tbl_df`` into taxa data
+#' structure
+#'
+#' This function facilitates aggregating family, genus, and species columns
+#' into the taxa data structure, which is a nested list composed of multiple
+#' "taxons". A taxon is a list containing family, genus, and species fields.
+aggregate_taxa <- function(model_specifications, remove_taxa_cols = TRUE) {
+  default_taxon_fields <- c("family", "genus", "species")
+  taxon_fields <- colnames(model_specifications)[colnames(model_specifications) %in% default_taxon_fields]
+  missing_taxon_fields <- default_taxon_fields[!default_taxon_fields %in% taxon_fields]
+
+  valid_taxon_fields <- check_taxon_fields(taxon_fields)
+
+  if(!valid_taxon_fields) {
+    stop("Taxonomic fields are invalid.")
+  }
+
+  model_specifications %>%
+    dplyr::mutate(!!!setNames(rep(list(NA), length(missing_taxon_fields)), missing_taxon_fields)) %>%
+    dplyr::mutate(taxa = purrr::pmap(
+      list(.data$family, .data$genus, .data$species),
+      ~Taxon(family = ..1, genus = ..2, species = ..3)
+    ))
+}
+
 #' Load a locally installed table of allometric models
 #'
 #' This function loads all locally installed allometric models if they are

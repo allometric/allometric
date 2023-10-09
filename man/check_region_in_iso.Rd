@@ -4,7 +4,7 @@
 \alias{check_region_in_iso}
 \title{Checks if a region code is defined in the ISO_3166_2 table}
 \usage{
-check_region_in_iso(region_code)
+check_region_in_iso(region_codes)
 }
 \description{
 Checks if a region code is defined in the ISO_3166_2 table

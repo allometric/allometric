@@ -70,7 +70,7 @@ download_models <- function(verbose) {
 
   dir.create(model_dir_path)
 
-  latest_commit <- gh::gh("GET /repos/allometric/models/commits/main")
+  latest_commit <- gh::gh("GET /repos/allometric/models/commits/refactor_variable_args")
   sha_7 <- substr(latest_commit$sha, 1, 7)
 
   if(verbose) {

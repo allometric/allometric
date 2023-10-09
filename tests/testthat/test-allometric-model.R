@@ -86,7 +86,19 @@ test_that("Model with nested list of descriptors runs", {
     covariates = list(dsob = units::as_units("in")),
     predict_fn = function(dsob) a * dsob,
     descriptors = list(
-      region = c("US-OR", "US-WA")
+      region = c("US-OR", "US-WA"),
+      taxa = list(
+        list(
+          family = "Pinaceae",
+          genus = "Pinus",
+          species = "ponderosa"
+        ),
+        list(
+          family = "Pinaceae",
+          genus = "Pinus",
+          species = "monticola"
+        )
+      )
     )
   ))
 })

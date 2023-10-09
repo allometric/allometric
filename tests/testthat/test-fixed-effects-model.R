@@ -23,21 +23,6 @@ test_that("Fixed effects model predicts correctly.", {
   expect_equal(pred, val)
 })
 
-test_that("Columns with lists as their elements throws an error", {
-  expect_error(
-    FixedEffectsModel(
-      response = list(vsia = units::as_units("ft^3")),
-      covariates = list(dsob = units::as_units("in")),
-      parameters = list(a = 1),
-      predict_fn = function(dsob) {
-        a * dsob
-      },
-      descriptors = tibble::tibble(a = list(list(1, 2, 3)))
-    ),
-    "Non-atomic descriptor:"
-  )
-})
-
 test_that("Fixed effects model_call returns correctly formatted string", {
   expect_equal(model_call(fixed_effects_model), "vsia = f(dsob)")
 })

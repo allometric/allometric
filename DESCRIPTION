@@ -57,6 +57,7 @@ Collate:
     'variable_defs.R'
     'load.R'
     'eq.R'
+    'Taxon.R'
     'AllometricModel.R'
     'ModelSet.R'
     'ParametricSet.R'
