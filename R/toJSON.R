@@ -52,7 +52,7 @@ variables_to_json <- function(variables) {
   for(i in 1:length(variables)) {
     out[[i]] <- list(
       name = variable_names[[i]],
-      unit = parse_unit_str(variables[[i]])
+      unit = parse_unit_str(variables[i])
     )
   }
 
@@ -78,18 +78,21 @@ unbox_nonnested <- function(object) {
 
 descriptors_to_json <- function(descriptors) {
   descriptors_list <- as.list(descriptors)
-
-  for(i in 1:length(descriptors_list)) {
-    if(typeof(descriptors_list[[i]]) == "list")  {
-      descriptors_list[[i]] <- unlist(descriptors_list[[i]])
+  if(length(descriptors_list) == 0) {
+    return(NULL) # A null value will be encoded as an empty object in JSON
+  } else {
+    for(i in 1:length(descriptors_list)) {
+      if(typeof(descriptors_list[[i]]) == "list")  {
+        descriptors_list[[i]] <- unlist(descriptors_list[[i]])
+      } else if(is.na(descriptors_list[[i]])) {
+        descriptors_list[[i]] <- list()
+      }
     }
   }
 
   descriptors_list
 }
 
-#' The RefManageR::Cite function is notoriously unreliable. Instead, we create
-#' our own inline citation directly.
 prepare_inline_citation <- function(citation) {
   n_authors <- length(citation$author)
 
@@ -173,10 +176,10 @@ model_to_json <- function(model) {
   required <- list(
     model_id = jsonlite::unbox(model_id),
     pub_id = jsonlite::unbox(model@pub_id),
-    model_type = jsonlite::unbox(get_model_type(names(model@response_unit))[[1]]),
+    model_type = jsonlite::unbox(get_model_type(names(model@response))[[1]]),
     model_class = jsonlite::unbox(model_class),
-    response = unbox_nested(variables_to_json(model@response_unit))[[1]],
-    covariates = unbox_nested(variables_to_json(model@covariate_units)),
+    response = unbox_nested(variables_to_json(model@response))[[1]],
+    covariates = unbox_nested(variables_to_json(model@covariates)),
     descriptors = descriptors_to_json(model_descriptors),
     parameters = unbox_nonnested(as.list(model@parameters)),
     predict_fn_body = parse_func_body(model@predict_fn)
@@ -207,7 +210,7 @@ publication_to_json <- function(publication) {
       for(k in 1:length(model_set_ij@models)) {
         model_ijk <- model_set_ij@models[[k]]
 
-        models[[l]] <- model_to_json(model_ijk, publication)
+        models[[l]] <- model_to_json(model_ijk)
 
         l <- l + 1
       }

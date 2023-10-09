@@ -23,7 +23,6 @@ tryCatch(
   }
 )
 
-
 convert_units <- function(..., units_list) {
   args_l <- list(...)
   for(i in seq_along(args_l)) {
@@ -48,13 +47,18 @@ strip_units <- function(values_list)  {
   values_list
 }
 
-parse_unit_str <- function(variable_val) {
-  if (inherits(variable_val, "symbolic_units")) {
-    # Handles the unitless case
-    unit_str <- ""
+descriptors_to_tibble_row <- function(descriptors) {
+  if(length(descriptors) == 0) {
+    return(tibble::tibble(.rows=0))
   } else {
-    unit_str <- units::deparse_unit(variable_val)
+    for(i in 1:length(descriptors)) {
+      if(length(descriptors[[i]]) > 1) {
+        descriptors[[i]] <- list(descriptors[[i]])
+      } else if(typeof(descriptors[[i]]) == "list" && length(descriptors[[i]]) == 1) {
+        # Handles the case when only one list is within a list (e.g., taxa with only one taxon)
+        descriptors[[i]] <- list(descriptors[[i]])
+      }
+    }
+    return(tibble::as_tibble(descriptors))
   }
-
-  unit_str
 }

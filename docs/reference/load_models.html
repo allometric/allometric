@@ -96,7 +96,7 @@ data</p>
 <span><span class="co">#&gt; # A tibble: 6 x 12</span></span>
 <span><span class="co">#&gt;   id       model_type   country   region    family       genus  species      model      pub_id    family_name covt_name pub_year</span></span>
 <span><span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;        &lt;list&gt;    &lt;list&gt;    &lt;chr&gt;        &lt;chr&gt;  &lt;chr&gt;        &lt;list&gt;     &lt;chr&gt;     &lt;list&gt;      &lt;list&gt;       &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt; 1 539629a5 stem height  &lt;chr [1]&gt; &lt;chr [3]&gt; Accipitridae Circus canadensis   &lt;FxdEffcM&gt; hahn_1984 &lt;chr [1]&gt;   &lt;chr [4]&gt;     1984</span></span>
+<span><span class="co">#&gt; 1 d6a8836f stem height  &lt;chr [1]&gt; &lt;chr [3]&gt; Accipitridae Circus canadensis   &lt;FxdEffcM&gt; hahn_1984 &lt;chr [1]&gt;   &lt;chr [4]&gt;     1984</span></span>
 <span><span class="co">#&gt; 2 7bc0e06a stem volume  &lt;chr [1]&gt; &lt;chr [3]&gt; Accipitridae Circus canadensis   &lt;FxdEffcM&gt; hahn_1984 &lt;chr [1]&gt;   &lt;chr [2]&gt;     1984</span></span>
 <span><span class="co">#&gt; 3 1fa4219a stem volume  &lt;chr [1]&gt; &lt;chr [3]&gt; Accipitridae Circus canadensis   &lt;FxdEffcM&gt; hahn_1984 &lt;chr [1]&gt;   &lt;chr [2]&gt;     1984</span></span>
 <span><span class="co">#&gt; 4 b359d3ce stump volume &lt;chr [1]&gt; &lt;chr [3]&gt; Accipitridae Circus canadensis   &lt;FxdEffcM&gt; hahn_1984 &lt;chr [1]&gt;   &lt;chr [1]&gt;     1984</span></span>
@@ -115,46 +115,22 @@ that are modeled.</p></li>
 <li><p><code>covt_name</code> - The names of the covariates used in the model.</p></li>
 <li><p><code>pub_year</code> - The publication year.</p></li>
 </ul></div>
-    <div id="basic-searching-for-models">
-    <h2>Basic Searching for Models</h2>
-    <p>Filtering out nested data from a table is slightly more involved than
-strictly tabular data. Fortunately the <code>unnest_models</code> function allows the
-user to unnest any set of columns. For example, let's say we wanted to find
-a model from the author <code>"Hann"</code>. To do this, we will unnest the
-<code>family_name</code> column using <code>unnest_models</code>, then filter the resulting
-dataframe using <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">dplyr::filter</a></code>.</p>
-<p></p><div class="sourceCode r"><pre><code><span><span class="va">unnest_family</span> <span class="op">&lt;-</span> <span class="va">allometric_models</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="../reference/unnest_models.html">unnest_models</a></span><span class="op">(</span><span class="st">'family_name'</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">unnest_family</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">family_name</span> <span class="op">==</span> <span class="st">"Hann"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 87 x 12</span></span>
-<span><span class="co">#&gt;    id       model_type     country   region    family       genus      species   model      pub_id        family_name covt_name pub_year</span></span>
-<span><span class="co">#&gt;    &lt;chr&gt;    &lt;chr&gt;          &lt;list&gt;    &lt;list&gt;    &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt;     &lt;list&gt;     &lt;chr&gt;         &lt;chr&gt;       &lt;list&gt;       &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt;  1 20332bd3 crown diameter &lt;chr [1]&gt; &lt;chr [1]&gt; Betulaceae   Alnus      rubra     &lt;FxdEffcM&gt; hann_1997     Hann        &lt;chr [4]&gt;     1997</span></span>
-<span><span class="co">#&gt;  2 c6a30071 crown diameter &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus decurrens &lt;FxdEffcM&gt; hann_1997     Hann        &lt;chr [4]&gt;     1997</span></span>
-<span><span class="co">#&gt;  3 26f5c147 stem diameter  &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus decurrens &lt;FxdEffcM&gt; larsen_1985   Hann        &lt;chr [1]&gt;     1985</span></span>
-<span><span class="co">#&gt;  4 0762ba42 crown ratio    &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus decurrens &lt;FxdEffcM&gt; ritche_1987   Hann        &lt;chr [4]&gt;     1987</span></span>
-<span><span class="co">#&gt;  5 aa38254f stem height    &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus decurrens &lt;FxdEffcM&gt; temesgen_2007 Hann        &lt;chr [1]&gt;     2007</span></span>
-<span><span class="co">#&gt;  6 e0873944 stem diameter  &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus &lt;NA&gt;      &lt;FxdEffcM&gt; hann_2011     Hann        &lt;chr [2]&gt;     2011</span></span>
-<span><span class="co">#&gt;  7 71131513 stump diameter &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus &lt;NA&gt;      &lt;FxdEffcM&gt; hann_2011     Hann        &lt;chr [2]&gt;     2011</span></span>
-<span><span class="co">#&gt;  8 4ed0b955 stem volume    &lt;chr [1]&gt; &lt;chr [1]&gt; Cupressaceae Calocedrus &lt;NA&gt;      &lt;FxdEffcM&gt; hann_2011     Hann        &lt;chr [3]&gt;     2011</span></span>
-<span><span class="co">#&gt;  9 bfdfc523 crown diameter &lt;chr [1]&gt; &lt;chr [1]&gt; Ericaceae    Arbutus    menziesii &lt;FxdEffcM&gt; hann_1997     Hann        &lt;chr [4]&gt;     1997</span></span>
-<span><span class="co">#&gt; 10 7433cb66 crown ratio    &lt;chr [1]&gt; &lt;chr [1]&gt; Ericaceae    Arbutus    menziesii &lt;FxdEffcM&gt; ritche_1987   Hann        &lt;chr [3]&gt;     1987</span></span>
-<span><span class="co">#&gt; # i 77 more rows</span></span></code></pre><p></p></div>
-<p>Any column or any combination of columns can be unnested, which allows for
-basic filtering of models using <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">dplyr::filter</a></code>.</p>
-    </div>
-    <div id="advanced-searching-for-models">
-    <h2>Advanced Searching for Models</h2>
-    <p>Nested data can be searched directly without the use of <code>unnest_models</code>.
-This requires the use of <code><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">purrr::map_lgl</a></code> which is used to determine
-truthiness of expressions for each element in a <code>list</code> column.
-Before beginning, it is helpful to know that <code><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">purrr::map_lgl</a></code> returns a list
-of TRUE/FALSE values as it "maps" over a list of input.</p><div class="section">
+    <div id="searching-for-models">
+    <h2>Searching for Models</h2>
+    <p>Models can be searched by their attirbutes. Note that some of the columns
+are <code>list</code> columns, which contain lists as their elements. Filtering on
+data in these columns requires the use of <code><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">purrr::map_lgl</a></code> which is used to
+determine truthiness of expressions for each element in a <code>list</code> column.
+While this may seem complicated, we believe the nested data structures are
+more descriptive and concise for storing the models, and users will quickly
+find that searching models in this way can be very powerful.</p><div class="section">
 <h3 id="finding-contributing-authors">Finding Contributing Authors<a class="anchor" aria-label="anchor" href="#finding-contributing-authors"></a></h3>
 
 
-<p>Using this function, we can recreate the previous example, finding models
-that had <code>'Hann'</code> as a contributing author.</p>
+<p>Using <code>purr::map_lgl</code> to filter the <code>family_name</code> column, we are able to
+find publications that contain specific authors of interst. For example, we
+may want models only authored by <code>"Hann"</code>. This is elementary to do in
+<code>allometric</code>:</p>
 <p></p><div class="sourceCode r"><pre><code><span><span class="va">hann_models</span> <span class="op">&lt;-</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span></span>
 <span> <span class="va">allometric_models</span>,</span>
 <span> <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map_lgl</a></span><span class="op">(</span><span class="va">family_name</span>, <span class="op">~</span> <span class="st">'Hann'</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="va">.</span><span class="op">)</span></span>

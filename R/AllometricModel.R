@@ -11,13 +11,13 @@ check_allometric_model_validity <- function(object) {
 model_types_defined <- utils::read.csv(
   system.file(
   "variable_defs", "model_types_defined.csv",
-  package="allometric"
+  package = "allometric"
 ))
 
 .AllometricModel <- setClass("AllometricModel",
   slots = c(
-    response_unit = "list",
-    covariate_units = "list",
+    response = "list",
+    covariates = "list",
     predict_fn = "function",
     descriptors = "tbl_df",
     set_descriptors = "tbl_df",
@@ -36,11 +36,11 @@ model_types_defined <- utils::read.csv(
 #' This class is primarily used as a parent class for other model
 #' implementations.
 #'
-#' @param response_unit
+#' @param response
 #'    A named list containing one element, with a name representing the response
 #'    variable and a value representing the units of the response variable
 #'    using the `units::as_units` function.
-#' @param covariate_units
+#' @param covariates
 #'    A named list containing the covariate specifications, with names
 #'    representing the covariate name and the values representing the units of
 #'    the coavariate using the `units::as_units` function
@@ -58,23 +58,23 @@ model_types_defined <- utils::read.csv(
 #' @param covariate_definitions
 #'    An optional named list of custom covariate definitions that will supersede
 #'    the definitions given by the variable naming system. The names of the list
-#'    must match the covariate names given in `covariate_units`.
+#'    must match the covariate names given in `covariates`.
 #' @return An instance of an AllometricModel
 #' @export
 #' @keywords internal
-AllometricModel <- function(response_unit, covariate_units, predict_fn,
+AllometricModel <- function(response, covariates, predict_fn,
                             descriptors = list(),
                             response_definition = NA_character_,
                             covariate_definitions = list()) {
   # Coerce to tibble
-  descriptors <- tibble::as_tibble(descriptors)
+  descriptors <- descriptors_to_tibble_row(descriptors)
 
   # Retrieve the model type
-  model_type <- get_model_type(names(response_unit)[[1]])
+  model_type <- get_model_type(names(response)[[1]])
 
   allometric_model <- .AllometricModel(
-    response_unit = response_unit,
-    covariate_units = covariate_units,
+    response = response,
+    covariates = covariates,
     predict_fn = predict_fn,
     descriptors = descriptors,
     set_descriptors = tibble::tibble(),
@@ -95,7 +95,7 @@ setMethod(
   "get_measure_name",
   signature(x = "AllometricModel"),
   function(x) {
-    response_name <- names(x@response_unit)[[1]]
+    response_name <- names(x@response)[[1]]
     measure <- substr(response_name, 1, 1)
     measure_defs[measure_defs$measure == measure, "measure_name"]
   }
@@ -105,7 +105,7 @@ setMethod(
   "get_component_name",
   signature(x = "AllometricModel"),
   function(x) {
-    response_name <- names(x@response_unit)[[1]]
+    response_name <- names(x@response)[[1]]
     component <- substr(response_name, 2, 2)
     component_defs[component_defs$component == component, "component_name"]
   }

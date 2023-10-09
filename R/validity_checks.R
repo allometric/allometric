@@ -27,7 +27,7 @@ check_parameters_in_mixed_fns <- function(object) {
   }
 }
 
-#' Check if all covariates in covariate_units are used as arguments in
+#' Check if all covariates in covariates are used as arguments in
 #' predict_fn
 #'
 #' @keywords internal
@@ -36,9 +36,9 @@ check_covts_in_args <- function(object) {
   fn_args <- names(as.list(args(object@predict_fn)))
   fn_args <- fn_args[-length(fn_args)]
 
-  covt_names <- names(object@covariate_units)
+  covt_names <- names(object@covariates)
   if (!(all(covt_names %in% fn_args) & all(fn_args %in% covt_names))) {
-    msg <- paste("The predict_fn arguments and the names in covariate_units mismatch.")
+    msg <- paste("The predict_fn arguments and the names in covariates mismatch.")
     errors <- c(errors, msg)
   }
 
@@ -73,9 +73,9 @@ check_args_in_predict_fn <- function(object) {
 #' Checks if a region code is defined in the ISO_3166_2 table
 #'
 #' @keywords internal
-check_region_in_iso <- function(region_code) {
+check_region_in_iso <- function(region_codes) {
   errors <- c()
-  for (code in region_code) {
+  for (code in region_codes) {
     if (!all(code %in% ISOcodes::ISO_3166_2$Code)) {
       msg <- paste("Region code", code, "not found in ISO_3166-2")
       errors <- c(msg, errors)
@@ -88,10 +88,10 @@ check_region_in_iso <- function(region_code) {
 #' Checks if a country code is defined in ISO_3166_1$Alpha_2
 #'
 #' @keywords internal
-check_country_in_iso <- function(country_code) {
+check_country_in_iso <- function(country_codes) {
   errors <- c()
 
-  for (code in country_code) {
+  for (code in country_codes) {
     if (!all(code %in% ISOcodes::ISO_3166_1$Alpha_2)) {
       msg <- paste("Country code", code, "not found in ISO_3166-1 alpha 2")
       errors <- c(msg, errors)
@@ -112,21 +112,6 @@ check_tbl_rows <- function(descriptors) {
   errors
 }
 
-check_tbl_atomic <- function(descriptors) {
-  errors <- c()
-
-  if (nrow(descriptors) > 0) {
-    for (name in names(descriptors)) {
-      if (!is.atomic(descriptors[[name]][[1]])) {
-        msg <- paste("Non-atomic descriptor:", name)
-        errors <- c(errors, msg)
-      }
-    }
-  }
-
-  errors
-}
-
 #' Checks that descriptors are valid
 #'
 #' @keywords internal
@@ -134,14 +119,15 @@ check_descriptor_validity <- function(descriptors) {
   errors <- c()
 
   errors <- c(errors, check_tbl_rows(descriptors))
-  errors <- c(errors, check_tbl_atomic(descriptors))
 
   if ("country" %in% names(descriptors)) {
-    errors <- c(errors, check_country_in_iso(descriptors$country))
+    # [[1]] refers to the list that is country
+    errors <- c(errors, check_country_in_iso(descriptors$country[[1]]))
   }
 
   if ("region" %in% names(descriptors)) {
-    errors <- c(errors, check_region_in_iso(descriptors$region))
+    # [[1]] refers to the list that is region
+    errors <- c(errors, check_region_in_iso(descriptors$region[[1]]))
   }
 
   errors
@@ -171,6 +157,49 @@ check_citation_key <- function(citation) {
 
   if(is.null(citation$key)) {
     errors <- c(errors, "No key defined for this publication.")
+  }
+
+  errors
+}
+
+#' Determines if a taxon has a valid hierarchy
+#'
+#' @keywords internal
+check_taxon_hierarchy <- function(object) {
+  # Define the complete hierarchy as a list of vectors
+  errors <- c()
+
+  hierarchy <- list(
+    family = c("family"),
+    genus = c("family", "genus"),
+    species = c("family", "genus", "species")
+  )
+
+  vals <- c(object@family, object@genus, object@species)
+  defined_fields <- c("family", "genus", "species")[!is.na(vals)]
+
+  if (all(is.na(defined_fields))) {
+    errors <- c(errors, "Taxon must at least have a family specified")
+  }
+
+  for (level in names(hierarchy)) {
+    if (level %in% defined_fields) {
+      if (!all(hierarchy[[level]] %in% defined_fields)) {
+        errors <- c(errors, "Invalid taxonomic hierarchy")
+      }
+    }
+  }
+
+  errors
+}
+
+check_taxa_unique <- function(object) {
+  errors <- c()
+
+  uniques <- unique(object)
+
+  if(length(uniques) != length(object)) {
+    errors <- c(errors, "Taxa is not composed of unique Taxon objects")
   }
 
   errors

@@ -44,10 +44,10 @@ generate_pub_obj <- function(pub_id, bibtype) {
 generate_fixef_model <- function() {
   fixef_model <- paste(c(
     "<model> <- FixedEffectsModel(",
-    "  response_unit = list(",
+    "  response = list(",
     "    <res> = units::as_units(<res_unit>)",
     "  )",
-    "  covariate_units = list(",
+    "  covariates = list(",
     "    <covt_unit1> = units::as_units(<covt_unit>)",
     "  )",
     "  parameters = list(",

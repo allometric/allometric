@@ -1,8 +1,8 @@
 fixed_effects_set <- FixedEffectsSet(
-  response_unit = list(
+  response = list(
     vsia = units::as_units("ft^3")
   ),
-  covariate_units = list(
+  covariates = list(
     dsob = units::as_units("in")
   ),
   predict_fn = function(dsob) {
@@ -21,10 +21,10 @@ test_that("FixedEffectsSet adds models", {
 
 test_that("FixedEffectsSet with mis-specified parameter names is invalid.", {
   expect_error(FixedEffectsSet(
-    response_unit = list(
+    response = list(
       vsia = units::as_units("ft^3")
     ),
-    covariate_units = list(
+    covariates = list(
       dsob = units::as_units("in")
     ),
     predict_fn = function(dsob) {
@@ -50,10 +50,10 @@ test_that("FixedEffectsSet's models can predict", {
 })
 
 fixed_effects_covt_override <- FixedEffectsSet(
-  response_unit = list(
+  response = list(
     vsia = units::as_units("ft^3")
   ),
-  covariate_units = list(
+  covariates = list(
     dsob = units::as_units("in")
   ),
   predict_fn = function(dsob) {

@@ -70,13 +70,13 @@ create_model_row <- function(model, pub, model_id) {
   family_name <- pub@citation$author$family
   model_row$family_name <- list(as.character(family_name))
 
-  covt_name <- names(model@covariate_units)
+  covt_name <- names(model@covariates)
   model_row$covt_name <- list(covt_name)
 
   pub_year <- as.numeric(pub@citation$year)
   model_row$pub_year <- pub_year
 
-  response_def <- get_variable_def(names(model@response_unit)[[1]], return_exact_only = T)
+  response_def <- get_variable_def(names(model@response)[[1]], return_exact_only = T)
   model_row$model_type <- model@model_type
 
   model_row
@@ -119,14 +119,14 @@ aggregate_pub_models <- function(pub) {
 #' @param verbose Whether or not to print verbose messages to console
 #' @param func The publication processing function. It should take a Publication
 #' object as its only argument.
-#' @param publications_path An optional path to a publication directory, by
+#' @param pub_path An optional path to a publication directory, by
 #' default the internally stored set of publications is used.
-#' @param parameters_path An optional path to a parameters directory, by
+#' @param params_path An optional path to a parameters directory, by
 #' default the internally stored set of parameter files is used.
 #' @export
 map_publications <- function(verbose, func, pub_path = NULL, params_path = NULL) {
   if(is.null(pub_path)) {
-    pub_path <- system.file("models-main/publications", package = "allometric")
+    pub_path <- system.file("models-refactor_variable_args/publications", package = "allometric")
   }
 
   if(!is.null(params_path)) {
@@ -150,15 +150,18 @@ map_publications <- function(verbose, func, pub_path = NULL, params_path = NULL)
 
     pub_r_path <- pub_specs$pub_paths[[i]]
     pub_r_file <- pub_specs$pub_names[[i]]
-
-    source(pub_r_path, local = pub_env)
     pub_name <- tools::file_path_sans_ext(pub_r_file)
-    pub <- get(pub_name, envir = pub_env)
 
-    output[[pub_name]] <- func(pub)
+    tryCatch({
+      source(pub_r_path, local = pub_env)
+      pub <- get(pub_name, envir = pub_env)
+      output[[pub_name]] <- func(pub)
+    }, error = function(e) {
+      warning(paste("Publication file", pub_name, "encountered an error during execution."))
+    })
 
     if (verbose) {
-      pb$tick(tokens = list(pub_id = pub@id))
+      pb$tick(tokens = list(pub_id = pub_name))
     }
 
     # Remove pub_env from memory

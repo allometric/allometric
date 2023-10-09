@@ -5,8 +5,8 @@
 \title{Create a fixed effects model}
 \usage{
 FixedEffectsModel(
-  response_unit,
-  covariate_units,
+  response,
+  covariates,
   predict_fn,
   parameters,
   descriptors = list(),
@@ -15,11 +15,11 @@ FixedEffectsModel(
 )
 }
 \arguments{
-\item{response_unit}{A named list containing one element, with a name representing the response
+\item{response}{A named list containing one element, with a name representing the response
 variable and a value representing the units of the response variable
 using the \code{units::as_units} function.}
 
-\item{covariate_units}{A named list containing the covariate specifications, with names
+\item{covariates}{A named list containing the covariate specifications, with names
 representing the covariate name and the values representing the units of
 the coavariate using the \code{units::as_units} function}
 
@@ -36,7 +36,7 @@ instead of the description given by the variable naming system.}
 
 \item{covariate_definitions}{An optional named list of custom covariate definitions that will supersede
 the definitions given by the variable naming system. The names of the list
-must match the covariate names given in \code{covariate_units}.}
+must match the covariate names given in \code{covariates}.}
 }
 \value{
 An object of class \code{FixedEffectsModel}
@@ -85,10 +85,10 @@ the parameters and the descriptors together}
 
 \examples{
 FixedEffectsModel(
-  response_unit = list(
+  response = list(
     hst = units::as_units("m")
   ),
-  covariate_units = list(
+  covariates = list(
     dsob = units::as_units("cm")
   ),
   parameters = list(

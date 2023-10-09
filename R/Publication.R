@@ -105,7 +105,7 @@ setMethod(
   "add_set",
   "Publication",
   function(publication, model_set) {
-    response_name <- names(model_set@response_unit)[[1]]
+    response_name <- names(model_set@response)[[1]]
 
     # Propagate the pub descriptors to the set
     model_set@pub_descriptors <- publication@descriptors
