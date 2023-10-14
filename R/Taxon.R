@@ -32,6 +32,12 @@ compareNA <- function(v1, v2) {
     return(same)
 }
 
+setMethod("unlist", signature(x = "Taxon"),
+  function(x) {
+    c(x@family, x@genus, x@species)
+  }
+)
+
 setMethod("==", signature(e1 = "Taxon", e2 = "Taxon"),
   function(e1, e2) {
     # All fields in e1 e2 are NA_character_
@@ -55,12 +61,29 @@ setMethod("%in%", signature(x = "Taxon", table = "list"),
 
 setMethod("%in%", signature(x = "list", table = "Taxon"),
   function(x, table) {
+    out <- c()
     for(taxon in x) {
       if(taxon == x) {
-        return(TRUE)
+        out <- c(out, TRUE)
+      } else {
+        out <- c(out, FALSE)
       }
     }
 
-    return(FALSE)
+    out
+  }
+)
+
+setMethod("%in%", signature(x = "character", table = "Taxon"),
+  function(x, table) {
+    vals <- unlist(table)
+    x %in% vals
+  }
+)
+
+setMethod("%in%", signature(x = "Taxon", table = "character"),
+  function(x, table) {
+    vals <- unlist(x)
+    vals %in% table
   }
 )
