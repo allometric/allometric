@@ -44,3 +44,15 @@ test_that("Taxon %in% character works", {
   expect_equal(taxon_pp %in% "ponderosa", c(FALSE, FALSE, TRUE))
   expect_equal(taxon_pp %in% "asf", c(FALSE, FALSE, FALSE))
 })
+
+test_that("character %in% Taxa works", {
+  expect_true("Pinus" %in% taxa_1)
+  expect_true("ponderosa" %in% taxa_1)
+  expect_false("asdf" %in% taxa_1)
+})
+
+test_that("Taxa %in% character works", {
+  expect_equal(taxa_1 %in% "Pinus", c(TRUE, TRUE))
+  expect_equal(taxa_1 %in% "ponderosa", c(TRUE, FALSE))
+  expect_equal(taxa_1 %in% "asf", c(FALSE, FALSE))
+})

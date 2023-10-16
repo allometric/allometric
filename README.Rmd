@@ -70,7 +70,7 @@ model_summ.fmt <- bind_rows(
 models. Thousands of allometric models exist in the scientific and technical
 forestry literature, and `allometric` is a platform for archiving and using this
 vast array of models in a robust and structured format. Get started by going to
-the [Installtion](#installation) section or the [documentation website](https://allometric.org).
+the [Installation](#installation) section or the [documentation website](https://allometric.org).
 
 `allometric` also provides a structured language for adding models to the
 package. If you are interested in helping the developer in this process please

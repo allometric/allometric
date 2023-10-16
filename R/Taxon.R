@@ -15,6 +15,15 @@ setMethod("unlist", signature(x = "Taxon"),
   }
 )
 
+#' Check equivalence of two `Taxon` objects
+#'
+#' Two Taxons are equal if all values are the same (including NA values)
+#'
+#' @param e1 A `Taxon` object
+#' @param e1 A `Taxon` object
+#' @return TRUE or FALSE
+#' @export
+#' @keywords internal
 setMethod("==", signature(e1 = "Taxon", e2 = "Taxon"),
   function(e1, e2) {
     # All fields in e1 e2 are NA_character_
@@ -24,6 +33,13 @@ setMethod("==", signature(e1 = "Taxon", e2 = "Taxon"),
     all(compareNA(e1_vals, e2_vals))
 })
 
+#' Check if a Taxon is in a Taxa
+#'
+#' @param x A `Taxon` object
+#' @param table A `Taxa` object
+#' @return TRUE or FALSE indicating if the Taxon is in the Taxa
+#' @export
+#' @keywords internal
 setMethod("%in%", signature(x = "Taxon", table = "Taxa"),
   function(x, table) {
     for(taxon in table) {
@@ -36,6 +52,13 @@ setMethod("%in%", signature(x = "Taxon", table = "Taxa"),
   }
 )
 
+#' Check if a character is in a Taxon
+#'
+#' @param x A character vector
+#' @param table A `Taxon` object
+#' @return TRUE or FALSE indicating if the character appears in the Taxon fields
+#' @export
+#' @keywords internal
 setMethod("%in%", signature(x = "character", table = "Taxon"),
   function(x, table) {
     vals <- unlist(table)
@@ -43,6 +66,14 @@ setMethod("%in%", signature(x = "character", table = "Taxon"),
   }
 )
 
+#' Check if a Taxon contains a character
+#'
+#' @param x A `Taxon` object
+#' @param table A character vector
+#' @return TRUE or FALSE indicating if any of the Taxa fields appear in the
+#' character.
+#' @export
+#' @keywords internal
 setMethod("%in%", signature(x = "Taxon", table = "character"),
   function(x, table) {
     vals <- unlist(x)

@@ -21,6 +21,7 @@ reference:
   contents:
   - add_model
   - add_set
+  - aggregate_taxa
   - get_variable_def
   - get_component_defs
   - get_measure_defs
@@ -33,6 +34,8 @@ reference:
   - Publication
   - ==,FixedEffectsModel,FixedEffectsModel-method
   - ==,MixedEffectsModel,MixedEffectsModel-method
+  - Taxa
+  - Taxon
   - toJSON,FixedEffectsModel-method
   - toJSON
 - title: Example Data
