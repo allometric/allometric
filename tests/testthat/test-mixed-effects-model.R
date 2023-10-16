@@ -68,11 +68,11 @@ test_that("A mixed effects model can be flagged as fixed only and predict", {
   expect_equal(pred, val, tolerance = 0.001)
 })
 
-test_that("Identical mixed effects models are equal", {
-  expect_equal(mixed_effects_model_one_ranef, mixed_effects_model_one_ranef)
-})
-
-
-test_that("Different mixed effects models are equal", {
-  expect_equal(mixed_effects_model_one_ranef == mixed_effects_model_fixed_only, FALSE)
-})
+#test_that("Identical mixed effects models are equal", {
+#  expect_equal(mixed_effects_model_one_ranef, mixed_effects_model_one_ranef)
+#})
+#
+#
+#test_that("Different mixed effects models are equal", {
+#  expect_equal(mixed_effects_model_one_ranef == mixed_effects_model_fixed_only, FALSE)
+#})

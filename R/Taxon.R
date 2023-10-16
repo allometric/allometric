@@ -1,28 +1,5 @@
-.Taxon <- setClass("Taxon",
-  slots = c(
-    family = "character",
-    genus = "character",
-    species = "character"
-  ),
-  validity = check_taxon_hierarchy
-)
-
-Taxon <- function(family = NA_character_, genus = NA_character_, species = NA_character_) {
-  if(is.na(family)) {
-    family <- NA_character_
-  }
-
-  if(is.na(genus)) {
-    genus <- NA_character_
-  }
-
-  if(is.na(species)) {
-    species <- NA_character_
-  }
-
-  taxon <- .Taxon(family = family, genus = genus, species = species)
-  taxon
-}
+# For class definition of Taxon see Taxa.R (did this to resolve a collating
+# issue)
 
 # This function returns TRUE wherever elements are the same, including NA's,
 # and FALSE everywhere else.
@@ -47,7 +24,7 @@ setMethod("==", signature(e1 = "Taxon", e2 = "Taxon"),
     all(compareNA(e1_vals, e2_vals))
 })
 
-setMethod("%in%", signature(x = "Taxon", table = "list"),
+setMethod("%in%", signature(x = "Taxon", table = "Taxa"),
   function(x, table) {
     for(taxon in table) {
       if(x == taxon) {
@@ -56,21 +33,6 @@ setMethod("%in%", signature(x = "Taxon", table = "list"),
     }
 
     return(FALSE)
-  }
-)
-
-setMethod("%in%", signature(x = "list", table = "Taxon"),
-  function(x, table) {
-    out <- c()
-    for(taxon in x) {
-      if(taxon == x) {
-        out <- c(out, TRUE)
-      } else {
-        out <- c(out, FALSE)
-      }
-    }
-
-    out
   }
 )
 
