@@ -70,17 +70,17 @@ download_models <- function(verbose) {
 
   dir.create(model_dir_path)
 
-  latest_commit <- gh::gh("GET /repos/allometric/models/commits/main")
-  sha_7 <- substr(latest_commit$sha, 1, 7)
+  #latest_commit <- gh::gh("GET /repos/allometric/models/commits/main")
+  #sha_7 <- substr(latest_commit$sha, 1, 7)
 
-  if(verbose) {
-    msg <- paste(
-      "Downloading allometric/models repository.\n   Retrieving latest commit: ", sha_7, "\n",
-      sep = ""
-    )
+  #if(verbose) {
+  #  msg <- paste(
+  #    "Downloading allometric/models repository.\n   Retrieving latest commit: ", sha_7, "\n",
+  #    sep = ""
+  #  )
 
-    cat(msg)
-  }
+  #  cat(msg)
+  #}
 
   curl::curl_download(
     "https://github.com/allometric/models/archive/refs/heads/main.zip",
