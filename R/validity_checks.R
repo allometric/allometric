@@ -130,10 +130,13 @@ check_descriptor_validity <- function(descriptors) {
     errors <- c(errors, check_region_in_iso(descriptors$region[[1]]))
   }
 
+  if (any(names(descriptors) %in% c("family", "genus", "species"))) {
+    errors <- c(errors, "Descriptor fields cannot contain family, genus, or species. Use the taxa field instead.")
+  }
+
   errors
 }
 
-#' 
 check_model_specifications_unique <- function(model_specifications, parameter_names) {
   errors <- c()
   n <- nrow(model_specifications)
@@ -188,21 +191,6 @@ check_taxon_hierarchy <- function(object) {
         errors <- c(errors, "Invalid taxonomic hierarchy")
       }
     }
-  }
-
-  errors
-}
-
-#' Determines if a taxa is composed of unique taxon objects
-#'
-#' @keywords internal
-check_taxa_unique <- function(object) {
-  errors <- c()
-
-  uniques <- unique(object)
-
-  if(length(uniques) != length(object)) {
-    errors <- c(errors, "Taxa is not composed of unique Taxon objects")
   }
 
   errors

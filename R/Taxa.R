@@ -44,6 +44,21 @@ Taxon <- function(family = NA_character_, genus = NA_character_,
   taxon
 }
 
+#' Determines if a taxa is composed of unique taxon objects
+#'
+#' @keywords internal
+check_taxa_unique <- function(object) {
+  errors <- c()
+
+  uniques <- unique(object)
+
+  if(length(uniques) != length(object)) {
+    errors <- c(errors, "Taxa is not composed of unique Taxon objects")
+  }
+
+  errors
+}
+
 .Taxa <- setClass("Taxa",
   contains = "list",
   validity = check_taxa_unique
