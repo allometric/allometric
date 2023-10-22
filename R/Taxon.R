@@ -73,7 +73,6 @@ setMethod("%in%", signature(x = "character", table = "Taxon"),
 #' @return TRUE or FALSE indicating if any of the Taxa fields appear in the
 #' character.
 #' @export
-#' @keywords internal
 setMethod("%in%", signature(x = "Taxon", table = "character"),
   function(x, table) {
     vals <- unlist(x)

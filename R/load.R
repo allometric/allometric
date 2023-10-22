@@ -23,10 +23,14 @@ load_parameter_frame <- function(name) {
   tibble::as_tibble(table)
 }
 
-
-
-aggregate_taxa_row <- function(family, genus, species) {
-  
+my_function <- function(family, genus, species) {
+  Taxa(
+    Taxon(
+      family = family,
+      genus = genus,
+      species = species
+    )
+  )
 }
 
 #' Aggregate family, genus, and species columns of `tbl_df`` into taxa data
@@ -35,17 +39,17 @@ aggregate_taxa_row <- function(family, genus, species) {
 #' This function facilitates aggregating family, genus, and species columns
 #' into the taxa data structure, which is a nested list composed of multiple
 #' "taxons". A taxon is a list containing family, genus, and species fields.
-aggregate_taxa <- function(model_specifications, remove_taxa_cols = TRUE) {
+aggregate_taxa <- function(table, remove_taxa_cols = TRUE) {
   default_taxon_fields <- c("family", "genus", "species")
-  taxon_fields <- colnames(model_specifications)[colnames(model_specifications) %in% default_taxon_fields]
+  taxon_fields <- colnames(table)[colnames(table) %in% default_taxon_fields]
   missing_taxon_fields <- default_taxon_fields[!default_taxon_fields %in% taxon_fields]
 
-  model_specifications %>%
+  table %>%
     dplyr::mutate(!!!setNames(rep(list(NA), length(missing_taxon_fields)), missing_taxon_fields)) %>%
-    dplyr::mutate(taxa = purrr::pmap(
-      list(.data$family, .data$genus, .data$species),
-      ~Taxon(family = ..1, genus = ..2, species = ..3)
-    ))
+    dplyr::rowwise() %>%
+    dplyr::mutate(taxa = list(Taxa(Taxon(family = family, genus = genus, species = species)))) %>%
+    dplyr::ungroup() %>%
+    dplyr::select(-c(default_taxon_fields))
 }
 
 #' Load a locally installed table of allometric models

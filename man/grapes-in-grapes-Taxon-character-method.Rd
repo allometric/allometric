@@ -18,4 +18,3 @@ character.
 \description{
 Check if a Taxon contains a character
 }
-\keyword{internal}

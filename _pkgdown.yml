@@ -45,6 +45,7 @@ reference:
   - ==,MixedEffectsModel,MixedEffectsModel-method
   - Taxa
   - Taxon
+  - '%in%,Taxon,character-method'
   - toJSON,FixedEffectsModel-method
   - toJSON
 - title: Example Data
