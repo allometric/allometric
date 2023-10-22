@@ -13,16 +13,16 @@ allometric models. Thousands of allometric models exist in the
 scientific and technical forestry literature, and `allometric` is a
 platform for archiving and using this vast array of models in a robust
 and structured format. Get started by going to the
-[Installtion](#installation) section or the [documentation
-website](https://allometric.github.io/allometric/).
+[Installation](#installation) section or the [documentation
+website](https://allometric.org).
 
 `allometric` also provides a structured language for adding models to
 the package. If you are interested in helping the developer in this
 process please refer to the [Contributing a
-Model](https://allometric.github.io/allometric/articles/installing_a_model.html)
+Model](https://allometric.org/articles/installing_a_model.html)
 vignette.
 
-In total **`allometric` contains 2099 models across 60 publications**,
+In total **`allometric` contains 2100 models across 61 publications**,
 refer to the [Current Status](#current-status) for a more complete view
 of available models.
 
@@ -106,7 +106,7 @@ tsuga_poudel <- tsuga_vol_models %>% select_model("3e8447f2")
 
 This example is very basic, and more complex search examples can be
 found in the
-[`load_models()`](https://allometric.github.io/allometric/reference/load_models.html)
+[`load_models()`](https://allometric.org/reference/load_models.html)
 documentation. Models can be searched not only by their genus and
 species, but also the types of measurements the models require, their
 geographic region, and other attributes. We highly encourage users
@@ -150,7 +150,7 @@ require two covariates called `dsob`, which refers to diameter outside
 bark at breast height, and `hst`, the height of the main stem.
 `allometric` uses a variable naming system to determine the names of
 response variables and covariates (refer to the [Variable Naming System
-vignette](https://allometric.github.io/allometric/articles/variable_naming_system.html)).
+vignette](https://allometric.org/articles/variable_naming_system.html)).
 
 Using the `predict()` method we can easily use the function as defined
 by providing values of these two covariates.
@@ -185,12 +185,12 @@ my_trees %>%
 
 The above example is a very basic use case for `allometric`. Please
 refer to the [Common Inventory Use Cases
-vignette](https://allometric.github.io/allometric/articles/inventory_example.html)
-for more complex examples.
+vignette](https://allometric.org/articles/inventory_example.html) for
+more complex examples.
 
 ## Current Status
 
-In total **`allometric` contains 2099 models across 60 publications**.
+In total **`allometric` contains 2100 models across 61 publications**.
 
 | category                |  AS |  EU |  NA |  AF |  OC |  SA |
 |:------------------------|----:|----:|----:|----:|----:|----:|
@@ -202,7 +202,7 @@ In total **`allometric` contains 2099 models across 60 publications**.
 | shrub diameter          |   0 |  39 |   0 |   0 |   0 |   0 |
 | shrub height            |   0 |  28 |   0 |   0 |   0 |   0 |
 | site index              |   0 |   0 |  52 |   0 |   0 |   0 |
-| stem height             |   7 |   0 | 345 |  12 |   2 |  18 |
+| stem height             |   7 |   0 | 346 |  12 |   2 |  17 |
 | stem volume             |   4 |   0 | 575 |   0 |   0 |  20 |
 | stump volume            |   0 |   0 |  64 |   0 |   0 |   0 |
 | taper                   |   2 |   0 |  18 |   0 |   0 |   0 |
@@ -233,7 +233,7 @@ difficult tasks.
     will find a list of reports that need manual digitization. These can
     be handled by anyone with Excel and a cup of coffee.
 4.  [Learn how to install and write
-    models](https://allometric.github.io/allometric/articles/installing_a_model.html).
+    models](https://allometric.org/articles/installing_a_model.html).
     Motivated users can learn how to install models directly using the
     package functions and git pull requests. Users comfortable with R
     and git can handle this task.
@@ -243,21 +243,21 @@ Other ideas? Contact <bfrank70@gmail.com> to help out.
 ## Next Steps
 
 The following vignettes available on the [package
-website](https://allometric.github.io/allometric/index.html) provide
-information to two primary audiences.
+website](https://allometric.org/index.html) provide information to two
+primary audiences.
 
 Users interested in finding models for analysis will find the following
 documentation most useful:
 
 - [Common Inventory Use
-  Cases](https://allometric.github.io/allometric/articles/inventory_example.html)
+  Cases](https://allometric.org/articles/inventory_example.html)
 
 Users interested in **contributing models** to the package will find
 these vignettes the most useful:
 
 - [Contributing a
-  Model](https://allometric.github.io/allometric/articles/installing_a_model.html)
+  Model](https://allometric.org/articles/installing_a_model.html)
 - [Describing a Model with
-  Descriptors](https://allometric.github.io/allometric/articles/descriptors.html)
+  Descriptors](https://allometric.org/articles/descriptors.html)
 - [Variable Naming
-  System](https://allometric.github.io/allometric/articles/variable_naming_system.html)
+  System](https://allometric.org/articles/variable_naming_system.html)

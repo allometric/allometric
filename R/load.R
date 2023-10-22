@@ -85,7 +85,7 @@ aggregate_taxa <- function(model_specifications, remove_taxa_cols = TRUE) {
 #'
 #' # Searching for Models
 #'
-#' Models can be searched by their attirbutes. Note that some of the columns
+#' Models can be searched by their attributes. Note that some of the columns
 #' are `list` columns, which contain lists as their elements. Filtering on
 #' data in these columns requires the use of `purrr::map_lgl` which is used to
 #' determine truthiness of expressions for each element in a `list` column.

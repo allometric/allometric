@@ -193,6 +193,9 @@ check_taxon_hierarchy <- function(object) {
   errors
 }
 
+#' Determines if a taxa is composed of unique taxon objects
+#'
+#' @keywords internal
 check_taxa_unique <- function(object) {
   errors <- c()
 

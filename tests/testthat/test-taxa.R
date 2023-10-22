@@ -56,3 +56,9 @@ test_that("Taxa %in% character works", {
   expect_equal(taxa_1 %in% "ponderosa", c(TRUE, FALSE))
   expect_equal(taxa_1 %in% "asf", c(FALSE, FALSE))
 })
+
+test_that("Non-unique Taxon objects throw error", {
+  expect_error({
+    Taxa(Taxon(family = "a"), Taxon(family = "a"))
+  })
+})

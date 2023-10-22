@@ -106,6 +106,14 @@ check_predict_fn_equal <- function(predict_fn_1, predict_fn_2) {
   args_same <- all.equal(args(predict_fn_1), args(predict_fn_2))
   body_same <- all.equal(body(predict_fn_1), body(predict_fn_2))
 
+  if(is.character(args_same)) {
+    return(FALSE)
+  }
+
+  if(is.character(body_same)) {
+    return(FALSE)
+  }
+
   if(all(args_same, body_same)) {
     return(TRUE)
   } else {

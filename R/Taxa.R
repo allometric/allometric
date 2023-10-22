@@ -45,7 +45,8 @@ Taxon <- function(family = NA_character_, genus = NA_character_,
 }
 
 .Taxa <- setClass("Taxa",
-  contains = "list"
+  contains = "list",
+  validity = check_taxa_unique
 )
 
 #' Group taxons together
@@ -86,7 +87,7 @@ setMethod("%in%", signature(x = "character", table = "Taxa"),
   }
 )
 
-#' Check if a character is in a Taxa
+#' Check if a Taxa contains a character
 #'
 #' @param x A `Taxa` object
 #' @param table A character vector

@@ -43,9 +43,6 @@
     <li>
       <a href="../articles/variable_naming_system.html">Variable Naming System</a>
     </li>
-    <li>
-      <a href="../articles/version_two.html">`allometric` v2.0.0 Developer Notes</a>
-    </li>
   </ul></li>
 <li>
   <a href="../news/index.html">Changelog</a>
@@ -104,7 +101,11 @@
           <p><code><a href="merge.model_tbl.html">merge(<i>&lt;model_tbl&gt;</i>)</a></code> </p>
         </td>
         <td><p>Merge a <code>model_tbl</code> with another data frame.</p></td>
-      </tr><tr><td>
+      </tr></tbody><tbody><tr><th colspan="2">
+          <h2 id="searching-functions">Searching Functions <a href="#searching-functions" class="anchor" aria-hidden="true"></a></h2>
+          <p class="section-desc"></p><p>These functions facilitate searching models, especially those that assist with filtering for species information stored in the <code>Taxa</code> and <code>Taxon</code> classes.</p>
+        </th>
+      </tr></tbody><tbody><tr><td>
           <p><code><a href="unnest_models.html">unnest_models()</a></code> </p>
         </td>
         <td><p>Unnest columns of a dataframe</p></td>
@@ -112,6 +113,30 @@
           <p><code><a href="unnest_models.model_tbl.html">unnest_models(<i>&lt;model_tbl&gt;</i>)</a></code> </p>
         </td>
         <td><p>Unnest the columns of <code>model_tbl</code></p></td>
+      </tr><tr><td>
+          <p><code><a href="grapes-in-grapes-Taxon-character-method.html">`%in%`(<i>&lt;Taxon&gt;</i>,<i>&lt;character&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Check if a Taxon contains a character</p></td>
+      </tr><tr><td>
+          <p><code><a href="grapes-in-grapes-Taxa-character-method.html">`%in%`(<i>&lt;Taxa&gt;</i>,<i>&lt;character&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Check if a character is in a Taxa</p></td>
+      </tr><tr><td>
+          <p><code><a href="grapes-in-grapes-character-Taxon-method.html">`%in%`(<i>&lt;character&gt;</i>,<i>&lt;Taxon&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Check if a character is in a Taxon</p></td>
+      </tr><tr><td>
+          <p><code><a href="grapes-in-grapes-character-Taxa-method.html">`%in%`(<i>&lt;character&gt;</i>,<i>&lt;Taxa&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Check if a character is in a Taxa</p></td>
+      </tr><tr><td>
+          <p><code><a href="grapes-in-grapes-Taxa-Taxon-method.html">`%in%`(<i>&lt;Taxa&gt;</i>,<i>&lt;Taxon&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Check if a Taxa is in Taxon</p></td>
+      </tr><tr><td>
+          <p><code><a href="grapes-in-grapes-Taxon-Taxa-method.html">`%in%`(<i>&lt;Taxon&gt;</i>,<i>&lt;Taxa&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Check if a Taxon is in a Taxa</p></td>
       </tr></tbody><tbody><tr><th colspan="2">
           <h2 id="contributor-functions">Contributor Functions <a href="#contributor-functions" class="anchor" aria-hidden="true"></a></h2>
           <p class="section-desc"></p><p>These functions are used to contribute models to <code>allometric</code>.</p>
