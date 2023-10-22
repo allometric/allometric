@@ -176,13 +176,16 @@ map_publications <- function(verbose, func, pub_path = NULL, params_path = NULL)
   output
 }
 
-ingest_models <- function(verbose) {
+ingest_models <- function(verbose, pub_path = NULL, params_path = NULL) {
   out_order <- c(
     "id", "model_type", "country", "region", "family", "genus", "species",
     "model"
   )
 
-  allometric_models <- map_publications(verbose, aggregate_pub_models) %>%
+  allometric_models <- map_publications(
+      verbose, aggregate_pub_models,
+      pub_path = pub_path, params_path = params_path
+    ) %>%
     dplyr::bind_rows() %>%
     dplyr::arrange(.data$family, .data$genus, .data$species)
 

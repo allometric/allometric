@@ -40,12 +40,6 @@ aggregate_taxa <- function(model_specifications, remove_taxa_cols = TRUE) {
   taxon_fields <- colnames(model_specifications)[colnames(model_specifications) %in% default_taxon_fields]
   missing_taxon_fields <- default_taxon_fields[!default_taxon_fields %in% taxon_fields]
 
-  valid_taxon_fields <- check_taxon_fields(taxon_fields)
-
-  if(!valid_taxon_fields) {
-    stop("Taxonomic fields are invalid.")
-  }
-
   model_specifications %>%
     dplyr::mutate(!!!setNames(rep(list(NA), length(missing_taxon_fields)), missing_taxon_fields)) %>%
     dplyr::mutate(taxa = purrr::pmap(

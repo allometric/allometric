@@ -142,8 +142,8 @@ check_model_specifications_unique <- function(model_specifications, parameter_na
   n <- nrow(model_specifications)
 
   specs_distinct <- model_specifications %>%
-    dplyr::select(-dplyr::all_of(parameter_names)) %>%
-    dplyr::distinct()
+    dplyr::select(-dplyr::all_of(c(parameter_names, "taxa"))) %>%
+    dplyr::distinct() # TODO does not work with taxa field because it is S4
 
   if(nrow(specs_distinct) != n) {
     errors <- c(errors, "Descriptors in the model specification must uniquely identify all models.")
