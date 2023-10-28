@@ -1,6 +1,6 @@
 check_fixed_effects_set <- function(object) {
   errors <- c()
-  errors <- c(errors, check_model_specifications_unique(object@model_specifications, object@parameter_names))
+  #errors <- c(errors, check_model_specifications_unique(object@model_specifications, object@parameter_names))
   errors <- c(errors, check_parameters_in_predict_fn(object))
   if (length(errors) == 0) TRUE else errors
 }

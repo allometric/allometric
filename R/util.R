@@ -48,10 +48,14 @@ strip_units <- function(values_list)  {
 }
 
 descriptors_to_tibble_row <- function(descriptors) {
+  if("tbl_df" %in% class(descriptors)) {
+    return(descriptors)
+  }
+
   if(length(descriptors) == 0) {
     return(tibble::tibble(.rows=0))
   } else {
-    for(i in 1:length(descriptors)) {
+    for(i in 1:length(descriptors)) { # FIXME descriptors is sometimes a tibble...
       if(length(descriptors[[i]]) > 1) {
         descriptors[[i]] <- list(descriptors[[i]])
       } else if(typeof(descriptors[[i]]) == "list" && length(descriptors[[i]]) == 1) {

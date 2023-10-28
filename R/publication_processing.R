@@ -43,9 +43,7 @@ get_model_hash <- function(predict_fn_populated, descriptors) {
 append_search_descriptors <- function(row, model_descriptors) {
   row$country <- list(unlist(model_descriptors$country))
   row$region <- list(unlist(model_descriptors$region))
-  row$family <- model_descriptors$family
-  row$genus <- model_descriptors$genus
-  row$species <- model_descriptors$species
+  row$taxa <- model_descriptors$taxa
   row
 }
 
@@ -178,8 +176,7 @@ map_publications <- function(verbose, func, pub_path = NULL, params_path = NULL)
 
 ingest_models <- function(verbose, pub_path = NULL, params_path = NULL) {
   out_order <- c(
-    "id", "model_type", "country", "region", "family", "genus", "species",
-    "model"
+    "id", "model_type", "country", "region", "taxa"
   )
 
   allometric_models <- map_publications(
@@ -187,7 +184,7 @@ ingest_models <- function(verbose, pub_path = NULL, params_path = NULL) {
       pub_path = pub_path, params_path = params_path
     ) %>%
     dplyr::bind_rows() %>%
-    dplyr::arrange(.data$family, .data$genus, .data$species)
+    dplyr::arrange(pub_id)
 
   not_in_order <- colnames(allometric_models)[
     !colnames(allometric_models) %in% out_order

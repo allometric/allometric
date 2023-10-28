@@ -39,6 +39,10 @@ my_function <- function(family, genus, species) {
 #' This function facilitates aggregating family, genus, and species columns
 #' into the taxa data structure, which is a nested list composed of multiple
 #' "taxons". A taxon is a list containing family, genus, and species fields.
+#'
+#' @param table The table for which the taxa will be aggregated
+#' @param remove_taxa_cols Whether or not to remove the family, genus, and
+#' species columns after aggregation
 aggregate_taxa <- function(table, remove_taxa_cols = TRUE) {
   default_taxon_fields <- c("family", "genus", "species")
   taxon_fields <- colnames(table)[colnames(table) %in% default_taxon_fields]
@@ -49,7 +53,7 @@ aggregate_taxa <- function(table, remove_taxa_cols = TRUE) {
     dplyr::rowwise() %>%
     dplyr::mutate(taxa = list(Taxa(Taxon(family = family, genus = genus, species = species)))) %>%
     dplyr::ungroup() %>%
-    dplyr::select(-c(default_taxon_fields))
+    dplyr::select(-dplyr::all_of(default_taxon_fields))
 }
 
 #' Load a locally installed table of allometric models

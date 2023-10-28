@@ -75,7 +75,7 @@ listify <- function(list_of_vecs) {
 #' )
 #' @export
 Publication <- function(citation, descriptors = list()) {
-  descriptors <- tibble::as_tibble(listify(descriptors))
+  descriptors <- descriptors_to_tibble_row(descriptors)
 
   publication <- .Publication(
     citation = citation,

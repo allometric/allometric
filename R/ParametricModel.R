@@ -72,7 +72,6 @@ ParametricModel <- function(response, covariates, predict_fn,
     parametric_model@descriptors
   )
 
-
   check_descriptor_set(descriptor_set)
 
   specification(parametric_model) <- tibble::as_tibble(
