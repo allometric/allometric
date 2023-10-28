@@ -2,7 +2,7 @@
 % Please edit documentation in R/Taxa.R
 \name{\%in\%,Taxa,character-method}
 \alias{\%in\%,Taxa,character-method}
-\title{Check if a character is in a Taxa}
+\title{Check if a Taxa contains a character}
 \usage{
 \S4method{\%in\%}{Taxa,character}(x, table)
 }
@@ -16,6 +16,6 @@ TRUE or FALSE indicating if any of the Taxa fields appear in the
 character.
 }
 \description{
-Check if a character is in a Taxa
+Check if a Taxa contains a character
 }
 \keyword{internal}

@@ -79,9 +79,20 @@ into the taxa data structure, which is a nested list composed of multiple
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">aggregate_taxa</span><span class="op">(</span><span class="va">model_specifications</span>, remove_taxa_cols <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">aggregate_taxa</span><span class="op">(</span><span class="va">table</span>, remove_taxa_cols <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
+    <div id="arguments">
+    <h2>Arguments</h2>
+    <dl><dt>table</dt>
+<dd><p>The table for which the taxa will be aggregated</p></dd>
+
+
+<dt>remove_taxa_cols</dt>
+<dd><p>Whether or not to remove the family, genus, and
+species columns after aggregation</p></dd>
+
+</dl></div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

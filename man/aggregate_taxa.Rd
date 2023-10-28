@@ -5,7 +5,13 @@
 \title{Aggregate family, genus, and species columns of `tbl_df`` into taxa data
 structure}
 \usage{
-aggregate_taxa(model_specifications, remove_taxa_cols = TRUE)
+aggregate_taxa(table, remove_taxa_cols = TRUE)
+}
+\arguments{
+\item{table}{The table for which the taxa will be aggregated}
+
+\item{remove_taxa_cols}{Whether or not to remove the family, genus, and
+species columns after aggregation}
 }
 \description{
 This function facilitates aggregating family, genus, and species columns

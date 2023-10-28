@@ -77,8 +77,7 @@ aggregate_taxa <- function(table, remove_taxa_cols = TRUE) {
 #' * `country` - The country or countries from which the model data is from.
 #' * `region` - The region or regions (e.g., state, province, etc.) from which
 #' the model data is from.
-#' * `family`, `genus`, `species` - The taxonomic specification of the trees
-#'   that are modeled.
+#' * `taxa` - The taxonomic specification of the trees that are modeled.
 #' * `model` - The model object itself.
 #' * `pub_id` - A unique ID representing the publication.
 #' * `family_name` - The names of the contributing authors.
@@ -138,6 +137,22 @@ aggregate_taxa <- function(table, remove_taxa_cols = TRUE) {
 #'
 #' We can see that `'Hann'` is the first author for
 #' `r nrow(hann_first_author_models)` models in this package.
+#' 
+#' ## Finding Models for a Given Species
+#'
+#' One of the most common things people need is a model for a particular
+#' species. For this, we must interact with the `taxa` column. For example,
+#' to find models for the Pinus genus we can use
+#'
+#' ```{r}
+#' pinus_models <- dplyr::filter(
+#'  allometric_models,
+#'  purrr::map_lgl(taxa, ~ "Pinus" %in% .)
+#' )
+#'
+#' head(pinus_models)
+#' nrow(pinus_models)
+#' ```
 #'
 #' ## Finding a Model with Specific Data Requirements
 #'
