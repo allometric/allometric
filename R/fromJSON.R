@@ -51,23 +51,35 @@ predict_fn_to_S4 <- function(predict_fn_data, covariates_data) {
   func
 }
 
+taxa_to_S4 <- function(taxa_list) {
+  taxons <- list()
+
+  for (i in seq_along(taxa_list)) {
+    taxon_i <- taxa_list[[i]]
+
+    taxons[[i]] <- Taxon(
+      family = ifelse(is.null(taxon_i$family), NA, taxon_i$family),
+      genus = ifelse(is.null(taxon_i$genus), NA, taxon_i$genus),
+      species = ifelse(is.null(taxon_i$species), NA, taxon_i$species)
+    )
+  }
+
+  do.call(Taxa, taxons)
+}
+
 #' Convert the descriptors JSON data to a named list of descriptors
 #'
 #' @keywords internal
 descriptors_to_S4 <- function(descriptors_data) {
-  # Which columns must be scalars (one value, not lists)
-  scalar_col_names <- c("family", "genus", "species")
-
   for(i in seq_along(descriptors_data)) {
     name_i <- names(descriptors_data)[[i]]
     val_i <- descriptors_data[[i]]
 
-    if(length(val_i) == 0 && name_i %in% scalar_col_names) {
+    if(name_i == "taxa") {
+      descriptors_data[[name_i]] <- list(taxa_to_S4(val_i))
+    }
+    else if(length(val_i) == 0) {
       descriptors_data[[name_i]] <- NA
-    } else if(length(val_i) == 0) {
-      descriptors_data[[name_i]] <- NA
-    } else if (name_i %in% scalar_col_names) {
-      descriptors_data[[name_i]] <- val_i
     } else {
       descriptors_data[[name_i]] <- list(unlist(val_i))
     }

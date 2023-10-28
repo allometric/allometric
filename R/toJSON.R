@@ -76,13 +76,32 @@ unbox_nonnested <- function(object) {
   object
 }
 
+taxa_to_json <- function(taxa) {
+  out <- list()
+
+  for(i in seq_along(taxa)) {
+    taxon <- taxa[[i]]
+
+    out[[i]] <- list(
+      family = taxon@family,
+      genus = taxon@genus,
+      species = taxon@species
+    )
+  }
+
+  out
+}
+
 descriptors_to_json <- function(descriptors) {
   descriptors_list <- as.list(descriptors)
   if(length(descriptors_list) == 0) {
     return(NULL) # A null value will be encoded as an empty object in JSON
   } else {
     for(i in 1:length(descriptors_list)) {
-      if(typeof(descriptors_list[[i]]) == "list")  {
+      if (class(descriptors_list[[i]][[1]]) == "Taxa") {
+        descriptors_list[[i]] <- taxa_to_json(descriptors_list[[i]][[1]])
+      }
+      else if(typeof(descriptors_list[[i]]) == "list")  {
         descriptors_list[[i]] <- unlist(descriptors_list[[i]])
       } else if(is.na(descriptors_list[[i]])) {
         descriptors_list[[i]] <- list()

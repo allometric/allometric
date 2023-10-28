@@ -20,11 +20,14 @@
   "descriptors": {
     "country": ["US"],
     "region": ["US-WA"],
-    "family": ["Aceraceae"],
-    "genus": ["Acer"],
-    "species": [],
     "geographic_region": [],
-    "age_class": []
+    "age_class": [],
+    "taxa": [
+      {
+        "family": "Aceraceae",
+        "genus": "Acer"
+      }
+    ]
   },
   "parameters": {
     "a": -2.770324,
