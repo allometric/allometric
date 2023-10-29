@@ -77,14 +77,15 @@ descriptors_to_S4 <- function(descriptors_data) {
 
     if(name_i == "taxa") {
       descriptors_data[[name_i]] <- list(taxa_to_S4(val_i))
-    }
-    else if(length(val_i) == 0) {
-      descriptors_data[[name_i]] <- NA
+    } else if(length(val_i) == 0) {
+      descriptors_data[[name_i]] <- c(NA_character_)
+    } else if(length(val_i) == 1){
+      descriptors_data[[name_i]] <- unlist(val_i)
     } else {
       descriptors_data[[name_i]] <- list(unlist(val_i))
     }
   }
-
+  
   tibble::as_tibble_row(descriptors_data)
 }
 

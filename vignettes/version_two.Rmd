@@ -1,0 +1,208 @@
+---
+title: "`allometric` v2.0.0 Developer Notes"
+vignette: >
+  %\VignetteIndexEntry{Frequently Asked Questions}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+```{r include=FALSE}
+devtools::load_all()
+models <- load_models()
+```
+
+Recently, `allometric` was updated to v2.0.0. The move from v1 to v2 does not
+necessarily indicate the delivery of new features. Rather, it indicates that
+substantial changes were made to the package that prevent back-compatibility
+with v1. Hence, we encourage all readers to update their `allometric`
+installations and models by running:
+
+```{r eval=FALSE}
+devtools::install_github("allometric/allometric")
+
+library(allometric)
+install_models(redownload = TRUE)
+```
+
+Largely, these updates only effect the back-end of `allometric`, e.g., those
+functions that allow users to contribute models to our [repository](https://github.com/allometric/models).
+The one exception are the `Taxa` and `Taxon` classes, described below.
+
+## Introducing the `Taxon` and `Taxa` Classes
+
+Prior versions of `allometric` tracked species information for a model using the
+`family`, `genus`, and `species` descriptor fields. These were insufficient for
+several reasons. First, a model can belong to multiple taxonomic specifications
+(e.g., Douglas-fir and Ponderosa pine together). In `allometric` v1, this was
+achieved by duplicating the model and assigning the one species to each copy,
+which is ineffecient for storage purposes. Second, there were no validity checks
+used to ensure that the taxonomic specification was valid. This means a model
+could just have a `species` field defined, but no `genus` or `family`, which
+causes data quality issues.
+
+In `allometric` v2, taxonomic specifications must use the `Taxa` and `Taxon`
+classes, which enforce stricter checks for taxonomic validity. `Taxa` is
+essentially a special type of list that only contains `Taxon` objects. `Taxon`
+is an object that contains one taxonomic hierarchy.
+
+For example:
+
+```{r}
+pp <- Taxon(family = "Pinaceae", genus = "Pinus", species = "ponderosa")
+wwp <- Taxon(family = "Pinaceae", genus = "Pinus", species = "monticola")
+
+my_taxa <- Taxa(pp, wwp)
+```
+
+specifies a `Taxa` containing two types of trees, Ponderosa pine and Western
+white pine. Some useful methods have been implemented for `Taxa` and `Taxon`.
+For example, we can do common set operations on `Taxa`:
+
+```{r}
+"Pinus" %in% my_taxa
+
+pp %in% my_taxa
+```
+
+We can do the same for `Taxon`. A few examples:
+
+```{r}
+"Pinus" %in% pp
+"ponderosa" %in% wwp
+
+pp == pp
+pp == wwp
+```
+
+These methods facilitate searching, described in the next section.
+
+### Searching Taxa in a Model Table
+
+One of the most common operations users will perform is searching through a
+model table to find models of a given family, genus, or species. Using the above
+operations, filtering on the `taxa` column is similar to working with any other
+hierarchical column in a model table. Readers should already be familiar with
+the `purrr` examples on [this page](https://allometric.org/reference/load_models.html).
+
+```{r eval=FALSE}
+ponderosa_models <- models %>%
+  dplyr::filter(
+    purrr::map_lgl( # A map over each model's taxa
+      taxa,
+      ~ pp %in% .
+    )
+  )
+```
+
+The structure of this example is exactly the same as any other hierarchical
+search done in `allometric`. We filter the set of models using
+`dplyr::filter()` on the `taxa` column. For each `Taxa` we encounter,
+represented by `.`, we check if our Ponderosa pine `Taxon` is inside. If yes,
+the function `~ pp %in% .` returns true, and the row is retained. Please
+refer to [this page](https://allometric.org/reference/load_models.html) for
+further examples.
+
+### Usage when Writing Models
+
+The `taxa` descriptor is a list of `Taxon` elements. Here is an example for a
+height-diameter model that applies to both Douglas-fir and Western hemlock.
+
+```{r}
+my_model <- FixedEffectsModel(
+  response = list(hst = units::as_units("ft")),
+  covariates = list(dsob = units::as_units("in")),
+  parameters = list(a = 1),
+  predict_fn = function(dsob) {a * dsob},
+  descriptors = list(
+    taxa = list(
+      Taxon(
+        family = "Pinaceae",
+        genus = "Pseudotsuga",
+        species = "menziesii"
+      ),
+      Taxon(
+        family = "Pinaceae",
+        genus = "Tsuga",
+        species = "heterophylla"
+      )
+    ),
+    country = "US",
+    region = "US-OR"
+  )
+)
+```
+
+We can see that the value of the `taxa` descriptor is a list of an arbitrary
+number of `Taxon` calls. Calls to `Taxon` need not specify all three values of
+the hierarchy. Instead, we can specify shallower layers only:
+
+```{r}
+Taxon(family = "Pinaceae")
+```
+
+but we cannot specify deeper layers without specifying the shallower layers
+first:
+
+```{r error = TRUE}
+Taxon(genus = "Pinus")
+```
+
+### Usage when Writing Model Sets
+
+For model sets we have added a helper function `aggregate_taxa()`, which will
+aggregate a row of a parameter CSV file across the `family`, `genus` and
+`species` columns into a new column called `taxa`. For example:
+
+```{r}
+my_parameter_frame <- tibble::tibble(
+  family = c("Pinaceae", "Betulacae"),
+  parameter_1 = c(1, 2)
+)
+
+my_parameter_frame %>% aggregate_taxa()
+```
+
+This allows back-compatibility with previously written parameter files from
+v1, while enforcing the taxa structure.
+
+## JSON Representations of Models
+
+Models can now be converted to and from JSON. Of all of the new updates, this
+is the one I am most excited about, because it enables models to be stored in
+a remotely hosted database. The to/from JSON conversions are a necessary
+pre-requisite for this database, which will yield many forthcoming features
+including:
+
+1. A publicly available API for searching/requesting model information.
+2. An interactive web viewer for the models
+3. Entrypoints for other languages, such as Python, to access models and use
+them in analysis.
+
+In short, the remotely hosted database will become the centralized location of
+the models, and users will interact with this database exclusively in the
+future. For now, users must still install models locally. We expect to deliver
+the database in 2024.
+
+Point 3 is especially exciting, and savvy Python package developers are
+encouraged to email me at bfrank70@gmail.com for some colloboration ideas.
+
+## `covariate_units` and `response_unit` Refactoring
+
+The `covariate_units` and `response_unit` arguments were refactored to
+`covariates` and `response`, respectively. Only users that contribute models
+to `allometric` will be impacted by this change. For example, a
+`FixedEffectsModel` is now made by the following:
+
+```{r eval=F}
+FixedEffectsModel(
+  response = list(
+    vsia = units::as_units("ft^3")
+  ),
+  covariates = list(
+    dsob = units::as_units("in")
+  ),
+  ...
+)
+```
+
+This is easier to write and remember.

@@ -1,5 +1,5 @@
 check_models_downloaded <- function(verbose) {
-  model_dir_path <- system.file("models-refactor_variable_args", package = "allometric")
+  model_dir_path <- system.file("models-main", package = "allometric")
 
   if(model_dir_path == "") {
     if(verbose) {
@@ -18,7 +18,7 @@ check_models_downloaded <- function(verbose) {
 #'
 #' @keywords internal
 delete_models <- function(verbose) {
-  models_path_check <- system.file("models-refactor_variable_args", package = "allometric")
+  models_path_check <- system.file("models-main", package = "allometric")
 
   if(models_path_check != "") {
     if(verbose) {
@@ -65,12 +65,12 @@ download_models <- function(verbose) {
 
   pkg_path <- system.file("", package = "allometric")
 
-  model_dir_path <- file.path(pkg_path, "models-refactor_variable_args")
+  model_dir_path <- file.path(pkg_path, "models-main")
   zip_path <- file.path(pkg_path, "models.zip")
 
   dir.create(model_dir_path)
 
-  latest_commit <- gh::gh("GET /repos/allometric/models/commits/refactor_variable_args")
+  latest_commit <- gh::gh("GET /repos/allometric/models/commits/main")
   sha_7 <- substr(latest_commit$sha, 1, 7)
 
   if(verbose) {
@@ -83,7 +83,7 @@ download_models <- function(verbose) {
   }
 
   curl::curl_download(
-    "https://github.com/allometric/models/archive/refs/heads/refactor_variable_args.zip",
+    "https://github.com/allometric/models/archive/refs/heads/main.zip",
     zip_path
   )
 

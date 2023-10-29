@@ -68,18 +68,16 @@ test_that("FixedEffectsModel with no descriptors converts to S4 from JSON", {
 })
 
 test_that("FixedEffectsModel with descriptors converts to S4 from JSON", {
-  #json_path <- system.file("testdata", "fixef_descriptors.json", package = "allometric")
-  #json_list <- jsonlite::read_json(json_path)
-  #json_str <- jsonlite::toJSON(json_list, digits = NA)
+  json_path <- system.file("testdata", "fixef_descriptors.json", package = "allometric")
+  json_list <- jsonlite::read_json(json_path)
+  json_str <- jsonlite::toJSON(json_list, digits = NA)
 
-  # FIXME rerun local model data
-  #model <- fromJSON(json_str)
-  #expect_true(model == brackett_acer)
+  model <- fromJSON(json_str)
+  expect_true(model == brackett_acer)
 })
 
 test_that("FixedEffectsModel toJSON inverts", {
-  # FIXME still not working
-  #expect_true(brackett_acer == fromJSON(toJSON(brackett_acer)))
+  expect_true(brackett_acer == fromJSON(toJSON(brackett_acer)))
 })
 
 test_that("taxa converts to S4", {

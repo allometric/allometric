@@ -17,7 +17,7 @@ test_that("Model row is correctly made", {
 
   model_row <- create_model_row(brackett_acer, pub, "test_id")
 
-  expect_is(model_row$model[[1]], "FixedEffectsModel")
+  expect_s4_class(model_row$model[[1]], "FixedEffectsModel")
 })
 
 test_that("aggreagte_pub_models runs", {
