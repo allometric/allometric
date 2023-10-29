@@ -84,8 +84,6 @@ aggregate_taxa <- function(table, remove_taxa_cols = TRUE) {
 #' * `covt_name` - The names of the covariates used in the model.
 #' * `pub_year` - The publication year.
 #'
-#' # Searching for Models
-#'
 #' Models can be searched by their attributes. Note that some of the columns
 #' are `list` columns, which contain lists as their elements. Filtering on
 #' data in these columns requires the use of `purrr::map_lgl` which is used to
@@ -94,7 +92,7 @@ aggregate_taxa <- function(table, remove_taxa_cols = TRUE) {
 #' more descriptive and concise for storing the models, and users will quickly
 #' find that searching models in this way can be very powerful.
 #'
-#' ## Finding Contributing Authors
+#' # Finding Contributing Authors
 #'
 #' Using `purr::map_lgl` to filter the `family_name` column, we are able to
 #' find publications that contain specific authors of interst. For example, we
@@ -120,7 +118,7 @@ aggregate_taxa <- function(table, remove_taxa_cols = TRUE) {
 #' `allometric_models`, `.` represents the element of `family_names` we are
 #' considering, which is itself a list of author names.
 #'
-#' ## Finding First Authors
+#' # Finding First Authors
 #'
 #' Maybe we are only interested in models where `'Hann'` is the first author.
 #' Using a simple modification we can easily do this.
@@ -137,8 +135,8 @@ aggregate_taxa <- function(table, remove_taxa_cols = TRUE) {
 #'
 #' We can see that `'Hann'` is the first author for
 #' `r nrow(hann_first_author_models)` models in this package.
-#' 
-#' ## Finding Models for a Given Species
+#'
+#' # Finding Models for a Given Species
 #'
 #' One of the most common things people need is a model for a particular
 #' species. For this, we must interact with the `taxa` column. For example,
@@ -154,7 +152,25 @@ aggregate_taxa <- function(table, remove_taxa_cols = TRUE) {
 #' nrow(pinus_models)
 #' ```
 #'
-#' ## Finding a Model with Specific Data Requirements
+#' Users can also search with a specific taxon, which allows a full
+#' specification from family to species. For example, if we want models that
+#' apply to Ponderosa pine, first declare the necessary taxon, then use it to
+#' filter as before
+#'
+#' ```{r}
+#' ponderosa_taxon <- Taxon(
+#'  family = "Pinaceae", genus = "Pinus", species = "ponderosa"
+#' )
+#'
+#' ponderosa_models <- dplyr::filter(
+#'  allometric_models,
+#'  purrr::map_lgl(taxa, ~ ponderosa_taxon %in% .)
+#' )
+#' 
+#' nrow(ponderosa_models)
+#' ````
+#'
+#' # Finding a Model with Specific Data Requirements
 #'
 #' We can even check for models that contain certain types of data requirements.
 #' For example, the following block finds diameter-height models, specifically
@@ -181,7 +197,7 @@ aggregate_taxa <- function(table, remove_taxa_cols = TRUE) {
 #' vector is equal to `'dsob'`, (diameter outside bark at breast height). In
 #' this case, `r nrow(dia_ht_models)` are available in the package.
 #'
-#' ## Finding a Model for a Region
+#' # Finding a Model for a Region
 #'
 #' By now the user should be sensing a pattern. We can apply the exact same
 #' logic as the *Finding Contributing Authors* section to find all models

@@ -119,12 +119,26 @@ way they would with any other `tibble`.
 
 For example, we can use `dplyr` to filter this table to find models for
 analysis. Let's say I am interested in finding stem volume models for
-*Tsuga heterophylla*. We can filter the `model_type`, `genus`, and `species`
-columns to find these models:
+*Tsuga heterophylla*. First, let us filter the `model_type` to include only
+stem volume models
 
 ```{r}
-tsuga_vol_models <- allometric_models %>%
-  filter(model_type == "stem volume", genus == "Tsuga", species == "heterophylla")
+stemvol_models <- allometric_models %>%
+  filter(model_type == "stem volume")
+
+stemvol_models
+```
+
+Next, we can filter to include only *Tsuga heterophylla* using a special
+specifier called `Taxon` that enables rigorous searching of species:
+
+```{r}
+tsuga_het_taxon <- Taxon(
+  family = "Pinaceae", genus = "Tsuga", species = "heterophylla"
+)
+
+tsuga_vol_models <- stemvol_models %>%
+  filter(map_lgl(taxa, ~ tsuga_het_taxon %in% .))
 
 tsuga_vol_models
 ```
@@ -133,13 +147,13 @@ We can see that we have `r nrow(tsuga_vol_models)` models to choose from. Let's
 select the model from the publication `poudel_2019`
 
 ```{r}
-tsuga_poudel <- tsuga_vol_models %>% select_model("3e8447f2")
+tsuga_poudel <- tsuga_vol_models %>% select_model("9caa80f2")
 ```
 
 This example is very basic, and more complex search examples can be found in
 the [`load_models()`](https://allometric.org/reference/load_models.html)
-documentation. Models can be searched not only by their genus and species, but
-also the types of measurements the models require, their geographic region,
+documentation. Models can be searched not only by their taxonomic information,
+but also the types of measurements the models require, their geographic region,
 and other attributes. We highly encourage users review the linked examples for
 production use of `allometric`.
 

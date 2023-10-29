@@ -53,6 +53,10 @@ append_search_descriptors <- function(row, model_descriptors) {
 create_model_row <- function(model, pub, model_id) {
   model_descriptors <- descriptors(model)
 
+  if(!"taxa" %in% colnames(model_descriptors)) {
+    model_descriptors$taxa <- list(Taxa())
+  }
+
   model_row <- tibble::as_tibble(list(pub_id = pub@id))
   model_row$id <- model_id
   model_row$model <- c(model)

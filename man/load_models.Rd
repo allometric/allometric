@@ -46,8 +46,7 @@ the model data is from.
 \item \code{covt_name} - The names of the covariates used in the model.
 \item \code{pub_year} - The publication year.
 }
-}
-\section{Searching for Models}{
+
 Models can be searched by their attributes. Note that some of the columns
 are \code{list} columns, which contain lists as their elements. Filtering on
 data in these columns requires the use of \code{purrr::map_lgl} which is used to
@@ -55,8 +54,8 @@ determine truthiness of expressions for each element in a \code{list} column.
 While this may seem complicated, we believe the nested data structures are
 more descriptive and concise for storing the models, and users will quickly
 find that searching models in this way can be very powerful.
-\subsection{Finding Contributing Authors}{
-
+}
+\section{Finding Contributing Authors}{
 Using \code{purr::map_lgl} to filter the \code{family_name} column, we are able to
 find publications that contain specific authors of interst. For example, we
 may want models only authored by \code{"Hann"}. This is elementary to do in
@@ -91,8 +90,7 @@ is in the current list. Imagine we are marching down each row of
 considering, which is itself a list of author names.
 }
 
-\subsection{Finding First Authors}{
-
+\section{Finding First Authors}{
 Maybe we are only interested in models where \code{'Hann'} is the first author.
 Using a simple modification we can easily do this.
 
@@ -119,8 +117,7 @@ We can see that \code{'Hann'} is the first author for
 50 models in this package.
 }
 
-\subsection{Finding Models for a Given Species}{
-
+\section{Finding Models for a Given Species}{
 One of the most common things people need is a model for a particular
 species. For this, we must interact with the \code{taxa} column. For example,
 to find models for the Pinus genus we can use
@@ -143,10 +140,27 @@ head(pinus_models)
 nrow(pinus_models)
 #> [1] 285
 }\if{html}{\out{</div>}}
+
+Users can also search with a specific taxon, which allows a full
+specification from family to species. For example, if we want models that
+apply to Ponderosa pine, first declare the necessary taxon, then use it to
+filter as before
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{ponderosa_taxon <- Taxon(
+ family = "Pinaceae", genus = "Pinus", species = "ponderosa"
+)
+
+ponderosa_models <- dplyr::filter(
+ allometric_models,
+ purrr::map_lgl(taxa, ~ ponderosa_taxon \%in\% .)
+)
+
+nrow(ponderosa_models)
+#> [1] 57
+}\if{html}{\out{</div>}}
 }
 
-\subsection{Finding a Model with Specific Data Requirements}{
-
+\section{Finding a Model with Specific Data Requirements}{
 We can even check for models that contain certain types of data requirements.
 For example, the following block finds diameter-height models, specifically
 models that use diameter outside bark at breast height as the \emph{only}
@@ -173,8 +187,7 @@ vector is equal to \code{'dsob'}, (diameter outside bark at breast height). In
 this case, 241 are available in the package.
 }
 
-\subsection{Finding a Model for a Region}{
-
+\section{Finding a Model for a Region}{
 By now the user should be sensing a pattern. We can apply the exact same
 logic as the \emph{Finding Contributing Authors} section to find all models
 developed using data from \code{US-OR}
@@ -190,6 +203,5 @@ nrow(us_or_models)
 
 We can see that 498 allometric models are defined for the
 state of Oregon, US.
-}
 }
 

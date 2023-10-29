@@ -113,20 +113,17 @@ the model data is from.</p></li>
 <li><p><code>family_name</code> - The names of the contributing authors.</p></li>
 <li><p><code>covt_name</code> - The names of the covariates used in the model.</p></li>
 <li><p><code>pub_year</code> - The publication year.</p></li>
-</ul></div>
-    <div id="searching-for-models">
-    <h2>Searching for Models</h2>
-    <p>Models can be searched by their attributes. Note that some of the columns
+</ul><p>Models can be searched by their attributes. Note that some of the columns
 are <code>list</code> columns, which contain lists as their elements. Filtering on
 data in these columns requires the use of <code><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">purrr::map_lgl</a></code> which is used to
 determine truthiness of expressions for each element in a <code>list</code> column.
 While this may seem complicated, we believe the nested data structures are
 more descriptive and concise for storing the models, and users will quickly
-find that searching models in this way can be very powerful.</p><div class="section">
-<h3 id="finding-contributing-authors">Finding Contributing Authors<a class="anchor" aria-label="anchor" href="#finding-contributing-authors"></a></h3>
-
-
-<p>Using <code>purr::map_lgl</code> to filter the <code>family_name</code> column, we are able to
+find that searching models in this way can be very powerful.</p>
+    </div>
+    <div id="finding-contributing-authors">
+    <h2>Finding Contributing Authors</h2>
+    <p>Using <code>purr::map_lgl</code> to filter the <code>family_name</code> column, we are able to
 find publications that contain specific authors of interst. For example, we
 may want models only authored by <code>"Hann"</code>. This is elementary to do in
 <code>allometric</code>:</p>
@@ -155,13 +152,10 @@ this function, <code>~ 'Hann' %in% .</code> is itself a function that checks if 
 is in the current list. Imagine we are marching down each row of
 <code>allometric_models</code>, <code>.</code> represents the element of <code>family_names</code> we are
 considering, which is itself a list of author names.</p>
-</div>
-
-<div class="section">
-<h3 id="finding-first-authors">Finding First Authors<a class="anchor" aria-label="anchor" href="#finding-first-authors"></a></h3>
-
-
-<p>Maybe we are only interested in models where <code>'Hann'</code> is the first author.
+    </div>
+    <div id="finding-first-authors">
+    <h2>Finding First Authors</h2>
+    <p>Maybe we are only interested in models where <code>'Hann'</code> is the first author.
 Using a simple modification we can easily do this.</p>
 <p></p><div class="sourceCode r"><pre><code><span><span class="va">hann_first_author_models</span> <span class="op">&lt;-</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span></span>
 <span>  <span class="va">allometric_models</span>,</span>
@@ -182,13 +176,10 @@ Using a simple modification we can easily do this.</p>
 <span><span class="co">#&gt; [1] 50</span></span></code></pre><p></p></div>
 <p>We can see that <code>'Hann'</code> is the first author for
 50 models in this package.</p>
-</div>
-
-<div class="section">
-<h3 id="finding-models-for-a-given-species">Finding Models for a Given Species<a class="anchor" aria-label="anchor" href="#finding-models-for-a-given-species"></a></h3>
-
-
-<p>One of the most common things people need is a model for a particular
+    </div>
+    <div id="finding-models-for-a-given-species">
+    <h2>Finding Models for a Given Species</h2>
+    <p>One of the most common things people need is a model for a particular
 species. For this, we must interact with the <code>taxa</code> column. For example,
 to find models for the Pinus genus we can use</p>
 <p></p><div class="sourceCode r"><pre><code><span><span class="va">pinus_models</span> <span class="op">&lt;-</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span></span>
@@ -208,13 +199,25 @@ to find models for the Pinus genus we can use</p>
 <span><span class="co">#&gt; 6 a5611fec stem volume &lt;chr [1]&gt; &lt;chr [1]&gt; &lt;Taxa&gt; chojnacky_1985 &lt;FxdEffcM&gt; &lt;chr [1]&gt;   &lt;chr [3]&gt;     1985</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">pinus_models</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 285</span></span></code></pre><p></p></div>
-</div>
-
-<div class="section">
-<h3 id="finding-a-model-with-specific-data-requirements">Finding a Model with Specific Data Requirements<a class="anchor" aria-label="anchor" href="#finding-a-model-with-specific-data-requirements"></a></h3>
-
-
-<p>We can even check for models that contain certain types of data requirements.
+<p>Users can also search with a specific taxon, which allows a full
+specification from family to species. For example, if we want models that
+apply to Ponderosa pine, first declare the necessary taxon, then use it to
+filter as before</p>
+<p></p><div class="sourceCode r"><pre><code><span><span class="va">ponderosa_taxon</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/Taxon.html">Taxon</a></span><span class="op">(</span></span>
+<span> family <span class="op">=</span> <span class="st">"Pinaceae"</span>, genus <span class="op">=</span> <span class="st">"Pinus"</span>, species <span class="op">=</span> <span class="st">"ponderosa"</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">ponderosa_models</span> <span class="op">&lt;-</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span></span>
+<span> <span class="va">allometric_models</span>,</span>
+<span> <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map_lgl</a></span><span class="op">(</span><span class="va">taxa</span>, <span class="op">~</span> <span class="va">ponderosa_taxon</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="va">.</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">ponderosa_models</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 57</span></span></code></pre><p></p></div>
+    </div>
+    <div id="finding-a-model-with-specific-data-requirements">
+    <h2>Finding a Model with Specific Data Requirements</h2>
+    <p>We can even check for models that contain certain types of data requirements.
 For example, the following block finds diameter-height models, specifically
 models that use diameter outside bark at breast height as the <em>only</em>
 covariate. The utility here is obvious, since many inventories are vastly
@@ -235,13 +238,10 @@ First, we ensure that the vector is only one element in size using
 <code>length(.)==1</code>, then we ensure that the first (and only) element of this
 vector is equal to <code>'dsob'</code>, (diameter outside bark at breast height). In
 this case, 241 are available in the package.</p>
-</div>
-
-<div class="section">
-<h3 id="finding-a-model-for-a-region">Finding a Model for a Region<a class="anchor" aria-label="anchor" href="#finding-a-model-for-a-region"></a></h3>
-
-
-<p>By now the user should be sensing a pattern. We can apply the exact same
+    </div>
+    <div id="finding-a-model-for-a-region">
+    <h2>Finding a Model for a Region</h2>
+    <p>By now the user should be sensing a pattern. We can apply the exact same
 logic as the <em>Finding Contributing Authors</em> section to find all models
 developed using data from <code>US-OR</code></p>
 <p></p><div class="sourceCode r"><pre><code><span><span class="va">us_or_models</span> <span class="op">&lt;-</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span></span>
@@ -253,8 +253,6 @@ developed using data from <code>US-OR</code></p>
 <span><span class="co">#&gt; [1] 498</span></span></code></pre><p></p></div>
 <p>We can see that 498 allometric models are defined for the
 state of Oregon, US.</p>
-</div>
-
     </div>
 
   </div>
