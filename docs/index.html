@@ -73,6 +73,9 @@
     <li>
       <a href="articles/variable_naming_system.html">Variable Naming System</a>
     </li>
+    <li>
+      <a href="articles/version_two.html">`allometric` v2.0.0 Developer Notes</a>
+    </li>
   </ul>
 </li>
 <li>
@@ -103,9 +106,9 @@
 </h1></div>
 <!-- badges: start -->
 
-<p><code>allometric</code> is an R package for predicting tree attributes with allometric models. Thousands of allometric models exist in the scientific and technical forestry literature, and <code>allometric</code> is a platform for archiving and using this vast array of models in a robust and structured format. Get started by going to the <a href="#installation">Installtion</a> section or the <a href="https://allometric.github.io/allometric/" class="external-link">documentation website</a>.</p>
-<p><code>allometric</code> also provides a structured language for adding models to the package. If you are interested in helping the developer in this process please refer to the <a href="https://allometric.github.io/allometric/articles/installing_a_model.html" class="external-link">Contributing a Model</a> vignette.</p>
-<p>In total <strong><code>allometric</code> contains 2099 models across 60 publications</strong>, refer to the <a href="#current-status">Current Status</a> for a more complete view of available models.</p>
+<p><code>allometric</code> is an R package for predicting tree attributes with allometric models. Thousands of allometric models exist in the scientific and technical forestry literature, and <code>allometric</code> is a platform for archiving and using this vast array of models in a robust and structured format. Get started by going to the <a href="#installation">Installation</a> section or the <a href="https://allometric.org" class="external-link">documentation website</a>.</p>
+<p><code>allometric</code> also provides a structured language for adding models to the package. If you are interested in helping the developer in this process please refer to the <a href="https://allometric.org/articles/installing_a_model.html" class="external-link">Contributing a Model</a> vignette.</p>
+<p>In total <strong><code>allometric</code> contains 2100 models across 61 publications</strong>, refer to the <a href="#current-status">Current Status</a> for a more complete view of available models.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -156,7 +159,7 @@
 <p>We can see that we have 4 models to choose from. Let’s select the model from the publication <code>poudel_2019</code></p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">tsuga_poudel</span> <span class="op">&lt;-</span> <span class="va">tsuga_vol_models</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="reference/select_model.html">select_model</a></span><span class="op">(</span><span class="st">"3e8447f2"</span><span class="op">)</span></span></code></pre></div>
-<p>This example is very basic, and more complex search examples can be found in the <a href="https://allometric.github.io/allometric/reference/load_models.html" class="external-link"><code>load_models()</code></a> documentation. Models can be searched not only by their genus and species, but also the types of measurements the models require, their geographic region, and other attributes. We highly encourage users review the linked examples for production use of <code>allometric</code>.</p>
+<p>This example is very basic, and more complex search examples can be found in the <a href="https://allometric.org/reference/load_models.html" class="external-link"><code>load_models()</code></a> documentation. Models can be searched not only by their genus and species, but also the types of measurements the models require, their geographic region, and other attributes. We highly encourage users review the linked examples for production use of <code>allometric</code>.</p>
 </div>
 <div class="section level2">
 <h2 id="using-the-model">Using the Model<a class="anchor" aria-label="anchor" href="#using-the-model"></a>
@@ -183,7 +186,7 @@
 <span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   country   region     family   genus species     </span></span>
 <span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;list&gt;    &lt;list&gt;     &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;       </span></span>
 <span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 &lt;chr [2]&gt; &lt;chr [10]&gt; Pinaceae Tsuga heterophylla</span></span></code></pre></div>
-<p>We can see from the <code>Model Call</code> section that <code>tsuga_poudel</code> will require two covariates called <code>dsob</code>, which refers to diameter outside bark at breast height, and <code>hst</code>, the height of the main stem. <code>allometric</code> uses a variable naming system to determine the names of response variables and covariates (refer to the <a href="https://allometric.github.io/allometric/articles/variable_naming_system.html" class="external-link">Variable Naming System vignette</a>).</p>
+<p>We can see from the <code>Model Call</code> section that <code>tsuga_poudel</code> will require two covariates called <code>dsob</code>, which refers to diameter outside bark at breast height, and <code>hst</code>, the height of the main stem. <code>allometric</code> uses a variable naming system to determine the names of response variables and covariates (refer to the <a href="https://allometric.org/articles/variable_naming_system.html" class="external-link">Variable Naming System vignette</a>).</p>
 <p>Using the <code><a href="reference/predict.html">predict()</a></code> method we can easily use the function as defined by providing values of these two covariates.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/predict.html">predict</a></span><span class="op">(</span><span class="va">tsuga_poudel</span>, <span class="fl">12</span>, <span class="fl">65</span><span class="op">)</span></span></code></pre></div>
@@ -202,12 +205,12 @@
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1   12      65 0.2868491 [m^3]</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2   15      75 0.5068963 [m^3]</span></span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3   20     100 1.1618632 [m^3]</span></span></code></pre></div>
-<p>The above example is a very basic use case for <code>allometric</code>. Please refer to the <a href="https://allometric.github.io/allometric/articles/inventory_example.html" class="external-link">Common Inventory Use Cases vignette</a> for more complex examples.</p>
+<p>The above example is a very basic use case for <code>allometric</code>. Please refer to the <a href="https://allometric.org/articles/inventory_example.html" class="external-link">Common Inventory Use Cases vignette</a> for more complex examples.</p>
 </div>
 <div class="section level2">
 <h2 id="current-status">Current Status<a class="anchor" aria-label="anchor" href="#current-status"></a>
 </h2>
-<p>In total <strong><code>allometric</code> contains 2099 models across 60 publications</strong>.</p>
+<p>In total <strong><code>allometric</code> contains 2100 models across 61 publications</strong>.</p>
 <table class="table">
 <thead><tr class="header">
 <th align="left">category</th>
@@ -295,10 +298,10 @@
 <td align="left">stem height</td>
 <td align="right">7</td>
 <td align="right">0</td>
-<td align="right">345</td>
+<td align="right">346</td>
 <td align="right">12</td>
 <td align="right">2</td>
-<td align="right">18</td>
+<td align="right">17</td>
 </tr>
 <tr class="even">
 <td align="left">stem volume</td>
@@ -360,23 +363,23 @@
 <li>
 <a href="https://github.com/allometric/models/labels/digitization%20needed" class="external-link">Help us digitize publications</a>. We always need help <em>digitizing legacy reports</em>, at this link you will find a list of reports that need manual digitization. These can be handled by anyone with Excel and a cup of coffee.</li>
 <li>
-<a href="https://allometric.github.io/allometric/articles/installing_a_model.html" class="external-link">Learn how to install and write models</a>. Motivated users can learn how to install models directly using the package functions and git pull requests. Users comfortable with R and git can handle this task.</li>
+<a href="https://allometric.org/articles/installing_a_model.html" class="external-link">Learn how to install and write models</a>. Motivated users can learn how to install models directly using the package functions and git pull requests. Users comfortable with R and git can handle this task.</li>
 </ol>
 <p>Other ideas? Contact <a href="mailto:bfrank70@gmail.com" class="email">bfrank70@gmail.com</a> to help out.</p>
 </div>
 <div class="section level2">
 <h2 id="next-steps">Next Steps<a class="anchor" aria-label="anchor" href="#next-steps"></a>
 </h2>
-<p>The following vignettes available on the <a href="https://allometric.github.io/allometric/index.html" class="external-link">package website</a> provide information to two primary audiences.</p>
+<p>The following vignettes available on the <a href="https://allometric.org/index.html" class="external-link">package website</a> provide information to two primary audiences.</p>
 <p>Users interested in finding models for analysis will find the following documentation most useful:</p>
 <ul>
-<li><a href="https://allometric.github.io/allometric/articles/inventory_example.html" class="external-link">Common Inventory Use Cases</a></li>
+<li><a href="https://allometric.org/articles/inventory_example.html" class="external-link">Common Inventory Use Cases</a></li>
 </ul>
 <p>Users interested in <strong>contributing models</strong> to the package will find these vignettes the most useful:</p>
 <ul>
-<li><a href="https://allometric.github.io/allometric/articles/installing_a_model.html" class="external-link">Contributing a Model</a></li>
-<li><a href="https://allometric.github.io/allometric/articles/descriptors.html" class="external-link">Describing a Model with Descriptors</a></li>
-<li><a href="https://allometric.github.io/allometric/articles/variable_naming_system.html" class="external-link">Variable Naming System</a></li>
+<li><a href="https://allometric.org/articles/installing_a_model.html" class="external-link">Contributing a Model</a></li>
+<li><a href="https://allometric.org/articles/descriptors.html" class="external-link">Describing a Model with Descriptors</a></li>
+<li><a href="https://allometric.org/articles/variable_naming_system.html" class="external-link">Variable Naming System</a></li>
 </ul>
 </div>
 </div>

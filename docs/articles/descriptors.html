@@ -68,6 +68,9 @@
     <li>
       <a href="../articles/variable_naming_system.html">Variable Naming System</a>
     </li>
+    <li>
+      <a href="../articles/version_two.html">`allometric` v2.0.0 Developer Notes</a>
+    </li>
   </ul>
 </li>
 <li>
@@ -117,10 +120,7 @@ example.</p>
 models that are fit to specific geographic regions and age classes.
 Let’s take a look at the descriptors of one of those models</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">allometric_models</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/load_models.html">load_models</a></span><span class="op">(</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">brackett_mod_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/select_model.html">select_model</a></span><span class="op">(</span><span class="va">allometric_models</span>, <span class="st">"f21028ef"</span><span class="op">)</span></span>
-<span><span class="va">brackett_mod_1</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">brackett_acer</span></span></code></pre></div>
 <pre><code><span><span class="co">## Model Call: </span></span>
 <span><span class="co">## vsia = f(dsob, hst) </span></span>
 <span><span class="co">##  </span></span>
@@ -132,13 +132,13 @@ Let’s take a look at the descriptors of one of those models</p>
 <span><span class="co">## <span style="color: #949494;"># A tibble: 1 × 3</span></span></span>
 <span><span class="co">##       a     b     c</span></span>
 <span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">1</span> -<span style="color: #BB0000;">2.67</span>  1.92  1.07</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span> -<span style="color: #BB0000;">2.77</span>  1.89  1.12</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## Model Descriptors: </span></span>
-<span><span class="co">## <span style="color: #949494;"># A tibble: 1 × 7</span></span></span>
-<span><span class="co">##   country region family     genus species geographic_region age_class</span></span>
-<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">1</span> US      US-WA  Betulaceae Alnus rubra   <span style="color: #BB0000;">NA</span>                <span style="color: #BB0000;">NA</span></span></span></code></pre>
+<span><span class="co">## <span style="color: #949494;"># A tibble: 1 × 5</span></span></span>
+<span><span class="co">##   country region geographic_region age_class taxa  </span></span>
+<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;list&gt;</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span> US      US-WA  <span style="color: #BB0000;">NA</span>                <span style="color: #BB0000;">NA</span>        <span style="color: #949494;">&lt;Taxa&gt;</span></span></span></code></pre>
 <p>The last section of the output specifies all descriptors for this
 model, including <code>country</code>, <code>region</code>,
 <code>family</code>, <code>genus</code>, <code>species</code>,
@@ -182,36 +182,6 @@ of Washington in the United States. The <code>FixedEffectsSet</code>,
 classes all have a <code>descriptors</code> argument that can be used
 for specifying descriptors at these levels. Refer to the <a href="https://allometric.github.io/allometric/articles/installing_a_model.html" class="external-link">Installing
 a Model</a> vignette for more examples at these levels.</p>
-</div>
-<div class="section level2">
-<h2 id="search-descriptors">Search Descriptors<a class="anchor" aria-label="anchor" href="#search-descriptors"></a>
-</h2>
-<p>Authors are encouraged to define a set of <em>search descriptors</em>
-if able. These descriptors are propagated to the
-<code>allometric_models</code> table and allow for quick filtering of
-allometric equations</p>
-<p>The set of <em>search descriptors</em> are:</p>
-<ul>
-<li>
-<code>country</code> - the country (or countries) of the dataset
-used for the model. Countries must be two-character <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2" class="external-link">ISO 3166-1
-alpha-2</a> names.</li>
-<li>
-<code>region</code> - the region of the dataset used for the model.
-Regions are defined as subsets of countries, and must comply with the
-four-character region codes given in <a href="https://en.wikipedia.org/wiki/ISO_3166-2" class="external-link">ISO 3166-2</a>. States
-are an example of regions, e.g., <code>"US-CO"</code> for Colorado,
-US.</li>
-<li>
-<code>family</code> - the taxonomic family of the dataset used for
-the model.</li>
-<li>
-<code>genus</code> - the taxonomic genus of the dataset used for the
-model.</li>
-<li>
-<code>species</code> - the taxonomic species of the dataset used for
-the model.</li>
-</ul>
 </div>
   </div>
 

@@ -6,6 +6,10 @@ vignette: >
   \usepackage[utf8]{inputenc}
 ---
 
+```{r include=F}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
 This vignette covers several common forest inventory use cases that can be 
 covered by `allometric`
 

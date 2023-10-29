@@ -7,7 +7,7 @@ vignette: >
 ---
 
 ```{r include=F}
-library(allometric)
+devtools::load_all()
 ```
 
 Motivated users are entirely capable of contributing models, provided they are
@@ -77,9 +77,13 @@ temesgen_2008 <- Publication(
   descriptors = list(
     country = "US",
     region = "US-OR",
-    family = "Pinaceae",
-    genus = "Pseudotsuga",
-    species = "menziesii"
+    taxa = Taxa(
+      Taxon(
+        family = "Pinaceae",
+        genus = "Pseudotsuga",
+        species = "menziesii"
+      )
+    )
   )
 )
 ```
@@ -235,7 +239,7 @@ brackett_1977_model_set <- FixedEffectsSet(
   predict_fn = function(dsob, hst) {
     10^a * dsob^b * hst^c
   },
-  model_specifications = model_specifications
+  model_specifications = model_specifications %>% aggregate_taxa()
 )
 ```
 

@@ -45,6 +45,9 @@ MongoDatabase."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/l
     <li>
       <a href="../articles/variable_naming_system.html">Variable Naming System</a>
     </li>
+    <li>
+      <a href="../articles/version_two.html">`allometric` v2.0.0 Developer Notes</a>
+    </li>
   </ul></li>
 <li>
   <a href="../news/index.html">Changelog</a>
@@ -101,7 +104,7 @@ MongoDatabase.</p>
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="toJSON.html">toJSON</a></span><span class="op">(</span><span class="va">brackett_rubra</span>, pretty <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "model_id": "f21028ef",</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   "model_id": "2a97d7ba",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "pub_id": "brackett_1977",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "model_type": "stem volume",</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "model_class": "FixedEffectsModel",</span>
@@ -122,11 +125,15 @@ MongoDatabase.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "descriptors": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "country": ["US"],</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "region": ["US-WA"],</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "family": ["Betulaceae"],</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "genus": ["Alnus"],</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "species": ["rubra"],</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "geographic_region": [],</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     "age_class": []</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "age_class": [],</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     "taxa": [</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "family": ["Betulaceae"],</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "genus": ["Alnus"],</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         "species": ["rubra"]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       }</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     ]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   },</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   "parameters": {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     "a": -2.672775,</span>

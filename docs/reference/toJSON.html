@@ -45,6 +45,9 @@ hosted MongoDatabase."><!-- mathjax --><script src="https://cdnjs.cloudflare.com
     <li>
       <a href="../articles/variable_naming_system.html">Variable Naming System</a>
     </li>
+    <li>
+      <a href="../articles/version_two.html">`allometric` v2.0.0 Developer Notes</a>
+    </li>
   </ul></li>
 <li>
   <a href="../news/index.html">Changelog</a>
@@ -99,7 +102,7 @@ hosted MongoDatabase.</p>
     <div id="ref-examples">
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">toJSON</span><span class="op">(</span><span class="va">brackett_rubra</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> {"model_id":"f21028ef","pub_id":"brackett_1977","model_type":"stem volume","model_class":"FixedEffectsModel","response":{"name":"vsia","unit":"ft3"},"covariates":[{"name":"dsob","unit":"in"},{"name":"hst","unit":"ft"}],"descriptors":{"country":["US"],"region":["US-WA"],"family":["Betulaceae"],"genus":["Alnus"],"species":["rubra"],"geographic_region":[],"age_class":[]},"parameters":{"a":-2.672775,"b":1.920617,"c":1.074024},"predict_fn_body":["10^a * dsob^b * hst^c"]} </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> {"model_id":"2a97d7ba","pub_id":"brackett_1977","model_type":"stem volume","model_class":"FixedEffectsModel","response":{"name":"vsia","unit":"ft3"},"covariates":[{"name":"dsob","unit":"in"},{"name":"hst","unit":"ft"}],"descriptors":{"country":["US"],"region":["US-WA"],"geographic_region":[],"age_class":[],"taxa":[{"family":["Betulaceae"],"genus":["Alnus"],"species":["rubra"]}]},"parameters":{"a":-2.672775,"b":1.920617,"c":1.074024},"predict_fn_body":["10^a * dsob^b * hst^c"]} </span>
 </code></pre></div>
     </div>
   </div>
