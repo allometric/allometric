@@ -43,6 +43,9 @@
     <li>
       <a href="../articles/variable_naming_system.html">Variable Naming System</a>
     </li>
+    <li>
+      <a href="../articles/version_two.html">`allometric` v2.0.0 Developer Notes</a>
+    </li>
   </ul></li>
 <li>
   <a href="../news/index.html">Changelog</a>
@@ -101,7 +104,11 @@
           <p><code><a href="merge.model_tbl.html">merge(<i>&lt;model_tbl&gt;</i>)</a></code> </p>
         </td>
         <td><p>Merge a <code>model_tbl</code> with another data frame.</p></td>
-      </tr><tr><td>
+      </tr></tbody><tbody><tr><th colspan="2">
+          <h2 id="searching-functions">Searching Functions <a href="#searching-functions" class="anchor" aria-hidden="true"></a></h2>
+          <p class="section-desc"></p><p>These functions facilitate searching models, especially those that assist with filtering for species information stored in the <code>Taxa</code> and <code>Taxon</code> classes.</p>
+        </th>
+      </tr></tbody><tbody><tr><td>
           <p><code><a href="unnest_models.html">unnest_models()</a></code> </p>
         </td>
         <td><p>Unnest columns of a dataframe</p></td>
@@ -109,6 +116,30 @@
           <p><code><a href="unnest_models.model_tbl.html">unnest_models(<i>&lt;model_tbl&gt;</i>)</a></code> </p>
         </td>
         <td><p>Unnest the columns of <code>model_tbl</code></p></td>
+      </tr><tr><td>
+          <p><code><a href="grapes-in-grapes-Taxon-character-method.html">`%in%`(<i>&lt;Taxon&gt;</i>,<i>&lt;character&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Check if a Taxon contains a character</p></td>
+      </tr><tr><td>
+          <p><code><a href="grapes-in-grapes-Taxa-character-method.html">`%in%`(<i>&lt;Taxa&gt;</i>,<i>&lt;character&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Check if a Taxa contains a character</p></td>
+      </tr><tr><td>
+          <p><code><a href="grapes-in-grapes-character-Taxon-method.html">`%in%`(<i>&lt;character&gt;</i>,<i>&lt;Taxon&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Check if a character is in a Taxon</p></td>
+      </tr><tr><td>
+          <p><code><a href="grapes-in-grapes-character-Taxa-method.html">`%in%`(<i>&lt;character&gt;</i>,<i>&lt;Taxa&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Check if a character is in a Taxa</p></td>
+      </tr><tr><td>
+          <p><code><a href="grapes-in-grapes-Taxa-Taxon-method.html">`%in%`(<i>&lt;Taxa&gt;</i>,<i>&lt;Taxon&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Check if a Taxa is in Taxon</p></td>
+      </tr><tr><td>
+          <p><code><a href="grapes-in-grapes-Taxon-Taxa-method.html">`%in%`(<i>&lt;Taxon&gt;</i>,<i>&lt;Taxa&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Check if a Taxon is in a Taxa</p></td>
       </tr></tbody><tbody><tr><th colspan="2">
           <h2 id="contributor-functions">Contributor Functions <a href="#contributor-functions" class="anchor" aria-hidden="true"></a></h2>
           <p class="section-desc"></p><p>These functions are used to contribute models to <code>allometric</code>.</p>
@@ -121,6 +152,11 @@
           <p><code><a href="add_set.html">add_set()</a></code> </p>
         </td>
         <td><p>Add a set of models to a publication</p></td>
+      </tr><tr><td>
+          <p><code><a href="aggregate_taxa.html">aggregate_taxa()</a></code> </p>
+        </td>
+        <td><p>Aggregate family, genus, and species columns of `tbl_df`` into taxa data
+structure</p></td>
       </tr><tr><td>
           <p><code><a href="get_variable_def.html">get_variable_def()</a></code> </p>
         </td>
@@ -138,9 +174,9 @@
         </td>
         <td><p>Load a parameter frame from the models/parameters directory</p></td>
       </tr><tr><td>
-          <p><code><a href="check_local_models.html">check_local_models()</a></code> </p>
+          <p><code><a href="map_publications.html">map_publications()</a></code> </p>
         </td>
-        <td><p>Check allometric models can be installed from local files</p></td>
+        <td><p>Iteratively process publication files</p></td>
       </tr><tr><td>
           <p><code><a href="FixedEffectsModel.html">FixedEffectsModel()</a></code> </p>
         </td>
@@ -169,6 +205,26 @@
           <p><code><a href="equals-MixedEffectsModel-MixedEffectsModel-method.html">`==`(<i>&lt;MixedEffectsModel&gt;</i>,<i>&lt;MixedEffectsModel&gt;</i>)</a></code> </p>
         </td>
         <td><p>Check equivalence of mixed effects models</p></td>
+      </tr><tr><td>
+          <p><code><a href="Taxa.html">Taxa()</a></code> </p>
+        </td>
+        <td><p>Group taxons together</p></td>
+      </tr><tr><td>
+          <p><code><a href="Taxon.html">Taxon()</a></code> </p>
+        </td>
+        <td><p>Create a taxonomic hierarchy</p></td>
+      </tr><tr><td>
+          <p><code><a href="grapes-in-grapes-Taxon-character-method.html">`%in%`(<i>&lt;Taxon&gt;</i>,<i>&lt;character&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Check if a Taxon contains a character</p></td>
+      </tr><tr><td>
+          <p><code><a href="toJSON-FixedEffectsModel-method.html">toJSON(<i>&lt;FixedEffectsModel&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Convert a fixed effects model to a JSON representation</p></td>
+      </tr><tr><td>
+          <p><code><a href="toJSON.html">toJSON()</a></code> </p>
+        </td>
+        <td><p>Convert a model or publication to a JSON representation</p></td>
       </tr></tbody><tbody><tr><th colspan="2">
           <h2 id="example-data">Example Data <a href="#example-data" class="anchor" aria-hidden="true"></a></h2>
           <p class="section-desc"></p><p>Example data included with <code>allometric</code>.</p>

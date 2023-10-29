@@ -119,7 +119,6 @@ install_models <- function(redownload = FALSE,
   }
 
   allometric_models <- ingest_models(verbose)
-  allometric_models <- new_model_tbl(allometric_models)
 
   out_path <- file.path(
     system.file("extdata", package = "allometric"), "allometric_models.RDS"
@@ -135,38 +134,4 @@ install_models <- function(redownload = FALSE,
   }
 
   saveRDS(allometric_models, out_path)
-}
-
-#' Check allometric models can be installed from local files
-#'
-#' For the purposes of contributing models, it is useful for contributors to
-#' run a local set of allometric model files. For example, when contributors
-#' add new publication files to `allometric/models`, this function can be used
-#' to ensure that the local model files run correctly.
-#'
-#' @param publications_path The path to publication files
-#' @param parameters_path The path to parameter files
-#' @param verbose Whether or not to print verbose messages
-#' @return A model_tbl of the locally checked models
-#' @export
-check_local_models <- function(
-    publications_path, parameters_path, verbose = TRUE
-  ) {
-  allometric_options[["param_search_path"]] <- parameters_path
-
-  if(verbose) {
-    msg <- paste(
-      "Ingesting publication files from: ",
-      publications_path, "\n",
-      sep = ""
-    )
-
-    cat(msg)
-  }
-
-  allometric_models <- ingest_models(verbose, pub_path = publications_path)
-
-  allometric_options[["param_search_path"]] <- "package"
-
-  allometric_models
 }

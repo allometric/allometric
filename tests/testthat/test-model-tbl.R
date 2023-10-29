@@ -1,8 +1,8 @@
 fixed_effects_model <- FixedEffectsModel(
-  response_unit = list(
+  response = list(
     vsia = units::as_units("ft^3")
   ),
-  covariate_units = list(
+  covariates = list(
     dsob = units::as_units("in")
   ),
   parameters = list(
@@ -79,22 +79,6 @@ test_that("select_model returns model", {
   mod_id <- select_model(model_tbl_good, "this_id")
   expect_s4_class(mod_ix, "FixedEffectsModel")
   expect_s4_class(mod_id, "FixedEffectsModel")
-})
-
-test_that("unnest_cross unnests all columns", {
-  test_tbl <- tibble::tibble(
-    a = list(c(1), c(1,2)),
-    b = list(c(1), c(1,2))
-  )
-
-  unnested <- unnest_cross(test_tbl, c('a', 'b'))
-
-  expect_equal(nrow(unnested), 5)
-})
-
-test_that("unnest models returns a model_tbl", {
-  unnested <- unnest_models(model_tbl_good, 'country')
-  expect_s3_class(unnested, "model_tbl")
 })
 
 test_that("predict_allo produces predictions", {

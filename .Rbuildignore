@@ -13,7 +13,7 @@
 ^Meta$
 ^allometric.Rproj$
 ^man-roxygen$
-^scratch.R$
+^scratch.*\.R$
 ^NEWS.md$
 ^vignettes/descriptors\.Rmd$
 ^vignettes/installing_a_model\.Rmd$

@@ -17,7 +17,7 @@
 #' @inheritParams FixedEffectsModel
 #' @param predict_ranef
 #'    A function that predicts the random effects, takes any named covariates in
-#'    `covariate_units` as arguments
+#'    `covariates` as arguments
 #' @param fixed_only
 #'    A boolean value indicating if the model produces predictions using only
 #'    fixed effects. This is useful when publications do not provide sufficient
@@ -31,10 +31,10 @@
 #' using only fixed effects
 #' @examples
 #' MixedEffectsModel(
-#'   response_unit = list(
+#'   response = list(
 #'     hst = units::as_units("m")
 #'   ),
-#'   covariate_units = list(
+#'   covariates = list(
 #'     dsob = units::as_units("cm")
 #'   ),
 #'   parameters = list(
@@ -51,13 +51,13 @@
 #'   fixed_only = TRUE
 #' )
 #' @export
-MixedEffectsModel <- function(response_unit, covariate_units, predict_ranef,
+MixedEffectsModel <- function(response, covariates, predict_ranef,
                               predict_fn, parameters, fixed_only = FALSE,
                               descriptors = list(),
                               response_definition = NA_character_,
                               covariate_definitions = list()) {
   mixed_effects_model <- .MixedEffectsModel(ParametricModel(
-    response_unit, covariate_units, predict_fn, parameters, descriptors,
+    response, covariates, predict_fn, parameters, descriptors,
     response_definition, covariate_definitions
   ))
 
@@ -98,7 +98,7 @@ setMethod("predict", signature(model = "MixedEffectsModel"), function(model, ...
   predict_populated <- body(model@predict_fn_populated)
   body(complete_fn) <- do.call("substitute", list(predict_populated, ranefs))
 
-  converted <- convert_units(..., units_list = model@covariate_units)
+  converted <- convert_units(..., units_list = model@covariates)
   stripped <- strip_units(converted)
 
   out <- do.call(complete_fn, stripped)
@@ -109,7 +109,7 @@ setMethod("predict", signature(model = "MixedEffectsModel"), function(model, ...
     out_stripped <- out
   }
 
-  deparsed <- units::deparse_unit(model@response_unit[[1]])
+  deparsed <- units::deparse_unit(model@response[[1]])
   out_stripped <- do.call(units::set_units, list(out_stripped, deparsed))
 
   if(!is.null(output_units)) {
@@ -127,8 +127,8 @@ setMethod("predict", signature(model = "MixedEffectsModel"), function(model, ...
 
 setMethod("init_set_of_one", signature(model = "MixedEffectsModel"), function(model) {
   MixedEffectsSet(
-    response_unit = model@response_unit,
-    covariate_units = model@covariate_units,
+    response = model@response,
+    covariates = model@covariates,
     predict_fn = model@predict_fn,
     parameter_names = names(model@parameters),
     model_specifications = model@specification,
@@ -142,7 +142,7 @@ setMethod("init_set_of_one", signature(model = "MixedEffectsModel"), function(mo
 #' @inherit model_call
 #' @keywords internal
 setMethod("model_call", signature(object = "MixedEffectsModel"), function(object) {
-  response_var <- names(object@response_unit)[[1]]
+  response_var <- names(object@response)[[1]]
 
   arg_names <- names(as.list(args(object@predict_fn)))
   arg_names <- arg_names[-length(arg_names)]
@@ -199,12 +199,12 @@ setMethod("==", signature(e1 = "MixedEffectsModel", e2 = "MixedEffectsModel"),
   ids_equal <- check_ids_equal(e1, e2)
   response_equal <- check_response_equal(e1, e2)
   covariates_equal <- check_covariates_equal(e1, e2)
-  specifications_equal <- check_list_equal(e1, e2)
+  specifications_equal <- check_list_equal(specification(e1), specification(e2))
   predict_fn_equal <- check_predict_fn_equal(e1@predict_fn, e2@predict_fn)
   predict_ranef_equal <- check_predict_fn_equal(e1@predict_ranef, e2@predict_ranef)
   fixed_only_equal <- e1@fixed_only == e2@fixed_only
   res_def_equal <- check_res_def_equal(e1, e2)
-  covt_defs_equal <- check_list_equal(e1, e2)
+  covt_defs_equal <- check_list_equal(e1@covariate_definitions, e2@covariate_definitions)
 
   all(
     ids_equal,

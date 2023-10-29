@@ -129,3 +129,20 @@ setGeneric(
   "model_call",
   function(object) standardGeneric("model_call")
 )
+
+#' Convert a model or publication to a JSON representation
+#'
+#' This function converts an allometric model or publication into a JSON
+#' representation. Primarily, this is used internally to populate a remotely
+#' hosted MongoDatabase.
+#'
+#' @param object An allometric model or publication
+#' @param ... Additional arguments passed to jsonlite::toJSON
+#' @return A string containing the JSON representation of the object
+#' @export
+#' @examples
+#' toJSON(brackett_rubra)
+setGeneric(
+  "toJSON",
+  function(object, ...) standardGeneric("toJSON")
+)

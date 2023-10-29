@@ -41,31 +41,36 @@ Imports:
     vctrs,
     openssl,
     gh,
-    curl
+    curl,
+    jsonlite
 Collate:
-    'allometric.R'
-    'data.R'
-    'utils-pipe.R'
-    'boilerplate.R'
     'all_generics.R'
     'validity_checks.R'
-    'model_tbl.R'
-    'install.R'
-    'summary.R'
-    'util.R'
-    'variable_defs.R'
-    'load.R'
-    'eq.R'
     'AllometricModel.R'
     'ModelSet.R'
     'ParametricSet.R'
-    'FixedEffectsSet.R'
     'ParametricModel.R'
-    'MixedEffectsSet.R'
     'FixedEffectsModel.R'
+    'FixedEffectsSet.R'
     'MixedEffectsModel.R'
+    'MixedEffectsSet.R'
     'Publication.R'
-    'ingest_models.R'
+    'Taxa.R'
+    'Taxon.R'
+    'allometric.R'
+    'boilerplate.R'
+    'data.R'
+    'eq.R'
+    'fromJSON.R'
+    'install.R'
+    'load.R'
+    'model_tbl.R'
+    'publication_processing.R'
+    'summary.R'
+    'toJSON.R'
+    'util.R'
+    'utils-pipe.R'
+    'variable_defs.R'
     'zzz.R'
 Suggests: 
     testthat (>= 3.0.0),

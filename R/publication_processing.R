@@ -1,5 +1,3 @@
-
-
 #' Retrieve all publication file names in the publication subdirectories
 #'
 #' The publication subdirectories divide the publications into groups sorted
@@ -45,9 +43,7 @@ get_model_hash <- function(predict_fn_populated, descriptors) {
 append_search_descriptors <- function(row, model_descriptors) {
   row$country <- list(unlist(model_descriptors$country))
   row$region <- list(unlist(model_descriptors$region))
-  row$family <- model_descriptors$family
-  row$genus <- model_descriptors$genus
-  row$species <- model_descriptors$species
+  row$taxa <- model_descriptors$taxa
   row
 }
 
@@ -56,6 +52,10 @@ append_search_descriptors <- function(row, model_descriptors) {
 #' @keywords internal
 create_model_row <- function(model, pub, model_id) {
   model_descriptors <- descriptors(model)
+
+  if(!"taxa" %in% colnames(model_descriptors)) {
+    model_descriptors$taxa <- list(Taxa())
+  }
 
   model_row <- tibble::as_tibble(list(pub_id = pub@id))
   model_row$id <- model_id
@@ -72,13 +72,13 @@ create_model_row <- function(model, pub, model_id) {
   family_name <- pub@citation$author$family
   model_row$family_name <- list(as.character(family_name))
 
-  covt_name <- names(model@covariate_units)
+  covt_name <- names(model@covariates)
   model_row$covt_name <- list(covt_name)
 
   pub_year <- as.numeric(pub@citation$year)
   model_row$pub_year <- pub_year
 
-  response_def <- get_variable_def(names(model@response_unit)[[1]], return_exact_only = T)
+  response_def <- get_variable_def(names(model@response)[[1]], return_exact_only = T)
   model_row$model_type <- model@model_type
 
   model_row
@@ -89,7 +89,7 @@ create_model_row <- function(model, pub, model_id) {
 #' @param pub The publication object
 #' @param current_ids An optional vector of currently ingestedmodel  IDs.
 #' @keywords internal
-aggregate_pub_models <- function(pub, current_ids = c()) {
+aggregate_pub_models <- function(pub) {
   agg_models <- list()
 
   response_sets <- pub@response_sets
@@ -102,13 +102,6 @@ aggregate_pub_models <- function(pub, current_ids = c()) {
         hash <- get_model_hash(model@predict_fn_populated, descriptors(model))
         model_id <- substr(hash, 1, 8)
 
-        if(model_id %in% current_ids) {
-          msg <- paste(
-            "Duplicate model ID found:", model_id, "in publication", pub@id
-          )
-          stop(msg)
-        }
-
         agg_models[[model_id]] <- create_model_row(model, pub, model_id)
       }
     }
@@ -117,17 +110,29 @@ aggregate_pub_models <- function(pub, current_ids = c()) {
   dplyr::bind_rows(agg_models)
 }
 
-#' Create allometric models from parameter and publication files
+#' Iteratively process publication files
 #'
-#' This function ingests models by running each publication R file and
-#' populating a dataframe that contains each model object and some metadata.
-#' The result of this function creates the table of models obtained using
-#' `load_models()`. See `install_models()` for the end-user entrypoint.
+#' This function allows a user to flexibly extract information as it loops over
+#' the publication files. Two main internal use-cases exist for this. First,
+#' it is used to install models as is done in `insall_models()` and, second,
+#' it is used to populate the remote MongoDB. Most users will not be interested
+#' in this function, but it is exposed for usage in the `allodata` package.
 #'
-#' @keywords internal
-ingest_models <- function(verbose, pub_path = NULL) {
+#' @param verbose Whether or not to print verbose messages to console
+#' @param func The publication processing function. It should take a Publication
+#' object as its only argument.
+#' @param pub_path An optional path to a publication directory, by
+#' default the internally stored set of publications is used.
+#' @param params_path An optional path to a parameters directory, by
+#' default the internally stored set of parameter files is used.
+#' @export
+map_publications <- function(verbose, func, pub_path = NULL, params_path = NULL) {
   if(is.null(pub_path)) {
     pub_path <- system.file("models-main/publications", package = "allometric")
+  }
+
+  if(!is.null(params_path)) {
+    allometric_options[["param_search_path"]] <- params_path
   }
 
   pub_specs <- get_pub_file_specs(pub_path)
@@ -140,14 +145,7 @@ ingest_models <- function(verbose, pub_path = NULL) {
     width = 75
   )
 
-  model_list <- list()
-
-  out_order <- c(
-    "id", "model_type", "country", "region", "family", "genus", "species",
-    "model"
-  )
-
-  current_ids <- c()
+  output <- list()
 
   for (i in 1:n_pubs) {
     pub_env <- new.env()
@@ -159,8 +157,7 @@ ingest_models <- function(verbose, pub_path = NULL) {
     tryCatch({
       source(pub_r_path, local = pub_env)
       pub <- get(pub_name, envir = pub_env)
-      model_list[[pub_name]] <- aggregate_pub_models(pub, current_ids)
-      current_ids <- c(current_ids, model_list[[pub_name]][["id"]])
+      output[[pub_name]] <- func(pub)
     }, error = function(e) {
       warning(paste("Publication file", pub_name, "encountered an error during execution."))
     })
@@ -173,9 +170,25 @@ ingest_models <- function(verbose, pub_path = NULL) {
     rm("pub_env")
   }
 
-  allometric_models <- model_list %>%
+  # reset the param search path
+  if(!is.null(params_path)) {
+    allometric_options[["param_search_path"]] <- "package"
+  }
+
+  output
+}
+
+ingest_models <- function(verbose, pub_path = NULL, params_path = NULL) {
+  out_order <- c(
+    "id", "model_type", "country", "region", "taxa"
+  )
+
+  allometric_models <- map_publications(
+      verbose, aggregate_pub_models,
+      pub_path = pub_path, params_path = params_path
+    ) %>%
     dplyr::bind_rows() %>%
-    dplyr::arrange(.data$family, .data$genus, .data$species)
+    dplyr::arrange(pub_id)
 
   not_in_order <- colnames(allometric_models)[
     !colnames(allometric_models) %in% out_order

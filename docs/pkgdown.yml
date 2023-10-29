@@ -6,7 +6,8 @@ articles:
   installing_a_model: installing_a_model.html
   inventory_example: inventory_example.html
   variable_naming_system: variable_naming_system.html
-last_built: 2023-10-01T16:09Z
+  version_two: version_two.html
+last_built: 2023-10-29T17:23Z
 urls:
   reference: http://allometric.github.io/allometric/reference
   article: http://allometric.github.io/allometric/articles

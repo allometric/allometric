@@ -1,8 +1,8 @@
 fem <- FixedEffectsModel(
-  response_unit = list(
+  response = list(
     vsia = units::as_units("ft^3")
   ),
-  covariate_units = list(
+  covariates = list(
     dsob = units::as_units("in"),
     hst = units::as_units("ft")
   ),
@@ -20,12 +20,12 @@ test_that("units convert when different covariate units are specified", {
   units(vals1) <- c("cm")
   units(vals2) <- c("m")
 
-  covariate_units <- list(
+  covariates <- list(
     dsob = units::as_units("in"),
     hst  = units::as_units("ft")
   )
 
-  conv_out <- convert_units(vals1, vals2, units_list = covariate_units)
+  conv_out <- convert_units(vals1, vals2, units_list = covariates)
 
   u11 <- 1.968504
   u12 <- 3.937008

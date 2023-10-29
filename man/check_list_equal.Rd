@@ -4,12 +4,7 @@
 \alias{check_list_equal}
 \title{Check for equivalence of two lists}
 \usage{
-check_list_equal(mod1, mod2)
-}
-\arguments{
-\item{mod1}{A model object}
-
-\item{mod2}{A model object}
+check_list_equal(list1, list2)
 }
 \description{
 Two lists are considered equal if all values are the same and all names are

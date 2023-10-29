@@ -15,8 +15,8 @@ pub <- Publication(
 )
 
 mod_dup_descriptor <- FixedEffectsModel(
-  response_unit = list(vsia = units::as_units("ft^3")),
-  covariate_units = list(dsob = units::as_units("in")),
+  response = list(vsia = units::as_units("ft^3")),
+  covariates = list(dsob = units::as_units("in")),
   predict_fn <- function(dsob) {
     a * dsob
   },
@@ -29,8 +29,8 @@ test_that("Publication add_model errors on duplicated descriptor", {
 })
 
 fixed_effects_model <- FixedEffectsModel(
-  response_unit = list(vsia = units::as_units("ft^3")),
-  covariate_units = list(dsob = units::as_units("in")),
+  response = list(vsia = units::as_units("ft^3")),
+  covariates = list(dsob = units::as_units("in")),
   predict_fn = function(dsob) {
     a * dsob
   },
@@ -45,8 +45,8 @@ test_that("Publication add_model adds model for fixed effects model", {
 })
 
 fixed_effects_set <- FixedEffectsSet(
-  response_unit = list(vsia = units::as_units("ft^3")),
-  covariate_units = list(dsob = units::as_units("in")),
+  response = list(vsia = units::as_units("ft^3")),
+  covariates = list(dsob = units::as_units("in")),
   predict_fn = function(dsob) {
     a * dsob
   },
@@ -63,8 +63,8 @@ test_that("Publication add_set adds set for fixed effects set", {
 })
 
 mixed_effects_model <- MixedEffectsModel(
-  response_unit = list(vsia = units::as_units("ft^3")),
-  covariate_units = list(dsob = units::as_units("in")),
+  response = list(vsia = units::as_units("ft^3")),
+  covariates = list(dsob = units::as_units("in")),
   predict_fn = function(dsob) {
     a * dsob + a0i
   },

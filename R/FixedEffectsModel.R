@@ -16,10 +16,10 @@
 #' @template ParametricModel_slots
 #' @examples
 #' FixedEffectsModel(
-#'   response_unit = list(
+#'   response = list(
 #'     hst = units::as_units("m")
 #'   ),
-#'   covariate_units = list(
+#'   covariates = list(
 #'     dsob = units::as_units("cm")
 #'   ),
 #'   parameters = list(
@@ -32,12 +32,12 @@
 #'   }
 #' )
 #' @export
-FixedEffectsModel <- function(response_unit, covariate_units, predict_fn,
+FixedEffectsModel <- function(response, covariates, predict_fn,
                               parameters, descriptors = list(),
                               response_definition = NA_character_,
                               covariate_definitions = list()) {
   fixed_effects_model <- .FixedEffectsModel(ParametricModel(
-    response_unit, covariate_units, predict_fn, parameters, descriptors,
+    response, covariates, predict_fn, parameters, descriptors,
     response_definition, covariate_definitions
   ))
 
@@ -46,7 +46,7 @@ FixedEffectsModel <- function(response_unit, covariate_units, predict_fn,
 
 #' @rdname predict
 setMethod("predict", signature(model = "FixedEffectsModel"), function(model, ..., output_units = NULL) {
-  converted <- convert_units(..., units_list = model@covariate_units)
+  converted <- convert_units(..., units_list = model@covariates)
   stripped <- strip_units(converted)
 
   out <- do.call(model@predict_fn_populated, stripped)
@@ -57,7 +57,7 @@ setMethod("predict", signature(model = "FixedEffectsModel"), function(model, ...
     out_stripped <- out
   }
 
-  deparsed <- units::deparse_unit(model@response_unit[[1]])
+  deparsed <- units::deparse_unit(model@response[[1]])
   out_stripped <- do.call(units::set_units, list(out_stripped, deparsed))
 
   if(!is.null(output_units)) {
@@ -74,8 +74,8 @@ setMethod("predict", signature(model = "FixedEffectsModel"), function(model, ...
 
 setMethod("init_set_of_one", signature(model = "FixedEffectsModel"), function(model) {
   FixedEffectsSet(
-    response_unit = model@response_unit,
-    covariate_units = model@covariate_units,
+    response = model@response,
+    covariates = model@covariates,
     parameter_names = names(model@parameters),
     predict_fn = model@predict_fn,
     model_specifications = model@specification,
@@ -88,7 +88,7 @@ setMethod("init_set_of_one", signature(model = "FixedEffectsModel"), function(mo
 #' @inherit model_call
 #' @keywords internal
 setMethod("model_call", signature(object = "FixedEffectsModel"), function(object) {
-  response_var <- names(object@response_unit)[[1]]
+  response_var <- names(object@response)[[1]]
 
   arg_names <- names(as.list(args(object@predict_fn)))
   arg_names <- arg_names[-length(arg_names)]
@@ -139,10 +139,10 @@ setMethod("==", signature(e1 = "FixedEffectsModel", e2 = "FixedEffectsModel"),
   ids_equal <- check_ids_equal(e1, e2)
   response_equal <- check_response_equal(e1, e2)
   covariates_equal <- check_covariates_equal(e1, e2)
-  specifications_equal <- check_list_equal(e1, e2)
+  specifications_equal <- check_list_equal(specification(e1), specification(e2))
   predict_fn_equal <- check_predict_fn_equal(e1@predict_fn, e2@predict_fn)
   res_def_equal <- check_res_def_equal(e1, e2)
-  covt_defs_equal <- check_list_equal(e1, e2)
+  covt_defs_equal <- check_list_equal(e1@covariate_definitions, e2@covariate_definitions)
 
   all(
     ids_equal,
@@ -153,4 +153,21 @@ setMethod("==", signature(e1 = "FixedEffectsModel", e2 = "FixedEffectsModel"),
     res_def_equal,
     covt_defs_equal
   )
+})
+
+#' Convert a fixed effects model to a JSON representation
+#'
+#' This function converts a fixed effects model into a JSON representation.
+#' Primarily, this is used internally to populate a remotely hosted
+#' MongoDatabase.
+#'
+#' @param object A fixed effects model
+#' @param ... Additional arguments passed to jsonlite::toJSON
+#' @return A string containing the JSON representation of the object
+#' @export
+#' @examples
+#' toJSON(brackett_rubra, pretty = TRUE)
+setMethod("toJSON", "FixedEffectsModel", function(object, ...) {
+  json_list <- model_to_json(object)
+  jsonlite::toJSON(json_list, digits = NA, ...)
 })

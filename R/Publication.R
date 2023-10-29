@@ -75,7 +75,7 @@ listify <- function(list_of_vecs) {
 #' )
 #' @export
 Publication <- function(citation, descriptors = list()) {
-  descriptors <- tibble::as_tibble(listify(descriptors))
+  descriptors <- descriptors_to_tibble_row(descriptors)
 
   publication <- .Publication(
     citation = citation,
@@ -105,7 +105,7 @@ setMethod(
   "add_set",
   "Publication",
   function(publication, model_set) {
-    response_name <- names(model_set@response_unit)[[1]]
+    response_name <- names(model_set@response)[[1]]
 
     # Propagate the pub descriptors to the set
     model_set@pub_descriptors <- publication@descriptors
@@ -117,6 +117,7 @@ setMethod(
       model_set@models[[i]]@pub_descriptors <- publication@descriptors
       model_set@models[[i]]@set_descriptors <- model_set@descriptors
       model_set@models[[i]]@citation <- publication@citation
+      model_set@models[[i]]@pub_id <- publication@id
 
       # FIXME if any tibble is empty this will be empty
       model_set@models[[i]]@specification <- bind2(

@@ -14,18 +14,28 @@ reference:
   - select_model
   - select_model.model_tbl
   - merge.model_tbl
+- title: Searching Functions
+  desc: These functions facilitate searching models, especially those that assist with filtering for species information stored in the `Taxa` and `Taxon` classes.
+  contents:
   - unnest_models
   - unnest_models.model_tbl
+  - '%in%,Taxon,character-method'
+  - '%in%,Taxa,character-method'
+  - '%in%,character,Taxon-method'
+  - '%in%,character,Taxa-method'
+  - '%in%,Taxa,Taxon-method'
+  - '%in%,Taxon,Taxa-method'
 - title: Contributor Functions
   desc: These functions are used to contribute models to `allometric`.
   contents:
   - add_model
   - add_set
+  - aggregate_taxa
   - get_variable_def
   - get_component_defs
   - get_measure_defs
   - load_parameter_frame
-  - check_local_models
+  - map_publications
   - FixedEffectsModel
   - FixedEffectsSet
   - MixedEffectsModel
@@ -33,6 +43,11 @@ reference:
   - Publication
   - ==,FixedEffectsModel,FixedEffectsModel-method
   - ==,MixedEffectsModel,MixedEffectsModel-method
+  - Taxa
+  - Taxon
+  - '%in%,Taxon,character-method'
+  - toJSON,FixedEffectsModel-method
+  - toJSON
 - title: Example Data
   desc: Example data included with `allometric`.
   contents:

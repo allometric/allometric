@@ -23,10 +23,43 @@ load_parameter_frame <- function(name) {
   tibble::as_tibble(table)
 }
 
+my_function <- function(family, genus, species) {
+  Taxa(
+    Taxon(
+      family = family,
+      genus = genus,
+      species = species
+    )
+  )
+}
+
+#' Aggregate family, genus, and species columns of `tbl_df`` into taxa data
+#' structure
+#'
+#' This function facilitates aggregating family, genus, and species columns
+#' into the taxa data structure, which is a nested list composed of multiple
+#' "taxons". A taxon is a list containing family, genus, and species fields.
+#'
+#' @param table The table for which the taxa will be aggregated
+#' @param remove_taxa_cols Whether or not to remove the family, genus, and
+#' species columns after aggregation
+aggregate_taxa <- function(table, remove_taxa_cols = TRUE) {
+  default_taxon_fields <- c("family", "genus", "species")
+  taxon_fields <- colnames(table)[colnames(table) %in% default_taxon_fields]
+  missing_taxon_fields <- default_taxon_fields[!default_taxon_fields %in% taxon_fields]
+
+  table %>%
+    dplyr::mutate(!!!setNames(rep(list(NA), length(missing_taxon_fields)), missing_taxon_fields)) %>%
+    dplyr::rowwise() %>%
+    dplyr::mutate(taxa = list(Taxa(Taxon(family = family, genus = genus, species = species)))) %>%
+    dplyr::ungroup() %>%
+    dplyr::select(-dplyr::all_of(default_taxon_fields))
+}
+
 #' Load a locally installed table of allometric models
 #'
 #' This function loads all locally installed allometric models if they are
-#' downloaded and installed, if not run the `install_models` function. The 
+#' downloaded and installed, if not run the `install_models` function. The
 #' result is of class `model_tbl`, which behaves very much like a
 #' `tibble::tbl_df` or a `data.frame`.
 #'
@@ -44,44 +77,27 @@ load_parameter_frame <- function(name) {
 #' * `country` - The country or countries from which the model data is from.
 #' * `region` - The region or regions (e.g., state, province, etc.) from which
 #' the model data is from.
-#' * `family`, `genus`, `species` - The taxonomic specification of the trees
-#'   that are modeled.
+#' * `taxa` - The taxonomic specification of the trees that are modeled.
 #' * `model` - The model object itself.
 #' * `pub_id` - A unique ID representing the publication.
 #' * `family_name` - The names of the contributing authors.
 #' * `covt_name` - The names of the covariates used in the model.
 #' * `pub_year` - The publication year.
 #'
-#' # Basic Searching for Models
+#' Models can be searched by their attributes. Note that some of the columns
+#' are `list` columns, which contain lists as their elements. Filtering on
+#' data in these columns requires the use of `purrr::map_lgl` which is used to
+#' determine truthiness of expressions for each element in a `list` column.
+#' While this may seem complicated, we believe the nested data structures are
+#' more descriptive and concise for storing the models, and users will quickly
+#' find that searching models in this way can be very powerful.
 #'
-#' Filtering out nested data from a table is slightly more involved than
-#' strictly tabular data. Fortunately the `unnest_models` function allows the
-#' user to unnest any set of columns. For example, let's say we wanted to find
-#' a model from the author `"Hann"`. To do this, we will unnest the
-#' `family_name` column using `unnest_models`, then filter the resulting
-#' dataframe using `dplyr::filter`.
+#' # Finding Contributing Authors
 #'
-#' ```{r}
-#' unnest_family <- allometric_models %>% unnest_models('family_name')
-#'
-#' unnest_family %>% dplyr::filter(family_name == "Hann")
-#' ```
-#'
-#' Any column or any combination of columns can be unnested, which allows for
-#' basic filtering of models using `dplyr::filter`.
-#'
-#' # Advanced Searching for Models
-#'
-#' Nested data can be searched directly without the use of `unnest_models`.
-#' This requires the use of `purrr::map_lgl` which is used to determine
-#' truthiness of expressions for each element in a `list` column.
-#' Before beginning, it is helpful to know that `purrr::map_lgl` returns a list
-#' of TRUE/FALSE values as it "maps" over a list of input.
-#'
-#' ## Finding Contributing Authors
-#'
-#' Using this function, we can recreate the previous example, finding models
-#' that had `'Hann'` as a contributing author.
+#' Using `purr::map_lgl` to filter the `family_name` column, we are able to
+#' find publications that contain specific authors of interst. For example, we
+#' may want models only authored by `"Hann"`. This is elementary to do in
+#' `allometric`:
 #'
 #' ```{r}
 #' hann_models <- dplyr::filter(
@@ -102,7 +118,7 @@ load_parameter_frame <- function(name) {
 #' `allometric_models`, `.` represents the element of `family_names` we are
 #' considering, which is itself a list of author names.
 #'
-#' ## Finding First Authors
+#' # Finding First Authors
 #'
 #' Maybe we are only interested in models where `'Hann'` is the first author.
 #' Using a simple modification we can easily do this.
@@ -120,7 +136,41 @@ load_parameter_frame <- function(name) {
 #' We can see that `'Hann'` is the first author for
 #' `r nrow(hann_first_author_models)` models in this package.
 #'
-#' ## Finding a Model with Specific Data Requirements
+#' # Finding Models for a Given Species
+#'
+#' One of the most common things people need is a model for a particular
+#' species. For this, we must interact with the `taxa` column. For example,
+#' to find models for the Pinus genus we can use
+#'
+#' ```{r}
+#' pinus_models <- dplyr::filter(
+#'  allometric_models,
+#'  purrr::map_lgl(taxa, ~ "Pinus" %in% .)
+#' )
+#'
+#' head(pinus_models)
+#' nrow(pinus_models)
+#' ```
+#'
+#' Users can also search with a specific taxon, which allows a full
+#' specification from family to species. For example, if we want models that
+#' apply to Ponderosa pine, first declare the necessary taxon, then use it to
+#' filter as before
+#'
+#' ```{r}
+#' ponderosa_taxon <- Taxon(
+#'  family = "Pinaceae", genus = "Pinus", species = "ponderosa"
+#' )
+#'
+#' ponderosa_models <- dplyr::filter(
+#'  allometric_models,
+#'  purrr::map_lgl(taxa, ~ ponderosa_taxon %in% .)
+#' )
+#' 
+#' nrow(ponderosa_models)
+#' ````
+#'
+#' # Finding a Model with Specific Data Requirements
 #'
 #' We can even check for models that contain certain types of data requirements.
 #' For example, the following block finds diameter-height models, specifically
@@ -147,7 +197,7 @@ load_parameter_frame <- function(name) {
 #' vector is equal to `'dsob'`, (diameter outside bark at breast height). In
 #' this case, `r nrow(dia_ht_models)` are available in the package.
 #'
-#' ## Finding a Model for a Region
+#' # Finding a Model for a Region
 #'
 #' By now the user should be sensing a pattern. We can apply the exact same
 #' logic as the *Finding Contributing Authors* section to find all models

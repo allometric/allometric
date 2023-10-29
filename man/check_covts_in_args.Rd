@@ -2,13 +2,13 @@
 % Please edit documentation in R/validity_checks.R
 \name{check_covts_in_args}
 \alias{check_covts_in_args}
-\title{Check if all covariates in covariate_units are used as arguments in
+\title{Check if all covariates in covariates are used as arguments in
 predict_fn}
 \usage{
 check_covts_in_args(object)
 }
 \description{
-Check if all covariates in covariate_units are used as arguments in
+Check if all covariates in covariates are used as arguments in
 predict_fn
 }
 \keyword{internal}

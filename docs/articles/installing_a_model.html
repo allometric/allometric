@@ -68,6 +68,9 @@
     <li>
       <a href="../articles/variable_naming_system.html">Variable Naming System</a>
     </li>
+    <li>
+      <a href="../articles/version_two.html">`allometric` v2.0.0 Developer Notes</a>
+    </li>
   </ul>
 </li>
 <li>
@@ -173,9 +176,13 @@ mind, we establish the <code>Publication</code> object.</p>
 <span>  descriptors <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>    country <span class="op">=</span> <span class="st">"US"</span>,</span>
 <span>    region <span class="op">=</span> <span class="st">"US-OR"</span>,</span>
-<span>    family <span class="op">=</span> <span class="st">"Pinaceae"</span>,</span>
-<span>    genus <span class="op">=</span> <span class="st">"Pseudotsuga"</span>,</span>
-<span>    species <span class="op">=</span> <span class="st">"menziesii"</span></span>
+<span>    taxa <span class="op">=</span> <span class="fu"><a href="../reference/Taxa.html">Taxa</a></span><span class="op">(</span></span>
+<span>      <span class="fu"><a href="../reference/Taxon.html">Taxon</a></span><span class="op">(</span></span>
+<span>        family <span class="op">=</span> <span class="st">"Pinaceae"</span>,</span>
+<span>        genus <span class="op">=</span> <span class="st">"Pseudotsuga"</span>,</span>
+<span>        species <span class="op">=</span> <span class="st">"menziesii"</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <p><code>temesgen_2008</code> now represents a publication with citation
@@ -197,10 +204,10 @@ Note that the height is a function of the covariate <span class="math inline">\(
 <code>FixedEffectsModel</code> class.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">temesgen_2008_model_one</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/FixedEffectsModel.html">FixedEffectsModel</a></span><span class="op">(</span></span>
-<span>  response_unit <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>  response <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>    hst <span class="op">=</span> <span class="fu">units</span><span class="fu">::</span><span class="fu"><a href="https://r-quantities.github.io/units/reference/units.html" class="external-link">as_units</a></span><span class="op">(</span><span class="st">"m"</span><span class="op">)</span></span>
 <span>  <span class="op">)</span>,</span>
-<span>  covariate_units <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>  covariates <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>    dsob <span class="op">=</span> <span class="fu">units</span><span class="fu">::</span><span class="fu"><a href="https://r-quantities.github.io/units/reference/units.html" class="external-link">as_units</a></span><span class="op">(</span><span class="st">"cm"</span><span class="op">)</span></span>
 <span>  <span class="op">)</span>,</span>
 <span>  parameters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
@@ -212,23 +219,23 @@ Note that the height is a function of the covariate <span class="math inline">\(
 <span>    <span class="fl">1.37</span> <span class="op">+</span> <span class="va">beta_0</span> <span class="op">*</span> <span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="va">beta_1</span> <span class="op">*</span> <span class="va">dsob</span><span class="op">)</span><span class="op">^</span><span class="va">beta_2</span><span class="op">)</span></span>
 <span>  <span class="op">}</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<p>We can see that four arguments are used, <code>response_unit</code>,
-<code>covariate_units</code>, <code>parameters</code> and
+<p>We can see that four arguments are used, <code>response</code>,
+<code>covariates</code>, <code>parameters</code> and
 <code>predict_fn</code>.</p>
 <ul>
 <li>
-<code>response_unit</code> - a named list containing one element,
-which is the name of the response variable. In this case
-<code>hst</code> indicates the model is the <strong>h</strong>eight of
-the <strong>s</strong>tem using the <strong>t</strong>otal height. The
-value of this element is established by providing the units using the
+<code>response</code> - a named list containing one element, which
+is the name of the response variable. In this case <code>hst</code>
+indicates the model is the <strong>h</strong>eight of the
+<strong>s</strong>tem using the <strong>t</strong>otal height. The value
+of this element is established by providing the units using the
 <code>units</code> package. In this case, the units are defined as
 meters.</li>
 <li>
-<code>covariate_units</code> - a named list containing all
-covariates usied in the model. In this case, only one covariate is used
-called <code>dsob</code> which stands for the <strong>d</strong>iameter
-of the <strong>s</strong>tem, <strong>o</strong>utside bark at
+<code>covariates</code> - a named list containing all covariates
+usied in the model. In this case, only one covariate is used called
+<code>dsob</code> which stands for the <strong>d</strong>iameter of the
+<strong>s</strong>tem, <strong>o</strong>utside bark at
 <strong>b</strong>reast height. Again, the units are defined, this time
 as centimeters.</li>
 <li>
@@ -329,10 +336,10 @@ section. The arguments are the same, but the implication is that
 set.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">brackett_1977_model_set</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/FixedEffectsSet.html">FixedEffectsSet</a></span><span class="op">(</span></span>
-<span>  response_unit <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>  response <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>    vsa <span class="op">=</span> <span class="fu">units</span><span class="fu">::</span><span class="fu"><a href="https://r-quantities.github.io/units/reference/units.html" class="external-link">as_units</a></span><span class="op">(</span><span class="st">"ft3"</span><span class="op">)</span></span>
 <span>  <span class="op">)</span>,</span>
-<span>  covariate_units <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>  covariates <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>    dsob <span class="op">=</span> <span class="fu">units</span><span class="fu">::</span><span class="fu"><a href="https://r-quantities.github.io/units/reference/units.html" class="external-link">as_units</a></span><span class="op">(</span><span class="st">"in"</span><span class="op">)</span>,</span>
 <span>    hst  <span class="op">=</span> <span class="fu">units</span><span class="fu">::</span><span class="fu"><a href="https://r-quantities.github.io/units/reference/units.html" class="external-link">as_units</a></span><span class="op">(</span><span class="st">"ft"</span><span class="op">)</span></span>
 <span>  <span class="op">)</span>,</span>
@@ -340,7 +347,7 @@ set.</p>
 <span>  predict_fn <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">dsob</span>, <span class="va">hst</span><span class="op">)</span> <span class="op">{</span></span>
 <span>    <span class="fl">10</span><span class="op">^</span><span class="va">a</span> <span class="op">*</span> <span class="va">dsob</span><span class="op">^</span><span class="va">b</span> <span class="op">*</span> <span class="va">hst</span><span class="op">^</span><span class="va">c</span></span>
 <span>  <span class="op">}</span>,</span>
-<span>  model_specifications <span class="op">=</span> <span class="va">model_specifications</span></span>
+<span>  model_specifications <span class="op">=</span> <span class="va">model_specifications</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="../reference/aggregate_taxa.html">aggregate_taxa</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 <p>Finally, we add the model set to the publication using
 <code>add_set</code> and print a summary to verify that the model was

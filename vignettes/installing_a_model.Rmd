@@ -7,7 +7,7 @@ vignette: >
 ---
 
 ```{r include=F}
-library(allometric)
+devtools::load_all()
 ```
 
 Motivated users are entirely capable of contributing models, provided they are
@@ -77,9 +77,13 @@ temesgen_2008 <- Publication(
   descriptors = list(
     country = "US",
     region = "US-OR",
-    family = "Pinaceae",
-    genus = "Pseudotsuga",
-    species = "menziesii"
+    taxa = Taxa(
+      Taxon(
+        family = "Pinaceae",
+        genus = "Pseudotsuga",
+        species = "menziesii"
+      )
+    )
   )
 )
 ```
@@ -102,10 +106,10 @@ $b_2$. This is a perfect candidate for the `FixedEffectsModel` class.
 
 ```{r}
 temesgen_2008_model_one <- FixedEffectsModel(
-  response_unit = list(
+  response = list(
     hst = units::as_units("m")
   ),
-  covariate_units = list(
+  covariates = list(
     dsob = units::as_units("cm")
   ),
   parameters = list(
@@ -119,15 +123,15 @@ temesgen_2008_model_one <- FixedEffectsModel(
 )
 ```
 
-We can see that four arguments are used, `response_unit`, `covariate_units`, 
+We can see that four arguments are used, `response`, `covariates`, 
 `parameters` and `predict_fn`.
 
-- `response_unit` - a named list containing one element, which is the name of
+- `response` - a named list containing one element, which is the name of
 the response variable. In this case `hst` indicates the model is the **h**eight
 of the **s**tem using the **t**otal height. The value of this element is 
 established by providing the units using the `units` package. In this case, 
 the units are defined as meters.
-- `covariate_units` - a named list containing all covariates usied in the model.
+- `covariates` - a named list containing all covariates usied in the model.
 In this case, only one covariate is used called `dsob` which stands for the 
 **d**iameter of the **s**tem, **o**utside bark at **b**reast height. Again, the
 units are defined, this time as centimeters.
@@ -224,10 +228,10 @@ same, but the implication is that `response unit`, `covariate units` and
 
 ```{r}
 brackett_1977_model_set <- FixedEffectsSet(
-  response_unit = list(
+  response = list(
     vsa = units::as_units("ft3")
   ),
-  covariate_units = list(
+  covariates = list(
     dsob = units::as_units("in"),
     hst  = units::as_units("ft")
   ),
@@ -235,7 +239,7 @@ brackett_1977_model_set <- FixedEffectsSet(
   predict_fn = function(dsob, hst) {
     10^a * dsob^b * hst^c
   },
-  model_specifications = model_specifications
+  model_specifications = model_specifications %>% aggregate_taxa()
 )
 ```
 

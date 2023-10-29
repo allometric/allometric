@@ -13,6 +13,9 @@
     <loc>http://allometric.github.io/allometric/articles/descriptors.html</loc>
   </url>
   <url>
+    <loc>http://allometric.github.io/allometric/articles/frequently_asked_questions.html</loc>
+  </url>
+  <url>
     <loc>http://allometric.github.io/allometric/articles/ignore/deep_dive.html</loc>
   </url>
   <url>
@@ -32,6 +35,9 @@
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/articles/variable_naming_system.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/articles/version_two.html</loc>
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/authors.html</loc>
@@ -71,6 +77,9 @@
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/reference/aggregate_results_ext.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/aggregate_taxa.html</loc>
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/reference/allometric-package.html</loc>
@@ -142,6 +151,12 @@
     <loc>http://allometric.github.io/allometric/reference/check_run_pub_list.html</loc>
   </url>
   <url>
+    <loc>http://allometric.github.io/allometric/reference/check_taxa_unique.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/check_taxon_hierarchy.html</loc>
+  </url>
+  <url>
     <loc>http://allometric.github.io/allometric/reference/check_valid_search_str.html</loc>
   </url>
   <url>
@@ -160,6 +175,9 @@
     <loc>http://allometric.github.io/allometric/reference/descriptors.html</loc>
   </url>
   <url>
+    <loc>http://allometric.github.io/allometric/reference/descriptors_to_S4.html</loc>
+  </url>
+  <url>
     <loc>http://allometric.github.io/allometric/reference/download_models.html</loc>
   </url>
   <url>
@@ -167,6 +185,9 @@
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/reference/equals-MixedEffectsModel-MixedEffectsModel-method.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/equals-Taxon-Taxon-method.html</loc>
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/reference/fia_trees.html</loc>
@@ -202,6 +223,24 @@
     <loc>http://allometric.github.io/allometric/reference/get_variable_def.html</loc>
   </url>
   <url>
+    <loc>http://allometric.github.io/allometric/reference/grapes-in-grapes-character-Taxa-method.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/grapes-in-grapes-character-Taxon-method.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/grapes-in-grapes-Taxa-character-method.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/grapes-in-grapes-Taxa-Taxon-method.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/grapes-in-grapes-Taxon-character-method.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/grapes-in-grapes-Taxon-Taxa-method.html</loc>
+  </url>
+  <url>
     <loc>http://allometric.github.io/allometric/reference/index.html</loc>
   </url>
   <url>
@@ -218,6 +257,9 @@
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/reference/load_parameter_frame.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/map_publications.html</loc>
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/reference/merge.model_tbl.html</loc>
@@ -280,10 +322,22 @@
     <loc>http://allometric.github.io/allometric/reference/select_model.model_tbl.html</loc>
   </url>
   <url>
+    <loc>http://allometric.github.io/allometric/reference/Taxa.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/Taxon.html</loc>
+  </url>
+  <url>
     <loc>http://allometric.github.io/allometric/reference/temesgen_2008.html</loc>
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/reference/test.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/toJSON-FixedEffectsModel-method.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/toJSON.html</loc>
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/reference/unnest_models.html</loc>

@@ -44,6 +44,9 @@ effects."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/ma
     <li>
       <a href="../articles/variable_naming_system.html">Variable Naming System</a>
     </li>
+    <li>
+      <a href="../articles/version_two.html">`allometric` v2.0.0 Developer Notes</a>
+    </li>
   </ul></li>
 <li>
   <a href="../news/index.html">Changelog</a>
@@ -75,8 +78,8 @@ effects.</p>
 
     <div id="ref-usage">
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">FixedEffectsModel</span><span class="op">(</span></span>
-<span>  <span class="va">response_unit</span>,</span>
-<span>  <span class="va">covariate_units</span>,</span>
+<span>  <span class="va">response</span>,</span>
+<span>  <span class="va">covariates</span>,</span>
 <span>  <span class="va">predict_fn</span>,</span>
 <span>  <span class="va">parameters</span>,</span>
 <span>  descriptors <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,</span>
@@ -87,13 +90,13 @@ effects.</p>
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <dl><dt>response_unit</dt>
+    <dl><dt>response</dt>
 <dd><p>A named list containing one element, with a name representing the response
 variable and a value representing the units of the response variable
 using the <code><a href="https://r-quantities.github.io/units/reference/units.html" class="external-link">units::as_units</a></code> function.</p></dd>
 
 
-<dt>covariate_units</dt>
+<dt>covariates</dt>
 <dd><p>A named list containing the covariate specifications, with names
 representing the covariate name and the values representing the units of
 the coavariate using the <code><a href="https://r-quantities.github.io/units/reference/units.html" class="external-link">units::as_units</a></code> function</p></dd>
@@ -121,7 +124,7 @@ instead of the description given by the variable naming system.</p></dd>
 <dt>covariate_definitions</dt>
 <dd><p>An optional named list of custom covariate definitions that will supersede
 the definitions given by the variable naming system. The names of the list
-must match the covariate names given in <code>covariate_units</code>.</p></dd>
+must match the covariate names given in <code>covariates</code>.</p></dd>
 
 </dl></div>
     <div id="value">
@@ -199,10 +202,10 @@ the parameters and the descriptors together</p></dd>
     <div id="ref-examples">
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">FixedEffectsModel</span><span class="op">(</span></span></span>
-<span class="r-in"><span>  response_unit <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  response <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>    hst <span class="op">=</span> <span class="fu">units</span><span class="fu">::</span><span class="fu"><a href="https://r-quantities.github.io/units/reference/units.html" class="external-link">as_units</a></span><span class="op">(</span><span class="st">"m"</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span>,</span></span>
-<span class="r-in"><span>  covariate_units <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  covariates <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>    dsob <span class="op">=</span> <span class="fu">units</span><span class="fu">::</span><span class="fu"><a href="https://r-quantities.github.io/units/reference/units.html" class="external-link">as_units</a></span><span class="op">(</span><span class="st">"cm"</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="op">)</span>,</span></span>
 <span class="r-in"><span>  parameters <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
