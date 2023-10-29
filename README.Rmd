@@ -138,7 +138,7 @@ tsuga_het_taxon <- Taxon(
 )
 
 tsuga_vol_models <- stemvol_models %>%
-  filter(map_lgl(taxa, ~ tsuga_het_taxon %in% .))
+  filter(purrr::map_lgl(taxa, ~ tsuga_het_taxon %in% .))
 
 tsuga_vol_models
 ```

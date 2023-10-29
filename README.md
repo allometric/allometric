@@ -4,7 +4,7 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/allometric/allometric/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/allometric/allometric/actions/workflows/check-standard.yaml)
-[![](https://img.shields.io/badge/devel%20version-1.4.1-blue.svg)](https://github.com/allometric/allometric)
+[![](https://img.shields.io/badge/devel%20version-2.0.0-blue.svg)](https://github.com/allometric/allometric)
 [![codecov](https://codecov.io/gh/allometric/allometric/branch/master/graph/badge.svg?token=3V5KUFMO2X)](https://app.codecov.io/gh/allometric/allometric)
 <!-- badges: end -->
 
@@ -22,7 +22,7 @@ process please refer to the [Contributing a
 Model](https://allometric.org/articles/installing_a_model.html)
 vignette.
 
-In total **`allometric` contains 2100 models across 61 publications**,
+In total **`allometric` contains 2103 models across 63 publications**,
 refer to the [Current Status](#current-status) for a more complete view
 of available models.
 
@@ -59,16 +59,16 @@ allometric_models <- load_models()
 head(allometric_models)
 ```
 
-    #> # A tibble: 6 × 12
-    #>   id       model_type   country   region family  genus species model      pub_id
-    #>   <chr>    <chr>        <list>    <list> <chr>   <chr> <chr>   <list>     <chr> 
-    #> 1 d6a8836f stem height  <chr [1]> <chr>  Accipi… Circ… canade… <FxdEffcM> hahn_…
-    #> 2 7bc0e06a stem volume  <chr [1]> <chr>  Accipi… Circ… canade… <FxdEffcM> hahn_…
-    #> 3 1fa4219a stem volume  <chr [1]> <chr>  Accipi… Circ… canade… <FxdEffcM> hahn_…
-    #> 4 b359d3ce stump volume <chr [1]> <chr>  Accipi… Circ… canade… <FxdEffcM> hahn_…
-    #> 5 fb5c4575 stem ratio   <chr [1]> <chr>  Accipi… Circ… canade… <FxdEffcM> hahn_…
-    #> 6 733186a1 stem height  <chr [1]> <chr>  Acerac… Acer  macrop… <FxdEffcM> fvs_2…
-    #> # ℹ 3 more variables: family_name <list>, covt_name <list>, pub_year <dbl>
+    #> # A tibble: 6 × 10
+    #>   id    model_type country region taxa   pub_id model      family_name covt_name
+    #>   <chr> <chr>      <list>  <list> <list> <chr>  <list>     <list>      <list>   
+    #> 1 cc20… site index <chr>   <chr>  <Taxa> barre… <FxdEffcM> <chr [1]>   <chr [2]>
+    #> 2 f508… stem volu… <chr>   <chr>  <Taxa> bell_… <FxdEffcM> <chr [3]>   <chr [2]>
+    #> 3 4d35… taper      <chr>   <chr>  <Taxa> bluhm… <FxdEffcM> <chr [3]>   <chr [4]>
+    #> 4 8d35… stem volu… <chr>   <chr>  <Taxa> brack… <FxdEffcM> <chr [1]>   <chr [2]>
+    #> 5 8682… stem volu… <chr>   <chr>  <Taxa> brack… <FxdEffcM> <chr [1]>   <chr [2]>
+    #> 6 7cfc… stem volu… <chr>   <chr>  <Taxa> brack… <FxdEffcM> <chr [1]>   <chr [2]>
+    #> # ℹ 1 more variable: pub_year <dbl>
 
 ## Finding a Model
 
@@ -78,38 +78,68 @@ the way they would with any other `tibble`.
 
 For example, we can use `dplyr` to filter this table to find models for
 analysis. Let’s say I am interested in finding stem volume models for
-*Tsuga heterophylla*. We can filter the `model_type`, `genus`, and
-`species` columns to find these models:
+*Tsuga heterophylla*. First, let us filter the `model_type` to include
+only stem volume models
 
 ``` r
-tsuga_vol_models <- allometric_models %>%
-  filter(model_type == "stem volume", genus == "Tsuga", species == "heterophylla")
+stemvol_models <- allometric_models %>%
+  filter(model_type == "stem volume")
+
+stemvol_models
+```
+
+    #> # A tibble: 569 × 10
+    #>    id       model_type  country   region    taxa   pub_id model      family_name
+    #>    <chr>    <chr>       <list>    <list>    <list> <chr>  <list>     <list>     
+    #>  1 f50865ee stem volume <chr [1]> <chr [1]> <Taxa> bell_… <FxdEffcM> <chr [3]>  
+    #>  2 8d35a7b6 stem volume <chr [1]> <chr [1]> <Taxa> brack… <FxdEffcM> <chr [1]>  
+    #>  3 8682a321 stem volume <chr [1]> <chr [1]> <Taxa> brack… <FxdEffcM> <chr [1]>  
+    #>  4 7cfc15b2 stem volume <chr [1]> <chr [1]> <Taxa> brack… <FxdEffcM> <chr [1]>  
+    #>  5 573c8c1b stem volume <chr [1]> <chr [1]> <Taxa> brack… <FxdEffcM> <chr [1]>  
+    #>  6 191eaa47 stem volume <chr [1]> <chr [1]> <Taxa> brack… <FxdEffcM> <chr [1]>  
+    #>  7 ecd1277b stem volume <chr [1]> <chr [1]> <Taxa> brack… <FxdEffcM> <chr [1]>  
+    #>  8 83b38fb4 stem volume <chr [1]> <chr [1]> <Taxa> brack… <FxdEffcM> <chr [1]>  
+    #>  9 a69c8b91 stem volume <chr [1]> <chr [1]> <Taxa> brack… <FxdEffcM> <chr [1]>  
+    #> 10 34575125 stem volume <chr [1]> <chr [1]> <Taxa> brack… <FxdEffcM> <chr [1]>  
+    #> # ℹ 559 more rows
+    #> # ℹ 2 more variables: covt_name <list>, pub_year <dbl>
+
+Next, we can filter to include only *Tsuga heterophylla* using a special
+specifier called `Taxon` that enables rigorous searching of species:
+
+``` r
+tsuga_het_taxon <- Taxon(
+  family = "Pinaceae", genus = "Tsuga", species = "heterophylla"
+)
+
+tsuga_vol_models <- stemvol_models %>%
+  filter(purrr::map_lgl(taxa, ~ tsuga_het_taxon %in% .))
 
 tsuga_vol_models
 ```
 
-    #> # A tibble: 4 × 12
-    #>   id       model_type  country   region family   genus species model      pub_id
-    #>   <chr>    <chr>       <list>    <list> <chr>    <chr> <chr>   <list>     <chr> 
-    #> 1 970312f8 stem volume <chr [1]> <chr>  Pinaceae Tsuga hetero… <FxdEffcM> brack…
-    #> 2 78845be6 stem volume <chr [1]> <chr>  Pinaceae Tsuga hetero… <FxdEffcM> brack…
-    #> 3 739810a1 stem volume <chr [1]> <chr>  Pinaceae Tsuga hetero… <FxdEffcM> brack…
-    #> 4 3e8447f2 stem volume <chr [2]> <chr>  Pinaceae Tsuga hetero… <FxdEffcM> poude…
-    #> # ℹ 3 more variables: family_name <list>, covt_name <list>, pub_year <dbl>
+    #> # A tibble: 4 × 10
+    #>   id    model_type country region taxa   pub_id model      family_name covt_name
+    #>   <chr> <chr>      <list>  <list> <list> <chr>  <list>     <list>      <list>   
+    #> 1 573c… stem volu… <chr>   <chr>  <Taxa> brack… <FxdEffcM> <chr [1]>   <chr [2]>
+    #> 2 191e… stem volu… <chr>   <chr>  <Taxa> brack… <FxdEffcM> <chr [1]>   <chr [2]>
+    #> 3 ecd1… stem volu… <chr>   <chr>  <Taxa> brack… <FxdEffcM> <chr [1]>   <chr [2]>
+    #> 4 9caa… stem volu… <chr>   <chr>  <Taxa> poude… <FxdEffcM> <chr [4]>   <chr [2]>
+    #> # ℹ 1 more variable: pub_year <dbl>
 
 We can see that we have 4 models to choose from. Let’s select the model
 from the publication `poudel_2019`
 
 ``` r
-tsuga_poudel <- tsuga_vol_models %>% select_model("3e8447f2")
+tsuga_poudel <- tsuga_vol_models %>% select_model("9caa80f2")
 ```
 
 This example is very basic, and more complex search examples can be
 found in the
 [`load_models()`](https://allometric.org/reference/load_models.html)
-documentation. Models can be searched not only by their genus and
-species, but also the types of measurements the models require, their
-geographic region, and other attributes. We highly encourage users
+documentation. Models can be searched not only by their taxonomic
+information, but also the types of measurements the models require,
+their geographic region, and other attributes. We highly encourage users
 review the linked examples for production use of `allometric`.
 
 ## Using the Model
@@ -140,10 +170,10 @@ tsuga_poudel
     #> 1 -9.98  1.96 0.925
     #> 
     #> Model Descriptors: 
-    #> # A tibble: 1 × 5
-    #>   country   region     family   genus species     
-    #>   <list>    <list>     <chr>    <chr> <chr>       
-    #> 1 <chr [2]> <chr [10]> Pinaceae Tsuga heterophylla
+    #> # A tibble: 1 × 3
+    #>   country   region     taxa  
+    #>   <list>    <list>     <list>
+    #> 1 <chr [2]> <chr [10]> <Taxa>
 
 We can see from the `Model Call` section that `tsuga_poudel` will
 require two covariates called `dsob`, which refers to diameter outside
@@ -190,7 +220,7 @@ more complex examples.
 
 ## Current Status
 
-In total **`allometric` contains 2100 models across 61 publications**.
+In total **`allometric` contains 2103 models across 63 publications**.
 
 | category                |  AS |  EU |  NA |  AF |  OC |  SA |
 |:------------------------|----:|----:|----:|----:|----:|----:|
@@ -201,7 +231,7 @@ In total **`allometric` contains 2100 models across 61 publications**.
 | shrub biomass increment |   0 |  28 |   0 |   0 |   0 |   0 |
 | shrub diameter          |   0 |  39 |   0 |   0 |   0 |   0 |
 | shrub height            |   0 |  28 |   0 |   0 |   0 |   0 |
-| site index              |   0 |   0 |  52 |   0 |   0 |   0 |
+| site index              |   0 |   0 |  55 |   0 |   0 |   0 |
 | stem height             |   7 |   0 | 346 |  12 |   2 |  17 |
 | stem volume             |   4 |   0 | 575 |   0 |   0 |  20 |
 | stump volume            |   0 |   0 |  64 |   0 |   0 |   0 |
