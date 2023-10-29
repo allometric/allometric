@@ -1,49 +1,49 @@
 # Functions used to convert models and publications to JSON
 
-authors_to_json <- function(authors) {
-  out <- list()
-
-  for(i in seq_along(authors)) {
-    author_parsed <- list(
-      given = paste(authors[[i]]$given, collapse = " "),
-      family = paste(authors[[i]]$family, collapse = " ")
-    )
-
-    out[[i]] <- author_parsed
-  }
-
-  out
-}
-
-citation_to_json <- function(citation) {
-  # Prepare output list with required fields
-  unclassed_citation <- attributes(unclass(citation)[[1]])
-  prepared_authors <- authors_to_json(citation$author)
-
-  optional <- c(
-    "institution", "publisher", "journal", "volume", "number", "pages",
-    "address", "month", "school", "note", "organization", "series", "booktitle",
-    "editor", "howpublished"
-  )
-
-  required <- list(
-    title = jsonlite::unbox(citation$title),
-    bibtype = jsonlite::unbox(unclassed_citation$bibtype),
-    pub_id = jsonlite::unbox(unclassed_citation$key),
-    year = jsonlite::unbox(as.numeric(citation$year)),
-    authors = prepared_authors
-  )
-
-  for(opt in optional) {
-    val <- do.call("$", list(citation, opt))
-
-    if(!is.null(val)) {
-      required[[opt]] <- jsonlite::unbox(val)
-    }
-  }
-
-  required
-}
+#authors_to_json <- function(authors) {
+#  out <- list()
+#
+#  for(i in seq_along(authors)) {
+#    author_parsed <- list(
+#      given = paste(authors[[i]]$given, collapse = " "),
+#      family = paste(authors[[i]]$family, collapse = " ")
+#    )
+#
+#    out[[i]] <- author_parsed
+#  }
+#
+#  out
+#}
+#
+#citation_to_json <- function(citation) {
+#  # Prepare output list with required fields
+#  unclassed_citation <- attributes(unclass(citation)[[1]])
+#  prepared_authors <- authors_to_json(citation$author)
+#
+#  optional <- c(
+#    "institution", "publisher", "journal", "volume", "number", "pages",
+#    "address", "month", "school", "note", "organization", "series", "booktitle",
+#    "editor", "howpublished"
+#  )
+#
+#  required <- list(
+#    title = jsonlite::unbox(citation$title),
+#    bibtype = jsonlite::unbox(unclassed_citation$bibtype),
+#    pub_id = jsonlite::unbox(unclassed_citation$key),
+#    year = jsonlite::unbox(as.numeric(citation$year)),
+#    authors = prepared_authors
+#  )
+#
+#  for(opt in optional) {
+#    val <- do.call("$", list(citation, opt))
+#
+#    if(!is.null(val)) {
+#      required[[opt]] <- jsonlite::unbox(val)
+#    }
+#  }
+#
+#  required
+#}
 
 variables_to_json <- function(variables) {
   variable_names <- names(variables)
@@ -112,38 +112,38 @@ descriptors_to_json <- function(descriptors) {
   descriptors_list
 }
 
-prepare_inline_citation <- function(citation) {
-  n_authors <- length(citation$author)
-
-  pub_year <- citation$year
-  family_names <- c()
-
-  for(i in 1:n_authors) {
-    family_names <- c(family_names, citation$author[[i]]$family)
-  }
-
-  if(n_authors == 2) {
-    out <- paste(
-      family_names[[1]], " and ", family_names[[2]],
-      " (", pub_year, ")",
-      sep = ""
-    )
-  } else if(n_authors == 1) {
-    out <- paste(
-      family_names[[1]], " ",
-      "(", pub_year, ")",
-      sep = ""
-    )
-  } else {
-    out <- paste(
-      family_names[[1]], " et al. ",
-      "(", pub_year, ")",
-      sep = ""
-    )
-  }
-
-  out
-}
+#prepare_inline_citation <- function(citation) {
+#  n_authors <- length(citation$author)
+#
+#  pub_year <- citation$year
+#  family_names <- c()
+#
+#  for(i in 1:n_authors) {
+#    family_names <- c(family_names, citation$author[[i]]$family)
+#  }
+#
+#  if(n_authors == 2) {
+#    out <- paste(
+#      family_names[[1]], " and ", family_names[[2]],
+#      " (", pub_year, ")",
+#      sep = ""
+#    )
+#  } else if(n_authors == 1) {
+#    out <- paste(
+#      family_names[[1]], " ",
+#      "(", pub_year, ")",
+#      sep = ""
+#    )
+#  } else {
+#    out <- paste(
+#      family_names[[1]], " et al. ",
+#      "(", pub_year, ")",
+#      sep = ""
+#    )
+#  }
+#
+#  out
+#}
 
 parse_func_body <- function(func_body) {
   body_list <- as.list(body(func_body))[-1]
@@ -215,35 +215,35 @@ model_to_json <- function(model) {
   required
 }
 
-publication_to_json <- function(publication) {
-  citation_json <- citation_to_json(publication@citation)
-  models <- list()
-
-
-  l <- 1
-  for(i in 1:length(publication@response_sets)) { # response set
-    response_set_i <- publication@response_sets[[i]]
-    for(j in 1:length(response_set_i)) { # model set
-      model_set_ij <- response_set_i[[j]]
-
-      for(k in 1:length(model_set_ij@models)) {
-        model_ijk <- model_set_ij@models[[k]]
-
-        models[[l]] <- model_to_json(model_ijk)
-
-        l <- l + 1
-      }
-
-    }
-  }
-
-
-  list(
-    pub = list(
-      "_id" = jsonlite::unbox(publication@id),
-      citation = citation_json,
-      pub_descriptors = ifelse(nrow(publication@descriptors) == 0, list(), as.list(publication@descriptors))
-    ),
-    models = models
-  )
-}
+#publication_to_json <- function(publication) {
+#  citation_json <- citation_to_json(publication@citation)
+#  models <- list()
+#
+#
+#  l <- 1
+#  for(i in 1:length(publication@response_sets)) { # response set
+#    response_set_i <- publication@response_sets[[i]]
+#    for(j in 1:length(response_set_i)) { # model set
+#      model_set_ij <- response_set_i[[j]]
+#
+#      for(k in 1:length(model_set_ij@models)) {
+#        model_ijk <- model_set_ij@models[[k]]
+#
+#        models[[l]] <- model_to_json(model_ijk)
+#
+#        l <- l + 1
+#      }
+#
+#    }
+#  }
+#
+#
+#  list(
+#    pub = list(
+#      "_id" = jsonlite::unbox(publication@id),
+#      citation = citation_json,
+#      pub_descriptors = ifelse(nrow(publication@descriptors) == 0, list(), as.list(publication@descriptors))
+#    ),
+#    models = models
+#  )
+#}

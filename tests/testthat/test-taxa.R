@@ -92,3 +92,9 @@ test_that("Non-unique Taxon objects throw error", {
     Taxa(Taxon(family = "a"), Taxon(family = "a"))
   })
 })
+
+test_that("check_taxon_hierarchy returns valid results", {
+  expect_error({Taxon(genus = "this")})
+  expect_error({Taxon(species = "this")})
+  expect_no_error({Taxon(family = "this")})
+})
