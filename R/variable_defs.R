@@ -167,6 +167,9 @@ get_variable_def <- function(search_str, return_exact_only = FALSE) {
     matched_measure$description <- paste(matched_measure$description, " ", ending, sep="")
   }
 
+  matched_measure <- tibble::tibble(matched_measure) %>%
+    dplyr::relocate(description)
+
 
   if(return_exact_only) {
     return(matched_measure[matched_measure$search_str == varname,])
