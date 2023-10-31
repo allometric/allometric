@@ -14,6 +14,7 @@ reference:
   - select_model
   - select_model.model_tbl
   - merge.model_tbl
+  - check_models_installed
 - title: Searching Functions
   desc: These functions facilitate searching models, especially those that assist with filtering for species information stored in the `Taxa` and `Taxon` classes.
   contents:

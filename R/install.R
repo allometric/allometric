@@ -14,6 +14,29 @@ check_models_downloaded <- function(verbose) {
   }
 }
 
+#' Check if allometric models are currently installed
+#'
+#' @param verbose Print verbose messages if TRUE
+#' @export
+check_models_installed <- function(verbose = FALSE) {
+  model_data_path <- system.file(
+    "extdata/allometric_models.RDS",
+    package = "allometric"
+  )
+
+  if(model_data_path == "") {
+    if(verbose) {
+      cat("No installed models are found.\n")
+    }
+    return(FALSE)
+  } else {
+    if(verbose) {
+      cat("Installed models found.\n")
+    }
+    return(TRUE)
+  }
+}
+
 #' Delete the local models directory.
 #'
 #' @keywords internal
