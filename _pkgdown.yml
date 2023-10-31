@@ -19,6 +19,8 @@ reference:
   contents:
   - unnest_models
   - unnest_models.model_tbl
+  - unnest_taxa
+  - unnest_taxa.model_tbl
   - '%in%,Taxon,character-method'
   - '%in%,Taxa,character-method'
   - '%in%,character,Taxon-method'

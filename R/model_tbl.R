@@ -122,6 +122,60 @@ unnest_models.model_tbl <- function(data, cols) {
   model_tbl_reconstruct(unnested, data)
 }
 
+#' Unnest the taxa column of a `model_tbl`
+#'
+#' In some cases it is convenient to expand the taxonomic specifications for
+#' each model contained in the `taxa` column. This function achieves this,
+#' and adds `family`, `genus`, and `species` character columns. Models with
+#' more than one taxon are replicated as new rows.
+#'
+#' @param data A `model_tbl`
+#' @return A `model_tbl` with family, genus and species columns attached
+#' @export
+unnest_taxa <- function(data) {
+  UseMethod("unnest_taxa")
+}
+
+expand_taxa <- function(taxa) {
+  lapply(
+    taxa,
+    function(taxon) {
+      return(
+        list(
+          family = taxon@family, genus = taxon@genus, species = taxon@species
+        ))
+    })
+}
+
+concat_taxa_data <- function(x, i) {
+  expanded_taxa_data <- dplyr::bind_rows(expand_taxa(x$taxa[[1]]))
+
+  if(nrow(expanded_taxa_data) == 0) {
+    expanded_taxa_data <- tibble::tibble(family = NA, genus = NA, species = NA)
+  }
+
+  dplyr::bind_cols(x, expanded_taxa_data)
+}
+
+#' Unnest the taxa column of a `model_tbl`
+#'
+#' In some cases it is convenient to expand the taxonomic specifications for
+#' each model contained in the `taxa` column. This function achieves this,
+#' and adds `family`, `genus`, and `species` character columns. Models with
+#' more than one taxon are replicated as new rows.
+#'
+#' @param data A `model_tbl`
+#' @return A `model_tbl` with family, genus and species columns attached
+#' @export
+unnest_taxa.model_tbl <- function(data) {
+  expanded <- data %>%
+    dplyr::group_by(dplyr::row_number()) %>%
+    dplyr::group_map(concat_taxa_data) %>%
+    dplyr::bind_rows()
+
+  model_tbl_reconstruct(expanded, data)
+}
+
 #' Predict allometric attributes using a column of allometric models
 #'
 #' A frequent pattern in forest inventory anaylsis is the need to produce

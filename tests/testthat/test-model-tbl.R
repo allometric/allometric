@@ -83,7 +83,8 @@ test_that("select_model returns model", {
 
 test_that("predict_allo produces predictions", {
   test_model_tbl <- new_model_tbl(
-    tibble::tibble(models = c(fixed_effects_model), dsob = 1))
+    tibble::tibble(models = c(fixed_effects_model), dsob = 1)
+  )
 
   out <- predict_allo(test_model_tbl$models, test_model_tbl$dsob)
 
@@ -94,10 +95,51 @@ test_that("predict_allo produces predictions", {
 
 test_that("merging with model_tbl returns model_tbl", {
   test_model_tbl <- new_model_tbl(
-    tibble::tibble(model = c(fixed_effects_model), dsob = 1, class = "a"))
+    tibble::tibble(model = c(fixed_effects_model), dsob = 1, class = "a")
+  )
 
   merge_table <- data.frame(class = "a")
-  
+
   merged_test_model_tbl <- merge(test_model_tbl, merge_table, by = "class")
   expect_s3_class(merged_test_model_tbl, "model_tbl")
+})
+
+
+test_that("expand_taxa correctly expands the taxa column", {
+  test_model_tbl_one <- new_model_tbl(
+    tibble::tibble(model = c(fixed_effects_model), dsob = 1, class = "a")
+  )
+
+  test_model_tbl_one$taxa <- list(
+    Taxa(Taxon(family = "Pinaceae"), Taxon(family = "Betulaceae"))
+  )
+
+  expanded_one <- unnest_taxa(test_model_tbl_one)
+
+  expect_true(nrow(expanded_one) == 2)
+
+  expect_true(
+    expanded_one$family[[1]] == "Pinaceae" &&
+    expanded_one$family[[2]] == "Betulaceae"
+  )
+
+  test_model_tbl_na <- new_model_tbl(
+    tibble::tibble(model = c(fixed_effects_model), dsob = 1, class = "a")
+  )
+
+  test_model_tbl_na$taxa <- list(
+    Taxa()
+  )
+
+  expanded_na <- unnest_taxa(test_model_tbl_na)
+  expect_true(nrow(expanded_na) == 1)
+  expect_true(is.na(expanded_na$family))
+
+  test_model_tbl_two <- dplyr::bind_rows(
+    test_model_tbl_one, test_model_tbl_one
+  )
+
+  expanded_two <- test_model_tbl_two %>% unnest_taxa()
+
+  expect_true(nrow(expanded_two) == 4)
 })
