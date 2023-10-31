@@ -90,10 +90,17 @@ nrow(stemvol_or_mods)
 
 Here we see all stem volume models available fit using data from the state of
 Oregon. Still, the amount of models is very high. Next, we will select only our
-target species.
+target species. First, we use the `unnest_taxa()` function, that will append
+`family`, `genus`, and `species` columns, which will facilitate merging the
+target species later.
 
 ```{r}
-stemvol_or_spc_mods <- stemvol_or_mods %>%
+stemvol_or_unnested <- stemvol_or_mods %>%
+  unnest_taxa()
+```
+
+```{r}
+stemvol_or_spc_mods <- stemvol_or_unnested %>%
   inner_join(target_species, by=c('genus', 'species'))
 
 nrow(stemvol_or_spc_mods)
@@ -209,7 +216,8 @@ biomass_models <- allometric_models %>%
     map_lgl(covt_name, ~(any(c("dsob", "hst") %in% .) & length(.) <= 2))
   ) %>%
   mutate(call = map_chr(model, ~model_call(.))) %>%
-  merge(target_species)
+  unnest_taxa() %>%
+  right_join(target_species, by = c("genus", "species"))
 ```
 
 We can see that the model for *Abies concolor* takes only a `dsob` argument but
