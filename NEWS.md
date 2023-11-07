@@ -1,5 +1,18 @@
 # allometric changelog
 
+# [2.1.0](https://github.com/allometric/allometric/compare/v2.0.0...v2.1.0) (2023-11-07)
+
+
+### Bug Fixes
+
+* resolving CRAN submission notes ([7bb584e](https://github.com/allometric/allometric/commit/7bb584ec39dcf03c7596e74ca2eb229a7eb9bebf))
+
+
+### Features
+
+* adding function to check if models are currently installed, closes [#170](https://github.com/allometric/allometric/issues/170) ([8bc84f4](https://github.com/allometric/allometric/commit/8bc84f423d7a9f8e35eaf0b181648b222d3d9417))
+* adding unnest_taxa function, closes [#177](https://github.com/allometric/allometric/issues/177) ([1ea66a9](https://github.com/allometric/allometric/commit/1ea66a966043bf63ceeb70d9abb37d80602c3c69))
+
 # [2.0.0](https://github.com/allometric/allometric/compare/v1.4.1...v2.0.0) (2023-10-29)
 
 
