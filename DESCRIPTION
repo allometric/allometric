@@ -40,7 +40,6 @@ Imports:
     progress,
     vctrs,
     openssl,
-    gh,
     curl,
     jsonlite
 Collate:

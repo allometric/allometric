@@ -13,6 +13,9 @@ aggregate_taxa(table, remove_taxa_cols = TRUE)
 \item{remove_taxa_cols}{Whether or not to remove the family, genus, and
 species columns after aggregation}
 }
+\value{
+A tibble with family, genus, and species columns added
+}
 \description{
 This function facilitates aggregating family, genus, and species columns
 into the taxa data structure, which is a nested list composed of multiple

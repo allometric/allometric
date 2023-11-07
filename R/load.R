@@ -43,15 +43,16 @@ my_function <- function(family, genus, species) {
 #' @param table The table for which the taxa will be aggregated
 #' @param remove_taxa_cols Whether or not to remove the family, genus, and
 #' species columns after aggregation
+#' @return A tibble with family, genus, and species columns added
 aggregate_taxa <- function(table, remove_taxa_cols = TRUE) {
   default_taxon_fields <- c("family", "genus", "species")
   taxon_fields <- colnames(table)[colnames(table) %in% default_taxon_fields]
   missing_taxon_fields <- default_taxon_fields[!default_taxon_fields %in% taxon_fields]
 
   table %>%
-    dplyr::mutate(!!!setNames(rep(list(NA), length(missing_taxon_fields)), missing_taxon_fields)) %>%
+    dplyr::mutate(!!!stats::setNames(rep(list(NA), length(missing_taxon_fields)), missing_taxon_fields)) %>%
     dplyr::rowwise() %>%
-    dplyr::mutate(taxa = list(Taxa(Taxon(family = family, genus = genus, species = species)))) %>%
+    dplyr::mutate(taxa = list(Taxa(Taxon(family = .data$family, genus = .data$genus, species = .data$species)))) %>%
     dplyr::ungroup() %>%
     dplyr::select(-dplyr::all_of(default_taxon_fields))
 }

@@ -98,7 +98,7 @@ descriptors_to_json <- function(descriptors) {
     return(NULL) # A null value will be encoded as an empty object in JSON
   } else {
     for(i in 1:length(descriptors_list)) {
-      if (class(descriptors_list[[i]][[1]]) == "Taxa") {
+      if (inherits(descriptors_list[[i]][[1]], "Taxa")) {
         descriptors_list[[i]] <- taxa_to_json(descriptors_list[[i]][[1]])
       }
       else if(typeof(descriptors_list[[i]]) == "list")  {

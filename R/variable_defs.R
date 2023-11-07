@@ -168,7 +168,7 @@ get_variable_def <- function(search_str, return_exact_only = FALSE) {
   }
 
   matched_measure <- tibble::tibble(matched_measure) %>%
-    dplyr::relocate(description)
+    dplyr::relocate("description")
 
 
   if(return_exact_only) {

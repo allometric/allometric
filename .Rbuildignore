@@ -19,6 +19,7 @@
 ^vignettes/installing_a_model\.Rmd$
 ^vignettes/inventory_example\.Rmd$
 ^vignettes/variable_naming_system\.Rmd$
+^vignettes/version_two\.Rmd$
 ^CRAN-SUBMISSION$
 ^\.releaserc$
 ^package-lock\.json$
@@ -27,3 +28,4 @@
 ^node_modules$
 ^NEWS_old\.md$
 ^\.env$
+^CNAME$
