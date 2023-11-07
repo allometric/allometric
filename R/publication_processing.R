@@ -87,7 +87,6 @@ create_model_row <- function(model, pub, model_id) {
 #' Aggregates the set of models in a publication into a model_tbl
 #'
 #' @param pub The publication object
-#' @param current_ids An optional vector of currently ingestedmodel  IDs.
 #' @keywords internal
 aggregate_pub_models <- function(pub) {
   agg_models <- list()

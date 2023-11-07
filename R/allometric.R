@@ -1,4 +1,4 @@
 #' @description
 #' To learn more about allometric, refer to the
-#' \href{https://allometric.github.io/allometric/}{documentation website}.
+#' \href{https://allometric.org}{documentation website}.
 "_PACKAGE"

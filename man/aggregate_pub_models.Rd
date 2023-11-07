@@ -8,8 +8,6 @@ aggregate_pub_models(pub)
 }
 \arguments{
 \item{pub}{The publication object}
-
-\item{current_ids}{An optional vector of currently ingestedmodel  IDs.}
 }
 \description{
 Aggregates the set of models in a publication into a model_tbl
