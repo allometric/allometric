@@ -127,6 +127,9 @@
     <loc>http://allometric.github.io/allometric/reference/check_local_models.html</loc>
   </url>
   <url>
+    <loc>http://allometric.github.io/allometric/reference/check_models_installed.html</loc>
+  </url>
+  <url>
     <loc>http://allometric.github.io/allometric/reference/check_parameters_in_mixed_fns.html</loc>
   </url>
   <url>
@@ -344,5 +347,11 @@
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/reference/unnest_models.model_tbl.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/unnest_taxa.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/unnest_taxa.model_tbl.html</loc>
   </url>
 </urlset>

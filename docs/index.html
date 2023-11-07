@@ -45,7 +45,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">allometric</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.1.0</span>
       </span>
     </div>
 
@@ -108,7 +108,7 @@
 
 <p><code>allometric</code> is an R package for predicting tree attributes with allometric models. Thousands of allometric models exist in the scientific and technical forestry literature, and <code>allometric</code> is a platform for archiving and using this vast array of models in a robust and structured format. Get started by going to the <a href="#installation">Installation</a> section or the <a href="https://allometric.org" class="external-link">documentation website</a>.</p>
 <p><code>allometric</code> also provides a structured language for adding models to the package. If you are interested in helping the developer in this process please refer to the <a href="https://allometric.org/articles/installing_a_model.html" class="external-link">Contributing a Model</a> vignette.</p>
-<p>In total <strong><code>allometric</code> contains 2100 models across 61 publications</strong>, refer to the <a href="#current-status">Current Status</a> for a more complete view of available models.</p>
+<p>In total <strong><code>allometric</code> contains 2118 models across 64 publications</strong>, refer to the <a href="#current-status">Current Status</a> for a more complete view of available models.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -127,90 +127,115 @@
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">allometric_models</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/load_models.html">load_models</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">allometric_models</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 12</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   id       model_type   country   region family  genus species model      pub_id</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;        &lt;list&gt;    &lt;list&gt; &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;   &lt;list&gt;     &lt;chr&gt; </span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 d6a8836f stem height  &lt;chr [1]&gt; &lt;chr&gt;  Accipi… Circ… canade… &lt;FxdEffcM&gt; hahn_…</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 7bc0e06a stem volume  &lt;chr [1]&gt; &lt;chr&gt;  Accipi… Circ… canade… &lt;FxdEffcM&gt; hahn_…</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 1fa4219a stem volume  &lt;chr [1]&gt; &lt;chr&gt;  Accipi… Circ… canade… &lt;FxdEffcM&gt; hahn_…</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 b359d3ce stump volume &lt;chr [1]&gt; &lt;chr&gt;  Accipi… Circ… canade… &lt;FxdEffcM&gt; hahn_…</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 fb5c4575 stem ratio   &lt;chr [1]&gt; &lt;chr&gt;  Accipi… Circ… canade… &lt;FxdEffcM&gt; hahn_…</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 733186a1 stem height  &lt;chr [1]&gt; &lt;chr&gt;  Acerac… Acer  macrop… &lt;FxdEffcM&gt; fvs_2…</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 3 more variables: family_name &lt;list&gt;, covt_name &lt;list&gt;, pub_year &lt;dbl&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 10</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   id    model_type country region taxa   pub_id model      family_name covt_name</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt; &lt;chr&gt;      &lt;list&gt;  &lt;list&gt; &lt;list&gt; &lt;chr&gt;  &lt;list&gt;     &lt;list&gt;      &lt;list&gt;   </span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 cc20… site index &lt;chr&gt;   &lt;chr&gt;  &lt;Taxa&gt; barre… &lt;FxdEffcM&gt; &lt;chr [1]&gt;   &lt;chr [2]&gt;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 f508… stem volu… &lt;chr&gt;   &lt;chr&gt;  &lt;Taxa&gt; bell_… &lt;FxdEffcM&gt; &lt;chr [3]&gt;   &lt;chr [2]&gt;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 4d35… taper      &lt;chr&gt;   &lt;chr&gt;  &lt;Taxa&gt; bluhm… &lt;FxdEffcM&gt; &lt;chr [3]&gt;   &lt;chr [4]&gt;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 8d35… stem volu… &lt;chr&gt;   &lt;chr&gt;  &lt;Taxa&gt; brack… &lt;FxdEffcM&gt; &lt;chr [1]&gt;   &lt;chr [2]&gt;</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5 8682… stem volu… &lt;chr&gt;   &lt;chr&gt;  &lt;Taxa&gt; brack… &lt;FxdEffcM&gt; &lt;chr [1]&gt;   &lt;chr [2]&gt;</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6 7cfc… stem volu… &lt;chr&gt;   &lt;chr&gt;  &lt;Taxa&gt; brack… &lt;FxdEffcM&gt; &lt;chr [1]&gt;   &lt;chr [2]&gt;</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 1 more variable: pub_year &lt;dbl&gt;</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="finding-a-model">Finding a Model<a class="anchor" aria-label="anchor" href="#finding-a-model"></a>
 </h2>
 <p><code>allometric_models</code> is a <code>tibble</code> dataframe. Each row represents one allometric model with various attributes. Users interact with this table the way they would with any other <code>tibble</code>.</p>
-<p>For example, we can use <code>dplyr</code> to filter this table to find models for analysis. Let’s say I am interested in finding stem volume models for <em>Tsuga heterophylla</em>. We can filter the <code>model_type</code>, <code>genus</code>, and <code>species</code> columns to find these models:</p>
+<p>For example, we can use <code>dplyr</code> to filter this table to find models for analysis. Let’s say I am interested in finding stem volume models for <em>Tsuga heterophylla</em>. First, let us filter the <code>model_type</code> to include only stem volume models</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">tsuga_vol_models</span> <span class="op">&lt;-</span> <span class="va">allometric_models</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">model_type</span> <span class="op">==</span> <span class="st">"stem volume"</span>, <span class="va">genus</span> <span class="op">==</span> <span class="st">"Tsuga"</span>, <span class="va">species</span> <span class="op">==</span> <span class="st">"heterophylla"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">stemvol_models</span> <span class="op">&lt;-</span> <span class="va">allometric_models</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">model_type</span> <span class="op">==</span> <span class="st">"stem volume"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">stemvol_models</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 569 × 10</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    id       model_type  country   region    taxa   pub_id model      family_name</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;chr&gt;    &lt;chr&gt;       &lt;list&gt;    &lt;list&gt;    &lt;list&gt; &lt;chr&gt;  &lt;list&gt;     &lt;list&gt;     </span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 f50865ee stem volume &lt;chr [1]&gt; &lt;chr [1]&gt; &lt;Taxa&gt; bell_… &lt;FxdEffcM&gt; &lt;chr [3]&gt;  </span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2 8d35a7b6 stem volume &lt;chr [1]&gt; &lt;chr [1]&gt; &lt;Taxa&gt; brack… &lt;FxdEffcM&gt; &lt;chr [1]&gt;  </span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3 8682a321 stem volume &lt;chr [1]&gt; &lt;chr [1]&gt; &lt;Taxa&gt; brack… &lt;FxdEffcM&gt; &lt;chr [1]&gt;  </span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4 7cfc15b2 stem volume &lt;chr [1]&gt; &lt;chr [1]&gt; &lt;Taxa&gt; brack… &lt;FxdEffcM&gt; &lt;chr [1]&gt;  </span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5 573c8c1b stem volume &lt;chr [1]&gt; &lt;chr [1]&gt; &lt;Taxa&gt; brack… &lt;FxdEffcM&gt; &lt;chr [1]&gt;  </span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6 191eaa47 stem volume &lt;chr [1]&gt; &lt;chr [1]&gt; &lt;Taxa&gt; brack… &lt;FxdEffcM&gt; &lt;chr [1]&gt;  </span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7 ecd1277b stem volume &lt;chr [1]&gt; &lt;chr [1]&gt; &lt;Taxa&gt; brack… &lt;FxdEffcM&gt; &lt;chr [1]&gt;  </span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 83b38fb4 stem volume &lt;chr [1]&gt; &lt;chr [1]&gt; &lt;Taxa&gt; brack… &lt;FxdEffcM&gt; &lt;chr [1]&gt;  </span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 a69c8b91 stem volume &lt;chr [1]&gt; &lt;chr [1]&gt; &lt;Taxa&gt; brack… &lt;FxdEffcM&gt; &lt;chr [1]&gt;  </span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 34575125 stem volume &lt;chr [1]&gt; &lt;chr [1]&gt; &lt;Taxa&gt; brack… &lt;FxdEffcM&gt; &lt;chr [1]&gt;  </span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 559 more rows</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 2 more variables: covt_name &lt;list&gt;, pub_year &lt;dbl&gt;</span></span></code></pre></div>
+<p>Next, we can filter to include only <em>Tsuga heterophylla</em> using a special specifier called <code>Taxon</code> that enables rigorous searching of species:</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">tsuga_het_taxon</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/Taxon.html">Taxon</a></span><span class="op">(</span></span>
+<span>  family <span class="op">=</span> <span class="st">"Pinaceae"</span>, genus <span class="op">=</span> <span class="st">"Tsuga"</span>, species <span class="op">=</span> <span class="st">"heterophylla"</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">tsuga_vol_models</span> <span class="op">&lt;-</span> <span class="va">stemvol_models</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html" class="external-link">map_lgl</a></span><span class="op">(</span><span class="va">taxa</span>, <span class="op">~</span> <span class="va">tsuga_het_taxon</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="va">.</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">tsuga_vol_models</span></span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4 × 12</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   id       model_type  country   region family   genus species model      pub_id</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;       &lt;list&gt;    &lt;list&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;   &lt;list&gt;     &lt;chr&gt; </span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 970312f8 stem volume &lt;chr [1]&gt; &lt;chr&gt;  Pinaceae Tsuga hetero… &lt;FxdEffcM&gt; brack…</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 78845be6 stem volume &lt;chr [1]&gt; &lt;chr&gt;  Pinaceae Tsuga hetero… &lt;FxdEffcM&gt; brack…</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 739810a1 stem volume &lt;chr [1]&gt; &lt;chr&gt;  Pinaceae Tsuga hetero… &lt;FxdEffcM&gt; brack…</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 3e8447f2 stem volume &lt;chr [2]&gt; &lt;chr&gt;  Pinaceae Tsuga hetero… &lt;FxdEffcM&gt; poude…</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 3 more variables: family_name &lt;list&gt;, covt_name &lt;list&gt;, pub_year &lt;dbl&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4 × 10</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   id    model_type country region taxa   pub_id model      family_name covt_name</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt; &lt;chr&gt;      &lt;list&gt;  &lt;list&gt; &lt;list&gt; &lt;chr&gt;  &lt;list&gt;     &lt;list&gt;      &lt;list&gt;   </span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 573c… stem volu… &lt;chr&gt;   &lt;chr&gt;  &lt;Taxa&gt; brack… &lt;FxdEffcM&gt; &lt;chr [1]&gt;   &lt;chr [2]&gt;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2 191e… stem volu… &lt;chr&gt;   &lt;chr&gt;  &lt;Taxa&gt; brack… &lt;FxdEffcM&gt; &lt;chr [1]&gt;   &lt;chr [2]&gt;</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3 ecd1… stem volu… &lt;chr&gt;   &lt;chr&gt;  &lt;Taxa&gt; brack… &lt;FxdEffcM&gt; &lt;chr [1]&gt;   &lt;chr [2]&gt;</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4 9caa… stem volu… &lt;chr&gt;   &lt;chr&gt;  &lt;Taxa&gt; poude… &lt;FxdEffcM&gt; &lt;chr [4]&gt;   &lt;chr [2]&gt;</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 1 more variable: pub_year &lt;dbl&gt;</span></span></code></pre></div>
 <p>We can see that we have 4 models to choose from. Let’s select the model from the publication <code>poudel_2019</code></p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">tsuga_poudel</span> <span class="op">&lt;-</span> <span class="va">tsuga_vol_models</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="reference/select_model.html">select_model</a></span><span class="op">(</span><span class="st">"3e8447f2"</span><span class="op">)</span></span></code></pre></div>
-<p>This example is very basic, and more complex search examples can be found in the <a href="https://allometric.org/reference/load_models.html" class="external-link"><code>load_models()</code></a> documentation. Models can be searched not only by their genus and species, but also the types of measurements the models require, their geographic region, and other attributes. We highly encourage users review the linked examples for production use of <code>allometric</code>.</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">tsuga_poudel</span> <span class="op">&lt;-</span> <span class="va">tsuga_vol_models</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="reference/select_model.html">select_model</a></span><span class="op">(</span><span class="st">"9caa80f2"</span><span class="op">)</span></span></code></pre></div>
+<p>This example is very basic, and more complex search examples can be found in the <a href="https://allometric.org/reference/load_models.html" class="external-link"><code>load_models()</code></a> documentation. Models can be searched not only by their taxonomic information, but also the types of measurements the models require, their geographic region, and other attributes. We highly encourage users review the linked examples for production use of <code>allometric</code>.</p>
 </div>
 <div class="section level2">
 <h2 id="using-the-model">Using the Model<a class="anchor" aria-label="anchor" href="#using-the-model"></a>
 </h2>
 <p><code>tsuga_poudel</code> now represents an allometric model that can be used for prediction. We must next figure out how to use the model.</p>
 <p>Using the standard output of <code>tsuga_poudel</code> we obtain a summary of the model form, the response variable, the needed covariates and their units, a summary of the model descriptors (i.e., what makes the model unique within the publication), and estimates of the parameters.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">tsuga_poudel</span></span></code></pre></div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Model Call: </span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; vsia = f(dsob, hst) </span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; vsia [m3]: volume of the entire stem inside bark, including top and stump</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; dsob [cm]: diameter of the stem, outside bark at breast height</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; hst [m]: total height of the stem </span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Parameter Estimates: </span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 × 3</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       a     b     c</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 -9.98  1.96 0.925</span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Model Descriptors: </span></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 × 5</span></span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   country   region     family   genus species     </span></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;list&gt;    &lt;list&gt;     &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;       </span></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 &lt;chr [2]&gt; &lt;chr [10]&gt; Pinaceae Tsuga heterophylla</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Model Call: </span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; vsia = f(dsob, hst) </span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  </span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; vsia [m3]: volume of the entire stem inside bark, including top and stump</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; dsob [cm]: diameter of the stem, outside bark at breast height</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; hst [m]: total height of the stem </span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Parameter Estimates: </span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 × 3</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       a     b     c</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 -9.98  1.96 0.925</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Model Descriptors: </span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 × 3</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   country   region     taxa  </span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;list&gt;    &lt;list&gt;     &lt;list&gt;</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1 &lt;chr [2]&gt; &lt;chr [10]&gt; &lt;Taxa&gt;</span></span></code></pre></div>
 <p>We can see from the <code>Model Call</code> section that <code>tsuga_poudel</code> will require two covariates called <code>dsob</code>, which refers to diameter outside bark at breast height, and <code>hst</code>, the height of the main stem. <code>allometric</code> uses a variable naming system to determine the names of response variables and covariates (refer to the <a href="https://allometric.org/articles/variable_naming_system.html" class="external-link">Variable Naming System vignette</a>).</p>
 <p>Using the <code><a href="reference/predict.html">predict()</a></code> method we can easily use the function as defined by providing values of these two covariates.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/predict.html">predict</a></span><span class="op">(</span><span class="va">tsuga_poudel</span>, <span class="fl">12</span>, <span class="fl">65</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb12"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 0.2868491 [m^3]</span></span></code></pre></div>
-<p>or we can use the prediction function with a data frame of values</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/predict.html">predict</a></span><span class="op">(</span><span class="va">tsuga_poudel</span>, <span class="fl">12</span>, <span class="fl">65</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 0.2868491 [m^3]</span></span></code></pre></div>
+<p>or we can use the prediction function with a data frame of values</p>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_trees</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>dias <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">12</span>, <span class="fl">15</span>, <span class="fl">20</span><span class="op">)</span>, heights <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">65</span>, <span class="fl">75</span>, <span class="fl">100</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/predict.html">predict</a></span><span class="op">(</span><span class="va">tsuga_poudel</span>, <span class="va">my_trees</span><span class="op">$</span><span class="va">dias</span>, <span class="va">my_trees</span><span class="op">$</span><span class="va">heights</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb14"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Units: [m^3]</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.2868491 0.5068963 1.1618632</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Units: [m^3]</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.2868491 0.5068963 1.1618632</span></span></code></pre></div>
 <p>or even using the convenience of <code>dplyr</code></p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">my_trees</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu">mutate</span><span class="op">(</span>vols <span class="op">=</span> <span class="fu"><a href="reference/predict.html">predict</a></span><span class="op">(</span><span class="va">tsuga_poudel</span>, <span class="va">dias</span>, <span class="va">heights</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb16"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   dias heights            vols</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1   12      65 0.2868491 [m^3]</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2   15      75 0.5068963 [m^3]</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3   20     100 1.1618632 [m^3]</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   dias heights            vols</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1   12      65 0.2868491 [m^3]</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2   15      75 0.5068963 [m^3]</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3   20     100 1.1618632 [m^3]</span></span></code></pre></div>
 <p>The above example is a very basic use case for <code>allometric</code>. Please refer to the <a href="https://allometric.org/articles/inventory_example.html" class="external-link">Common Inventory Use Cases vignette</a> for more complex examples.</p>
 </div>
 <div class="section level2">
 <h2 id="current-status">Current Status<a class="anchor" aria-label="anchor" href="#current-status"></a>
 </h2>
-<p>In total <strong><code>allometric</code> contains 2100 models across 61 publications</strong>.</p>
+<p>In total <strong><code>allometric</code> contains 2118 models across 64 publications</strong>.</p>
 <table class="table">
 <thead><tr class="header">
 <th align="left">category</th>
@@ -226,7 +251,7 @@
 <td align="left">biomass component</td>
 <td align="right">26</td>
 <td align="right">136</td>
-<td align="right">435</td>
+<td align="right">446</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
@@ -289,7 +314,7 @@
 <td align="left">site index</td>
 <td align="right">0</td>
 <td align="right">0</td>
-<td align="right">52</td>
+<td align="right">55</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
@@ -334,7 +359,7 @@
 <td align="left">tree biomass</td>
 <td align="right">2</td>
 <td align="right">36</td>
-<td align="right">90</td>
+<td align="right">94</td>
 <td align="right">0</td>
 <td align="right">21</td>
 <td align="right">16</td>
@@ -424,7 +449,7 @@
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://github.com/allometric/allometric/actions/workflows/check-standard.yaml" class="external-link"><img src="https://github.com/allometric/allometric/actions/workflows/check-standard.yaml/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://github.com/allometric/allometric" class="external-link"><img src="https://img.shields.io/badge/devel%20version-1.4.1-blue.svg"></a></li>
+<li><a href="https://github.com/allometric/allometric" class="external-link"><img src="https://img.shields.io/badge/devel%20version-2.1.0-blue.svg"></a></li>
 <li><a href="https://app.codecov.io/gh/allometric/allometric" class="external-link"><img src="https://codecov.io/gh/allometric/allometric/branch/master/graph/badge.svg?token=3V5KUFMO2X" alt="codecov"></a></li>
 </ul>
 </div>

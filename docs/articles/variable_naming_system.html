@@ -40,7 +40,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">allometric</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.1.0</span>
       </span>
     </div>
 
@@ -143,8 +143,10 @@ breakdown of the measure, component and modifiers of the variable
 name:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/get_variable_def.html">get_variable_def</a></span><span class="op">(</span><span class="st">"dsob"</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">##   component measure search_str modifier_1 modifier_2                                         description measure_name component_name suffix scale_description</span></span>
-<span><span class="co">## 5         s       d       dsob          o          b diameter of the stem, outside bark at breast height     diameter           stem      t              tree</span></span></code></pre>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 1 × 10</span></span></span>
+<span><span class="co">##   description                                         component measure search_str modifier_1 modifier_2 measure_name component_name suffix scale_description</span></span>
+<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span> diameter of the stem, outside bark at breast height s         d       dsob       o          b          diameter     stem           t      tree</span></span></code></pre>
 <p>In the following sections we will discuss how variable names are
 structured.</p>
 </div>
@@ -219,12 +221,14 @@ user to specify these broad range of variables. The available
 <code>ds</code> variables are:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/get_variable_def.html">get_variable_def</a></span><span class="op">(</span><span class="st">"ds"</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">##   component measure search_str modifier_1 modifier_2                                              description measure_name component_name suffix scale_description</span></span>
-<span><span class="co">## 5         s       d       dsob          o          b      diameter of the stem, outside bark at breast height     diameter           stem      t              tree</span></span>
-<span><span class="co">## 6         s       d       dsoh          o          h diameter of the stem, outside bark at a specified height     diameter           stem      t              tree</span></span>
-<span><span class="co">## 7         s       d       dsih          i          h  diameter of the stem, inside bark at a specified height     diameter           stem      t              tree</span></span>
-<span><span class="co">## 8         s       d       dsib          i          b       diameter of the stem, inside bark at breast height     diameter           stem      t              tree</span></span>
-<span><span class="co">## 9         s       d       dsoc          o          c              diameter outside bark above the root collar     diameter           stem      t              tree</span></span></code></pre>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 5 × 10</span></span></span>
+<span><span class="co">##   description                                              component measure search_str modifier_1 modifier_2 measure_name component_name suffix scale_description</span></span>
+<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span> diameter of the stem, outside bark at breast height      s         d       dsob       o          b          diameter     stem           t      tree             </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">2</span> diameter of the stem, outside bark at a specified height s         d       dsoh       o          h          diameter     stem           t      tree             </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">3</span> diameter of the stem, inside bark at a specified height  s         d       dsih       i          h          diameter     stem           t      tree             </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">4</span> diameter of the stem, inside bark at breast height       s         d       dsib       i          b          diameter     stem           t      tree             </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">5</span> diameter outside bark above the root collar              s         d       dsoc       o          c          diameter     stem           t      tree</span></span></code></pre>
 </div>
 <div class="section level3">
 <h3 id="height-of-stem-hs-modifiers">Height of Stem (<code>hs</code>) Modifiers<a class="anchor" aria-label="anchor" href="#height-of-stem-hs-modifiers"></a>
@@ -234,20 +238,22 @@ height, such as the total height of the stem, site index, height of the
 stem to crown base, and many others.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/get_variable_def.html">get_variable_def</a></span><span class="op">(</span><span class="st">"hs"</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">##    component measure search_str height_modifier modifier                                                                        description measure_name component_name suffix scale_description</span></span>
-<span><span class="co">## 3          s       h        hst               t                                                                    total height of the stem       height           stem      t              tree</span></span>
-<span><span class="co">## 4          s       h        hsm               m                                                             merchantable height of the stem       height           stem      t              tree</span></span>
-<span><span class="co">## 5          s       h        hso               o                                                      height of the stem above breast height       height           stem      t              tree</span></span>
-<span><span class="co">## 6          s       h        hsb               b                                                            height of the stem to crown base       height           stem      t              tree</span></span>
-<span><span class="co">## 7          s       h        hsv               v                                        height of the stem to crown base above breast height       height           stem      t              tree</span></span>
-<span><span class="co">## 8          s       h        hsd               d                                                      height to a specified diameter (taper)       height           stem      t              tree</span></span>
-<span><span class="co">## 9          s       h    hsdip75               d     ip75  height to a diameter that is 0.75 times the diameter inside bark at breast height       height           stem      t              tree</span></span>
-<span><span class="co">## 10         s       h    hsdop67               d     op67 height to a diameter that is 0.67 times the diameter outside bark at breast height       height           stem      t              tree</span></span>
-<span><span class="co">## 11         s       h     hstixi               t      ixi                                           site index (base age invariant function)       height           stem      t              tree</span></span>
-<span><span class="co">## 12         s       h    hstix20               t     ix20                                                     site index at 20 year base age       height           stem      t              tree</span></span>
-<span><span class="co">## 13         s       h    hstix50               t     ix50                                                     site index at 50 year base age       height           stem      t              tree</span></span>
-<span><span class="co">## 14         s       h   hstix100               t    ix100                                                    site index at 100 year base age       height           stem      t              tree</span></span>
-<span><span class="co">## 15         s       h        hsl               l                                          distance from tip of stem to merchantibility limit       height           stem      t              tree</span></span></code></pre>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 13 × 10</span></span></span>
+<span><span class="co">##    description                                                                        component measure search_str height_modifier modifier measure_name component_name suffix scale_description</span></span>
+<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                                              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> total height of the stem                                                           s         h       hst        t               <span style="color: #949494;">""</span>       height       stem           t      tree             </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> merchantable height of the stem                                                    s         h       hsm        m               <span style="color: #949494;">""</span>       height       stem           t      tree             </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> height of the stem above breast height                                             s         h       hso        o               <span style="color: #949494;">""</span>       height       stem           t      tree             </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> height of the stem to crown base                                                   s         h       hsb        b               <span style="color: #949494;">""</span>       height       stem           t      tree             </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> height of the stem to crown base above breast height                               s         h       hsv        v               <span style="color: #949494;">""</span>       height       stem           t      tree             </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> height to a specified diameter (taper)                                             s         h       hsd        d               <span style="color: #949494;">""</span>       height       stem           t      tree             </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> height to a diameter that is 0.75 times the diameter inside bark at breast height  s         h       hsdip75    d               <span style="color: #949494;">"</span>ip75<span style="color: #949494;">"</span>   height       stem           t      tree             </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> height to a diameter that is 0.67 times the diameter outside bark at breast height s         h       hsdop67    d               <span style="color: #949494;">"</span>op67<span style="color: #949494;">"</span>   height       stem           t      tree             </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> site index (base age invariant function)                                           s         h       hstixi     t               <span style="color: #949494;">"</span>ixi<span style="color: #949494;">"</span>    height       stem           t      tree             </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> site index at 20 year base age                                                     s         h       hstix20    t               <span style="color: #949494;">"</span>ix20<span style="color: #949494;">"</span>   height       stem           t      tree             </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">11</span> site index at 50 year base age                                                     s         h       hstix50    t               <span style="color: #949494;">"</span>ix50<span style="color: #949494;">"</span>   height       stem           t      tree             </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">12</span> site index at 100 year base age                                                    s         h       hstix100   t               <span style="color: #949494;">"</span>ix100<span style="color: #949494;">"</span>  height       stem           t      tree             </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">13</span> distance from tip of stem to merchantibility limit                                 s         h       hsl        l               <span style="color: #949494;">""</span>       height       stem           t      tree</span></span></code></pre>
 </div>
 <div class="section level3">
 <h3 id="volume-of-stem-vs-modifiers">Volume of Stem (<code>vs</code>) Modifiers<a class="anchor" aria-label="anchor" href="#volume-of-stem-vs-modifiers"></a>
@@ -257,14 +263,16 @@ stem to crown base, and many others.</p>
 bark, volume of the stem above breast height, and many others.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/get_variable_def.html">get_variable_def</a></span><span class="op">(</span><span class="st">"vs"</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">##   component measure search_str modifier_1 modifier_2                                                     description measure_name component_name suffix scale_description</span></span>
-<span><span class="co">## 2         s       v       vsia          i          a  volume of the entire stem inside bark, including top and stump       volume           stem      t              tree</span></span>
-<span><span class="co">## 3         s       v       vsoa          o          a volume of the entire stem outside bark, including top and stump       volume           stem      t              tree</span></span>
-<span><span class="co">## 4         s       v       vsim          i          m      volume of the merchantable portion of the stem inside bark       volume           stem      t              tree</span></span>
-<span><span class="co">## 5         s       v       vsom          o          m      volume of the merchantable portion of the stem inside bark       volume           stem      t              tree</span></span>
-<span><span class="co">## 6         s       v       vsib          i          b              volume of the stem below breast height inside bark       volume           stem      t              tree</span></span>
-<span><span class="co">## 7         s       v       vsio          i          o              volume of the stem above breast height inside bark       volume           stem      t              tree</span></span>
-<span><span class="co">## 8         s       v       vsoo          o          o             volume of the stem above breast height outside bark       volume           stem      t              tree</span></span></code></pre>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 7 × 10</span></span></span>
+<span><span class="co">##   description                                                     component measure search_str modifier_1 modifier_2 measure_name component_name suffix scale_description</span></span>
+<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span> volume of the entire stem inside bark, including top and stump  s         v       vsia       i          a          volume       stem           t      tree             </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">2</span> volume of the entire stem outside bark, including top and stump s         v       vsoa       o          a          volume       stem           t      tree             </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">3</span> volume of the merchantable portion of the stem inside bark      s         v       vsim       i          m          volume       stem           t      tree             </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">4</span> volume of the merchantable portion of the stem inside bark      s         v       vsom       o          m          volume       stem           t      tree             </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">5</span> volume of the stem below breast height inside bark              s         v       vsib       i          b          volume       stem           t      tree             </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">6</span> volume of the stem above breast height inside bark              s         v       vsio       i          o          volume       stem           t      tree             </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">7</span> volume of the stem above breast height outside bark             s         v       vsoo       o          o          volume       stem           t      tree</span></span></code></pre>
 </div>
 <div class="section level3">
 <h3 id="biomass-b-components-and-modifiers">Biomass (<code>b</code>) Components and Modifiers<a class="anchor" aria-label="anchor" href="#biomass-b-components-and-modifiers"></a>
@@ -275,15 +283,17 @@ measure, and include component biomass models (e.g., branch, foliage,
 etc.) as well as whole-tree biomass models.</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/get_variable_def.html">get_variable_def</a></span><span class="op">(</span><span class="st">"b"</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">##   component measure search_str modifier               description measure_name component_name suffix scale_description</span></span>
-<span><span class="co">## 1         b       b         bb                     branch biomass      biomass         branch      t              tree</span></span>
-<span><span class="co">## 2         f       b         bf                    foliage biomass      biomass        foliage      t              tree</span></span>
-<span><span class="co">## 3         h       b         bh                      shrub biomass      biomass          shrub      t              tree</span></span>
-<span><span class="co">## 4         k       b         bk                       bark biomass      biomass           bark      t              tree</span></span>
-<span><span class="co">## 5         r       b         br                       root biomass      biomass           root      t              tree</span></span>
-<span><span class="co">## 6         s       b         bs                       stem biomass      biomass           stem      t              tree</span></span>
-<span><span class="co">## 7         s       b        bsi        i stem biomass without bark      biomass           stem      t              tree</span></span>
-<span><span class="co">## 8         t       b         bt                       tree biomass      biomass           tree      t              tree</span></span></code></pre>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 8 × 9</span></span></span>
+<span><span class="co">##   description               component measure search_str modifier measure_name component_name suffix scale_description</span></span>
+<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span> branch biomass            b         b       bb         <span style="color: #949494;">""</span>       biomass      branch         t      tree             </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">2</span> foliage biomass           f         b       bf         <span style="color: #949494;">""</span>       biomass      foliage        t      tree             </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">3</span> shrub biomass             h         b       bh         <span style="color: #949494;">""</span>       biomass      shrub          t      tree             </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">4</span> bark biomass              k         b       bk         <span style="color: #949494;">""</span>       biomass      bark           t      tree             </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">5</span> root biomass              r         b       br         <span style="color: #949494;">""</span>       biomass      root           t      tree             </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">6</span> stem biomass              s         b       bs         <span style="color: #949494;">""</span>       biomass      stem           t      tree             </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">7</span> stem biomass without bark s         b       bsi        <span style="color: #949494;">"</span>i<span style="color: #949494;">"</span>      biomass      stem           t      tree             </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">8</span> tree biomass              t         b       bt         <span style="color: #949494;">""</span>       biomass      tree           t      tree</span></span></code></pre>
 </div>
 </div>
 <div class="section level2">
@@ -297,23 +307,29 @@ can modify the <code>dsob</code> variable to describe diameter outside
 bark increment via <code>i_dsob</code>:</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/get_variable_def.html">get_variable_def</a></span><span class="op">(</span><span class="st">"i_dsob"</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">##   component measure search_str modifier_1 modifier_2                                                     description measure_name component_name suffix scale_description prefix prefix_description</span></span>
-<span><span class="co">## 5         s       d       dsob          o          b diameter of the stem, outside bark at breast height (increment)     diameter           stem      t              tree      i          increment</span></span></code></pre>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 1 × 12</span></span></span>
+<span><span class="co">##   description                                                     component measure search_str modifier_1 modifier_2 measure_name component_name suffix scale_description prefix prefix_description</span></span>
+<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span> diameter of the stem, outside bark at breast height (increment) s         d       dsob       o          b          diameter     stem           t      tree              i      increment</span></span></code></pre>
 <p>Scale flags exist as a suffix, with two suffixes available, one for
 the plot scale, <code>_p</code>, and one for the stand scale,
 <code>_s</code>. For example, we can refer to the stand-level basal area
 as</p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/get_variable_def.html">get_variable_def</a></span><span class="op">(</span><span class="st">"gs_s"</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">##   component measure search_str              description measure_name component_name suffix scale_description</span></span>
-<span><span class="co">## 1         s       g         gs basal area (stand-level)   basal area           stem      s             stand</span></span></code></pre>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 1 × 8</span></span></span>
+<span><span class="co">##   description              component measure search_str measure_name component_name suffix scale_description</span></span>
+<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span> basal area (stand-level) s         g       gs         basal area   stem           s      stand</span></span></code></pre>
 <p>We can even combine increment and scale flags to describe, for
 example, stand-level growth variables, e.g., a stand-level basal area
 increment would be expressed as <code>i_gs_s</code></p>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/get_variable_def.html">get_variable_def</a></span><span class="op">(</span><span class="st">"i_gs_s"</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">##   component measure search_str                        description measure_name component_name suffix scale_description prefix prefix_description</span></span>
-<span><span class="co">## 1         s       g         gs basal area (stand-level increment)   basal area           stem      s             stand      i          increment</span></span></code></pre>
+<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 1 × 10</span></span></span>
+<span><span class="co">##   description                        component measure search_str measure_name component_name suffix scale_description prefix prefix_description</span></span>
+<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             </span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">1</span> basal area (stand-level increment) s         g       gs         basal area   stem           s      stand             i      increment</span></span></code></pre>
 </div>
   </div>
 

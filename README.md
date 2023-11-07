@@ -4,7 +4,7 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/allometric/allometric/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/allometric/allometric/actions/workflows/check-standard.yaml)
-[![](https://img.shields.io/badge/devel%20version-2.0.0-blue.svg)](https://github.com/allometric/allometric)
+[![](https://img.shields.io/badge/devel%20version-2.1.0-blue.svg)](https://github.com/allometric/allometric)
 [![codecov](https://codecov.io/gh/allometric/allometric/branch/master/graph/badge.svg?token=3V5KUFMO2X)](https://app.codecov.io/gh/allometric/allometric)
 <!-- badges: end -->
 
@@ -22,7 +22,7 @@ process please refer to the [Contributing a
 Model](https://allometric.org/articles/installing_a_model.html)
 vignette.
 
-In total **`allometric` contains 2103 models across 63 publications**,
+In total **`allometric` contains 2118 models across 64 publications**,
 refer to the [Current Status](#current-status) for a more complete view
 of available models.
 
@@ -220,11 +220,11 @@ more complex examples.
 
 ## Current Status
 
-In total **`allometric` contains 2103 models across 63 publications**.
+In total **`allometric` contains 2118 models across 64 publications**.
 
 | category                |  AS |  EU |  NA |  AF |  OC |  SA |
 |:------------------------|----:|----:|----:|----:|----:|----:|
-| biomass component       |  26 | 136 | 435 |   0 |   0 |   0 |
+| biomass component       |  26 | 136 | 446 |   0 |   0 |   0 |
 | crown diameter          |   0 |  12 |  36 |   0 |   0 |   0 |
 | crown height            |   0 |  12 |   0 |   0 |   0 |   0 |
 | shrub biomass           |   0 |  19 |   0 |   0 |   0 |   0 |
@@ -236,7 +236,7 @@ In total **`allometric` contains 2103 models across 63 publications**.
 | stem volume             |   4 |   0 | 575 |   0 |   0 |  20 |
 | stump volume            |   0 |   0 |  64 |   0 |   0 |   0 |
 | taper                   |   2 |   0 |  18 |   0 |   0 |   0 |
-| tree biomass            |   2 |  36 |  90 |   0 |  21 |  16 |
+| tree biomass            |   2 |  36 |  94 |   0 |  21 |  16 |
 | other                   |   0 |   0 | 168 |   0 |   0 |   0 |
 
 ## How Can I Help?
