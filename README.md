@@ -22,7 +22,7 @@ process please refer to the [Contributing a
 Model](https://allometric.org/articles/installing_a_model.html)
 vignette.
 
-In total **`allometric` contains 2118 models across 64 publications**,
+In total **`allometric` contains 2157 models across 66 publications**,
 refer to the [Current Status](#current-status) for a more complete view
 of available models.
 
@@ -88,7 +88,7 @@ stemvol_models <- allometric_models %>%
 stemvol_models
 ```
 
-    #> # A tibble: 569 × 10
+    #> # A tibble: 570 × 10
     #>    id       model_type  country   region    taxa   pub_id model      family_name
     #>    <chr>    <chr>       <list>    <list>    <list> <chr>  <list>     <list>     
     #>  1 f50865ee stem volume <chr [1]> <chr [1]> <Taxa> bell_… <FxdEffcM> <chr [3]>  
@@ -101,7 +101,7 @@ stemvol_models
     #>  8 83b38fb4 stem volume <chr [1]> <chr [1]> <Taxa> brack… <FxdEffcM> <chr [1]>  
     #>  9 a69c8b91 stem volume <chr [1]> <chr [1]> <Taxa> brack… <FxdEffcM> <chr [1]>  
     #> 10 34575125 stem volume <chr [1]> <chr [1]> <Taxa> brack… <FxdEffcM> <chr [1]>  
-    #> # ℹ 559 more rows
+    #> # ℹ 560 more rows
     #> # ℹ 2 more variables: covt_name <list>, pub_year <dbl>
 
 Next, we can filter to include only *Tsuga heterophylla* using a special
@@ -220,9 +220,9 @@ more complex examples.
 
 ## Current Status
 
-In total **`allometric` contains 2118 models across 64 publications**.
+In total **`allometric` contains 2157 models across 66 publications**.
 
-| category                |  AS |  EU |  NA |  AF |  OC |  SA |
+| category                |  AS |  EU |  NA |  SA |  AF |  OC |
 |:------------------------|----:|----:|----:|----:|----:|----:|
 | biomass component       |  26 | 136 | 446 |   0 |   0 |   0 |
 | crown diameter          |   0 |  12 |  36 |   0 |   0 |   0 |
@@ -232,12 +232,12 @@ In total **`allometric` contains 2118 models across 64 publications**.
 | shrub diameter          |   0 |  39 |   0 |   0 |   0 |   0 |
 | shrub height            |   0 |  28 |   0 |   0 |   0 |   0 |
 | site index              |   0 |   0 |  55 |   0 |   0 |   0 |
-| stem height             |   7 |   0 | 346 |  12 |   2 |  17 |
-| stem volume             |   4 |   0 | 575 |   0 |   0 |  20 |
+| stem height             |   7 |   0 | 346 |  19 |  12 |   2 |
+| stem volume             |   4 |   0 | 575 |  21 |   0 |   0 |
 | stump volume            |   0 |   0 |  64 |   0 |   0 |   0 |
 | taper                   |   2 |   0 |  18 |   0 |   0 |   0 |
-| tree biomass            |   2 |  36 |  94 |   0 |  21 |  16 |
-| other                   |   0 |   0 | 168 |   0 |   0 |   0 |
+| tree biomass            |   2 |  36 |  94 |  17 |   0 |  21 |
+| other                   |   0 |   0 | 168 |  35 |   0 |   0 |
 
 ## How Can I Help?
 
