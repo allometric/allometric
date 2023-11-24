@@ -17,6 +17,12 @@
       }
     ],
     [
+      "@semantic-release/exec",
+      {
+        "prepareCmd": "Rscript.exe ./run_docs.R"
+      }
+    ],
+    [
       "@semantic-release/git",
       {
         "assets": ["./DESCRIPTION", "./NEWS.md"],

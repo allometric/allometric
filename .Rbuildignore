@@ -27,5 +27,6 @@
 ^set-version\.ps1$
 ^node_modules$
 ^NEWS_old\.md$
+^run_docs\.R$
 ^\.env$
 ^CNAME$
