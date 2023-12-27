@@ -1,0 +1,25 @@
+family,genus,species,geographic_region,age_class,a,b,c
+Pinaceae,Pseudotsuga,menziesii,coastal,< 140 years,-2.658025,1.739925,1.133187
+Pinaceae,Pseudotsuga,menziesii,coastal,>= 80 years,-2.712153,1.659012,1.195715
+Pinaceae,Pseudotsuga,menziesii,interior,,-2.734532,1.739418,1.166033
+Pinaceae,Tsuga,heterophylla,coastal,< 140 years,-2.702922,1.84268,1.123661
+Pinaceae,Tsuga,heterophylla,coastal,>= 80 years,-2.663834,1.79023,1.124873
+Pinaceae,Tsuga,heterophylla,interior,,-2.571619,1.96971,0.977003
+Cupressaceae,Thuja,plicata,coastal,< 140 years,-2.441193,1.720761,1.049976
+Cupressaceae,Thuja,plicata,coastal,>= 80 years,-2.379642,1.6823,1.039712
+Cupressaceae,Thuja,plicata,interior,,-2.464614,1.701993,1.067038
+Pinaceae,Abies,balsamea,coastal,,-2.575642,1.806775,1.094665
+Pinaceae,Abies,balsamea,interior,,-2.502332,1.864963,1.004903
+Pinaceae,Picea,stichensis,,< 140 years,-2.550299,1.835678,1.042599
+Pinaceae,Picea,stichensis,,>= 140 years,-2.700574,1.754171,1.164531
+Pinaceae,Picea,stichensis,interior,,-2.539944,1.841226,1.034051
+Pinaceae,Pinus,ponderosa,,,-2.729937,1.909478,1.085681
+Pinaceae,Pinus,contorta,,,-2.615591,1.847504,1.085772
+Pinaceae,Pinus,monticola,,,-2.480145,1.867286,0.994351
+Pinaceae,Larix,occidentalis,,,-2.624325,1.847123,1.044007
+Cupressaceae,Cupressus,nootkatensis,,,-2.454348,1.741044,1.058437
+Betulaceae,Alnus,rubra,,,-2.672775,1.920617,1.074024
+Aceraceae,Acer,,,,-2.770324,1.885813,1.119043
+Salicaceae,Populus,tremuloides,,,-2.63536,1.946034,1.024793
+Betulaceae,Betula,,,,-2.757813,1.911681,1.105403
+Salicaceae,Populus,,,,-2.945047,2,1.238853

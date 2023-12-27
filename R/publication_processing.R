@@ -131,7 +131,7 @@ map_publications <- function(verbose, func, pub_path = NULL, params_path = NULL)
   }
 
   if(!is.null(params_path)) {
-    allometric_options[["param_search_path"]] <- params_path
+    write_params_path_rds(params_path)
   }
 
   pub_specs <- get_pub_file_specs(pub_path)
@@ -178,7 +178,7 @@ map_publications <- function(verbose, func, pub_path = NULL, params_path = NULL)
 
   # reset the param search path
   if(!is.null(params_path)) {
-    allometric_options[["param_search_path"]] <- "package"
+    write_params_path_rds("pacakge")
   }
 
   output
@@ -198,8 +198,8 @@ ingest_models <- function(verbose, pub_path = NULL, params_path = NULL) {
       verbose, aggregate_pub_models,
       pub_path = pub_path, params_path = params_path
     ) %>%
-    dplyr::bind_rows() %>%
-    dplyr::arrange(.data$pub_id)
+    dplyr::bind_rows()# %>%
+    #dplyr::arrange(.data$pub_id)
 
   not_in_order <- colnames(allometric_models)[
     !colnames(allometric_models) %in% out_order
