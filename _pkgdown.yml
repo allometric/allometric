@@ -2,6 +2,10 @@ url: http://allometric.github.io/allometric
 template:
   params:
     bootswatch: cosmo
+navbar:
+  structure:
+    left: [intro, reference, articles]
+    right: [search, github]
 reference:
 - title: Analysis Functions
   desc: These functions are used to conduct inventory analysis with allometric models and inspect their contents.
