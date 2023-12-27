@@ -158,7 +158,6 @@ map_publications <- function(verbose, func, pub_path = NULL, params_path = NULL)
       pub <- get(pub_name, envir = pub_env)
       output[[pub_name]] <- func(pub)
     }, error = function(e) {
-      print(e)
       warning(
         paste(
           "Publication file",
@@ -199,10 +198,8 @@ ingest_models <- function(verbose, pub_path = NULL, params_path = NULL) {
       verbose, aggregate_pub_models,
       pub_path = pub_path, params_path = params_path
     ) %>%
-    dplyr::bind_rows()# %>%
-    #dplyr::arrange(.data$pub_id)
-
-  print(allometric_models)
+    dplyr::bind_rows() %>%
+    dplyr::arrange(.data$pub_id)
 
   not_in_order <- colnames(allometric_models)[
     !colnames(allometric_models) %in% out_order
