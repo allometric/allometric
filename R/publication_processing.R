@@ -158,7 +158,14 @@ map_publications <- function(verbose, func, pub_path = NULL, params_path = NULL)
       pub <- get(pub_name, envir = pub_env)
       output[[pub_name]] <- func(pub)
     }, error = function(e) {
-      warning(paste("Publication file", pub_name, "encountered an error during execution."))
+      warning(
+        paste(
+          "Publication file",
+          pub_name,
+          "encountered an error during execution:",
+          e
+        )
+      )
     })
 
     if (verbose) {

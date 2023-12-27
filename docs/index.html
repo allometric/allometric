@@ -78,9 +78,6 @@
     </li>
   </ul>
 </li>
-<li>
-  <a href="news/index.html">Changelog</a>
-</li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
@@ -108,7 +105,7 @@
 
 <p><code>allometric</code> is an R package for predicting tree attributes with allometric models. Thousands of allometric models exist in the scientific and technical forestry literature, and <code>allometric</code> is a platform for archiving and using this vast array of models in a robust and structured format. Get started by going to the <a href="#installation">Installation</a> section or the <a href="https://allometric.org" class="external-link">documentation website</a>.</p>
 <p><code>allometric</code> also provides a structured language for adding models to the package. If you are interested in helping the developer in this process please refer to the <a href="https://allometric.org/articles/installing_a_model.html" class="external-link">Contributing a Model</a> vignette.</p>
-<p>In total <strong><code>allometric</code> contains 2118 models across 64 publications</strong>, refer to the <a href="#current-status">Current Status</a> for a more complete view of available models.</p>
+<p>In total <strong><code>allometric</code> contains 2157 models across 66 publications</strong>, refer to the <a href="#current-status">Current Status</a> for a more complete view of available models.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -148,7 +145,7 @@
 <span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">model_type</span> <span class="op">==</span> <span class="st">"stem volume"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">stemvol_models</span></span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 569 × 10</span></span>
+<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 570 × 10</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    id       model_type  country   region    taxa   pub_id model      family_name</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;chr&gt;    &lt;chr&gt;       &lt;list&gt;    &lt;list&gt;    &lt;list&gt; &lt;chr&gt;  &lt;list&gt;     &lt;list&gt;     </span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1 f50865ee stem volume &lt;chr [1]&gt; &lt;chr [1]&gt; &lt;Taxa&gt; bell_… &lt;FxdEffcM&gt; &lt;chr [3]&gt;  </span></span>
@@ -161,7 +158,7 @@
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8 83b38fb4 stem volume &lt;chr [1]&gt; &lt;chr [1]&gt; &lt;Taxa&gt; brack… &lt;FxdEffcM&gt; &lt;chr [1]&gt;  </span></span>
 <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9 a69c8b91 stem volume &lt;chr [1]&gt; &lt;chr [1]&gt; &lt;Taxa&gt; brack… &lt;FxdEffcM&gt; &lt;chr [1]&gt;  </span></span>
 <span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10 34575125 stem volume &lt;chr [1]&gt; &lt;chr [1]&gt; &lt;Taxa&gt; brack… &lt;FxdEffcM&gt; &lt;chr [1]&gt;  </span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 559 more rows</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 560 more rows</span></span>
 <span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ℹ 2 more variables: covt_name &lt;list&gt;, pub_year &lt;dbl&gt;</span></span></code></pre></div>
 <p>Next, we can filter to include only <em>Tsuga heterophylla</em> using a special specifier called <code>Taxon</code> that enables rigorous searching of species:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
@@ -235,16 +232,16 @@
 <div class="section level2">
 <h2 id="current-status">Current Status<a class="anchor" aria-label="anchor" href="#current-status"></a>
 </h2>
-<p>In total <strong><code>allometric</code> contains 2118 models across 64 publications</strong>.</p>
+<p>In total <strong><code>allometric</code> contains 2157 models across 66 publications</strong>.</p>
 <table class="table">
 <thead><tr class="header">
 <th align="left">category</th>
 <th align="right">AS</th>
 <th align="right">EU</th>
 <th align="right">NA</th>
+<th align="right">SA</th>
 <th align="right">AF</th>
 <th align="right">OC</th>
-<th align="right">SA</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
@@ -324,18 +321,18 @@
 <td align="right">7</td>
 <td align="right">0</td>
 <td align="right">346</td>
+<td align="right">19</td>
 <td align="right">12</td>
 <td align="right">2</td>
-<td align="right">17</td>
 </tr>
 <tr class="even">
 <td align="left">stem volume</td>
 <td align="right">4</td>
 <td align="right">0</td>
 <td align="right">575</td>
+<td align="right">21</td>
 <td align="right">0</td>
 <td align="right">0</td>
-<td align="right">20</td>
 </tr>
 <tr class="odd">
 <td align="left">stump volume</td>
@@ -360,16 +357,16 @@
 <td align="right">2</td>
 <td align="right">36</td>
 <td align="right">94</td>
+<td align="right">17</td>
 <td align="right">0</td>
 <td align="right">21</td>
-<td align="right">16</td>
 </tr>
 <tr class="even">
 <td align="left">other</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">168</td>
-<td align="right">0</td>
+<td align="right">35</td>
 <td align="right">0</td>
 <td align="right">0</td>
 </tr>
