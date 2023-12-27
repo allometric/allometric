@@ -4,15 +4,14 @@
 \alias{install_models}
 \title{Install allometric models from the models repository}
 \usage{
-install_models(redownload = FALSE, ignore_cache = FALSE, verbose = TRUE)
+install_models(ingest = FALSE, redownload = TRUE, verbose = TRUE)
 }
 \arguments{
+\item{ingest}{If \code{TRUE}, model publication files are run locally, otherwise
+a previously prepared \code{.RDS} file is used as the models data.}
+
 \item{redownload}{If \code{TRUE}, models are re-downloaded from the remote
 repository.}
-
-\item{ignore_cache}{If \code{TRUE}, models are re-installed regardless of their
-installation timestamp. Otherwise, only newly modified model files are reran.
-This is primarily for development purposes.}
 
 \item{verbose}{If \code{TRUE}, print verbose messages as models are installed.}
 }
@@ -24,7 +23,6 @@ Allometric models are stored in a remote repository located on GitHub located
 \href{https://github.com/allometric/models}{here}. The user must install
 these models themselves using this function. This function clones the models
 repository within the allometric package directory and constructs a local
-dataframe containing the models. This dataframe is stored in the global
-environment variable \code{allometric_models} upon completion of the function.
-Refer to \code{allometric::allometric_models} for further information.
+dataframe containing the models. Refer to \code{load_models()} for information
+about loading the models dataframe.
 }

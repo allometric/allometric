@@ -184,6 +184,11 @@ map_publications <- function(verbose, func, pub_path = NULL, params_path = NULL)
   output
 }
 
+#' Ingest a set of models by running the publication files
+#'
+#' @param pub_path A path to a directory containing publication files
+#' @param params_path A path to a directory containing parameter files
+#' @export
 ingest_models <- function(verbose, pub_path = NULL, params_path = NULL) {
   out_order <- c(
     "id", "model_type", "country", "region", "taxa"
