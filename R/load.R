@@ -9,7 +9,7 @@
 #' @export
 load_parameter_frame <- function(name) {
   csv_name <- paste(name, ".csv", sep = "")
-  param_search_path <- read_params_path()
+  param_search_path <- get_params_path()
   
   if(param_search_path == "package") {
     file_path <- system.file(
@@ -24,13 +24,21 @@ load_parameter_frame <- function(name) {
   tibble::as_tibble(table)
 }
 
-write_params_path_rds <- function(params_path) {
+#' Set the parameter search path
+#'
+#' @param params_path The file path containing parameter files
+#' @export
+set_params_path <- function(params_path) {
   params_path <- list(params_path = params_path)
   rds_path <- file.path(system.file("extdata", package = "allometric"), "params_path.RDS")
   saveRDS(params_path, rds_path)
 }
 
-read_params_path <- function() {
+#' Get the parameter search path
+#'
+#' @return A string containing the currently set parameter search path
+#' @export
+get_params_path <- function() {
   rds_path <- file.path(system.file("extdata", package = "allometric"), "params_path.RDS")
   rds <- readRDS(rds_path)
   rds$params_path

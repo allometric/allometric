@@ -131,7 +131,7 @@ map_publications <- function(verbose, func, pub_path = NULL, params_path = NULL)
   }
 
   if(!is.null(params_path)) {
-    write_params_path_rds(params_path)
+    set_params_path(params_path)
   }
 
   pub_specs <- get_pub_file_specs(pub_path)
@@ -178,7 +178,7 @@ map_publications <- function(verbose, func, pub_path = NULL, params_path = NULL)
 
   # reset the param search path
   if(!is.null(params_path)) {
-    write_params_path_rds("pacakge")
+    set_params_path("pacakge")
   }
 
   output

@@ -43,4 +43,4 @@ suffixes <- utils::read.csv(
 
 var_defs <- prepare_var_defs(var_defs_pre, measure_defs, component_defs)
 
-write_params_path_rds("package")
+set_params_path("package")
