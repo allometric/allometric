@@ -198,8 +198,8 @@ ingest_models <- function(verbose, pub_path = NULL, params_path = NULL) {
       verbose, aggregate_pub_models,
       pub_path = pub_path, params_path = params_path
     ) %>%
-    dplyr::bind_rows()# %>%
-    #dplyr::arrange(.data$pub_id)
+    dplyr::bind_rows() %>%
+    dplyr::arrange(.data$pub_id)
 
   not_in_order <- colnames(allometric_models)[
     !colnames(allometric_models) %in% out_order
