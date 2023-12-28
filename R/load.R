@@ -20,8 +20,6 @@ load_parameter_frame <- function(name) {
     file_path <- file.path(param_search_path, csv_name)
   }
 
-  print(file_path)
-
   table <- utils::read.csv(file_path, na.strings = "")
   tibble::as_tibble(table)
 }
