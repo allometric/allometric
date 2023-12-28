@@ -13,7 +13,7 @@ load_parameter_frame <- function(name) {
   
   if(param_search_path == "package") {
     file_path <- system.file(
-      "models-lfs/parameters", csv_name,
+      "models-main/parameters", csv_name,
       package = "allometric"
     )
   } else {
@@ -233,7 +233,7 @@ aggregate_taxa <- function(table, remove_taxa_cols = TRUE) {
 #' @export
 load_models <- function() {
   rds_path <- system.file(
-    "models-lfs/models.RDS",
+    "models-main/models.RDS",
     package = "allometric"
   )
 

@@ -1,5 +1,5 @@
 check_models_downloaded <- function(verbose) {
-  model_dir_path <- system.file("models-lfs", package = "allometric")
+  model_dir_path <- system.file("models-main", package = "allometric")
 
   if(model_dir_path == "") {
     if(verbose) {
@@ -41,7 +41,7 @@ check_models_installed <- function(verbose = FALSE) {
 #'
 #' @keywords internal
 delete_models <- function(verbose) {
-  models_path_check <- system.file("models-lfs", package = "allometric")
+  models_path_check <- system.file("models-main", package = "allometric")
 
   if(models_path_check != "") {
     if(verbose) {
@@ -88,13 +88,13 @@ download_models <- function(verbose) {
 
   pkg_path <- system.file("", package = "allometric")
 
-  model_dir_path <- file.path(pkg_path, "models-lfs")
+  model_dir_path <- file.path(pkg_path, "models-main")
   zip_path <- file.path(pkg_path, "models.zip")
 
   dir.create(model_dir_path)
 
   curl::curl_download(
-    "https://github.com/allometric/models/archive/refs/heads/lfs.zip",
+    "https://github.com/allometric/models/archive/refs/heads/main.zip",
     zip_path
   )
 
@@ -129,14 +129,14 @@ install_models <- function(ingest = FALSE, redownload = TRUE, verbose = TRUE) {
     models <- ingest_models(verbose)
 
     out_path <- file.path(
-      system.file("models-lfs", package = "allometric"), "models.RDS"
+      system.file("models-main", package = "allometric"), "models.RDS"
     )
 
     saveRDS(models, out_path)
   } else {
     models <- readRDS(
       file.path(
-        system.file("models-lfs", package = "allometric"), "models.RDS"
+        system.file("models-main", package = "allometric"), "models.RDS"
       )
     )
   }
