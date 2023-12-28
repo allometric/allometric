@@ -239,6 +239,9 @@ load_models <- function() {
 
   if (!rds_path == "") {
     allometric_models <- readRDS(rds_path)
+    allometric_models <- tibble::tibble(allometric_models) %>%
+      new_model_tbl()
+
     return(allometric_models)
   } else {
     stop("No allometric models are installed. Use install_models()")
