@@ -22,14 +22,14 @@ data
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{allometric_models <- load_models()
 head(allometric_models)
 #> # A tibble: 6 x 10
-#>   id       model_type  country   region    taxa   pub_id        model      family_name covt_name pub_year
-#>   <chr>    <chr>       <list>    <list>    <list> <chr>         <list>     <list>      <list>       <dbl>
-#> 1 cc2078aa site index  <chr [1]> <chr [2]> <Taxa> barrett_1978  <FxdEffcM> <chr [1]>   <chr [2]>     1978
-#> 2 f50865ee stem volume <chr [1]> <chr [1]> <Taxa> bell_1981     <FxdEffcM> <chr [3]>   <chr [2]>     1981
-#> 3 4d35d681 taper       <chr [2]> <chr [3]> <Taxa> bluhm_2007    <FxdEffcM> <chr [3]>   <chr [4]>     2007
-#> 4 8d35a7b6 stem volume <chr [1]> <chr [1]> <Taxa> brackett_1977 <FxdEffcM> <chr [1]>   <chr [2]>     1977
-#> 5 8682a321 stem volume <chr [1]> <chr [1]> <Taxa> brackett_1977 <FxdEffcM> <chr [1]>   <chr [2]>     1977
-#> 6 7cfc15b2 stem volume <chr [1]> <chr [1]> <Taxa> brackett_1977 <FxdEffcM> <chr [1]>   <chr [2]>     1977
+#>   id       model_type  country   region    taxa   pub_id          model      family_name covt_name pub_year
+#>   <chr>    <chr>       <list>    <list>    <list> <chr>           <list>     <list>      <list>       <dbl>
+#> 1 cc2078aa site index  <chr [1]> <chr [2]> <Taxa> barrett_1978    <FxdEffcM> <chr [1]>   <chr [2]>     1978
+#> 2 f50865ee stem volume <chr [1]> <chr [1]> <Taxa> bell_1981       <FxdEffcM> <chr [3]>   <chr [2]>     1981
+#> 3 4d35d681 taper       <chr [2]> <chr [3]> <Taxa> bluhm_2007      <FxdEffcM> <chr [3]>   <chr [4]>     2007
+#> 4 b6f386fa stem volume <chr [2]> <chr [3]> <Taxa> bruce_1974      <FxdEffcM> <chr [2]>   <chr [2]>     1974
+#> 5 2b41ab4d stem volume <chr [2]> <chr [3]> <Taxa> bruce_1974      <FxdEffcM> <chr [2]>   <chr [2]>     1974
+#> 6 af0f8fc9 stem volume <chr [1]> <chr [2]> <Taxa> chittester_1984 <FxdEffcM> <chr [2]>   <chr [2]>     1984
 }\if{html}{\out{</div>}}
 
 The columns are:
@@ -68,16 +68,16 @@ may want models only authored by \code{"Hann"}. This is elementary to do in
 
 head(hann_models)
 #> # A tibble: 6 x 10
-#>   id       model_type  country   region    taxa   pub_id    model      family_name covt_name pub_year
-#>   <chr>    <chr>       <list>    <list>    <list> <chr>     <list>     <list>      <list>       <dbl>
-#> 1 8970949f stem volume <chr [1]> <chr [2]> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
-#> 2 0d53539a stem volume <chr [1]> <chr [2]> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
-#> 3 0d109f2c stem volume <chr [1]> <chr [2]> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
-#> 4 86dcc7ff stem volume <chr [1]> <chr [2]> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
-#> 5 037a7989 stem volume <chr [1]> <chr [2]> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
-#> 6 02614f74 stem volume <chr [1]> <chr [2]> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
+#>   id       model_type  country   region    taxa   pub_id        model      family_name covt_name pub_year
+#>   <chr>    <chr>       <list>    <list>    <list> <chr>         <list>     <list>      <list>       <dbl>
+#> 1 ec95c2a9 site index  <chr [1]> <chr [1]> <Taxa> hann_1987     <FxdEffcM> <chr [3]>   <chr [2]>     1987
+#> 2 31e0df77 site index  <chr [1]> <chr [1]> <Taxa> hann_1987     <FxdEffcM> <chr [3]>   <chr [2]>     1987
+#> 3 67dd4283 stem height <chr [1]> <chr [1]> <Taxa> temesgen_2008 <FxdEffcM> <chr [3]>   <chr [1]>     2008
+#> 4 e61ccb1a stem height <chr [1]> <chr [1]> <Taxa> temesgen_2008 <MxdEffcM> <chr [3]>   <chr [1]>     2008
+#> 5 33086b79 stem height <chr [1]> <chr [1]> <Taxa> temesgen_2008 <MxdEffcM> <chr [3]>   <chr [1]>     2008
+#> 6 2307ce79 stem height <chr [1]> <chr [1]> <Taxa> temesgen_2008 <FxdEffcM> <chr [3]>   <chr [3]>     2008
 nrow(hann_models)
-#> [1] 87
+#> [1] 8
 }\if{html}{\out{</div>}}
 
 Picking apart the above code block, we see that we are using the standard
@@ -100,21 +100,17 @@ Using a simple modification we can easily do this.
 )
 
 head(hann_first_author_models)
-#> # A tibble: 6 x 10
-#>   id       model_type  country   region    taxa   pub_id    model      family_name covt_name pub_year
-#>   <chr>    <chr>       <list>    <list>    <list> <chr>     <list>     <list>      <list>       <dbl>
-#> 1 8970949f stem volume <chr [1]> <chr [2]> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
-#> 2 0d53539a stem volume <chr [1]> <chr [2]> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
-#> 3 0d109f2c stem volume <chr [1]> <chr [2]> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
-#> 4 86dcc7ff stem volume <chr [1]> <chr [2]> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
-#> 5 037a7989 stem volume <chr [1]> <chr [2]> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
-#> 6 02614f74 stem volume <chr [1]> <chr [2]> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
+#> # A tibble: 2 x 10
+#>   id       model_type country   region    taxa   pub_id    model      family_name covt_name pub_year
+#>   <chr>    <chr>      <list>    <list>    <list> <chr>     <list>     <list>      <list>       <dbl>
+#> 1 ec95c2a9 site index <chr [1]> <chr [1]> <Taxa> hann_1987 <FxdEffcM> <chr [3]>   <chr [2]>     1987
+#> 2 31e0df77 site index <chr [1]> <chr [1]> <Taxa> hann_1987 <FxdEffcM> <chr [3]>   <chr [2]>     1987
 nrow(hann_first_author_models)
-#> [1] 50
+#> [1] 2
 }\if{html}{\out{</div>}}
 
 We can see that \code{'Hann'} is the first author for
-50 models in this package.
+2 models in this package.
 }
 
 \section{Finding Models for a Given Species}{
@@ -132,13 +128,13 @@ head(pinus_models)
 #>   id       model_type  country   region    taxa   pub_id         model      family_name covt_name pub_year
 #>   <chr>    <chr>       <list>    <list>    <list> <chr>          <list>     <list>      <list>       <dbl>
 #> 1 cc2078aa site index  <chr [1]> <chr [2]> <Taxa> barrett_1978   <FxdEffcM> <chr [1]>   <chr [2]>     1978
-#> 2 3ab229f7 stem volume <chr [1]> <chr [1]> <Taxa> brackett_1977  <FxdEffcM> <chr [1]>   <chr [2]>     1977
-#> 3 4a13ca7e stem volume <chr [1]> <chr [1]> <Taxa> brackett_1977  <FxdEffcM> <chr [1]>   <chr [2]>     1977
-#> 4 21d11091 stem volume <chr [1]> <chr [1]> <Taxa> brackett_1977  <FxdEffcM> <chr [1]>   <chr [2]>     1977
-#> 5 b1d070b5 stem volume <chr [1]> <chr [1]> <Taxa> chojnacky_1985 <FxdEffcM> <chr [1]>   <chr [3]>     1985
-#> 6 a5611fec stem volume <chr [1]> <chr [1]> <Taxa> chojnacky_1985 <FxdEffcM> <chr [1]>   <chr [3]>     1985
+#> 2 c3fd04ca site index  <chr [1]> <chr [2]> <Taxa> curtis_1990    <FxdEffcM> <chr [3]>   <chr [2]>     1990
+#> 3 8fd68f27 site index  <chr [1]> <chr [1]> <Taxa> dahms_1964     <FxdEffcM> <chr [1]>   <chr [2]>     1964
+#> 4 6de8b6e0 stem volume <chr [1]> <chr [1]> <Taxa> edminster_1980 <FxdEffcM> <chr [3]>   <chr [2]>     1980
+#> 5 d6eb507e stem volume <chr [1]> <chr [1]> <Taxa> edminster_1980 <FxdEffcM> <chr [3]>   <chr [2]>     1980
+#> 6 31e0df77 site index  <chr [1]> <chr [1]> <Taxa> hann_1987      <FxdEffcM> <chr [3]>   <chr [2]>     1987
 nrow(pinus_models)
-#> [1] 285
+#> [1] 29
 }\if{html}{\out{</div>}}
 
 Users can also search with a specific taxon, which allows a full
@@ -156,7 +152,7 @@ ponderosa_models <- dplyr::filter(
 )
 
 nrow(ponderosa_models)
-#> [1] 57
+#> [1] 26
 }\if{html}{\out{</div>}}
 }
 
@@ -174,7 +170,7 @@ limited by their available tree measurements.
 )
 
 nrow(dia_ht_models)
-#> [1] 241
+#> [1] 6
 }\if{html}{\out{</div>}}
 
 Breaking this down, we have the first condition \code{model_type=='stem_height'}
@@ -184,7 +180,7 @@ character vector. The \code{.} represents a given character vector for that row.
 First, we ensure that the vector is only one element in size using
 \code{length(.)==1}, then we ensure that the first (and only) element of this
 vector is equal to \code{'dsob'}, (diameter outside bark at breast height). In
-this case, 241 are available in the package.
+this case, 6 are available in the package.
 }
 
 \section{Finding a Model for a Region}{
@@ -198,10 +194,10 @@ developed using data from \code{US-OR}
 )
 
 nrow(us_or_models)
-#> [1] 498
+#> [1] 49
 }\if{html}{\out{</div>}}
 
-We can see that 498 allometric models are defined for the
+We can see that 49 allometric models are defined for the
 state of Oregon, US.
 }
 

@@ -108,41 +108,45 @@ download_models <- function(verbose) {
 #' \href{https://github.com/allometric/models}{here}. The user must install
 #' these models themselves using this function. This function clones the models
 #' repository within the allometric package directory and constructs a local
-#' dataframe containing the models. This dataframe is stored in the global
-#' environment variable `allometric_models` upon completion of the function.
-#' Refer to `allometric::allometric_models` for further information.
+#' dataframe containing the models. Refer to `load_models()` for information
+#' about loading the models dataframe.
 #'
+#' @param ingest If `TRUE`, model publication files are run locally, otherwise
+#' a previously prepared `.RDS` file is used as the models data.
 #' @param redownload If `TRUE`, models are re-downloaded from the remote
 #' repository.
-#' @param ignore_cache If `TRUE`, models are re-installed regardless of their
-#' installation timestamp. Otherwise, only newly modified model files are reran.
-#' This is primarily for development purposes.
 #' @param verbose If `TRUE`, print verbose messages as models are installed.
 #' @return No return value, installs models into the package directory.
 #' @export
-install_models <- function(redownload = FALSE,
-    ignore_cache = FALSE, verbose = TRUE
-  ) {
+install_models <- function(ingest = FALSE, redownload = TRUE, verbose = TRUE) {
   downloaded <- check_models_downloaded(verbose)
 
-  if(!downloaded || redownload) {
+  if (!downloaded || redownload) {
     download_models(verbose)
   }
 
-  allometric_models <- ingest_models(verbose)
+  if (ingest) {
+    models <- ingest_models(verbose)
 
-  out_path <- file.path(
-    system.file("extdata", package = "allometric"), "allometric_models.RDS"
-  )
+    out_path <- file.path(
+      system.file("models-main", package = "allometric"), "models.RDS"
+    )
 
-  if(verbose) {
-    n_models <- nrow(allometric_models)
+    saveRDS(models, out_path)
+  } else {
+    models <- readRDS(
+      file.path(
+        system.file("models-main", package = "allometric"), "models.RDS"
+      )
+    )
+  }
+
+  if (verbose) {
+    n_models <- nrow(models)
     msg <- paste(
       n_models,
-      "models succesfully installed, use load_models() to view them.\n"
+      "models are currently installed, use load_models() to view them.\n"
     )
     cat(msg)
   }
-
-  saveRDS(allometric_models, out_path)
 }

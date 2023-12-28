@@ -131,7 +131,7 @@ map_publications <- function(verbose, func, pub_path = NULL, params_path = NULL)
   }
 
   if(!is.null(params_path)) {
-    allometric_options[["param_search_path"]] <- params_path
+    write_params_path_rds(params_path)
   }
 
   pub_specs <- get_pub_file_specs(pub_path)
@@ -158,7 +158,14 @@ map_publications <- function(verbose, func, pub_path = NULL, params_path = NULL)
       pub <- get(pub_name, envir = pub_env)
       output[[pub_name]] <- func(pub)
     }, error = function(e) {
-      warning(paste("Publication file", pub_name, "encountered an error during execution."))
+      warning(
+        paste(
+          "Publication file",
+          pub_name,
+          "encountered an error during execution:",
+          e
+        )
+      )
     })
 
     if (verbose) {
@@ -171,12 +178,17 @@ map_publications <- function(verbose, func, pub_path = NULL, params_path = NULL)
 
   # reset the param search path
   if(!is.null(params_path)) {
-    allometric_options[["param_search_path"]] <- "package"
+    write_params_path_rds("pacakge")
   }
 
   output
 }
 
+#' Ingest a set of models by running the publication files
+#'
+#' @param pub_path A path to a directory containing publication files
+#' @param params_path A path to a directory containing parameter files
+#' @export
 ingest_models <- function(verbose, pub_path = NULL, params_path = NULL) {
   out_order <- c(
     "id", "model_type", "country", "region", "taxa"

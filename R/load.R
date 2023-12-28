@@ -9,18 +9,31 @@
 #' @export
 load_parameter_frame <- function(name) {
   csv_name <- paste(name, ".csv", sep = "")
-
-  if(allometric_options$param_search_path == "package") {
+  param_search_path <- read_params_path()
+  
+  if(param_search_path == "package") {
     file_path <- system.file(
       "models-main/parameters", csv_name,
       package = "allometric"
     )
   } else {
-    file_path <- file.path(allometric_options$param_search_path, csv_name)
+    file_path <- file.path(param_search_path, csv_name)
   }
 
   table <- utils::read.csv(file_path, na.strings = "")
   tibble::as_tibble(table)
+}
+
+write_params_path_rds <- function(params_path) {
+  params_path <- list(params_path = params_path)
+  rds_path <- file.path(system.file("extdata", package = "allometric"), "params_path.RDS")
+  saveRDS(params_path, rds_path)
+}
+
+read_params_path <- function() {
+  rds_path <- file.path(system.file("extdata", package = "allometric"), "params_path.RDS")
+  rds <- readRDS(rds_path)
+  rds$params_path
 }
 
 my_function <- function(family, genus, species) {
@@ -220,7 +233,7 @@ aggregate_taxa <- function(table, remove_taxa_cols = TRUE) {
 #' @export
 load_models <- function() {
   rds_path <- system.file(
-    "extdata/allometric_models.RDS",
+    "models-main/models.RDS",
     package = "allometric"
   )
 
