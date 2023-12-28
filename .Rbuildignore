@@ -7,7 +7,7 @@
 ^pkgdown$
 ^_pkgdown\.yml$
 ^inst/extdata/allometric_models\.RDS$
-^inst/extdata/pub_list\.RDS$
+^inst/extdata/params_path\.RDS$
 ^LICENSE\.md$
 ^README\.Rmd$
 ^Meta$

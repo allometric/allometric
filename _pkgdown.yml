@@ -41,6 +41,7 @@ reference:
   - get_variable_def
   - get_component_defs
   - get_measure_defs
+  - ingest_models
   - load_parameter_frame
   - map_publications
   - FixedEffectsModel
