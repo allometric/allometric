@@ -127,7 +127,7 @@ aggregate_pub_models <- function(pub) {
 #' @export
 map_publications <- function(verbose, func, pub_path = NULL, params_path = NULL) {
   if(is.null(pub_path)) {
-    pub_path <- system.file("models-lfs/publications", package = "allometric")
+    pub_path <- system.file("models-main/publications", package = "allometric")
   }
 
   if(!is.null(params_path)) {
