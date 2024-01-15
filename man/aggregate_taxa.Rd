@@ -5,13 +5,13 @@
 \title{Aggregate family, genus, and species columns of `tbl_df`` into taxa data
 structure}
 \usage{
-aggregate_taxa(table, remove_taxa_cols = TRUE)
+aggregate_taxa(table, grouping_col = NULL)
 }
 \arguments{
 \item{table}{The table for which the taxa will be aggregated}
 
-\item{remove_taxa_cols}{Whether or not to remove the family, genus, and
-species columns after aggregation}
+\item{grouping_col}{An optional column to group on when creating taxa. Rows
+with the same grouping_col value will be stored into the same taxa.}
 }
 \value{
 A tibble with family, genus, and species columns added

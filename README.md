@@ -22,7 +22,7 @@ process please refer to the [Contributing a
 Model](https://allometric.org/articles/installing_a_model.html)
 vignette.
 
-In total **`allometric` contains 2157 models across 66 publications**,
+In total **`allometric` contains 2213 models across 69 publications**,
 refer to the [Current Status](#current-status) for a more complete view
 of available models.
 
@@ -63,11 +63,11 @@ head(allometric_models)
     #>   id    model_type country region taxa   pub_id model      family_name covt_name
     #>   <chr> <chr>      <list>  <list> <list> <chr>  <list>     <list>      <list>   
     #> 1 cc20… site index <chr>   <chr>  <Taxa> barre… <FxdEffcM> <chr [1]>   <chr [2]>
-    #> 2 f508… stem volu… <chr>   <chr>  <Taxa> bell_… <FxdEffcM> <chr [3]>   <chr [2]>
-    #> 3 4d35… taper      <chr>   <chr>  <Taxa> bluhm… <FxdEffcM> <chr [3]>   <chr [4]>
-    #> 4 8d35… stem volu… <chr>   <chr>  <Taxa> brack… <FxdEffcM> <chr [1]>   <chr [2]>
-    #> 5 8682… stem volu… <chr>   <chr>  <Taxa> brack… <FxdEffcM> <chr [1]>   <chr [2]>
-    #> 6 7cfc… stem volu… <chr>   <chr>  <Taxa> brack… <FxdEffcM> <chr [1]>   <chr [2]>
+    #> 2 3955… stem heig… <chr>   <chr>  <Taxa> barre… <FxdEffcM> <chr [1]>   <chr [1]>
+    #> 3 48b4… stem heig… <chr>   <chr>  <Taxa> barre… <FxdEffcM> <chr [1]>   <chr [1]>
+    #> 4 2fa0… stem heig… <chr>   <chr>  <Taxa> barre… <FxdEffcM> <chr [1]>   <chr [1]>
+    #> 5 7a58… stem heig… <chr>   <chr>  <Taxa> barre… <FxdEffcM> <chr [1]>   <chr [1]>
+    #> 6 4998… stem heig… <chr>   <chr>  <Taxa> barre… <FxdEffcM> <chr [1]>   <chr [1]>
     #> # ℹ 1 more variable: pub_year <dbl>
 
 ## Finding a Model
@@ -220,7 +220,7 @@ more complex examples.
 
 ## Current Status
 
-In total **`allometric` contains 2157 models across 66 publications**.
+In total **`allometric` contains 2213 models across 69 publications**.
 
 | category                |  AS |  EU |  NA |  SA |  AF |  OC |
 |:------------------------|----:|----:|----:|----:|----:|----:|
@@ -232,11 +232,11 @@ In total **`allometric` contains 2157 models across 66 publications**.
 | shrub diameter          |   0 |  39 |   0 |   0 |   0 |   0 |
 | shrub height            |   0 |  28 |   0 |   0 |   0 |   0 |
 | site index              |   0 |   0 |  55 |   0 |   0 |   0 |
-| stem height             |   7 |   0 | 346 |  19 |  12 |   2 |
+| stem height             |   7 |   0 | 385 |  19 |  12 |   2 |
 | stem volume             |   4 |   0 | 575 |  21 |   0 |   0 |
 | stump volume            |   0 |   0 |  64 |   0 |   0 |   0 |
 | taper                   |   2 |   0 |  18 |   0 |   0 |   0 |
-| tree biomass            |   2 |  36 |  94 |  17 |   0 |  21 |
+| tree biomass            |   2 |  36 | 111 |  17 |   0 |  21 |
 | other                   |   0 |   0 | 168 |  35 |   0 |   0 |
 
 ## How Can I Help?
