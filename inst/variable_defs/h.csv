@@ -15,3 +15,4 @@ h,s,t,ix100,site index at 100 year base age
 h,s,l,,distance from tip of stem to merchantibility limit
 h,h,t,,total height of the shrub
 h,c,l,,height of live crown
+h,l,p,,mean annual precipitation
