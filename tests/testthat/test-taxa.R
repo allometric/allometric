@@ -87,6 +87,19 @@ test_that("aggregate_taxa creates correct Taxa and Taxon grouping", {
   expect_s4_class(agg_table_12$taxa[[1]][[1]], "Taxon")
 })
 
+test_that("aggregate_taxa groups by a taxa ID column", {
+  test_table_1 <- tibble::tibble(
+    family = c("Pinaceae", "Pinaceae", "Betulaceae"),
+    genus = c("Pinus", "Pinus", "Alnus"),
+    species = c("ponderosa", "jeffreyii", "rubra"),
+    taxa_id = c(1, 1, 2),
+    other_values = c("a", "a", "b")
+  )
+
+  aggregated <- aggregate_taxa(test_table_1, grouping_col = "taxa_id")
+  expect_equal(nrow(aggregated), 2)
+})
+
 test_that("Non-unique Taxon objects throw error", {
   expect_error({
     Taxa(Taxon(family = "a"), Taxon(family = "a"))

@@ -54,6 +54,31 @@ my_function <- function(family, genus, species) {
   )
 }
 
+combine_taxa <- function(data, key) {
+  taxon_list <- list()
+
+  for(i in 1:nrow(data)) {
+    data_i <- data[i,]
+    taxon_list[[i]] <- Taxon(
+      family = data_i$family, genus = data_i$genus, species = data_i$species
+    )
+  }
+
+  taxa <- do.call(Taxa, taxon_list)
+  distinct_cols <- colnames(data)[!colnames(data) %in% c("family", "genus", "species")]
+
+  distinct_data <- data %>%
+    dplyr::distinct_at(.vars = distinct_cols)
+
+  if(nrow(distinct_data) != 1) {
+    browser()
+    stop("Could not generate a distinct taxonomic row for taxa ID:", key$taxa_id)
+  }
+
+  distinct_data$taxa <- list(taxa)
+  distinct_data
+}
+
 #' Aggregate family, genus, and species columns of `tbl_df`` into taxa data
 #' structure
 #'
@@ -62,20 +87,27 @@ my_function <- function(family, genus, species) {
 #' "taxons". A taxon is a list containing family, genus, and species fields.
 #'
 #' @param table The table for which the taxa will be aggregated
-#' @param remove_taxa_cols Whether or not to remove the family, genus, and
-#' species columns after aggregation
+#' @param grouping_col An optional column to group on when creating taxa. Rows
+#'  with the same grouping_col value will be stored into the same taxa.
 #' @return A tibble with family, genus, and species columns added
-aggregate_taxa <- function(table, remove_taxa_cols = TRUE) {
+aggregate_taxa <- function(table, grouping_col = NULL)
+  {
   default_taxon_fields <- c("family", "genus", "species")
   taxon_fields <- colnames(table)[colnames(table) %in% default_taxon_fields]
   missing_taxon_fields <- default_taxon_fields[!default_taxon_fields %in% taxon_fields]
 
+  if(is.null(grouping_col)) {
+    taxa_fill <- 1:nrow(table)
+  } else {
+    taxa_fill <- tibble::deframe(table[,grouping_col])
+  }
+
   table %>%
     dplyr::mutate(!!!stats::setNames(rep(list(NA), length(missing_taxon_fields)), missing_taxon_fields)) %>%
-    dplyr::rowwise() %>%
-    dplyr::mutate(taxa = list(Taxa(Taxon(family = .data$family, genus = .data$genus, species = .data$species)))) %>%
-    dplyr::ungroup() %>%
-    dplyr::select(-dplyr::all_of(default_taxon_fields))
+    dplyr::mutate(taxa_id = taxa_fill) %>%
+    dplyr::group_by(taxa_id) %>%
+    dplyr::group_map(combine_taxa) %>%
+    dplyr::bind_rows()
 }
 
 #' Load a locally installed table of allometric models
