@@ -214,6 +214,9 @@
     <loc>http://allometric.github.io/allometric/reference/get_model_type.html</loc>
   </url>
   <url>
+    <loc>http://allometric.github.io/allometric/reference/get_params_path.html</loc>
+  </url>
+  <url>
     <loc>http://allometric.github.io/allometric/reference/get_pub_file_spec.html</loc>
   </url>
   <url>
@@ -323,6 +326,9 @@
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/reference/select_model.model_tbl.html</loc>
+  </url>
+  <url>
+    <loc>http://allometric.github.io/allometric/reference/set_params_path.html</loc>
   </url>
   <url>
     <loc>http://allometric.github.io/allometric/reference/Taxa.html</loc>

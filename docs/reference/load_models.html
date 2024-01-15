@@ -20,7 +20,7 @@ tibble::tbl_df or a data.frame."><!-- mathjax --><script src="https://cdnjs.clou
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">allometric</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.2.0</span>
       </span>
     </div>
 
@@ -92,16 +92,100 @@ result is of class <code>model_tbl</code>, which behaves very much like a
     <p>Printing the <code>head</code> of <code>allometric_models</code>, we can see the structure of the
 data</p>
 <p></p><div class="sourceCode r"><pre><code><span><span class="va">allometric_models</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/load_models.html">load_models</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): strings not representable in native encoding will be translated to UTF-8</span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Málaga' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Málaga' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Cáceres' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Málaga' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Cáceres' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Málaga' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Cáceres' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Málaga' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Málaga' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Málaga' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Málaga' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Málaga' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Málaga' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Málaga' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Málaga' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Málaga' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Cáceres' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Cáceres' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Cáceres' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Cáceres' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Cáceres' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Cáceres' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Málaga' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Cáceres' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Málaga' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Cáceres' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Málaga' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Cáceres' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Málaga' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Málaga' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Cáceres' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Málaga' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Cáceres' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
+<span></span>
+<span><span class="co">#&gt; Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">allometric_models</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 6 x 10</span></span>
-<span><span class="co">#&gt;   id       model_type  country   region    taxa   pub_id          model      family_name covt_name pub_year</span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;       &lt;list&gt;    &lt;list&gt;    &lt;list&gt; &lt;chr&gt;           &lt;list&gt;     &lt;list&gt;      &lt;list&gt;       &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt; 1 cc2078aa site index  &lt;chr [1]&gt; &lt;chr [2]&gt; &lt;Taxa&gt; barrett_1978    &lt;FxdEffcM&gt; &lt;chr [1]&gt;   &lt;chr [2]&gt;     1978</span></span>
-<span><span class="co">#&gt; 2 f50865ee stem volume &lt;chr [1]&gt; &lt;chr [1]&gt; &lt;Taxa&gt; bell_1981       &lt;FxdEffcM&gt; &lt;chr [3]&gt;   &lt;chr [2]&gt;     1981</span></span>
-<span><span class="co">#&gt; 3 4d35d681 taper       &lt;chr [2]&gt; &lt;chr [3]&gt; &lt;Taxa&gt; bluhm_2007      &lt;FxdEffcM&gt; &lt;chr [3]&gt;   &lt;chr [4]&gt;     2007</span></span>
-<span><span class="co">#&gt; 4 b6f386fa stem volume &lt;chr [2]&gt; &lt;chr [3]&gt; &lt;Taxa&gt; bruce_1974      &lt;FxdEffcM&gt; &lt;chr [2]&gt;   &lt;chr [2]&gt;     1974</span></span>
-<span><span class="co">#&gt; 5 2b41ab4d stem volume &lt;chr [2]&gt; &lt;chr [3]&gt; &lt;Taxa&gt; bruce_1974      &lt;FxdEffcM&gt; &lt;chr [2]&gt;   &lt;chr [2]&gt;     1974</span></span>
-<span><span class="co">#&gt; 6 af0f8fc9 stem volume &lt;chr [1]&gt; &lt;chr [2]&gt; &lt;Taxa&gt; chittester_1984 &lt;FxdEffcM&gt; &lt;chr [2]&gt;   &lt;chr [2]&gt;     1984</span></span></code></pre><p></p></div>
+<span><span class="co">#&gt;   id       model_type  country   region    taxa   pub_id       model      family_name covt_name pub_year</span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;       &lt;list&gt;    &lt;list&gt;    &lt;list&gt; &lt;chr&gt;        &lt;list&gt;     &lt;list&gt;      &lt;list&gt;       &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt; 1 cc2078aa site index  &lt;chr [1]&gt; &lt;chr [2]&gt; &lt;Taxa&gt; barrett_1978 &lt;FxdEffcM&gt; &lt;chr [1]&gt;   &lt;chr [2]&gt;     1978</span></span>
+<span><span class="co">#&gt; 2 3955ab4f stem height &lt;chr [1]&gt; &lt;chr [3]&gt; &lt;Taxa&gt; barrett_2006 &lt;FxdEffcM&gt; &lt;chr [1]&gt;   &lt;chr [1]&gt;     2006</span></span>
+<span><span class="co">#&gt; 3 48b4aecf stem height &lt;chr [1]&gt; &lt;chr [3]&gt; &lt;Taxa&gt; barrett_2006 &lt;FxdEffcM&gt; &lt;chr [1]&gt;   &lt;chr [1]&gt;     2006</span></span>
+<span><span class="co">#&gt; 4 2fa084c2 stem height &lt;chr [1]&gt; &lt;chr [3]&gt; &lt;Taxa&gt; barrett_2006 &lt;FxdEffcM&gt; &lt;chr [1]&gt;   &lt;chr [1]&gt;     2006</span></span>
+<span><span class="co">#&gt; 5 7a585d5e stem height &lt;chr [1]&gt; &lt;chr [3]&gt; &lt;Taxa&gt; barrett_2006 &lt;FxdEffcM&gt; &lt;chr [1]&gt;   &lt;chr [1]&gt;     2006</span></span>
+<span><span class="co">#&gt; 6 499802e3 stem height &lt;chr [1]&gt; &lt;chr [3]&gt; &lt;Taxa&gt; barrett_2006 &lt;FxdEffcM&gt; &lt;chr [1]&gt;   &lt;chr [1]&gt;     2006</span></span></code></pre><p></p></div>
 <p>The columns are:</p><ul><li><p><code>id</code> - A unique ID for the model.</p></li>
 <li><p><code>model_type</code> - The type of model (e.g., stem volume, site index, etc.)</p></li>
 <li><p><code>country</code> - The country or countries from which the model data is from.</p></li>
@@ -134,16 +218,16 @@ may want models only authored by <code>"Hann"</code>. This is elementary to do i
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">hann_models</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 6 x 10</span></span>
-<span><span class="co">#&gt;   id       model_type  country   region    taxa   pub_id        model      family_name covt_name pub_year</span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;       &lt;list&gt;    &lt;list&gt;    &lt;list&gt; &lt;chr&gt;         &lt;list&gt;     &lt;list&gt;      &lt;list&gt;       &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt; 1 ec95c2a9 site index  &lt;chr [1]&gt; &lt;chr [1]&gt; &lt;Taxa&gt; hann_1987     &lt;FxdEffcM&gt; &lt;chr [3]&gt;   &lt;chr [2]&gt;     1987</span></span>
-<span><span class="co">#&gt; 2 31e0df77 site index  &lt;chr [1]&gt; &lt;chr [1]&gt; &lt;Taxa&gt; hann_1987     &lt;FxdEffcM&gt; &lt;chr [3]&gt;   &lt;chr [2]&gt;     1987</span></span>
-<span><span class="co">#&gt; 3 67dd4283 stem height &lt;chr [1]&gt; &lt;chr [1]&gt; &lt;Taxa&gt; temesgen_2008 &lt;FxdEffcM&gt; &lt;chr [3]&gt;   &lt;chr [1]&gt;     2008</span></span>
-<span><span class="co">#&gt; 4 e61ccb1a stem height &lt;chr [1]&gt; &lt;chr [1]&gt; &lt;Taxa&gt; temesgen_2008 &lt;MxdEffcM&gt; &lt;chr [3]&gt;   &lt;chr [1]&gt;     2008</span></span>
-<span><span class="co">#&gt; 5 33086b79 stem height &lt;chr [1]&gt; &lt;chr [1]&gt; &lt;Taxa&gt; temesgen_2008 &lt;MxdEffcM&gt; &lt;chr [3]&gt;   &lt;chr [1]&gt;     2008</span></span>
-<span><span class="co">#&gt; 6 2307ce79 stem height &lt;chr [1]&gt; &lt;chr [1]&gt; &lt;Taxa&gt; temesgen_2008 &lt;FxdEffcM&gt; &lt;chr [3]&gt;   &lt;chr [3]&gt;     2008</span></span>
+<span><span class="co">#&gt;   id       model_type  country   region    taxa   pub_id    model      family_name covt_name pub_year</span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;       &lt;list&gt;    &lt;list&gt;    &lt;list&gt; &lt;chr&gt;     &lt;list&gt;     &lt;list&gt;      &lt;list&gt;       &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt; 1 8970949f stem volume &lt;chr [1]&gt; &lt;chr [2]&gt; &lt;Taxa&gt; hann_1978 &lt;FxdEffcM&gt; &lt;chr [2]&gt;   &lt;chr [2]&gt;     1978</span></span>
+<span><span class="co">#&gt; 2 0d53539a stem volume &lt;chr [1]&gt; &lt;chr [2]&gt; &lt;Taxa&gt; hann_1978 &lt;FxdEffcM&gt; &lt;chr [2]&gt;   &lt;chr [2]&gt;     1978</span></span>
+<span><span class="co">#&gt; 3 0d109f2c stem volume &lt;chr [1]&gt; &lt;chr [2]&gt; &lt;Taxa&gt; hann_1978 &lt;FxdEffcM&gt; &lt;chr [2]&gt;   &lt;chr [2]&gt;     1978</span></span>
+<span><span class="co">#&gt; 4 86dcc7ff stem volume &lt;chr [1]&gt; &lt;chr [2]&gt; &lt;Taxa&gt; hann_1978 &lt;FxdEffcM&gt; &lt;chr [2]&gt;   &lt;chr [2]&gt;     1978</span></span>
+<span><span class="co">#&gt; 5 037a7989 stem volume &lt;chr [1]&gt; &lt;chr [2]&gt; &lt;Taxa&gt; hann_1978 &lt;FxdEffcM&gt; &lt;chr [2]&gt;   &lt;chr [2]&gt;     1978</span></span>
+<span><span class="co">#&gt; 6 02614f74 stem volume &lt;chr [1]&gt; &lt;chr [2]&gt; &lt;Taxa&gt; hann_1978 &lt;FxdEffcM&gt; &lt;chr [2]&gt;   &lt;chr [2]&gt;     1978</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">hann_models</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] 8</span></span></code></pre><p></p></div>
+<span><span class="co">#&gt; [1] 87</span></span></code></pre><p></p></div>
 <p>Picking apart the above code block, we see that we are using the standard
 <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">dplyr::filter</a></code> function on the <code>allometric_models</code> dataframe. The second
 argument is a call using <code>purrr:map_lgl</code>, which will map over each list
@@ -163,15 +247,19 @@ Using a simple modification we can easily do this.</p>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">hann_first_author_models</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 2 x 10</span></span>
-<span><span class="co">#&gt;   id       model_type country   region    taxa   pub_id    model      family_name covt_name pub_year</span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;      &lt;list&gt;    &lt;list&gt;    &lt;list&gt; &lt;chr&gt;     &lt;list&gt;     &lt;list&gt;      &lt;list&gt;       &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt; 1 ec95c2a9 site index &lt;chr [1]&gt; &lt;chr [1]&gt; &lt;Taxa&gt; hann_1987 &lt;FxdEffcM&gt; &lt;chr [3]&gt;   &lt;chr [2]&gt;     1987</span></span>
-<span><span class="co">#&gt; 2 31e0df77 site index &lt;chr [1]&gt; &lt;chr [1]&gt; &lt;Taxa&gt; hann_1987 &lt;FxdEffcM&gt; &lt;chr [3]&gt;   &lt;chr [2]&gt;     1987</span></span>
+<span><span class="co">#&gt; # A tibble: 6 x 10</span></span>
+<span><span class="co">#&gt;   id       model_type  country   region    taxa   pub_id    model      family_name covt_name pub_year</span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;       &lt;list&gt;    &lt;list&gt;    &lt;list&gt; &lt;chr&gt;     &lt;list&gt;     &lt;list&gt;      &lt;list&gt;       &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt; 1 8970949f stem volume &lt;chr [1]&gt; &lt;chr [2]&gt; &lt;Taxa&gt; hann_1978 &lt;FxdEffcM&gt; &lt;chr [2]&gt;   &lt;chr [2]&gt;     1978</span></span>
+<span><span class="co">#&gt; 2 0d53539a stem volume &lt;chr [1]&gt; &lt;chr [2]&gt; &lt;Taxa&gt; hann_1978 &lt;FxdEffcM&gt; &lt;chr [2]&gt;   &lt;chr [2]&gt;     1978</span></span>
+<span><span class="co">#&gt; 3 0d109f2c stem volume &lt;chr [1]&gt; &lt;chr [2]&gt; &lt;Taxa&gt; hann_1978 &lt;FxdEffcM&gt; &lt;chr [2]&gt;   &lt;chr [2]&gt;     1978</span></span>
+<span><span class="co">#&gt; 4 86dcc7ff stem volume &lt;chr [1]&gt; &lt;chr [2]&gt; &lt;Taxa&gt; hann_1978 &lt;FxdEffcM&gt; &lt;chr [2]&gt;   &lt;chr [2]&gt;     1978</span></span>
+<span><span class="co">#&gt; 5 037a7989 stem volume &lt;chr [1]&gt; &lt;chr [2]&gt; &lt;Taxa&gt; hann_1978 &lt;FxdEffcM&gt; &lt;chr [2]&gt;   &lt;chr [2]&gt;     1978</span></span>
+<span><span class="co">#&gt; 6 02614f74 stem volume &lt;chr [1]&gt; &lt;chr [2]&gt; &lt;Taxa&gt; hann_1978 &lt;FxdEffcM&gt; &lt;chr [2]&gt;   &lt;chr [2]&gt;     1978</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">hann_first_author_models</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] 2</span></span></code></pre><p></p></div>
+<span><span class="co">#&gt; [1] 50</span></span></code></pre><p></p></div>
 <p>We can see that <code>'Hann'</code> is the first author for
-2 models in this package.</p>
+50 models in this package.</p>
     </div>
     <div id="finding-models-for-a-given-species">
     <h2>Finding Models for a Given Species</h2>
@@ -185,16 +273,16 @@ to find models for the Pinus genus we can use</p>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">pinus_models</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 6 x 10</span></span>
-<span><span class="co">#&gt;   id       model_type  country   region    taxa   pub_id         model      family_name covt_name pub_year</span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;       &lt;list&gt;    &lt;list&gt;    &lt;list&gt; &lt;chr&gt;          &lt;list&gt;     &lt;list&gt;      &lt;list&gt;       &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt; 1 cc2078aa site index  &lt;chr [1]&gt; &lt;chr [2]&gt; &lt;Taxa&gt; barrett_1978   &lt;FxdEffcM&gt; &lt;chr [1]&gt;   &lt;chr [2]&gt;     1978</span></span>
-<span><span class="co">#&gt; 2 c3fd04ca site index  &lt;chr [1]&gt; &lt;chr [2]&gt; &lt;Taxa&gt; curtis_1990    &lt;FxdEffcM&gt; &lt;chr [3]&gt;   &lt;chr [2]&gt;     1990</span></span>
-<span><span class="co">#&gt; 3 8fd68f27 site index  &lt;chr [1]&gt; &lt;chr [1]&gt; &lt;Taxa&gt; dahms_1964     &lt;FxdEffcM&gt; &lt;chr [1]&gt;   &lt;chr [2]&gt;     1964</span></span>
-<span><span class="co">#&gt; 4 6de8b6e0 stem volume &lt;chr [1]&gt; &lt;chr [1]&gt; &lt;Taxa&gt; edminster_1980 &lt;FxdEffcM&gt; &lt;chr [3]&gt;   &lt;chr [2]&gt;     1980</span></span>
-<span><span class="co">#&gt; 5 d6eb507e stem volume &lt;chr [1]&gt; &lt;chr [1]&gt; &lt;Taxa&gt; edminster_1980 &lt;FxdEffcM&gt; &lt;chr [3]&gt;   &lt;chr [2]&gt;     1980</span></span>
-<span><span class="co">#&gt; 6 31e0df77 site index  &lt;chr [1]&gt; &lt;chr [1]&gt; &lt;Taxa&gt; hann_1987      &lt;FxdEffcM&gt; &lt;chr [3]&gt;   &lt;chr [2]&gt;     1987</span></span>
+<span><span class="co">#&gt;   id       model_type  country   region    taxa   pub_id       model      family_name covt_name pub_year</span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;       &lt;list&gt;    &lt;list&gt;    &lt;list&gt; &lt;chr&gt;        &lt;list&gt;     &lt;list&gt;      &lt;list&gt;       &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt; 1 cc2078aa site index  &lt;chr [1]&gt; &lt;chr [2]&gt; &lt;Taxa&gt; barrett_1978 &lt;FxdEffcM&gt; &lt;chr [1]&gt;   &lt;chr [2]&gt;     1978</span></span>
+<span><span class="co">#&gt; 2 502152d1 stem height &lt;chr [1]&gt; &lt;chr [3]&gt; &lt;Taxa&gt; barrett_2006 &lt;FxdEffcM&gt; &lt;chr [1]&gt;   &lt;chr [1]&gt;     2006</span></span>
+<span><span class="co">#&gt; 3 3fb70119 stem height &lt;chr [1]&gt; &lt;chr [3]&gt; &lt;Taxa&gt; barrett_2006 &lt;FxdEffcM&gt; &lt;chr [1]&gt;   &lt;chr [1]&gt;     2006</span></span>
+<span><span class="co">#&gt; 4 925de182 stem height &lt;chr [1]&gt; &lt;chr [3]&gt; &lt;Taxa&gt; barrett_2006 &lt;FxdEffcM&gt; &lt;chr [1]&gt;   &lt;chr [1]&gt;     2006</span></span>
+<span><span class="co">#&gt; 5 910dddb1 stem height &lt;chr [1]&gt; &lt;chr [3]&gt; &lt;Taxa&gt; barrett_2006 &lt;FxdEffcM&gt; &lt;chr [1]&gt;   &lt;chr [1]&gt;     2006</span></span>
+<span><span class="co">#&gt; 6 5b3e21e7 stem height &lt;chr [1]&gt; &lt;chr [3]&gt; &lt;Taxa&gt; barrett_2006 &lt;FxdEffcM&gt; &lt;chr [1]&gt;   &lt;chr [1]&gt;     2006</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">pinus_models</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] 29</span></span></code></pre><p></p></div>
+<span><span class="co">#&gt; [1] 293</span></span></code></pre><p></p></div>
 <p>Users can also search with a specific taxon, which allows a full
 specification from family to species. For example, if we want models that
 apply to Ponderosa pine, first declare the necessary taxon, then use it to
@@ -209,7 +297,7 @@ filter as before</p>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">ponderosa_models</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] 26</span></span></code></pre><p></p></div>
+<span><span class="co">#&gt; [1] 57</span></span></code></pre><p></p></div>
     </div>
     <div id="finding-a-model-with-specific-data-requirements">
     <h2>Finding a Model with Specific Data Requirements</h2>
@@ -225,7 +313,7 @@ limited by their available tree measurements.</p>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">dia_ht_models</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] 6</span></span></code></pre><p></p></div>
+<span><span class="co">#&gt; [1] 282</span></span></code></pre><p></p></div>
 <p>Breaking this down, we have the first condition <code>model_type=='stem_height'</code>
 selecting only models concerned with stem heights as a response variable. The
 second line maps over each element of the <code>covt_name</code> column, which is a
@@ -233,7 +321,7 @@ character vector. The <code>.</code> represents a given character vector for tha
 First, we ensure that the vector is only one element in size using
 <code>length(.)==1</code>, then we ensure that the first (and only) element of this
 vector is equal to <code>'dsob'</code>, (diameter outside bark at breast height). In
-this case, 6 are available in the package.</p>
+this case, 282 are available in the package.</p>
     </div>
     <div id="finding-a-model-for-a-region">
     <h2>Finding a Model for a Region</h2>
@@ -246,8 +334,8 @@ developed using data from <code>US-OR</code></p>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">us_or_models</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] 49</span></span></code></pre><p></p></div>
-<p>We can see that 49 allometric models are defined for the
+<span><span class="co">#&gt; [1] 536</span></span></code></pre><p></p></div>
+<p>We can see that 536 allometric models are defined for the
 state of Oregon, US.</p>
     </div>
 

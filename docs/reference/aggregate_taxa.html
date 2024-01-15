@@ -21,7 +21,7 @@ into the taxa data structure, which is a nested list composed of multiple
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">allometric</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.2.0</span>
       </span>
     </div>
 
@@ -79,7 +79,7 @@ into the taxa data structure, which is a nested list composed of multiple
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">aggregate_taxa</span><span class="op">(</span><span class="va">table</span>, remove_taxa_cols <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">aggregate_taxa</span><span class="op">(</span><span class="va">table</span>, grouping_col <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -88,9 +88,9 @@ into the taxa data structure, which is a nested list composed of multiple
 <dd><p>The table for which the taxa will be aggregated</p></dd>
 
 
-<dt>remove_taxa_cols</dt>
-<dd><p>Whether or not to remove the family, genus, and
-species columns after aggregation</p></dd>
+<dt>grouping_col</dt>
+<dd><p>An optional column to group on when creating taxa. Rows
+with the same grouping_col value will be stored into the same taxa.</p></dd>
 
 </dl></div>
     <div id="value">

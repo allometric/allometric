@@ -40,7 +40,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">allometric</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.2.0</span>
       </span>
     </div>
 
@@ -153,20 +153,21 @@ structured.</p>
 <p>All variable names begin with a “measure”. Measures describe the
 dimensional aspects of what is being measured for the variable. In the
 example above, we searched the naming system for <code>d</code>
-(diameter) measures, but others are available. There are 9 established
+(diameter) measures, but others are available. There are 10 established
 measures:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/get_measure_defs.html">get_measure_defs</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">##   measure measure_name</span></span>
-<span><span class="co">## 1       a          age</span></span>
-<span><span class="co">## 2       b      biomass</span></span>
-<span><span class="co">## 3       d     diameter</span></span>
-<span><span class="co">## 4       e      density</span></span>
-<span><span class="co">## 5       g   basal area</span></span>
-<span><span class="co">## 6       h       height</span></span>
-<span><span class="co">## 7       r        ratio</span></span>
-<span><span class="co">## 8       v       volume</span></span>
-<span><span class="co">## 9       n        angle</span></span></code></pre>
+<pre><code><span><span class="co">##    measure measure_name</span></span>
+<span><span class="co">## 1        a          age</span></span>
+<span><span class="co">## 2        b      biomass</span></span>
+<span><span class="co">## 3        d     diameter</span></span>
+<span><span class="co">## 4        e      density</span></span>
+<span><span class="co">## 5        g   basal area</span></span>
+<span><span class="co">## 6        h       height</span></span>
+<span><span class="co">## 7        r        ratio</span></span>
+<span><span class="co">## 8        v       volume</span></span>
+<span><span class="co">## 9        n        angle</span></span>
+<span><span class="co">## 10       t  temperature</span></span></code></pre>
 <p>We recognize that the use of “measure” here is somewhat loose (e.g.,
 diameter and height are both <em>measures</em> of length). However, the
 variable naming system is meant to preserve at least some connection to
