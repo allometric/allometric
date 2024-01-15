@@ -1,5 +1,39 @@
 # allometric changelog
 
+# [2.2.0](https://github.com/allometric/allometric/compare/v2.1.0...v2.2.0) (2024-01-15)
+
+
+### Bug Fixes
+
+* refactoring rwd and rws, closes [#181](https://github.com/allometric/allometric/issues/181) ([6c7979e](https://github.com/allometric/allometric/commit/6c7979e1365498a9424d4196e7d6344ecde88c15))
+
+
+### Features
+
+* added mean annual temperature (tlt) and mean annual precipitation (hlp) variable names ([0445628](https://github.com/allometric/allometric/commit/0445628a11713855a59d938612a2dd171406ba5b))
+* added the ability to group parameter frames by a taxa ID column ([c3f4121](https://github.com/allometric/allometric/commit/c3f4121552c594a669afec4b7b7eca19e84f987e))
+* implemented direct models.RDS downloads, which greatly speed up model installation ([f257a5d](https://github.com/allometric/allometric/commit/f257a5ddc4749467de82fd8a3fde1df643269c11))
+* implemented direct models.RDS downloads, which greatly speed up model installation ([edcf173](https://github.com/allometric/allometric/commit/edcf173bb62782525ac7e580211bb272d3052519))
+* ingest_models is now exported, which allows users to run local publication and parameter files ([1432808](https://github.com/allometric/allometric/commit/14328089b0cfb7f8c4f57f9ea976bf0c620c3e8d))
+* ingest_models is now exported, which allows users to run local publication and parameter files ([fa19690](https://github.com/allometric/allometric/commit/fa19690a7152481f37069aea5246dc6bf563844b))
+
+# [2.2.0](https://github.com/allometric/allometric/compare/v2.1.0...v2.2.0) (2024-01-15)
+
+
+### Bug Fixes
+
+* refactoring rwd and rws, closes [#181](https://github.com/allometric/allometric/issues/181) ([6c7979e](https://github.com/allometric/allometric/commit/6c7979e1365498a9424d4196e7d6344ecde88c15))
+
+
+### Features
+
+* added mean annual temperature (tlt) and mean annual precipitation (hlp) variable names ([0445628](https://github.com/allometric/allometric/commit/0445628a11713855a59d938612a2dd171406ba5b))
+* added the ability to group parameter frames by a taxa ID column ([c3f4121](https://github.com/allometric/allometric/commit/c3f4121552c594a669afec4b7b7eca19e84f987e))
+* implemented direct models.RDS downloads, which greatly speed up model installation ([f257a5d](https://github.com/allometric/allometric/commit/f257a5ddc4749467de82fd8a3fde1df643269c11))
+* implemented direct models.RDS downloads, which greatly speed up model installation ([edcf173](https://github.com/allometric/allometric/commit/edcf173bb62782525ac7e580211bb272d3052519))
+* ingest_models is now exported, which allows users to run local publication and parameter files ([1432808](https://github.com/allometric/allometric/commit/14328089b0cfb7f8c4f57f9ea976bf0c620c3e8d))
+* ingest_models is now exported, which allows users to run local publication and parameter files ([fa19690](https://github.com/allometric/allometric/commit/fa19690a7152481f37069aea5246dc6bf563844b))
+
 # [2.1.0](https://github.com/allometric/allometric/compare/v2.0.0...v2.1.0) (2023-11-07)
 
 
