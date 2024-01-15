@@ -7,3 +7,4 @@ b,t,,tree biomass
 b,r,,root biomass
 b,s,i,stem biomass without bark
 b,h,,shrub biomass
+b,s,r,stem + branch biomass
