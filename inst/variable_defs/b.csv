@@ -1,6 +1,8 @@
 measure,component,modifier,description
 b,s,,stem biomass
 b,b,,branch biomass
+b,b,l, live branch biomass
+b,b,d, dead branch biomass
 b,f,,foliage biomass
 b,k,,bark biomass
 b,t,,tree biomass

@@ -10,3 +10,4 @@ r,w,s,wood specific gravity
 r,s,vg,volume to basal area ratio
 r,s,k,bark correction factor
 r,v,,ratio of forest cover
+r,f,a,leaf area
