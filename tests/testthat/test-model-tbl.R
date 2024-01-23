@@ -105,7 +105,7 @@ test_that("merging with model_tbl returns model_tbl", {
 })
 
 
-test_that("expand_taxa correctly expands the taxa column", {
+test_that("unnest_taxa correctly expands the taxa column", {
   test_model_tbl_one <- new_model_tbl(
     tibble::tibble(model = c(fixed_effects_model), dsob = 1, class = "a")
   )

@@ -1,5 +1,5 @@
 measure,component,modifier,description
-n,o,a,latitude
+n,o,l,latitude
 n,o,o,longitude
 n,o,s,slope
 n,o,a,aspect
