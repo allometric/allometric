@@ -1,5 +1,19 @@
 # allometric changelog
 
+# [2.3.0](https://github.com/allometric/allometric/compare/v2.2.0...v2.3.0) (2024-02-04)
+
+
+### Bug Fixes
+
+* removed 'en' from variable definitions, which is a deprecated name for stem density, use 'es' instead ([e88be95](https://github.com/allometric/allometric/commit/e88be958386b8b27c93c7bd90e885c819c1c8b9b))
+* removed duplicate 'noa' variable names ([8b5f18a](https://github.com/allometric/allometric/commit/8b5f18ab28357c2e020ee330dbd13dd9e937c93b))
+
+
+### Features
+
+* added leaf area (rfa), live branch biomass (bbl), and dead branch biomass (bbd) variable names ([d12d5f7](https://github.com/allometric/allometric/commit/d12d5f76a0aa7f5c741aa76bfef2ebbefffc61be))
+* added stem + branch biomass variable name (bsr) ([8f85160](https://github.com/allometric/allometric/commit/8f8516049d12766ac489c58fa26e87e3148b260d))
+
 # [2.2.0](https://github.com/allometric/allometric/compare/v2.1.0...v2.2.0) (2024-01-15)
 
 
