@@ -37,6 +37,7 @@ summ_categories <- data.frame(
 model_summ <- allometric_models %>%
   unnest_models("country") %>%
   left_join(continents, by = c("country" = "iso_3166_1_a2")) %>%
+  distinct(id, model_type, continent) %>%
   group_by(model_type, continent) %>%
   summarise(n=n()) %>%
   merge(summ_categories, all.x=T)

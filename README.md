@@ -222,22 +222,22 @@ more complex examples.
 
 In total **`allometric` contains 2789 models across 70 publications**.
 
-| category                |  AS |    EU |  NA |  SA |  AF |  OC |
-|:------------------------|----:|------:|----:|----:|----:|----:|
-| biomass component       | 543 | 13061 | 446 |   0 |   0 |   0 |
-| crown diameter          |   0 |    12 |  36 |   0 |   0 |   0 |
-| crown height            |   0 |    12 |   0 |   0 |   0 |   0 |
-| shrub biomass           |   0 |    19 |   0 |   0 |   0 |   0 |
-| shrub biomass increment |   0 |    28 |   0 |   0 |   0 |   0 |
-| shrub diameter          |   0 |    39 |   0 |   0 |   0 |   0 |
-| shrub height            |   0 |    28 |   0 |   0 |   0 |   0 |
-| site index              |   0 |     0 |  55 |   0 |   0 |   0 |
-| stem height             |   7 |     0 | 385 |  19 |  12 |   2 |
-| stem volume             |   4 |     0 | 575 |  21 |   0 |   0 |
-| stump volume            |   0 |     0 |  64 |   0 |   0 |   0 |
-| taper                   |   2 |     0 |  18 |   0 |   0 |   0 |
-| tree biomass            |  61 |  1511 | 111 |  17 |   0 |  21 |
-| other                   |   0 |     0 | 168 |  35 |   0 |   0 |
+| category                |  AS |  EU |  NA |  SA |  AF |  OC |
+|:------------------------|----:|----:|----:|----:|----:|----:|
+| biomass component       | 543 | 653 | 442 |   0 |   0 |   0 |
+| crown diameter          |   0 |  12 |  36 |   0 |   0 |   0 |
+| crown height            |   0 |  12 |   0 |   0 |   0 |   0 |
+| shrub biomass           |   0 |  19 |   0 |   0 |   0 |   0 |
+| shrub biomass increment |   0 |  28 |   0 |   0 |   0 |   0 |
+| shrub diameter          |   0 |  39 |   0 |   0 |   0 |   0 |
+| shrub height            |   0 |  28 |   0 |   0 |   0 |   0 |
+| site index              |   0 |   0 |  54 |   0 |   0 |   0 |
+| stem height             |   4 |   0 | 385 |   7 |   5 |   2 |
+| stem volume             |   4 |   0 | 545 |  21 |   0 |   0 |
+| stump volume            |   0 |   0 |  64 |   0 |   0 |   0 |
+| taper                   |   2 |   0 |  16 |   0 |   0 |   0 |
+| tree biomass            |  61 |  95 |  66 |  17 |   0 |  21 |
+| other                   |   0 |   0 | 164 |  35 |   0 |   0 |
 
 ## How Can I Help?
 
