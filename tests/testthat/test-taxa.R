@@ -76,14 +76,14 @@ test_that("aggregate_taxa creates correct Taxa and Taxon grouping", {
   agg_table_12 <- test_table_together %>% aggregate_taxa()
 
   expect_equal(nrow(agg_table_1), 1)
-  
+ 
   expect_s4_class(agg_table_1$taxa[[1]], "Taxa")
   expect_s4_class(agg_table_1$taxa[[1]][[1]], "Taxon")
 
   expect_equal(nrow(agg_table_12), 2)
   expect_equal(length(agg_table_12$taxa[[1]]), 1)
   expect_s4_class(agg_table_12$taxa[[1]], "Taxa")
-  
+ 
   expect_s4_class(agg_table_12$taxa[[1]][[1]], "Taxon")
 })
 
