@@ -4,7 +4,7 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/allometric/allometric/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/allometric/allometric/actions/workflows/check-standard.yaml)
-[![](https://img.shields.io/badge/devel%20version-2.2.0-blue.svg)](https://github.com/allometric/allometric)
+[![](https://img.shields.io/badge/devel%20version-2.3.0-blue.svg)](https://github.com/allometric/allometric)
 [![codecov](https://codecov.io/gh/allometric/allometric/branch/master/graph/badge.svg?token=3V5KUFMO2X)](https://app.codecov.io/gh/allometric/allometric)
 <!-- badges: end -->
 
@@ -22,7 +22,7 @@ process please refer to the [Contributing a
 Model](https://allometric.org/articles/installing_a_model.html)
 vignette.
 
-In total **`allometric` contains 2213 models across 69 publications**,
+In total **`allometric` contains 2789 models across 70 publications**,
 refer to the [Current Status](#current-status) for a more complete view
 of available models.
 
@@ -220,24 +220,24 @@ more complex examples.
 
 ## Current Status
 
-In total **`allometric` contains 2213 models across 69 publications**.
+In total **`allometric` contains 2789 models across 70 publications**.
 
-| category                |  AS |  EU |  NA |  SA |  AF |  OC |
-|:------------------------|----:|----:|----:|----:|----:|----:|
-| biomass component       |  26 | 136 | 446 |   0 |   0 |   0 |
-| crown diameter          |   0 |  12 |  36 |   0 |   0 |   0 |
-| crown height            |   0 |  12 |   0 |   0 |   0 |   0 |
-| shrub biomass           |   0 |  19 |   0 |   0 |   0 |   0 |
-| shrub biomass increment |   0 |  28 |   0 |   0 |   0 |   0 |
-| shrub diameter          |   0 |  39 |   0 |   0 |   0 |   0 |
-| shrub height            |   0 |  28 |   0 |   0 |   0 |   0 |
-| site index              |   0 |   0 |  55 |   0 |   0 |   0 |
-| stem height             |   7 |   0 | 385 |  19 |  12 |   2 |
-| stem volume             |   4 |   0 | 575 |  21 |   0 |   0 |
-| stump volume            |   0 |   0 |  64 |   0 |   0 |   0 |
-| taper                   |   2 |   0 |  18 |   0 |   0 |   0 |
-| tree biomass            |   2 |  36 | 111 |  17 |   0 |  21 |
-| other                   |   0 |   0 | 168 |  35 |   0 |   0 |
+| category                |  AS |    EU |  NA |  SA |  AF |  OC |
+|:------------------------|----:|------:|----:|----:|----:|----:|
+| biomass component       | 543 | 13061 | 446 |   0 |   0 |   0 |
+| crown diameter          |   0 |    12 |  36 |   0 |   0 |   0 |
+| crown height            |   0 |    12 |   0 |   0 |   0 |   0 |
+| shrub biomass           |   0 |    19 |   0 |   0 |   0 |   0 |
+| shrub biomass increment |   0 |    28 |   0 |   0 |   0 |   0 |
+| shrub diameter          |   0 |    39 |   0 |   0 |   0 |   0 |
+| shrub height            |   0 |    28 |   0 |   0 |   0 |   0 |
+| site index              |   0 |     0 |  55 |   0 |   0 |   0 |
+| stem height             |   7 |     0 | 385 |  19 |  12 |   2 |
+| stem volume             |   4 |     0 | 575 |  21 |   0 |   0 |
+| stump volume            |   0 |     0 |  64 |   0 |   0 |   0 |
+| taper                   |   2 |     0 |  18 |   0 |   0 |   0 |
+| tree biomass            |  61 |  1511 | 111 |  17 |   0 |  21 |
+| other                   |   0 |     0 | 168 |  35 |   0 |   0 |
 
 ## How Can I Help?
 
