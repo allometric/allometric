@@ -109,13 +109,35 @@ aggregate_pub_models <- function(pub) {
   dplyr::bind_rows(agg_models)
 }
 
+#' Replaces the models within a publication in the remote MongoDB.
+#'
+#' @pub A publication object
+#' @con A MongoDB connection
+replace_pub_models <- function(pub, con) {
+  response_sets <- pub@response_sets
+  for (i in seq_along(response_sets)) {
+    response_set <- response_sets[[i]]
+    for (j in seq_along(response_set)) {
+      model_set <- response_set[[j]]
+      for (k in seq_along(model_set@models)) {
+        model <- model_set@models[[k]]
+        model_json <- model_to_json(model)
+
+        remove_str <- paste0('{"model_id":{"$eq":"', model_json$model_id, '"}}')
+        con$remove(remove_str)
+        con$insert(model_json)
+      }
+    }
+  }
+
+}
+
 #' Iteratively process publication files
 #'
 #' This function allows a user to flexibly extract information as it loops over
 #' the publication files. Two main internal use-cases exist for this. First,
 #' it is used to install models as is done in `insall_models()` and, second,
-#' it is used to populate the remote MongoDB. Most users will not be interested
-#' in this function, but it is exposed for usage in the `allodata` package.
+#' it is used to populate the remote MongoDB. 
 #'
 #' @param verbose Whether or not to print verbose messages to console
 #' @param func The publication processing function. It should take a Publication
@@ -125,7 +147,7 @@ aggregate_pub_models <- function(pub) {
 #' @param params_path An optional path to a parameters directory, by
 #' default the internally stored set of parameter files is used.
 #' @export
-map_publications <- function(verbose, func, pub_path = NULL, params_path = NULL) {
+map_publications <- function(verbose, func, ..., pub_path = NULL, params_path = NULL) {
   if(is.null(pub_path)) {
     pub_path <- system.file("models-main/publications", package = "allometric")
   }
@@ -137,6 +159,7 @@ map_publications <- function(verbose, func, pub_path = NULL, params_path = NULL)
   pub_specs <- get_pub_file_specs(pub_path)
 
   n_pubs <- length(pub_specs$pub_paths)
+  n_pubs <- 5
 
   pb <- progress::progress_bar$new(
     format = "Running publication file: :pub_id [:bar] :percent",
@@ -156,7 +179,7 @@ map_publications <- function(verbose, func, pub_path = NULL, params_path = NULL)
     tryCatch({
       source(pub_r_path, local = pub_env)
       pub <- get(pub_name, envir = pub_env)
-      output[[pub_name]] <- func(pub)
+      output[[pub_name]] <- func(pub, ...)
     }, error = function(e) {
       warning(
         paste(
@@ -176,12 +199,14 @@ map_publications <- function(verbose, func, pub_path = NULL, params_path = NULL)
     rm("pub_env")
   }
 
-  # reset the param search path
+  # Reset the param search path
   if(!is.null(params_path)) {
     set_params_path("pacakge")
   }
 
-  output
+  if(length(output) != 0) {
+    return(output)
+  }
 }
 
 #' Ingest a set of models by running the publication files
