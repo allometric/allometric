@@ -20,6 +20,7 @@ check_model_set_validity <- function(object) {
   ),
   validity = check_model_set_validity
 )
+
 #' Base class for model sets
 #'
 #' This class is primarily used as a parent class for other model set
