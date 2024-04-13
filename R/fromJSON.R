@@ -137,8 +137,7 @@ mixef_fromJSON <- function(parsed_json) {
   )
 }
 
-fromJSON <- function(json_data) {
-  parsed_json <- jsonlite::fromJSON(json_data, simplifyVector = TRUE, simplifyMatrix = FALSE, simplifyDataFrame = FALSE)
+fromJSON <- function(parsed_json) {
   model_class <- parsed_json$model_class
 
 

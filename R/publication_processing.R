@@ -159,7 +159,6 @@ map_publications <- function(verbose, func, ..., pub_path = NULL, params_path = 
   pub_specs <- get_pub_file_specs(pub_path)
 
   n_pubs <- length(pub_specs$pub_paths)
-  n_pubs <- 5
 
   pb <- progress::progress_bar$new(
     format = "Running publication file: :pub_id [:bar] :percent",
