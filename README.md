@@ -22,7 +22,7 @@ process please refer to the [Contributing a
 Model](https://allometric.org/articles/installing_a_model.html)
 vignette.
 
-In total **`allometric` contains 2789 models across 70 publications**,
+In total **`allometric` contains 2791 models across 72 publications**,
 refer to the [Current Status](#current-status) for a more complete view
 of available models.
 
@@ -62,12 +62,12 @@ head(allometric_models)
     #> # A tibble: 6 × 10
     #>   id    model_type country region taxa   pub_id model      family_name covt_name
     #>   <chr> <chr>      <list>  <list> <list> <chr>  <list>     <list>      <list>   
-    #> 1 cc20… site index <chr>   <chr>  <Taxa> barre… <FxdEffcM> <chr [1]>   <chr [2]>
-    #> 2 3955… stem heig… <chr>   <chr>  <Taxa> barre… <FxdEffcM> <chr [1]>   <chr [1]>
-    #> 3 48b4… stem heig… <chr>   <chr>  <Taxa> barre… <FxdEffcM> <chr [1]>   <chr [1]>
-    #> 4 2fa0… stem heig… <chr>   <chr>  <Taxa> barre… <FxdEffcM> <chr [1]>   <chr [1]>
-    #> 5 7a58… stem heig… <chr>   <chr>  <Taxa> barre… <FxdEffcM> <chr [1]>   <chr [1]>
-    #> 6 4998… stem heig… <chr>   <chr>  <Taxa> barre… <FxdEffcM> <chr [1]>   <chr [1]>
+    #> 1 76cc… site index <chr>   <chr>  <Taxa> barne… <FxdEffcM> <chr [1]>   <chr [2]>
+    #> 2 cc20… site index <chr>   <chr>  <Taxa> barre… <FxdEffcM> <chr [1]>   <chr [2]>
+    #> 3 3955… stem heig… <chr>   <chr>  <Taxa> barre… <FxdEffcM> <chr [1]>   <chr [1]>
+    #> 4 48b4… stem heig… <chr>   <chr>  <Taxa> barre… <FxdEffcM> <chr [1]>   <chr [1]>
+    #> 5 2fa0… stem heig… <chr>   <chr>  <Taxa> barre… <FxdEffcM> <chr [1]>   <chr [1]>
+    #> 6 7a58… stem heig… <chr>   <chr>  <Taxa> barre… <FxdEffcM> <chr [1]>   <chr [1]>
     #> # ℹ 1 more variable: pub_year <dbl>
 
 ## Finding a Model
@@ -220,7 +220,7 @@ more complex examples.
 
 ## Current Status
 
-In total **`allometric` contains 2789 models across 70 publications**.
+In total **`allometric` contains 2791 models across 72 publications**.
 
 | category                |  AS |  EU |  NA |  SA |  AF |  OC |
 |:------------------------|----:|----:|----:|----:|----:|----:|
@@ -231,7 +231,7 @@ In total **`allometric` contains 2789 models across 70 publications**.
 | shrub biomass increment |   0 |  28 |   0 |   0 |   0 |   0 |
 | shrub diameter          |   0 |  39 |   0 |   0 |   0 |   0 |
 | shrub height            |   0 |  28 |   0 |   0 |   0 |   0 |
-| site index              |   0 |   0 |  54 |   0 |   0 |   0 |
+| site index              |   0 |   0 |  56 |   0 |   0 |   0 |
 | stem height             |   4 |   0 | 385 |   7 |   5 |   2 |
 | stem volume             |   4 |   0 | 545 |  21 |   0 |   0 |
 | stump volume            |   0 |   0 |  64 |   0 |   0 |   0 |
