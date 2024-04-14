@@ -15,9 +15,3 @@ get_models <- function(country) {
   json <- jsonlite::fromJSON(rawToChar(res$content), simplifyDataFrame = FALSE)
   json_to_model_tbl(json)
 }
-
-t <- get_models("BR")
-
-t
-
-t$content
