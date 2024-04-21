@@ -7,6 +7,8 @@
 ingest_models(verbose, pub_path = NULL, params_path = NULL)
 }
 \arguments{
+\item{verbose}{If TRUE, print verbose messages}
+
 \item{pub_path}{A path to a directory containing publication files}
 
 \item{params_path}{A path to a directory containing parameter files}

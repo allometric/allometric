@@ -186,6 +186,7 @@ map_publications <- function(verbose, func, pub_path = NULL, params_path = NULL)
 
 #' Ingest a set of models by running the publication files
 #'
+#' @param verbose If TRUE, print verbose messages
 #' @param pub_path A path to a directory containing publication files
 #' @param params_path A path to a directory containing parameter files
 #' @export

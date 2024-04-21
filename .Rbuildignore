@@ -30,3 +30,4 @@
 ^run_docs\.R$
 ^\.env$
 ^CNAME$
+^cran-comments\.md$

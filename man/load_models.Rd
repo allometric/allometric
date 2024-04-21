@@ -108,12 +108,12 @@ head(allometric_models)
 #> # A tibble: 6 x 10
 #>   id       model_type  country   region    taxa   pub_id       model      family_name covt_name pub_year
 #>   <chr>    <chr>       <list>    <list>    <list> <chr>        <list>     <list>      <list>       <dbl>
-#> 1 cc2078aa site index  <chr [1]> <chr [2]> <Taxa> barrett_1978 <FxdEffcM> <chr [1]>   <chr [2]>     1978
-#> 2 3955ab4f stem height <chr [1]> <chr [3]> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
-#> 3 48b4aecf stem height <chr [1]> <chr [3]> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
-#> 4 2fa084c2 stem height <chr [1]> <chr [3]> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
-#> 5 7a585d5e stem height <chr [1]> <chr [3]> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
-#> 6 499802e3 stem height <chr [1]> <chr [3]> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
+#> 1 76ccc16a site index  <chr [1]> <chr [2]> <Taxa> barnes_1962  <FxdEffcM> <chr [1]>   <chr [2]>     1962
+#> 2 cc2078aa site index  <chr [1]> <chr [2]> <Taxa> barrett_1978 <FxdEffcM> <chr [1]>   <chr [2]>     1978
+#> 3 3955ab4f stem height <chr [1]> <chr [3]> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
+#> 4 48b4aecf stem height <chr [1]> <chr [3]> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
+#> 5 2fa084c2 stem height <chr [1]> <chr [3]> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
+#> 6 7a585d5e stem height <chr [1]> <chr [3]> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
 }\if{html}{\out{</div>}}
 
 The columns are:
@@ -222,7 +222,7 @@ head(pinus_models)
 #> 5 910dddb1 stem height <chr [1]> <chr [3]> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
 #> 6 5b3e21e7 stem height <chr [1]> <chr [3]> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
 nrow(pinus_models)
-#> [1] 293
+#> [1] 351
 }\if{html}{\out{</div>}}
 
 Users can also search with a specific taxon, which allows a full
@@ -282,10 +282,10 @@ developed using data from \code{US-OR}
 )
 
 nrow(us_or_models)
-#> [1] 536
+#> [1] 537
 }\if{html}{\out{</div>}}
 
-We can see that 536 allometric models are defined for the
+We can see that 537 allometric models are defined for the
 state of Oregon, US.
 }
 

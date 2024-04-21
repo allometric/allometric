@@ -105,7 +105,7 @@ aggregate_taxa <- function(table, grouping_col = NULL)
   table %>%
     dplyr::mutate(!!!stats::setNames(rep(list(NA), length(missing_taxon_fields)), missing_taxon_fields)) %>%
     dplyr::mutate(taxa_id = taxa_fill) %>%
-    dplyr::group_by(taxa_id) %>%
+    dplyr::group_by(.data$taxa_id) %>%
     dplyr::group_map(combine_taxa) %>%
     dplyr::bind_rows()
 }
