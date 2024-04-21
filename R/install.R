@@ -3,12 +3,12 @@ check_models_downloaded <- function(verbose) {
 
   if(model_dir_path == "") {
     if(verbose) {
-      cat("No previously downloaded models are found.\n")
+      cli::cli_alert_info("No previously downloaded models are found.")
     }
     return(FALSE)
   } else {
     if(verbose) {
-      cat("Previously downloaded models found.\n")
+      cli::cli_alert_info("Previously downloaded models found.")
     }
     return(TRUE)
   }
@@ -26,12 +26,12 @@ check_models_installed <- function(verbose = FALSE) {
 
   if(model_data_path == "") {
     if(verbose) {
-      cat("No installed models are found.\n")
+      cli::cli_alert_info("No installed models are found.")
     }
     return(FALSE)
   } else {
     if(verbose) {
-      cat("Installed models found.\n")
+      cli::cli_alert_info("Installed models found.")
     }
     return(TRUE)
   }
@@ -45,7 +45,7 @@ delete_models <- function(verbose) {
 
   if(models_path_check != "") {
     if(verbose) {
-      cat("Deleting models directory.\n")
+      cli::cli_alert_info("Deleting models directory.")
     }
 
     shell_command <- paste('rmdir /s /q "', models_path_check, '"', sep = "")
@@ -62,7 +62,7 @@ delete_models <- function(verbose) {
 
   if(model_list_path_check != "") {
     if(verbose) {
-      cat("Deleting model list.\n")
+      cli::cli_alert_info("Deleting model list.")
     }
     shell_command <- paste('rm "', model_list_path_check, '"', sep = "")
     shell(shell_command)
@@ -70,7 +70,7 @@ delete_models <- function(verbose) {
 
   if(pub_list_path_check != "") {
     if(verbose) {
-      cat("Deleting publication list.\n")
+      cli::cli_alert_info("Deleting publication list.")
     }
     shell_command <- paste('rm "', pub_list_path_check, '"', sep = "")
     shell(shell_command)
@@ -143,10 +143,12 @@ install_models <- function(ingest = FALSE, redownload = TRUE, verbose = TRUE) {
 
   if (verbose) {
     n_models <- nrow(models)
-    msg <- paste(
-      n_models,
-      "models are currently installed, use load_models() to view them.\n"
+
+    cli::cli_alert_success(
+      paste(
+        n_models,
+        "models were succesfully installed, use load_models() to access them."
+      )
     )
-    cat(msg)
   }
 }

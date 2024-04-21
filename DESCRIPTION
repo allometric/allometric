@@ -41,7 +41,8 @@ Imports:
     vctrs,
     openssl,
     curl,
-    jsonlite
+    jsonlite,
+    cli
 Collate:
     'all_generics.R'
     'validity_checks.R'
