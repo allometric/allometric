@@ -6,6 +6,8 @@
 [![R-CMD-check](https://github.com/allometric/allometric/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/allometric/allometric/actions/workflows/check-standard.yaml)
 [![](https://img.shields.io/badge/devel%20version-2.3.0-blue.svg)](https://github.com/allometric/allometric)
 [![codecov](https://codecov.io/gh/allometric/allometric/branch/master/graph/badge.svg?token=3V5KUFMO2X)](https://app.codecov.io/gh/allometric/allometric)
+\[![Static
+Badge](https://img.shields.io/badge/YouTube-red?link=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D0sCn58rJTl0%26ab_channel%3DBryceFrank)\]
 <!-- badges: end -->
 
 `allometric` is an R package for predicting tree attributes with
@@ -22,7 +24,7 @@ process please refer to the [Contributing a
 Model](https://allometric.org/articles/installing_a_model.html)
 vignette.
 
-In total **`allometric` contains 2791 models across 72 publications**,
+In total **`allometric` contains 2803 models across 73 publications**,
 refer to the [Current Status](#current-status) for a more complete view
 of available models.
 
@@ -220,11 +222,11 @@ more complex examples.
 
 ## Current Status
 
-In total **`allometric` contains 2791 models across 72 publications**.
+In total **`allometric` contains 2803 models across 73 publications**.
 
 | category                |  AS |  EU |  NA |  SA |  AF |  OC |
 |:------------------------|----:|----:|----:|----:|----:|----:|
-| biomass component       | 543 | 653 | 442 |   0 |   0 |   0 |
+| biomass component       | 543 | 653 | 442 |  10 |   0 |   0 |
 | crown diameter          |   0 |  12 |  36 |   0 |   0 |   0 |
 | crown height            |   0 |  12 |   0 |   0 |   0 |   0 |
 | shrub biomass           |   0 |  19 |   0 |   0 |   0 |   0 |
@@ -236,7 +238,7 @@ In total **`allometric` contains 2791 models across 72 publications**.
 | stem volume             |   4 |   0 | 545 |  21 |   0 |   0 |
 | stump volume            |   0 |   0 |  64 |   0 |   0 |   0 |
 | taper                   |   2 |   0 |  16 |   0 |   0 |   0 |
-| tree biomass            |  61 |  95 |  66 |  17 |   0 |  21 |
+| tree biomass            |  61 |  95 |  66 |  19 |   0 |  21 |
 | other                   |   0 |   0 | 164 |  35 |   0 |   0 |
 
 ## How Can I Help?

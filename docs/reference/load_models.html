@@ -180,12 +180,12 @@ data</p>
 <span><span class="co">#&gt; # A tibble: 6 x 10</span></span>
 <span><span class="co">#&gt;   id       model_type  country   region    taxa   pub_id       model      family_name covt_name pub_year</span></span>
 <span><span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;       &lt;list&gt;    &lt;list&gt;    &lt;list&gt; &lt;chr&gt;        &lt;list&gt;     &lt;list&gt;      &lt;list&gt;       &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt; 1 cc2078aa site index  &lt;chr [1]&gt; &lt;chr [2]&gt; &lt;Taxa&gt; barrett_1978 &lt;FxdEffcM&gt; &lt;chr [1]&gt;   &lt;chr [2]&gt;     1978</span></span>
-<span><span class="co">#&gt; 2 3955ab4f stem height &lt;chr [1]&gt; &lt;chr [3]&gt; &lt;Taxa&gt; barrett_2006 &lt;FxdEffcM&gt; &lt;chr [1]&gt;   &lt;chr [1]&gt;     2006</span></span>
-<span><span class="co">#&gt; 3 48b4aecf stem height &lt;chr [1]&gt; &lt;chr [3]&gt; &lt;Taxa&gt; barrett_2006 &lt;FxdEffcM&gt; &lt;chr [1]&gt;   &lt;chr [1]&gt;     2006</span></span>
-<span><span class="co">#&gt; 4 2fa084c2 stem height &lt;chr [1]&gt; &lt;chr [3]&gt; &lt;Taxa&gt; barrett_2006 &lt;FxdEffcM&gt; &lt;chr [1]&gt;   &lt;chr [1]&gt;     2006</span></span>
-<span><span class="co">#&gt; 5 7a585d5e stem height &lt;chr [1]&gt; &lt;chr [3]&gt; &lt;Taxa&gt; barrett_2006 &lt;FxdEffcM&gt; &lt;chr [1]&gt;   &lt;chr [1]&gt;     2006</span></span>
-<span><span class="co">#&gt; 6 499802e3 stem height &lt;chr [1]&gt; &lt;chr [3]&gt; &lt;Taxa&gt; barrett_2006 &lt;FxdEffcM&gt; &lt;chr [1]&gt;   &lt;chr [1]&gt;     2006</span></span></code></pre><p></p></div>
+<span><span class="co">#&gt; 1 76ccc16a site index  &lt;chr [1]&gt; &lt;chr [2]&gt; &lt;Taxa&gt; barnes_1962  &lt;FxdEffcM&gt; &lt;chr [1]&gt;   &lt;chr [2]&gt;     1962</span></span>
+<span><span class="co">#&gt; 2 cc2078aa site index  &lt;chr [1]&gt; &lt;chr [2]&gt; &lt;Taxa&gt; barrett_1978 &lt;FxdEffcM&gt; &lt;chr [1]&gt;   &lt;chr [2]&gt;     1978</span></span>
+<span><span class="co">#&gt; 3 3955ab4f stem height &lt;chr [1]&gt; &lt;chr [3]&gt; &lt;Taxa&gt; barrett_2006 &lt;FxdEffcM&gt; &lt;chr [1]&gt;   &lt;chr [1]&gt;     2006</span></span>
+<span><span class="co">#&gt; 4 48b4aecf stem height &lt;chr [1]&gt; &lt;chr [3]&gt; &lt;Taxa&gt; barrett_2006 &lt;FxdEffcM&gt; &lt;chr [1]&gt;   &lt;chr [1]&gt;     2006</span></span>
+<span><span class="co">#&gt; 5 2fa084c2 stem height &lt;chr [1]&gt; &lt;chr [3]&gt; &lt;Taxa&gt; barrett_2006 &lt;FxdEffcM&gt; &lt;chr [1]&gt;   &lt;chr [1]&gt;     2006</span></span>
+<span><span class="co">#&gt; 6 7a585d5e stem height &lt;chr [1]&gt; &lt;chr [3]&gt; &lt;Taxa&gt; barrett_2006 &lt;FxdEffcM&gt; &lt;chr [1]&gt;   &lt;chr [1]&gt;     2006</span></span></code></pre><p></p></div>
 <p>The columns are:</p><ul><li><p><code>id</code> - A unique ID for the model.</p></li>
 <li><p><code>model_type</code> - The type of model (e.g., stem volume, site index, etc.)</p></li>
 <li><p><code>country</code> - The country or countries from which the model data is from.</p></li>
@@ -282,7 +282,7 @@ to find models for the Pinus genus we can use</p>
 <span><span class="co">#&gt; 5 910dddb1 stem height &lt;chr [1]&gt; &lt;chr [3]&gt; &lt;Taxa&gt; barrett_2006 &lt;FxdEffcM&gt; &lt;chr [1]&gt;   &lt;chr [1]&gt;     2006</span></span>
 <span><span class="co">#&gt; 6 5b3e21e7 stem height &lt;chr [1]&gt; &lt;chr [3]&gt; &lt;Taxa&gt; barrett_2006 &lt;FxdEffcM&gt; &lt;chr [1]&gt;   &lt;chr [1]&gt;     2006</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">pinus_models</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] 293</span></span></code></pre><p></p></div>
+<span><span class="co">#&gt; [1] 351</span></span></code></pre><p></p></div>
 <p>Users can also search with a specific taxon, which allows a full
 specification from family to species. For example, if we want models that
 apply to Ponderosa pine, first declare the necessary taxon, then use it to
@@ -334,8 +334,8 @@ developed using data from <code>US-OR</code></p>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">us_or_models</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] 536</span></span></code></pre><p></p></div>
-<p>We can see that 536 allometric models are defined for the
+<span><span class="co">#&gt; [1] 537</span></span></code></pre><p></p></div>
+<p>We can see that 537 allometric models are defined for the
 state of Oregon, US.</p>
     </div>
 
