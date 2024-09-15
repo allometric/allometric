@@ -10,5 +10,8 @@ set_params_path(params_path)
 \item{params_path}{The file path containing parameter files}
 }
 \description{
-Set the parameter search path
+The parameter search path is where \code{allometric} looks for parameter frames.
+By default, the package searches the local installation, however it is
+useful when testing publication files to search a local directory, which
+can be set here.
 }

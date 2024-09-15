@@ -13,7 +13,9 @@ load_parameter_frame(name)
 A tibble::tbl_df of the parameter data.
 }
 \description{
-This is a convenience that allows a user to easily load parameter files from
-the models/parameters directory. It is typically used when constructing
-the \code{model_specifications} argument for \code{ModelSet}.
+This is a convenience function that allows a user to easily load parameter
+files from a directory, and is typically used when creating
+\code{FixedEffectsSet}. By default the function will load parameter frames
+from an existing \code{allometric} installation. For the purposes of testing
+publication files locally, refer to \code{set_params_path}.
 }

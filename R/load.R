@@ -1,8 +1,10 @@
 #' Load a parameter frame from the models/parameters directory
 #'
-#' This is a convenience that allows a user to easily load parameter files from
-#' the models/parameters directory. It is typically used when constructing
-#' the `model_specifications` argument for `ModelSet`.
+#' This is a convenience function that allows a user to easily load parameter
+#' files from a directory, and is typically used when creating
+#' `FixedEffectsSet`. By default the function will load parameter frames
+#' from an existing `allometric` installation. For the purposes of testing
+#' publication files locally, refer to `set_params_path`.
 #'
 #' @param name The name of the file, excluding the extension
 #' @return A tibble::tbl_df of the parameter data.
@@ -25,6 +27,11 @@ load_parameter_frame <- function(name) {
 }
 
 #' Set the parameter search path
+#'
+#' The parameter search path is where `allometric` looks for parameter frames.
+#' By default, the package searches the local installation, however it is
+#' useful when testing publication files to search a local directory, which
+#' can be set here.
 #'
 #' @param params_path The file path containing parameter files
 #' @export
