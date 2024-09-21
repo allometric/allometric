@@ -146,3 +146,20 @@ setGeneric(
   "toJSON",
   function(object, ...) standardGeneric("toJSON")
 )
+
+#' Hashes a function string
+#'
+#' We need some sort of stable data structure that will serve as a unique ID
+#' for a model, but will also change in the event that the model changes. This
+#' way, models can be "versioned" across time, which may be useful for debugging
+#' purposes down the line. This function trims whitespace and lowercases
+#' the predict_fn_populated pasted with the descriptors, which serves as a
+#' reasonable proxy for the model.
+#'
+#' @keywords internal
+get_model_hash <- function(predict_fn_populated, descriptors) {
+  descriptors_string <- gsub(" ", "", tolower(paste(descriptors, collapse = "")))
+  fn_string <- gsub(" ", "", tolower(paste(deparse(predict_fn_populated), collapse = "")))
+  hash_str <- paste(descriptors_string, fn_string, sep = "")
+  as.character(openssl::md5(hash_str))
+}
