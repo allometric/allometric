@@ -21,89 +21,62 @@ data
 
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{allometric_models <- load_models()
 #> Warning in readRDS(rds_path): strings not representable in native encoding will be translated to UTF-8
-#> Warning in readRDS(rds_path): input string 'Málaga' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-
-#> Warning in readRDS(rds_path): input string 'Málaga' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-#> Warning in readRDS(rds_path): input string 'Cáceres' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-#> Warning in readRDS(rds_path): input string 'Málaga' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-#> Warning in readRDS(rds_path): input string 'Cáceres' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-#> Warning in readRDS(rds_path): input string 'Málaga' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-#> Warning in readRDS(rds_path): input string 'Cáceres' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-#> Warning in readRDS(rds_path): input string 'Málaga' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-
-#> Warning in readRDS(rds_path): input string 'Málaga' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-
-#> Warning in readRDS(rds_path): input string 'Málaga' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-
-#> Warning in readRDS(rds_path): input string 'Málaga' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-
-#> Warning in readRDS(rds_path): input string 'Málaga' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-#> Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-
-#> Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-
-#> Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-#> Warning in readRDS(rds_path): input string 'Málaga' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-
-#> Warning in readRDS(rds_path): input string 'Málaga' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-
-#> Warning in readRDS(rds_path): input string 'Málaga' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-
-#> Warning in readRDS(rds_path): input string 'Málaga' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-#> Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-
-#> Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-
-#> Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-
-#> Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-
-#> Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-
-#> Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-
-#> Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-
-#> Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-#> Warning in readRDS(rds_path): input string 'Cáceres' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-
-#> Warning in readRDS(rds_path): input string 'Cáceres' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-
-#> Warning in readRDS(rds_path): input string 'Cáceres' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-
-#> Warning in readRDS(rds_path): input string 'Cáceres' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-
-#> Warning in readRDS(rds_path): input string 'Cáceres' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-
-#> Warning in readRDS(rds_path): input string 'Cáceres' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-#> Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-
-#> Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-
-#> Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-
-#> Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-#> Warning in readRDS(rds_path): input string 'Málaga' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-#> Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-
-#> Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-#> Warning in readRDS(rds_path): input string 'Cáceres' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-#> Warning in readRDS(rds_path): input string 'Málaga' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-#> Warning in readRDS(rds_path): input string 'Cáceres' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-#> Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-#> Warning in readRDS(rds_path): input string 'Málaga' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-#> Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-#> Warning in readRDS(rds_path): input string 'Cáceres' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-#> Warning in readRDS(rds_path): input string 'Málaga' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-#> Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-#> Warning in readRDS(rds_path): input string 'Málaga' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-#> Warning in readRDS(rds_path): input string 'Cáceres' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-#> Warning in readRDS(rds_path): input string 'Málaga' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-#> Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-#> Warning in readRDS(rds_path): input string 'Cáceres' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-#> Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
-
-#> Warning in readRDS(rds_path): input string 'Cádiz' cannot be translated to UTF-8, is it valid in 'UTF-8' ?
+#> Warning in readRDS(rds_path): input string 'M<e1>laga' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'M<e1>laga' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'C<e1>ceres' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'M<e1>laga' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'C<e1>ceres' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'M<e1>laga' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'C<e1>ceres' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'M<e1>laga' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'M<e1>laga' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'M<e1>laga' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'M<e1>laga' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'M<e1>laga' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'M<e1>laga' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'M<e1>laga' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'M<e1>laga' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'M<e1>laga' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'C<e1>ceres' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'C<e1>ceres' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'C<e1>ceres' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'C<e1>ceres' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'C<e1>ceres' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'C<e1>ceres' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'M<e1>laga' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'C<e1>ceres' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'M<e1>laga' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'C<e1>ceres' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'M<e1>laga' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'C<e1>ceres' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'M<e1>laga' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'M<e1>laga' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'C<e1>ceres' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'M<e1>laga' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'C<e1>ceres' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
 head(allometric_models)
 #> # A tibble: 6 x 10
 #>   id       model_type  country   region    taxa   pub_id       model      family_name covt_name pub_year

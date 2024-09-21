@@ -97,6 +97,7 @@ combine_taxa <- function(data, key) {
 #' @param grouping_col An optional column to group on when creating taxa. Rows
 #'  with the same grouping_col value will be stored into the same taxa.
 #' @return A tibble with family, genus, and species columns added
+#' @export
 aggregate_taxa <- function(table, grouping_col = NULL)
   {
   default_taxon_fields <- c("family", "genus", "species")
