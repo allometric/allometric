@@ -4,7 +4,7 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/allometric/allometric/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/allometric/allometric/actions/workflows/check-standard.yaml)
-[![](https://img.shields.io/badge/devel%20version-2.3.0-blue.svg)](https://github.com/allometric/allometric)
+[![](https://img.shields.io/badge/devel%20version-3.0.0-blue.svg)](https://github.com/allometric/allometric)
 [![codecov](https://codecov.io/gh/allometric/allometric/branch/master/graph/badge.svg?token=3V5KUFMO2X)](https://app.codecov.io/gh/allometric/allometric)
 [![Static
 Badge](https://img.shields.io/badge/YouTube-red)](https://www.youtube.com/playlist?list=PLP5y0kzuWunWiUHpgoppVlTC_c2KYlrRK)
@@ -24,7 +24,7 @@ process please refer to the [Contributing a
 Model](https://allometric.org/articles/installing_a_model.html)
 vignette.
 
-In total **`allometric` contains 2803 models across 73 publications**,
+In total **`allometric` contains 2804 models across 73 publications**,
 refer to the [Current Status](#current-status) for a more complete view
 of available models.
 
@@ -64,12 +64,12 @@ head(allometric_models)
     #> # A tibble: 6 × 10
     #>   id    model_type country region taxa   pub_id model      family_name covt_name
     #>   <chr> <chr>      <list>  <list> <list> <chr>  <list>     <list>      <list>   
-    #> 1 76cc… site index <chr>   <chr>  <Taxa> barne… <FxdEffcM> <chr [1]>   <chr [2]>
-    #> 2 cc20… site index <chr>   <chr>  <Taxa> barre… <FxdEffcM> <chr [1]>   <chr [2]>
-    #> 3 3955… stem heig… <chr>   <chr>  <Taxa> barre… <FxdEffcM> <chr [1]>   <chr [1]>
-    #> 4 48b4… stem heig… <chr>   <chr>  <Taxa> barre… <FxdEffcM> <chr [1]>   <chr [1]>
-    #> 5 2fa0… stem heig… <chr>   <chr>  <Taxa> barre… <FxdEffcM> <chr [1]>   <chr [1]>
-    #> 6 7a58… stem heig… <chr>   <chr>  <Taxa> barre… <FxdEffcM> <chr [1]>   <chr [1]>
+    #> 1 c208… site index <NULL>  <NULL> <Taxa> barne… <FxdEffcM> <chr [1]>   <chr [2]>
+    #> 2 6974… site index <NULL>  <NULL> <Taxa> barre… <FxdEffcM> <chr [1]>   <chr [2]>
+    #> 3 f622… stem heig… <NULL>  <NULL> <Taxa> barre… <FxdEffcM> <chr [1]>   <chr [1]>
+    #> 4 6677… stem heig… <NULL>  <NULL> <Taxa> barre… <FxdEffcM> <chr [1]>   <chr [1]>
+    #> 5 fea4… stem heig… <NULL>  <NULL> <Taxa> barre… <FxdEffcM> <chr [1]>   <chr [1]>
+    #> 6 2f12… stem heig… <NULL>  <NULL> <Taxa> barre… <FxdEffcM> <chr [1]>   <chr [1]>
     #> # ℹ 1 more variable: pub_year <dbl>
 
 ## Finding a Model
@@ -91,18 +91,18 @@ stemvol_models
 ```
 
     #> # A tibble: 570 × 10
-    #>    id       model_type  country   region    taxa   pub_id model      family_name
-    #>    <chr>    <chr>       <list>    <list>    <list> <chr>  <list>     <list>     
-    #>  1 f50865ee stem volume <chr [1]> <chr [1]> <Taxa> bell_… <FxdEffcM> <chr [3]>  
-    #>  2 8d35a7b6 stem volume <chr [1]> <chr [1]> <Taxa> brack… <FxdEffcM> <chr [1]>  
-    #>  3 8682a321 stem volume <chr [1]> <chr [1]> <Taxa> brack… <FxdEffcM> <chr [1]>  
-    #>  4 7cfc15b2 stem volume <chr [1]> <chr [1]> <Taxa> brack… <FxdEffcM> <chr [1]>  
-    #>  5 573c8c1b stem volume <chr [1]> <chr [1]> <Taxa> brack… <FxdEffcM> <chr [1]>  
-    #>  6 191eaa47 stem volume <chr [1]> <chr [1]> <Taxa> brack… <FxdEffcM> <chr [1]>  
-    #>  7 ecd1277b stem volume <chr [1]> <chr [1]> <Taxa> brack… <FxdEffcM> <chr [1]>  
-    #>  8 83b38fb4 stem volume <chr [1]> <chr [1]> <Taxa> brack… <FxdEffcM> <chr [1]>  
-    #>  9 a69c8b91 stem volume <chr [1]> <chr [1]> <Taxa> brack… <FxdEffcM> <chr [1]>  
-    #> 10 34575125 stem volume <chr [1]> <chr [1]> <Taxa> brack… <FxdEffcM> <chr [1]>  
+    #>    id       model_type  country region taxa   pub_id      model      family_name
+    #>    <chr>    <chr>       <list>  <list> <list> <chr>       <list>     <list>     
+    #>  1 be6c800c stem volume <NULL>  <NULL> <Taxa> bell_1981   <FxdEffcM> <chr [3]>  
+    #>  2 e10967a8 stem volume <NULL>  <NULL> <Taxa> brackett_1… <FxdEffcM> <chr [1]>  
+    #>  3 24e757f8 stem volume <NULL>  <NULL> <Taxa> brackett_1… <FxdEffcM> <chr [1]>  
+    #>  4 b07847c6 stem volume <NULL>  <NULL> <Taxa> brackett_1… <FxdEffcM> <chr [1]>  
+    #>  5 2b138c8c stem volume <NULL>  <NULL> <Taxa> brackett_1… <FxdEffcM> <chr [1]>  
+    #>  6 191a8865 stem volume <NULL>  <NULL> <Taxa> brackett_1… <FxdEffcM> <chr [1]>  
+    #>  7 5865e9eb stem volume <NULL>  <NULL> <Taxa> brackett_1… <FxdEffcM> <chr [1]>  
+    #>  8 e76edbdf stem volume <NULL>  <NULL> <Taxa> brackett_1… <FxdEffcM> <chr [1]>  
+    #>  9 c20b19ec stem volume <NULL>  <NULL> <Taxa> brackett_1… <FxdEffcM> <chr [1]>  
+    #> 10 3a6dac01 stem volume <NULL>  <NULL> <Taxa> brackett_1… <FxdEffcM> <chr [1]>  
     #> # ℹ 560 more rows
     #> # ℹ 2 more variables: covt_name <list>, pub_year <dbl>
 
@@ -123,17 +123,17 @@ tsuga_vol_models
     #> # A tibble: 4 × 10
     #>   id    model_type country region taxa   pub_id model      family_name covt_name
     #>   <chr> <chr>      <list>  <list> <list> <chr>  <list>     <list>      <list>   
-    #> 1 573c… stem volu… <chr>   <chr>  <Taxa> brack… <FxdEffcM> <chr [1]>   <chr [2]>
-    #> 2 191e… stem volu… <chr>   <chr>  <Taxa> brack… <FxdEffcM> <chr [1]>   <chr [2]>
-    #> 3 ecd1… stem volu… <chr>   <chr>  <Taxa> brack… <FxdEffcM> <chr [1]>   <chr [2]>
-    #> 4 9caa… stem volu… <chr>   <chr>  <Taxa> poude… <FxdEffcM> <chr [4]>   <chr [2]>
+    #> 1 2b13… stem volu… <NULL>  <NULL> <Taxa> brack… <FxdEffcM> <chr [1]>   <chr [2]>
+    #> 2 191a… stem volu… <NULL>  <NULL> <Taxa> brack… <FxdEffcM> <chr [1]>   <chr [2]>
+    #> 3 5865… stem volu… <NULL>  <NULL> <Taxa> brack… <FxdEffcM> <chr [1]>   <chr [2]>
+    #> 4 6142… stem volu… <NULL>  <NULL> <Taxa> poude… <FxdEffcM> <chr [4]>   <chr [2]>
     #> # ℹ 1 more variable: pub_year <dbl>
 
 We can see that we have 4 models to choose from. Let’s select the model
 from the publication `poudel_2019`
 
 ``` r
-tsuga_poudel <- tsuga_vol_models %>% select_model("9caa80f2")
+tsuga_poudel <- tsuga_vol_models %>% select_model("6142693f")
 ```
 
 This example is very basic, and more complex search examples can be
@@ -222,24 +222,11 @@ more complex examples.
 
 ## Current Status
 
-In total **`allometric` contains 2803 models across 73 publications**.
+In total **`allometric` contains 2804 models across 73 publications**.
 
-| category                |  AS |  EU |  NA |  SA |  AF |  OC |
-|:------------------------|----:|----:|----:|----:|----:|----:|
-| biomass component       | 543 | 653 | 442 |  10 |   0 |   0 |
-| crown diameter          |   0 |  12 |  36 |   0 |   0 |   0 |
-| crown height            |   0 |  12 |   0 |   0 |   0 |   0 |
-| shrub biomass           |   0 |  19 |   0 |   0 |   0 |   0 |
-| shrub biomass increment |   0 |  28 |   0 |   0 |   0 |   0 |
-| shrub diameter          |   0 |  39 |   0 |   0 |   0 |   0 |
-| shrub height            |   0 |  28 |   0 |   0 |   0 |   0 |
-| site index              |   0 |   0 |  56 |   0 |   0 |   0 |
-| stem height             |   4 |   0 | 385 |   7 |   5 |   2 |
-| stem volume             |   4 |   0 | 545 |  21 |   0 |   0 |
-| stump volume            |   0 |   0 |  64 |   0 |   0 |   0 |
-| taper                   |   2 |   0 |  16 |   0 |   0 |   0 |
-| tree biomass            |  61 |  95 |  66 |  19 |   0 |  21 |
-| other                   |   0 |   0 | 164 |  35 |   0 |   0 |
+| category    |  AF |  AS |  OC |  SA |
+|:------------|----:|----:|----:|----:|
+| stem height |   5 |   4 |   2 |   5 |
 
 ## How Can I Help?
 

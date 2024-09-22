@@ -40,7 +40,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">allometric</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.0.0</span>
       </span>
     </div>
 
@@ -302,7 +302,7 @@ respect to <code>species</code> as it was in <code>temsegen_2008</code>,
 so we will have to define those descriptors at the model-level.</p>
 <p>Next, we load a data frame of model descriptions and examine it</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">model_specifications</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/allometric/man/load_parameter_frame.html" class="external-link">load_parameter_frame</a></span><span class="op">(</span><span class="st">"vsa_brackett_1977"</span><span class="op">)</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">model_specifications</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="fu">load_parameter_frame</span><span class="op">(</span><span class="st">"vsa_brackett_1977"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">model_specifications</span><span class="op">)</span></span></code></pre></div>
 <p>We can see that <code>model_specifications</code> contains a number
 of individual models which are specified by column names referred to as

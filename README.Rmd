@@ -149,7 +149,7 @@ We can see that we have `r nrow(tsuga_vol_models)` models to choose from. Let's
 select the model from the publication `poudel_2019`
 
 ```{r}
-tsuga_poudel <- tsuga_vol_models %>% select_model("9caa80f2")
+tsuga_poudel <- tsuga_vol_models %>% select_model("6142693f")
 ```
 
 This example is very basic, and more complex search examples can be found in
