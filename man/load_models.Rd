@@ -195,7 +195,7 @@ head(pinus_models)
 #> 5 910dddb1 stem height <chr [1]> <chr [3]> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
 #> 6 5b3e21e7 stem height <chr [1]> <chr [3]> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
 nrow(pinus_models)
-#> [1] 351
+#> [1] 352
 }\if{html}{\out{</div>}}
 
 Users can also search with a specific taxon, which allows a full
@@ -231,7 +231,7 @@ limited by their available tree measurements.
 )
 
 nrow(dia_ht_models)
-#> [1] 282
+#> [1] 285
 }\if{html}{\out{</div>}}
 
 Breaking this down, we have the first condition \code{model_type=='stem_height'}
@@ -241,7 +241,7 @@ character vector. The \code{.} represents a given character vector for that row.
 First, we ensure that the vector is only one element in size using
 \code{length(.)==1}, then we ensure that the first (and only) element of this
 vector is equal to \code{'dsob'}, (diameter outside bark at breast height). In
-this case, 282 are available in the package.
+this case, 285 are available in the package.
 }
 
 \section{Finding a Model for a Region}{

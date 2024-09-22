@@ -12,7 +12,7 @@
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png">
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
@@ -302,17 +302,8 @@ respect to <code>species</code> as it was in <code>temsegen_2008</code>,
 so we will have to define those descriptors at the model-level.</p>
 <p>Next, we load a data frame of model descriptions and examine it</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">model_specifications</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="fu"><a href="../reference/load_parameter_frame.html">load_parameter_frame</a></span><span class="op">(</span><span class="st">"vsa_brackett_1977"</span><span class="op">)</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">model_specifications</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/allometric/man/load_parameter_frame.html" class="external-link">load_parameter_frame</a></span><span class="op">(</span><span class="st">"vsa_brackett_1977"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">model_specifications</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 6 × 8</span></span></span>
-<span><span class="co">##   family   genus       species     geographic_region age_class     a     b     c</span></span>
-<span><span class="co">##   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">1</span> Pinaceae Pseudotsuga menziesii   coastal           &lt; 140 ye… -<span style="color: #BB0000;">2.66</span>  1.74 1.13 </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">2</span> Pinaceae Pseudotsuga menziesii   coastal           &gt;= 80 ye… -<span style="color: #BB0000;">2.71</span>  1.66 1.20 </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">3</span> Pinaceae Pseudotsuga menziesii   interior          <span style="color: #BB0000;">NA</span>        -<span style="color: #BB0000;">2.73</span>  1.74 1.17 </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">4</span> Pinaceae Tsuga       heterophyl… coastal           &lt; 140 ye… -<span style="color: #BB0000;">2.70</span>  1.84 1.12 </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">5</span> Pinaceae Tsuga       heterophyl… coastal           &gt;= 80 ye… -<span style="color: #BB0000;">2.66</span>  1.79 1.12 </span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">6</span> Pinaceae Tsuga       heterophyl… interior          <span style="color: #BB0000;">NA</span>        -<span style="color: #BB0000;">2.57</span>  1.97 0.977</span></span></code></pre>
 <p>We can see that <code>model_specifications</code> contains a number
 of individual models which are specified by column names referred to as
 <code>descriptors</code>. In this case, <code>descriptors</code>
@@ -331,7 +322,7 @@ section. The arguments are the same, but the implication is that
 <code>response unit</code>, <code>covariate units</code> and
 <code>prediction_fn</code> all apply uniformly to the models in the
 set.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">brackett_1977_model_set</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/FixedEffectsSet.html">FixedEffectsSet</a></span><span class="op">(</span></span>
 <span>  response <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>    vsa <span class="op">=</span> <span class="fu">units</span><span class="fu">::</span><span class="fu"><a href="https://r-quantities.github.io/units/reference/units.html" class="external-link">as_units</a></span><span class="op">(</span><span class="st">"ft3"</span><span class="op">)</span></span>
@@ -349,12 +340,9 @@ set.</p>
 <p>Finally, we add the model set to the publication using
 <code>add_set</code> and print a summary to verify that the model was
 added.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">brackett_1977</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/add_set.html">add_set</a></span><span class="op">(</span><span class="va">brackett_1977</span>, <span class="va">brackett_1977_model_set</span><span class="op">)</span></span>
 <span><span class="va">brackett_1977</span></span></code></pre></div>
-<pre><code><span><span class="co">## Brackett (1977)</span></span>
-<span><span class="co">## --- vsa: 1 model set</span></span>
-<span><span class="co">## --------- 24 models</span></span></code></pre>
 <p>This summary shows the publication name, followed by a list of all
 model sets defined for the publication. We can see that there is 1 model
 set for <code>vsa</code> (volume of the stem including top and stump)
@@ -393,7 +381,7 @@ respectively.</p>
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.9.</p>
 </div>
 
       </footer>

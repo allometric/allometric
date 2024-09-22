@@ -41,10 +41,6 @@ reference:
   - get_variable_def
   - get_component_defs
   - get_measure_defs
-  - get_params_path
-  - ingest_models
-  - load_parameter_frame
-  - map_publications
   - FixedEffectsModel
   - FixedEffectsSet
   - MixedEffectsModel
@@ -52,7 +48,6 @@ reference:
   - Publication
   - ==,FixedEffectsModel,FixedEffectsModel-method
   - ==,MixedEffectsModel,MixedEffectsModel-method
-  - set_params_path
   - Taxa
   - Taxon
   - '%in%,Taxon,character-method'
