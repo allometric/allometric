@@ -1,5 +1,25 @@
 # allometric changelog
 
+# [3.0.0](https://github.com/brycefrank/allometric/compare/v2.3.0...v3.0.0) (2024-09-22)
+
+
+### Bug Fixes
+
+* exporting `aggregate_taxa` ([fd2de76](https://github.com/brycefrank/allometric/commit/fd2de7643420b5edb86b415bf9c05abc5d2b3b51))
+
+
+* Merge pull request #201 from allometric/migrate_processing ([e40c764](https://github.com/brycefrank/allometric/commit/e40c764db2a58782f90b1b71c839e09456436c9e)), closes [#201](https://github.com/brycefrank/allometric/issues/201)
+
+
+### Features
+
+* adding cli, closes [#186](https://github.com/brycefrank/allometric/issues/186) ([a3ac0b1](https://github.com/brycefrank/allometric/commit/a3ac0b163a836012d928d0089d9d410d28cea479))
+
+
+### BREAKING CHANGES
+
+* Moving publication processing to models
+
 # [2.3.0](https://github.com/allometric/allometric/compare/v2.2.0...v2.3.0) (2024-02-04)
 
 

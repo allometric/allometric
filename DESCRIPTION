@@ -1,6 +1,6 @@
 Package: allometric
 Title: Structured Allometric Models for Trees
-Version: 2.3.0
+Version: 3.0.0
 Authors@R:
     c(
       person(
