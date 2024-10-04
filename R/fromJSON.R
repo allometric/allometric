@@ -1,5 +1,36 @@
 # Functions used to convert models and publications to S4 objects from JSON
 
+concatenate_authors <- function(author_data) {
+  n_authors <- length(author_data)
+  authors_str <- c()
+  for (i in seq_along(author_data)) {
+
+    author <- author_data[[i]]
+
+    author_str <- paste0(author$family, ", ", author$given)
+
+    if (i < n_authors) {
+      author_str <- paste0(author_str, " and")
+    }
+
+    authors_str <- c(authors_str, author_str)
+
+  }
+
+  authors_str
+}
+
+citation_to_S4 <- function(citation_data) {
+  authors <- concatenate_authors(citation_data[["authors"]])
+
+  citation_data <- citation_data[names(citation_data) != "authors"]
+  citation_data[["author"]] <- authors
+
+  citation_data[["key"]] <- citation_data$pub_id
+
+  do.call(RefManageR::BibEntry, citation_data)
+}
+
 response_to_S4 <- function(response_data) {
   response <- list()
   response[[response_data$name]] <- units::as_units(response_data$unit)
@@ -56,11 +87,10 @@ taxa_to_S4 <- function(taxa_list) {
 
   for (i in seq_along(taxa_list)) {
     taxon_i <- taxa_list[[i]]
-
     taxons[[i]] <- Taxon(
-      family = ifelse(is.null(taxon_i$family), NA, taxon_i$family),
-      genus = ifelse(is.null(taxon_i$genus), NA, taxon_i$genus),
-      species = ifelse(is.null(taxon_i$species), NA, taxon_i$species)
+      family = ifelse(is.null(taxon_i$family[[1]]), NA, taxon_i$family[[1]]),
+      genus = ifelse(is.null(taxon_i$genus[[1]]), NA, taxon_i$genus[[1]]),
+      species = ifelse(is.null(taxon_i$species[[1]]), NA, taxon_i$species[[1]])
     )
   }
 
@@ -92,13 +122,12 @@ descriptors_to_S4 <- function(descriptors_data) {
 covt_defs_to_S4 <- function(covt_defs_data) {
   covt_defs <- list()
 
-  for(i in 1:nrow(covt_defs_data)) {
-    covt_defs[[covt_defs_data$name[[i]]]] <- covt_defs_data$definition
+  for(i in seq_along(covt_defs_data)) {
+    covt_defs[[covt_defs_data[[i]][["name"]]]] <- covt_defs_data[[i]][["definition"]]
   }
 
   covt_defs
 }
-
 
 fixef_fromJSON <- function(parsed_json) {
   if(!is.null(parsed_json$response_definition)) {
@@ -113,7 +142,7 @@ fixef_fromJSON <- function(parsed_json) {
     covariate_definitions <- list()
   }
 
-  FixedEffectsModel(
+  mod <- FixedEffectsModel(
     response = response_to_S4(parsed_json$response),
     covariates = covariates_to_S4(parsed_json$covariates),
     parameters = parameters_to_S4(parsed_json$parameters),
@@ -122,6 +151,14 @@ fixef_fromJSON <- function(parsed_json) {
     response_definition = response_definition,
     covariate_definitions = covariate_definitions
   )
+
+  if(!is.null(parsed_json$citation)) {
+    mod@citation <- citation_to_S4(parsed_json$citation)
+  }
+
+  mod@pub_id <- parsed_json$pub_id
+
+  mod
 }
 
 mixef_fromJSON <- function(parsed_json) {
@@ -137,8 +174,7 @@ mixef_fromJSON <- function(parsed_json) {
   )
 }
 
-fromJSON <- function(json_data) {
-  parsed_json <- jsonlite::fromJSON(json_data, simplifyVector = TRUE, simplifyMatrix = FALSE, simplifyDataFrame = FALSE)
+fromJSON <- function(parsed_json) {
   model_class <- parsed_json$model_class
 
 

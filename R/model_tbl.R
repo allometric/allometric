@@ -214,3 +214,46 @@ merge.model_tbl <- function(x, y, ...) {
   merged <- merge(x_, y, ...)
   model_tbl_reconstruct(merged, x)
 }
+
+append_search_descriptors <- function(row, model_descriptors) {
+  row$country <- list(unlist(model_descriptors$country))
+  row$region <- list(unlist(model_descriptors$region))
+  row$taxa <- model_descriptors$taxa
+  row
+}
+
+#' Creates a dataframe row from model information
+#'
+#' @keywords internal
+create_model_row <- function(model) {
+  model_descriptors <- model@descriptors
+
+  if(!"taxa" %in% colnames(model_descriptors)) {
+    model_descriptors$taxa <- list(allometric::Taxa())
+  }
+
+  model_row <- tibble::as_tibble(list(pub_id = model@pub_id))
+  model_row$model <- c(model)
+
+  # Gets rid of column not exist errors.
+  suppressWarnings(
+    model_row <- append_search_descriptors(
+      model_row,
+      model_descriptors
+    )
+  )
+
+  family_name <- model@citation$author$family
+  model_row$family_name <- list(as.character(family_name))
+
+  covt_name <- names(model@covariates)
+  model_row$covt_name <- list(covt_name)
+
+  pub_year <- as.numeric(model@citation$year)
+  model_row$pub_year <- pub_year
+
+  response_def <- allometric::get_variable_def(names(model@response)[[1]], return_exact_only = T)
+  model_row$model_type <- model@model_type
+
+  model_row
+}

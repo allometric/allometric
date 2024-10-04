@@ -69,6 +69,7 @@ Collate:
     'util.R'
     'utils-pipe.R'
     'variable_defs.R'
+    'api.R'
     'zzz.R'
 Suggests: 
     testthat (>= 3.0.0),

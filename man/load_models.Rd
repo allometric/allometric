@@ -79,14 +79,14 @@ data
 #> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
 head(allometric_models)
 #> # A tibble: 6 x 10
-#>   id       model_type  country   region    taxa   pub_id       model      family_name covt_name pub_year
-#>   <chr>    <chr>       <list>    <list>    <list> <chr>        <list>     <list>      <list>       <dbl>
-#> 1 76ccc16a site index  <chr [1]> <chr [2]> <Taxa> barnes_1962  <FxdEffcM> <chr [1]>   <chr [2]>     1962
-#> 2 cc2078aa site index  <chr [1]> <chr [2]> <Taxa> barrett_1978 <FxdEffcM> <chr [1]>   <chr [2]>     1978
-#> 3 3955ab4f stem height <chr [1]> <chr [3]> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
-#> 4 48b4aecf stem height <chr [1]> <chr [3]> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
-#> 5 2fa084c2 stem height <chr [1]> <chr [3]> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
-#> 6 7a585d5e stem height <chr [1]> <chr [3]> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
+#>   id       model_type  country region taxa   pub_id       model      family_name covt_name pub_year
+#>   <chr>    <chr>       <list>  <list> <list> <chr>        <list>     <list>      <list>       <dbl>
+#> 1 c2085a31 site index  <NULL>  <NULL> <Taxa> barnes_1962  <FxdEffcM> <chr [1]>   <chr [2]>     1962
+#> 2 69742207 site index  <NULL>  <NULL> <Taxa> barrett_1978 <FxdEffcM> <chr [1]>   <chr [2]>     1978
+#> 3 f622c31c stem height <NULL>  <NULL> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
+#> 4 667724d4 stem height <NULL>  <NULL> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
+#> 5 fea41b43 stem height <NULL>  <NULL> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
+#> 6 2f120230 stem height <NULL>  <NULL> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
 }\if{html}{\out{</div>}}
 
 The columns are:
@@ -125,14 +125,14 @@ may want models only authored by \code{"Hann"}. This is elementary to do in
 
 head(hann_models)
 #> # A tibble: 6 x 10
-#>   id       model_type  country   region    taxa   pub_id    model      family_name covt_name pub_year
-#>   <chr>    <chr>       <list>    <list>    <list> <chr>     <list>     <list>      <list>       <dbl>
-#> 1 8970949f stem volume <chr [1]> <chr [2]> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
-#> 2 0d53539a stem volume <chr [1]> <chr [2]> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
-#> 3 0d109f2c stem volume <chr [1]> <chr [2]> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
-#> 4 86dcc7ff stem volume <chr [1]> <chr [2]> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
-#> 5 037a7989 stem volume <chr [1]> <chr [2]> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
-#> 6 02614f74 stem volume <chr [1]> <chr [2]> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
+#>   id       model_type  country region taxa   pub_id    model      family_name covt_name pub_year
+#>   <chr>    <chr>       <list>  <list> <list> <chr>     <list>     <list>      <list>       <dbl>
+#> 1 6493586a stem volume <NULL>  <NULL> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
+#> 2 cbb419a3 stem volume <NULL>  <NULL> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
+#> 3 55d93808 stem volume <NULL>  <NULL> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
+#> 4 0ca8d160 stem volume <NULL>  <NULL> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
+#> 5 8aca2d51 stem volume <NULL>  <NULL> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
+#> 6 66fd2133 stem volume <NULL>  <NULL> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
 nrow(hann_models)
 #> [1] 87
 }\if{html}{\out{</div>}}
@@ -158,14 +158,14 @@ Using a simple modification we can easily do this.
 
 head(hann_first_author_models)
 #> # A tibble: 6 x 10
-#>   id       model_type  country   region    taxa   pub_id    model      family_name covt_name pub_year
-#>   <chr>    <chr>       <list>    <list>    <list> <chr>     <list>     <list>      <list>       <dbl>
-#> 1 8970949f stem volume <chr [1]> <chr [2]> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
-#> 2 0d53539a stem volume <chr [1]> <chr [2]> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
-#> 3 0d109f2c stem volume <chr [1]> <chr [2]> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
-#> 4 86dcc7ff stem volume <chr [1]> <chr [2]> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
-#> 5 037a7989 stem volume <chr [1]> <chr [2]> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
-#> 6 02614f74 stem volume <chr [1]> <chr [2]> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
+#>   id       model_type  country region taxa   pub_id    model      family_name covt_name pub_year
+#>   <chr>    <chr>       <list>  <list> <list> <chr>     <list>     <list>      <list>       <dbl>
+#> 1 6493586a stem volume <NULL>  <NULL> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
+#> 2 cbb419a3 stem volume <NULL>  <NULL> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
+#> 3 55d93808 stem volume <NULL>  <NULL> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
+#> 4 0ca8d160 stem volume <NULL>  <NULL> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
+#> 5 8aca2d51 stem volume <NULL>  <NULL> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
+#> 6 66fd2133 stem volume <NULL>  <NULL> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
 nrow(hann_first_author_models)
 #> [1] 50
 }\if{html}{\out{</div>}}
@@ -186,16 +186,16 @@ to find models for the Pinus genus we can use
 
 head(pinus_models)
 #> # A tibble: 6 x 10
-#>   id       model_type  country   region    taxa   pub_id       model      family_name covt_name pub_year
-#>   <chr>    <chr>       <list>    <list>    <list> <chr>        <list>     <list>      <list>       <dbl>
-#> 1 cc2078aa site index  <chr [1]> <chr [2]> <Taxa> barrett_1978 <FxdEffcM> <chr [1]>   <chr [2]>     1978
-#> 2 502152d1 stem height <chr [1]> <chr [3]> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
-#> 3 3fb70119 stem height <chr [1]> <chr [3]> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
-#> 4 925de182 stem height <chr [1]> <chr [3]> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
-#> 5 910dddb1 stem height <chr [1]> <chr [3]> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
-#> 6 5b3e21e7 stem height <chr [1]> <chr [3]> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
+#>   id       model_type  country region taxa   pub_id       model      family_name covt_name pub_year
+#>   <chr>    <chr>       <list>  <list> <list> <chr>        <list>     <list>      <list>       <dbl>
+#> 1 608af684 stem height <NULL>  <NULL> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
+#> 2 5985b11c stem height <NULL>  <NULL> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
+#> 3 2ffe4daa stem height <NULL>  <NULL> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
+#> 4 e154c803 stem height <NULL>  <NULL> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
+#> 5 66e18741 stem height <NULL>  <NULL> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
+#> 6 242d3a14 stem height <NULL>  <NULL> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
 nrow(pinus_models)
-#> [1] 352
+#> [1] 324
 }\if{html}{\out{</div>}}
 
 Users can also search with a specific taxon, which allows a full
@@ -213,7 +213,7 @@ ponderosa_models <- dplyr::filter(
 )
 
 nrow(ponderosa_models)
-#> [1] 57
+#> [1] 32
 }\if{html}{\out{</div>}}
 }
 
@@ -255,10 +255,10 @@ developed using data from \code{US-OR}
 )
 
 nrow(us_or_models)
-#> [1] 537
+#> [1] 0
 }\if{html}{\out{</div>}}
 
-We can see that 537 allometric models are defined for the
+We can see that 0 allometric models are defined for the
 state of Oregon, US.
 }
 
