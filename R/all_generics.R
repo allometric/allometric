@@ -61,7 +61,7 @@ setGeneric(
 #'
 #' @param object The allometric model or model set object
 #' @return A tibble:tbl_df of descriptors
-#' @keywords internal
+#' @export
 setGeneric("descriptors", function(object) standardGeneric("descriptors"))
 
 #' Set the descriptors of a model.

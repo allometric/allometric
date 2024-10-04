@@ -18,4 +18,3 @@ situated within a publication, and contain information like family, genus,
 species, geographic region, etc. This function returns this information for
 a given model.
 }
-\keyword{internal}
