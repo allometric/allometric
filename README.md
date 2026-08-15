@@ -224,9 +224,22 @@ more complex examples.
 
 In total **`allometric` contains 2804 models across 73 publications**.
 
-| category    |  AF |  AS |  OC |  SA |
-|:------------|----:|----:|----:|----:|
-| stem height |   5 |   4 |   2 |   5 |
+| category                | Total |  NA |  AS |  EU |  SA |  AF |  OC |
+|:------------------------|------:|----:|----:|----:|----:|----:|----:|
+| biomass component       |  1121 | 424 |  10 | 123 |   0 |   0 |   0 |
+| stem volume             |   570 |  31 |   0 |   0 |   0 |   0 |   0 |
+| stem height             |   401 |   0 |   0 |   0 |   0 |   0 |   0 |
+| tree biomass            |   203 |   0 |   2 |  31 |   0 |   0 |   0 |
+| stump volume            |    64 |   0 |   0 |   0 |   0 |   0 |   0 |
+| site index              |    54 |   0 |   0 |   0 |   0 |   0 |   0 |
+| crown diameter          |    48 |   0 |   0 |   0 |   0 |   0 |   0 |
+| shrub diameter          |    39 |   0 |   0 |   0 |   0 |   0 |   0 |
+| shrub biomass increment |    28 |   0 |   0 |   0 |   0 |   0 |   0 |
+| shrub height            |    28 |   0 |   0 |   0 |   0 |   0 |   0 |
+| shrub biomass           |    19 |   0 |   0 |   0 |   0 |   0 |   0 |
+| taper                   |    18 |   0 |   0 |   0 |   0 |   0 |   0 |
+| crown height            |    12 |   0 |   0 |   0 |   0 |   0 |   0 |
+| other                   |   199 |   0 |   0 |   0 |   0 |   0 |   0 |
 
 ## How Can I Help?
 

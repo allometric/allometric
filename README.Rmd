@@ -5,7 +5,6 @@ output: github_document
 ```{r include=FALSE}
 library(dplyr)
 library(tidyr)
-library(lemon)
 library(allometric)
 
 knitr::opts_chunk$set(
@@ -35,27 +34,46 @@ summ_categories <- data.frame(
 )
 
 model_summ <- allometric_models %>%
-  unnest_models("country") %>%
-  left_join(continents, by = c("country" = "iso_3166_1_a2")) %>%
-  distinct(id, model_type, continent) %>%
-  group_by(model_type, continent) %>%
-  summarise(n=n()) %>%
-  merge(summ_categories, all.x=T)
+  distinct(id, model_type) %>%
+  count(model_type, name = "Total")
 
-model_summ[is.na(model_summ$category), 'category'] <- model_summ$model_type[is.na(model_summ$category)]
+continent_map <- continents %>%
+  group_by(iso_3166_1_a2) %>%
+  summarise(continent = first(continent), .groups = "drop")
+
+model_continents <- allometric_models %>%
+  unnest_models("region") %>%
+  mutate(country = sub("-.*", "", region)) %>%
+  left_join(continent_map, by = c("country" = "iso_3166_1_a2")) %>%
+  distinct(id, model_type, continent) %>%
+  count(model_type, continent, name = "n")
+
+continent_cols <- c("AS", "EU", "NA", "SA", "AF", "OC")
 
 model_summ.fmt <- model_summ %>%
-  group_by(category, continent) %>%
-  summarise(n = sum(n)) %>%
-  tidyr::pivot_wider(names_from = "continent", values_from = "n") %>%
-  replace_na(list(AS = 0, `NA` = 0, EU = 0, AF = 0, OC = 0, SA = 0))
+  left_join(model_continents, by = "model_type") %>%
+  merge(summ_categories, all.x = T) %>%
+  mutate(continent = tidyr::replace_na(continent, "__none__"))
 
-model_summ.fmt <- bind_rows(
-  list(
-    model_summ.fmt %>% filter(category != "other"),
-    model_summ.fmt %>% filter(category == "other")
-  )
-)
+model_summ.fmt[is.na(model_summ.fmt$category), "category"] <-
+  model_summ.fmt$model_type[is.na(model_summ.fmt$category)]
+
+model_summ.fmt <- model_summ.fmt %>%
+  tidyr::pivot_wider(
+    names_from = "continent", values_from = "n", values_fill = 0
+  ) %>%
+  select(-any_of("__none__"), -model_type) %>%
+  group_by(category) %>%
+  summarise(Total = sum(Total), across(everything(), ~sum(.x)), .groups = "drop")
+
+for (col in continent_cols) {
+  if (!col %in% names(model_summ.fmt)) {
+    model_summ.fmt[[col]] <- 0L
+  }
+}
+
+model_summ.fmt <- model_summ.fmt %>%
+  arrange(category == "other", desc(Total))
 
 ```
 
