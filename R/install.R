@@ -48,8 +48,7 @@ delete_models <- function(verbose) {
       cli::cli_alert_info("Deleting models directory.")
     }
 
-    shell_command <- paste('rmdir /s /q "', models_path_check, '"', sep = "")
-    shell(shell_command)
+    unlink(models_path_check, recursive = TRUE, force = TRUE)
   }
 
   model_list_path_check <- system.file(
@@ -64,16 +63,14 @@ delete_models <- function(verbose) {
     if(verbose) {
       cli::cli_alert_info("Deleting model list.")
     }
-    shell_command <- paste('rm "', model_list_path_check, '"', sep = "")
-    shell(shell_command)
+    unlink(model_list_path_check)
   }
 
   if(pub_list_path_check != "") {
     if(verbose) {
       cli::cli_alert_info("Deleting publication list.")
     }
-    shell_command <- paste('rm "', pub_list_path_check, '"', sep = "")
-    shell(shell_command)
+    unlink(pub_list_path_check)
   }
 }
 
