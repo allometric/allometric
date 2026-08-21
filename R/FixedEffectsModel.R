@@ -154,20 +154,3 @@ setMethod("==", signature(e1 = "FixedEffectsModel", e2 = "FixedEffectsModel"),
     covt_defs_equal
   )
 })
-
-#' Convert a fixed effects model to a JSON representation
-#'
-#' This function converts a fixed effects model into a JSON representation.
-#' Primarily, this is used internally to populate a remotely hosted
-#' MongoDatabase.
-#'
-#' @param object A fixed effects model
-#' @param ... Additional arguments passed to jsonlite::toJSON
-#' @return A string containing the JSON representation of the object
-#' @export
-#' @examples
-#' toJSON(brackett_rubra, pretty = TRUE)
-setMethod("toJSON", "FixedEffectsModel", function(object, ...) {
-  json_list <- model_to_json(object)
-  jsonlite::toJSON(json_list, digits = NA, ...)
-})

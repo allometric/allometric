@@ -34,6 +34,7 @@ ParametricSet <- function(response, covariates, predict_fn,
   parametric_set
 }
 
+#' @rdname descriptors
 setMethod("descriptors", "ParametricSet", function(object) {
   names(object@model_specifications)[!names(object@model_specifications) %in% object@parameter_names]
 })

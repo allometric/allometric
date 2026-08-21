@@ -27,6 +27,7 @@ setMethod("specification<-", "ParametricModel", function(model, value) {
   model
 })
 
+#' @rdname descriptors
 setMethod("descriptors", "ParametricModel", function(object) {
   object@specification[!names(object@specification) %in% names(object@parameters)]
 })
@@ -81,12 +82,26 @@ ParametricModel <- function(response, covariates, predict_fn,
     )
   )
 
-  # Populate a copy of the predict_fn with the coefficients
+  # Populate a copy of the predict_fn with the coefficients. Only numeric
+  # specification values are substituted: the parameters, plus any numeric-scalar
+  # descriptor columns (the v4 corpus declares some coefficients, e.g. the
+  # relative-height position `p` in kozak_1988, as descriptors). Character
+  # descriptor columns are metadata (e.g. applicability qualifiers like
+  # "<= 18 ft hst") and must never be substituted into the function body.
   parametric_model@predict_fn_populated <- parametric_model@predict_fn
+
+  spec_list <- as.list(parametric_model@specification)
+  param_names <- names(parametric_model@parameters)
+  subst <- spec_list[param_names]
+  numeric_desc <- spec_list[
+    !names(spec_list) %in% param_names &
+      vapply(spec_list, is.numeric, logical(1))
+  ]
+  subst <- c(subst, numeric_desc)
 
   func_body <- body(parametric_model@predict_fn_populated)
   body(parametric_model@predict_fn_populated) <- do.call(
-    "substitute", list(func_body, parametric_model@specification)
+    "substitute", list(func_body, subst)
   )
 
   parametric_model

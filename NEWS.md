@@ -1,5 +1,35 @@
 # allometric changelog
 
+# 4.0.0
+
+### Features
+
+* The data layer now reads the compiled v4 parquet distribution
+  (`models`, `model_specs`, `publications`) instead of the legacy
+  `models.RDS`. `load_models()` reconstructs one `FixedEffectsModel` per
+  specification directly from the parquet tables, bypassing the old
+  publication-ingest pipeline.
+* `install_models()` downloads the three parquet tables from the models
+  repository instead of the repository zip plus `models.RDS`, and the
+  package now vendors the compiled distribution in `inst/models-main/dist`.
+* The `model_tbl` gains `spec_index`, `model_name`, and `component` columns,
+  and the model objects carry their v4 content-hash `id`.
+* Prediction functions now substitute numeric coefficients only. Character
+  descriptor columns (e.g. applicability qualifiers) are metadata and are
+  never substituted into function bodies; numeric descriptors declared as
+  coefficients (e.g. the relative-height position in `kozak_1988`) are.
+
+### BREAKING CHANGES
+
+* Model ids are now the v4 8-character content hashes; ids from earlier
+  versions (md5-derived) no longer resolve in `select_model()`.
+* The `country` column is removed from the `model_tbl` (the v4 corpus
+  carries no country data; region codes embed the country prefix).
+* The API and JSON layer is removed: `get_model()`, `query_models()`,
+  `toJSON()`, and `fromJSON()` no longer exist (the
+  `api.allometric.org` service is gone).
+* `install_models()` no longer accepts the `ingest` argument.
+
 # [3.0.0](https://github.com/brycefrank/allometric/compare/v2.3.0...v3.0.0) (2024-09-22)
 
 

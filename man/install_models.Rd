@@ -4,12 +4,9 @@
 \alias{install_models}
 \title{Install allometric models from the models repository}
 \usage{
-install_models(ingest = FALSE, redownload = TRUE, verbose = TRUE)
+install_models(redownload = TRUE, verbose = TRUE)
 }
 \arguments{
-\item{ingest}{If \code{TRUE}, model publication files are run locally, otherwise
-a previously prepared \code{.RDS} file is used as the models data.}
-
 \item{redownload}{If \code{TRUE}, models are re-downloaded from the remote
 repository.}
 
@@ -21,8 +18,8 @@ No return value, installs models into the package directory.
 \description{
 Allometric models are stored in a remote repository located on GitHub located
 \href{https://github.com/allometric/models}{here}. The user must install
-these models themselves using this function. This function clones the models
-repository within the allometric package directory and constructs a local
-dataframe containing the models. Refer to \code{load_models()} for information
-about loading the models dataframe.
+these models themselves using this function. This function downloads the
+compiled v4 parquet distribution from the models repository and installs it
+within the allometric package directory. Refer to \code{load_models()} for
+information about loading the models dataframe.
 }

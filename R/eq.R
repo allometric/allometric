@@ -1,31 +1,24 @@
 #' Check for equivalence of ID slots in two models
 #'
-#' Two models are considered to have equal IDs if (1) they both do not have ID
-#' slots, which can occur especially in testing, or (2) both models have ID
-#' slots and the value of the slots are equal. They are not equal otherwise.
+#' Two models are considered to have equal IDs if both IDs are unset (NA), or
+#' both IDs are set and equal. They are not equal if one is set and the other
+#' is not, or if both are set and differ.
 #'
 #' @param mod1 A model object
 #' @param mod2 A model object
 #' @return TRUE if equal, FALSE if not
 #' @keywords internal
 check_ids_equal <- function(mod1, mod2) {
-  slot_names_1 <- methods::slotNames(mod1)
-  slot_names_2 <- methods::slotNames(mod2)
+  id1 <- mod1@id
+  id2 <- mod2@id
 
-  if(!("id" %in% slot_names_1 && "id" %in% slot_names_2)) {
-    # Neither contain an id slot
+  if (is.na(id1) && is.na(id2)) {
     return(TRUE)
-  } else if ("id" %in% slot_names_1 && "id" %in% slot_names_2) {
-    # Both contain id slot
-    if(mod1@id == mod2@id) {
-      return(TRUE)
-    } else {
-      return(FALSE)
-    }
-  } else {
-    # One contains id slot but the other does not
+  }
+  if (is.na(id1) || is.na(id2)) {
     return(FALSE)
   }
+  id1 == id2
 }
 
 #' Check for equivalence of response slots in two models

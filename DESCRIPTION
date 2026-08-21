@@ -1,6 +1,6 @@
 Package: allometric
 Title: Structured Allometric Models for Trees
-Version: 3.0.0
+Version: 4.0.0
 Authors@R:
     c(
       person(
@@ -24,8 +24,8 @@ Description: Access allometric models used in forest resource analysis, such as
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE, knitr_chunk_options = list(R.options = list(width = 10000, crayon.enabled=FALSE)))
-RoxygenNote: 7.3.1
 Imports: 
+    arrow,
     dplyr,
     methods,
     rlang,
@@ -37,9 +37,7 @@ Imports:
     purrr,
     ISOcodes,
     tidyr,
-    progress,
     vctrs,
-    openssl,
     curl,
     jsonlite,
     cli
@@ -60,16 +58,14 @@ Collate:
     'allometric.R'
     'data.R'
     'eq.R'
-    'fromJSON.R'
     'install.R'
     'load.R'
     'model_tbl.R'
+    'parquet.R'
     'summary.R'
-    'toJSON.R'
     'util.R'
     'utils-pipe.R'
     'variable_defs.R'
-    'api.R'
     'zzz.R'
 Suggests: 
     testthat (>= 3.0.0),
@@ -81,3 +77,4 @@ Depends:
 LazyData: true
 BugReports: https://github.com/allometric/allometric/issues
 Contact: bfrank70@gmail.com
+Config/roxygen2/version: 8.0.0

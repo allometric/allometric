@@ -21,6 +21,7 @@ Useful links:
 
 Authors:
 \itemize{
+  \item Bryce Frank \email{bfrank70@gmail.com} (\href{https://orcid.org/0000-0003-2980-6860}{ORCID})
   \item Francisco Mauro \email{francisco.mauro@uva.es} (\href{https://orcid.org/0000-0002-7832-6268}{ORCID})
   \item Elijah Allensworth \email{elijah.allensworth@protonmail.com}
 }

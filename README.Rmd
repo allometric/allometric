@@ -122,7 +122,8 @@ library(allometric)
 install_models()
 ```
 
-This installs all available models from the public [models](https://github.com/allometric/models) repository.
+This installs the compiled v4 model distribution (three parquet tables) from
+the public [models](https://github.com/allometric/models) repository.
 
 Finally, load the models using the `load_models()` function into a variable:
 
@@ -167,7 +168,7 @@ We can see that we have `r nrow(tsuga_vol_models)` models to choose from. Let's
 select the model from the publication `poudel_2019`
 
 ```{r}
-tsuga_poudel <- tsuga_vol_models %>% select_model("6142693f")
+tsuga_poudel <- tsuga_vol_models %>% select_model("a136ecc8")
 ```
 
 This example is very basic, and more complex search examples can be found in

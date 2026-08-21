@@ -2,7 +2,7 @@
 % Please edit documentation in R/load.R
 \name{load_models}
 \alias{load_models}
-\title{Load a locally installed table of allometric models}
+\title{Load the locally installed table of allometric models}
 \usage{
 load_models()
 }
@@ -20,88 +20,36 @@ Printing the \code{head} of \code{allometric_models}, we can see the structure o
 data
 
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{allometric_models <- load_models()
-#> Warning in readRDS(rds_path): strings not representable in native encoding will be translated to UTF-8
-#> Warning in readRDS(rds_path): input string 'M<e1>laga' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'M<e1>laga' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'C<e1>ceres' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'M<e1>laga' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'C<e1>ceres' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'M<e1>laga' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'C<e1>ceres' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'M<e1>laga' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'M<e1>laga' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'M<e1>laga' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'M<e1>laga' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'M<e1>laga' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'M<e1>laga' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'M<e1>laga' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'M<e1>laga' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'M<e1>laga' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'C<e1>ceres' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'C<e1>ceres' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'C<e1>ceres' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'C<e1>ceres' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'C<e1>ceres' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'C<e1>ceres' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'M<e1>laga' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'C<e1>ceres' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'M<e1>laga' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'C<e1>ceres' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'M<e1>laga' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'C<e1>ceres' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'M<e1>laga' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'M<e1>laga' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'C<e1>ceres' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'M<e1>laga' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'C<e1>ceres' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
-#> Warning in readRDS(rds_path): input string 'C<e1>diz' cannot be translated to UTF-8, is it valid in 'UTF-8'?
+#> Warning: 74 publication(s) lack required BibTeX fields for their declared bibtype; citations were built with bibtype 'misc': barnes_1962, barrett_1978, barrett_2006, bell_1981, bluhm_2007, ...
 head(allometric_models)
-#> # A tibble: 6 x 10
-#>   id       model_type  country region taxa   pub_id       model      family_name covt_name pub_year
-#>   <chr>    <chr>       <list>  <list> <list> <chr>        <list>     <list>      <list>       <dbl>
-#> 1 c2085a31 site index  <NULL>  <NULL> <Taxa> barnes_1962  <FxdEffcM> <chr [1]>   <chr [2]>     1962
-#> 2 69742207 site index  <NULL>  <NULL> <Taxa> barrett_1978 <FxdEffcM> <chr [1]>   <chr [2]>     1978
-#> 3 f622c31c stem height <NULL>  <NULL> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
-#> 4 667724d4 stem height <NULL>  <NULL> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
-#> 5 fea41b43 stem height <NULL>  <NULL> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
-#> 6 2f120230 stem height <NULL>  <NULL> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
+#> # A tibble: 6 x 12
+#>   id       spec_index model_name model_type  pub_id       pub_year family_name covt_name taxa              region component model     
+#>   <chr>         <int> <chr>      <chr>       <chr>           <dbl> <list>      <list>    <list> <list<character>> <chr>     <list>    
+#> 1 1de6301a          0 hstix50    site index  barnes_1962      1962 <chr [1]>   <chr [2]> <Taxa>                   <NA>      <FxdEffcM>
+#> 2 0f54ec1a          0 hstix100   site index  barrett_1978     1978 <chr [1]>   <chr [2]> <Taxa>                   <NA>      <FxdEffcM>
+#> 3 fdc26756          0 hst        stem height barrett_2006     2006 <chr [1]>   <chr [1]> <Taxa>                   <NA>      <FxdEffcM>
+#> 4 fdc26756          1 hst        stem height barrett_2006     2006 <chr [1]>   <chr [1]> <Taxa>                   <NA>      <FxdEffcM>
+#> 5 fdc26756          2 hst        stem height barrett_2006     2006 <chr [1]>   <chr [1]> <Taxa>                   <NA>      <FxdEffcM>
+#> 6 fdc26756          3 hst        stem height barrett_2006     2006 <chr [1]>   <chr [1]> <Taxa>                   <NA>      <FxdEffcM>
 }\if{html}{\out{</div>}}
 
 The columns are:
 \itemize{
-\item \code{id} - A unique ID for the model.
+\item \code{id} - A unique ID for the model. This is the 8-character content hash
+assigned by the v4 model compilation pipeline.
+\item \code{spec_index} - The index of the specification within its model set (0 for
+single models). Together with \code{id} this uniquely identifies a model.
+\item \code{model_name} - The name of the model or model set.
 \item \code{model_type} - The type of model (e.g., stem volume, site index, etc.)
-\item \code{country} - The country or countries from which the model data is from.
-\item \code{region} - The region or regions (e.g., state, province, etc.) from which
-the model data is from.
-\item \code{taxa} - The taxonomic specification of the trees that are modeled.
-\item \code{model} - The model object itself.
 \item \code{pub_id} - A unique ID representing the publication.
+\item \code{pub_year} - The publication year.
 \item \code{family_name} - The names of the contributing authors.
 \item \code{covt_name} - The names of the covariates used in the model.
-\item \code{pub_year} - The publication year.
+\item \code{taxa} - The taxonomic specification of the trees that are modeled.
+\item \code{region} - The region or regions (e.g., state, province, etc.) from which
+the model data is from.
+\item \code{component} - The tree component modeled (e.g., stem, branch).
+\item \code{model} - The model object itself.
 }
 
 Models can be searched by their attributes. Note that some of the columns
@@ -124,17 +72,17 @@ may want models only authored by \code{"Hann"}. This is elementary to do in
 )
 
 head(hann_models)
-#> # A tibble: 6 x 10
-#>   id       model_type  country region taxa   pub_id    model      family_name covt_name pub_year
-#>   <chr>    <chr>       <list>  <list> <list> <chr>     <list>     <list>      <list>       <dbl>
-#> 1 6493586a stem volume <NULL>  <NULL> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
-#> 2 cbb419a3 stem volume <NULL>  <NULL> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
-#> 3 55d93808 stem volume <NULL>  <NULL> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
-#> 4 0ca8d160 stem volume <NULL>  <NULL> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
-#> 5 8aca2d51 stem volume <NULL>  <NULL> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
-#> 6 66fd2133 stem volume <NULL>  <NULL> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
+#> # A tibble: 6 x 12
+#>   id       spec_index model_name model_type  pub_id    pub_year family_name covt_name taxa              region component model     
+#>   <chr>         <int> <chr>      <chr>       <chr>        <dbl> <list>      <list>    <list> <list<character>> <chr>     <list>    
+#> 1 713c7427          0 vsia       stem volume hann_1978     1978 <chr [2]>   <chr [2]> <Taxa>                   <NA>      <FxdEffcM>
+#> 2 713c7427          1 vsia       stem volume hann_1978     1978 <chr [2]>   <chr [2]> <Taxa>                   <NA>      <FxdEffcM>
+#> 3 713c7427          2 vsia       stem volume hann_1978     1978 <chr [2]>   <chr [2]> <Taxa>                   <NA>      <FxdEffcM>
+#> 4 713c7427          3 vsia       stem volume hann_1978     1978 <chr [2]>   <chr [2]> <Taxa>                   <NA>      <FxdEffcM>
+#> 5 713c7427          4 vsia       stem volume hann_1978     1978 <chr [2]>   <chr [2]> <Taxa>                   <NA>      <FxdEffcM>
+#> 6 713c7427          5 vsia       stem volume hann_1978     1978 <chr [2]>   <chr [2]> <Taxa>                   <NA>      <FxdEffcM>
 nrow(hann_models)
-#> [1] 87
+#> [1] 76
 }\if{html}{\out{</div>}}
 
 Picking apart the above code block, we see that we are using the standard
@@ -157,21 +105,21 @@ Using a simple modification we can easily do this.
 )
 
 head(hann_first_author_models)
-#> # A tibble: 6 x 10
-#>   id       model_type  country region taxa   pub_id    model      family_name covt_name pub_year
-#>   <chr>    <chr>       <list>  <list> <list> <chr>     <list>     <list>      <list>       <dbl>
-#> 1 6493586a stem volume <NULL>  <NULL> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
-#> 2 cbb419a3 stem volume <NULL>  <NULL> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
-#> 3 55d93808 stem volume <NULL>  <NULL> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
-#> 4 0ca8d160 stem volume <NULL>  <NULL> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
-#> 5 8aca2d51 stem volume <NULL>  <NULL> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
-#> 6 66fd2133 stem volume <NULL>  <NULL> <Taxa> hann_1978 <FxdEffcM> <chr [2]>   <chr [2]>     1978
+#> # A tibble: 6 x 12
+#>   id       spec_index model_name model_type  pub_id    pub_year family_name covt_name taxa              region component model     
+#>   <chr>         <int> <chr>      <chr>       <chr>        <dbl> <list>      <list>    <list> <list<character>> <chr>     <list>    
+#> 1 713c7427          0 vsia       stem volume hann_1978     1978 <chr [2]>   <chr [2]> <Taxa>                   <NA>      <FxdEffcM>
+#> 2 713c7427          1 vsia       stem volume hann_1978     1978 <chr [2]>   <chr [2]> <Taxa>                   <NA>      <FxdEffcM>
+#> 3 713c7427          2 vsia       stem volume hann_1978     1978 <chr [2]>   <chr [2]> <Taxa>                   <NA>      <FxdEffcM>
+#> 4 713c7427          3 vsia       stem volume hann_1978     1978 <chr [2]>   <chr [2]> <Taxa>                   <NA>      <FxdEffcM>
+#> 5 713c7427          4 vsia       stem volume hann_1978     1978 <chr [2]>   <chr [2]> <Taxa>                   <NA>      <FxdEffcM>
+#> 6 713c7427          5 vsia       stem volume hann_1978     1978 <chr [2]>   <chr [2]> <Taxa>                   <NA>      <FxdEffcM>
 nrow(hann_first_author_models)
-#> [1] 50
+#> [1] 42
 }\if{html}{\out{</div>}}
 
 We can see that \code{'Hann'} is the first author for
-50 models in this package.
+42 models in this package.
 }
 
 \section{Finding Models for a Given Species}{
@@ -185,15 +133,15 @@ to find models for the Pinus genus we can use
 )
 
 head(pinus_models)
-#> # A tibble: 6 x 10
-#>   id       model_type  country region taxa   pub_id       model      family_name covt_name pub_year
-#>   <chr>    <chr>       <list>  <list> <list> <chr>        <list>     <list>      <list>       <dbl>
-#> 1 608af684 stem height <NULL>  <NULL> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
-#> 2 5985b11c stem height <NULL>  <NULL> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
-#> 3 2ffe4daa stem height <NULL>  <NULL> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
-#> 4 e154c803 stem height <NULL>  <NULL> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
-#> 5 66e18741 stem height <NULL>  <NULL> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
-#> 6 242d3a14 stem height <NULL>  <NULL> <Taxa> barrett_2006 <FxdEffcM> <chr [1]>   <chr [1]>     2006
+#> # A tibble: 6 x 12
+#>   id       spec_index model_name model_type  pub_id       pub_year family_name covt_name taxa              region component model     
+#>   <chr>         <int> <chr>      <chr>       <chr>           <dbl> <list>      <list>    <list> <list<character>> <chr>     <list>    
+#> 1 0f54ec1a          0 hstix100   site index  barrett_1978     1978 <chr [1]>   <chr [2]> <Taxa>                   <NA>      <FxdEffcM>
+#> 2 fdc26756         17 hst        stem height barrett_2006     2006 <chr [1]>   <chr [1]> <Taxa>                   <NA>      <FxdEffcM>
+#> 3 fdc26756         18 hst        stem height barrett_2006     2006 <chr [1]>   <chr [1]> <Taxa>                   <NA>      <FxdEffcM>
+#> 4 fdc26756         19 hst        stem height barrett_2006     2006 <chr [1]>   <chr [1]> <Taxa>                   <NA>      <FxdEffcM>
+#> 5 fdc26756         20 hst        stem height barrett_2006     2006 <chr [1]>   <chr [1]> <Taxa>                   <NA>      <FxdEffcM>
+#> 6 fdc26756         21 hst        stem height barrett_2006     2006 <chr [1]>   <chr [1]> <Taxa>                   <NA>      <FxdEffcM>
 nrow(pinus_models)
 #> [1] 324
 }\if{html}{\out{</div>}}
@@ -213,7 +161,7 @@ ponderosa_models <- dplyr::filter(
 )
 
 nrow(ponderosa_models)
-#> [1] 32
+#> [1] 57
 }\if{html}{\out{</div>}}
 }
 
@@ -231,7 +179,7 @@ limited by their available tree measurements.
 )
 
 nrow(dia_ht_models)
-#> [1] 285
+#> [1] 284
 }\if{html}{\out{</div>}}
 
 Breaking this down, we have the first condition \code{model_type=='stem_height'}
@@ -241,24 +189,24 @@ character vector. The \code{.} represents a given character vector for that row.
 First, we ensure that the vector is only one element in size using
 \code{length(.)==1}, then we ensure that the first (and only) element of this
 vector is equal to \code{'dsob'}, (diameter outside bark at breast height). In
-this case, 285 are available in the package.
+this case, 284 are available in the package.
 }
 
 \section{Finding a Model for a Region}{
 By now the user should be sensing a pattern. We can apply the exact same
 logic as the \emph{Finding Contributing Authors} section to find all models
-developed using data from \code{US-OR}
+developed using data from \code{US-CO}
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{us_or_models <- dplyr::filter(
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{us_co_models <- dplyr::filter(
     allometric_models,
-    purrr::map_lgl(region, ~ "US-OR" \%in\% .),
+    purrr::map_lgl(region, ~ "US-CO" \%in\% .),
 )
 
-nrow(us_or_models)
-#> [1] 0
+nrow(us_co_models)
+#> [1] 6
 }\if{html}{\out{</div>}}
 
-We can see that 0 allometric models are defined for the
-state of Oregon, US.
+We can see that 6 allometric models are defined for the
+state of Colorado, US.
 }
 

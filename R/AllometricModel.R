@@ -16,6 +16,7 @@ model_types_defined <- utils::read.csv(
 
 .AllometricModel <- setClass("AllometricModel",
   slots = c(
+    id = "character",
     response = "list",
     covariates = "list",
     predict_fn = "function",
@@ -73,6 +74,7 @@ AllometricModel <- function(response, covariates, predict_fn,
   model_type <- get_model_type(names(response)[[1]])
 
   allometric_model <- .AllometricModel(
+    id = NA_character_,
     response = response,
     covariates = covariates,
     predict_fn = predict_fn,

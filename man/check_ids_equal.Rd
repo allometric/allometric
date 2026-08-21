@@ -15,8 +15,8 @@ check_ids_equal(mod1, mod2)
 TRUE if equal, FALSE if not
 }
 \description{
-Two models are considered to have equal IDs if (1) they both do not have ID
-slots, which can occur especially in testing, or (2) both models have ID
-slots and the value of the slots are equal. They are not equal otherwise.
+Two models are considered to have equal IDs if both IDs are unset (NA), or
+both IDs are set and equal. They are not equal if one is set and the other
+is not, or if both are set and differ.
 }
 \keyword{internal}

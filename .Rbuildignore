@@ -1,7 +1,6 @@
 ^local$
 ^docs$
 ^doc$
-^inst/models-main$
 ^\.github$
 ^\.vscode$
 ^pkgdown$

@@ -54,7 +54,7 @@ aggregate_taxa <- function(table, grouping_col = NULL)
     dplyr::bind_rows()
 }
 
-#' Load a locally installed table of allometric models
+#' Load the locally installed table of allometric models
 #'
 #' This function loads all locally installed allometric models if they are
 #' downloaded and installed, if not run the `install_models` function. The
@@ -70,17 +70,21 @@ aggregate_taxa <- function(table, grouping_col = NULL)
 #' ```
 #'
 #' The columns are:
-#' * `id` - A unique ID for the model.
+#' * `id` - A unique ID for the model. This is the 8-character content hash
+#' assigned by the v4 model compilation pipeline.
+#' * `spec_index` - The index of the specification within its model set (0 for
+#' single models). Together with `id` this uniquely identifies a model.
+#' * `model_name` - The name of the model or model set.
 #' * `model_type` - The type of model (e.g., stem volume, site index, etc.)
-#' * `country` - The country or countries from which the model data is from.
-#' * `region` - The region or regions (e.g., state, province, etc.) from which
-#' the model data is from.
-#' * `taxa` - The taxonomic specification of the trees that are modeled.
-#' * `model` - The model object itself.
 #' * `pub_id` - A unique ID representing the publication.
+#' * `pub_year` - The publication year.
 #' * `family_name` - The names of the contributing authors.
 #' * `covt_name` - The names of the covariates used in the model.
-#' * `pub_year` - The publication year.
+#' * `taxa` - The taxonomic specification of the trees that are modeled.
+#' * `region` - The region or regions (e.g., state, province, etc.) from which
+#' the model data is from.
+#' * `component` - The tree component modeled (e.g., stem, branch).
+#' * `model` - The model object itself.
 #'
 #' Models can be searched by their attributes. Note that some of the columns
 #' are `list` columns, which contain lists as their elements. Filtering on
@@ -199,35 +203,33 @@ aggregate_taxa <- function(table, grouping_col = NULL)
 #'
 #' By now the user should be sensing a pattern. We can apply the exact same
 #' logic as the *Finding Contributing Authors* section to find all models
-#' developed using data from `US-OR`
+#' developed using data from `US-CO`
 #'
 #' ```{r}
-#' us_or_models <- dplyr::filter(
+#' us_co_models <- dplyr::filter(
 #'     allometric_models,
-#'     purrr::map_lgl(region, ~ "US-OR" %in% .),
+#'     purrr::map_lgl(region, ~ "US-CO" %in% .),
 #' )
 #'
-#' nrow(us_or_models)
+#' nrow(us_co_models)
 #' ```
 #'
-#' We can see that `r nrow(us_or_models)` allometric models are defined for the
-#' state of Oregon, US.
+#' We can see that `r nrow(us_co_models)` allometric models are defined for the
+#' state of Colorado, US.
 #'
 #' @return A model_tbl containing the locally installed models.
 #' @export
 load_models <- function() {
-  rds_path <- system.file(
-    "models-main/models.RDS",
+  dist_path <- system.file(
+    "models-main/dist",
     package = "allometric"
   )
 
-  if (!rds_path == "") {
-    allometric_models <- readRDS(rds_path)
-    allometric_models <- tibble::tibble(allometric_models) %>%
-      new_model_tbl()
-
-    return(allometric_models)
-  } else {
+  if (dist_path == "") {
     stop("No allometric models are installed. Use install_models()")
   }
+
+  tables <- read_dist_tables(dist_path)
+  joined <- join_model_tables(tables)
+  build_model_tbl(joined)
 }
