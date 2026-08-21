@@ -14,6 +14,9 @@
   package now vendors the compiled distribution in `inst/models-main/dist`.
 * The `model_tbl` gains `spec_index`, `model_name`, and `component` columns,
   and the model objects carry their v4 content-hash `id`.
+* `load_models()` caches the reconstructed `model_tbl` in the user cache
+  directory, keyed on the parquet content and package version, so repeat
+  loads take well under a second instead of ~15 s.
 * Prediction functions now substitute numeric coefficients only. Character
   descriptor columns (e.g. applicability qualifiers) are metadata and are
   never substituted into function bodies; numeric descriptors declared as

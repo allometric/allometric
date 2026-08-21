@@ -20,7 +20,6 @@ Printing the \code{head} of \code{allometric_models}, we can see the structure o
 data
 
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{allometric_models <- load_models()
-#> Warning: 74 publication(s) lack required BibTeX fields for their declared bibtype; citations were built with bibtype 'misc': barnes_1962, barrett_1978, barrett_2006, bell_1981, bluhm_2007, ...
 head(allometric_models)
 #> # A tibble: 6 x 12
 #>   id       spec_index model_name model_type  pub_id       pub_year family_name covt_name taxa              region component model     

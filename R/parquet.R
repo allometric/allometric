@@ -14,6 +14,25 @@
 # Loading constructs one `FixedEffectsModel` per spec row directly from these
 # tables, bypassing the old publication-ingest pipeline entirely.
 
+# Bump when the reconstruction logic changes so cached model_tbls are rebuilt.
+PARQUET_LOADER_VERSION <- "1"
+
+# Parsing unit strings through units::as_units is slow (~0.25 ms per call);
+# the corpus uses only a handful of distinct unit strings, so memoize them.
+.unit_cache <- new.env(parent = emptyenv())
+
+as_unit_cached <- function(unit) {
+  if (is.na(unit) || unit == "") {
+    return(units::unitless)
+  }
+  if (exists(unit, envir = .unit_cache, inherits = FALSE)) {
+    return(get(unit, envir = .unit_cache))
+  }
+  u <- units::as_units(unit)
+  assign(unit, u, envir = .unit_cache)
+  u
+}
+
 #' Read the three v4 parquet tables of a models distribution
 #'
 #' @param dir The directory containing the three `*.parquet` files
@@ -26,6 +45,28 @@ read_dist_tables <- function(dir) {
     publications = arrow::read_parquet(path("publications.parquet")),
     models = arrow::read_parquet(path("models.parquet")),
     model_specs = arrow::read_parquet(path("model_specs.parquet"))
+  )
+}
+
+#' Key identifying the compiled model distribution and the loader that
+#' reconstructs it, used to validate cached model tables.
+#'
+#' @keywords internal
+model_dist_key <- function(dist_path) {
+  files <- file.path(
+    dist_path,
+    c("models.parquet", "model_specs.parquet", "publications.parquet")
+  )
+  hashes <- vapply(
+    files,
+    function(file) unname(tools::md5sum(file)),
+    character(1)
+  )
+  paste(
+    paste(hashes, collapse = ""),
+    as.character(utils::packageVersion("allometric")),
+    PARQUET_LOADER_VERSION,
+    sep = ":"
   )
 }
 
@@ -61,8 +102,7 @@ join_model_tables <- function(tables) {
 #' @keywords internal
 response_from_row <- function(row) {
   r <- as.list(row$response)
-  unit <- if (is.na(r$units) || r$units == "") units::unitless else units::as_units(r$units)
-  stats::setNames(list(unit), r$name)
+  stats::setNames(list(as_unit_cached(r$units)), r$name)
 }
 
 #' Build the covariates slot from a joined spec row
@@ -76,8 +116,7 @@ covariates_from_row <- function(row) {
   out <- lapply(cc$name, function(name) units::unitless)
   names(out) <- cc$name
   for (i in seq_len(nrow(cc))) {
-    unit <- cc$units[i]
-    out[[i]] <- if (is.na(unit) || unit == "") units::unitless else units::as_units(unit)
+    out[[i]] <- as_unit_cached(cc$units[i])
   }
   out
 }

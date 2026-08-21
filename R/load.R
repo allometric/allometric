@@ -229,7 +229,34 @@ load_models <- function() {
     stop("No allometric models are installed. Use install_models()")
   }
 
+  # Reconstructing the ~2400 S4 models takes ~15 s, so cache the result keyed
+  # on the parquet content, the package version, and the loader version.
+  cache_path <- file.path(
+    tools::R_user_dir("allometric", "cache"), "model_tbl.rds"
+  )
+  cache_key <- model_dist_key(dist_path)
+
+  cached <- NULL
+  if (file.exists(cache_path)) {
+    cached <- tryCatch(readRDS(cache_path), error = function(e) NULL)
+  }
+  if (!is.null(cached) && identical(cached$key, cache_key)) {
+    return(cached$models)
+  }
+
   tables <- read_dist_tables(dist_path)
   joined <- join_model_tables(tables)
-  build_model_tbl(joined)
+  models <- build_model_tbl(joined)
+
+  tryCatch(
+    {
+      dir.create(dirname(cache_path), recursive = TRUE, showWarnings = FALSE)
+      tmp <- tempfile(tmpdir = dirname(cache_path))
+      saveRDS(list(key = cache_key, models = models), tmp)
+      file.rename(tmp, cache_path)
+    },
+    error = function(e) NULL
+  )
+
+  models
 }
