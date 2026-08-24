@@ -15,7 +15,6 @@
 ^scratch.*\.R$
 ^NEWS.md$
 ^vignettes/descriptors\.Rmd$
-^vignettes/installing_a_model\.Rmd$
 ^vignettes/inventory_example\.Rmd$
 ^vignettes/variable_naming_system\.Rmd$
 ^vignettes/version_two\.Rmd$

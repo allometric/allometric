@@ -81,18 +81,6 @@ test_that("select_model returns model", {
   expect_s4_class(mod_id, "FixedEffectsModel")
 })
 
-test_that("predict_allo produces predictions", {
-  test_model_tbl <- new_model_tbl(
-    tibble::tibble(models = c(fixed_effects_model), dsob = 1)
-  )
-
-  out <- predict_allo(test_model_tbl$models, test_model_tbl$dsob)
-
-  val <- 1
-  units(val) <- "ft^3"
-  expect_equal(out, val)
-})
-
 test_that("merging with model_tbl returns model_tbl", {
   test_model_tbl <- new_model_tbl(
     tibble::tibble(model = c(fixed_effects_model), dsob = 1, class = "a")

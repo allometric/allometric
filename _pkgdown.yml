@@ -13,11 +13,12 @@ reference:
   - install_models
   - load_models
   - predict
-  - predict_allo
+  - predict,list-method
   - model_call
   - select_model
   - select_model.model_tbl
   - merge.model_tbl
+  - descriptors
   - check_models_installed
 - title: Searching Functions
   desc: These functions facilitate searching models, especially those that assist with filtering for species information stored in the `Taxa` and `Taxon` classes.
@@ -33,7 +34,7 @@ reference:
   - '%in%,Taxa,Taxon-method'
   - '%in%,Taxon,Taxa-method'
 - title: Contributor Functions
-  desc: These functions are used to contribute models to `allometric`.
+  desc: These functions are used to construct and inspect allometric models and their definitions.
   contents:
   - add_model
   - add_set
@@ -51,8 +52,6 @@ reference:
   - Taxa
   - Taxon
   - '%in%,Taxon,character-method'
-  - toJSON,FixedEffectsModel-method
-  - toJSON
 - title: Example Data
   desc: Example data included with `allometric`.
   contents:

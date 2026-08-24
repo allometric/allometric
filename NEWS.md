@@ -21,6 +21,14 @@
   descriptor columns (e.g. applicability qualifiers) are metadata and are
   never substituted into function bodies; numeric descriptors declared as
   coefficients (e.g. the relative-height position in `kozak_1988`) are.
+* `predict()` now accepts a list of models (e.g. a `model` list-column in a
+  data frame) or a `model_tbl`, applying each model to the covariate values
+  for its row in a single call. Covariates may be matched by name, so sets of
+  models with different functional forms and covariate orders can be
+  predicted in one `dplyr::mutate()`; models with unsupplied covariates, and
+  rows without a model (e.g. unmatched `left_join()` rows), produce `NA`.
+  This replaces `predict_allo()`, which applied only the first model in the
+  set.
 
 ### BREAKING CHANGES
 
@@ -32,6 +40,8 @@
   `toJSON()`, and `fromJSON()` no longer exist (the
   `api.allometric.org` service is gone).
 * `install_models()` no longer accepts the `ingest` argument.
+* `predict_allo()` is removed; predict with sets of models using
+  `predict()` on a list-column or `model_tbl` instead.
 
 # [3.0.0](https://github.com/brycefrank/allometric/compare/v2.3.0...v3.0.0) (2024-09-22)
 

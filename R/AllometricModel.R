@@ -1,6 +1,6 @@
 setOldClass("units")
 setOldClass("BibEntry")
-setOldClass("tbl_df")
+setOldClass(c("tbl_df", "tbl", "data.frame"))
 
 check_allometric_model_validity <- function(object) {
   errors <- c()

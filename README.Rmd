@@ -92,21 +92,15 @@ forestry literature, and `allometric` is a platform for archiving and using this
 vast array of models in a robust and structured format. Get started by going to
 the [Installation](#installation) section or the [documentation website](https://allometric.org).
 
-`allometric` also provides a structured language for adding models to the
-package. If you are interested in helping the developer in this process please
-refer to the [Contributing a Model](https://allometric.org/articles/installing_a_model.html) vignette.
+`allometric` models are specified as YAML files in the
+[models](https://github.com/allometric/models) repository, validated and
+compiled by the [orc](https://github.com/allometric/orc) tooling.
 
 In total **`allometric` contains `r n_models` models across `r n_pubs` publications**,
 refer to the [Current Status](#current-status) for a more complete view of
 available models.
 
 ## Installation
-
-Currently `allometric` can be installed via CRAN:
-
-```{r eval=FALSE}
-install.packages("allometric")
-```
 
 For the latest release version, please install directly from GitHub using
 `devtools`:
@@ -132,53 +126,24 @@ allometric_models <- load_models()
 head(allometric_models)
 ```
 
-## Finding a Model
+An initial load models call can take some time, but is cached to the local
+file system for more rapid use later.
 
-`allometric_models` is a `tibble` dataframe. Each row represents one 
-allometric model with various attributes. Users interact with this table the
-way they would with any other `tibble`.
+## Browsing Model Families
 
-For example, we can use `dplyr` to filter this table to find models for
-analysis. Let's say I am interested in finding stem volume models for
-*Tsuga heterophylla*. First, let us filter the `model_type` to include only
-stem volume models
-
-```{r}
-stemvol_models <- allometric_models %>%
-  filter(model_type == "stem volume")
-
-stemvol_models
-```
-
-Next, we can filter to include only *Tsuga heterophylla* using a special
-specifier called `Taxon` that enables rigorous searching of species:
-
-```{r}
-tsuga_het_taxon <- Taxon(
-  family = "Pinaceae", genus = "Tsuga", species = "heterophylla"
-)
-
-tsuga_vol_models <- stemvol_models %>%
-  filter(purrr::map_lgl(taxa, ~ tsuga_het_taxon %in% .))
-
-tsuga_vol_models
-```
-
-We can see that we have `r nrow(tsuga_vol_models)` models to choose from. Let's
-select the model from the publication `poudel_2019`
-
-```{r}
-tsuga_poudel <- tsuga_vol_models %>% select_model("a136ecc8")
-```
-
-This example is very basic, and more complex search examples can be found in
-the [`load_models()`](https://allometric.org/reference/load_models.html)
-documentation. Models can be searched not only by their taxonomic information,
-but also the types of measurements the models require, their geographic region,
-and other attributes. We highly encourage users review the linked examples for
-production use of `allometric`.
+Model families are one entry point into the models stored in the allometric
+system. They are user-maintained collections of models that are used for a
+particular purpose. For example, one might desire a set of total aboveground
+biomass models using some multi-species system, or a set of site index functions
+from a particular publication.
 
 ## Using the Model
+
+```{r}
+tsuga_poudel <- allometric_models %>%
+  dplyr::filter(pub_id == "poudel_2019") %>%
+  select_model("a136ecc8")
+```
 
 `tsuga_poudel` now represents an allometric model that can be used for 
 prediction. We must next figure out how to use the model.
@@ -238,13 +203,15 @@ forward and added hundreds of models. There are several ways to help out. The
 following list is ranked from the least to most difficult tasks.
 
 1. [Add missing publications as an Issue](https://github.com/allometric/models/issues/new?assignees=brycefrank&labels=add+publication&projects=&template=add-models-from-a-publication.md&title=%5BInsert+Author-Date+Citation%5D). 
-We always need help *finding publications* to add. If you know of a publication that is missing, feel free to add it as an Issue and we will eventually install the models contained inside.
+We always need help *finding publications* to add. If you know of a publication that is missing, feel free to add it as an Issue and we will eventually add the models contained inside.
 2.  [Find source material for a publication](https://github.com/allometric/models/labels/missing%20source).
 Some publications are missing their original source material. Usually these are very old legacy publications. If you know where a publication might be found, or who to contact, leave a note on any of these issues.
 3. [Help us digitize publications](https://github.com/allometric/models/labels/digitization%20needed). 
 We always need help *digitizing legacy reports*, at this link you will find a list of reports that need manual digitization. These can be handled by anyone with Excel and a cup of coffee.
-4. [Learn how to install and write models](https://allometric.org/articles/installing_a_model.html). 
-Motivated users can learn how to install models directly using the package functions and git pull requests. Users comfortable with R and git can handle this task.
+4. [Write a model YAML file](https://github.com/allometric/models).
+Models are specified as YAML in the `allometric/models` repository; the
+[orc documentation](https://allometric.github.io/orc/) describes the schema.
+Users comfortable with git and YAML can handle this task.
 
 Other ideas? Contact bfrank70@gmail.com to help out.
 
@@ -258,8 +225,8 @@ documentation most useful:
 
 - [Common Inventory Use Cases](https://allometric.org/articles/inventory_example.html)
 
-Users interested in **contributing models** to the package will find these vignettes the most useful:
+Users interested in **contributing models** to the package will find these resources the most useful:
 
-- [Contributing a Model](https://allometric.org/articles/installing_a_model.html)
+- [Model YAML specification (orc)](https://allometric.github.io/orc/)
 - [Describing a Model with Descriptors](https://allometric.org/articles/descriptors.html)
 - [Variable Naming System](https://allometric.org/articles/variable_naming_system.html)

@@ -62,6 +62,7 @@ Collate:
     'load.R'
     'model_tbl.R'
     'parquet.R'
+    'predict-set.R'
     'summary.R'
     'util.R'
     'utils-pipe.R'

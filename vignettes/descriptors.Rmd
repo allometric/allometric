@@ -38,31 +38,3 @@ descriptors whenever possible. The remaining two descriptors are non-standard
 descriptors specific to this publication, and use verbage from the publication
 to assist users in finding the correct model. Contributors are free to name
 these descriptors in a way that makes sense for the publication.
-
-## Specifying Descriptors at Different Levels
-
-`allometric` operates at three levels arranged in a hierarchy. There are
-publications, model sets within publications and models within model sets.
-For convenience, contributors can define descriptors at any level, with the
-understanding that all descriptors defined at that level apply uniformly to 
-all models lower in the hierarchy.
-
-For example, the source code for the Brackett model installation specifies 
-`country` and `region` at the publication-level.
-
-```{r eval=F}
-brackett_1977 <- Publication(
-  citation = bracket_1977_citation,
-  descriptors = list(
-    country = "US",
-    region = "US-WA"
-  )
-)
-```
-
-This means that **all** models in `brackett_1977` are constructed with data only
-from the state of Washington in the United States. The `FixedEffectsSet`,
-`MixedEffectsSet` and their respective `FixedEffectsModel` and `MixedEffectsModel`
-classes all have a `descriptors` argument that can be used for specifying
-descriptors at these levels. Refer to the [Installing a Model](https://allometric.github.io/allometric/articles/installing_a_model.html)
-vignette for more examples at these levels.

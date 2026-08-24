@@ -176,29 +176,6 @@ unnest_taxa.model_tbl <- function(data) {
   model_tbl_reconstruct(expanded, data)
 }
 
-#' Predict allometric attributes using a column of allometric models
-#'
-#' A frequent pattern in forest inventory anaylsis is the need to produce
-#' predictions of models with the same functional form, but using different
-#' models. `predict_allo` enables this by allowing the user to pass a
-#' list-column of models as an argument, along with the associated covariates.
-#' This pattern plays well with `dplyr` functions such as `dplyr::mutate()`.
-#'
-#' @param model_list A list-column of models
-#' @param ... Additional arguments passed to each model's `predict_fn`
-#' @return A vector of predictions
-#' @export
-#' @examples
-#' tree_data <- tibble::tibble(
-#'  dbh = c(10, 20), ht = c(50, 75), model = c(list(brackett_rubra), list(brackett_acer))
-#' )
-#'
-#' tree_data %>%
-#'   dplyr::mutate(vol = predict_allo(model, dbh, ht))
-predict_allo <- function(model_list, ...) {
-  predict(model_list[[1]], ...)
-}
-
 #' Merge a `model_tbl` with another data frame.
 #'
 #' This merge function ensures that, when `model_tbl` is used in a merge that
