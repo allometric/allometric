@@ -1,0 +1,52 @@
+# Verifies that the R loader still understands the published v4 model
+# distribution (dist/*.parquet written by the orc tooling in the
+# allometric/models repository). Their schema is a cross-repo contract: a
+# change on either side (e.g. a column rename) breaks the other. The vendored
+# corpus under inst/models-main/dist can mask such drift, so this job
+# downloads the live dist and runs the contract test, failing here instead of
+# in users' install_models() + load_models() sessions.
+#
+# Runs daily against the default branch, on demand, and on every change to
+# the loader or the contract test itself.
+
+name: dist-contract
+
+on:
+  schedule:
+    - cron: '17 6 * * *'
+  workflow_dispatch:
+  push:
+    branches: [v4, master]
+    paths:
+      - 'R/parquet.R'
+      - 'R/load.R'
+      - 'R/install.R'
+      - 'tests/testthat/test-live-dist-contract.R'
+  pull_request:
+    paths:
+      - 'R/parquet.R'
+      - 'R/load.R'
+      - 'R/install.R'
+      - 'tests/testthat/test-live-dist-contract.R'
+
+jobs:
+  dist-contract:
+    runs-on: ubuntu-latest
+
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      ALLOMETRIC_LIVE_DIST: '1'
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: any::testthat, local::.
+
+      - name: Run the live-dist contract test
+        run: Rscript -e 'testthat::test_local(".", filter = "live-dist-contract", reporter = "summary")'
