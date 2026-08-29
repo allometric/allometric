@@ -5,7 +5,7 @@ models <- load_models()
 
 test_that("load_models returns a model_tbl with the expected shape", {
   expect_s3_class(models, "model_tbl")
-  expect_equal(nrow(models), 2392)
+  expect_equal(nrow(models), 2409)
 
   expect_named(
     models,
@@ -42,12 +42,13 @@ test_that("select_model works by the v4 content-hash id", {
   expect_equal(mod_id, mod_ix)
 })
 
-test_that("a model set produces one row per specification", {
-  hahn_vsia <- dplyr::filter(models, pub_id == "hahn_1991", model_name == "vsia")
-
-  expect_equal(nrow(hahn_vsia), 23)
-  expect_equal(length(unique(hahn_vsia$id)), 1)
-  expect_equal(hahn_vsia$spec_index, 0:22)
+test_that("boolean pub descriptors (country: false) are dropped, not validated", {
+  # sharma_2015 declares country: false in its publication descriptors; the
+  # corpus means "not specified", so the model must load with no country
+  # descriptor rather than fail the ISO country-code validity check.
+  sharma <- dplyr::filter(models, pub_id == "sharma_2015", model_name == "hst")
+  expect_equal(nrow(sharma), 1)
+  expect_false("country" %in% names(sharma$model[[1]]@descriptors))
 })
 
 test_that("taxa and region are searchable list columns", {

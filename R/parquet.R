@@ -6,23 +6,24 @@
 #   models.parquet        — one row per model set or single model
 #   model_specs.parquet   — one row per specification (the queryable unit)
 #
-# model_specs.model_id joins to models.id (the 8-character content hash) and
-# models.pub_id joins to publications.pub_id. A single model has one spec row
-# (spec_index 0); a set has one row per specification, each carrying its own
-# parameters and scope (fallback-resolved to the set level by the writer).
+# Each spec row carries its own content-hash id; model_specs.set_id joins to
+# models.id (the id of the parent set, equal to the spec id for single models)
+# and models.pub_id joins to publications.pub_id. A single model has one spec
+# row (spec_index 0); a set has one row per specification, each carrying its
+# own parameters and scope (fallback-resolved to the set level by the writer).
 #
 # Loading constructs one `FixedEffectsModel` per spec row directly from these
 # tables, bypassing the old publication-ingest pipeline entirely.
 
 # Bump when the reconstruction logic changes so cached model_tbls are rebuilt.
-PARQUET_LOADER_VERSION <- "1"
+PARQUET_LOADER_VERSION <- "2"
 
 # Parsing unit strings through units::as_units is slow (~0.25 ms per call);
 # the corpus uses only a handful of distinct unit strings, so memoize them.
 .unit_cache <- new.env(parent = emptyenv())
 
 as_unit_cached <- function(unit) {
-  if (is.na(unit) || unit == "") {
+  if (is.na(unit) || unit == "" || unit == "unitless") {
     return(units::unitless)
   }
   if (exists(unit, envir = .unit_cache, inherits = FALSE)) {
@@ -82,7 +83,7 @@ model_dist_key <- function(dist_path) {
 #' @keywords internal
 join_model_tables <- function(tables) {
   tables$model_specs |>
-    dplyr::left_join(tables$models, by = c(model_id = "id")) |>
+    dplyr::left_join(tables$models, by = c(set_id = "id")) |>
     dplyr::rename(
       spec_taxa = .data$taxa.x,
       spec_region = .data$region.x,
@@ -202,6 +203,12 @@ descriptors_tibble_from_row <- function(row) {
       next
     }
     value <- merged[[name]]
+    # The corpus encodes "not specified" as false/null in descriptor JSON;
+    # booleans are not descriptors, so drop them rather than emit a value the
+    # model validity checks would reject (e.g. country: false).
+    if (is.null(value) || (is.logical(value) && length(value) == 1)) {
+      next
+    }
     cols[[name]] <- if (length(value) > 1) list(value) else value
   }
 
@@ -282,7 +289,7 @@ spec_to_model <- function(row, citation) {
   if (!row$model_type %in% c("fixed_effects", "fixed_effects_set")) {
     stop(
       "Unsupported model type '", row$model_type, "' for model ",
-      row$model_id, " (", row$pub_id, " / ", row$model_name, ")"
+      row$id, " (", row$pub_id, " / ", row$model_name, ")"
     )
   }
 
@@ -303,7 +310,7 @@ spec_to_model <- function(row, citation) {
     covariate_definitions = covt_defs_from_row(row)
   )
 
-  model@id <- row$model_id
+  model@id <- row$id
   model@pub_id <- row$pub_id
   model@citation <- citation
 
@@ -352,7 +359,7 @@ build_model_tbl <- function(joined) {
   )
 
   tbl <- tibble::tibble(
-    id = joined$model_id,
+    id = joined$id,
     spec_index = joined$spec_index,
     model_name = joined$model_name,
     model_type = vapply(models, function(m) m@model_type, character(1)),

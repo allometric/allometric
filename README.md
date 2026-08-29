@@ -23,7 +23,7 @@ the [Installation](#installation) section or the [documentation website](https:/
 [models](https://github.com/allometric/models) repository, validated and
 compiled by the [orc](https://github.com/allometric/orc) tooling.
 
-In total **`allometric` contains 2392 models across 74 publications**,
+In total **`allometric` contains 2409 models across 75 publications**,
 refer to the [Current Status](#current-status) for a more complete view of
 available models.
 

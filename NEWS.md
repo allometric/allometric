@@ -21,6 +21,11 @@
   arguments to load only a subset of models. Filters are applied before the
   model objects are constructed, so a filtered load never materializes the
   models it excludes. Each filter combination is cached separately.
+* `load_models()` now loads the current v4 distribution, where each
+  `model_specs` row carries its own content-hash `id` and references its
+  parent set via `set_id` (previously the spec rows joined on a single
+  `model_id` column). `model_tbl` ids and model `id` slots are the
+  spec-level content hashes, so each specification is uniquely addressable.
 * Prediction functions now substitute numeric coefficients only. Character
   descriptor columns (e.g. applicability qualifiers) are metadata and are
   never substituted into function bodies; numeric descriptors declared as
