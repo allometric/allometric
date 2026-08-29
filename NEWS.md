@@ -17,6 +17,10 @@
 * `load_models()` caches the reconstructed `model_tbl` in the user cache
   directory, keyed on the parquet content and package version, so repeat
   loads take well under a second instead of ~15 s.
+* `load_models()` now accepts optional `model_type`, `country`, and `region`
+  arguments to load only a subset of models. Filters are applied before the
+  model objects are constructed, so a filtered load never materializes the
+  models it excludes. Each filter combination is cached separately.
 * Prediction functions now substitute numeric coefficients only. Character
   descriptor columns (e.g. applicability qualifiers) are metadata and are
   never substituted into function bodies; numeric descriptors declared as

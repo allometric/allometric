@@ -80,3 +80,60 @@ test_that("character descriptor qualifiers are not substituted", {
   expect_true(is.finite(as.numeric(pred)))
   expect_equal(units::deparse_unit(pred), "ft3")
 })
+
+test_that("load_models filters by model_type", {
+  ht <- load_models(model_type = "stem height")
+  expect_s3_class(ht, "model_tbl")
+  expect_gt(nrow(ht), 0)
+  expect_lt(nrow(ht), nrow(models))
+  expect_true(all(ht$model_type == "stem height"))
+})
+
+test_that("load_models filters by region", {
+  us_co <- load_models(region = "US-CO")
+  expect_gt(nrow(us_co), 0)
+  expect_true(all(vapply(us_co$region, function(r) "US-CO" %in% r, logical(1))))
+})
+
+test_that("load_models filters by country", {
+  ca <- load_models(country = "CA")
+  expect_gt(nrow(ca), 0)
+  expect_true(all(vapply(
+    ca$region, function(r) any(sub("-.*", "", r) %in% "CA"), logical(1)
+  )))
+})
+
+test_that("load_models combines filters and matches the full table", {
+  subset <- load_models(country = "US", region = "US-CO", model_type = "stem volume")
+  expect_s3_class(subset, "model_tbl")
+  expect_gt(nrow(subset), 0)
+
+  # The subset must equal the corresponding filter of the full table.
+  expected <- dplyr::filter(
+    models,
+    purrr::map_lgl(region, ~ any(sub("-.*", "", .) %in% "US" & "US-CO" %in% .)),
+    model_type == "stem volume"
+  )
+  expect_equal(nrow(subset), nrow(expected))
+  expect_setequal(subset$id, expected$id)
+})
+
+test_that("load_models warns and returns empty when no models match", {
+  expect_warning(
+    res <- load_models(region = "US-CO", model_type = "crown ratio"),
+    "No models match"
+  )
+  expect_s3_class(res, "model_tbl")
+  expect_equal(nrow(res), 0)
+})
+
+test_that("load_models rejects unknown filter values", {
+  expect_error(load_models(region = "XX-YY"), "region value\\(s\\) not found")
+  expect_error(load_models(country = "ZZ"), "country value\\(s\\) not found")
+  expect_error(load_models(model_type = "bogus"), "model_type value\\(s\\) not found")
+})
+
+test_that("load_models treats empty filter arguments as no filter", {
+  expect_equal(nrow(load_models(model_type = character(0))), nrow(models))
+  expect_equal(nrow(load_models(country = NULL, region = NULL)), nrow(models))
+})

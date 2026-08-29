@@ -4,10 +4,24 @@
 \alias{load_models}
 \title{Load the locally installed table of allometric models}
 \usage{
-load_models()
+load_models(model_type = NULL, country = NULL, region = NULL)
+}
+\arguments{
+\item{model_type}{An optional character vector of model types to load (e.g.
+\code{"stem height"}, \code{"stem volume"}). Only models whose type appears in this
+vector are loaded.}
+
+\item{country}{An optional character vector of ISO 3166-1 alpha-2 country
+codes (e.g. \code{"US"}, \code{"CA"}, \code{"ES"}). Only models whose regions fall within
+the given countries are loaded. Region codes embed the country as a
+prefix (e.g. \code{"US-CO"}).}
+
+\item{region}{An optional character vector of region codes (e.g. \code{"US-CO"}).
+Only models whose regions match are loaded.}
 }
 \value{
-A model_tbl containing the locally installed models.
+A model_tbl containing the locally installed models that match the
+given filters (or all models if no filters are supplied).
 }
 \description{
 This function loads all locally installed allometric models if they are
@@ -20,6 +34,7 @@ Printing the \code{head} of \code{allometric_models}, we can see the structure o
 data
 
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{allometric_models <- load_models()
+#> Warning: 74 publication(s) lack required BibTeX fields for their declared bibtype; citations were built with bibtype 'misc': barnes_1962, barrett_1978, barrett_2006, bell_1981, bluhm_2007, ...
 head(allometric_models)
 #> # A tibble: 6 x 12
 #>   id       spec_index model_name model_type  pub_id       pub_year family_name covt_name taxa              region component model     
@@ -204,8 +219,40 @@ developed using data from \code{US-CO}
 nrow(us_co_models)
 #> [1] 6
 }\if{html}{\out{</div>}}
+}
 
-We can see that 6 allometric models are defined for the
-state of Colorado, US.
+\section{Loading a Subset of Models}{
+Loading every model reconstructs the full ~2400-model table, which is slow
+and memory-heavy. Pass \code{model_type}, \code{country}, or \code{region} to load only the
+models you need. The filters are applied before the model objects are
+constructed, so a filtered load never materializes the models it excludes.
+All three filters are optional and may be combined.
+
+For example, to load only stem-height models:
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{ht_models <- load_models(model_type = "stem height")
+#> Warning: 14 publication(s) lack required BibTeX fields for their declared bibtype; citations were built with bibtype 'misc': barrett_2006, dolph_1991, eng_2012, feldpausch_2012, fvs_2008, ...
+
+nrow(ht_models)
+#> [1] 363
+}\if{html}{\out{</div>}}
+
+Or only models from the state of Colorado, US:
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{us_co_models <- load_models(region = "US-CO")
+#> Warning: 1 publication(s) lack required BibTeX fields for their declared bibtype; citations were built with bibtype 'misc': chojnacky_1985
+
+nrow(us_co_models)
+#> [1] 6
+}\if{html}{\out{</div>}}
+
+Or only models from Canada:
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{canada_models <- load_models(country = "CA")
+#> Warning: 2 publication(s) lack required BibTeX fields for their declared bibtype; citations were built with bibtype 'misc': lambert_2005, ung_2008
+
+nrow(canada_models)
+#> [1] 416
+}\if{html}{\out{</div>}}
 }
 

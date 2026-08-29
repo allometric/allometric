@@ -214,12 +214,51 @@ aggregate_taxa <- function(table, grouping_col = NULL)
 #' nrow(us_co_models)
 #' ```
 #'
-#' We can see that `r nrow(us_co_models)` allometric models are defined for the
-#' state of Colorado, US.
+#' # Loading a Subset of Models
 #'
-#' @return A model_tbl containing the locally installed models.
+#' Loading every model reconstructs the full ~2400-model table, which is slow
+#' and memory-heavy. Pass `model_type`, `country`, or `region` to load only the
+#' models you need. The filters are applied before the model objects are
+#' constructed, so a filtered load never materializes the models it excludes.
+#' All three filters are optional and may be combined.
+#'
+#' For example, to load only stem-height models:
+#'
+#' ```{r}
+#' ht_models <- load_models(model_type = "stem height")
+#'
+#' nrow(ht_models)
+#' ```
+#'
+#' Or only models from the state of Colorado, US:
+#'
+#' ```{r}
+#' us_co_models <- load_models(region = "US-CO")
+#'
+#' nrow(us_co_models)
+#' ```
+#'
+#' Or only models from Canada:
+#'
+#' ```{r}
+#' canada_models <- load_models(country = "CA")
+#'
+#' nrow(canada_models)
+#' ```
+#'
+#' @param model_type An optional character vector of model types to load (e.g.
+#'   `"stem height"`, `"stem volume"`). Only models whose type appears in this
+#'   vector are loaded.
+#' @param country An optional character vector of ISO 3166-1 alpha-2 country
+#'   codes (e.g. `"US"`, `"CA"`, `"ES"`). Only models whose regions fall within
+#'   the given countries are loaded. Region codes embed the country as a
+#'   prefix (e.g. `"US-CO"`).
+#' @param region An optional character vector of region codes (e.g. `"US-CO"`).
+#'   Only models whose regions match are loaded.
+#' @return A model_tbl containing the locally installed models that match the
+#'   given filters (or all models if no filters are supplied).
 #' @export
-load_models <- function() {
+load_models <- function(model_type = NULL, country = NULL, region = NULL) {
   dist_path <- system.file(
     "models-main/dist",
     package = "allometric"
@@ -229,34 +268,187 @@ load_models <- function() {
     stop("No allometric models are installed. Use install_models()")
   }
 
+  model_type <- as_character_or_null(model_type)
+  country <- as_character_or_null(country)
+  region <- as_character_or_null(region)
+
   # Reconstructing the ~2400 S4 models takes ~15 s, so cache the result keyed
-  # on the parquet content, the package version, and the loader version.
+  # on the parquet content, the package version, and the loader version. Each
+  # distinct filter combination is cached separately, so filtered loads are
+  # fast on repeat calls too.
   cache_path <- file.path(
     tools::R_user_dir("allometric", "cache"), "model_tbl.rds"
   )
-  cache_key <- model_dist_key(dist_path)
+  dist_key <- model_dist_key(dist_path)
+  filter_key <- filter_cache_key(model_type, country, region)
 
-  cached <- NULL
-  if (file.exists(cache_path)) {
-    cached <- tryCatch(readRDS(cache_path), error = function(e) NULL)
-  }
-  if (!is.null(cached) && identical(cached$key, cache_key)) {
-    return(cached$models)
+  variants <- read_model_cache(cache_path, dist_key)
+  if (!is.null(variants) && filter_key %in% names(variants)) {
+    return(variants[[filter_key]])
   }
 
   tables <- read_dist_tables(dist_path)
   joined <- join_model_tables(tables)
+  joined <- filter_joined_models(
+    joined, model_type = model_type, country = country, region = region
+  )
+  if (nrow(joined) == 0) {
+    warning("No models match the given filters.", call. = FALSE)
+  }
   models <- build_model_tbl(joined)
 
+  # Empty results are not cached: they cost nothing to rebuild and it keeps the
+  # "no models match" warning informative on every call.
+  if (nrow(models) > 0) {
+    write_model_cache(cache_path, dist_key, filter_key, models, variants)
+  }
+
+  models
+}
+
+#' Coerce a filter argument to a character vector, or NULL if empty
+#'
+#' @keywords internal
+as_character_or_null <- function(x) {
+  if (is.null(x) || length(x) == 0) {
+    return(NULL)
+  }
+  as.character(x)
+}
+
+#' Canonical cache key for a filter combination
+#'
+#' @keywords internal
+filter_cache_key <- function(model_type, country, region) {
+  if (is.null(model_type) && is.null(country) && is.null(region)) {
+    return("full")
+  }
+  paste(
+    if (is.null(model_type)) "" else paste(sort(model_type), collapse = ","),
+    if (is.null(country)) "" else paste(sort(country), collapse = ","),
+    if (is.null(region)) "" else paste(sort(region), collapse = ","),
+    sep = "|"
+  )
+}
+
+#' Validate a filter argument against the values present in the data
+#'
+#' @keywords internal
+check_filter_values <- function(value, arg, available) {
+  missing <- value[!value %in% available]
+  if (length(missing) > 0) {
+    opts <- available
+    if (length(opts) > 20) {
+      opts <- c(utils::head(opts, 20), "...")
+    }
+    stop(
+      arg, " value(s) not found: ", paste(missing, collapse = ", "),
+      ". Available: ", paste(opts, collapse = ", "),
+      call. = FALSE
+    )
+  }
+  value
+}
+
+#' Filter a joined v4 table before model reconstruction
+#'
+#' Filters are applied on the joined table (before `build_model_tbl`), so only
+#' the requested models are ever constructed. `model_type` is derived from the
+#' response name via `get_model_type()`; `country` and `region` are matched
+#' against the spec-level `spec_region` list column (region codes embed the
+#' country as a dash-prefixed code, e.g. `"US-CO"`).
+#'
+#' @param joined The tibble returned by `join_model_tables()`
+#' @return The filtered joined tibble
+filter_joined_models <- function(
+  joined, model_type = NULL, country = NULL, region = NULL
+) {
+  # Validate every argument against the full table first, so an earlier filter
+  # cannot shrink the candidate set and cause a false "not found" error (e.g.
+  # filtering by model_type may leave no rows with a region at all).
+  if (!is.null(model_type)) {
+    available <- unique(vapply(
+      joined$response$name, get_model_type, character(1)
+    ))
+    model_type <- check_filter_values(model_type, "model_type", available)
+  }
+  if (!is.null(region)) {
+    available <- unique(unlist(joined$spec_region))
+    region <- check_filter_values(region, "region", available)
+  }
+  if (!is.null(country)) {
+    available <- unique(sub("-.*", "", unlist(joined$spec_region)))
+    country <- check_filter_values(country, "country", available)
+  }
+
+  if (!is.null(model_type)) {
+    mt <- vapply(joined$response$name, get_model_type, character(1))
+    joined <- joined[mt %in% model_type, ]
+  }
+
+  if (!is.null(region)) {
+    keep <- vapply(joined$spec_region, function(rg) {
+      !is.null(rg) && any(rg %in% region)
+    }, logical(1))
+    joined <- joined[keep, ]
+  }
+
+  if (!is.null(country)) {
+    keep <- vapply(joined$spec_region, function(rg) {
+      if (is.null(rg)) {
+        return(FALSE)
+      }
+      any(sub("-.*", "", rg) %in% country)
+    }, logical(1))
+    joined <- joined[keep, ]
+  }
+
+  joined
+}
+
+#' Read the cached model variants for a distribution key
+#'
+#' The cache file stores a named list of filter keys to `model_tbl`s for one
+#' distribution. Legacy files store a single `list(key, models)` for the
+#' unfiltered load and are migrated on read.
+#'
+#' @return A named list of filter key to `model_tbl`, or NULL when no valid
+#'   cache exists.
+#' @keywords internal
+read_model_cache <- function(cache_path, dist_key) {
+  if (!file.exists(cache_path)) {
+    return(NULL)
+  }
+  cached <- tryCatch(readRDS(cache_path), error = function(e) NULL)
+  if (is.null(cached) || is.null(cached$key) ||
+      !identical(cached$key, dist_key)) {
+    return(NULL)
+  }
+  variants <- cached$variants
+  if (is.null(variants) && !is.null(cached$models)) {
+    variants <- list(full = cached$models)
+  }
+  variants
+}
+
+#' Write one filter variant into the model cache
+#'
+#' @keywords internal
+write_model_cache <- function(
+  cache_path, dist_key, filter_key, models, variants
+) {
   tryCatch(
     {
       dir.create(dirname(cache_path), recursive = TRUE, showWarnings = FALSE)
+      new_variants <- variants
+      if (is.null(new_variants)) {
+        new_variants <- list()
+      }
+      new_variants[[filter_key]] <- models
       tmp <- tempfile(tmpdir = dirname(cache_path))
-      saveRDS(list(key = cache_key, models = models), tmp)
+      saveRDS(list(key = dist_key, variants = new_variants), tmp)
       file.rename(tmp, cache_path)
     },
     error = function(e) NULL
   )
-
-  models
 }
