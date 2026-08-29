@@ -16,7 +16,7 @@
 # tables, bypassing the old publication-ingest pipeline entirely.
 
 # Bump when the reconstruction logic changes so cached model_tbls are rebuilt.
-PARQUET_LOADER_VERSION <- "2"
+PARQUET_LOADER_VERSION <- "3"
 
 # Parsing unit strings through units::as_units is slow (~0.25 ms per call);
 # the corpus uses only a handful of distinct unit strings, so memoize them.
@@ -82,7 +82,11 @@ model_dist_key <- function(dist_path) {
 #' @return A tibble with one row per model spec.
 #' @keywords internal
 join_model_tables <- function(tables) {
-  tables$model_specs |>
+  # The writer falls back spec -> model scope only; a publication-level
+  # `region` (which applies to every model of the publication) is carried in
+  # the publication descriptors. Apply that fallback here so the effective
+  # region, used by filters and the model_tbl, includes it.
+  joined <- tables$model_specs |>
     dplyr::left_join(tables$models, by = c(set_id = "id")) |>
     dplyr::rename(
       spec_taxa = .data$taxa.x,
@@ -94,6 +98,20 @@ join_model_tables <- function(tables) {
                   -.data$descriptors.y) |>
     dplyr::left_join(tables$publications, by = "pub_id") |>
     dplyr::rename(pub_descriptors = .data$descriptors)
+
+  joined$spec_region <- Map(
+    function(rg, pub) {
+      if (!is.null(rg)) {
+        return(rg)
+      }
+      pub_region <- descriptors_json_to_list(pub)$region
+      if (is.null(pub_region)) NULL else pub_region
+    },
+    joined$spec_region,
+    joined$pub_descriptors
+  )
+
+  joined
 }
 
 # --- per-row builders (fresh v4 code, not the legacy JSON converters) ---

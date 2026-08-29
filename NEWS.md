@@ -26,6 +26,11 @@
   parent set via `set_id` (previously the spec rows joined on a single
   `model_id` column). `model_tbl` ids and model `id` slots are the
   spec-level content hashes, so each specification is uniquely addressable.
+* `load_models()` region and country filters now fall back to the
+  publication-level region when a spec carries none of its own (the
+  distribution only resolves spec -> model scope), so models tagged only at
+  the publication level (e.g. `wiley_1978`, `rustagi_1991` in the US
+  Pacific Northwest) are found by `region = "US-OR"`.
 * Prediction functions now substitute numeric coefficients only. Character
   descriptor columns (e.g. applicability qualifiers) are metadata and are
   never substituted into function bodies; numeric descriptors declared as

@@ -90,10 +90,25 @@ test_that("load_models filters by model_type", {
   expect_true(all(ht$model_type == "stem height"))
 })
 
-test_that("load_models filters by region", {
-  us_co <- load_models(region = "US-CO")
-  expect_gt(nrow(us_co), 0)
-  expect_true(all(vapply(us_co$region, function(r) "US-CO" %in% r, logical(1))))
+test_that("load_models falls back to publication-level regions", {
+  # rustagi_1991 declares region at the publication level (US-OR, US-WA,
+  # CA-BC); its specs carry no region of their own, so the effective region
+  # must fall back to the publication's or region filters silently miss them.
+  or <- load_models(region = "US-OR")
+  expect_gt(nrow(or), 0)
+  expect_true(all(vapply(or$region, function(r) "US-OR" %in% r, logical(1))))
+
+  rustagi <- dplyr::filter(or, pub_id == "rustagi_1991")
+  expect_gt(nrow(rustagi), 0)
+  expect_true(all(vapply(
+    rustagi$region,
+    function(r) all(c("US-OR", "US-WA", "CA-BC") %in% r),
+    logical(1)
+  )))
+
+  vol <- load_models(model_type = "stem volume", region = "US-OR")
+  expect_gt(nrow(vol), 0)
+  expect_true(all(vol$model_type == "stem volume"))
 })
 
 test_that("load_models filters by country", {
