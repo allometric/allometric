@@ -306,6 +306,73 @@ load_models <- function(model_type = NULL, country = NULL, region = NULL) {
   models
 }
 
+#' Load a single model by publication and model name
+#'
+#' Returns the model identified by `pub_id` and `name`, e.g.
+#' `load_model("barnes_1962", "hstix50")`. The combination must identify a
+#' single model; model sets (multiple specifications sharing one functional
+#' form) are returned by `load_set()`.
+#'
+#' @param pub_id A publication key, e.g. `"barnes_1962"`.
+#' @param name The model name, e.g. `"hstix50"`.
+#' @return The model object (e.g. a `FixedEffectsModel`).
+#' @export
+load_model <- function(pub_id, name) {
+  rows <- load_model_rows(pub_id, name)
+  if (nrow(rows) > 1) {
+    stop(
+      "'", name, "' for publication '", pub_id, "' is a model set with ",
+      nrow(rows), " specifications; use load_set()", call. = FALSE
+    )
+  }
+  rows$model[[1]]
+}
+
+#' Load a model set by publication and set name
+#'
+#' Returns every specification of the model set identified by `pub_id` and
+#' `name`, e.g. `load_set("barrett_2006", "hst")`, as a `model_tbl` with one
+#' row per specification. A single model is returned as a one-row `model_tbl`;
+#' use `load_model()` to get the model object directly.
+#'
+#' @param pub_id A publication key, e.g. `"barrett_2006"`.
+#' @param name The set name, e.g. `"hst"`.
+#' @return A `model_tbl` with one row per specification.
+#' @export
+load_set <- function(pub_id, name) {
+  load_model_rows(pub_id, name)
+}
+
+#' Shared lookup for load_model() and load_set()
+#'
+#' @keywords internal
+load_model_rows <- function(pub_id, name) {
+  if (!is.character(pub_id) || length(pub_id) != 1 ||
+      !is.character(name) || length(name) != 1) {
+    stop("pub_id and name must be single character strings", call. = FALSE)
+  }
+
+  models <- load_models()
+  rows <- models[
+    models$pub_id == pub_id & models$model_name == name,
+  ]
+  if (nrow(rows) == 0) {
+    available <- unique(models$model_name[models$pub_id == pub_id])
+    if (length(available) > 0) {
+      stop(
+        "no model named '", name, "' for publication '", pub_id,
+        "'; available model names: ",
+        paste(available, collapse = ", "),
+        call. = FALSE
+      )
+    }
+    stop(
+      "no models found for publication '", pub_id, "'", call. = FALSE
+    )
+  }
+  rows
+}
+
 #' Coerce a filter argument to a character vector, or NULL if empty
 #'
 #' @keywords internal
