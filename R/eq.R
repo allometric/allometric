@@ -50,22 +50,26 @@ check_response_equal <- function(mod1, mod2) {
 #' @inheritParams check_ids_equal
 #' @keywords internal
 check_covariates_equal <- function(mod1, mod2) {
-  p1 <- length(mod1@covariates)
-  p2 <- length(mod2@covariates)
-
-  if(p1 != p2) {return (FALSE)}
-  if(!identical(mod1@covariates, mod1@covariates)) {return (FALSE)}
-
-  units_1 <- c()
-  units_2 <- c()
-  for(i in 1:p1) {units_1 <- c(units_1, mod1@covariates[i])}
-  for(i in 1:p2) {units_2 <- c(units_2, mod2@covariates[i])}
-
-  if(!identical(units_1, units_2)) {
-    return (FALSE)
-  } else {
-    return (TRUE)
+  if (length(mod1@covariates) != length(mod2@covariates)) {
+    return(FALSE)
   }
+
+  # Names, order, and units must all match. Units are compared as strings so
+  # the check does not depend on object identity or attribute leakage.
+  if (!identical(names(mod1@covariates), names(mod2@covariates))) {
+    return(FALSE)
+  }
+
+  identical(covariate_unit_strs(mod1@covariates), covariate_unit_strs(mod2@covariates))
+}
+
+#' Units of a covariate list, as strings ("" for unitless)
+#'
+#' @keywords internal
+covariate_unit_strs <- function(covariates) {
+  vapply(covariates, function(u) {
+    if (inherits(u, "symbolic_units")) "" else units::deparse_unit(u)
+  }, character(1))
 }
 
 #' Check for equivalence of two lists
@@ -76,42 +80,33 @@ check_covariates_equal <- function(mod1, mod2) {
 #' @inheritParams check_ids_equal
 #' @keywords internal
 check_list_equal <- function(list1, list2) {
-  names_1 <- names(list1)
-  names_2 <- names(list2)
-
-  if (!setequal(names_1, names_2)) {return(FALSE)}
-  if (!setequal(list1, list2)) {
+  # Names must match as a set (order ignored), but each value is matched by
+  # name: setequal on values alone would treat list(a = 1, b = 2) as equal to
+  # list(a = 2, b = 1), decoupling names from values.
+  if (!setequal(names(list1), names(list2))) {
     return(FALSE)
-  } else{
-    return(TRUE)
   }
+
+  all(vapply(
+    names(list1),
+    function(n) identical(list1[[n]], list2[[n]]),
+    logical(1)
+  ))
 }
 
-#' Check for equivalence of two rediction functions
+#' Check for equivalence of two prediction functions
 #'
 #' The prediction functions are considered equal if the arguments and body are
 #' identical using `all.equal()`
 #'
 #' @param predict_fn_1 A prediction function
-#' @param predict_fn_1 A prediction function to compare to
+#' @param predict_fn_2 A prediction function to compare to
 #' @keywords internal
 check_predict_fn_equal <- function(predict_fn_1, predict_fn_2) {
-  args_same <- all.equal(args(predict_fn_1), args(predict_fn_2))
-  body_same <- all.equal(body(predict_fn_1), body(predict_fn_2))
+  args_same <- isTRUE(all.equal(args(predict_fn_1), args(predict_fn_2)))
+  body_same <- isTRUE(all.equal(body(predict_fn_1), body(predict_fn_2)))
 
-  if(is.character(args_same)) {
-    return(FALSE)
-  }
-
-  if(is.character(body_same)) {
-    return(FALSE)
-  }
-
-  if(all(args_same, body_same)) {
-    return(TRUE)
-  } else {
-    return(FALSE)
-  }
+  args_same && body_same
 }
 
 #' Check for equivalence of the response definition
@@ -125,11 +120,11 @@ check_res_def_equal <- function(mod1, mod2) {
   rd1 <- mod1@response_definition
   rd2 <- mod2@response_definition
 
-  if(is.na(rd1) && is.na(rd2)) {
+  if (is.na(rd1) && is.na(rd2)) {
     return(TRUE)
-  } else if(is.na(rd1) || is.na(rd2)) {
-    return(FALSE)
-  } else {
-    return(mod1@response_definition != mod2@response_definition)
   }
+  if (is.na(rd1) || is.na(rd2)) {
+    return(FALSE)
+  }
+  rd1 == rd2
 }

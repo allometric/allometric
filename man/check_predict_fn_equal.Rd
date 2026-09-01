@@ -2,12 +2,14 @@
 % Please edit documentation in R/eq.R
 \name{check_predict_fn_equal}
 \alias{check_predict_fn_equal}
-\title{Check for equivalence of two rediction functions}
+\title{Check for equivalence of two prediction functions}
 \usage{
 check_predict_fn_equal(predict_fn_1, predict_fn_2)
 }
 \arguments{
-\item{predict_fn_1}{A prediction function to compare to}
+\item{predict_fn_1}{A prediction function}
+
+\item{predict_fn_2}{A prediction function to compare to}
 }
 \description{
 The prediction functions are considered equal if the arguments and body are

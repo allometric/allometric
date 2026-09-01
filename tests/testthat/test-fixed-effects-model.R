@@ -57,3 +57,45 @@ test_that("Identical fixed effects models are equal", {
 test_that("Different fixed effects models are equal", {
   expect_equal(fixed_effects_model == unitless_model, FALSE)
 })
+
+test_that("Models with different response definitions are not equal", {
+  mk <- function(res_def) {
+    FixedEffectsModel(
+      response = list(vsia = units::as_units("ft^3")),
+      covariates = list(dsob = units::as_units("in")),
+      parameters = list(a = 1),
+      predict_fn = function(dsob) a * dsob,
+      response_definition = res_def
+    )
+  }
+  expect_equal(mk("definition A") == mk("definition B"), FALSE)
+  expect_equal(mk("definition A") == mk("definition A"), TRUE)
+})
+
+test_that("Models with swapped parameter values are not equal", {
+  mk <- function(a_val, b_val) {
+    FixedEffectsModel(
+      response = list(vsia = units::as_units("ft^3")),
+      covariates = list(dsob = units::as_units("in")),
+      parameters = list(a = a_val, b = b_val),
+      predict_fn = function(dsob) a * dsob + b
+    )
+  }
+  expect_equal(mk(1, 2) == mk(2, 1), FALSE)
+  expect_equal(mk(1, 2) == mk(1, 2), TRUE)
+})
+
+test_that("Models with different covariate names are not equal", {
+  mk <- function(cov_name) {
+    covariates <- list(dsob = units::as_units("in"))
+    names(covariates) <- cov_name
+    FixedEffectsModel(
+      response = list(vsia = units::as_units("ft^3")),
+      covariates = covariates,
+      parameters = list(a = 1),
+      predict_fn = function(dsob) a * dsob
+    )
+  }
+  expect_equal(mk("dsob") == mk("hst"), FALSE)
+  expect_equal(mk("dsob") == mk("dsob"), TRUE)
+})
