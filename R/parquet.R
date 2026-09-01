@@ -89,15 +89,15 @@ join_model_tables <- function(tables) {
   joined <- tables$model_specs |>
     dplyr::left_join(tables$models, by = c(set_id = "id")) |>
     dplyr::rename(
-      spec_taxa = .data$taxa.x,
-      spec_region = .data$region.x,
-      spec_component = .data$component.x,
-      spec_descriptors = .data$descriptors.x
+      spec_taxa = "taxa.x",
+      spec_region = "region.x",
+      spec_component = "component.x",
+      spec_descriptors = "descriptors.x"
     ) |>
-    dplyr::select(-.data$taxa.y, -.data$region.y, -.data$component.y,
-                  -.data$descriptors.y) |>
+    dplyr::select(-"taxa.y", -"region.y", -"component.y",
+                  -"descriptors.y") |>
     dplyr::left_join(tables$publications, by = "pub_id") |>
-    dplyr::rename(pub_descriptors = .data$descriptors)
+    dplyr::rename(pub_descriptors = "descriptors")
 
   joined$spec_region <- Map(
     function(rg, pub) {

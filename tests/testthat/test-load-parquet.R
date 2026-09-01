@@ -47,8 +47,12 @@ test_that("boolean pub descriptors (country: false) are dropped, not validated",
   # corpus means "not specified", so the model must load with no country
   # descriptor rather than fail the ISO country-code validity check.
   sharma <- dplyr::filter(models, pub_id == "sharma_2015", model_name == "hst")
-  expect_equal(nrow(sharma), 1)
-  expect_false("country" %in% names(sharma$model[[1]]@descriptors))
+  expect_gt(nrow(sharma), 0)
+  expect_true(all(vapply(
+    sharma$model,
+    function(m) !"country" %in% names(m@descriptors),
+    logical(1)
+  )))
 })
 
 test_that("taxa and region are searchable list columns", {

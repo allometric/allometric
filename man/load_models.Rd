@@ -33,18 +33,8 @@ result is of class \code{model_tbl}, which behaves very much like a
 Printing the \code{head} of \code{allometric_models}, we can see the structure of the
 data
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{allometric_models <- load_models()
-#> Warning: 74 publication(s) lack required BibTeX fields for their declared bibtype; citations were built with bibtype 'misc': barnes_1962, barrett_1978, barrett_2006, bell_1981, bluhm_2007, ...
+\if{html}{\out{<div class="sourceCode {r}">}}\preformatted{allometric_models <- load_models()
 head(allometric_models)
-#> # A tibble: 6 x 12
-#>   id       spec_index model_name model_type  pub_id       pub_year family_name covt_name taxa              region component model     
-#>   <chr>         <int> <chr>      <chr>       <chr>           <dbl> <list>      <list>    <list> <list<character>> <chr>     <list>    
-#> 1 1de6301a          0 hstix50    site index  barnes_1962      1962 <chr [1]>   <chr [2]> <Taxa>                   <NA>      <FxdEffcM>
-#> 2 0f54ec1a          0 hstix100   site index  barrett_1978     1978 <chr [1]>   <chr [2]> <Taxa>                   <NA>      <FxdEffcM>
-#> 3 fdc26756          0 hst        stem height barrett_2006     2006 <chr [1]>   <chr [1]> <Taxa>                   <NA>      <FxdEffcM>
-#> 4 fdc26756          1 hst        stem height barrett_2006     2006 <chr [1]>   <chr [1]> <Taxa>                   <NA>      <FxdEffcM>
-#> 5 fdc26756          2 hst        stem height barrett_2006     2006 <chr [1]>   <chr [1]> <Taxa>                   <NA>      <FxdEffcM>
-#> 6 fdc26756          3 hst        stem height barrett_2006     2006 <chr [1]>   <chr [1]> <Taxa>                   <NA>      <FxdEffcM>
 }\if{html}{\out{</div>}}
 
 The columns are:
@@ -80,23 +70,13 @@ find publications that contain specific authors of interst. For example, we
 may want models only authored by \code{"Hann"}. This is elementary to do in
 \code{allometric}:
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{hann_models <- dplyr::filter(
+\if{html}{\out{<div class="sourceCode {r}">}}\preformatted{hann_models <- dplyr::filter(
  allometric_models,
  purrr::map_lgl(family_name, ~ 'Hann' \%in\% .)
 )
 
 head(hann_models)
-#> # A tibble: 6 x 12
-#>   id       spec_index model_name model_type  pub_id    pub_year family_name covt_name taxa              region component model     
-#>   <chr>         <int> <chr>      <chr>       <chr>        <dbl> <list>      <list>    <list> <list<character>> <chr>     <list>    
-#> 1 713c7427          0 vsia       stem volume hann_1978     1978 <chr [2]>   <chr [2]> <Taxa>                   <NA>      <FxdEffcM>
-#> 2 713c7427          1 vsia       stem volume hann_1978     1978 <chr [2]>   <chr [2]> <Taxa>                   <NA>      <FxdEffcM>
-#> 3 713c7427          2 vsia       stem volume hann_1978     1978 <chr [2]>   <chr [2]> <Taxa>                   <NA>      <FxdEffcM>
-#> 4 713c7427          3 vsia       stem volume hann_1978     1978 <chr [2]>   <chr [2]> <Taxa>                   <NA>      <FxdEffcM>
-#> 5 713c7427          4 vsia       stem volume hann_1978     1978 <chr [2]>   <chr [2]> <Taxa>                   <NA>      <FxdEffcM>
-#> 6 713c7427          5 vsia       stem volume hann_1978     1978 <chr [2]>   <chr [2]> <Taxa>                   <NA>      <FxdEffcM>
 nrow(hann_models)
-#> [1] 76
 }\if{html}{\out{</div>}}
 
 Picking apart the above code block, we see that we are using the standard
@@ -113,27 +93,17 @@ considering, which is itself a list of author names.
 Maybe we are only interested in models where \code{'Hann'} is the first author.
 Using a simple modification we can easily do this.
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{hann_first_author_models <- dplyr::filter(
+\if{html}{\out{<div class="sourceCode {r}">}}\preformatted{hann_first_author_models <- dplyr::filter(
   allometric_models,
   purrr::map_lgl(family_name, ~ 'Hann' == .[[1]])
 )
 
 head(hann_first_author_models)
-#> # A tibble: 6 x 12
-#>   id       spec_index model_name model_type  pub_id    pub_year family_name covt_name taxa              region component model     
-#>   <chr>         <int> <chr>      <chr>       <chr>        <dbl> <list>      <list>    <list> <list<character>> <chr>     <list>    
-#> 1 713c7427          0 vsia       stem volume hann_1978     1978 <chr [2]>   <chr [2]> <Taxa>                   <NA>      <FxdEffcM>
-#> 2 713c7427          1 vsia       stem volume hann_1978     1978 <chr [2]>   <chr [2]> <Taxa>                   <NA>      <FxdEffcM>
-#> 3 713c7427          2 vsia       stem volume hann_1978     1978 <chr [2]>   <chr [2]> <Taxa>                   <NA>      <FxdEffcM>
-#> 4 713c7427          3 vsia       stem volume hann_1978     1978 <chr [2]>   <chr [2]> <Taxa>                   <NA>      <FxdEffcM>
-#> 5 713c7427          4 vsia       stem volume hann_1978     1978 <chr [2]>   <chr [2]> <Taxa>                   <NA>      <FxdEffcM>
-#> 6 713c7427          5 vsia       stem volume hann_1978     1978 <chr [2]>   <chr [2]> <Taxa>                   <NA>      <FxdEffcM>
 nrow(hann_first_author_models)
-#> [1] 42
 }\if{html}{\out{</div>}}
 
 We can see that \code{'Hann'} is the first author for
-42 models in this package.
+\verb{r nrow(hann_first_author_models)} models in this package.
 }
 
 \section{Finding Models for a Given Species}{
@@ -141,23 +111,13 @@ One of the most common things people need is a model for a particular
 species. For this, we must interact with the \code{taxa} column. For example,
 to find models for the Pinus genus we can use
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{pinus_models <- dplyr::filter(
+\if{html}{\out{<div class="sourceCode {r}">}}\preformatted{pinus_models <- dplyr::filter(
  allometric_models,
  purrr::map_lgl(taxa, ~ "Pinus" \%in\% .)
 )
 
 head(pinus_models)
-#> # A tibble: 6 x 12
-#>   id       spec_index model_name model_type  pub_id       pub_year family_name covt_name taxa              region component model     
-#>   <chr>         <int> <chr>      <chr>       <chr>           <dbl> <list>      <list>    <list> <list<character>> <chr>     <list>    
-#> 1 0f54ec1a          0 hstix100   site index  barrett_1978     1978 <chr [1]>   <chr [2]> <Taxa>                   <NA>      <FxdEffcM>
-#> 2 fdc26756         17 hst        stem height barrett_2006     2006 <chr [1]>   <chr [1]> <Taxa>                   <NA>      <FxdEffcM>
-#> 3 fdc26756         18 hst        stem height barrett_2006     2006 <chr [1]>   <chr [1]> <Taxa>                   <NA>      <FxdEffcM>
-#> 4 fdc26756         19 hst        stem height barrett_2006     2006 <chr [1]>   <chr [1]> <Taxa>                   <NA>      <FxdEffcM>
-#> 5 fdc26756         20 hst        stem height barrett_2006     2006 <chr [1]>   <chr [1]> <Taxa>                   <NA>      <FxdEffcM>
-#> 6 fdc26756         21 hst        stem height barrett_2006     2006 <chr [1]>   <chr [1]> <Taxa>                   <NA>      <FxdEffcM>
 nrow(pinus_models)
-#> [1] 324
 }\if{html}{\out{</div>}}
 
 Users can also search with a specific taxon, which allows a full
@@ -165,7 +125,7 @@ specification from family to species. For example, if we want models that
 apply to Ponderosa pine, first declare the necessary taxon, then use it to
 filter as before
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ponderosa_taxon <- Taxon(
+\if{html}{\out{<div class="sourceCode {r}">}}\preformatted{ponderosa_taxon <- Taxon(
  family = "Pinaceae", genus = "Pinus", species = "ponderosa"
 )
 
@@ -175,7 +135,6 @@ ponderosa_models <- dplyr::filter(
 )
 
 nrow(ponderosa_models)
-#> [1] 57
 }\if{html}{\out{</div>}}
 }
 
@@ -186,14 +145,13 @@ models that use diameter outside bark at breast height as the \emph{only}
 covariate. The utility here is obvious, since many inventories are vastly
 limited by their available tree measurements.
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{dia_ht_models <- dplyr::filter(
+\if{html}{\out{<div class="sourceCode {r}">}}\preformatted{dia_ht_models <- dplyr::filter(
     allometric_models,
     model_type == 'stem height',
     purrr::map_lgl(covt_name, ~ length(.)==1 & .[[1]] == 'dsob'),
 )
 
 nrow(dia_ht_models)
-#> [1] 284
 }\if{html}{\out{</div>}}
 
 Breaking this down, we have the first condition \code{model_type=='stem_height'}
@@ -203,7 +161,7 @@ character vector. The \code{.} represents a given character vector for that row.
 First, we ensure that the vector is only one element in size using
 \code{length(.)==1}, then we ensure that the first (and only) element of this
 vector is equal to \code{'dsob'}, (diameter outside bark at breast height). In
-this case, 284 are available in the package.
+this case, \verb{r nrow(dia_ht_models)} are available in the package.
 }
 
 \section{Finding a Model for a Region}{
@@ -211,13 +169,12 @@ By now the user should be sensing a pattern. We can apply the exact same
 logic as the \emph{Finding Contributing Authors} section to find all models
 developed using data from \code{US-CO}
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{us_co_models <- dplyr::filter(
+\if{html}{\out{<div class="sourceCode {r}">}}\preformatted{us_co_models <- dplyr::filter(
     allometric_models,
     purrr::map_lgl(region, ~ "US-CO" \%in\% .),
 )
 
 nrow(us_co_models)
-#> [1] 6
 }\if{html}{\out{</div>}}
 }
 
@@ -230,29 +187,23 @@ All three filters are optional and may be combined.
 
 For example, to load only stem-height models:
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{ht_models <- load_models(model_type = "stem height")
-#> Warning: 14 publication(s) lack required BibTeX fields for their declared bibtype; citations were built with bibtype 'misc': barrett_2006, dolph_1991, eng_2012, feldpausch_2012, fvs_2008, ...
+\if{html}{\out{<div class="sourceCode {r}">}}\preformatted{ht_models <- load_models(model_type = "stem height")
 
 nrow(ht_models)
-#> [1] 363
 }\if{html}{\out{</div>}}
 
 Or only models from the state of Colorado, US:
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{us_co_models <- load_models(region = "US-CO")
-#> Warning: 1 publication(s) lack required BibTeX fields for their declared bibtype; citations were built with bibtype 'misc': chojnacky_1985
+\if{html}{\out{<div class="sourceCode {r}">}}\preformatted{us_co_models <- load_models(region = "US-CO")
 
 nrow(us_co_models)
-#> [1] 6
 }\if{html}{\out{</div>}}
 
 Or only models from Canada:
 
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{canada_models <- load_models(country = "CA")
-#> Warning: 2 publication(s) lack required BibTeX fields for their declared bibtype; citations were built with bibtype 'misc': lambert_2005, ung_2008
+\if{html}{\out{<div class="sourceCode {r}">}}\preformatted{canada_models <- load_models(country = "CA")
 
 nrow(canada_models)
-#> [1] 416
 }\if{html}{\out{</div>}}
 }
 

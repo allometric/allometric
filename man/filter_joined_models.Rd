@@ -8,6 +8,15 @@ filter_joined_models(joined, model_type = NULL, country = NULL, region = NULL)
 }
 \arguments{
 \item{joined}{The tibble returned by \code{join_model_tables()}}
+
+\item{model_type}{An optional character vector of model types (e.g.
+\code{"stem volume"}). Only models whose response matches one of the given
+types are kept.}
+
+\item{country}{An optional character vector of ISO country codes (e.g.
+\code{"CA"}). Region codes embed the country as a prefix (e.g. \code{"US-CO"}).}
+
+\item{region}{An optional character vector of region codes (e.g. \code{"US-CO"}).}
 }
 \value{
 The filtered joined tibble

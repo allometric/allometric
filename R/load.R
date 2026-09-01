@@ -359,6 +359,12 @@ check_filter_values <- function(value, arg, available) {
 #' country as a dash-prefixed code, e.g. `"US-CO"`).
 #'
 #' @param joined The tibble returned by `join_model_tables()`
+#' @param model_type An optional character vector of model types (e.g.
+#'   `"stem volume"`). Only models whose response matches one of the given
+#'   types are kept.
+#' @param country An optional character vector of ISO country codes (e.g.
+#'   `"CA"`). Region codes embed the country as a prefix (e.g. `"US-CO"`).
+#' @param region An optional character vector of region codes (e.g. `"US-CO"`).
 #' @return The filtered joined tibble
 filter_joined_models <- function(
   joined, model_type = NULL, country = NULL, region = NULL
