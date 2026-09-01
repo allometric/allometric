@@ -51,28 +51,6 @@ delete_models <- function(verbose) {
 
     unlink(models_path_check, recursive = TRUE, force = TRUE)
   }
-
-  model_list_path_check <- system.file(
-    "extdata/model_list.RDS", package = "allometric"
-  )
-
-  pub_list_path_check <- system.file(
-    "extdata/pub_list.RDS", package = "allometric"
-  )
-
-  if (model_list_path_check != "") {
-    if (verbose) {
-      cli::cli_alert_info("Deleting model list.")
-    }
-    unlink(model_list_path_check)
-  }
-
-  if (pub_list_path_check != "") {
-    if (verbose) {
-      cli::cli_alert_info("Deleting publication list.")
-    }
-    unlink(pub_list_path_check)
-  }
 }
 
 #' Download the compiled v4 models distribution

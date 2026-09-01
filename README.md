@@ -8,7 +8,7 @@ output: github_document
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/allometric/allometric/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/allometric/allometric/actions/workflows/check-standard.yaml)
-[![](https://img.shields.io/badge/devel%20version-3.0.0-blue.svg)](https://github.com/allometric/allometric)
+[![](https://img.shields.io/badge/devel%20version-4.0.0-blue.svg)](https://github.com/allometric/allometric)
 [![codecov](https://codecov.io/gh/allometric/allometric/branch/master/graph/badge.svg?token=3V5KUFMO2X)](https://app.codecov.io/gh/allometric/allometric)
 [![Static Badge](https://img.shields.io/badge/YouTube-red)](https://www.youtube.com/playlist?list=PLP5y0kzuWunWiUHpgoppVlTC_c2KYlrRK)
 <!-- badges: end -->
@@ -87,7 +87,7 @@ from a particular publication.
 ``` r
 tsuga_poudel <- allometric_models %>%
   dplyr::filter(pub_id == "poudel_2019") %>%
-  select_model("a136ecc8")
+  select_model("1bc22c7e")
 ```
 
 `tsuga_poudel` now represents an allometric model that can be used for 
@@ -128,7 +128,7 @@ We can see from the `Model Call` section that `tsuga_poudel` will require
 two covariates called `dsob`, which refers to diameter outside bark at
 breast height, and `hst`, the height of the main stem. `allometric` uses a
 variable naming system to determine the names of response variables and
-covariates (refer to the [Variable Naming System vignette](https://allometric.org/articles/variable_naming_system.html)).
+covariates.
 
 Using the `predict()` method we can easily use the function as defined
 by providing values of these two covariates.
@@ -170,13 +170,11 @@ my_trees %>%
 #> 3   20     100 2.5134156 [m^3]
 ```
 
-The above example is a very basic use case for `allometric`. Please refer to the
-[Common Inventory Use Cases vignette](https://allometric.org/articles/inventory_example.html)
-for more complex examples.
+The above example is a very basic use case for `allometric`.
 
 ## Current Status
 
-In total **`allometric` contains 2392 models across 74 publications**.
+In total **`allometric` contains 2409 models across 75 publications**.
 
 
 |category                | Total| NA| AS| EU| SA| AF| OC|
@@ -217,16 +215,14 @@ Other ideas? Contact bfrank70@gmail.com to help out.
 
 ## Next Steps
 
-The following vignettes available on the [package website](https://allometric.org/index.html)
-provide information to two primary audiences.
-
 Users interested in finding models for analysis will find the following
-documentation most useful:
+resources most useful:
 
-- [Common Inventory Use Cases](https://allometric.org/articles/inventory_example.html)
+- The [Models](https://allometric.org/models/) and
+  [Publications](https://allometric.org/publications/) pages on the allometric
+  website.
 
 Users interested in **contributing models** to the package will find these resources the most useful:
 
 - [Model YAML specification (orc)](https://allometric.github.io/orc/)
-- [Describing a Model with Descriptors](https://allometric.org/articles/descriptors.html)
-- [Variable Naming System](https://allometric.org/articles/variable_naming_system.html)
+- The [Contributing Models guide](https://allometric.org/guides/contributing/)
