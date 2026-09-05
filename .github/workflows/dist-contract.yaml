@@ -16,7 +16,7 @@ on:
     - cron: '17 6 * * *'
   workflow_dispatch:
   push:
-    branches: [v4, master]
+    branches: [main, v4, master]
     paths:
       - 'R/parquet.R'
       - 'R/load.R'
