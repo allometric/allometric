@@ -75,9 +75,9 @@ download_models <- function(verbose) {
 #' @param dist_path The directory to write the parquet files into (created if
 #'   needed)
 #' @param branch The models repository branch that publishes the compiled
-#'   distribution. The v4 parquet output currently lives on the `v4` branch.
+#'   distribution. The v4 parquet output is published on the `main` branch.
 #' @keywords internal
-download_dist_files <- function(dist_path, branch = "v4") {
+download_dist_files <- function(dist_path, branch = "main") {
   dir.create(dist_path, recursive = TRUE, showWarnings = FALSE)
 
   base_url <- paste0(
