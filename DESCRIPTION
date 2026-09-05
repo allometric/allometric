@@ -15,6 +15,10 @@ Authors@R:
         email = "elijah.allensworth@protonmail.com",
         role = c("aut"))
     )
+Author: Bryce Frank [aut, cre] (ORCID: <https://orcid.org/0000-0003-2980-6860>),
+    Francisco Mauro [aut] (ORCID: <https://orcid.org/0000-0002-7832-6268>),
+    Elijah Allensworth [aut]
+Maintainer: Bryce Frank <bfrank70@gmail.com>
 Description: Access allometric models used in forest resource analysis, such as
     volume equations, taper equations, biomass models, among many others. Users
     are able to efficiently find and select allometric models suitable for their
@@ -74,7 +78,7 @@ Suggests:
     rmarkdown
 Config/testthat/edition: 3
 Depends: 
-    R (>= 2.10)
+    R (>= 4.1.0)
 LazyData: true
 BugReports: https://github.com/allometric/allometric/issues
 Contact: bfrank70@gmail.com
