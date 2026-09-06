@@ -1,0 +1,250 @@
+{
+  "generator": "allometric/scripts/build-docs.R (see vendor submodule commit)",
+  "groups": [
+    {
+      "label": "Overview",
+      "items": [
+        {
+          "name": "allometric-package",
+          "slug": "allometric-package",
+          "title": "allometric",
+          "kind": "package"
+        }
+      ]
+    },
+    {
+      "label": "Classes",
+      "items": [
+        {
+          "name": "FixedEffectsModel",
+          "slug": "fixedeffectsmodel",
+          "title": "Create a fixed effects model",
+          "kind": "function"
+        },
+        {
+          "name": "FixedEffectsSet",
+          "slug": "fixedeffectsset",
+          "title": "Create a set of fixed effects models",
+          "kind": "function"
+        },
+        {
+          "name": "MixedEffectsModel",
+          "slug": "mixedeffectsmodel",
+          "title": "Create a mixed effects model",
+          "kind": "function"
+        },
+        {
+          "name": "MixedEffectsSet",
+          "slug": "mixedeffectsset",
+          "title": "Create a set of mixed effects models",
+          "kind": "function"
+        },
+        {
+          "name": "Publication",
+          "slug": "publication",
+          "title": "Create a publication that contains allometric models",
+          "kind": "function"
+        },
+        {
+          "name": "Taxa",
+          "slug": "taxa",
+          "title": "Group taxons together",
+          "kind": "function"
+        },
+        {
+          "name": "Taxon",
+          "slug": "taxon",
+          "title": "Create a taxonomic hierarchy",
+          "kind": "function"
+        }
+      ]
+    },
+    {
+      "label": "Loading models",
+      "items": [
+        {
+          "name": "install_models",
+          "slug": "install_models",
+          "title": "Install allometric models from the models repository",
+          "kind": "function"
+        },
+        {
+          "name": "load_model",
+          "slug": "load_model",
+          "title": "Load a single model by publication and model name",
+          "kind": "function"
+        },
+        {
+          "name": "load_models",
+          "slug": "load_models",
+          "title": "Load the locally installed table of allometric models",
+          "kind": "function"
+        },
+        {
+          "name": "load_set",
+          "slug": "load_set",
+          "title": "Load a model set by publication and set name",
+          "kind": "function"
+        },
+        {
+          "name": "check_models_installed",
+          "slug": "check_models_installed",
+          "title": "Check if allometric models are currently installed",
+          "kind": "function"
+        },
+        {
+          "name": "add_model",
+          "slug": "add_model",
+          "title": "Add a model to a publication",
+          "kind": "function"
+        },
+        {
+          "name": "add_set",
+          "slug": "add_set",
+          "title": "Add a set of models to a publication",
+          "kind": "function"
+        }
+      ]
+    },
+    {
+      "label": "Model selection and prediction",
+      "items": [
+        {
+          "name": "predict",
+          "slug": "predict",
+          "title": "Predict with an allometric model",
+          "kind": "function"
+        },
+        {
+          "name": "predict-set",
+          "slug": "predict-set",
+          "title": "Predict with a set of allometric models",
+          "kind": "function"
+        },
+        {
+          "name": "select_model",
+          "slug": "select_model",
+          "title": "Select an allometric model",
+          "kind": "function"
+        },
+        {
+          "name": "merge.model_tbl",
+          "slug": "merge-model_tbl",
+          "title": "Merge a `model_tbl` with another data frame.",
+          "kind": "function"
+        },
+        {
+          "name": "unnest_models",
+          "slug": "unnest_models",
+          "title": "Unnest columns of a dataframe",
+          "kind": "function"
+        },
+        {
+          "name": "unnest_taxa",
+          "slug": "unnest_taxa",
+          "title": "Unnest the taxa column of a `model_tbl`",
+          "kind": "function"
+        },
+        {
+          "name": "unnest_taxa.model_tbl",
+          "slug": "unnest_taxa-model_tbl",
+          "title": "Unnest the taxa column of a `model_tbl`",
+          "kind": "function"
+        },
+        {
+          "name": "aggregate_taxa",
+          "slug": "aggregate_taxa",
+          "title": "Aggregate family, genus, and species columns of `tbl_df`` into taxa data structure",
+          "kind": "function"
+        },
+        {
+          "name": "model_call",
+          "slug": "model_call",
+          "title": "Get the function call for a model",
+          "kind": "function"
+        },
+        {
+          "name": "descriptors",
+          "slug": "descriptors",
+          "title": "Get the descriptors of a model",
+          "kind": "function"
+        },
+        {
+          "name": "filter_joined_models",
+          "slug": "filter_joined_models",
+          "title": "Filter a joined v4 table before model reconstruction",
+          "kind": "function"
+        }
+      ]
+    },
+    {
+      "label": "Variable naming",
+      "items": [
+        {
+          "name": "get_component_defs",
+          "slug": "get_component_defs",
+          "title": "Load the component definitions",
+          "kind": "function"
+        },
+        {
+          "name": "get_measure_defs",
+          "slug": "get_measure_defs",
+          "title": "Load the measure definitions",
+          "kind": "function"
+        },
+        {
+          "name": "get_variable_def",
+          "slug": "get_variable_def",
+          "title": "Get the definition of a variable in the variable naming system.",
+          "kind": "function"
+        }
+      ]
+    },
+    {
+      "label": "S4 methods",
+      "items": [
+        {
+          "name": "equals-FixedEffectsModel-FixedEffectsModel-method",
+          "slug": "equals-fixedeffectsmodel-fixedeffectsmodel-method",
+          "title": "Check equivalence of fixed effects models",
+          "kind": "function"
+        },
+        {
+          "name": "equals-MixedEffectsModel-MixedEffectsModel-method",
+          "slug": "equals-mixedeffectsmodel-mixedeffectsmodel-method",
+          "title": "Check equivalence of mixed effects models",
+          "kind": "function"
+        },
+        {
+          "name": "grapes-in-grapes-Taxon-character-method",
+          "slug": "grapes-in-grapes-taxon-character-method",
+          "title": "Check if a Taxon contains a character",
+          "kind": "function"
+        }
+      ]
+    },
+    {
+      "label": "Data",
+      "items": [
+        {
+          "name": "brackett_acer",
+          "slug": "brackett_acer",
+          "title": "Brackett Acer Volume Model",
+          "kind": "data"
+        },
+        {
+          "name": "brackett_rubra",
+          "slug": "brackett_rubra",
+          "title": "An object of class `FixedEffectsModel`",
+          "kind": "data"
+        },
+        {
+          "name": "fia_trees",
+          "slug": "fia_trees",
+          "title": "FIA Trees Data",
+          "kind": "data"
+        }
+      ]
+    }
+  ]
+}

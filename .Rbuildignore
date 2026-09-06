@@ -12,3 +12,5 @@
 ^node_modules$
 ^\.env$
 ^cran-comments\.md$
+^docs$
+^scripts$
