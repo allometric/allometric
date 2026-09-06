@@ -4,14 +4,14 @@
 \alias{download_dist_files}
 \title{Download the three v4 parquet tables into a directory}
 \usage{
-download_dist_files(dist_path, branch = "v4")
+download_dist_files(dist_path, branch = "main")
 }
 \arguments{
 \item{dist_path}{The directory to write the parquet files into (created if
 needed)}
 
 \item{branch}{The models repository branch that publishes the compiled
-distribution. The v4 parquet output currently lives on the \code{v4} branch.}
+distribution. The v4 parquet output is published on the \code{main} branch.}
 }
 \description{
 Download the three v4 parquet tables into a directory
