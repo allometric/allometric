@@ -176,6 +176,120 @@ unnest_taxa.model_tbl <- function(data) {
   model_tbl_reconstruct(expanded, data)
 }
 
+#' Extract descriptors of a `model_tbl` into columns
+#'
+#' Descriptors describe the context of an allometric model, such as the
+#' country or region where the model data were collected, the processing
+#' group or equation of a model set, or any other fields declared by the
+#' publication. A `model_tbl` surfaces a few curated descriptors as columns
+#' (`taxa`, `region`, `component`); the rest are stored on each model object.
+#' This function widens the requested descriptors into columns of the table,
+#' one row per model, so they can be filtered, selected, and browsed like any
+#' other column.
+#'
+#' Scalar descriptors (e.g. `country`, `proc_group`, `p`) become atomic
+#' columns, with `NA` where a model does not declare the descriptor.
+#' Descriptors that are multi-valued in any row (e.g. a model applicable to
+#' several regions) are returned as list columns, matching the style of the
+#' `region` column; rows that do not declare the descriptor hold `NULL`.
+#' Descriptor columns that are already present in the table are returned
+#' unchanged.
+#'
+#' @param data A `model_tbl`
+#' @param ... Descriptor names to extract, given with tidyselect semantics
+#'   (e.g. `country`, or `dplyr::any_of(c("country", "p"))`). When a name is
+#'   not found, or nothing is selected, an error lists the descriptors
+#'   available in the table.
+#' @return A `model_tbl` with the requested descriptor columns added after
+#'   the existing columns. Each model contributes one row, so the number of
+#'   rows is unchanged.
+#' @export
+#' @examples
+#' models <- load_models()
+#'
+#' models |>
+#'   extract_descriptors(country, proc_group) |>
+#'   dplyr::filter(proc_group == "taxa")
+extract_descriptors <- function(data, ...) {
+  UseMethod("extract_descriptors")
+}
+
+#' @inheritParams extract_descriptors
+#' @description
+#' The `model_tbl` method of `extract_descriptors()`.
+#' @return A `model_tbl` with the requested descriptor columns added.
+#' @export
+extract_descriptors.model_tbl <- function(data, ...) {
+  if (!"model" %in% names(data)) {
+    stop("`data` must contain a `model` column", call. = FALSE)
+  }
+
+  # One row of descriptors per model, resolved at load time from the
+  # specification, set, and publication levels.
+  desc_rows <- vector("list", nrow(data))
+  for (i in seq_len(nrow(data))) {
+    d <- tryCatch(descriptors(data$model[[i]]), error = function(e) NULL)
+    if (!is.data.frame(d)) {
+      stop(
+        "extract_descriptors() requires a `model_tbl` of individual ",
+        "models; row ", i, " does not provide a descriptor table",
+        call. = FALSE
+      )
+    }
+    desc_rows[[i]] <- d
+  }
+
+  keys <- unique(unlist(lapply(desc_rows, names)))
+  if (length(keys) == 0) {
+    stop("no descriptors found in the table", call. = FALSE)
+  }
+
+  avail <- tibble::new_tibble(
+    stats::setNames(rep(list(character()), length(keys)), keys),
+    nrow = 0
+  )
+  sel <- tryCatch(
+    tidyselect::eval_select(rlang::expr(c(...)), avail),
+    error = function(e) {
+      stop(
+        conditionMessage(e), "\nAvailable descriptors: ",
+        paste(keys, collapse = ", "), call. = FALSE
+      )
+    }
+  )
+  if (length(sel) == 0) {
+    stop(
+      "select at least one descriptor to extract. Available ",
+      "descriptors: ", paste(keys, collapse = ", "), call. = FALSE
+    )
+  }
+
+  requested <- names(sel)
+  to_add <- requested[!requested %in% names(data)]
+  if (length(to_add) == 0) {
+    return(data)
+  }
+
+  out <- tibble::as_tibble(data)
+  for (k in to_add) {
+    cells <- lapply(desc_rows, function(d) {
+      if (k %in% names(d) && nrow(d) > 0) d[[k]][[1]] else NULL
+    })
+    multi <- any(vapply(
+      cells, function(v) !is.null(v) && length(v) > 1, logical(1)
+    ))
+    if (multi) {
+      out[[k]] <- lapply(cells, function(v) if (is.null(v)) NULL else v)
+    } else {
+      out[[k]] <- vctrs::vec_c(
+        !!!lapply(cells, function(v) if (is.null(v)) NA else v)
+      )
+    }
+  }
+
+  new_model_tbl(out)
+}
+
 #' Merge a `model_tbl` with another data frame.
 #'
 #' This merge function ensures that, when `model_tbl` is used in a merge that

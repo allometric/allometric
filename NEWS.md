@@ -43,13 +43,21 @@
   rows without a model (e.g. unmatched `left_join()` rows), produce `NA`.
   This replaces `predict_allo()`, which applied only the first model in the
   set.
+* New `extract_descriptors()` widens descriptors stored on each model
+  (e.g. `country`, `proc_group`, `p`) into columns of a `model_tbl`, so
+  models can be browsed and filtered by any descriptor without manual
+  list-column manipulation. Scalar descriptors become atomic columns with
+  `NA` where a model does not declare them; multi-valued descriptors become
+  list columns like `region`. Descriptors already exposed as columns
+  (`taxa`, `region`, `component`) are returned unchanged.
 
 ### BREAKING CHANGES
 
 * Model ids are now the v4 8-character content hashes; ids from earlier
   versions (md5-derived) no longer resolve in `select_model()`.
-* The `country` column is removed from the `model_tbl` (the v4 corpus
-  carries no country data; region codes embed the country prefix).
+* The `country` column is removed from the `model_tbl` (region codes embed
+  the country prefix; country values are retained at the publication level
+  and remain accessible via `extract_descriptors()`).
 * The API and JSON layer is removed: `get_model()`, `query_models()`,
   `toJSON()`, and `fromJSON()` no longer exist (the
   `api.allometric.org` service is gone).
