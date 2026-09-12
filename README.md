@@ -8,8 +8,11 @@
 <!-- badges: end -->
 
 `allometric` provides structured allometric models for predicting tree
-attributes. The [documentation website](https://allometric.org) contains
-model browsing tools, guides, and additional examples.
+attributes. Browse the [model catalog](https://allometric.org/models/)
+and the [publication catalog](https://allometric.org/publications/), or
+read the [Using Models
+guide](https://allometric.org/guides/using-models/) to install the
+package and predict with models.
 
 ## Installation
 
@@ -49,6 +52,12 @@ predict(poudel_model, 12, 65)
 #> 0.6231063 [m^3]
 ```
 
-See the [documentation website](https://allometric.org) for more
+See the [Using Models
+guide](https://allometric.org/guides/using-models/) and the
+[`allometric` package
+reference](https://allometric.org/reference/r-allometric/) for more
 examples, model discovery, variable naming, and advanced prediction
 workflows.
+
+To add models to the corpus, see the [Contributing Models
+guide](https://allometric.org/guides/contributing/).
