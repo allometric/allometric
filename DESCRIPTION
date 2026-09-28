@@ -35,6 +35,7 @@ Imports:
     rlang,
     stringr,
     tibble,
+    tidyselect,
     units,
     RefManageR,
     magrittr,

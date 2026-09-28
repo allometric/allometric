@@ -157,3 +157,47 @@ test_that("load_models treats empty filter arguments as no filter", {
   expect_equal(nrow(load_models(model_type = character(0))), nrow(models))
   expect_equal(nrow(load_models(country = NULL, region = NULL)), nrow(models))
 })
+test_that("extract_descriptors widens descriptors of the full table", {
+  out <- extract_descriptors(models, country)
+
+  expect_s3_class(out, "model_tbl")
+  expect_equal(nrow(out), nrow(models))
+
+  # country is a publication-level descriptor present on nearly every model,
+  # and is multi-valued on some publications, so it comes back as a list
+  # column (like region), including rows that carry no region of their own.
+  expect_type(out$country, "list")
+  non_null <- !vapply(out$country, is.null, logical(1))
+  expect_equal(sum(non_null), 2406)
+
+  no_region <- dplyr::filter(
+    out, vapply(region, is.null, logical(1)), !vapply(country, is.null, logical(1))
+  )
+  expect_gt(nrow(no_region), 0)
+})
+
+test_that("extract_descriptors yields scalar columns for scalar descriptors", {
+  out <- extract_descriptors(models, proc_group, p)
+
+  expect_type(out$proc_group, "character")
+  expect_equal(sum(!is.na(out$proc_group)), 509)
+  expect_setequal(unique(stats::na.omit(out$proc_group)), c("taxa", "nontaxa"))
+
+  # kozak_1988 stores the numeric coefficient p as a descriptor
+  expect_type(out$p, "double")
+  expect_equal(sum(!is.na(out$p)), 4)
+})
+
+test_that("extract_descriptors keeps a widened table filterable and predictable", {
+  out <- extract_descriptors(models, country, proc_group)
+
+  taxa_group <- dplyr::filter(out, proc_group == "taxa")
+  expect_gt(nrow(taxa_group), 0)
+  expect_true(all(taxa_group$proc_group == "taxa"))
+
+  # the model column is intact, so predict() still applies the row models
+  kozak <- dplyr::filter(out, pub_id == "kozak_1988", model_name == "dsih")
+  pred <- predict(kozak, hst = 20, hsd = 5, dsob = 15)
+  expect_length(pred, nrow(kozak))
+  expect_true(all(is.finite(as.numeric(pred))))
+})
